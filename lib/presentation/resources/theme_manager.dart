@@ -29,18 +29,28 @@ ThemeData getAppTheme() {
     //-----------------------------------------------Elevated Button Theme
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
+        padding: EdgeInsets.symmetric(
+            vertical: AppPadding.p10, horizontal: AppPadding.p25),
         textStyle: getMediumStyle(fontSize: 24, color: ColorManager.whiteColor),
         backgroundColor: ColorManager.primaryBlueColor,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppSize.s12)),
+            borderRadius: BorderRadius.circular(AppSize.s8)),
       ),
     ),
 
     /// ----------------------------------------------------------TextTheme
 
     textTheme: TextTheme(
+      titleMedium: getMediumStyle(
+          fontSize: FontSize.s20, color: ColorManager.whiteColor),
       headlineLarge: getBoldStyle(
           fontSize: FontSize.s36, color: ColorManager.primaryBlueColor),
+      displayLarge: getMediumStyle(
+          fontSize: FontSize.s40, color: ColorManager.primaryBlueColor),
+      bodyMedium: getMediumStyle(
+          fontSize: FontSize.s16, color: ColorManager.primaryBlueColor),
+      titleSmall: getMediumStyle(
+          fontSize: FontSize.s14, color: ColorManager.primaryBlueColor),
     ),
 
     //input decoration theme (Text Form Field)
