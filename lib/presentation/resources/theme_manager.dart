@@ -11,6 +11,7 @@ ThemeData getAppTheme() {
     primaryColor: ColorManager.primaryBlueColor,
     //---------------------------------------------------AppBar Theme
     appBarTheme: AppBarTheme(
+      iconTheme: IconThemeData(color: ColorManager.whiteColor),
       color: ColorManager.primaryBlueColor,
       elevation: AppSize.s4,
       centerTitle: true,
@@ -43,10 +44,12 @@ ThemeData getAppTheme() {
     textTheme: TextTheme(
       titleMedium: getMediumStyle(
           fontSize: FontSize.s20, color: ColorManager.whiteColor),
+      displayMedium: getMediumStyle(
+          fontSize: FontSize.s18, color: ColorManager.blackColor),
       headlineLarge: getBoldStyle(
           fontSize: FontSize.s36, color: ColorManager.primaryBlueColor),
       displayLarge: getMediumStyle(
-          fontSize: FontSize.s40, color: ColorManager.primaryBlueColor),
+          fontSize: FontSize.s32, color: ColorManager.primaryBlueColor),
       bodyMedium: getMediumStyle(
           fontSize: FontSize.s16, color: ColorManager.primaryBlueColor),
       titleSmall: getMediumStyle(
@@ -55,22 +58,23 @@ ThemeData getAppTheme() {
 
     //input decoration theme (Text Form Field)
     inputDecorationTheme: InputDecorationTheme(
-        contentPadding: const EdgeInsets.all(AppPadding.p8),
+        contentPadding: const EdgeInsets.symmetric(
+            vertical: AppPadding.p8, horizontal: AppPadding.p16),
         hintStyle: getRegularStyle(
-            fontSize: AppSize.s16, color: ColorManager.greyColor),
+            fontSize: AppSize.s20, color: ColorManager.greyColor),
         labelStyle: getRegularStyle(
-            fontSize: AppSize.s16, color: ColorManager.greyColor),
+            fontSize: AppSize.s20, color: ColorManager.greyColor),
         errorStyle: getRegularStyle(
-            fontSize: AppSize.s16, color: ColorManager.redColor),
+            fontSize: AppSize.s20, color: ColorManager.redColor),
         // ------------------enabledBorder--------------------------------------------------
         enabledBorder: OutlineInputBorder(
-            borderSide:
-                BorderSide(color: ColorManager.greyColor, width: AppSize.s1),
+            borderSide: BorderSide(
+                color: ColorManager.darkBlueColor, width: AppSize.s2),
             borderRadius: BorderRadius.circular(AppSize.s8)),
         //----------------------------------------------focused Border-
         focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
-                color: ColorManager.lightBlueColor, width: AppSize.s1),
+                color: ColorManager.primaryBlueColor, width: AppSize.s1),
             borderRadius: BorderRadius.circular(AppSize.s8)),
         //----------------------------------------------ErrorBorder
         errorBorder: OutlineInputBorder(

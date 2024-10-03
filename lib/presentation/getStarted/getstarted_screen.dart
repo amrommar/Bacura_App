@@ -23,7 +23,7 @@ class _Getstarted_ScreenState extends State<Getstarted_Screen> {
       Scaffold(
         backgroundColor: Colors.transparent,
         body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 29.w, vertical: 70.h),
+          padding: EdgeInsets.symmetric(horizontal: 29.w, vertical: 65.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -33,10 +33,11 @@ class _Getstarted_ScreenState extends State<Getstarted_Screen> {
                           fontWeight: FontWeight.bold,
                           color: ColorManager.primaryBlueColor)),
                   alignment: Alignment.topRight),
+              SizedBox(height: 20.h),
               Container(
                   width: 280.h,
                   child: SvgPicture.asset(ImageAssets.bacuraLogo)),
-              SizedBox(height: 106.h),
+              SizedBox(height: 95.h),
               Text(AppStrings.asfartWaAnwart,
                   style: Theme.of(context).textTheme.displayLarge),
               SizedBox(height: 10.h),
@@ -44,6 +45,7 @@ class _Getstarted_ScreenState extends State<Getstarted_Screen> {
                   AppStrings.you_can_browse_the_application_without_registering,
                   style: Theme.of(context).textTheme.bodyMedium),
               SizedBox(height: 100.h),
+              //As A Visitor button______________________________
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       backgroundColor: ColorManager.lightBlueColor),
@@ -54,11 +56,15 @@ class _Getstarted_ScreenState extends State<Getstarted_Screen> {
                           .titleMedium!
                           .copyWith(color: ColorManager.primaryBlueColor))),
               SizedBox(height: 26.h),
+              //Login button______________________________
               ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, Routes.loginRoute);
+                  },
                   child: Text(AppStrings.login,
                       style: Theme.of(context).textTheme.titleMedium)),
               SizedBox(height: 18.h),
+              //Register button______________________________
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
