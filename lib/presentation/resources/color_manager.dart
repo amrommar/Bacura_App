@@ -1,4 +1,4 @@
-import 'dart:ui';
+import 'package:flutter/material.dart';
 
 class ColorManager {
   static Color primaryBlueColor = Color(0xff1C65AE);
@@ -14,4 +14,5 @@ class ColorManager {
   static Color darkBlueColor = Color(0xff0C2A48);
   static Color lightBlueColor = Color(0xffEBF5FF);
   static Color greenColor = Color(0xff0CCD08);
+  static Color transparent = Colors.transparent;
 }
