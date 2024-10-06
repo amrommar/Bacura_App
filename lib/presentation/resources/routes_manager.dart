@@ -1,3 +1,4 @@
+import 'package:bacura_app/presentation/personal%20Screen/personal_details.dart';
 import 'package:bacura_app/presentation/resources/strings_manager.dart';
 import 'package:flutter/material.dart';
 
@@ -11,14 +12,15 @@ import '../register/register_screen.dart';
 import '../verifyOTP/verifyOTP_screen.dart';
 
 class Routes {
-  static const String onBoardingOneRoute = '/onBoardingOneRoute';
-  static const String onBoardingTwoRoute = '/onBoardingTwoRoute';
-  static const String onBoardingThreeRoute = '/onBoardingThreeRoute';
+  static const String onBoardingOneRoute = '/onBoardingOne';
+  static const String onBoardingTwoRoute = '/onBoardingTwo';
+  static const String onBoardingThreeRoute = '/onBoardingThree';
   static const String getStartedRoute = '/getStarted';
   static const String registerRoute = '/register';
   static const String verifyOTPRoute = '/verifyOTP';
   static const String loginRoute = '/login';
   static const String homeScreenRoute = '/homeScreen';
+  static const String personalDetailsRoute = '/personalDetails';
 }
 
 class RouteGenerator {
@@ -41,6 +43,9 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const Login_Screen());
       case Routes.homeScreenRoute:
         return MaterialPageRoute(builder: (_) => const Home_Screen());
+      case Routes.personalDetailsRoute:
+        return MaterialPageRoute(
+            builder: (_) => const PersonalDetails_Screen());
       default:
         return unDefinedRoute();
     }

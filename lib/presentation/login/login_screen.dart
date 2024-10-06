@@ -1,5 +1,6 @@
 import 'package:bacura_app/presentation/resources/assets_manager.dart';
 import 'package:bacura_app/presentation/resources/color_manager.dart';
+import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:bacura_app/presentation/widgets/custom_phonefield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -85,7 +86,9 @@ class _Login_ScreenState extends State<Login_Screen> {
                 SizedBox(height: 20.h),
                 Center(
                   child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, Routes.verifyOTPRoute);
+                      },
                       child: Text(AppStrings.login,
                           style: Theme.of(context).textTheme.titleMedium)),
                 ),

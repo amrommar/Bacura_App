@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../resources/routes_manager.dart';
 import '../resources/strings_manager.dart';
 
 class Register_Screen extends StatefulWidget {
@@ -99,7 +100,9 @@ class _Register_ScreenState extends State<Register_Screen> {
                 SizedBox(height: 20.h),
                 Center(
                   child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, Routes.verifyOTPRoute);
+                      },
                       child: Text(AppStrings.register,
                           style: Theme.of(context).textTheme.titleMedium)),
                 ),
