@@ -1,6 +1,7 @@
 import 'package:bacura_app/presentation/resources/styles_manager.dart';
 import 'package:bacura_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'color_manager.dart';
 import 'font_manager.dart';
@@ -9,15 +10,32 @@ ThemeData getAppTheme() {
   return ThemeData(
     //---------------------------------------------------- main Colors
     primaryColor: ColorManager.primaryBlueColor,
+    canvasColor: ColorManager.primaryBlueColor,
+
+    //Bottom Navigation Bar theme
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: ColorManager.primaryBlueColor,
+      showUnselectedLabels: false,
+      elevation: 0,
+      showSelectedLabels: true,
+      selectedIconTheme: IconThemeData(
+        color: ColorManager.whiteColor,
+      ),
+      // Set the background color globally
+      selectedItemColor: ColorManager.whiteColor,
+      // Selected item color
+      unselectedItemColor: ColorManager.whiteColor, // Unselected item color
+    ),
     //---------------------------------------------------AppBar Theme
     appBarTheme: AppBarTheme(
       iconTheme: IconThemeData(color: ColorManager.whiteColor),
       color: ColorManager.primaryBlueColor,
       elevation: AppSize.s4,
       centerTitle: true,
+      toolbarHeight: 80.h,
       shadowColor: ColorManager.lightBlueColor,
       titleTextStyle:
-          getBoldStyle(fontSize: 24, color: ColorManager.whiteColor),
+          getMediumStyle(fontSize: 20, color: ColorManager.whiteColor),
     ),
     // ------------------------------------------------- Button Theme
     buttonTheme: ButtonThemeData(
@@ -26,7 +44,6 @@ ThemeData getAppTheme() {
       buttonColor: ColorManager.primaryBlueColor,
       splashColor: ColorManager.lightBlueColor,
     ),
-
     //-----------------------------------------------Elevated Button Theme
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
@@ -44,16 +61,18 @@ ThemeData getAppTheme() {
     textTheme: TextTheme(
       titleMedium: getMediumStyle(
           fontSize: FontSize.s20, color: ColorManager.whiteColor),
+      titleSmall: getMediumStyle(
+          fontSize: FontSize.s14, color: ColorManager.primaryBlueColor),
+      displayLarge: getMediumStyle(
+          fontSize: FontSize.s32, color: ColorManager.primaryBlueColor),
       displayMedium: getMediumStyle(
           fontSize: FontSize.s18, color: ColorManager.blackColor),
       headlineLarge: getBoldStyle(
           fontSize: FontSize.s36, color: ColorManager.primaryBlueColor),
-      displayLarge: getMediumStyle(
-          fontSize: FontSize.s32, color: ColorManager.primaryBlueColor),
       bodyMedium: getMediumStyle(
           fontSize: FontSize.s16, color: ColorManager.primaryBlueColor),
-      titleSmall: getMediumStyle(
-          fontSize: FontSize.s14, color: ColorManager.primaryBlueColor),
+      bodyLarge: getMediumStyle(
+          fontSize: FontSize.s24, color: ColorManager.primaryBlueColor),
     ),
 
     //input decoration theme (Text Form Field)
@@ -84,7 +103,6 @@ ThemeData getAppTheme() {
 
     //CardView Theme
 
-    //Bottom Navigation Bar theme
     //floating action button Theme
   );
 }

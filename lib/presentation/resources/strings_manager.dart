@@ -16,4 +16,27 @@ class AppStrings {
   static const String enterYourMobileNumber = 'أدخل رقم هاتفك';
   static const String pleaseEnterYourMobileNumber = 'من فضلك أدخل رقم هاتفك';
   static const String invalidMobileNumber = ' رقم الهاتف غير صحيح';
+  static const String home = 'الرئيسية';
+  static const String offers = 'العروض';
+  static const String requests = 'طلباتي';
+  static const String more = 'المزيد';
+  static const String cart = 'السلة';
+  static const String oTPNumber = 'رمز التحقق';
+  static const String sendOTPNumberAgain = ' إعادة إرسال رمز التحقق بعد';
+  static const String OTPNumberSent = 'تم إرسال رمز التحقق الي رقم';
+  static const String number = '+966 ****** 965';
+  static const String changeNumber = 'تغيير الرقم؟';
+  static const String check = 'تحقق';
+  static const String sendAgain = 'إعادة الارسال';
+  static const String apartments = 'الأقسام';
+  static const String moreAsk = 'الاكثر طلبا';
+  static const String camera = 'أمن ومراقبة';
+  static const String accessControl = 'التحكم في الوصول';
+  static const String gameRepair = 'صيانة الالعاب';
+  static const String network = 'الشبكات والاتصالات';
+  static const String pcRepair = 'صيانة الحواسيب';
+  static const String phoneRepair = 'صيانة الهواتف';
+  static const String savePower = 'حفظ الطاقة';
+  static const String smartHome = 'الانظمة الذكية';
+  static const String soundSystems = 'أنظمة الصوت';
 }
