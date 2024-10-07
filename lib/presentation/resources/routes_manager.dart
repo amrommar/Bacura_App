@@ -1,4 +1,3 @@
-import 'package:bacura_app/presentation/personal%20Screen/personal_details.dart';
 import 'package:bacura_app/presentation/resources/strings_manager.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +7,8 @@ import '../login/login_screen.dart';
 import '../onBoardingOne/onboardingone_screen.dart';
 import '../onBoardingThree/onboardingthree_screen.dart';
 import '../onBoardingTwo/onboardingtwo_screen.dart';
+import '../personal/personal_details.dart';
+import '../personal/wallet_details.dart';
 import '../register/register_screen.dart';
 import '../verifyOTP/verifyOTP_screen.dart';
 
@@ -21,6 +22,7 @@ class Routes {
   static const String loginRoute = '/login';
   static const String homeScreenRoute = '/homeScreen';
   static const String personalDetailsRoute = '/personalDetails';
+  static const String walletDetailsRoute = '/walletDetails';
 }
 
 class RouteGenerator {
@@ -46,6 +48,8 @@ class RouteGenerator {
       case Routes.personalDetailsRoute:
         return MaterialPageRoute(
             builder: (_) => const PersonalDetails_Screen());
+      case Routes.walletDetailsRoute:
+        return MaterialPageRoute(builder: (_) => const Wallet_Details());
       default:
         return unDefinedRoute();
     }

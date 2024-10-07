@@ -24,7 +24,7 @@ class Custom_TextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           fieldName,
@@ -35,7 +35,6 @@ class Custom_TextFormField extends StatelessWidget {
         ),
         SizedBox(height: 10.h),
         TextFormField(
-          textDirection: TextDirection.rtl,
           style: Theme.of(context)
               .textTheme
               .titleMedium!
@@ -46,7 +45,6 @@ class Custom_TextFormField extends StatelessWidget {
           obscureText: isObsucre,
           decoration: InputDecoration(
               hintText: hintText,
-              hintTextDirection: TextDirection.rtl,
               hintStyle: Theme.of(context)
                   .textTheme
                   .bodyMedium!

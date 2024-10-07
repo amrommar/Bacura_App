@@ -1,42 +1,83 @@
 class AppStrings {
-  static const String no_Route_Founded = 'لم يتم العثور على مسار';
+  static const String no_Route_Founded =
+      'No Route Founded'; // 'لم يتم العثور على مسار'
   static const String ar = 'AR';
-  static const String asfartWaAnwart = 'أسفرت و أنورت';
+  static const String welcome_message =
+      'Welcome to Bacura App'; //  'أسفرت و أنورت';
   static const String you_can_browse_the_application_without_registering =
-      'تقدر تتصفح التطبيق بدون ما تسجل';
-  static const String continue_as_a_visitor = 'الإستمرار كزائر';
-  static const String login = 'تسجيل الدخول';
-  static const String register = 'تسجيل';
-  static const String dont_have_an_account = "ليس لديك حساب ؟";
-  static const String create_an_account = 'إنشاء حساب';
-  static const String userName = 'الاسم';
-  static const String mobileNumber = 'رقم الهاتف';
-  static const String enterYourName = 'أدخل اسمك';
-  static const String pleaseEnterYourName = 'من فضلك أدخل اسمك';
-  static const String enterYourMobileNumber = 'أدخل رقم هاتفك';
-  static const String pleaseEnterYourMobileNumber = 'من فضلك أدخل رقم هاتفك';
-  static const String invalidMobileNumber = ' رقم الهاتف غير صحيح';
-  static const String home = 'الرئيسية';
-  static const String offers = 'العروض';
-  static const String requests = 'طلباتي';
-  static const String more = 'المزيد';
-  static const String cart = 'السلة';
-  static const String oTPNumber = 'رمز التحقق';
-  static const String sendOTPNumberAgain = ' إعادة إرسال رمز التحقق بعد';
-  static const String OTPNumberSent = 'تم إرسال رمز التحقق الي رقم';
+      'you Can Browse The Application Without Registering'; // 'تقدر تتصفح التطبيق بدون ما تسجل';
+  static const String continue_as_a_visitor =
+      'As a Visitor'; // 'الإستمرار كزائر';
+  static const String login = 'Login'; //'تسجيل الدخول';
+  static const String logout = 'Logout'; //'تسجيل الدخول';
+  static const String edit = 'Edit'; //'تسجيل الدخول';
+  static const String register = 'Register'; //'تسجيل';
+  static const String dont_have_an_account =
+      'Don’t have an Account?'; // "ليس لديك حساب ؟";
+  static const String create_an_account = 'Create an Account'; //'إنشاء حساب';
+  static const String userName = 'Full Name'; //'الاسم'
+  static const String email = 'Email'; //'البريد الالكتروني'
+  static const String gender = 'Gender'; //
+  static const String city = 'City'; //
+  static const String mobileNumber = 'Mobile Number'; //'رقم الهاتف';
+  static const String enterYourName = 'EnterYourName'; //'أدخل اسمك';
+  static const String pleaseEnterYourName =
+      'Please Enter Your Name'; // 'من فضلك أدخل اسمك';
+  static const String enterYourMobileNumber =
+      'Enter Your Mobile Number'; // 'أدخل رقم هاتفك';
+  static const String pleaseEnterYourMobileNumber =
+      'Please Enter Your Mobile Number'; //'من فضلك أدخل رقم هاتفك';
+  static const String invalidMobileNumber =
+      'Invalid Mobile Number'; // ' رقم الهاتف غير صحيح';
+  static const String home = 'Home'; //'الرئيسية';
+  static const String offers = 'Offers'; // 'العروض';
+  static const String requests = 'Requests'; // 'طلباتي';
+  static const String more = 'More'; // 'المزيد';
+  static const String cart = 'Cart'; // 'السلة';
+  static const String oTPNumber = 'OTP Number'; // 'رمز التحقق';
+  static const String sendOTPNumberAgain =
+      'Send OTP Number Again After'; // ' إعادة إرسال رمز التحقق بعد';
+  static const String OTPNumberSent =
+      'OTP Number has already Sent to'; //'تم إرسال رمز التحقق الي رقم';
   static const String number = '+966 ****** 965';
-  static const String changeNumber = 'تغيير الرقم؟';
-  static const String check = 'تحقق';
-  static const String sendAgain = 'إعادة الارسال';
-  static const String apartments = 'الأقسام';
-  static const String moreAsk = 'الاكثر طلبا';
-  static const String camera = 'أمن ومراقبة';
-  static const String accessControl = 'التحكم في الوصول';
-  static const String gameRepair = 'صيانة الالعاب';
-  static const String network = 'الشبكات والاتصالات';
-  static const String pcRepair = 'صيانة الحواسيب';
-  static const String phoneRepair = 'صيانة الهواتف';
-  static const String savePower = 'حفظ الطاقة';
-  static const String smartHome = 'الانظمة الذكية';
-  static const String soundSystems = 'أنظمة الصوت';
+  static const String changeNumber = 'Change Number'; // 'تغيير الرقم؟';
+  static const String check = 'check'; // 'تحقق';
+  static const String sendAgain = 'Send OTP Again'; //'إعادة الارسال';
+  static const String apartments = 'Apartments'; // 'الأقسام';
+  static const String mostRequested = 'Most Requested'; // 'الاكثر طلبا';
+  static const String security_and_monitoring =
+      'Security and Monitoring'; // 'أمن ومراقبة';
+  static const String accessControl = 'Access Control'; // 'التحكم في الوصول';
+  static const String gameMaintenance = 'Game Maintenance'; // 'صيانة الالعاب';
+  static const String networks_communications =
+      'Networks and communications'; // 'الشبكات والاتصالات';
+  static const String computerMaintenance =
+      'Computer Maintenance'; // 'صيانة الحواسيب';
+  static const String phoneMaintenance =
+      'Phone Maintenance'; // 'صيانة الهواتف';
+  static const String saveEnergy = 'Save Energy'; // 'حفظ الطاقة';
+  static const String smartSystems = 'Smart Systems'; // 'الانظمة الذكية';
+  static const String soundSystems = 'Sound Systems'; //'أنظمة الصوت';
+  static const String walletManagement = 'wallet Management'; //'إدارة المحفظة'
+  static const String walletBalance = 'wallet Balance'; // 'رصيد المحفظة'
+  static const String wallet = 'wallet '; //
+  static const String lastOperations = 'Last Operations'; //
+  static const String all = 'All'; //
+  static const String addMoney = 'Add Money'; //
+  static const String deposit = 'Deposit'; //
+  static const String payment = 'Payment'; //
+  static const String installing_Surveillance_Cameras =
+      'Installing Surveillance Cameras'; //'أنظمة الصوت';
+  static const String card_and_wallet_management = 'Card and wallet management';
+  static const String language_and_theme_settings =
+      'Language and Theme settings'; //
+  static const String who_are_we = 'Who are we?'; //
+  static const String technical_support = 'Technical Support'; //
+  static const String terms_and_conditions = 'Terms and Conditions'; //
+  static const String privacy_policy = 'Privacy Policy'; //
+  static const String register_as_a_service_provider =
+      'Register as a service provider'; //
+  static const String suggestions = 'Suggestions'; //
+  static const String appRating = 'App Rating'; //
+  static const String bacura_store = 'Bacura Store'; //
 }

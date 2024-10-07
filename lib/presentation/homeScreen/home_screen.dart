@@ -2,6 +2,7 @@ import 'package:bacura_app/presentation/homeScreen/More_tab/more_tab.dart';
 import 'package:bacura_app/presentation/homeScreen/Offers_tab/offers_tab.dart';
 import 'package:bacura_app/presentation/homeScreen/Requests_tab/requests_tab.dart';
 import 'package:bacura_app/presentation/homeScreen/home_tab/home_tab.dart';
+import 'package:bacura_app/presentation/resources/color_manager.dart';
 import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:bacura_app/presentation/resources/strings_manager.dart';
 import 'package:flutter/material.dart';
@@ -17,11 +18,11 @@ class Home_Screen extends StatefulWidget {
 }
 
 class _Home_ScreenState extends State<Home_Screen> {
-  int currentIndex = 3;
+  int currentIndex = 2;
 
   List<Widget> Tabs = [
-    Cart_Tab(),
     More_Tab(),
+    Cart_Tab(),
     Home_Tab(),
     Requests_Tab(),
     Offers_Tab(),
@@ -38,60 +39,84 @@ class _Home_ScreenState extends State<Home_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorManager.whiteColor,
       appBar: AppBar(
-        title: Text(appBarTitles[currentIndex]),
+        titleSpacing: 5,
+        title: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text('Hi Mohamed',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleSmall!
+                    .copyWith(color: ColorManager.whiteColor, fontSize: 13)),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Icon(
+                  Icons.account_balance_wallet_outlined,
+                  color: ColorManager.whiteColor,
+                  size: 14,
+                ),
+                SizedBox(width: 2.w),
+                Text('1000 SR',
+                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                        color: ColorManager.whiteColor, fontSize: 13)),
+                SizedBox(width: 2.w),
+                Icon(
+                  Icons.keyboard_arrow_down,
+                  color: ColorManager.whiteColor,
+                  size: 14,
+                ),
+              ],
+            )
+          ],
+        ),
         elevation: 0,
-        leading: Padding(
-          padding: EdgeInsets.only(left: 10.w), // Add some padding for spacing
+        leading: InkWell(
+          onTap: () {
+            Navigator.pushNamed(context, Routes.personalDetailsRoute);
+          },
           child: Row(
-            mainAxisSize: MainAxisSize.min,
-            // Ensures the row takes only necessary width
             children: [
-              Flexible(
-                child: IconButton(
-                  icon: Icon(Icons.notifications, size: 30.w),
-                  // Reduce icon size slightly
-                  onPressed: () {
-                    // Handle notification icon tap
-                  },
-                ),
-              ),
-              SizedBox(width: 40.w),
-              Flexible(
-                child: IconButton(
-                  icon: Icon(Icons.message, size: 30.w),
-                  // Reduce icon size slightly
-                  onPressed: () {
-                    // Handle message icon tap
-                  },
-                ),
+              SizedBox(width: 14.w),
+              CircleAvatar(
+                radius: 22.w,
+                backgroundColor: ColorManager.whiteColor,
+                child: Image.asset(
+                    'assets/images/Ellipse 1.png'), // Adjust the radius to make sure it fits
               ),
             ],
           ),
         ),
         actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 10.w),
-            child: GestureDetector(
-              onTap: () {
-                // Handle profile icon/image tap
-              },
-              child: InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, Routes.personalDetailsRoute);
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            // Ensures the row takes only necessary width
+            children: [
+              IconButton(
+                icon: Icon(Icons.message, size: 30.w),
+                // Reduce icon size slightly
+                onPressed: () {
+                  // Handle message icon tap
                 },
-                child: CircleAvatar(
-                  radius: 20.w, // Adjust the radius to make sure it fits
-
-                  //_______________________________________________________________________________
-                  //  backgroundImage: AssetImage('assets/images/ad12.png'),
-                ),
               ),
-            ),
+              IconButton(
+                icon: Icon(Icons.notifications, size: 30.w),
+                // Reduce icon size slightly
+                onPressed: () {
+                  // Handle notification icon tap
+                },
+              ),
+            ],
           ),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
           currentIndex: currentIndex,
           onTap: (index) {
             currentIndex = index;
@@ -99,7 +124,10 @@ class _Home_ScreenState extends State<Home_Screen> {
           },
           items: const [
             BottomNavigationBarItem(
-                label: AppStrings.more, icon: Icon(Icons.more_horiz)
+                label: AppStrings.more,
+                icon: Icon(
+                  Icons.more_horiz,
+                )
                 // ImageIcon(AssetImage(ImageAssets.moreIcon))
                 ),
             BottomNavigationBarItem(
@@ -127,3 +155,187 @@ class _Home_ScreenState extends State<Home_Screen> {
     );
   }
 }
+
+/// app english
+///AppBar(
+//         title: Expanded(
+//           child: Column(
+//             mainAxisAlignment: MainAxisAlignment.start,
+//             crossAxisAlignment: CrossAxisAlignment.start,
+//             mainAxisSize: MainAxisSize.min,
+//             children: [
+//               Text('Hi Mohamed',
+//                   style: Theme.of(context)
+//                       .textTheme
+//                       .titleSmall!
+//                       .copyWith(color: ColorManager.whiteColor, fontSize: 13)),
+//               Row(
+//                 crossAxisAlignment: CrossAxisAlignment.start,
+//                 mainAxisAlignment: MainAxisAlignment.start,
+//                 children: [
+//                   Icon(
+//                     Icons.keyboard_arrow_down,
+//                     color: ColorManager.whiteColor,
+//                     size: 14,
+//                   ),
+//                   SizedBox(width: 2.w),
+//                   Text('1000 SR',
+//                       style: Theme.of(context).textTheme.titleSmall!.copyWith(
+//                           color: ColorManager.whiteColor, fontSize: 13)),
+//                   SizedBox(width: 2.w),
+//                   Icon(
+//                     Icons.account_balance_wallet_outlined,
+//                     color: ColorManager.whiteColor,
+//                     size: 14,
+//                   ),
+//                 ],
+//               )
+//             ],
+//           ),
+//         ),
+//         elevation: 0,
+//         leading: Padding(
+//           padding: EdgeInsets.only(right: 10.w),
+//           child: InkWell(
+//             onTap: () {
+//               Navigator.pushNamed(context, Routes.personalDetailsRoute);
+//             },
+//             child: Row(
+//               children: [
+//                 SizedBox(width: 4.w),
+//                 CircleAvatar(
+//                   radius: 22.w,
+//                   backgroundColor: ColorManager.whiteColor,
+//                   child: Image.asset(
+//                       'assets/images/Ellipse 1.png'), // Adjust the radius to make sure it fits
+//                 ),
+//               ],
+//             ),
+//           ),
+//         ),
+//         actions: [
+//           Padding(
+//             padding: EdgeInsets.symmetric(horizontal: 10.w),
+//             // Add some padding for spacing
+//             child: Row(
+//               mainAxisSize: MainAxisSize.min,
+//               // Ensures the row takes only necessary width
+//               children: [
+//                 Flexible(
+//                   child: IconButton(
+//                     icon: Icon(Icons.notifications, size: 30.w),
+//                     // Reduce icon size slightly
+//                     onPressed: () {
+//                       // Handle notification icon tap
+//                     },
+//                   ),
+//                 ),
+//                 SizedBox(width: 40.w),
+//                 Flexible(
+//                   child: IconButton(
+//                     icon: Icon(Icons.message, size: 30.w),
+//                     // Reduce icon size slightly
+//                     onPressed: () {
+//                       // Handle message icon tap
+//                     },
+//                   ),
+//                 ),
+//               ],
+//             ),
+//           ),
+//         ],
+//       )
+///appbar arabic//////////////////////////////////////////////////////////////////////////////
+///AppBar(
+//         elevation: 0,
+//         leading: Padding(
+//           padding: EdgeInsets.symmetric(horizontal: 8.w),
+//           // Add some padding for spacing
+//           child: Row(
+//             mainAxisSize: MainAxisSize.min,
+//             // Ensures the row takes only necessary width
+//             children: [
+//               Flexible(
+//                 child: IconButton(
+//                   icon: Icon(Icons.notifications, size: 30.w),
+//                   // Reduce icon size slightly
+//                   onPressed: () {
+//                     // Handle notification icon tap
+//                   },
+//                 ),
+//               ),
+//               SizedBox(width: 40.w),
+//               Flexible(
+//                 child: IconButton(
+//                   icon: Icon(Icons.message, size: 30.w),
+//                   // Reduce icon size slightly
+//                   onPressed: () {
+//                     // Handle message icon tap
+//                   },
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ),
+//         actions: [
+//           Padding(
+//             padding: EdgeInsets.only(right: 10.w),
+//             child: InkWell(
+//               onTap: () {
+//                 Navigator.pushNamed(context, Routes.personalDetailsRoute);
+//               },
+//               child: Row(
+//                 children: [
+//                   Column(
+//                     mainAxisAlignment: MainAxisAlignment.center,
+//                     mainAxisSize: MainAxisSize.min,
+//                     children: [
+//                       Text('Hi Mohamed',
+//                           style: Theme.of(context)
+//                               .textTheme
+//                               .titleSmall!
+//                               .copyWith(
+//                                   color: ColorManager.whiteColor,
+//                                   fontSize: 13)),
+//                       Row(
+//                         crossAxisAlignment: CrossAxisAlignment.start,
+//                         mainAxisAlignment: MainAxisAlignment.center,
+//                         children: [
+//                           Icon(
+//                             Icons.keyboard_arrow_down,
+//                             color: ColorManager.whiteColor,
+//                             size: 14,
+//                           ),
+//                           SizedBox(width: 2.w),
+//                           Text('1000 SR',
+//                               style: Theme.of(context)
+//                                   .textTheme
+//                                   .titleSmall!
+//                                   .copyWith(
+//                                       color: ColorManager.whiteColor,
+//                                       fontSize: 13)),
+//                           SizedBox(width: 2.w),
+//                           Icon(
+//                             Icons.account_balance_wallet_outlined,
+//                             color: ColorManager.whiteColor,
+//                             size: 14,
+//                           ),
+//                         ],
+//                       )
+//                     ],
+//                   ),
+//                   CircleAvatar(
+//                     radius: 22.w,
+//                     backgroundColor: ColorManager.whiteColor,
+//                     child: Image.asset(
+//                         'assets/images/Ellipse 1.png'), // Adjust the radius to make sure it fits
+//
+//                     //_______________________________________________________________________________
+//                     //  backgroundImage: AssetImage('assets/images/ad12.png'),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ),
+//         ],
+//       )

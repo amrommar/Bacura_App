@@ -43,7 +43,7 @@ class _Register_ScreenState extends State<Register_Screen> {
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 29.w),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 //logo container-----------------------
                 Center(
@@ -56,9 +56,7 @@ class _Register_ScreenState extends State<Register_Screen> {
                 Text(AppStrings.create_an_account,
                     style: Theme.of(context).textTheme.displayLarge),
                 Divider(
-                  color: ColorManager.darkBlueColor,
-                  indent: 160,
-                  thickness: 2,
+                  color: ColorManager.lightBlueColor,
                 ),
                 //form for Name And Mobile Number ___________________________________
                 Padding(
