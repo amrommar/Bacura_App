@@ -13,6 +13,7 @@ class ApartmentCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Card(
           color: ColorManager.lightBlueColor,
@@ -22,9 +23,12 @@ class ApartmentCard extends StatelessWidget {
               width: 100.h,
               child: SvgPicture.asset(imagePath)),
         ),
-        Center(
+        Container(
+          width: 100.w,
           child: Text(
             apartmentTitle,
+            textAlign: TextAlign.center,
+            overflow: TextOverflow.ellipsis,
             style: Theme.of(context)
                 .textTheme
                 .titleSmall!
@@ -32,6 +36,30 @@ class ApartmentCard extends StatelessWidget {
           ),
         ),
       ],
+    );
+
+    SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Card(
+            color: ColorManager.lightBlueColor,
+            child: Container(
+                padding: EdgeInsets.all(AppPadding.p20),
+                height: 100.h,
+                width: 100.h,
+                child: SvgPicture.asset(imagePath)),
+          ),
+          Text(
+            apartmentTitle,
+            textAlign: TextAlign.center,
+            style: Theme.of(context)
+                .textTheme
+                .titleSmall!
+                .copyWith(color: ColorManager.blackColor),
+          ),
+        ],
+      ),
     );
   }
 }

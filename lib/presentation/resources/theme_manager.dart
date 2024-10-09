@@ -11,7 +11,6 @@ ThemeData getAppTheme() {
     //---------------------------------------------------- main Colors
     primaryColor: ColorManager.primaryBlueColor,
     canvasColor: ColorManager.primaryBlueColor,
-
     //Bottom Navigation Bar theme
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: ColorManager.primaryBlueColor,
@@ -32,7 +31,7 @@ ThemeData getAppTheme() {
       color: ColorManager.primaryBlueColor,
       elevation: AppSize.s4,
       centerTitle: true,
-      toolbarHeight: 80.h,
+      toolbarHeight: 65.h,
       shadowColor: ColorManager.lightBlueColor,
       titleTextStyle:
           getMediumStyle(fontSize: 20, color: ColorManager.whiteColor),
@@ -47,6 +46,8 @@ ThemeData getAppTheme() {
     //-----------------------------------------------Elevated Button Theme
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
+        alignment: Alignment.center,
+        minimumSize: Size(170.w, 50.h),
         padding: EdgeInsets.symmetric(
             vertical: AppPadding.p10, horizontal: AppPadding.p25),
         textStyle: getMediumStyle(fontSize: 24, color: ColorManager.whiteColor),
@@ -57,7 +58,6 @@ ThemeData getAppTheme() {
     ),
 
     /// ----------------------------------------------------------TextTheme
-
     textTheme: TextTheme(
       titleMedium: getMediumStyle(
           fontSize: FontSize.s20, color: ColorManager.whiteColor),

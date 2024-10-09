@@ -42,7 +42,7 @@ class _Login_ScreenState extends State<Login_Screen> {
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: 29.w, vertical: 65.h),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 //logo container-----------------------
                 Center(
@@ -55,12 +55,8 @@ class _Login_ScreenState extends State<Login_Screen> {
                 Text(AppStrings.login,
                     style: Theme.of(context).textTheme.displayLarge),
                 Divider(
-                  color: ColorManager.darkBlueColor,
-                  indent: 155.w,
-                  thickness: 2,
+                  color: ColorManager.lightBlueColor,
                 ),
-                SizedBox(height: 10.h),
-
                 //form for Name And Mobile Number ___________________________________
                 Padding(
                   padding: const EdgeInsets.all(8.0),

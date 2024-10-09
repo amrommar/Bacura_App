@@ -19,32 +19,32 @@ class Home_Tab extends StatefulWidget {
 class _Home_TabState extends State<Home_Tab> {
   List<String> imagesPaths = [
     ImageAssets.cameraIcon,
+    ImageAssets.smartHomeIcon,
     ImageAssets.accessControlIcon,
-    ImageAssets.gameRepairIcon,
+    ImageAssets.soundSystemsIcon,
+    ImageAssets.savePowerIcon,
     ImageAssets.networkIcon,
+    ImageAssets.gameRepairIcon,
     ImageAssets.pcRepairIcon,
     ImageAssets.phoneRepairIcon,
-    ImageAssets.savePowerIcon,
-    ImageAssets.smartHomeIcon,
-    ImageAssets.soundSystemsIcon,
   ];
   List<String> imagesTitle = [
-    AppStrings.camera,
+    AppStrings.security_and_monitoring,
+    AppStrings.smartSystems,
     AppStrings.accessControl,
-    AppStrings.gameRepair,
-    AppStrings.network,
-    AppStrings.pcRepair,
-    AppStrings.phoneRepair,
-    AppStrings.savePower,
-    AppStrings.smartHome,
     AppStrings.soundSystems,
+    AppStrings.saveEnergy,
+    AppStrings.networks_communications,
+    AppStrings.gameMaintenance,
+    AppStrings.computerMaintenance,
+    AppStrings.phoneMaintenance,
   ];
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Ad Slider Section_____________________________________________________
           Padding(
@@ -83,62 +83,65 @@ class _Home_TabState extends State<Home_Tab> {
                     color: ColorManager.blackColor,
                     fontWeight: FontWeight.bold)),
           ),
-          SizedBox(height: 10.h),
+          Divider(
+            color: ColorManager.lightBlueColor,
+            thickness: 2,
+          ),
           // Apartments List (could be GridView as well)
           Container(
             padding: EdgeInsets.symmetric(horizontal: 8.w),
-            child: Directionality(
-              textDirection: TextDirection.rtl,
-              child: GridView.builder(
-                physics: NeverScrollableScrollPhysics(),
-                // Disable scrolling inside GridView
-                shrinkWrap: true,
-                // Let it take only necessary height
-                itemCount: 9,
-                // Replace with your apartments list length
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3, // Number of items per row
-                  crossAxisSpacing: 0.w, // Horizontal space between items
-                  mainAxisSpacing: 0.h, // Vertical space between items
-                  childAspectRatio: 1, // Adjust the item height to width ratio
-                ),
-                itemBuilder: (context, index) {
-                  return ApartmentCard(
-                    apartmentTitle: imagesTitle[index],
-                    imagePath: imagesPaths[index],
-                  ); // Widget for each apartment card
-                },
+            child: GridView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              // Disable scrolling inside GridView
+              shrinkWrap: true,
+              // Let it take only necessary height
+              itemCount: 9,
+              // Replace with your apartments list length
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3, // Number of items per row
+                crossAxisSpacing: 0.w, // Horizontal space between items
+                mainAxisSpacing: 0.h, // Vertical space between items
+                childAspectRatio: 1, // Adjust the item height to width ratio
               ),
+              itemBuilder: (context, index) {
+                return ApartmentCard(
+                  apartmentTitle: imagesTitle[index],
+                  imagePath: imagesPaths[index],
+                ); // Widget for each apartment card
+              },
             ),
           ),
-          SizedBox(height: 10.h),
+          SizedBox(height: 5.h),
           // More Ask Section______________________________________________________
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 24.w),
-            child: Text(AppStrings.moreAsk,
+            child: Text(AppStrings.mostRequested,
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     color: ColorManager.blackColor,
                     fontWeight: FontWeight.bold)),
           ),
 
-          SizedBox(height: 10.h),
-          Container(
-            height: 180.h,
-            child: Directionality(
-              textDirection: TextDirection.rtl,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
+          Divider(
+            color: ColorManager.lightBlueColor,
+            thickness: 2,
+          ),
 
-                // Set the direction to horizontal
-                itemCount: 10,
-                // Replace with the number of items you want to display
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 12.w),
-                    child: OffersCard(), // Custom widget to show image and text
-                  );
-                },
-              ),
+          // More Ask list ______________________________________________________
+
+          Container(
+            padding: EdgeInsets.only(left: 10),
+            height: 180.h,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              // Set the direction to horizontal
+              itemCount: 10,
+              // Replace with the number of items you want to display
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.w),
+                  child: OffersCard(), // Custom widget to show image and text
+                );
+              },
             ),
           ),
         ],

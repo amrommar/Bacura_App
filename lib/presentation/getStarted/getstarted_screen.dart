@@ -28,6 +28,7 @@ class _Getstarted_ScreenState extends State<Getstarted_Screen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                //language change icon ________________________________________________
                 Align(
                     child: Text(AppStrings.ar,
                         style: Theme.of(context)
@@ -38,17 +39,23 @@ class _Getstarted_ScreenState extends State<Getstarted_Screen> {
                                 color: ColorManager.primaryBlueColor)),
                     alignment: Alignment.topRight),
                 SizedBox(height: 20.h),
+                //Bacura logo container _________________________________________
                 Container(
                     width: 280.h,
                     child: SvgPicture.asset(ImageAssets.bacuraLogo)),
                 SizedBox(height: 95.h),
-                Text(AppStrings.asfartWaAnwart,
+                //welcome message ____________________________________
+                Text(AppStrings.welcome_message,
                     style: Theme.of(context).textTheme.displayLarge),
                 SizedBox(height: 10.h),
-                Text(
-                    AppStrings
-                        .you_can_browse_the_application_without_registering,
-                    style: Theme.of(context).textTheme.bodyMedium),
+                Container(
+                  width: 300.w,
+                  child: Text(
+                      textAlign: TextAlign.center,
+                      AppStrings
+                          .you_can_browse_the_application_without_registering,
+                      style: Theme.of(context).textTheme.bodyMedium),
+                ),
                 SizedBox(height: 100.h),
                 //As A Visitor button______________________________
                 ElevatedButton(
@@ -79,6 +86,14 @@ class _Getstarted_ScreenState extends State<Getstarted_Screen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Text(
+                      AppStrings.dont_have_an_account,
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleSmall!
+                          .copyWith(color: ColorManager.blackColor),
+                    ),
+                    SizedBox(width: 5.w),
                     InkWell(
                       onTap: () {
                         Navigator.pushNamed(context, Routes.registerRoute);
@@ -90,14 +105,6 @@ class _Getstarted_ScreenState extends State<Getstarted_Screen> {
                             .titleSmall!
                             .copyWith(fontWeight: FontWeight.bold),
                       ),
-                    ),
-                    SizedBox(width: 5.w),
-                    Text(
-                      AppStrings.dont_have_an_account,
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleSmall!
-                          .copyWith(color: ColorManager.blackColor),
                     ),
                   ],
                 ),

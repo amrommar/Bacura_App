@@ -27,6 +27,7 @@ class _VerifyOTP_ScreenState extends State<VerifyOTP_Screen> {
         ImageAssets.background2Image,
       ),
       Scaffold(
+        //AppBar ________________________________________-
         appBar: AppBar(
           iconTheme: IconThemeData(
             color: ColorManager.primaryBlueColor,
@@ -40,9 +41,9 @@ class _VerifyOTP_ScreenState extends State<VerifyOTP_Screen> {
         backgroundColor: ColorManager.transparent,
         resizeToAvoidBottomInset: false,
         body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 29.w, vertical: 65.h),
+          padding: EdgeInsets.symmetric(horizontal: 29.w),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //logo container-----------------------
               Center(
@@ -55,31 +56,29 @@ class _VerifyOTP_ScreenState extends State<VerifyOTP_Screen> {
               Text(AppStrings.oTPNumber,
                   style: Theme.of(context).textTheme.displayLarge),
               Divider(
-                color: ColorManager.darkBlueColor,
-                indent: 230.w,
-                thickness: 1,
+                color: ColorManager.lightBlueColor,
               ),
+              SizedBox(height: 10.h),
               Text(AppStrings.OTPNumberSent,
                   style: Theme.of(context)
                       .textTheme
                       .titleSmall!
                       .copyWith(color: ColorManager.greyColor)),
               Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(AppStrings.changeNumber,
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleMedium!
-                          .copyWith(color: ColorManager.primaryBlueColor)),
-                  SizedBox(width: 20.w),
                   Text(AppStrings.number,
                       style: Theme.of(context).textTheme.displayMedium),
+                  SizedBox(width: 20.w),
+                  Text(AppStrings.changeNumber,
+                      style:
+                          Theme.of(context).textTheme.displayMedium!.copyWith(
+                                color: ColorManager.primaryBlueColor,
+                              )),
                 ],
               ),
               SizedBox(height: 30.h),
-
-              //form for Name And Mobile Number ___________________________________
+              // OTP text Fields ____________________________
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Form(
@@ -100,36 +99,37 @@ class _VerifyOTP_ScreenState extends State<VerifyOTP_Screen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    '60',
-                    style: Theme.of(context).textTheme.displayMedium,
-                  ),
-                  SizedBox(width: 10.w),
                   Text(AppStrings.sendOTPNumberAgain,
                       style: Theme.of(context)
                           .textTheme
                           .bodyMedium!
                           .copyWith(color: ColorManager.greyColor)),
+                  SizedBox(width: 10.w),
+                  Text(
+                    '60',
+                    style: Theme.of(context).textTheme.displayMedium,
+                  ),
                 ],
               ),
               SizedBox(height: 40.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(AppStrings.sendAgain,
-                      style: Theme.of(context).textTheme.bodyMedium),
-                  SizedBox(width: 20.w),
-                  ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamedAndRemoveUntil(
-                          context,
-                          Routes.homeScreenRoute,
-                          (Route<dynamic> route) => false,
-                        );
-                      },
-                      child: Text(AppStrings.check,
-                          style: Theme.of(context).textTheme.titleMedium)),
-                ],
+              Center(
+                child: Column(
+                  children: [
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushNamedAndRemoveUntil(
+                            context,
+                            Routes.homeScreenRoute,
+                            (Route<dynamic> route) => false,
+                          );
+                        },
+                        child: Text(AppStrings.check,
+                            style: Theme.of(context).textTheme.titleMedium)),
+                    SizedBox(height: 20.h),
+                    Text(AppStrings.sendAgain,
+                        style: Theme.of(context).textTheme.bodyMedium),
+                  ],
+                ),
               ),
             ],
           ),

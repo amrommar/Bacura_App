@@ -23,7 +23,7 @@ class Custom_PhoneField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           fieldName,
@@ -48,7 +48,6 @@ class Custom_PhoneField extends StatelessWidget {
           controller: controller,
           decoration: InputDecoration(
               hintText: hintText,
-              hintTextDirection: TextDirection.rtl,
               hintStyle: Theme.of(context)
                   .textTheme
                   .bodyMedium!

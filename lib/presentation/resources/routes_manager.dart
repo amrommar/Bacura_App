@@ -1,5 +1,6 @@
-import 'package:bacura_app/presentation/personal%20Screen/personal_details.dart';
+import 'package:bacura_app/presentation/homeScreen/Requests_tab/request_details_screen.dart';
 import 'package:bacura_app/presentation/resources/strings_manager.dart';
+import 'package:bacura_app/presentation/test/test_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../getStarted/getstarted_screen.dart';
@@ -8,6 +9,8 @@ import '../login/login_screen.dart';
 import '../onBoardingOne/onboardingone_screen.dart';
 import '../onBoardingThree/onboardingthree_screen.dart';
 import '../onBoardingTwo/onboardingtwo_screen.dart';
+import '../personal/personal_details.dart';
+import '../personal/wallet_details.dart';
 import '../register/register_screen.dart';
 import '../verifyOTP/verifyOTP_screen.dart';
 
@@ -21,6 +24,9 @@ class Routes {
   static const String loginRoute = '/login';
   static const String homeScreenRoute = '/homeScreen';
   static const String personalDetailsRoute = '/personalDetails';
+  static const String walletDetailsRoute = '/walletDetails';
+  static const String requestDetailsRoute = '/requestDetails';
+  static const String testRoute = '/test';
 }
 
 class RouteGenerator {
@@ -46,6 +52,12 @@ class RouteGenerator {
       case Routes.personalDetailsRoute:
         return MaterialPageRoute(
             builder: (_) => const PersonalDetails_Screen());
+      case Routes.walletDetailsRoute:
+        return MaterialPageRoute(builder: (_) => const Wallet_Details());
+      case Routes.requestDetailsRoute:
+        return MaterialPageRoute(builder: (_) => Request_Details_Screen());
+      case Routes.testRoute:
+        return MaterialPageRoute(builder: (_) => test_screen());
       default:
         return unDefinedRoute();
     }
