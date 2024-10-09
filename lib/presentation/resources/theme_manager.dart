@@ -58,7 +58,6 @@ ThemeData getAppTheme() {
     ),
 
     /// ----------------------------------------------------------TextTheme
-
     textTheme: TextTheme(
       titleMedium: getMediumStyle(
           fontSize: FontSize.s20, color: ColorManager.whiteColor),

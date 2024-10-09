@@ -8,6 +8,7 @@ import 'package:bacura_app/presentation/resources/strings_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../resources/values_manager.dart';
 import 'Cart_tab/cart_tab.dart';
 
 class Home_Screen extends StatefulWidget {
@@ -34,6 +35,7 @@ class _Home_ScreenState extends State<Home_Screen> {
     AppStrings.requests,
     AppStrings.offers,
   ];
+
   var formKey = GlobalKey<FormState>();
 
   @override
@@ -115,6 +117,25 @@ class _Home_ScreenState extends State<Home_Screen> {
           ),
         ],
       ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: AppPadding.p30),
+        child: Container(
+          margin: EdgeInsets.symmetric(horizontal: 10),
+          child: FloatingActionButton(
+            elevation: 5,
+            shape: CircleBorder(),
+            focusColor: ColorManager.lightBlueColor,
+            backgroundColor: ColorManager.primaryBlueColor,
+            // backgroundColor: Color(0xff206ff4),
+            onPressed: () {},
+            child: Icon(
+              Icons.headset_mic_outlined,
+              color: ColorManager.whiteColor,
+              size: 40, // Icon color inside the FAB
+            ),
+          ),
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           currentIndex: currentIndex,
@@ -135,10 +156,7 @@ class _Home_ScreenState extends State<Home_Screen> {
                 // ImageIcon(AssetImage(ImageAssets.cartIcon))
                 ),
             BottomNavigationBarItem(
-                label: AppStrings.home,
-                icon: Icon(
-                  Icons.home_filled,
-                )
+                label: AppStrings.home, icon: Icon(Icons.home_filled)
                 // ImageIcon(AssetImage(ImageAssets.homeIcon),)
                 ),
             BottomNavigationBarItem(
@@ -339,3 +357,31 @@ class _Home_ScreenState extends State<Home_Screen> {
 //           ),
 //         ],
 //       )
+class CustomNavigationBarClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    double curveHeight = 40;
+
+    // Start at the bottom left
+    path.lineTo(0, 0);
+
+    // Move across to bottom-right with curve in the middle
+    path.lineTo(size.width * 0.25, 0);
+    path.quadraticBezierTo(
+        size.width * 0.35, curveHeight, size.width * 0.5, curveHeight);
+    path.quadraticBezierTo(
+        size.width * 0.65, curveHeight, size.width * 0.75, 0);
+    path.lineTo(size.width, 0);
+    path.lineTo(size.width, size.height);
+    path.lineTo(0, size.height);
+    path.close();
+
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return false;
+  }
+}

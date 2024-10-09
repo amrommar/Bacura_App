@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../resources/color_manager.dart';
 
-class CustomRow_Details extends StatelessWidget {
+class CustomRow_Details extends StatefulWidget {
   IconData icon;
   String text;
   String value;
@@ -15,13 +15,18 @@ class CustomRow_Details extends StatelessWidget {
     required this.value,
   });
 
+  @override
+  State<CustomRow_Details> createState() => _CustomRow_DetailsState();
+}
+
+class _CustomRow_DetailsState extends State<CustomRow_Details> {
   ////// Custom Row contain: (Icon - Column : 'text / text' - text)/////////////////////////////////////
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Icon(
-          icon,
+          widget.icon,
           color: ColorManager.primaryBlueColor,
           size: 30,
         ),
@@ -30,12 +35,12 @@ class CustomRow_Details extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              text,
+              widget.text,
               style: Theme.of(context).textTheme.titleSmall!.copyWith(
                   color: ColorManager.blackColor, fontWeight: FontWeight.w600),
             ),
             Text(
-              value,
+              widget.value,
               style: Theme.of(context)
                   .textTheme
                   .bodyMedium!
@@ -52,6 +57,17 @@ class CustomRow_Details extends StatelessWidget {
               .copyWith(fontWeight: FontWeight.bold),
         )
       ],
+    );
+  }
+
+  showMobileNumberBottomSheet() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Container(
+          color: ColorManager.midWhiteColor,
+        );
+      },
     );
   }
 }

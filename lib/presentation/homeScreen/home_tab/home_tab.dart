@@ -125,7 +125,11 @@ class _Home_TabState extends State<Home_Tab> {
             color: ColorManager.lightBlueColor,
             thickness: 2,
           ),
+
+          // More Ask list ______________________________________________________
+
           Container(
+            padding: EdgeInsets.only(left: 10),
             height: 180.h,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,

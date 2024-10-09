@@ -7,7 +7,7 @@ import 'package:bacura_app/presentation/widgets/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../widgets/custom_row_details.dart';
+import 'custom_row_details.dart';
 
 class PersonalDetails_Screen extends StatefulWidget {
   const PersonalDetails_Screen({super.key});
@@ -95,9 +95,10 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
                 childWidget: Column(
                   children: [
                     CustomRow_Details(
-                        icon: Icons.phone_outlined,
-                        text: AppStrings.mobileNumber,
-                        value: '+966535685692'),
+                      icon: Icons.phone_outlined,
+                      text: AppStrings.mobileNumber,
+                      value: '+966535685692',
+                    ),
                     Padding(
                       padding: EdgeInsetsDirectional.symmetric(vertical: 2),
                       child: Divider(
