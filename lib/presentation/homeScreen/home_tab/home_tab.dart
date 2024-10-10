@@ -77,7 +77,7 @@ class _Home_TabState extends State<Home_Tab> {
           ),
           // Apartments Section______________________________________________________
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.w),
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
             child: Text(AppStrings.apartments,
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     color: ColorManager.blackColor,
@@ -114,23 +114,20 @@ class _Home_TabState extends State<Home_Tab> {
           SizedBox(height: 5.h),
           // More Ask Section______________________________________________________
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.w),
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
             child: Text(AppStrings.mostRequested,
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     color: ColorManager.blackColor,
                     fontWeight: FontWeight.bold)),
           ),
-
           Divider(
             color: ColorManager.lightBlueColor,
             thickness: 2,
           ),
-
           // More Ask list ______________________________________________________
-
           Container(
-            padding: EdgeInsets.only(left: 10),
-            height: 180.h,
+            padding: EdgeInsets.only(left: AppPadding.p6, top: AppPadding.p8),
+            height: 220.h,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               // Set the direction to horizontal
@@ -144,6 +141,7 @@ class _Home_TabState extends State<Home_Tab> {
               },
             ),
           ),
+          SizedBox(height: 20.h),
         ],
       ),
     );

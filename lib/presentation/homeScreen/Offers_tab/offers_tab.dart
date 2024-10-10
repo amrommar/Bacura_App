@@ -1,6 +1,7 @@
 import 'package:bacura_app/presentation/homeScreen/Offers_tab/custom_filter_container.dart';
 import 'package:bacura_app/presentation/homeScreen/Offers_tab/custom_offer_container.dart';
 import 'package:bacura_app/presentation/resources/color_manager.dart';
+import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:bacura_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -135,7 +136,11 @@ class _Offers_TabState extends State<Offers_Tab> {
             child: ListView.builder(
               itemCount: 10,
               itemBuilder: (context, index) {
-                return Custom_Offer_container();
+                return InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.offerDetailsRoute);
+                    },
+                    child: Custom_Offer_container());
               },
             ),
           ),

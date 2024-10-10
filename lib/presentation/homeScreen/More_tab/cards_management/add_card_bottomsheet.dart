@@ -14,7 +14,7 @@ class _AddCard_BottomSheetState extends State<AddCard_BottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 310.h,
+      height: 350.h,
       decoration: BoxDecoration(
           color: ColorManager.whiteColor,
           borderRadius: BorderRadius.circular(AppSize.s20)),
@@ -77,23 +77,35 @@ class _AddCard_BottomSheetState extends State<AddCard_BottomSheet> {
                   }
                   return null;
                 }),
+            SizedBox(height: 30.h),
+
+            /// Add To Cart Elevated Button//////////////////////////////////////////
+            Center(
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      maximumSize: Size(200.w, 50.h),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(AppSize.s30))),
+                  onPressed: () {},
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Add Credit',
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleMedium!
+                            .copyWith(
+                                color: ColorManager.whiteColor,
+                                fontWeight: FontWeight.bold),
+                      ),
+                      Icon(Icons.add_card, color: ColorManager.whiteColor)
+                    ],
+                  )),
+            ),
 
             /// navigate PoP Button ///////////////////////////////////////
-            Padding(
-              padding: const EdgeInsets.only(top: AppPadding.p20),
-              child: Center(
-                child: InkWell(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Icon(
-                    Icons.arrow_circle_down_outlined,
-                    color: ColorManager.midBlueColor,
-                    size: 30,
-                  ),
-                ),
-              ),
-            ),
           ],
         ),
       ),

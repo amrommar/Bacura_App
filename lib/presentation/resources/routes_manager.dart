@@ -1,4 +1,5 @@
 import 'package:bacura_app/presentation/homeScreen/More_tab/cards_management/cards_management_screen.dart';
+import 'package:bacura_app/presentation/homeScreen/Offers_tab/offer_details_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/Requests_tab/request_details_screen.dart';
 import 'package:bacura_app/presentation/resources/strings_manager.dart';
 import 'package:bacura_app/presentation/test/test_screen.dart';
@@ -28,6 +29,7 @@ class Routes {
   static const String walletDetailsRoute = '/walletDetails';
   static const String requestDetailsRoute = '/requestDetails';
   static const String cardsManagementRoute = '/cardsManagement';
+  static const String offerDetailsRoute = '/offerDetails';
   static const String testRoute = '/test';
 }
 
@@ -60,6 +62,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => Request_Details_Screen());
       case Routes.cardsManagementRoute:
         return MaterialPageRoute(builder: (_) => Cards_Management_Screen());
+      case Routes.offerDetailsRoute:
+        return MaterialPageRoute(builder: (_) => OfferDetails_Screen());
+
+      /// text screen //////////////////////////
       case Routes.testRoute:
         return MaterialPageRoute(builder: (_) => test_screen());
       default:

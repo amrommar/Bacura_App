@@ -20,7 +20,7 @@ class ApartmentCard extends StatelessWidget {
           child: Container(
               padding: EdgeInsets.all(AppPadding.p20),
               height: 100.h,
-              width: 100.h,
+              width: 100.w,
               child: SvgPicture.asset(imagePath)),
         ),
         Container(
