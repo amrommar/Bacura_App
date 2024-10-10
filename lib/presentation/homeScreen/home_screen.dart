@@ -19,7 +19,7 @@ class Home_Screen extends StatefulWidget {
 }
 
 class _Home_ScreenState extends State<Home_Screen> {
-  int currentIndex = 2;
+  int currentIndex = 0;
 
   List<Widget> Tabs = [
     More_Tab(),
@@ -117,22 +117,20 @@ class _Home_ScreenState extends State<Home_Screen> {
           ),
         ],
       ),
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(bottom: AppPadding.p30),
-        child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 10),
-          child: FloatingActionButton(
-            elevation: 5,
-            shape: CircleBorder(),
-            focusColor: ColorManager.lightBlueColor,
-            backgroundColor: ColorManager.primaryBlueColor,
-            // backgroundColor: Color(0xff206ff4),
-            onPressed: () {},
-            child: Icon(
-              Icons.headset_mic_outlined,
-              color: ColorManager.whiteColor,
-              size: 40, // Icon color inside the FAB
-            ),
+      floatingActionButton: Container(
+        margin: EdgeInsets.symmetric(
+            horizontal: AppMargin.m10, vertical: AppMargin.m20),
+        child: FloatingActionButton(
+          elevation: 5,
+          shape: CircleBorder(),
+          focusColor: ColorManager.lightBlueColor,
+          backgroundColor: ColorManager.primaryBlueColor,
+          // backgroundColor: Color(0xff206ff4),
+          onPressed: () {},
+          child: Icon(
+            Icons.headset_mic_outlined,
+            color: ColorManager.whiteColor,
+            size: 40, // Icon color inside the FAB
           ),
         ),
       ),

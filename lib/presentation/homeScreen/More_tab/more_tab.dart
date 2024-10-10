@@ -1,4 +1,5 @@
 import 'package:bacura_app/presentation/homeScreen/More_tab/custom_more_row.dart';
+import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:bacura_app/presentation/resources/strings_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,17 +16,6 @@ class More_Tab extends StatefulWidget {
 }
 
 class _More_TabState extends State<More_Tab> {
-  List<String> texts = [
-    AppStrings.language_and_theme_settings,
-    AppStrings.who_are_we,
-    AppStrings.technical_support,
-    AppStrings.terms_and_conditions,
-    AppStrings.privacy_policy,
-    AppStrings.register_as_a_service_provider,
-    AppStrings.suggestions,
-    AppStrings.appRating,
-  ];
-
   _launchURL() async {
     final Uri url =
         Uri.parse('https://www.google.com'); // Change to your desired URL
@@ -40,15 +30,24 @@ class _More_TabState extends State<More_Tab> {
       child: Column(
         children: [
           SizedBox(height: 15.h),
-          Custom_More_row(text: AppStrings.card_and_wallet_management),
-          Custom_More_row(text: AppStrings.language_and_theme_settings),
-          Custom_More_row(text: AppStrings.who_are_we),
-          Custom_More_row(text: AppStrings.technical_support),
-          Custom_More_row(text: AppStrings.terms_and_conditions),
-          Custom_More_row(text: AppStrings.privacy_policy),
-          Custom_More_row(text: AppStrings.register_as_a_service_provider),
-          Custom_More_row(text: AppStrings.suggestions),
-          Custom_More_row(text: AppStrings.appRating),
+          Custom_More_row(
+              text: AppStrings.cardsManagement,
+              onTap: () {
+                Navigator.pushNamed(context, Routes.cardsManagementRoute);
+              }),
+          Custom_More_row(
+              text: AppStrings.language_and_theme_settings, onTap: () {}),
+          Custom_More_row(text: AppStrings.who_are_we, onTap: () {}),
+          Custom_More_row(text: AppStrings.technical_support, onTap: () {}),
+          Custom_More_row(text: AppStrings.terms_and_conditions, onTap: () {}),
+          Custom_More_row(text: AppStrings.privacy_policy, onTap: () {}),
+          Custom_More_row(
+              text: AppStrings.register_as_a_service_provider, onTap: () {}),
+          Custom_More_row(text: AppStrings.suggestions, onTap: () {}),
+          Custom_More_row(text: AppStrings.appRating, onTap: () {}),
+
+          /// Bacura store Link /////////////////////////////////////////////////////////////
+
           Container(
             padding: EdgeInsets.only(
               left: AppPadding.p12,
@@ -92,33 +91,17 @@ class _More_TabState extends State<More_Tab> {
               ],
             ),
           ),
-          SizedBox(height: 70.h),
+          SizedBox(height: 50.h),
+
+          /// social Media Links /////////////////////////////////////////////////////////////
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Padding(
-                  padding: const EdgeInsets.all(AppPadding.p6),
-                  child: Icon(Icons.ios_share,
-                      color: ColorManager.blackColor, size: 30)),
-              Padding(
-                  padding: const EdgeInsets.all(AppPadding.p6),
-                  child: Icon(Icons.facebook_outlined,
-                      color: ColorManager.primaryBlueColor, size: 35)),
-              Container(
-                margin: EdgeInsets.all(AppMargin.m6),
-                height: 30,
-                width: 30,
-                child: Image.asset(
-                  'assets/images/twitter_logo.png',
-                ),
-              ),
-              Container(
-                  margin: EdgeInsets.all(AppMargin.m6),
-                  height: 30,
-                  width: 30,
-                  child: Image.asset(
-                    'assets/images/instagram_logo.png', // Use the SVG path
-                  ))
+              Icon(Icons.ios_share, color: ColorManager.blackColor, size: 30),
+              Image.asset('assets/images/facebook_logo.png',
+                  height: 45, width: 45),
+              Image.asset('assets/images/x.png', height: 45, width: 45),
+              Image.asset('assets/images/instagram.png', height: 45, width: 45),
             ],
           ),
         ],

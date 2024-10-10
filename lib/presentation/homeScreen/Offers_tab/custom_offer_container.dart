@@ -16,6 +16,7 @@ class Custom_Offer_container extends StatelessWidget {
           horizontal: AppMargin.m12, vertical: AppMargin.m6),
       height: 115.h,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
               height: 110.h,

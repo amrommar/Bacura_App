@@ -11,8 +11,15 @@ class Cart_Tab extends StatefulWidget {
 class _Cart_TabState extends State<Cart_Tab> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: ColorManager.yellowColor,
+    return Center(
+      child: Container(
+        color: ColorManager.whiteColor,
+        child: Icon(
+          Icons.shopping_cart_outlined,
+          color: ColorManager.primaryBlueColor,
+          size: 200,
+        ),
+      ),
     );
   }
 }

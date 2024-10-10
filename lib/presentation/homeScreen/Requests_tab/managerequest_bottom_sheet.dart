@@ -19,62 +19,64 @@ class _ManageRequest_Bottom_SheetState
           color: ColorManager.whiteColor,
           borderRadius: BorderRadius.circular(AppSize.s20)),
       padding: EdgeInsets.all(AppPadding.p30),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          /// Cancel Request Button ////////////////////////////////////////
-          Custom_Row_Manage_Request(
-              text: 'Cancel Request',
-              icon: Icons.cancel,
-              iconColor: ColorManager.darkRedColor),
-          Divider(),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            /// Cancel Request Button ////////////////////////////////////////
+            Custom_Row_Manage_Request(
+                text: 'Cancel Request',
+                icon: Icons.cancel,
+                iconColor: ColorManager.darkRedColor),
+            Divider(),
 
-          /// Edit Request Services Button ////////////////////////////////////////
+            /// Edit Request Services Button ////////////////////////////////////////
 
-          Custom_Row_Manage_Request(
-              text: 'Edit Request Services',
-              icon: Icons.edit_note_outlined,
-              iconColor: ColorManager.primaryBlueColor),
-          Divider(),
+            Custom_Row_Manage_Request(
+                text: 'Edit Request Services',
+                icon: Icons.edit_note_outlined,
+                iconColor: ColorManager.primaryBlueColor),
+            Divider(),
 
-          /// Change the date Button ////////////////////////////////////////
-          Custom_Row_Manage_Request(
-              text: 'Change the date',
-              icon: Icons.edit_calendar_outlined,
-              iconColor: ColorManager.primaryBlueColor),
-          Divider(),
+            /// Change the date Button ////////////////////////////////////////
+            Custom_Row_Manage_Request(
+                text: 'Change the date',
+                icon: Icons.edit_calendar_outlined,
+                iconColor: ColorManager.primaryBlueColor),
+            Divider(),
 
-          /// Extra work Button ////////////////////////////////////////
+            /// Extra work Button ////////////////////////////////////////
 
-          Custom_Row_Manage_Request(
-              text: 'Extra work',
-              icon: Icons.add_shopping_cart_outlined,
-              iconColor: ColorManager.primaryBlueColor),
-          Divider(),
+            Custom_Row_Manage_Request(
+                text: 'Extra work',
+                icon: Icons.add_shopping_cart_outlined,
+                iconColor: ColorManager.primaryBlueColor),
+            Divider(),
 
-          /// Close the order Button ////////////////////////////////////////
+            /// Close the order Button ////////////////////////////////////////
 
-          Custom_Row_Manage_Request(
-              text: 'Close the order',
-              icon: Icons.lock,
-              iconColor: ColorManager.primaryBlueColor),
-          Divider(),
+            Custom_Row_Manage_Request(
+                text: 'Close the order',
+                icon: Icons.lock,
+                iconColor: ColorManager.primaryBlueColor),
+            Divider(),
 
-          /// navigate PoP Button ///////////////////////////////////////
-          Center(
-            child: InkWell(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: Icon(
-                Icons.arrow_circle_down_outlined,
-                color: ColorManager.greyColor,
-                size: 30,
+            /// navigate PoP Button ///////////////////////////////////////
+            Center(
+              child: InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Icon(
+                  Icons.arrow_circle_down_outlined,
+                  color: ColorManager.greyColor,
+                  size: 30,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

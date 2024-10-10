@@ -35,7 +35,7 @@ class OffersCard extends StatelessWidget {
               Container(
                 width: 175.w,
                 child: Text(
-                  AppStrings.installing_Surveillance_Cameras,
+                  AppStrings.installingSurveillanceCameras,
                   maxLines: 1, // Set max number of lines to display
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context)

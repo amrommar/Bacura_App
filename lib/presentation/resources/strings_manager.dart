@@ -66,9 +66,9 @@ class AppStrings {
   static const String addMoney = 'Add Money'; //
   static const String deposit = 'Deposit'; //
   static const String payment = 'Payment'; //
-  static const String installing_Surveillance_Cameras =
+  static const String installingSurveillanceCameras =
       'Installing Surveillance Cameras'; //'أنظمة الصوت';
-  static const String card_and_wallet_management = 'Card and wallet management';
+  static const String cardsManagement = 'Cards Management';
   static const String language_and_theme_settings =
       'Language and Theme settings'; //
   static const String who_are_we = 'Who are we?'; //
