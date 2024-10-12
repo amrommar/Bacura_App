@@ -20,6 +20,7 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
 
   @override
   Widget build(BuildContext context) {
+    // var args = ModalRoute.of(context)!.settings.arguments as RequestDetailsArguments;
     return Scaffold(
       appBar: AppBar(
         title: Text('Request Details'),
@@ -64,11 +65,6 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
                         'assets/images/contact_icon.svg',
                         height: 20.h,
                       ),
-                      // Icon(
-                      //   Icons.call_outlined,
-                      //   color: ColorManager.darkBlueColor,
-                      //   size: 20,
-                      // ),
                       SizedBox(width: 10.w),
                       Icon(
                         Icons.circle,
@@ -167,7 +163,15 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Text('1000 SR'),
+                            Text(
+                              '1000 SR',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium!
+                                  .copyWith(
+                                    color: ColorManager.darkRedColor,
+                                  ),
+                            )
                           ],
                         )
                       ],
@@ -224,7 +228,7 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
                 title: 'Payment status: ',
                 description: 'Payment made',
                 icon: Icons.check_circle,
-                iconColor: ColorManager.greenColor,
+                iconColor: ColorManager.darkGreenColor,
               ),
 
               ///  location section/////////////////////////////////////////////
@@ -232,43 +236,87 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
                 title: 'Warranty status: ',
                 description: 'Valid',
                 icon: Icons.verified_user,
-                iconColor: ColorManager.primaryBlueColor,
+                iconColor: ColorManager.midBlueColor,
               ),
               Divider(),
+              SizedBox(height: 20.h),
+              manageRequestButtons(ColorManager.yellowColor)
 
               /// Request Management Elevated Button//////////////////////////////////////////
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 35.w, vertical: 15.h),
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(AppSize.s30))),
-                    onPressed: () {
-                      showManageRequestBottomSheet();
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Request Management',
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleMedium!
-                              .copyWith(
-                                  color: ColorManager.whiteColor,
-                                  fontWeight: FontWeight.bold),
-                        ),
-                        Icon(Icons.arrow_circle_up_outlined,
-                            color: ColorManager.whiteColor)
-                      ],
-                    )),
-              )
             ],
           ),
         ),
       ),
     );
+  }
+
+  Widget manageRequestButtons(Color requestColor) {
+    if (requestColor == ColorManager.yellowColor) {
+      return Container(
+        margin: EdgeInsets.symmetric(horizontal: 35.w, vertical: 15.h),
+        child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(AppSize.s30))),
+            onPressed: () {
+              showManageRequestBottomSheet();
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Request Management',
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      color: ColorManager.whiteColor,
+                      fontWeight: FontWeight.bold),
+                ),
+                Icon(Icons.arrow_circle_up_outlined,
+                    color: ColorManager.whiteColor)
+              ],
+            )),
+      );
+    } else if (requestColor == ColorManager.redColor) {
+      return Column(
+        children: [
+          Text(
+            'Request Cancelled',
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                color: ColorManager.darkBlueColor, fontWeight: FontWeight.w500),
+          ),
+          SizedBox(height: 10.h),
+          Icon(
+            Icons.cancel,
+            color: ColorManager.darkRedColor,
+            size: 50,
+          )
+        ],
+      );
+    } else if (requestColor == ColorManager.greenColor) {
+      return Column(
+        children: [
+          ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  maximumSize: Size(170, 50),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(AppSize.s30))),
+              onPressed: () {},
+              child: Text(
+                'Re Request',
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                    color: ColorManager.whiteColor,
+                    fontWeight: FontWeight.bold),
+              )),
+          SizedBox(height: 20.h),
+          Text(
+            'Print Receipt',
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                color: ColorManager.greyColor, fontWeight: FontWeight.w500),
+          )
+        ],
+      );
+    }
+    return Container();
   }
 
   void showManageRequestBottomSheet() {

@@ -1,12 +1,15 @@
 import 'package:bacura_app/presentation/homeScreen/More_tab/cards_management/cards_management_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/Offers_tab/offer_details_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/Requests_tab/request_details_screen.dart';
+import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/questions_screen.dart';
+import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/service_type_screen.dart';
 import 'package:bacura_app/presentation/resources/strings_manager.dart';
 import 'package:bacura_app/presentation/test/test_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../getStarted/getstarted_screen.dart';
 import '../homeScreen/home_screen.dart';
+import '../homeScreen/home_tab/service_request/set_date_screen.dart';
 import '../login/login_screen.dart';
 import '../onBoardingOne/onboardingone_screen.dart';
 import '../onBoardingThree/onboardingthree_screen.dart';
@@ -30,6 +33,9 @@ class Routes {
   static const String requestDetailsRoute = '/requestDetails';
   static const String cardsManagementRoute = '/cardsManagement';
   static const String offerDetailsRoute = '/offerDetails';
+  static const String serviceTypeRoute = '/serviceType';
+  static const String setDateRoute = '/setDate';
+  static const String questionsRoute = '/questions';
   static const String testRoute = '/test';
 }
 
@@ -64,6 +70,12 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => Cards_Management_Screen());
       case Routes.offerDetailsRoute:
         return MaterialPageRoute(builder: (_) => OfferDetails_Screen());
+      case Routes.serviceTypeRoute:
+        return MaterialPageRoute(builder: (_) => ServiceType_Screen());
+      case Routes.setDateRoute:
+        return MaterialPageRoute(builder: (_) => SetDate_Screen());
+      case Routes.questionsRoute:
+        return MaterialPageRoute(builder: (_) => Questions_Screen());
 
       /// text screen //////////////////////////
       case Routes.testRoute:

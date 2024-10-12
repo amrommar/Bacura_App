@@ -16,11 +16,8 @@ class Custom_More_row extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(
-        left: AppPadding.p12,
-        right: AppPadding.p12,
-        top: AppPadding.p12,
-      ),
+      padding: EdgeInsets.symmetric(
+          horizontal: AppPadding.p12, vertical: AppPadding.p6),
       child: Column(
         children: [
           InkWell(

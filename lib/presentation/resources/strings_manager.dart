@@ -69,8 +69,7 @@ class AppStrings {
   static const String installingSurveillanceCameras =
       'Installing Surveillance Cameras'; //'أنظمة الصوت';
   static const String cardsManagement = 'Cards Management';
-  static const String language_and_theme_settings =
-      'Language and Theme settings'; //
+  static const String app_Language = 'App Language'; //
   static const String who_are_we = 'Who are we?'; //
   static const String technical_support = 'Technical Support'; //
   static const String terms_and_conditions = 'Terms and Conditions'; //

@@ -72,35 +72,42 @@ class _Offers_TabState extends State<Offers_Tab> {
 
           /// filtering section ///////////////////////////////////////////////////////
           Container(
-            height: 40.h,
+            height: 46.h,
             padding: const EdgeInsets.all(AppPadding.p4),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Custom_Filter_Container(
-                    child: InkWell(
-                  onTap: () {
-                    return _showMultiSelect();
-                  },
-                  child: Icon(
-                    Icons.filter_list_outlined,
-                    color: ColorManager.darkBlueColor,
-                  ),
-                )),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 2),
+                  child: Custom_Filter_Container(
+                      child: InkWell(
+                    onTap: () {
+                      return _showMultiSelect();
+                    },
+                    child: Icon(
+                      Icons.filter_list_outlined,
+                      color: ColorManager.darkBlueColor,
+                    ),
+                  )),
+                ),
                 SizedBox(width: 5.w),
 
                 /// filter types section /////////////////////////////////////////////
                 _selectedFilters.isEmpty
-                    ? Custom_Filter_Container(
-                        child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: AppPadding.p8),
-                            child: Text('All Offers are on display',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium!
-                                    .copyWith(
-                                        color: ColorManager.darkBlueColor))))
+                    ? Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 2),
+                        child: Custom_Filter_Container(
+                            child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: AppPadding.p8),
+                                child: Text('All Offers are on display',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodyMedium!
+                                        .copyWith(
+                                            color:
+                                                ColorManager.darkBlueColor)))),
+                      )
                     : Expanded(
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,
@@ -108,7 +115,8 @@ class _Offers_TabState extends State<Offers_Tab> {
                           itemBuilder: (context, index) {
                             return Padding(
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: AppPadding.p2),
+                                    horizontal: AppPadding.p2,
+                                    vertical: AppPadding.p2),
                                 child: Custom_Filter_Container(
                                     child: Padding(
                                         padding: const EdgeInsets.symmetric(

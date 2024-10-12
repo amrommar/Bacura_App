@@ -16,6 +16,7 @@ class ColorManager {
   static Color lightBlueColor = Color(0xffd3e6fa);
   static Color lightWhiteColor = Color(0xfff9fbfd);
   static Color greenColor = Color(0xff0CCD08);
+  static Color darkGreenColor = Color(0xff0FA958);
   static Color lightGreenColor = Color(0xffDAF5D9);
   static Color lightRedColor = Color(0xffF9E0E0);
   static Color lightYellowColor = Color(0xffFEFBE0);

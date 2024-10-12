@@ -4,7 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../widgets/offer_card.dart';
+import 'offer_card.dart';
 
 class OfferDetails_Screen extends StatefulWidget {
   const OfferDetails_Screen({super.key});
@@ -83,7 +83,8 @@ Possibility of connecting to the mobile via the recording device''',
                 // Replace with the number of items you want to display
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8.w),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
                     child: OffersCard(), // Custom widget to show image and text
                   );
                 },

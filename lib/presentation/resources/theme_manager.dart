@@ -11,6 +11,7 @@ ThemeData getAppTheme() {
     //---------------------------------------------------- main Colors
     primaryColor: ColorManager.primaryBlueColor,
     canvasColor: ColorManager.primaryBlueColor,
+    scaffoldBackgroundColor: ColorManager.whiteColor,
     //Bottom Navigation Bar theme
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: ColorManager.primaryBlueColor,
