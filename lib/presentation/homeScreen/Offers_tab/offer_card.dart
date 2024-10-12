@@ -4,7 +4,7 @@ import 'package:bacura_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../resources/color_manager.dart';
+import '../../resources/color_manager.dart';
 
 class OffersCard extends StatelessWidget {
   @override
@@ -87,8 +87,7 @@ class OffersCard extends StatelessWidget {
           ),
           Spacer(),
           Container(
-            padding: EdgeInsets.symmetric(
-                vertical: AppPadding.p4, horizontal: AppPadding.p8),
+            padding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 8.w),
             child: Text(
               '1000 SR',
               style: Theme.of(context).textTheme.titleSmall!.copyWith(

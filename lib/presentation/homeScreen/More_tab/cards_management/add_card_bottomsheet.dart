@@ -1,7 +1,9 @@
 import 'package:bacura_app/presentation/resources/color_manager.dart';
 import 'package:bacura_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class AddCard_BottomSheet extends StatefulWidget {
   @override
@@ -10,103 +12,120 @@ class AddCard_BottomSheet extends StatefulWidget {
 
 class _AddCard_BottomSheetState extends State<AddCard_BottomSheet> {
   TextEditingController cardNumberController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController cvvController = TextEditingController();
+  TextEditingController mmyyController = TextEditingController();
+
+  // Mask formatter for MM/YY format
+  final maskFormatter =
+      MaskTextInputFormatter(mask: '##/##', filter: {"#": RegExp(r'[0-9]')});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 350.h,
-      decoration: BoxDecoration(
-          color: ColorManager.whiteColor,
-          borderRadius: BorderRadius.circular(AppSize.s20)),
-      padding: EdgeInsets.all(AppPadding.p16),
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            /// Enter Card Number TextField ////////////////////////////////////////
-            CardCustom_TxtField(
-                hintText: 'Enter Card Number',
-                controller: cardNumberController,
-                keyboardType: TextInputType.number,
-                validator: (value) {
-                  if (value == null || value.trim().isEmpty) {
-                    return 'Please Enter Card Number';
-                  }
-                  return null;
-                }),
+    // Get the height of the keyboard to avoid overlapping
+    final bottomPadding = MediaQuery.of(context).viewInsets.bottom;
 
-            /// Enter Expire date & CVV TextField ////////////////////////////////////////
-            Row(
-              children: [
-                Expanded(
-                  child: CardCustom_TxtField(
-                      hintText: 'CVV',
-                      controller: cardNumberController,
-                      keyboardType: TextInputType.number,
-                      validator: (value) {
-                        if (value == null || value.trim().isEmpty) {
-                          return 'Please Enter CVV';
-                        }
-                        return null;
-                      }),
-                ),
-                Expanded(
-                  child: CardCustom_TxtField(
-                      hintText: 'MM/YY',
-                      controller: cardNumberController,
-                      keyboardType: TextInputType.number,
-                      validator: (value) {
-                        if (value == null || value.trim().isEmpty) {
-                          return 'Please Enter MM/YY';
-                        }
-                        return null;
-                      }),
-                ),
-              ],
-            ),
+    return Padding(
+      padding: EdgeInsets.only(bottom: bottomPadding),
+      // Add padding equal to the keyboard height
+      child: Container(
+        height: 350.h,
+        decoration: BoxDecoration(
+            color: ColorManager.whiteColor,
+            borderRadius: BorderRadius.circular(AppSize.s20)),
+        padding: EdgeInsets.all(AppPadding.p16),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              /// Enter Card Number TextField ////////////////////////////////////////
+              CardCustom_TxtField(
+                  hintText: 'Enter Card Number',
+                  controller: cardNumberController,
+                  keyboardType: TextInputType.number,
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return 'Please Enter Card Number';
+                    }
+                    return null;
+                  }),
 
-            /// Enter Name TextField ////////////////////////////////////////
-            CardCustom_TxtField(
-                hintText: 'Enter Name',
-                controller: cardNumberController,
-                keyboardType: TextInputType.text,
-                validator: (value) {
-                  if (value == null || value.trim().isEmpty) {
-                    return 'Please Enter Name';
-                  }
-                  return null;
-                }),
-            SizedBox(height: 30.h),
+              /// Enter Expire date & CVV TextField ////////////////////////////////////////
+              Row(
+                children: [
+                  Expanded(
+                    child: CardCustom_TxtField(
+                        hintText: 'CVV',
+                        controller: cvvController,
+                        keyboardType: TextInputType.number,
+                        validator: (value) {
+                          if (value == null || value.trim().isEmpty) {
+                            return 'Please Enter CVV';
+                          }
+                          return null;
+                        }),
+                  ),
+                  Expanded(
+                    child: CardCustom_TxtField(
+                        hintText: 'MM/YY',
+                        controller: mmyyController,
+                        keyboardType: TextInputType.number,
+                        inputFormatter: [maskFormatter],
+                        // Use mask formatter here
+                        validator: (value) {
+                          if (value == null || value.trim().isEmpty) {
+                            return 'Please Enter MM/YY';
+                          }
+                          return null;
+                        }),
+                  ),
+                ],
+              ),
 
-            /// Add To Cart Elevated Button//////////////////////////////////////////
-            Center(
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      maximumSize: Size(200.w, 50.h),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(AppSize.s30))),
-                  onPressed: () {},
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Add Credit',
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleMedium!
-                            .copyWith(
-                                color: ColorManager.whiteColor,
-                                fontWeight: FontWeight.bold),
-                      ),
-                      Icon(Icons.add_card, color: ColorManager.whiteColor)
-                    ],
-                  )),
-            ),
+              /// Enter Name TextField ////////////////////////////////////////
+              CardCustom_TxtField(
+                  hintText: 'Enter Name',
+                  controller: nameController,
+                  keyboardType: TextInputType.text,
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return 'Please Enter Name';
+                    }
+                    return null;
+                  }),
 
-            /// navigate PoP Button ///////////////////////////////////////
-          ],
+              SizedBox(height: 30.h),
+
+              /// Add To Cart Elevated Button//////////////////////////////////////////
+              Center(
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        maximumSize: Size(200.w, 50.h),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(AppSize.s30))),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Add Credit',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleMedium!
+                              .copyWith(
+                                  color: ColorManager.whiteColor,
+                                  fontWeight: FontWeight.bold),
+                        ),
+                        Icon(Icons.add_card, color: ColorManager.whiteColor)
+                      ],
+                    )),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -119,14 +138,15 @@ class CardCustom_TxtField extends StatelessWidget {
   var keyboardType;
   String? Function(String?)? validator;
   TextEditingController controller;
+  List<TextInputFormatter>? inputFormatter;
 
-  CardCustom_TxtField({
-    required this.hintText,
-    this.isObsucre = false,
-    this.validator,
-    required this.controller,
-    this.keyboardType = TextInputType.text,
-  });
+  CardCustom_TxtField(
+      {required this.hintText,
+      this.isObsucre = false,
+      this.validator,
+      required this.controller,
+      this.keyboardType = TextInputType.text,
+      this.inputFormatter});
 
   @override
   Widget build(BuildContext context) {
@@ -137,6 +157,7 @@ class CardCustom_TxtField extends StatelessWidget {
         validator: validator,
         keyboardType: keyboardType,
         obscureText: isObsucre,
+        inputFormatters: inputFormatter,
         decoration: InputDecoration(
           filled: true,
           fillColor: ColorManager.soLightGreyColor,

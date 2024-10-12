@@ -1,3 +1,4 @@
+import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,8 +7,8 @@ import '../../resources/assets_manager.dart';
 import '../../resources/color_manager.dart';
 import '../../resources/strings_manager.dart';
 import '../../resources/values_manager.dart';
-import '../../widgets/card_widget.dart';
-import '../../widgets/offer_card.dart';
+import '../Offers_tab/offer_card.dart';
+import 'card_widget.dart';
 
 class Home_Tab extends StatefulWidget {
   const Home_Tab({super.key});
@@ -104,9 +105,14 @@ class _Home_TabState extends State<Home_Tab> {
                 childAspectRatio: 1, // Adjust the item height to width ratio
               ),
               itemBuilder: (context, index) {
-                return ApartmentCard(
-                  apartmentTitle: imagesTitle[index],
-                  imagePath: imagesPaths[index],
+                return InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, Routes.serviceTypeRoute);
+                  },
+                  child: ApartmentCard(
+                    apartmentTitle: imagesTitle[index],
+                    imagePath: imagesPaths[index],
+                  ),
                 ); // Widget for each apartment card
               },
             ),
@@ -127,7 +133,7 @@ class _Home_TabState extends State<Home_Tab> {
           // More Ask list ______________________________________________________
           Container(
             padding: EdgeInsets.only(left: AppPadding.p6, top: AppPadding.p8),
-            height: 220.h,
+            height: 230.h,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               // Set the direction to horizontal
@@ -135,7 +141,7 @@ class _Home_TabState extends State<Home_Tab> {
               // Replace with the number of items you want to display
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.w),
+                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
                   child: OffersCard(), // Custom widget to show image and text
                 );
               },

@@ -1,7 +1,7 @@
+import 'package:bacura_app/presentation/register/custom_phonefield.dart';
+import 'package:bacura_app/presentation/register/custom_textformfield.dart';
 import 'package:bacura_app/presentation/resources/assets_manager.dart';
 import 'package:bacura_app/presentation/resources/color_manager.dart';
-import 'package:bacura_app/presentation/widgets/custom_phonefield.dart';
-import 'package:bacura_app/presentation/widgets/custom_textformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';

@@ -17,7 +17,7 @@ class _Cart_TabState extends State<Cart_Tab> {
         child: Icon(
           Icons.shopping_cart_outlined,
           color: ColorManager.primaryBlueColor,
-          size: 200,
+          size: 150,
         ),
       ),
     );

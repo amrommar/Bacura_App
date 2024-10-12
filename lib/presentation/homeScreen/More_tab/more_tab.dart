@@ -29,14 +29,12 @@ class _More_TabState extends State<More_Tab> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          SizedBox(height: 15.h),
+          SizedBox(height: 20.h),
           Custom_More_row(
               text: AppStrings.cardsManagement,
               onTap: () {
                 Navigator.pushNamed(context, Routes.cardsManagementRoute);
               }),
-          Custom_More_row(
-              text: AppStrings.language_and_theme_settings, onTap: () {}),
           Custom_More_row(text: AppStrings.who_are_we, onTap: () {}),
           Custom_More_row(text: AppStrings.technical_support, onTap: () {}),
           Custom_More_row(text: AppStrings.terms_and_conditions, onTap: () {}),
@@ -44,16 +42,48 @@ class _More_TabState extends State<More_Tab> {
           Custom_More_row(
               text: AppStrings.register_as_a_service_provider, onTap: () {}),
           Custom_More_row(text: AppStrings.suggestions, onTap: () {}),
+
           Custom_More_row(text: AppStrings.appRating, onTap: () {}),
 
-          /// Bacura store Link /////////////////////////////////////////////////////////////
-
           Container(
-            padding: EdgeInsets.only(
-              left: AppPadding.p12,
-              right: AppPadding.p12,
-              top: AppPadding.p12,
+            padding: EdgeInsets.symmetric(
+                horizontal: AppPadding.p12, vertical: AppPadding.p6),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(AppStrings.app_Language,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(color: ColorManager.blackColor)),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.symmetric(horizontal: AppPadding.p4),
+                      child: Text('EN',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(
+                                  color: ColorManager.primaryBlueColor,
+                                  fontWeight: FontWeight.bold)),
+                    ),
+                  ],
+                ),
+                Divider(
+                  color: ColorManager.lightBlueColor,
+                  thickness: 1,
+                )
+              ],
             ),
+          ),
+
+          /// Bacura store Link /////////////////////////////////////////////////////////////
+          Container(
+            padding: EdgeInsets.symmetric(
+                horizontal: AppPadding.p12, vertical: AppPadding.p6),
             child: Column(
               children: [
                 InkWell(
@@ -63,7 +93,6 @@ class _More_TabState extends State<More_Tab> {
                     if (!await launchUrl(url)) {
                       throw Exception('Could not launch $url');
                     }
-                    ;
                   },
                   child: Row(
                     children: [
@@ -97,11 +126,51 @@ class _More_TabState extends State<More_Tab> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.ios_share, color: ColorManager.blackColor, size: 30),
-              Image.asset('assets/images/facebook_logo.png',
-                  height: 45, width: 45),
-              Image.asset('assets/images/x.png', height: 45, width: 45),
-              Image.asset('assets/images/instagram.png', height: 45, width: 45),
+              InkWell(
+                  onTap: () {},
+                  child: Icon(Icons.ios_share,
+                      color: ColorManager.blackColor, size: 30)),
+              InkWell(
+                onTap: () async {
+                  final Uri url = Uri.parse(
+                      'https://www.facebook.com/bacuratec?locale=ar_AR');
+                  if (!await launchUrl(url)) {
+                    throw Exception('Could not launch $url');
+                  }
+                },
+                child: Image.asset('assets/images/facebook_logo.png',
+                    height: 45, width: 45),
+              ),
+              // InkWell(
+              //   onTap: () async {
+              //     final Uri url = Uri.parse(
+              //         'https://www.facebook.com/bacuratec?locale=ar_AR');
+              //     if (!await launchUrl(url)) {
+              //       throw Exception('Could not launch $url');
+              //     }
+              //   },
+              //   child: Image.asset('assets/images/linkedIn_logo.png',
+              //       height: 40, width: 40),
+              // ),
+              InkWell(
+                  onTap: () async {
+                    final Uri url = Uri.parse('https://x.com/bacura_tec');
+                    if (!await launchUrl(url)) {
+                      throw Exception('Could not launch $url');
+                    }
+                  },
+                  child: Image.asset('assets/images/x.png',
+                      height: 45, width: 45)),
+              InkWell(
+                  onTap: () async {
+                    final Uri url =
+                        Uri.parse('https://www.instagram.com/bacura_tec/');
+                    if (!await launchUrl(url)) {
+                      throw Exception('Could not launch $url');
+                    }
+                  },
+                  child: Image.asset('assets/images/instagram.png',
+                      height: 45, width: 45)),
             ],
           ),
         ],

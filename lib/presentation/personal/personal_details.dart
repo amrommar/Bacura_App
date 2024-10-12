@@ -1,9 +1,9 @@
 import 'package:bacura_app/presentation/getStarted/getstarted_screen.dart';
+import 'package:bacura_app/presentation/personal/custom_container.dart';
 import 'package:bacura_app/presentation/resources/color_manager.dart';
 import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:bacura_app/presentation/resources/strings_manager.dart';
 import 'package:bacura_app/presentation/resources/values_manager.dart';
-import 'package:bacura_app/presentation/widgets/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

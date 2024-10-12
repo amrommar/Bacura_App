@@ -14,20 +14,6 @@ class Requests_Tab extends StatefulWidget {
 }
 
 class _Requests_TabState extends State<Requests_Tab> {
-  List<Color> backgroundColors = [
-    ColorManager.lightYellowColor,
-    ColorManager.lightBlueColor,
-    ColorManager.lightGreenColor,
-    ColorManager.lightRedColor,
-    ColorManager.lightYellowColor,
-    ColorManager.lightBlueColor,
-    ColorManager.lightGreenColor,
-    ColorManager.lightRedColor,
-    ColorManager.lightYellowColor,
-    ColorManager.lightBlueColor,
-    ColorManager.lightGreenColor,
-    ColorManager.lightRedColor,
-  ];
   List<Color> colors = [
     ColorManager.yellowColor,
     ColorManager.primaryBlueColor,
@@ -89,35 +75,41 @@ class _Requests_TabState extends State<Requests_Tab> {
 
         /// filtering section ///////////////////////////////////////////////////////
         Container(
-          height: 40.h,
+          height: 46.h,
           padding: const EdgeInsets.all(AppPadding.p4),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Custom_Filter_Container(
-                  child: InkWell(
-                onTap: () {
-                  return _showMultiSelect();
-                },
-                child: Icon(
-                  Icons.filter_list_outlined,
-                  color: ColorManager.darkBlueColor,
-                ),
-              )),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 2),
+                child: Custom_Filter_Container(
+                    child: InkWell(
+                  onTap: () {
+                    return _showMultiSelect();
+                  },
+                  child: Icon(
+                    Icons.filter_list_outlined,
+                    color: ColorManager.darkBlueColor,
+                  ),
+                )),
+              ),
               SizedBox(width: 5.w),
 
               /// filter types section /////////////////////////////////////////////
               _selectedFilters.isEmpty
-                  ? Custom_Filter_Container(
-                      child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: AppPadding.p8),
-                          child: Text('All Requests are on display',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium!
-                                  .copyWith(
-                                      color: ColorManager.darkBlueColor))))
+                  ? Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 2),
+                      child: Custom_Filter_Container(
+                          child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: AppPadding.p8),
+                              child: Text('All Requests are on display',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .copyWith(
+                                          color: ColorManager.darkBlueColor)))),
+                    )
                   : Expanded(
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
@@ -125,7 +117,7 @@ class _Requests_TabState extends State<Requests_Tab> {
                         itemBuilder: (context, index) {
                           return Padding(
                               padding: const EdgeInsets.symmetric(
-                                  horizontal: AppPadding.p2),
+                                  horizontal: AppPadding.p2, vertical: 2),
                               child: Custom_Filter_Container(
                                   child: Padding(
                                       padding: const EdgeInsets.symmetric(
@@ -153,10 +145,15 @@ class _Requests_TabState extends State<Requests_Tab> {
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, Routes.requestDetailsRoute);
+                  if (colors[index] != null) {
+                    Navigator.pushNamed(context, Routes.requestDetailsRoute);
+                  } else {
+                    // Handle the case when the color is null
+                    print('Color is null, navigation aborted.');
+                  }
                 },
                 child: Custom_Request_Container(
-                  backgroundColor: backgroundColors[index],
+                  backgroundColor: requestColor(colors[index]),
                   requestColor: colors[index],
                 ),
               );
@@ -166,4 +163,23 @@ class _Requests_TabState extends State<Requests_Tab> {
       ],
     );
   }
+
+  Color requestColor(Color currentColor) {
+    if (currentColor == ColorManager.yellowColor) {
+      return ColorManager.lightYellowColor;
+    } else if (currentColor == ColorManager.primaryBlueColor) {
+      return ColorManager.lightBlueColor;
+    } else if (currentColor == ColorManager.greenColor) {
+      return ColorManager.lightGreenColor;
+    } else if (currentColor == ColorManager.redColor) {
+      return ColorManager.lightRedColor;
+    }
+    return ColorManager.whiteColor;
+  }
+}
+
+class RequestDetailsArguments {
+  final Color color;
+
+  RequestDetailsArguments(this.color);
 }

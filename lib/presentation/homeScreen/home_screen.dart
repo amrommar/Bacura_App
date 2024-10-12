@@ -7,6 +7,7 @@ import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:bacura_app/presentation/resources/strings_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 import '../resources/values_manager.dart';
 import 'Cart_tab/cart_tab.dart';
@@ -19,7 +20,7 @@ class Home_Screen extends StatefulWidget {
 }
 
 class _Home_ScreenState extends State<Home_Screen> {
-  int currentIndex = 4;
+  int currentIndex = 0;
 
   List<Widget> Tabs = [
     More_Tab(),
@@ -84,12 +85,14 @@ class _Home_ScreenState extends State<Home_Screen> {
           },
           child: Row(
             children: [
-              SizedBox(width: 14.w),
-              CircleAvatar(
-                radius: 22.w,
-                backgroundColor: ColorManager.whiteColor,
-                child: Image.asset(
-                    'assets/images/Ellipse 1.png'), // Adjust the radius to make sure it fits
+              SizedBox(width: 8.w),
+              Flexible(
+                child: CircleAvatar(
+                  radius: 22.w,
+                  backgroundColor: ColorManager.whiteColor,
+                  child: Image.asset(
+                      'assets/images/Ellipse 1.png'), // Adjust the radius to make sure it fits
+                ),
               ),
             ],
           ),
@@ -100,14 +103,14 @@ class _Home_ScreenState extends State<Home_Screen> {
             // Ensures the row takes only necessary width
             children: [
               IconButton(
-                icon: Icon(Icons.message, size: 30.w),
+                icon: Icon(Icons.message, size: 30.h),
                 // Reduce icon size slightly
                 onPressed: () {
                   // Handle message icon tap
                 },
               ),
               IconButton(
-                icon: Icon(Icons.notifications, size: 30.w),
+                icon: Icon(Icons.notifications, size: 30.h),
                 // Reduce icon size slightly
                 onPressed: () {
                   // Handle notification icon tap
@@ -125,7 +128,6 @@ class _Home_ScreenState extends State<Home_Screen> {
           shape: CircleBorder(),
           focusColor: ColorManager.lightBlueColor,
           backgroundColor: ColorManager.primaryBlueColor,
-          // backgroundColor: Color(0xff206ff4),
           onPressed: () {},
           child: Icon(
             Icons.headset_mic_outlined,
@@ -134,39 +136,80 @@ class _Home_ScreenState extends State<Home_Screen> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          currentIndex: currentIndex,
-          onTap: (index) {
-            currentIndex = index;
-            setState(() {});
-          },
-          items: const [
-            BottomNavigationBarItem(
-                label: AppStrings.more,
-                icon: Icon(
-                  Icons.more_horiz,
-                )
-                // ImageIcon(AssetImage(ImageAssets.moreIcon))
-                ),
-            BottomNavigationBarItem(
-                label: AppStrings.cart, icon: Icon(Icons.shopping_cart_outlined)
-                // ImageIcon(AssetImage(ImageAssets.cartIcon))
-                ),
-            BottomNavigationBarItem(
-                label: AppStrings.home, icon: Icon(Icons.home_filled)
-                // ImageIcon(AssetImage(ImageAssets.homeIcon),)
-                ),
-            BottomNavigationBarItem(
-                label: AppStrings.requests,
-                icon: Icon(Icons.request_quote_outlined)
-                // ImageIcon(AssetImage(ImageAssets.ordersIcon),)
-                ),
-            BottomNavigationBarItem(
-                label: AppStrings.offers, icon: Icon(Icons.local_offer_outlined)
-                // ImageIcon(AssetImage(ImageAssets.offersIcon))
-                ),
-          ]),
+      bottomNavigationBar: SalomonBottomBar(
+        backgroundColor: ColorManager.primaryBlueColor,
+        currentIndex: currentIndex,
+        onTap: (index) => setState(() => currentIndex = index),
+        items: [
+          /// More
+          SalomonBottomBarItem(
+              title: Text(AppStrings.more),
+              icon: Icon(Icons.more_horiz, color: ColorManager.whiteColor),
+              selectedColor: ColorManager.whiteColor),
+
+          /// Cart
+          SalomonBottomBarItem(
+              title: Text(AppStrings.cart),
+              icon: Icon(Icons.shopping_cart_outlined,
+                  color: ColorManager.whiteColor),
+              selectedColor: ColorManager.whiteColor),
+
+          /// Cart
+          SalomonBottomBarItem(
+            title: Text(AppStrings.home),
+            icon: Icon(Icons.home_filled, color: ColorManager.whiteColor),
+            selectedColor: ColorManager.whiteColor,
+          ),
+
+          /// requests
+          SalomonBottomBarItem(
+              title: Text(AppStrings.requests),
+              icon: Icon(Icons.request_page_outlined,
+                  color: ColorManager.whiteColor),
+              selectedColor: ColorManager.whiteColor),
+
+          /// offers
+          SalomonBottomBarItem(
+              title: Text(AppStrings.offers),
+              icon: Icon(Icons.local_offer_outlined,
+                  color: ColorManager.whiteColor),
+              selectedColor: ColorManager.whiteColor),
+        ],
+      )
+      // BottomNavigationBar(
+      //     type: BottomNavigationBarType.fixed,
+      //     currentIndex: currentIndex,
+      //     onTap: (index) {
+      //       currentIndex = index;
+      //       setState(() {});
+      //     },
+      //     items: const [
+      //       BottomNavigationBarItem(
+      //           label: AppStrings.more,
+      //           icon: Icon(
+      //             Icons.more_horiz,
+      //           )
+      //           // ImageIcon(AssetImage(ImageAssets.moreIcon))
+      //           ),
+      //       BottomNavigationBarItem(
+      //           label: AppStrings.cart, icon: Icon(Icons.shopping_cart_outlined)
+      //           // ImageIcon(AssetImage(ImageAssets.cartIcon))
+      //           ),
+      //       BottomNavigationBarItem(
+      //           label: AppStrings.home, icon: Icon(Icons.home_filled)
+      //           // ImageIcon(AssetImage(ImageAssets.homeIcon),)
+      //           ),
+      //       BottomNavigationBarItem(
+      //           label: AppStrings.requests,
+      //           icon: Icon(Icons.request_quote_outlined)
+      //           // ImageIcon(AssetImage(ImageAssets.ordersIcon),)
+      //           ),
+      //       BottomNavigationBarItem(
+      //           label: AppStrings.offers, icon: Icon(Icons.local_offer_outlined)
+      //           // ImageIcon(AssetImage(ImageAssets.offersIcon))
+      //           ),
+      //     ]),
+      ,
       body: Tabs[currentIndex],
     );
   }
