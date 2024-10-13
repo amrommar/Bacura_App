@@ -133,7 +133,7 @@ class _Home_TabState extends State<Home_Tab> {
           // More Ask list ______________________________________________________
           Container(
             padding: EdgeInsets.only(left: AppPadding.p6, top: AppPadding.p8),
-            height: 230.h,
+            height: 234.h,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               // Set the direction to horizontal

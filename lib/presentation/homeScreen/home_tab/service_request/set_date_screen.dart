@@ -1,4 +1,4 @@
-import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/questions_%20continue_bottomsheet.dart';
+import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/widgets/questions_%20continue_bottomsheet.dart';
 import 'package:bacura_app/presentation/resources/color_manager.dart';
 import 'package:bacura_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
@@ -32,8 +32,11 @@ class _SetDate_ScreenState extends State<SetDate_Screen> {
             child: Calendar(
               isExpandable: true,
               bottomBarColor: ColorManager.whiteColor,
-              bottomBarTextStyle: Theme.of(context).textTheme.titleSmall,
-              bottomBarArrowColor: ColorManager.primaryBlueColor,
+              bottomBarTextStyle: Theme.of(context)
+                  .textTheme
+                  .bodyMedium!
+                  .copyWith(color: ColorManager.darkBlueColor),
+              bottomBarArrowColor: ColorManager.darkBlueColor,
               initialDate: DateTime.now(),
               defaultOutOfMonthDayColor: ColorManager.lightGreyColor,
               defaultDayColor: ColorManager.whiteColor,

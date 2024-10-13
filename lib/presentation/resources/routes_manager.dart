@@ -2,7 +2,9 @@ import 'package:bacura_app/presentation/homeScreen/More_tab/cards_management/car
 import 'package:bacura_app/presentation/homeScreen/Offers_tab/offer_details_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/Requests_tab/request_details_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/questions_screen.dart';
+import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/service_details_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/service_type_screen.dart';
+import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/set_location_screen.dart';
 import 'package:bacura_app/presentation/resources/strings_manager.dart';
 import 'package:bacura_app/presentation/test/test_screen.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +38,8 @@ class Routes {
   static const String serviceTypeRoute = '/serviceType';
   static const String setDateRoute = '/setDate';
   static const String questionsRoute = '/questions';
+  static const String setLocationRoute = '/setLocation';
+  static const String serviceDetailsRoute = '/serviceDetails';
   static const String testRoute = '/test';
 }
 
@@ -76,6 +80,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => SetDate_Screen());
       case Routes.questionsRoute:
         return MaterialPageRoute(builder: (_) => Questions_Screen());
+      case Routes.setLocationRoute:
+        return MaterialPageRoute(builder: (_) => SetLocation_Screen());
+      case Routes.serviceDetailsRoute:
+        return MaterialPageRoute(builder: (_) => ServiceDetails_Screen());
 
       /// text screen //////////////////////////
       case Routes.testRoute:

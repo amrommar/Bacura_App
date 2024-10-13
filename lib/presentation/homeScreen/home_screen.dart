@@ -20,7 +20,7 @@ class Home_Screen extends StatefulWidget {
 }
 
 class _Home_ScreenState extends State<Home_Screen> {
-  int currentIndex = 0;
+  int currentIndex = 2;
 
   List<Widget> Tabs = [
     More_Tab(),
