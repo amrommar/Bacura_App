@@ -1,6 +1,7 @@
 import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/set_date_screen.dart';
+import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/widgets/dropdown_field.dart';
+import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/widgets/question_textformfield.dart';
 import 'package:bacura_app/presentation/resources/routes_manager.dart';
-import 'package:bacura_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -20,6 +21,9 @@ class _Questions_ScreenState extends State<Questions_Screen> {
   var locationController = TextEditingController();
   var descriptionController = TextEditingController();
 
+  String selectedOption = 'IP';
+  final List<String> options = ['Analog', 'IP', 'Wireless'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,10 +35,10 @@ class _Questions_ScreenState extends State<Questions_Screen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              question_TextFormField(
+              DropDown_Field(
+                selectedOption: 'IP',
+                options: options,
                 fieldName: 'Camera Type',
-                hintText: 'Enter Camera Type',
-                controller: cameraTypeController,
               ),
               question_TextFormField(
                 fieldName: 'Cameras Number',
@@ -52,7 +56,7 @@ class _Questions_ScreenState extends State<Questions_Screen> {
                 controller: locationController,
                 suffixIcon: InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, Routes.testRoute);
+                    Navigator.pushNamed(context, Routes.setLocationRoute);
                   },
                   child: Icon(
                     Icons.location_on_outlined,
@@ -74,72 +78,6 @@ class _Questions_ScreenState extends State<Questions_Screen> {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class question_TextFormField extends StatelessWidget {
-  String fieldName;
-  String hintText;
-  Widget? suffixIcon;
-  bool isObsucre;
-  int maxLines;
-  var keyboardType;
-  String? Function(String?)? validator;
-  TextEditingController controller;
-
-  question_TextFormField({
-    required this.fieldName,
-    this.maxLines = 1,
-    required this.hintText,
-    this.suffixIcon,
-    this.isObsucre = false,
-    this.validator,
-    required this.controller,
-    this.keyboardType = TextInputType.text,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 6),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            fieldName,
-            style: Theme.of(context)
-                .textTheme
-                .titleMedium!
-                .copyWith(color: ColorManager.blackColor),
-          ),
-          TextFormField(
-            style: Theme.of(context)
-                .textTheme
-                .titleMedium!
-                .copyWith(color: ColorManager.darkBlueColor),
-            validator: validator,
-            maxLines: maxLines,
-            controller: controller,
-            keyboardType: keyboardType,
-            obscureText: isObsucre,
-            decoration: InputDecoration(
-                suffixIcon: suffixIcon,
-                enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: ColorManager.lightGreyColor,
-                      width: AppSize.s1,
-                    ),
-                    borderRadius: BorderRadius.circular(AppSize.s8)),
-                contentPadding: EdgeInsets.only(left: 8, right: 8),
-                hintText: hintText,
-                hintStyle: Theme.of(context)
-                    .textTheme
-                    .bodyMedium!
-                    .copyWith(color: ColorManager.greyColor)),
-          )
-        ],
       ),
     );
   }

@@ -35,7 +35,6 @@ class _VerifyOTP_ScreenState extends State<VerifyOTP_Screen> {
           ),
           backgroundColor: ColorManager.transparent,
           elevation: 0,
-          centerTitle: true,
           toolbarHeight: 100.h,
         ),
         backgroundColor: ColorManager.transparent,
@@ -52,18 +51,18 @@ class _VerifyOTP_ScreenState extends State<VerifyOTP_Screen> {
                     child: SvgPicture.asset(ImageAssets.bacuraLogo)),
               ),
               SizedBox(height: 50.h),
-              //page title____________________________
+              ////page title//////////////////////////////////////////////////
               Text(AppStrings.oTPNumber,
                   style: Theme.of(context).textTheme.displayLarge),
-              Divider(
-                color: ColorManager.lightBlueColor,
-              ),
+              Divider(color: ColorManager.lightBlueColor),
               SizedBox(height: 10.h),
+              ////OTP Number Sent Text //////////////////////////////////////////////////
               Text(AppStrings.OTPNumberSent,
                   style: Theme.of(context)
                       .textTheme
                       .titleSmall!
                       .copyWith(color: ColorManager.greyColor)),
+              ////Number and Change number Text //////////////////////////////////////////////////
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -95,7 +94,7 @@ class _VerifyOTP_ScreenState extends State<VerifyOTP_Screen> {
                     )),
               ),
               SizedBox(height: 20.h),
-
+              ////Counter and Resend OTP Text //////////////////////////////////////////////////
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -112,16 +111,16 @@ class _VerifyOTP_ScreenState extends State<VerifyOTP_Screen> {
                 ],
               ),
               SizedBox(height: 40.h),
+              ////verify Elevated Button &  send OTP again//////////////////////////////////////////////////
               Center(
                 child: Column(
                   children: [
                     ElevatedButton(
                         onPressed: () {
                           Navigator.pushNamedAndRemoveUntil(
-                            context,
-                            Routes.homeScreenRoute,
-                            (Route<dynamic> route) => false,
-                          );
+                              context,
+                              Routes.homeScreenRoute,
+                              (Route<dynamic> route) => false);
                         },
                         child: Text(AppStrings.check,
                             style: Theme.of(context).textTheme.titleMedium)),

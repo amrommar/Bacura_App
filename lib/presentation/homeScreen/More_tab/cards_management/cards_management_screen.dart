@@ -1,4 +1,5 @@
 import 'package:bacura_app/presentation/homeScreen/More_tab/cards_management/add_card_bottomsheet.dart';
+import 'package:bacura_app/presentation/homeScreen/More_tab/cards_management/edit_card_bottomsheet.dart';
 import 'package:bacura_app/presentation/resources/color_manager.dart';
 import 'package:bacura_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
@@ -56,9 +57,14 @@ class _Cards_Management_ScreenState extends State<Cards_Management_Screen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Icon(
-                            Icons.edit,
-                            color: ColorManager.whiteColor,
+                          InkWell(
+                            child: Icon(
+                              Icons.edit,
+                              color: ColorManager.whiteColor,
+                            ),
+                            onTap: () {
+                              showEditCardBottomSheet();
+                            },
                           ),
                           Container(
                               height: 40.h,
@@ -147,6 +153,14 @@ class _Cards_Management_ScreenState extends State<Cards_Management_Screen> {
         context: context,
         builder: (context) {
           return AddCard_BottomSheet();
+        });
+  }
+
+  void showEditCardBottomSheet() {
+    showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return EditCard_BottomSheet();
         });
   }
 }

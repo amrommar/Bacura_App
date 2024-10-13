@@ -41,7 +41,7 @@ class AppStrings {
       'OTP Number has already Sent to'; //'تم إرسال رمز التحقق الي رقم';
   static const String number = '+966 ****** 965';
   static const String changeNumber = 'Change Number'; // 'تغيير الرقم؟';
-  static const String check = 'check'; // 'تحقق';
+  static const String check = 'Verify'; // 'تحقق';
   static const String sendAgain = 'Send OTP Again'; //'إعادة الارسال';
   static const String apartments = 'Apartments'; // 'الأقسام';
   static const String mostRequested = 'Most Requested'; // 'الاكثر طلبا';
