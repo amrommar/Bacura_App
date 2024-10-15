@@ -1,6 +1,7 @@
-import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/set_date_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/widgets/dropdown_field.dart';
 import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/widgets/question_textformfield.dart';
+import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/widgets/requestsent_bottomsheet.dart';
+import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/widgets/small_elevatedbutton.dart';
 import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -70,16 +71,28 @@ class _TechnicalQuestions_ScreenState extends State<TechnicalQuestions_Screen> {
                 fieldName: 'Service Description',
                 hintText: 'Enter Service Description....',
                 controller: descriptionController,
-                maxLines: 4,
+                maxLines: 5,
               ),
               SizedBox(height: 70.h),
-              Custom_ElevatedButton(
-                onTap: () {},
+              SmallElevatedbutton(
+                text: 'Send Request',
+                onTap: () {
+                  showRequestSentBottomSheet();
+                },
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  void showRequestSentBottomSheet() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return RequestSent_BottomSheet();
+      },
     );
   }
 }
