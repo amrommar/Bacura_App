@@ -4,6 +4,8 @@ import 'package:bacura_app/presentation/homeScreen/More_tab/suggestions/suggesti
 import 'package:bacura_app/presentation/homeScreen/More_tab/terms_and_conditions/terms_conditions_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/Offers_tab/offer_details_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/Requests_tab/request_details_screen.dart';
+import 'package:bacura_app/presentation/homeScreen/customerService/customerService_screen.dart';
+import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/payment_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/service_details_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/service_type_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/set_location_screen.dart';
@@ -50,6 +52,8 @@ class Routes {
   static const String suggestionsRoute = '/suggestions';
   static const String editRequestServicesRoute = '/editRequestServices';
   static const String notificationsRoute = '/notifications';
+  static const String customerServiceRoute = '/customerService';
+  static const String paymentScreenRoute = '/paymentScreen';
   static const String testRoute = '/test';
 }
 
@@ -104,6 +108,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => EditRequestServices_Screen());
       case Routes.notificationsRoute:
         return MaterialPageRoute(builder: (_) => Notifications_Screen());
+      case Routes.customerServiceRoute:
+        return MaterialPageRoute(builder: (_) => Customerservice_Screen());
+      case Routes.paymentScreenRoute:
+        return MaterialPageRoute(builder: (_) => Payment_Screen());
 
       /// text screen //////////////////////////
       case Routes.testRoute:

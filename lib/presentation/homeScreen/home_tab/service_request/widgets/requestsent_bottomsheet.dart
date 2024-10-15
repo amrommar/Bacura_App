@@ -4,19 +4,17 @@ import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:bacura_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Questions_BottomSheet extends StatefulWidget {
+class RequestSent_BottomSheet extends StatefulWidget {
   @override
-  State<Questions_BottomSheet> createState() => _Questions_BottomSheetState();
+  State<RequestSent_BottomSheet> createState() =>
+      _RequestSent_BottomSheetState();
 }
 
-class _Questions_BottomSheetState extends State<Questions_BottomSheet> {
+class _RequestSent_BottomSheetState extends State<RequestSent_BottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200.h,
-      width: double.infinity,
       decoration: BoxDecoration(
           color: ColorManager.whiteColor,
           borderRadius: BorderRadius.circular(AppSize.s20)),
@@ -26,34 +24,25 @@ class _Questions_BottomSheetState extends State<Questions_BottomSheet> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            Image.asset('assets/images/fani_img.png'),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
-                'Want to answer some simple Technical questions?',
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    color: ColorManager.greyColor, fontWeight: FontWeight.bold),
+                'We sent the request, The service provider will contact you.',
+                textAlign: TextAlign.start,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(color: ColorManager.greyColor),
               ),
             ),
 
             /// Go to Questions Or skip Button//////////////////////////////////////////
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                SmallElevatedbutton(
-                  text: 'Skip',
-                  onTap: () {
-                    Navigator.pushNamed(context, Routes.paymentScreenRoute);
-                  },
-                ),
-                SmallElevatedbutton(
-                  text: 'Ok',
-                  onTap: () {
-                    Navigator.pushNamed(context, Routes.questionsRoute);
-                  },
-                ),
-              ],
-            ),
+            SmallElevatedbutton(
+                text: 'Ok',
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.homeScreenRoute);
+                }),
           ],
         ),
       ),

@@ -45,39 +45,12 @@ class _Home_ScreenState extends State<Home_Screen> {
       backgroundColor: ColorManager.whiteColor,
       appBar: AppBar(
         titleSpacing: 5,
-        title: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text('Hi Mohamed',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleSmall!
-                    .copyWith(color: ColorManager.whiteColor, fontSize: 13)),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Icon(
-                  Icons.account_balance_wallet_outlined,
-                  color: ColorManager.whiteColor,
-                  size: 14,
-                ),
-                SizedBox(width: 2.w),
-                Text('1000 SR',
-                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                        color: ColorManager.whiteColor, fontSize: 13)),
-                SizedBox(width: 2.w),
-                Icon(
-                  Icons.keyboard_arrow_down,
-                  color: ColorManager.whiteColor,
-                  size: 14,
-                ),
-              ],
-            )
-          ],
-        ),
+        centerTitle: false,
+        title: Text('Hi, Mohamed',
+            style: Theme.of(context)
+                .textTheme
+                .titleMedium!
+                .copyWith(color: ColorManager.whiteColor)),
         elevation: 0,
         leading: InkWell(
           onTap: () {
@@ -88,7 +61,7 @@ class _Home_ScreenState extends State<Home_Screen> {
               SizedBox(width: 8.w),
               Flexible(
                 child: CircleAvatar(
-                  radius: 22.w,
+                  radius: 23.w,
                   backgroundColor: ColorManager.whiteColor,
                   child: Image.asset(
                       'assets/images/Ellipse 1.png'), // Adjust the radius to make sure it fits
@@ -106,7 +79,6 @@ class _Home_ScreenState extends State<Home_Screen> {
                 icon: Icon(Icons.message, size: 30.h),
                 // Reduce icon size slightly
                 onPressed: () {
-                  Navigator.pushNamed(context, Routes.notificationsRoute);
                   // Handle message icon tap
                 },
               ),
@@ -114,6 +86,8 @@ class _Home_ScreenState extends State<Home_Screen> {
                 icon: Icon(Icons.notifications, size: 30.h),
                 // Reduce icon size slightly
                 onPressed: () {
+                  Navigator.pushNamed(context, Routes.notificationsRoute);
+
                   // Handle notification icon tap
                 },
               ),
@@ -122,21 +96,21 @@ class _Home_ScreenState extends State<Home_Screen> {
         ],
       ),
       floatingActionButton: Container(
-        margin: EdgeInsets.symmetric(
-            horizontal: AppMargin.m10, vertical: AppMargin.m20),
-        child: FloatingActionButton(
-          elevation: 5,
-          shape: CircleBorder(),
-          focusColor: ColorManager.lightBlueColor,
-          backgroundColor: ColorManager.primaryBlueColor,
-          onPressed: () {},
-          child: Icon(
-            Icons.headset_mic_outlined,
-            color: ColorManager.whiteColor,
-            size: 40, // Icon color inside the FAB
-          ),
-        ),
-      ),
+          margin: EdgeInsets.symmetric(
+              horizontal: AppMargin.m10, vertical: AppMargin.m20),
+          child: FloatingActionButton(
+              elevation: 5,
+              shape: CircleBorder(),
+              focusColor: ColorManager.lightBlueColor,
+              backgroundColor: ColorManager.primaryBlueColor,
+              onPressed: () {
+                Navigator.pushNamed(context, Routes.customerServiceRoute);
+              },
+              child: Icon(
+                Icons.headset_mic_outlined,
+                color: ColorManager.whiteColor,
+                size: 40, // Icon color inside the FAB
+              ))),
       bottomNavigationBar: SalomonBottomBar(
         backgroundColor: ColorManager.primaryBlueColor,
         currentIndex: currentIndex,
@@ -176,7 +150,7 @@ class _Home_ScreenState extends State<Home_Screen> {
                   color: ColorManager.whiteColor),
               selectedColor: ColorManager.whiteColor),
         ],
-      )
+      ),
       // BottomNavigationBar(
       //     type: BottomNavigationBarType.fixed,
       //     currentIndex: currentIndex,
@@ -210,7 +184,6 @@ class _Home_ScreenState extends State<Home_Screen> {
       //           // ImageIcon(AssetImage(ImageAssets.offersIcon))
       //           ),
       //     ]),
-      ,
       body: Tabs[currentIndex],
     );
   }
