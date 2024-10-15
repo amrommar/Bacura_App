@@ -23,7 +23,7 @@ class Custom_Container extends StatelessWidget {
               blurRadius: 4,
               // Blur radius
               offset: Offset(0, 3), // Offset in the x and y directions
-            ),
+            )
           ],
           borderRadius: BorderRadius.circular(AppSize.s12),
           color: ColorManager.whiteColor),

@@ -7,14 +7,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../resources/color_manager.dart';
 
-class Questions_Screen extends StatefulWidget {
-  const Questions_Screen({super.key});
+class TechnicalQuestions_Screen extends StatefulWidget {
+  const TechnicalQuestions_Screen({super.key});
 
   @override
-  State<Questions_Screen> createState() => _Questions_ScreenState();
+  State<TechnicalQuestions_Screen> createState() =>
+      _TechnicalQuestions_ScreenState();
 }
 
-class _Questions_ScreenState extends State<Questions_Screen> {
+class _TechnicalQuestions_ScreenState extends State<TechnicalQuestions_Screen> {
   var cameraTypeController = TextEditingController();
   var camerasNumberController = TextEditingController();
   var propertyTypeController = TextEditingController();

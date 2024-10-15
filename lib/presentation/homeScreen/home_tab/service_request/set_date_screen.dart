@@ -152,10 +152,17 @@ class Custom_ElevatedButton extends StatelessWidget {
   }
 }
 
-class Time_Container extends StatelessWidget {
+class Time_Container extends StatefulWidget {
   String text;
 
   Time_Container({required this.text});
+
+  @override
+  State<Time_Container> createState() => _Time_ContainerState();
+}
+
+class _Time_ContainerState extends State<Time_Container> {
+  Color backgroundColor = ColorManager.whiteColor;
 
   @override
   Widget build(BuildContext context) {
@@ -174,14 +181,20 @@ class Time_Container extends StatelessWidget {
             ),
           ],
           borderRadius: BorderRadius.circular(AppSize.s8),
-          color: ColorManager.whiteColor),
-      child: Center(
-        child: Text(text,
-            overflow: TextOverflow.ellipsis,
-            style: Theme.of(context)
-                .textTheme
-                .bodyLarge!
-                .copyWith(color: ColorManager.blackColor)),
+          color: backgroundColor),
+      child: InkWell(
+        onTap: () {
+          backgroundColor = ColorManager.midBlueColor;
+          setState(() {});
+        },
+        child: Center(
+          child: Text(widget.text,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyLarge!
+                  .copyWith(color: ColorManager.blackColor)),
+        ),
       ),
     );
   }

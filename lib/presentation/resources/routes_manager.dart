@@ -1,15 +1,20 @@
 import 'package:bacura_app/presentation/homeScreen/More_tab/cards_management/cards_management_screen.dart';
+import 'package:bacura_app/presentation/homeScreen/More_tab/privacy_policy/privacy_policy_screen.dart';
+import 'package:bacura_app/presentation/homeScreen/More_tab/suggestions/suggestions_screen.dart';
+import 'package:bacura_app/presentation/homeScreen/More_tab/terms_and_conditions/terms_conditions_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/Offers_tab/offer_details_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/Requests_tab/request_details_screen.dart';
-import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/questions_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/service_details_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/service_type_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/set_location_screen.dart';
+import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/technicalquestions_screen.dart';
+import 'package:bacura_app/presentation/homeScreen/notifications_screen/notifications_screen.dart';
 import 'package:bacura_app/presentation/resources/strings_manager.dart';
 import 'package:bacura_app/presentation/test/test_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../getStarted/getstarted_screen.dart';
+import '../homeScreen/Requests_tab/editrequestservices_screen.dart';
 import '../homeScreen/home_screen.dart';
 import '../homeScreen/home_tab/service_request/set_date_screen.dart';
 import '../login/login_screen.dart';
@@ -40,6 +45,11 @@ class Routes {
   static const String questionsRoute = '/questions';
   static const String setLocationRoute = '/setLocation';
   static const String serviceDetailsRoute = '/serviceDetails';
+  static const String privacyPolicyRoute = '/privacyPolicy';
+  static const String termsAndConditionsRoute = '/termsAndConditions';
+  static const String suggestionsRoute = '/suggestions';
+  static const String editRequestServicesRoute = '/editRequestServices';
+  static const String notificationsRoute = '/notifications';
   static const String testRoute = '/test';
 }
 
@@ -79,11 +89,21 @@ class RouteGenerator {
       case Routes.setDateRoute:
         return MaterialPageRoute(builder: (_) => SetDate_Screen());
       case Routes.questionsRoute:
-        return MaterialPageRoute(builder: (_) => Questions_Screen());
+        return MaterialPageRoute(builder: (_) => TechnicalQuestions_Screen());
       case Routes.setLocationRoute:
         return MaterialPageRoute(builder: (_) => SetLocation_Screen());
       case Routes.serviceDetailsRoute:
         return MaterialPageRoute(builder: (_) => ServiceDetails_Screen());
+      case Routes.privacyPolicyRoute:
+        return MaterialPageRoute(builder: (_) => PrivacyPolicy_Screen());
+      case Routes.termsAndConditionsRoute:
+        return MaterialPageRoute(builder: (_) => TermsConditions_Screen());
+      case Routes.suggestionsRoute:
+        return MaterialPageRoute(builder: (_) => Suggestions_Screen());
+      case Routes.editRequestServicesRoute:
+        return MaterialPageRoute(builder: (_) => EditRequestServices_Screen());
+      case Routes.notificationsRoute:
+        return MaterialPageRoute(builder: (_) => Notifications_Screen());
 
       /// text screen //////////////////////////
       case Routes.testRoute:
