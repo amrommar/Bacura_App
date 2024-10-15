@@ -30,21 +30,49 @@ class _More_TabState extends State<More_Tab> {
       child: Column(
         children: [
           SizedBox(height: 20.h),
+
+          ///cardsManagement tab //////////////////////////////
           Custom_More_row(
               text: AppStrings.cardsManagement,
               onTap: () {
                 Navigator.pushNamed(context, Routes.cardsManagementRoute);
               }),
+
+          ///who_are_we tab //////////////////////////////
           Custom_More_row(text: AppStrings.who_are_we, onTap: () {}),
+
+          ///technical_support tab //////////////////////////////
           Custom_More_row(text: AppStrings.technical_support, onTap: () {}),
-          Custom_More_row(text: AppStrings.terms_and_conditions, onTap: () {}),
-          Custom_More_row(text: AppStrings.privacy_policy, onTap: () {}),
+
+          ///terms_and_conditions tab //////////////////////////////
+          Custom_More_row(
+              text: AppStrings.terms_and_conditions,
+              onTap: () {
+                Navigator.pushNamed(context, Routes.termsAndConditionsRoute);
+              }),
+
+          ///privacy_policy tab //////////////////////////////
+          Custom_More_row(
+              text: AppStrings.privacy_policy,
+              onTap: () {
+                Navigator.pushNamed(context, Routes.privacyPolicyRoute);
+              }),
+
+          ///register_as_a_service_provider tab //////////////////////////////
           Custom_More_row(
               text: AppStrings.register_as_a_service_provider, onTap: () {}),
-          Custom_More_row(text: AppStrings.suggestions, onTap: () {}),
 
+          ///suggestions tab //////////////////////////////
+          Custom_More_row(
+              text: AppStrings.suggestions,
+              onTap: () {
+                Navigator.pushNamed(context, Routes.suggestionsRoute);
+              }),
+
+          ///appRating tab //////////////////////////////
           Custom_More_row(text: AppStrings.appRating, onTap: () {}),
 
+          ///app_Language tab //////////////////////////////
           Container(
             padding: EdgeInsets.symmetric(
                 horizontal: AppPadding.p12, vertical: AppPadding.p6),

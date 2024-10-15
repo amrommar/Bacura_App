@@ -145,12 +145,7 @@ class _Requests_TabState extends State<Requests_Tab> {
             itemBuilder: (context, index) {
               return InkWell(
                 onTap: () {
-                  if (colors[index] != null) {
-                    Navigator.pushNamed(context, Routes.requestDetailsRoute);
-                  } else {
-                    // Handle the case when the color is null
-                    print('Color is null, navigation aborted.');
-                  }
+                  Navigator.pushNamed(context, Routes.requestDetailsRoute);
                 },
                 child: Custom_Request_Container(
                   backgroundColor: requestColor(colors[index]),

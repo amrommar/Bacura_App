@@ -106,6 +106,7 @@ class _Home_ScreenState extends State<Home_Screen> {
                 icon: Icon(Icons.message, size: 30.h),
                 // Reduce icon size slightly
                 onPressed: () {
+                  Navigator.pushNamed(context, Routes.notificationsRoute);
                   // Handle message icon tap
                 },
               ),

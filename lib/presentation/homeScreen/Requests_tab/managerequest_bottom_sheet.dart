@@ -1,4 +1,5 @@
 import 'package:bacura_app/presentation/resources/color_manager.dart';
+import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:bacura_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,14 +27,17 @@ class _ManageRequest_Bottom_SheetState
           children: [
             /// Cancel Request Button ////////////////////////////////////////
             Custom_Row_Manage_Request(
+                onTap: () {},
                 text: 'Cancel Request',
                 icon: Icons.cancel,
                 iconColor: ColorManager.darkRedColor),
             Divider(),
 
             /// Edit Request Services Button ////////////////////////////////////////
-
             Custom_Row_Manage_Request(
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.editRequestServicesRoute);
+                },
                 text: 'Edit Request Services',
                 icon: Icons.edit_note_outlined,
                 iconColor: ColorManager.primaryBlueColor),
@@ -41,6 +45,9 @@ class _ManageRequest_Bottom_SheetState
 
             /// Change the date Button ////////////////////////////////////////
             Custom_Row_Manage_Request(
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.setDateRoute);
+                },
                 text: 'Change the date',
                 icon: Icons.edit_calendar_outlined,
                 iconColor: ColorManager.primaryBlueColor),
@@ -49,14 +56,19 @@ class _ManageRequest_Bottom_SheetState
             /// Extra work Button ////////////////////////////////////////
 
             Custom_Row_Manage_Request(
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.homeScreenRoute);
+                },
                 text: 'Extra work',
-                icon: Icons.add_shopping_cart_outlined,
+                icon: Icons.add,
                 iconColor: ColorManager.primaryBlueColor),
             Divider(),
 
-            /// Close the order Button ////////////////////////////////////////
+            /// Close the order Button ///////////////////////////////////////
+            /// this is to make the order completed ////////////////////////////////
 
             Custom_Row_Manage_Request(
+                onTap: () {},
                 text: 'Close the order',
                 icon: Icons.lock,
                 iconColor: ColorManager.primaryBlueColor),
@@ -86,14 +98,20 @@ class Custom_Row_Manage_Request extends StatelessWidget {
   String text;
   IconData icon;
   Color iconColor;
+  Function onTap;
 
   Custom_Row_Manage_Request(
-      {required this.text, required this.icon, required this.iconColor});
+      {required this.text,
+      required this.icon,
+      required this.iconColor,
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        onTap();
+      },
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

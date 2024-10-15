@@ -220,7 +220,7 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
                 title: 'Payment Method: ',
                 description: 'Credit Card',
                 icon: Icons.credit_card,
-                iconColor: ColorManager.primaryBlueColor,
+                iconColor: ColorManager.greyColor,
               ),
 
               ///  location section/////////////////////////////////////////////
@@ -282,7 +282,7 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
           Text(
             'Request Cancelled',
             style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                color: ColorManager.darkBlueColor, fontWeight: FontWeight.w500),
+                color: ColorManager.darkRedColor, fontWeight: FontWeight.w500),
           ),
           SizedBox(height: 10.h),
           Icon(
