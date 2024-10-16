@@ -71,27 +71,20 @@ class _Home_ScreenState extends State<Home_Screen> {
           ),
         ),
         actions: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            // Ensures the row takes only necessary width
-            children: [
-              IconButton(
-                icon: Icon(Icons.message, size: 30.h),
-                // Reduce icon size slightly
-                onPressed: () {
-                  // Handle message icon tap
-                },
-              ),
-              IconButton(
-                icon: Icon(Icons.notifications, size: 30.h),
-                // Reduce icon size slightly
-                onPressed: () {
-                  Navigator.pushNamed(context, Routes.notificationsRoute);
-
-                  // Handle notification icon tap
-                },
-              ),
-            ],
+          // IconButton(
+          //   icon: Icon(Icons.message, size: 30.h),
+          //   // Reduce icon size slightly
+          //   onPressed: () {
+          //     // Handle message icon tap
+          //   },
+          // ),
+          IconButton(
+            icon: Icon(Icons.notifications, size: 30.h),
+            // Reduce icon size slightly
+            onPressed: () {
+              Navigator.pushNamed(context, Routes.notificationsRoute);
+              // Handle notification icon tap
+            },
           ),
         ],
       ),
