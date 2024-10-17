@@ -61,22 +61,22 @@ class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.onBoardingOneRoute:
-        return MaterialPageRoute(builder: (_) => const OnBoardingOne_Screen());
+        return MaterialPageRoute(builder: (_) => OnBoardingOne_Screen());
       case Routes.onBoardingTwoRoute:
-        return MaterialPageRoute(builder: (_) => const OnBoardingTwo_Screen());
+        return MaterialPageRoute(builder: (_) => OnBoardingTwo_Screen());
       case Routes.onBoardingThreeRoute:
         return MaterialPageRoute(
             builder: (_) => const OnBoardingThree_Screen());
       case Routes.getStartedRoute:
-        return MaterialPageRoute(builder: (_) => const Getstarted_Screen());
+        return MaterialPageRoute(builder: (_) => Getstarted_Screen());
       case Routes.registerRoute:
-        return MaterialPageRoute(builder: (_) => const Register_Screen());
+        return MaterialPageRoute(builder: (_) => Register_Screen());
       case Routes.verifyOTPRoute:
-        return MaterialPageRoute(builder: (_) => const VerifyOTP_Screen());
+        return MaterialPageRoute(builder: (_) => VerifyOTP_Screen());
       case Routes.loginRoute:
-        return MaterialPageRoute(builder: (_) => const Login_Screen());
+        return MaterialPageRoute(builder: (_) => Login_Screen());
       case Routes.homeScreenRoute:
-        return MaterialPageRoute(builder: (_) => const Home_Screen());
+        return MaterialPageRoute(builder: (_) => Home_Screen());
       case Routes.personalDetailsRoute:
         return MaterialPageRoute(
             builder: (_) => const PersonalDetails_Screen());

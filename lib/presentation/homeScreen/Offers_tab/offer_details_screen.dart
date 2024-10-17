@@ -1,4 +1,6 @@
+import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/widgets/small_elevatedbutton.dart';
 import 'package:bacura_app/presentation/resources/color_manager.dart';
+import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:bacura_app/presentation/resources/values_manager.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -90,33 +92,15 @@ Possibility of connecting to the mobile via the recording device''',
                 },
               ),
             ),
-            SizedBox(height: 40.h),
+            SizedBox(height: 50.h),
 
             /// Add To Cart Elevated Button//////////////////////////////////////////
             Center(
-              child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      maximumSize: Size(220.w, 100.h),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(AppSize.s30))),
-                  onPressed: () {},
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Add To Cart',
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleMedium!
-                            .copyWith(
-                                color: ColorManager.whiteColor,
-                                fontWeight: FontWeight.bold),
-                      ),
-                      Icon(Icons.add_shopping_cart_sharp,
-                          color: ColorManager.whiteColor)
-                    ],
-                  )),
+              child: SmallElevatedbutton(
+                  text: 'Pay',
+                  onTap: () {
+                    Navigator.pushNamed(context, Routes.paymentScreenRoute);
+                  }),
             )
           ],
         ),

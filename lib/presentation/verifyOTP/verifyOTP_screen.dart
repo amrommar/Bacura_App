@@ -1,3 +1,4 @@
+import 'package:bacura_app/presentation/resources/DialogUtils.dart';
 import 'package:bacura_app/presentation/verifyOTP/textOTPfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -117,10 +118,21 @@ class _VerifyOTP_ScreenState extends State<VerifyOTP_Screen> {
                   children: [
                     ElevatedButton(
                         onPressed: () {
-                          Navigator.pushNamedAndRemoveUntil(
-                              context,
-                              Routes.homeScreenRoute,
-                              (Route<dynamic> route) => false);
+                          if (formKey.currentState!.validate() == true) {
+                            return DialogUtils.showMessage(
+                                title: 'OTP',
+                                context: context,
+                                posActionName: 'Ok',
+                                negActionName: 'Cancel',
+                                posAction: () {
+                                  Navigator.pushNamedAndRemoveUntil(
+                                      context,
+                                      Routes.homeScreenRoute,
+                                      (Route<dynamic> route) => false);
+                                },
+                                message:
+                                    'OTP Confirmed OTP Confirmed OTP Confirmed OTP Confirmed OTP Confirmed OTP Confirmed');
+                          }
                         },
                         child: Text(AppStrings.check,
                             style: Theme.of(context).textTheme.titleMedium)),

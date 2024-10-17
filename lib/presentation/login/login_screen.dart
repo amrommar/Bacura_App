@@ -83,7 +83,9 @@ class _Login_ScreenState extends State<Login_Screen> {
                 Center(
                   child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, Routes.verifyOTPRoute);
+                        if (formKey.currentState!.validate() == true) {
+                          Navigator.pushNamed(context, Routes.verifyOTPRoute);
+                        }
                       },
                       child: Text(AppStrings.login,
                           style: Theme.of(context).textTheme.titleMedium)),

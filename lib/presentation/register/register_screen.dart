@@ -99,7 +99,9 @@ class _Register_ScreenState extends State<Register_Screen> {
                 Center(
                   child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, Routes.verifyOTPRoute);
+                        if (formKey.currentState!.validate() == true) {
+                          Navigator.pushNamed(context, Routes.verifyOTPRoute);
+                        }
                       },
                       child: Text(AppStrings.register,
                           style: Theme.of(context).textTheme.titleMedium)),

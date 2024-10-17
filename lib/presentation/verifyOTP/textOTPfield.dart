@@ -4,8 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OTP_TextField extends StatefulWidget {
-  const OTP_TextField({super.key});
-
   @override
   State<OTP_TextField> createState() => _OTP_TextFieldState();
 }

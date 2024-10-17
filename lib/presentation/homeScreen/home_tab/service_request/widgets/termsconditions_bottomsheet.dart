@@ -1,4 +1,8 @@
+import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/widgets/small_elevatedbutton.dart';
+import 'package:bacura_app/presentation/resources/color_manager.dart';
+import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Termsconditions_Bottomsheet extends StatefulWidget {
   @override
@@ -12,54 +16,72 @@ class _Termsconditions_BottomsheetState
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
+      height: 600.h,
       padding: const EdgeInsets.all(16.0),
       child: Column(
         children: [
           Expanded(
             child: SingleChildScrollView(
               child: Text(
-                '''Terms and Conditions
-Welcome to Bakora
-These terms and conditions provide the legal basis for your use of the application and its related services.
-Acceptance of Terms: By using the application, you agree to be bound by these terms. If you do not agree to any of these terms, please do not
-use the application
-1. Definitions
- Application: refers to [application name] and all its services and related content.
- Services: means all services and features provided by the application.
- User: any person who uses the application or any of its services.
- Service Provider: any party that provides the actual services to end users or customers
- Service Provider: any party that provides the infrastructure, technologies or systems on which the application operates
-2. Terms of Use
- Eligibility
-Users must be of legal age to enter into a binding contract or have the consent of their parents or legal guardian to use the application.
- Acceptable Use
-Users must use the App only for the purposes for which the App was designed and in a manner that does not infringe the rights of others or adversely affect the operation of the App. This includes not using the App for fraud, harassment, or any illegal use.
- Account Creation
-You must create an account in order to use the App’s services.
- Attaching Documents
-Use of some of the App’s services may require attaching documents. Users must provide true, accurate, and up-to-date information when submitting these documents, and ensure that all data and information provided complies with the specific requirements of the service.
- Continued Use
-Once amendments to the Terms are posted, your use of the App after such update shall be deemed acceptance of the amended Terms.
- Termination of Use
-We reserve the right to terminate or suspend your access to the App at any time, without prior notice, if you violate these Terms.
-3. Intellectual Property Rights
-All copyrights, trademarks, and other rights in the App and its contents are owned by us. No part of the App may be copied, distributed, or modified without our express permission.
-4. Limitation of Liability
-The Company disclaims any responsibility and does not guarantee that the application will be free from errors or defects or that the services will always be available.
-5. Changes
- Modification of Terms: The Company has the right to modify these terms at any time.
- Cancellation of Service: The Company has the right to cancel the service or any part thereof at any time.
-6. Contact Us
-If you have any questions about these terms and conditions, please contact us at [email] or [phone number].''',
+                '''الشروط والأحكام
+                                
+مرحبًا بكم في Bacura
+توفر هذه الشروط والأحكام الأساس القانوني لاستخدامك للتطبيق والخدمات المرتبطة به.
+
+قبول الشروط: باستخدام التطبيق، فإنك توافق على الالتزام بهذه الشروط. إذا كنت لا توافق على أي من هذه الشروط، يرجى عدم
+استخدام التطبيق
+
+1. التعاريف
+ التطبيق: يشير إلى [اسم التطبيق] وجميع خدماته والمحتوى المرتبط به.
+ الخدمات: تعني جميع الخدمات والميزات التي يوفرها التطبيق.
+ المستخدم: أي شخص يستخدم التطبيق أو أي من خدماته.
+ مزود الخدمة: أي طرف يقدم الخدمات الفعلية للمستخدمين النهائيين أو العملاء
+ مزود الخدمة: أي طرف يقدم البنية الأساسية أو التقنيات أو الأنظمة التي يعمل عليها التطبيق
+
+2. شروط الاستخدام
+ الأهلية
+يجب أن يكون المستخدمون في سن قانونية لإبرام عقد ملزم أو الحصول على موافقة والديهم أو الوصي القانوني لاستخدام التطبيق.
+ الاستخدام المقبول
+يجب على المستخدمين استخدام التطبيق فقط للأغراض التي صُمم التطبيق من أجلها وبطريقة لا تنتهك حقوق الآخرين أو تؤثر سلبًا على تشغيل التطبيق. ويشمل ذلك عدم استخدام التطبيق للاحتيال أو المضايقة أو أي استخدام غير قانوني.
+
+ إنشاء حساب
+يجب عليك إنشاء حساب لاستخدام خدمات التطبيق.
+
+ إرفاق المستندات
+قد يتطلب استخدام بعض خدمات التطبيق إرفاق المستندات. يجب على المستخدمين تقديم معلومات صحيحة ودقيقة وحديثة عند إرسال هذه المستندات، والتأكد من أن جميع البيانات والمعلومات المقدمة تتوافق مع المتطلبات المحددة للخدمة.
+
+ الاستخدام المستمر
+بمجرد نشر التعديلات على الشروط، فإن استخدامك للتطبيق بعد هذا التحديث يعتبر قبولاً للشروط المعدلة.
+
+ إنهاء الاستخدام
+نحتفظ بالحق في إنهاء أو تعليق وصولك إلى التطبيق في أي وقت، دون إشعار مسبق، إذا انتهكت هذه الشروط.
+3. حقوق الملكية الفكرية
+جميع حقوق النشر والعلامات التجارية وغيرها من الحقوق في التطبيق ومحتوياته مملوكة لنا. لا يجوز نسخ أي جزء من التطبيق أو توزيعه أو تعديله دون إذن صريح منا.
+4. الحد من المسؤولية
+تنفي الشركة أي مسؤولية ولا تضمن خلو التطبيق من الأخطاء أو العيوب أو أن الخدمات ستكون متاحة دائمًا.
+5. التغييرات
+ تعديل الشروط: للشركة الحق في تعديل هذه الشروط في أي وقت.
+ إلغاء الخدمة: للشركة الحق في إلغاء الخدمة أو أي جزء منها في أي وقت.
+6. الاتصال بنا
+إذا كانت لديك أي أسئلة حول هذه الشروط والأحكام، يرجى الاتصال بنا على [البريد الإلكتروني] أو [رقم الهاتف].''',
                 // Add your full text here
-                style: TextStyle(fontSize: 16),
+                style: Theme.of(context)
+                    .textTheme
+                    .titleSmall!
+                    .copyWith(color: ColorManager.darkBlueColor),
               ),
             ),
           ),
           CheckboxListTile(
+            checkColor: ColorManager.whiteColor,
+            activeColor: ColorManager.primaryBlueColor,
             title: Text(
-              'Accept the Privacy Policy and Terms and Conditions',
+              'accept the privacy policy and terms and conditions',
+              style: Theme.of(context)
+                  .textTheme
+                  .titleSmall!
+                  .copyWith(color: ColorManager.blackColor),
             ),
             value: isChecked,
             onChanged: (bool? value) {
@@ -77,12 +99,11 @@ If you have any questions about these terms and conditions, please contact us at
                     // Add your payment logic here
                   }
                 : null, // Disable the button if not checked
-            child: Text('المتابعة للدفع'),
-            style: TextButton.styleFrom(
-              backgroundColor: isChecked ? Colors.blue : Colors.grey,
-              foregroundColor: Colors.white,
-              padding: EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-              textStyle: TextStyle(fontSize: 18),
+            child: SmallElevatedbutton(
+              text: 'continue to pay',
+              onTap: () {
+                Navigator.pushReplacementNamed(context, Routes.homeScreenRoute);
+              },
             ),
           ),
         ],

@@ -7,7 +7,6 @@ import '../../resources/assets_manager.dart';
 import '../../resources/color_manager.dart';
 import '../../resources/strings_manager.dart';
 import '../../resources/values_manager.dart';
-import '../Offers_tab/offer_card.dart';
 import 'card_widget.dart';
 
 class Home_Tab extends StatefulWidget {
@@ -96,7 +95,7 @@ class _Home_TabState extends State<Home_Tab> {
               // Disable scrolling inside GridView
               shrinkWrap: true,
               // Let it take only necessary height
-              itemCount: 9,
+              itemCount: 6,
               // Replace with your apartments list length
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3, // Number of items per row
@@ -118,35 +117,35 @@ class _Home_TabState extends State<Home_Tab> {
             ),
           ),
           SizedBox(height: 5.h),
-          // More Ask Section______________________________________________________
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
-            child: Text(AppStrings.mostRequested,
-                style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    color: ColorManager.blackColor,
-                    fontWeight: FontWeight.bold)),
-          ),
-          Divider(
-            color: ColorManager.lightBlueColor,
-            thickness: 2,
-          ),
-          // More Ask list ______________________________________________________
-          Container(
-            padding: EdgeInsets.only(left: AppPadding.p6, top: AppPadding.p8),
-            height: 234.h,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              // Set the direction to horizontal
-              itemCount: 10,
-              // Replace with the number of items you want to display
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
-                  child: OffersCard(), // Custom widget to show image and text
-                );
-              },
-            ),
-          ),
+          // // More Ask Section______________________________________________________
+          // Padding(
+          //   padding: EdgeInsets.symmetric(horizontal: 16.w),
+          //   child: Text(AppStrings.mostRequested,
+          //       style: Theme.of(context).textTheme.titleMedium!.copyWith(
+          //           color: ColorManager.blackColor,
+          //           fontWeight: FontWeight.bold)),
+          // ),
+          // Divider(
+          //   color: ColorManager.lightBlueColor,
+          //   thickness: 2,
+          // ),
+          // // More Ask list ______________________________________________________
+          // Container(
+          //   padding: EdgeInsets.only(left: AppPadding.p6, top: AppPadding.p8),
+          //   height: 234.h,
+          //   child: ListView.builder(
+          //     scrollDirection: Axis.horizontal,
+          //     // Set the direction to horizontal
+          //     itemCount: 10,
+          //     // Replace with the number of items you want to display
+          //     itemBuilder: (context, index) {
+          //       return Padding(
+          //         padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+          //         child: OffersCard(), // Custom widget to show image and text
+          //       );
+          //     },
+          //   ),
+          // ),
           SizedBox(height: 20.h),
         ],
       ),

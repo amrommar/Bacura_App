@@ -20,7 +20,7 @@ class AppStrings {
   static const String gender = 'Gender'; //
   static const String city = 'City'; //
   static const String mobileNumber = 'Mobile Number'; //'رقم الهاتف';
-  static const String enterYourName = 'EnterYourName'; //'أدخل اسمك';
+  static const String enterYourName = 'Enter Your Name'; //'أدخل اسمك';
   static const String pleaseEnterYourName =
       'Please Enter Your Name'; // 'من فضلك أدخل اسمك';
   static const String enterYourMobileNumber =
