@@ -81,6 +81,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.6"
+  date_time_picker:
+    dependency: "direct main"
+    description:
+      name: date_time_picker
+      sha256: "6923c568bcb67a66ab7e083708d0adbcae8214b41bb84d49febc17e89e06fc4a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.0"
   dio:
     dependency: transitive
     description:
@@ -118,22 +126,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.0"
-  flutter_neat_and_clean_calendar:
-    dependency: "direct main"
-    description:
-      name: flutter_neat_and_clean_calendar
-      sha256: "0a759951486b113f64b8c996bf53b549a1dea447cbbf119405802948b6b403c3"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.4.15"
-  flutter_platform_widgets:
-    dependency: transitive
-    description:
-      name: flutter_platform_widgets
-      sha256: "84f39540cf433aa44b235b7fca6518d1bd30aa281d8196f00be60bc76cac96f4"
-      url: "https://pub.dev"
-    source: hosted
-    version: "7.0.1"
   flutter_screenutil:
     dependency: "direct main"
     description:
@@ -188,10 +180,10 @@ packages:
     dependency: transitive
     description:
       name: intl
-      sha256: d6f56758b7d3014a48af9701c085700aac781a92a87a62b1333b46d8879661cf
+      sha256: "910f85bce16fb5c6f614e117efa303e85a1731bb0081edf3604a2ae6e9a3cc91"
       url: "https://pub.dev"
     source: hosted
-    version: "0.19.0"
+    version: "0.17.0"
   intl_phone_field:
     dependency: "direct main"
     description:

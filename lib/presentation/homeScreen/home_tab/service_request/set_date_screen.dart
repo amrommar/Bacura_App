@@ -2,7 +2,6 @@ import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/widg
 import 'package:bacura_app/presentation/resources/color_manager.dart';
 import 'package:bacura_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_neat_and_clean_calendar/flutter_neat_and_clean_calendar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SetDate_Screen extends StatefulWidget {
@@ -21,52 +20,50 @@ class _SetDate_ScreenState extends State<SetDate_Screen> {
       body: Column(
         children: [
           /// Calender section /////////////////////////////////////
-          Expanded(
-              child: Container(
-            margin: EdgeInsets.only(top: 1.h),
-            decoration: BoxDecoration(
-                color: ColorManager.primaryBlueColor,
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(16),
-                    bottomRight: Radius.circular(16))),
-            child: Calendar(
-              isExpandable: true,
-              bottomBarColor: ColorManager.whiteColor,
-              bottomBarTextStyle: Theme.of(context)
-                  .textTheme
-                  .bodyMedium!
-                  .copyWith(color: ColorManager.darkBlueColor),
-              bottomBarArrowColor: ColorManager.darkBlueColor,
-              initialDate: DateTime.now(),
-              defaultOutOfMonthDayColor: ColorManager.lightGreyColor,
-              defaultDayColor: ColorManager.whiteColor,
-              displayMonthTextStyle: Theme.of(context)
-                  .textTheme
-                  .displayMedium!
-                  .copyWith(color: ColorManager.whiteColor),
-              showEventListViewIcon: false,
-              hideTodayIcon: true,
-              weekDays: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-              selectedColor: ColorManager.darkBlueColor,
-              selectedTodayColor: ColorManager.darkBlueColor,
-              todayColor: ColorManager.darkBlueColor,
-              locale: 'en_US',
-              topRowIconColor: ColorManager.whiteColor,
-              isExpanded: true,
-              expandableDateFormat: 'EEEE, dd. MMMM yyyy',
-              datePickerType: DatePickerType.date,
-              dayOfWeekStyle: TextStyle(
-                  color: ColorManager.whiteColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14),
-              onMonthChanged: (DateTime date) {
-                // Trigger any action on month change if needed
-                setState(() {
-                  // Update state or handle actions when the month changes
-                });
-              },
-            ),
-          )),
+          // Expanded(
+          //     child: Container(
+          //   margin: EdgeInsets.only(top: 1.h),
+          //   decoration: BoxDecoration(
+          //       color: ColorManager.primaryBlueColor,
+          //       borderRadius: BorderRadius.only(
+          //           bottomLeft: Radius.circular(16),
+          //           bottomRight: Radius.circular(16))),
+          //   // child: Calendar(
+          //   //   isExpandable: true,
+          //   //   bottomBarColor: ColorManager.whiteColor,
+          //   //   bottomBarTextStyle: Theme.of(context)
+          //   //       .textTheme
+          //   //       .bodyMedium!
+          //   //       .copyWith(color: ColorManager.darkBlueColor),
+          //   //   bottomBarArrowColor: ColorManager.darkBlueColor,
+          //   //   initialDate: DateTime.now(),
+          //   //   defaultOutOfMonthDayColor: ColorManager.lightGreyColor,
+          //   //   defaultDayColor: ColorManager.whiteColor,
+          //   //   displayMonthTextStyle: Theme.of(context)
+          //   //       .textTheme
+          //   //       .displayMedium!
+          //   //       .copyWith(color: ColorManager.whiteColor),
+          //   //   hideTodayIcon: true,
+          //   //   weekDays: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+          //   //   selectedColor: ColorManager.darkBlueColor,
+          //   //   selectedTodayColor: ColorManager.darkBlueColor,
+          //   //   todayColor: ColorManager.darkBlueColor,
+          //   //   locale: 'en_US',
+          //   //   isExpanded: true,
+          //   //   expandableDateFormat: 'EEEE, dd. MMMM yyyy',
+          //   //   datePickerType: DatePickerType.date,
+          //   //   dayOfWeekStyle: TextStyle(
+          //   //       color: ColorManager.whiteColor,
+          //   //       fontWeight: FontWeight.bold,
+          //   //       fontSize: 14),
+          //   //   onMonthChanged: (DateTime date) {
+          //   //     // Trigger any action on month change if needed
+          //   //     setState(() {
+          //   //       // Update state or handle actions when the month changes
+          //   //     });
+          //   //   },
+          //   // ),
+          // )),
 
           /// Set Time Section ////////////////////////////////////
           Container(

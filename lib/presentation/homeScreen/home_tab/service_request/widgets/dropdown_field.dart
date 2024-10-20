@@ -44,12 +44,13 @@ class _DropDown_FieldState extends State<DropDown_Field> {
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: ColorManager.greyColor,
+                      color: ColorManager.lightGreyColor,
                       width: AppSize.s1,
                     ),
                     borderRadius: BorderRadius.circular(AppSize.s8)),
               ),
               dropdownColor: ColorManager.whiteColor,
+              iconEnabledColor: ColorManager.primaryBlueColor,
 
               // Background color of the dropdown list
               items: widget.options.map((String option) {
@@ -57,7 +58,7 @@ class _DropDown_FieldState extends State<DropDown_Field> {
                   value: option,
                   child: Text(
                     option,
-                    style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
                         color: ColorManager
                             .darkBlueColor), // Text style for dropdown items
                   ),

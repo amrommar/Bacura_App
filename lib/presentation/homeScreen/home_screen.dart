@@ -10,7 +10,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 import '../resources/values_manager.dart';
-import 'Cart_tab/cart_tab.dart';
 
 class Home_Screen extends StatefulWidget {
   const Home_Screen({super.key});
@@ -20,18 +19,16 @@ class Home_Screen extends StatefulWidget {
 }
 
 class _Home_ScreenState extends State<Home_Screen> {
-  int currentIndex = 2;
+  int currentIndex = 1;
 
   List<Widget> Tabs = [
     More_Tab(),
-    Cart_Tab(),
     Home_Tab(),
     Requests_Tab(),
     Offers_Tab(),
   ];
   List<String> appBarTitles = [
     AppStrings.more,
-    AppStrings.cart,
     AppStrings.home,
     AppStrings.requests,
     AppStrings.offers,
@@ -115,14 +112,7 @@ class _Home_ScreenState extends State<Home_Screen> {
               icon: Icon(Icons.more_horiz, color: ColorManager.whiteColor),
               selectedColor: ColorManager.whiteColor),
 
-          /// Cart
-          SalomonBottomBarItem(
-              title: Text(AppStrings.cart),
-              icon: Icon(Icons.shopping_cart_outlined,
-                  color: ColorManager.whiteColor),
-              selectedColor: ColorManager.whiteColor),
-
-          /// Cart
+          /// home
           SalomonBottomBarItem(
             title: Text(AppStrings.home),
             icon: Icon(Icons.home_filled, color: ColorManager.whiteColor),
