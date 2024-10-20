@@ -8,9 +8,11 @@ class CustomRow_Details extends StatefulWidget {
   IconData icon;
   String text;
   String value;
+  Function() onTap;
 
   CustomRow_Details({
     required this.icon,
+    required this.onTap,
     required this.text,
     required this.value,
   });
@@ -49,12 +51,15 @@ class _CustomRow_DetailsState extends State<CustomRow_Details> {
           ],
         ),
         Spacer(),
-        Text(
-          AppStrings.edit,
-          style: Theme.of(context)
-              .textTheme
-              .titleSmall!
-              .copyWith(fontWeight: FontWeight.bold),
+        InkWell(
+          onTap: widget.onTap,
+          child: Text(
+            AppStrings.edit,
+            style: Theme.of(context)
+                .textTheme
+                .titleSmall!
+                .copyWith(fontWeight: FontWeight.bold),
+          ),
         )
       ],
     );

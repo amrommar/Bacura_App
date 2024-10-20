@@ -25,53 +25,44 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
           elevation: 0,
         ),
         body: SingleChildScrollView(
-          child: Column(
-            children: [
-              /// Avatar Section (profile image/ icons) ___________________________________________________________________
-              Stack(
-                clipBehavior: Clip.none,
-                // This allows the profile image to overflow out of the container
-                children: [
-                  // Blue background
-                  Container(
-                    height: 80.h,
-                    color: ColorManager.primaryBlueColor,
-                  ),
-                  // Profile image and edit icon
-                  Positioned(
+            child: Column(children: [
+          /// Avatar Section (profile image/ icons) ___________________________________________________________________
+          Stack(
+              clipBehavior: Clip.none,
+              // This allows the profile image to overflow out of the container
+              children: [
+                Container(height: 80.h, color: ColorManager.primaryBlueColor),
+                Positioned(
                     top: 20.h,
-                    // Adjust this to make the profile picture half outside the blue container
                     left: 0.w,
                     right: 0.w,
-                    child: Column(
-                      children: [
-                        Stack(
-                          children: [
-                            // Profile picture
-                            CircleAvatar(
+                    child: Column(children: [
+                      Stack(
+                        children: [
+                          // Profile picture
+                          CircleAvatar(
                               radius: 50,
-                              backgroundImage: AssetImage(
-                                  'assets/images/Ellipse 1.png'), // Replace with your image
+                              backgroundImage:
+                                  AssetImage('assets/images/Ellipse 1.png')),
+                          // Edit icon on top of the profile picture
+                          Positioned(
+                            bottom: 4.h,
+                            right: 5.w,
+                            child: CircleAvatar(
+                              backgroundColor: ColorManager.primaryBlueColor,
+                              radius: 12,
+                              child: Icon(Icons.camera_alt_outlined,
+                                  size: 15, color: ColorManager.whiteColor),
                             ),
-                            // Edit icon on top of the profile picture
-                            Positioned(
-                              bottom: 4.h,
-                              right: 5.w,
-                              child: CircleAvatar(
-                                backgroundColor: ColorManager.primaryBlueColor,
-                                radius: 12,
-                                child: Icon(Icons.camera_alt_outlined,
-                                    size: 15, color: ColorManager.whiteColor),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 8),
-                        // User name
-                        Row(
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 8),
+                      // User name
+                      Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Mohamed Salah",
+                            Text(AppStrings.userName,
                                 style: Theme.of(context)
                                     .textTheme
                                     .titleMedium!
@@ -79,161 +70,157 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
                                         color: ColorManager.darkBlueColor,
                                         fontWeight: FontWeight.bold)),
                             SizedBox(width: 5),
-                            Icon(Icons.drive_file_rename_outline,
-                                color: ColorManager.primaryBlueColor, size: 25),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 110.h),
+                            IconButton(
+                              onPressed: () {
+                                showEditDetailsBottomSheet(AppStrings.userName);
+                              },
+                              icon: Icon(Icons.drive_file_rename_outline,
+                                  color: ColorManager.primaryBlueColor,
+                                  size: 25),
+                            ),
+                          ])
+                    ]))
+              ]),
+          SizedBox(height: 110.h),
 
-              /// Details Section (number / email / gender / city) ___________________________________________________________________
-              Custom_Container(
-                childWidget: Column(
-                  children: [
-                    CustomRow_Details(
-                      icon: Icons.phone_outlined,
-                      text: AppStrings.mobileNumber,
-                      value: '+966535685692',
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.symmetric(vertical: 2),
-                      child: Divider(
-                        color: ColorManager.lightBlueColor,
-                      ),
-                    ),
-                    CustomRow_Details(
-                        icon: Icons.mail_outline_outlined,
-                        text: AppStrings.email,
-                        value: 'amr1522@gmail.com'),
-                    Padding(
-                      padding: EdgeInsetsDirectional.symmetric(vertical: 2),
-                      child: Divider(
-                        color: ColorManager.lightBlueColor,
-                      ),
-                    ),
-                    CustomRow_Details(
-                        icon: Icons.transgender_outlined,
-                        text: AppStrings.gender,
-                        value: 'Male'),
-                    Padding(
-                      padding: EdgeInsetsDirectional.symmetric(vertical: 2),
-                      child: Divider(
-                        color: ColorManager.lightBlueColor,
-                      ),
-                    ),
-                    CustomRow_Details(
-                        icon: Icons.location_on_outlined,
-                        text: AppStrings.city,
-                        value: 'Riyad'),
-                  ],
-                ),
-              ),
-
-              /// Wallet Section ___________________________________________________________________
-              InkWell(
+          /// Details Section (number / email / gender / city) ___________________________________________________________________
+          Custom_Container(
+              childWidget: Column(children: [
+            CustomRow_Details(
+              icon: Icons.phone_outlined,
+              text: AppStrings.mobileNumber,
+              value: '+966535685692',
+              onTap: () {
+                showEditDetailsBottomSheet(AppStrings.mobileNumber);
+              },
+            ),
+            Padding(
+                padding: EdgeInsetsDirectional.symmetric(vertical: 2),
+                child: Divider(color: ColorManager.lightBlueColor)),
+            CustomRow_Details(
                 onTap: () {
-                  Navigator.pushNamed(context, Routes.walletDetailsRoute);
+                  showEditDetailsBottomSheet(AppStrings.email);
                 },
-                child: Custom_Container(
-                  childWidget: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.account_balance_wallet_outlined,
-                        color: ColorManager.greyColor,
-                      ),
-                      SizedBox(width: 10.w),
-                      Text(AppStrings.walletManagement,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium!
-                              .copyWith(color: ColorManager.darkBlueColor)),
-                      Spacer(),
-                      Text('1000 SR',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium!
-                              .copyWith(color: ColorManager.primaryBlueColor)),
-                      Icon(
-                        Icons.navigate_next_rounded,
-                        size: 28,
-                        color: ColorManager.blackColor,
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(height: 60.h),
+                icon: Icons.mail_outline_outlined,
+                text: AppStrings.email,
+                value: 'amr1522@gmail.com'),
+            Padding(
+                padding: EdgeInsetsDirectional.symmetric(vertical: 2),
+                child: Divider(color: ColorManager.lightBlueColor)),
+            CustomRow_Details(
+                onTap: () {
+                  showEditDetailsBottomSheet(AppStrings.gender);
+                },
+                icon: Icons.transgender_outlined,
+                text: AppStrings.gender,
+                value: 'Male'),
+            Padding(
+                padding: EdgeInsetsDirectional.symmetric(vertical: 2),
+                child: Divider(color: ColorManager.lightBlueColor)),
+            CustomRow_Details(
+                onTap: () {
+                  showEditDetailsBottomSheet(AppStrings.city);
+                },
+                icon: Icons.location_on_outlined,
+                text: AppStrings.city,
+                value: 'Riyad'),
+          ])),
 
-              /// Logout Button____________________________________________
-              Padding(
-                padding: const EdgeInsets.all(AppPadding.p12),
-                child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(),
-                    onPressed: () {
-                      Navigator.pushAndRemoveUntil(
+          /// Wallet Section ___________________________________________________________________
+          InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, Routes.walletDetailsRoute);
+              },
+              child: Custom_Container(
+                  childWidget: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                    Icon(Icons.account_balance_wallet_outlined,
+                        color: ColorManager.greyColor),
+                    SizedBox(width: 10.w),
+                    Text(AppStrings.walletManagement,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(color: ColorManager.darkBlueColor)),
+                    Spacer(),
+                    Text('1000 SR',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(color: ColorManager.primaryBlueColor)),
+                    Icon(Icons.navigate_next_rounded,
+                        size: 28, color: ColorManager.blackColor)
+                  ]))),
+          SizedBox(height: 60.h),
+
+          /// Logout Button____________________________________________
+          Padding(
+              padding: const EdgeInsets.all(AppPadding.p12),
+              child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(),
+                  onPressed: () {
+                    Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
                             builder: (context) => Getstarted_Screen()),
-                        // New screen
                         ModalRoute.withName(Routes
-                            .getStartedRoute), // Will remove all routes until this one
-                      );
-                    },
-                    child: Row(
+                            .getStartedRoute)); // Will remove all routes until this one
+                  },
+                  child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          AppStrings.logout,
-                          style: Theme.of(context).textTheme.titleMedium,
-                        ),
-                        SizedBox(
-                          width: 10.w,
-                        ),
-                        Icon(
-                          Icons.login_outlined,
-                          color: ColorManager.whiteColor,
-                          size: 25,
-                        )
-                      ],
-                    )),
-              )
-            ],
-          ),
-        ));
+                        Text(AppStrings.logout,
+                            style: Theme.of(context).textTheme.titleMedium),
+                        SizedBox(width: 10.w),
+                        Icon(Icons.login_outlined,
+                            color: ColorManager.whiteColor, size: 25)
+                      ])))
+        ])));
+  }
+
+  showEditDetailsBottomSheet(String text) {
+    showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          if (text == AppStrings.mobileNumber) {
+            return Container(
+              height: 200.h,
+              width: double.infinity,
+              padding: EdgeInsets.all(16.0),
+              child: Text('Mobile Number'),
+            );
+          } else if (text == AppStrings.userName) {
+            return Container(
+              height: 400.h,
+              width: double.infinity,
+              padding: EdgeInsets.all(16.0),
+              child: Text('User Name'),
+            );
+          } else if (text == AppStrings.city) {
+            return Container(
+              height: 400.h,
+              width: double.infinity,
+              padding: EdgeInsets.all(16.0),
+              child: Text('City'),
+            );
+          } else if (text == AppStrings.gender) {
+            return Container(
+              height: 400.h,
+              width: double.infinity,
+              padding: EdgeInsets.all(16.0),
+              child: Text('Gander'),
+            );
+          } else if (text == AppStrings.email) {
+            return Container(
+              height: 400.h,
+              width: double.infinity,
+              padding: EdgeInsets.all(16.0),
+              child: Text('Email'),
+            );
+          }
+          return Container(height: 100.h);
+        });
   }
 }
-
-// Container(
-//   color: ColorManager.primaryBlueColor,
-//   padding: EdgeInsets.all(16),
-//   child: Column(
-//     children: [
-//       CircleAvatar(
-//         radius: 50,
-//         backgroundImage: AssetImage(
-//             'assets/images/Ellipse 1.png'), // Replace with your image
-//       ),
-//       Row(
-//         mainAxisAlignment: MainAxisAlignment.center,
-//         children: [
-//           Icon(Icons.drive_file_rename_outline,
-//               color: Colors.white, size: 20),
-//           SizedBox(width: 8),
-//           Text(
-//             "محمد صالح",
-//             style: TextStyle(
-//                 fontSize: 20,
-//                 fontWeight: FontWeight.bold,
-//                 color: Colors.white),
-//           ),
-//         ],
-//       ),
-//     ],
-//   ),
-// ),

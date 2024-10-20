@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../resources/color_manager.dart';
-import '../../resources/values_manager.dart';
+import '../../../resources/color_manager.dart';
+import '../../../resources/values_manager.dart';
 
 class Custom_Request_Container extends StatelessWidget {
   Color backgroundColor;

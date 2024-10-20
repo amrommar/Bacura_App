@@ -1,4 +1,5 @@
 import 'package:bacura_app/presentation/personal/custom_container.dart';
+import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:bacura_app/presentation/resources/strings_manager.dart';
 import 'package:bacura_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
@@ -162,9 +163,15 @@ class _Wallet_DetailsState extends State<Wallet_Details> {
                                   color: ColorManager.darkBlueColor,
                                   fontWeight: FontWeight.bold),
                         ),
-                        Text(
-                          AppStrings.all,
-                          style: Theme.of(context).textTheme.titleSmall,
+                        InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(
+                                context, Routes.lastOperationsRoute);
+                          },
+                          child: Text(
+                            AppStrings.all,
+                            style: Theme.of(context).textTheme.titleSmall,
+                          ),
                         ),
                       ],
                     ),
