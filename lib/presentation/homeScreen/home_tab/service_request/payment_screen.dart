@@ -1,12 +1,11 @@
 import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/widgets/small_elevatedbutton.dart';
-import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/widgets/termsconditions_bottomsheet.dart';
+import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/widgets/verifyOTP_bottomsheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../../../resources/color_manager.dart';
 import '../../../resources/values_manager.dart';
-import '../../More_tab/cards_management/add_card_bottomsheet.dart';
 
 class Payment_Screen extends StatefulWidget {
   @override
@@ -14,6 +13,7 @@ class Payment_Screen extends StatefulWidget {
 }
 
 class _Payment_ScreenState extends State<Payment_Screen> {
+  bool isChecked = false;
   TextEditingController cardNumberController = TextEditingController();
   TextEditingController nameController = TextEditingController();
   TextEditingController cvvController = TextEditingController();
@@ -36,83 +36,178 @@ class _Payment_ScreenState extends State<Payment_Screen> {
             children: [
               /// Payment Methods Containers ////////////////////////////////////////////////////////////////////
               Custom_Payment_Container(
-                  imgPath: 'assets/images/logos_mastercard.png'),
+                  widget: Text('Saved Cards',
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleLarge!
+                          .copyWith(color: ColorManager.darkBlueColor))),
               Custom_Payment_Container(
-                  imgPath: 'assets/images/Mada_Logo.svg 1.png'),
+                  widget: Image.asset('assets/images/logos_mastercard.png')),
               Custom_Payment_Container(
-                  imgPath: 'assets/images/logos_mastercard.png'),
+                  widget: Image.asset('assets/images/Mada_Logo.svg 1.png')),
               Custom_Payment_Container(
-                  imgPath: 'assets/images/Mada_Logo.svg 1.png'),
-              SizedBox(height: 20.h),
+                  widget: Text('Pay From Wallet',
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleLarge!
+                          .copyWith(color: ColorManager.darkBlueColor))),
+              SizedBox(height: 250.h),
 
-              /// Add Card Details Container ////////////////////////////////////////////////////////////////////
-              Padding(
-                padding: const EdgeInsets.all(6),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    /// Enter Card Number TextField ////////////////////////////////////////
-                    CardCustom_TxtField(
-                        hintText: 'Enter Card Number',
-                        controller: cardNumberController,
-                        keyboardType: TextInputType.number,
-                        validator: (value) {
-                          if (value == null || value.trim().isEmpty) {
-                            return 'Please Enter Card Number';
-                          }
-                          return null;
-                        }),
-                    SizedBox(height: 8.h),
+              /// Terms And Conditions container /////////////////////////////////////////////////////
+              Container(
+                  height: 150.h,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: SingleChildScrollView(
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              color: ColorManager.midWhiteColor,
+                            ),
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              '''الشروط والأحكام
+                                
+مرحبًا بكم في Bacura
+توفر هذه الشروط والأحكام الأساس القانوني لاستخدامك للتطبيق والخدمات المرتبطة به.
 
-                    /// Enter Expire date & CVV TextField ////////////////////////////////////////
-                    Row(
-                      children: [
-                        Expanded(
-                          child: CardCustom_TxtField(
-                              hintText: 'CVV',
-                              controller: cvvController,
-                              keyboardType: TextInputType.number,
-                              validator: (value) {
-                                if (value == null || value.trim().isEmpty) {
-                                  return 'Please Enter CVV';
-                                }
-                                return null;
-                              }),
+قبول الشروط: باستخدام التطبيق، فإنك توافق على الالتزام بهذه الشروط. إذا كنت لا توافق على أي من هذه الشروط، يرجى عدم
+استخدام التطبيق
+
+1. التعاريف
+ التطبيق: يشير إلى [اسم التطبيق] وجميع خدماته والمحتوى المرتبط به.
+ الخدمات: تعني جميع الخدمات والميزات التي يوفرها التطبيق.
+ المستخدم: أي شخص يستخدم التطبيق أو أي من خدماته.
+ مزود الخدمة: أي طرف يقدم الخدمات الفعلية للمستخدمين النهائيين أو العملاء
+ مزود الخدمة: أي طرف يقدم البنية الأساسية أو التقنيات أو الأنظمة التي يعمل عليها التطبيق
+
+2. شروط الاستخدام
+ الأهلية
+يجب أن يكون المستخدمون في سن قانونية لإبرام عقد ملزم أو الحصول على موافقة والديهم أو الوصي القانوني لاستخدام التطبيق.
+ الاستخدام المقبول
+يجب على المستخدمين استخدام التطبيق فقط للأغراض التي صُمم التطبيق من أجلها وبطريقة لا تنتهك حقوق الآخرين أو تؤثر سلبًا على تشغيل التطبيق. ويشمل ذلك عدم استخدام التطبيق للاحتيال أو المضايقة أو أي استخدام غير قانوني.
+
+ إنشاء حساب
+يجب عليك إنشاء حساب لاستخدام خدمات التطبيق.
+
+ إرفاق المستندات
+قد يتطلب استخدام بعض خدمات التطبيق إرفاق المستندات. يجب على المستخدمين تقديم معلومات صحيحة ودقيقة وحديثة عند إرسال هذه المستندات، والتأكد من أن جميع البيانات والمعلومات المقدمة تتوافق مع المتطلبات المحددة للخدمة.
+
+ الاستخدام المستمر
+بمجرد نشر التعديلات على الشروط، فإن استخدامك للتطبيق بعد هذا التحديث يعتبر قبولاً للشروط المعدلة.
+
+ إنهاء الاستخدام
+نحتفظ بالحق في إنهاء أو تعليق وصولك إلى التطبيق في أي وقت، دون إشعار مسبق، إذا انتهكت هذه الشروط.
+3. حقوق الملكية الفكرية
+جميع حقوق النشر والعلامات التجارية وغيرها من الحقوق في التطبيق ومحتوياته مملوكة لنا. لا يجوز نسخ أي جزء من التطبيق أو توزيعه أو تعديله دون إذن صريح منا.
+4. الحد من المسؤولية
+تنفي الشركة أي مسؤولية ولا تضمن خلو التطبيق من الأخطاء أو العيوب أو أن الخدمات ستكون متاحة دائمًا.
+5. التغييرات
+ تعديل الشروط: للشركة الحق في تعديل هذه الشروط في أي وقت.
+ إلغاء الخدمة: للشركة الحق في إلغاء الخدمة أو أي جزء منها في أي وقت.
+6. الاتصال بنا
+إذا كانت لديك أي أسئلة حول هذه الشروط والأحكام، يرجى الاتصال بنا على [البريد الإلكتروني] أو [رقم الهاتف].''',
+                              // Add your full text here
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall!
+                                  .copyWith(color: ColorManager.darkBlueColor),
+                            ),
+                          ),
                         ),
-                        Expanded(
-                          child: CardCustom_TxtField(
-                              hintText: 'MM/YY',
-                              controller: mmyyController,
-                              keyboardType: TextInputType.number,
-                              inputFormatter: [maskFormatter],
-                              // Use mask formatter here
-                              validator: (value) {
-                                if (value == null || value.trim().isEmpty) {
-                                  return 'Please Enter MM/YY';
-                                }
-                                return null;
-                              }),
+                      ),
+                      CheckboxListTile(
+                        checkColor: ColorManager.whiteColor,
+                        activeColor: ColorManager.primaryBlueColor,
+                        title: Text(
+                          'accept the privacy policy and terms and conditions',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall!
+                              .copyWith(color: ColorManager.blackColor),
                         ),
-                      ],
-                    ),
-                    SizedBox(height: 8.h),
-
-                    /// Enter Name TextField ////////////////////////////////////////
-                    CardCustom_TxtField(
-                        hintText: 'Enter Name',
-                        controller: nameController,
-                        keyboardType: TextInputType.text,
-                        validator: (value) {
-                          if (value == null || value.trim().isEmpty) {
-                            return 'Please Enter Name';
-                          }
-                          return null;
-                        }),
-                  ],
-                ),
-              ),
-              SizedBox(height: 130.h),
+                        value: isChecked,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            isChecked = value ?? false;
+                          });
+                        },
+                        controlAffinity: ListTileControlAffinity
+                            .leading, // places the checkbox to the left
+                      ),
+                    ],
+                  )),
+              // /// Add Card Details Container ////////////////////////////////////////////////////////////////////
+              // Padding(
+              //   padding: const EdgeInsets.all(6),
+              //   child: Column(
+              //     crossAxisAlignment: CrossAxisAlignment.start,
+              //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //     children: [
+              //       /// Enter Card Number TextField ////////////////////////////////////////
+              //       CardCustom_TxtField(
+              //           hintText: 'Enter Card Number',
+              //           controller: cardNumberController,
+              //           keyboardType: TextInputType.number,
+              //           validator: (value) {
+              //             if (value == null || value.trim().isEmpty) {
+              //               return 'Please Enter Card Number';
+              //             }
+              //             return null;
+              //           }),
+              //       SizedBox(height: 8.h),
+              //
+              //       /// Enter Expire date & CVV TextField ////////////////////////////////////////
+              //       Row(
+              //         children: [
+              //           Expanded(
+              //             child: CardCustom_TxtField(
+              //                 hintText: 'CVV',
+              //                 controller: cvvController,
+              //                 keyboardType: TextInputType.number,
+              //                 validator: (value) {
+              //                   if (value == null || value.trim().isEmpty) {
+              //                     return 'Please Enter CVV';
+              //                   }
+              //                   return null;
+              //                 }),
+              //           ),
+              //           Expanded(
+              //             child: CardCustom_TxtField(
+              //                 hintText: 'MM/YY',
+              //                 controller: mmyyController,
+              //                 keyboardType: TextInputType.number,
+              //                 inputFormatter: [maskFormatter],
+              //                 // Use mask formatter here
+              //                 validator: (value) {
+              //                   if (value == null || value.trim().isEmpty) {
+              //                     return 'Please Enter MM/YY';
+              //                   }
+              //                   return null;
+              //                 }),
+              //           ),
+              //         ],
+              //       ),
+              //       SizedBox(height: 8.h),
+              //
+              //       /// Enter Name TextField ////////////////////////////////////////
+              //       CardCustom_TxtField(
+              //           hintText: 'Enter Name',
+              //           controller: nameController,
+              //           keyboardType: TextInputType.text,
+              //           validator: (value) {
+              //             if (value == null || value.trim().isEmpty) {
+              //               return 'Please Enter Name';
+              //             }
+              //             return null;
+              //           }),
+              //     ],
+              //   ),
+              // ),
 
               /// Pay Button & Price Container ////////////////////////////////////////////////////////////////////
               Container(
@@ -160,7 +255,7 @@ class _Payment_ScreenState extends State<Payment_Screen> {
                     SmallElevatedbutton(
                         text: 'Pay',
                         onTap: () {
-                          showTermsBottomSheet();
+                          showVerifyOTPBottomSheet();
                         }),
                   ],
                 ),
@@ -172,7 +267,7 @@ class _Payment_ScreenState extends State<Payment_Screen> {
     );
   }
 
-  void showTermsBottomSheet() {
+  void showVerifyOTPBottomSheet() {
     showModalBottomSheet(
       context: context,
       builder: (context) {
@@ -183,9 +278,9 @@ class _Payment_ScreenState extends State<Payment_Screen> {
 }
 
 class Custom_Payment_Container extends StatelessWidget {
-  String imgPath;
+  Widget widget;
 
-  Custom_Payment_Container({required this.imgPath});
+  Custom_Payment_Container({required this.widget});
 
   @override
   Widget build(BuildContext context) {
@@ -208,7 +303,10 @@ class Custom_Payment_Container extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Image.asset(imgPath, height: 50.h),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12),
+            child: widget,
+          ),
           Padding(
               padding: const EdgeInsets.all(8.0),
               child: Icon(Icons.circle_outlined,

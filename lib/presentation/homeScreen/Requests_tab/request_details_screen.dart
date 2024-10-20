@@ -3,6 +3,7 @@ import 'package:bacura_app/presentation/resources/color_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../resources/values_manager.dart';
 
@@ -239,10 +240,8 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
                 iconColor: ColorManager.midBlueColor,
               ),
               Divider(),
-              SizedBox(height: 20.h),
-              manageRequestButtons(ColorManager.yellowColor)
-
-              /// Request Management Elevated Button//////////////////////////////////////////
+              SizedBox(height: 50.h),
+              manageRequestButtons(ColorManager.greenColor)
             ],
           ),
         ),
@@ -252,6 +251,7 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
 
   Widget manageRequestButtons(Color requestColor) {
     if (requestColor == ColorManager.yellowColor) {
+      //////////           Request Management Elevated Button              //////////////////////////////////////////
       return Container(
         margin: EdgeInsets.symmetric(horizontal: 35.w, vertical: 15.h),
         child: ElevatedButton(
@@ -277,6 +277,8 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
             )),
       );
     } else if (requestColor == ColorManager.redColor) {
+      //////////           Request Cancelled icon and text             //////////////////////////////////////////
+
       return Column(
         children: [
           Text(
@@ -293,6 +295,8 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
         ],
       );
     } else if (requestColor == ColorManager.greenColor) {
+      //////////          Completed Request button and text             //////////////////////////////////////////
+
       return Column(
         children: [
           ElevatedButton(
@@ -308,10 +312,21 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
                     fontWeight: FontWeight.bold),
               )),
           SizedBox(height: 20.h),
-          Text(
-            'Print Receipt',
-            style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                color: ColorManager.greyColor, fontWeight: FontWeight.w500),
+          InkWell(
+            ///////////////////////////        to go to the receipt file        /////////////////////////////////////
+            onTap: () async {
+              final Uri url = Uri.parse(
+                  'https://printo.in/designs/t/bill-receipt-a5-billbook');
+              if (!await launchUrl(url)) {
+                throw Exception('Could not launch $url');
+              }
+            },
+            child: Text(
+              'Receipt',
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  color: ColorManager.darkBlueColor,
+                  fontWeight: FontWeight.w500),
+            ),
           )
         ],
       );
