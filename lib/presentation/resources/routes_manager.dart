@@ -1,6 +1,10 @@
 import 'package:bacura_app/presentation/homeScreen/More_tab/cards_management/cards_management_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/More_tab/privacy_policy/privacy_policy_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/More_tab/suggestions/suggestions_screen.dart';
+import 'package:bacura_app/presentation/homeScreen/More_tab/technical%20support/complaints_screen.dart';
+import 'package:bacura_app/presentation/homeScreen/More_tab/technical%20support/frequently_asked_questions_screen.dart';
+import 'package:bacura_app/presentation/homeScreen/More_tab/technical%20support/technical_support_screen.dart';
+import 'package:bacura_app/presentation/homeScreen/More_tab/technical%20support/userguide_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/More_tab/terms_and_conditions/terms_conditions_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/Offers_tab/offer_details_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/Requests_tab/request_details_screen.dart';
@@ -54,6 +58,11 @@ class Routes {
   static const String notificationsRoute = '/notifications';
   static const String customerServiceRoute = '/customerService';
   static const String paymentScreenRoute = '/paymentScreen';
+  static const String technicalSupportRoute = '/technicalSupport';
+  static const String complaintScreenRoute = '/complaintScreen';
+  static const String frequentlyAskedQuestionsRoute =
+      '/frequentlyAskedQuestions';
+  static const String userGuideRoute = '/userGuide';
   static const String testRoute = '/test';
 }
 
@@ -112,6 +121,15 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => Customerservice_Screen());
       case Routes.paymentScreenRoute:
         return MaterialPageRoute(builder: (_) => Payment_Screen());
+      case Routes.technicalSupportRoute:
+        return MaterialPageRoute(builder: (_) => TechnicalSupport_Screen());
+      case Routes.complaintScreenRoute:
+        return MaterialPageRoute(builder: (_) => Complaint_Screen());
+      case Routes.frequentlyAskedQuestionsRoute:
+        return MaterialPageRoute(
+            builder: (_) => FrequentlyAskedQuestions_Screen());
+      case Routes.userGuideRoute:
+        return MaterialPageRoute(builder: (_) => UserGuide_Screen());
 
       /// text screen //////////////////////////
       case Routes.testRoute:

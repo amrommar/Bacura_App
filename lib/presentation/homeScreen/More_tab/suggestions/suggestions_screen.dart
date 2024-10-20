@@ -19,9 +19,6 @@ class _Suggestions_ScreenState extends State<Suggestions_Screen> {
   var mobileNumberController = TextEditingController();
   var suggestionsController = TextEditingController();
 
-  String selectedOption = 'IP';
-  final List<String> options = ['Analog', 'IP', 'Wireless'];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

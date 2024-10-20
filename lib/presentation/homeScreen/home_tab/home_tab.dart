@@ -56,7 +56,27 @@ class _Home_TabState extends State<Home_Tab> {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(ImageAssets.ad1Image),
+                      image: AssetImage('assets/images/بنر---1.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/بنر---2.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/بنر-3--.jpg'),
                       fit: BoxFit.cover,
                     ),
                     borderRadius: BorderRadius.circular(8),
@@ -117,6 +137,19 @@ class _Home_TabState extends State<Home_Tab> {
             ),
           ),
           SizedBox(height: 5.h),
+
+          Center(
+            child: Container(
+              width: 400.w,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.asset('assets/images/قسم الااستشارات-01.jpg')),
+            ),
+          ),
+
           // // More Ask Section______________________________________________________
           // Padding(
           //   padding: EdgeInsets.symmetric(horizontal: 16.w),

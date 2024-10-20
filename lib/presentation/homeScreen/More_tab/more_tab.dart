@@ -1,3 +1,4 @@
+import 'package:bacura_app/presentation/homeScreen/More_tab/appRating/app_rating_bottom_sheet.dart';
 import 'package:bacura_app/presentation/homeScreen/More_tab/custom_more_row.dart';
 import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:bacura_app/presentation/resources/strings_manager.dart';
@@ -42,7 +43,11 @@ class _More_TabState extends State<More_Tab> {
           Custom_More_row(text: AppStrings.who_are_we, onTap: () {}),
 
           ///technical_support tab //////////////////////////////
-          Custom_More_row(text: AppStrings.technical_support, onTap: () {}),
+          Custom_More_row(
+              text: AppStrings.technical_support,
+              onTap: () {
+                Navigator.pushNamed(context, Routes.technicalSupportRoute);
+              }),
 
           ///terms_and_conditions tab //////////////////////////////
           Custom_More_row(
@@ -70,7 +75,11 @@ class _More_TabState extends State<More_Tab> {
               }),
 
           ///appRating tab //////////////////////////////
-          Custom_More_row(text: AppStrings.appRating, onTap: () {}),
+          Custom_More_row(
+              text: AppStrings.appRating,
+              onTap: () {
+                showAppRatingBottomSheet();
+              }),
 
           ///app_Language tab //////////////////////////////
           Container(
@@ -203,6 +212,15 @@ class _More_TabState extends State<More_Tab> {
           ),
         ],
       ),
+    );
+  }
+
+  void showAppRatingBottomSheet() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return AppRating_BottomSheet();
+      },
     );
   }
 }

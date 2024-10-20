@@ -46,7 +46,7 @@ class _ServiceType_ScreenState extends State<ServiceType_Screen> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(AppSize.s8))),
                   onPressed: () {
-                    Navigator.pushNamed(context, Routes.setDateRoute);
+                    Navigator.pushNamed(context, Routes.serviceDetailsRoute);
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
