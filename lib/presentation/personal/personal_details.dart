@@ -1,5 +1,8 @@
 import 'package:bacura_app/presentation/getStarted/getstarted_screen.dart';
-import 'package:bacura_app/presentation/personal/custom_container.dart';
+import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/widgets/small_elevatedbutton.dart';
+import 'package:bacura_app/presentation/personal/widgets/custom_container.dart';
+import 'package:bacura_app/presentation/register/custom_phonefield.dart';
+import 'package:bacura_app/presentation/register/custom_textformfield.dart';
 import 'package:bacura_app/presentation/resources/color_manager.dart';
 import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:bacura_app/presentation/resources/strings_manager.dart';
@@ -7,7 +10,8 @@ import 'package:bacura_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'custom_row_details.dart';
+import '../homeScreen/home_tab/service_request/widgets/dropdown_field.dart';
+import 'widgets/custom_row_details.dart';
 
 class PersonalDetails_Screen extends StatefulWidget {
   const PersonalDetails_Screen({super.key});
@@ -46,6 +50,7 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
                                   AssetImage('assets/images/Ellipse 1.png')),
                           // Edit icon on top of the profile picture
                           Positioned(
+                            ///////////////////////   want method to edit image /////////////////////////////////
                             bottom: 4.h,
                             right: 5.w,
                             child: CircleAvatar(
@@ -70,14 +75,9 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
                                         color: ColorManager.darkBlueColor,
                                         fontWeight: FontWeight.bold)),
                             SizedBox(width: 5),
-                            IconButton(
-                              onPressed: () {
-                                showEditDetailsBottomSheet(AppStrings.userName);
-                              },
-                              icon: Icon(Icons.drive_file_rename_outline,
-                                  color: ColorManager.primaryBlueColor,
-                                  size: 25),
-                            ),
+                            //////////////////////// Want method to edit the Name /////////////////////
+                            Icon(Icons.drive_file_rename_outline,
+                                color: ColorManager.primaryBlueColor, size: 25),
                           ])
                     ]))
               ]),
@@ -181,43 +181,121 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
   }
 
   showEditDetailsBottomSheet(String text) {
+    var mobileNumberController = TextEditingController();
+    // var cityController = TextEditingController();
+    // var genderController = TextEditingController();
+    var emailController = TextEditingController();
+    final List<String> genderOptions = ['Male', 'Female'];
+    final List<String> cityOptions = ['Riyad', 'Jadah', 'Makka', 'Damam'];
     showModalBottomSheet(
         context: context,
         builder: (context) {
           if (text == AppStrings.mobileNumber) {
             return Container(
-              height: 200.h,
-              width: double.infinity,
-              padding: EdgeInsets.all(16.0),
-              child: Text('Mobile Number'),
-            );
-          } else if (text == AppStrings.userName) {
+                height: 250.h,
+                padding: EdgeInsets.all(20),
+                child: SingleChildScrollView(
+                  child: Column(children: [
+                    Custom_PhoneField(
+                      hintText: AppStrings.enterYourMobileNumber,
+                      controller: mobileNumberController,
+                      fieldName: AppStrings.mobileNumber,
+                      validator: (value) {
+                        if (value == null) {
+                          return AppStrings.pleaseEnterYourMobileNumber;
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(height: 20.h),
+                    SmallElevatedbutton(
+                        text: 'Save',
+                        onTap: () {
+                          /////////////////////// Method to save changes //////////////////////
+                          Navigator.pop(context);
+                        })
+                  ]),
+                ));
+          } else if (text == AppStrings.email) {
             return Container(
-              height: 400.h,
-              width: double.infinity,
-              padding: EdgeInsets.all(16.0),
-              child: Text('User Name'),
-            );
-          } else if (text == AppStrings.city) {
-            return Container(
-              height: 400.h,
-              width: double.infinity,
-              padding: EdgeInsets.all(16.0),
-              child: Text('City'),
+              height: 250.h,
+              padding: EdgeInsets.all(20),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Custom_TextFormField(
+                      fieldName: AppStrings.email,
+                      hintText: AppStrings.email,
+                      controller: emailController,
+                    ),
+                    SizedBox(height: 20.h),
+                    SmallElevatedbutton(
+                        text: 'Save',
+                        onTap: () {
+                          /////////////////////// Method to save changes //////////////////////
+                          Navigator.pop(context);
+                        })
+                  ],
+                ),
+              ),
             );
           } else if (text == AppStrings.gender) {
             return Container(
-              height: 400.h,
-              width: double.infinity,
-              padding: EdgeInsets.all(16.0),
-              child: Text('Gander'),
+              height: 250.h,
+              padding: EdgeInsets.all(20),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    DropDown_Field(
+                      selectedOption: 'Male',
+                      options: genderOptions,
+                      fieldName: 'Gender',
+                    ),
+                    SizedBox(height: 20.h),
+                    SmallElevatedbutton(
+                        text: 'Save',
+                        onTap: () {
+                          /////////////////////// Method to save changes //////////////////////
+                          Navigator.pop(context);
+                        })
+                  ],
+                ),
+              ),
             );
-          } else if (text == AppStrings.email) {
+          } else if (text == AppStrings.city) {
             return Container(
-              height: 400.h,
-              width: double.infinity,
-              padding: EdgeInsets.all(16.0),
-              child: Text('Email'),
+              height: 250.h,
+              padding: EdgeInsets.all(20),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    DropDown_Field(
+                      selectedOption: 'Riyad',
+                      options: cityOptions,
+                      fieldName: 'City',
+                    ),
+                    SizedBox(height: 20.h),
+                    SmallElevatedbutton(
+                        text: 'Save',
+                        onTap: () {
+                          /////////////////////// Method to save changes //////////////////////
+                          Navigator.pop(context);
+                        })
+                  ],
+                ),
+              ),
+            );
+          } else if (text == AppStrings.userName) {
+            return Custom_PhoneField(
+              hintText: AppStrings.email,
+              controller: emailController,
+              fieldName: AppStrings.email,
+              validator: (value) {
+                if (value == null) {
+                  return AppStrings.email;
+                }
+                return null;
+              },
             );
           }
           return Container(height: 100.h);

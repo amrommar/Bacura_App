@@ -15,6 +15,7 @@ import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/serv
 import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/set_location_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/technicalquestions_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/notifications_screen/notifications_screen.dart';
+import 'package:bacura_app/presentation/personal/Invoice_details_screen.dart';
 import 'package:bacura_app/presentation/personal/lastoperations_screen.dart';
 import 'package:bacura_app/presentation/resources/strings_manager.dart';
 import 'package:bacura_app/presentation/test/test_screen.dart';
@@ -63,6 +64,7 @@ class Routes {
       '/frequentlyAskedQuestions';
   static const String userGuideRoute = '/userGuide';
   static const String lastOperationsRoute = '/lastOperations';
+  static const String invoiceDetailsRoute = '/invoiceDetails';
   static const String testRoute = '/test';
 }
 
@@ -113,7 +115,6 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => TermsConditions_Screen());
       case Routes.suggestionsRoute:
         return MaterialPageRoute(builder: (_) => Suggestions_Screen());
-
       case Routes.notificationsRoute:
         return MaterialPageRoute(builder: (_) => Notifications_Screen());
       case Routes.customerServiceRoute:
@@ -131,6 +132,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => UserGuide_Screen());
       case Routes.lastOperationsRoute:
         return MaterialPageRoute(builder: (_) => LastOperations_Screen());
+      case Routes.invoiceDetailsRoute:
+        return MaterialPageRoute(builder: (_) => InvoiceDetails_Screen());
 
       /// text screen //////////////////////////
       case Routes.testRoute:

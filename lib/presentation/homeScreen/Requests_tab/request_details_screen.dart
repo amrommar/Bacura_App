@@ -216,7 +216,7 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
                 icon: Icons.location_on,
               ),
 
-              ///  location section/////////////////////////////////////////////
+              /// Payment Method section/////////////////////////////////////////////
               Custom_Row_Icon_TwoText(
                 title: 'Payment Method: ',
                 description: 'Credit Card',
@@ -224,7 +224,7 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
                 iconColor: ColorManager.greyColor,
               ),
 
-              ///  location section/////////////////////////////////////////////
+              ///  Payment status section/////////////////////////////////////////////
               Custom_Row_Icon_TwoText(
                 title: 'Payment status: ',
                 description: 'Payment made',
@@ -232,7 +232,7 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
                 iconColor: ColorManager.darkGreenColor,
               ),
 
-              ///  location section/////////////////////////////////////////////
+              ///  Warranty status section/////////////////////////////////////////////
               Custom_Row_Icon_TwoText(
                 title: 'Warranty status: ',
                 description: 'Valid',
