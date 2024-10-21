@@ -9,8 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
-import '../resources/values_manager.dart';
-
 class Home_Screen extends StatefulWidget {
   const Home_Screen({super.key});
 
@@ -19,22 +17,23 @@ class Home_Screen extends StatefulWidget {
 }
 
 class _Home_ScreenState extends State<Home_Screen> {
-  int currentIndex = 1;
+  int currentIndex = 0;
 
   List<Widget> Tabs = [
-    More_Tab(),
     Home_Tab(),
     Requests_Tab(),
     Offers_Tab(),
+    More_Tab(),
   ];
   List<String> appBarTitles = [
-    AppStrings.more,
     AppStrings.home,
     AppStrings.requests,
     AppStrings.offers,
+    AppStrings.more,
   ];
 
   var formKey = GlobalKey<FormState>();
+  bool isFocused = false;
 
   @override
   Widget build(BuildContext context) {
@@ -50,23 +49,19 @@ class _Home_ScreenState extends State<Home_Screen> {
                 .copyWith(color: ColorManager.whiteColor)),
         elevation: 0,
         leading: InkWell(
-          onTap: () {
-            Navigator.pushNamed(context, Routes.personalDetailsRoute);
-          },
-          child: Row(
-            children: [
+            onTap: () {
+              Navigator.pushNamed(context, Routes.personalDetailsRoute);
+            },
+            child: Row(children: [
               SizedBox(width: 8.w),
               Flexible(
-                child: CircleAvatar(
-                  radius: 23.w,
-                  backgroundColor: ColorManager.whiteColor,
-                  child: Image.asset(
-                      'assets/images/Ellipse 1.png'), // Adjust the radius to make sure it fits
-                ),
-              ),
-            ],
-          ),
-        ),
+                  child: CircleAvatar(
+                      radius: 23.w,
+                      backgroundColor: ColorManager.whiteColor,
+                      child: Image.asset(
+                          'assets/images/Ellipse 1.png') // Adjust the radius to make sure it fits
+                      ))
+            ])),
         actions: [
           // IconButton(
           //   icon: Icon(Icons.message, size: 30.h),
@@ -76,42 +71,64 @@ class _Home_ScreenState extends State<Home_Screen> {
           //   },
           // ),
           IconButton(
-            icon: Icon(Icons.notifications, size: 30.h),
-            // Reduce icon size slightly
-            onPressed: () {
-              Navigator.pushNamed(context, Routes.notificationsRoute);
-              // Handle notification icon tap
-            },
-          ),
+              icon: Icon(Icons.notifications, size: 30.h),
+              // Reduce icon size slightly
+              onPressed: () {
+                Navigator.pushNamed(context, Routes.notificationsRoute);
+                // Handle notification icon tap
+              })
         ],
       ),
-      floatingActionButton: Container(
-          margin: EdgeInsets.symmetric(
-              horizontal: AppMargin.m10, vertical: AppMargin.m20),
-          child: FloatingActionButton(
-              elevation: 5,
-              shape: CircleBorder(),
-              focusColor: ColorManager.lightBlueColor,
-              backgroundColor: ColorManager.primaryBlueColor,
-              onPressed: () {
-                Navigator.pushNamed(context, Routes.customerServiceRoute);
-              },
-              child: Icon(
-                Icons.headset_mic_outlined,
-                color: ColorManager.whiteColor,
-                size: 40, // Icon color inside the FAB
-              ))),
+      floatingActionButton: AnimatedPositioned(
+          duration: Duration(milliseconds: 500),
+          // Animation duration
+          curve: Curves.easeInOut,
+          // Smooth animation
+          bottom: 16.0,
+          // Keep it at the bottom
+          left: isFocused ? MediaQuery.of(context).size.width - 80 : -40,
+          // Move from half-visible to fully-visible
+          child: AnimatedOpacity(
+              opacity: isFocused ? 1.0 : 0.5,
+              // Initially half-transparent, fully visible when clicked
+              duration: Duration(milliseconds: 500),
+              // Match opacity animation with movement
+              child: FloatingActionButton(
+                  onPressed: () {
+                    if (!isFocused) {
+                      // If button is not focused, just make it move to right and be fully visible
+                      setState(() {
+                        isFocused = true;
+                      });
+                    } else {
+                      Navigator.pushNamed(context, Routes.customerServiceRoute);
+                      // If button is already focused, navigate to customer service
+                    }
+                  },
+                  child: Icon(Icons.headset_mic_outlined,
+                      color: ColorManager.whiteColor, size: 40),
+                  backgroundColor: ColorManager.primaryBlueColor))),
+      // Container(
+      //     margin: EdgeInsets.symmetric(
+      //         horizontal: AppMargin.m10, vertical: AppMargin.m20),
+      //     child: FloatingActionButton(
+      //         elevation: 5,
+      //         shape: CircleBorder(),
+      //         focusColor: ColorManager.lightBlueColor,
+      //         backgroundColor: ColorManager.primaryBlueColor,
+      //         onPressed: () {
+      //           Navigator.pushNamed(context, Routes.customerServiceRoute);
+      //         },
+      //         child: Icon(
+      //           Icons.headset_mic_outlined,
+      //           color: ColorManager.whiteColor,
+      //           size: 40, // Icon color inside the FAB
+      //         ))),
       bottomNavigationBar: SalomonBottomBar(
         backgroundColor: ColorManager.primaryBlueColor,
         currentIndex: currentIndex,
         onTap: (index) => setState(() => currentIndex = index),
         items: [
-          /// More
-          SalomonBottomBarItem(
-              title: Text(AppStrings.more),
-              icon: Icon(Icons.more_horiz, color: ColorManager.whiteColor),
-              selectedColor: ColorManager.whiteColor),
-
           /// home
           SalomonBottomBarItem(
             title: Text(AppStrings.home),
@@ -132,45 +149,51 @@ class _Home_ScreenState extends State<Home_Screen> {
               icon: Icon(Icons.local_offer_outlined,
                   color: ColorManager.whiteColor),
               selectedColor: ColorManager.whiteColor),
+
+          /// More
+          SalomonBottomBarItem(
+              title: Text(AppStrings.more),
+              icon: Icon(Icons.more_horiz, color: ColorManager.whiteColor),
+              selectedColor: ColorManager.whiteColor),
         ],
       ),
-      // BottomNavigationBar(
-      //     type: BottomNavigationBarType.fixed,
-      //     currentIndex: currentIndex,
-      //     onTap: (index) {
-      //       currentIndex = index;
-      //       setState(() {});
-      //     },
-      //     items: const [
-      //       BottomNavigationBarItem(
-      //           label: AppStrings.more,
-      //           icon: Icon(
-      //             Icons.more_horiz,
-      //           )
-      //           // ImageIcon(AssetImage(ImageAssets.moreIcon))
-      //           ),
-      //       BottomNavigationBarItem(
-      //           label: AppStrings.cart, icon: Icon(Icons.shopping_cart_outlined)
-      //           // ImageIcon(AssetImage(ImageAssets.cartIcon))
-      //           ),
-      //       BottomNavigationBarItem(
-      //           label: AppStrings.home, icon: Icon(Icons.home_filled)
-      //           // ImageIcon(AssetImage(ImageAssets.homeIcon),)
-      //           ),
-      //       BottomNavigationBarItem(
-      //           label: AppStrings.requests,
-      //           icon: Icon(Icons.request_quote_outlined)
-      //           // ImageIcon(AssetImage(ImageAssets.ordersIcon),)
-      //           ),
-      //       BottomNavigationBarItem(
-      //           label: AppStrings.offers, icon: Icon(Icons.local_offer_outlined)
-      //           // ImageIcon(AssetImage(ImageAssets.offersIcon))
-      //           ),
-      //     ]),
       body: Tabs[currentIndex],
     );
   }
 }
+// BottomNavigationBar(
+//     type: BottomNavigationBarType.fixed,
+//     currentIndex: currentIndex,
+//     onTap: (index) {
+//       currentIndex = index;
+//       setState(() {});
+//     },
+//     items: const [
+//       BottomNavigationBarItem(
+//           label: AppStrings.more,
+//           icon: Icon(
+//             Icons.more_horiz,
+//           )
+//           // ImageIcon(AssetImage(ImageAssets.moreIcon))
+//           ),
+//       BottomNavigationBarItem(
+//           label: AppStrings.cart, icon: Icon(Icons.shopping_cart_outlined)
+//           // ImageIcon(AssetImage(ImageAssets.cartIcon))
+//           ),
+//       BottomNavigationBarItem(
+//           label: AppStrings.home, icon: Icon(Icons.home_filled)
+//           // ImageIcon(AssetImage(ImageAssets.homeIcon),)
+//           ),
+//       BottomNavigationBarItem(
+//           label: AppStrings.requests,
+//           icon: Icon(Icons.request_quote_outlined)
+//           // ImageIcon(AssetImage(ImageAssets.ordersIcon),)
+//           ),
+//       BottomNavigationBarItem(
+//           label: AppStrings.offers, icon: Icon(Icons.local_offer_outlined)
+//           // ImageIcon(AssetImage(ImageAssets.offersIcon))
+//           ),
+//     ]),
 
 /// app english
 ///AppBar(
