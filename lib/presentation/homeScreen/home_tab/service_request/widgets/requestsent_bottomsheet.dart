@@ -41,7 +41,7 @@ class _RequestSent_BottomSheetState extends State<RequestSent_BottomSheet> {
             SmallElevatedbutton(
                 text: 'Ok',
                 onTap: () {
-                  Navigator.pushNamed(context, Routes.homeScreenRoute);
+                  Navigator.pushNamed(context, Routes.paymentScreenRoute);
                 }),
           ],
         ),

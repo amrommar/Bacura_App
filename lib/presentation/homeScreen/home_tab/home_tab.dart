@@ -56,7 +56,7 @@ class _Home_TabState extends State<Home_Tab> {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/images/بنر---1.jpg'),
+                      image: AssetImage('assets/images/baner1.jpg'),
                       fit: BoxFit.cover,
                     ),
                     borderRadius: BorderRadius.circular(8),
@@ -66,7 +66,7 @@ class _Home_TabState extends State<Home_Tab> {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/images/بنر---2.jpg'),
+                      image: AssetImage('assets/images/baner2.jpg'),
                       fit: BoxFit.cover,
                     ),
                     borderRadius: BorderRadius.circular(8),
@@ -76,7 +76,7 @@ class _Home_TabState extends State<Home_Tab> {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage('assets/images/بنر-3--.jpg'),
+                      image: AssetImage('assets/images/baner3.jpg'),
                       fit: BoxFit.cover,
                     ),
                     borderRadius: BorderRadius.circular(8),
@@ -146,7 +146,7 @@ class _Home_TabState extends State<Home_Tab> {
               ),
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
-                  child: Image.asset('assets/images/قسم الااستشارات-01.jpg')),
+                  child: Image.asset('assets/images/conclutions.jpg')),
             ),
           ),
 

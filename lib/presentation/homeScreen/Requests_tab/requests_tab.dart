@@ -1,5 +1,5 @@
 import 'package:bacura_app/presentation/homeScreen/Offers_tab/custom_filter_container.dart';
-import 'package:bacura_app/presentation/homeScreen/Requests_tab/custom_request_container.dart';
+import 'package:bacura_app/presentation/homeScreen/Requests_tab/widgets/custom_request_container.dart';
 import 'package:bacura_app/presentation/resources/color_manager.dart';
 import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:bacura_app/presentation/resources/values_manager.dart';

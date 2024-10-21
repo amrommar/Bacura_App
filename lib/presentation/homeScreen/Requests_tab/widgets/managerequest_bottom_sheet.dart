@@ -1,5 +1,4 @@
 import 'package:bacura_app/presentation/resources/color_manager.dart';
-import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:bacura_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,7 +14,7 @@ class _ManageRequest_Bottom_SheetState
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 360.h,
+      height: 200.h,
       decoration: BoxDecoration(
           color: ColorManager.whiteColor,
           borderRadius: BorderRadius.circular(AppSize.s20)),
@@ -33,40 +32,8 @@ class _ManageRequest_Bottom_SheetState
                 iconColor: ColorManager.darkRedColor),
             Divider(),
 
-            /// Edit Request Services Button ////////////////////////////////////////
-            Custom_Row_Manage_Request(
-                onTap: () {
-                  Navigator.pushNamed(context, Routes.editRequestServicesRoute);
-                },
-                text: 'Edit Request Services',
-                icon: Icons.edit_note_outlined,
-                iconColor: ColorManager.primaryBlueColor),
-            Divider(),
-
-            /// Change the date Button ////////////////////////////////////////
-            Custom_Row_Manage_Request(
-                onTap: () {
-                  Navigator.pushNamed(context, Routes.setDateRoute);
-                },
-                text: 'Change the date',
-                icon: Icons.edit_calendar_outlined,
-                iconColor: ColorManager.primaryBlueColor),
-            Divider(),
-
-            /// Extra work Button ////////////////////////////////////////
-
-            Custom_Row_Manage_Request(
-                onTap: () {
-                  Navigator.pushNamed(context, Routes.homeScreenRoute);
-                },
-                text: 'Extra work',
-                icon: Icons.add,
-                iconColor: ColorManager.primaryBlueColor),
-            Divider(),
-
             /// Close the order Button ///////////////////////////////////////
             /// this is to make the order completed ////////////////////////////////
-
             Custom_Row_Manage_Request(
                 onTap: () {},
                 text: 'Close the order',

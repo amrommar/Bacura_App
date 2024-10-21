@@ -32,10 +32,10 @@ class _ServiceType_ScreenState extends State<ServiceType_Screen> {
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         color: ColorManager.darkBlueColor,
                         fontWeight: FontWeight.bold))),
-            Service_Type_Container(text: 'Consultation'),
+            // Service_Type_Container(text: 'Consultation'),
             Service_Type_Container(text: 'Installation & programming'),
-            Service_Type_Container(text: 'Supply'),
             Service_Type_Container(text: 'Maintenance'),
+            Service_Type_Container(text: 'Supply'),
             SizedBox(height: 80.h),
 
             /// Next ElevatedButton Section ////////////////////////////////////

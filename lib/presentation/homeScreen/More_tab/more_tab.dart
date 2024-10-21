@@ -17,14 +17,6 @@ class More_Tab extends StatefulWidget {
 }
 
 class _More_TabState extends State<More_Tab> {
-  _launchURL() async {
-    final Uri url =
-        Uri.parse('https://www.google.com'); // Change to your desired URL
-    if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
-      throw Exception('Could not launch $url');
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

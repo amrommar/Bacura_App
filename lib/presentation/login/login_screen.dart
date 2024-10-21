@@ -54,9 +54,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                 //page title____________________________
                 Text(AppStrings.login,
                     style: Theme.of(context).textTheme.displayLarge),
-                Divider(
-                  color: ColorManager.lightBlueColor,
-                ),
+                Divider(color: ColorManager.lightBlueColor),
                 //form for Name And Mobile Number ___________________________________
                 Padding(
                   padding: const EdgeInsets.all(8.0),
