@@ -2,7 +2,7 @@ import 'package:bacura_app/presentation/resources/color_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../homeScreen/Requests_tab/request_details_screen.dart';
+import '../Requests_tab/request_details_screen.dart';
 
 class InvoiceDetails_Screen extends StatefulWidget {
   @override

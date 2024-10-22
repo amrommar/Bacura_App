@@ -21,98 +21,85 @@ class _Getstarted_ScreenState extends State<Getstarted_Screen> {
         ImageAssets.background2Image,
       ),
       Scaffold(
-        backgroundColor: Colors.transparent,
-        body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 29.w, vertical: 65.h),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                //language change icon ________________________________________________
-                Align(
-                    child: Text(AppStrings.ar,
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleMedium!
-                            .copyWith(
-                                fontWeight: FontWeight.bold,
-                                color: ColorManager.primaryBlueColor)),
-                    alignment: Alignment.topRight),
-                SizedBox(height: 20.h),
-                //Bacura logo container _________________________________________
-                Container(
-                    width: 280.h,
-                    child: SvgPicture.asset(ImageAssets.bacuraLogo)),
-                SizedBox(height: 95.h),
-                //welcome message ____________________________________
-                Text(AppStrings.welcome_message,
-                    style: Theme.of(context).textTheme.displayLarge),
-                SizedBox(height: 10.h),
-                Container(
-                  width: 300.w,
-                  child: Text(
-                      textAlign: TextAlign.center,
-                      AppStrings
-                          .you_can_browse_the_application_without_registering,
-                      style: Theme.of(context).textTheme.bodyMedium),
-                ),
-                SizedBox(height: 100.h),
-                //As A Visitor button______________________________
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: ColorManager.lightBlueColor),
-                    onPressed: () {
-                      Navigator.pushNamedAndRemoveUntil(
-                        context,
-                        Routes.homeScreenRoute,
-                        (Route<dynamic> route) => false,
-                      );
-                    },
-                    child: Text(AppStrings.continue_as_a_visitor,
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleMedium!
-                            .copyWith(color: ColorManager.primaryBlueColor))),
-                SizedBox(height: 26.h),
-                //Login button______________________________
-                ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, Routes.loginRoute);
-                    },
-                    child: Text(AppStrings.login,
-                        style: Theme.of(context).textTheme.titleMedium)),
-                SizedBox(height: 18.h),
-                //Register button______________________________
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      AppStrings.dont_have_an_account,
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleSmall!
-                          .copyWith(color: ColorManager.blackColor),
-                    ),
-                    SizedBox(width: 5.w),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, Routes.registerRoute);
-                      },
-                      child: Text(
-                        AppStrings.create_an_account,
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleSmall!
-                            .copyWith(fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
+          backgroundColor: Colors.transparent,
+          body: Container(
+              padding: EdgeInsets.symmetric(horizontal: 29.w, vertical: 65.h),
+              child: SingleChildScrollView(
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                    //language change icon ________________________________________________
+                    Align(
+                        child: Text(AppStrings.ar,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium!
+                                .copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    color: ColorManager.primaryBlueColor)),
+                        alignment: Alignment.topRight),
+                    SizedBox(height: 20.h),
+                    //Bacura logo container _________________________________________
+                    Container(
+                        width: 280.h,
+                        child: SvgPicture.asset(ImageAssets.bacuraLogo)),
+                    SizedBox(height: 95.h),
+                    //welcome message ____________________________________
+                    Text(AppStrings.welcome_message,
+                        style: Theme.of(context).textTheme.displayLarge),
+                    SizedBox(height: 10.h),
+                    Container(
+                        width: 300.w,
+                        child: Text(
+                            textAlign: TextAlign.center,
+                            AppStrings
+                                .you_can_browse_the_application_without_registering,
+                            style: Theme.of(context).textTheme.bodyMedium)),
+                    SizedBox(height: 100.h),
+                    //As A Visitor button______________________________
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: ColorManager.lightBlueColor),
+                        onPressed: () {
+                          Navigator.pushNamedAndRemoveUntil(
+                              context,
+                              Routes.homeScreenRoute,
+                              (Route<dynamic> route) => false);
+                        },
+                        child: Text(AppStrings.continue_as_a_visitor,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium!
+                                .copyWith(
+                                    color: ColorManager.primaryBlueColor))),
+                    SizedBox(height: 26.h),
+                    //Login button______________________________
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, Routes.loginRoute);
+                        },
+                        child: Text(AppStrings.login,
+                            style: Theme.of(context).textTheme.titleMedium)),
+                    SizedBox(height: 18.h),
+                    //Register button______________________________
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                      Text(AppStrings.dont_have_an_account,
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall!
+                              .copyWith(color: ColorManager.blackColor)),
+                      SizedBox(width: 5.w),
+                      InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, Routes.registerRoute);
+                          },
+                          child: Text(AppStrings.create_an_account,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall!
+                                  .copyWith(fontWeight: FontWeight.bold)))
+                    ])
+                  ]))))
     ]);
   }
 }

@@ -1,4 +1,4 @@
-import 'package:bacura_app/presentation/personal/widgets/custom_container.dart';
+import 'package:bacura_app/presentation/homeScreen/personal/widgets/custom_container.dart';
 import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:bacura_app/presentation/resources/strings_manager.dart';
 import 'package:bacura_app/presentation/resources/values_manager.dart';
@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../resources/color_manager.dart';
+import '../../resources/color_manager.dart';
 
 class Wallet_Details extends StatefulWidget {
   const Wallet_Details({super.key});

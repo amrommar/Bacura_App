@@ -26,7 +26,7 @@ class _Home_TabState extends State<Home_Tab> {
     ImageAssets.networkIcon,
     ImageAssets.gameRepairIcon,
     ImageAssets.pcRepairIcon,
-    ImageAssets.phoneRepairIcon,
+    ImageAssets.phoneRepairIcon
   ];
   List<String> imagesTitle = [
     AppStrings.security_and_monitoring,
@@ -37,7 +37,7 @@ class _Home_TabState extends State<Home_Tab> {
     AppStrings.networks_communications,
     AppStrings.gameMaintenance,
     AppStrings.computerMaintenance,
-    AppStrings.phoneMaintenance,
+    AppStrings.phoneMaintenance
   ];
 
   @override
@@ -132,21 +132,29 @@ class _Home_TabState extends State<Home_Tab> {
                         )); // Widget for each apartment card
                   })),
           Divider(color: ColorManager.lightBlueColor, thickness: 2),
+          /////////////////         Cinema and Consultation Section             ////////////////////////////
           Row(
             children: [
+              /////////////////  Cinema Section             ////////////////////////////
+
               Expanded(
                   child: Container(
                       margin: EdgeInsets.all(12),
                       child: ClipRRect(
                           borderRadius: BorderRadius.circular(12),
                           child: Image.asset('assets/images/cinema.jpg')))),
+              /////////////////    Consultation Section    ////////////////////////////
               Expanded(
-                  child: Container(
-                      margin: EdgeInsets.all(12),
-                      child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child:
-                              Image.asset('assets/images/consultionss.jpg')))),
+                  child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.consultationScreenRoute);
+                },
+                child: Container(
+                    margin: EdgeInsets.all(12),
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Image.asset('assets/images/consultionss.jpg'))),
+              )),
             ],
           ),
         ],

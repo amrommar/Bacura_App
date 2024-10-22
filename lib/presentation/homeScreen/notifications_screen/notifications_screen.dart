@@ -19,34 +19,31 @@ class _Notifications_ScreenState extends State<Notifications_Screen> {
                 padding: EdgeInsets.symmetric(horizontal: 10.w),
                 child: Row(children: [
                   Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      boxShadow: [
-                        BoxShadow(
-                          color: ColorManager.midWhiteColor,
-                          // Shadow color with opacity
-                          spreadRadius: 2,
-                          // Spread radius
-                          blurRadius: 4,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          boxShadow: [
+                            BoxShadow(
+                                color: ColorManager.midWhiteColor,
+                                // Shadow color with opacity
+                                spreadRadius: 2,
+                                // Spread radius
+                                blurRadius: 4,
 
-                          // Blur radius
-                          offset:
-                              Offset(0, 3), // Offset in the x and y directions
-                        )
-                      ],
-                    ),
-                    child: CircleAvatar(
-                      radius: 30.w,
-                      backgroundColor: ColorManager.whiteColor,
-                      child: Image.asset(
-                          'assets/images/bakura (1) 1.png'), // Adjust the radius to make sure it fits
-                    ),
-                  ),
+                                // Blur radius
+                                offset: Offset(
+                                    0, 3) // Offset in the x and y directions
+                                )
+                          ]),
+                      child: CircleAvatar(
+                          radius: 30.w,
+                          backgroundColor: ColorManager.whiteColor,
+                          child: Image.asset(
+                              'assets/images/bakura (1) 1.png') // Adjust the radius to make sure it fits
+                          )),
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: 15.h),
-                    child:
-                        VerticalDivider(color: ColorManager.soLightGreyColor),
-                  ),
+                      padding: EdgeInsets.symmetric(vertical: 15.h),
+                      child: VerticalDivider(
+                          color: ColorManager.soLightGreyColor)),
                   Container(
                       width: 320.w,
                       padding:
@@ -73,10 +70,7 @@ class _Notifications_ScreenState extends State<Notifications_Screen> {
                 ]));
           },
           separatorBuilder: (context, index) => Container(
-                width: 430.w,
-                color: ColorManager.lightBlueColor,
-                height: 1.h,
-              ),
+              width: 430.w, color: ColorManager.lightBlueColor, height: 1.h),
           itemCount: 15),
     );
   }

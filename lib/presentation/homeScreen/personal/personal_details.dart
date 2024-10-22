@@ -1,6 +1,6 @@
 import 'package:bacura_app/presentation/getStarted/getstarted_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/widgets/small_elevatedbutton.dart';
-import 'package:bacura_app/presentation/personal/widgets/custom_container.dart';
+import 'package:bacura_app/presentation/homeScreen/personal/widgets/custom_container.dart';
 import 'package:bacura_app/presentation/register/custom_phonefield.dart';
 import 'package:bacura_app/presentation/register/custom_textformfield.dart';
 import 'package:bacura_app/presentation/resources/color_manager.dart';
@@ -10,7 +10,7 @@ import 'package:bacura_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../homeScreen/home_tab/service_request/widgets/dropdown_field.dart';
+import '../home_tab/service_request/widgets/dropdown_field.dart';
 import 'widgets/custom_row_details.dart';
 
 class PersonalDetails_Screen extends StatefulWidget {
