@@ -15,6 +15,7 @@ class _Complaint_ScreenState extends State<Complaint_Screen> {
   var propertyTypeController = TextEditingController();
   var locationController = TextEditingController();
   var descriptionController = TextEditingController();
+  var formKey = GlobalKey<FormState>();
 
   final List<String> options = [
     'Service Provider',
@@ -29,8 +30,9 @@ class _Complaint_ScreenState extends State<Complaint_Screen> {
       appBar: AppBar(title: Text('Complaint Screen')),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 30.0, horizontal: 16),
-        child: SingleChildScrollView(
-          child: SafeArea(
+        child: Form(
+          key: formKey,
+          child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -45,12 +47,22 @@ class _Complaint_ScreenState extends State<Complaint_Screen> {
                   hintText: 'Enter Your Complaint....',
                   controller: descriptionController,
                   maxLines: 7,
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return 'Please enter your Complaint';
+                    }
+                    return null;
+                  },
                 ),
                 SizedBox(height: 60.h),
                 Center(
                   child: SmallElevatedbutton(
                     text: 'Send Complaint',
-                    onTap: () {},
+                    onPressed: () {
+                      if (formKey.currentState?.validate() == true) {
+                        Navigator.pop(context);
+                      }
+                    },
                   ),
                 ),
               ],

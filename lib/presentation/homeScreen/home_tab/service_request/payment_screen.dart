@@ -254,7 +254,7 @@ class _Payment_ScreenState extends State<Payment_Screen> {
                     ),
                     SmallElevatedbutton(
                         text: 'Pay',
-                        onTap: () {
+                        onPressed: () {
                           showVerifyOTPBottomSheet();
                         }),
                   ],

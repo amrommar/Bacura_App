@@ -40,7 +40,7 @@ class _RequestSent_BottomSheetState extends State<RequestSent_BottomSheet> {
             /// Go to Questions Or skip Button//////////////////////////////////////////
             SmallElevatedbutton(
                 text: 'Ok',
-                onTap: () {
+                onPressed: () {
                   Navigator.pushNamed(context, Routes.paymentScreenRoute);
                 }),
           ],

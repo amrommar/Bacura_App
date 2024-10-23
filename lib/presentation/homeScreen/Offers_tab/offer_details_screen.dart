@@ -98,7 +98,7 @@ Possibility of connecting to the mobile via the recording device''',
             Center(
               child: SmallElevatedbutton(
                   text: 'Pay',
-                  onTap: () {
+                  onPressed: () {
                     Navigator.pushNamed(context, Routes.paymentScreenRoute);
                   }),
             )

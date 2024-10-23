@@ -1,11 +1,11 @@
 import 'package:bacura_app/presentation/register/custom_phonefield.dart';
 import 'package:bacura_app/presentation/register/custom_textformfield.dart';
-import 'package:bacura_app/presentation/resources/assets_manager.dart';
-import 'package:bacura_app/presentation/resources/color_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 
+import '../resources/assets_manager.dart';
+import '../resources/color_manager.dart';
 import '../resources/routes_manager.dart';
 import '../resources/strings_manager.dart';
 
@@ -17,9 +17,10 @@ class Register_Screen extends StatefulWidget {
 }
 
 class _Register_ScreenState extends State<Register_Screen> {
-  var formKey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
   var nameController = TextEditingController();
   var mobileNumberController = TextEditingController();
+  String? completePhoneNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -62,10 +63,10 @@ class _Register_ScreenState extends State<Register_Screen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Form(
-                      key: formKey,
+                      key: formKey, // <-- Added form key here
                       child: Column(
                         children: [
-                          //Name Field ____________________________________________
+                          // Name Field ____________________________________________
                           Custom_TextFormField(
                             fieldName: AppStrings.userName,
                             controller: nameController,
@@ -81,17 +82,16 @@ class _Register_ScreenState extends State<Register_Screen> {
                           ),
                           SizedBox(height: 10.h),
                           //Mobile Number Field_____________________________________
-                          Custom_PhoneField(
-                            hintText: AppStrings.enterYourMobileNumber,
+                          CustomPhone_Field(
+                            fieldName: 'Mobile Number',
+                            hintText: 'Enter your phone number',
                             controller: mobileNumberController,
-                            fieldName: AppStrings.mobileNumber,
-                            validator: (value) {
-                              if (value == null) {
-                                return AppStrings.pleaseEnterYourMobileNumber;
-                              }
-                              return null;
+                            onChanged: (phone) {
+                              setState(() {
+                                completePhoneNumber = phone.completeNumber;
+                              });
                             },
-                          )
+                          ),
                         ],
                       )),
                 ),
@@ -99,8 +99,23 @@ class _Register_ScreenState extends State<Register_Screen> {
                 Center(
                   child: ElevatedButton(
                       onPressed: () {
-                        if (formKey.currentState!.validate() == true) {
+                        // Validate the form before proceeding
+                        if (formKey.currentState?.validate() == true &&
+                            (completePhoneNumber != null &&
+                                completePhoneNumber!.isNotEmpty &&
+                                completePhoneNumber!.length > 8)) {
                           Navigator.pushNamed(context, Routes.verifyOTPRoute);
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              duration: Duration(seconds: 1),
+                              backgroundColor: ColorManager.midWhiteColor,
+                              content: Text(
+                                'Please Enter Name & Mobile Number',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium!
+                                    .copyWith(color: ColorManager.darkRedColor),
+                              )));
                         }
                       },
                       child: Text(AppStrings.register,

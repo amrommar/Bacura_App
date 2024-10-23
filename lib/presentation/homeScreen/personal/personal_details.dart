@@ -21,6 +21,8 @@ class PersonalDetails_Screen extends StatefulWidget {
 }
 
 class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
+  String? completePhoneNumber;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -182,64 +184,120 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
 
   showEditDetailsBottomSheet(String text) {
     var mobileNumberController = TextEditingController();
-    // var cityController = TextEditingController();
-    // var genderController = TextEditingController();
+// var cityController = TextEditingController();
+// var genderController = TextEditingController();
     var emailController = TextEditingController();
     final List<String> genderOptions = ['Male', 'Female'];
     final List<String> cityOptions = ['Riyad', 'Jadah', 'Makka', 'Damam'];
+    final formKey = GlobalKey<FormState>();
+
     showModalBottomSheet(
         context: context,
         builder: (context) {
           if (text == AppStrings.mobileNumber) {
+            /// mobile number edit //////////////////////
             return Container(
                 height: 250.h,
                 padding: EdgeInsets.all(20),
                 child: SingleChildScrollView(
-                  child: Column(children: [
-                    Custom_PhoneField(
-                      hintText: AppStrings.enterYourMobileNumber,
-                      controller: mobileNumberController,
-                      fieldName: AppStrings.mobileNumber,
-                      validator: (value) {
-                        if (value == null) {
-                          return AppStrings.pleaseEnterYourMobileNumber;
-                        }
-                        return null;
-                      },
-                    ),
-                    SizedBox(height: 20.h),
-                    SmallElevatedbutton(
+                  child: Form(
+                    key: formKey,
+                    child: Column(children: [
+                      CustomPhone_Field(
+                        fieldName: 'Mobile Number',
+                        hintText: 'Enter your phone number',
+                        controller: mobileNumberController,
+                        onChanged: (phone) {
+                          setState(() {
+                            completePhoneNumber = phone
+                                .completeNumber; // Update completePhoneNumber
+                          });
+                        },
+                      ),
+                      SizedBox(height: 20.h),
+                      SmallElevatedbutton(
                         text: 'Save',
-                        onTap: () {
-                          /////////////////////// Method to save changes //////////////////////
-                          Navigator.pop(context);
-                        })
-                  ]),
+                        onPressed: () {
+                          // Get the current value of the mobile number directly from the controller
+                          String currentPhoneNumber =
+                              mobileNumberController.text;
+
+                          // Validate the phone number
+                          if (currentPhoneNumber.isEmpty ||
+                              currentPhoneNumber.length < 9) {
+                            // Close the bottom sheet first
+                            Navigator.pop(context);
+
+                            // Then show the Snackbar
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              duration: Duration(seconds: 2),
+                              backgroundColor: ColorManager.midWhiteColor,
+                              content: Text(
+                                'Please enter a valid phone number',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium!
+                                    .copyWith(color: ColorManager.darkRedColor),
+                              ),
+                            ));
+                          } else {
+                            // If valid, proceed to the next screen or save the data
+                            Navigator.pop(
+                                context); // Close the bottom sheet before navigating
+                            Navigator.pushNamed(context, Routes.verifyOTPRoute);
+                          }
+                        },
+                      )
+                    ]),
+                  ),
                 ));
-          } else if (text == AppStrings.email) {
+          }
+
+          /// email edit //////////////////////
+          else if (text == AppStrings.email) {
             return Container(
               height: 250.h,
               padding: EdgeInsets.all(20),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Custom_TextFormField(
-                      fieldName: AppStrings.email,
-                      hintText: AppStrings.email,
-                      controller: emailController,
+                    Form(
+                      key: formKey,
+                      child: Custom_TextFormField(
+                        fieldName: AppStrings.email,
+                        hintText: AppStrings.email,
+                        controller: emailController,
+                        validator: (text) {
+                          if (text == null || text.trim().isEmpty) {
+                            return 'Please enter Email';
+                          }
+                          final bool emailValid = RegExp(
+                                  r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                              .hasMatch(text);
+                          if (!emailValid) {
+                            return 'please enter valid email';
+                          }
+                          return null;
+                        },
+                      ),
                     ),
                     SizedBox(height: 20.h),
                     SmallElevatedbutton(
-                        text: 'Save',
-                        onTap: () {
-                          /////////////////////// Method to save changes //////////////////////
+                      text: 'Save',
+                      onPressed: () {
+                        if (formKey.currentState!.validate() == true) {
                           Navigator.pop(context);
-                        })
+                        }
+                      },
+                    )
                   ],
                 ),
               ),
             );
-          } else if (text == AppStrings.gender) {
+          }
+
+          /// gender edit //////////////////////
+          else if (text == AppStrings.gender) {
             return Container(
               height: 250.h,
               padding: EdgeInsets.all(20),
@@ -254,7 +312,7 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
                     SizedBox(height: 20.h),
                     SmallElevatedbutton(
                         text: 'Save',
-                        onTap: () {
+                        onPressed: () {
                           /////////////////////// Method to save changes //////////////////////
                           Navigator.pop(context);
                         })
@@ -262,7 +320,10 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
                 ),
               ),
             );
-          } else if (text == AppStrings.city) {
+          }
+
+          /// city edit //////////////////////
+          else if (text == AppStrings.city) {
             return Container(
               height: 250.h,
               padding: EdgeInsets.all(20),
@@ -277,7 +338,7 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
                     SizedBox(height: 20.h),
                     SmallElevatedbutton(
                         text: 'Save',
-                        onTap: () {
+                        onPressed: () {
                           /////////////////////// Method to save changes //////////////////////
                           Navigator.pop(context);
                         })
@@ -285,8 +346,11 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
                 ),
               ),
             );
-          } else if (text == AppStrings.userName) {
-            return Custom_PhoneField(
+          }
+
+          /// user name edit //////////////////////
+          else if (text == AppStrings.userName) {
+            return CustomPhone_Field(
               hintText: AppStrings.email,
               controller: emailController,
               fieldName: AppStrings.email,
@@ -298,7 +362,7 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
               },
             );
           }
-          return Container(height: 100.h);
+          return Container();
         });
   }
 }

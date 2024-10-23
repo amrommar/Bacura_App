@@ -5,13 +5,13 @@ import '../../../../resources/color_manager.dart';
 
 class SmallElevatedbutton extends StatelessWidget {
   String text;
-  Function onTap;
+  Function onPressed;
   Color? backgroundColor = ColorManager.primaryBlueColor;
   Color? textColor = ColorManager.whiteColor;
 
   SmallElevatedbutton(
       {required this.text,
-      required this.onTap,
+      required this.onPressed,
       this.backgroundColor,
       this.textColor});
 
@@ -23,7 +23,7 @@ class SmallElevatedbutton extends StatelessWidget {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(AppSize.s30))),
         onPressed: () {
-          onTap();
+          onPressed();
         },
         child: Text(
           text,
