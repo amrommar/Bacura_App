@@ -1,4 +1,4 @@
-import 'package:bacura_app/presentation/homeScreen/home_tab/consultation_screen.dart';
+import 'package:bacura_app/presentation/homeScreen/home_tab/consultation/consultation_screen.dart';
 import 'package:bacura_app/presentation/resources/strings_manager.dart';
 import 'package:flutter/material.dart';
 
@@ -18,9 +18,7 @@ import '../homeScreen/home_screen.dart';
 import '../homeScreen/home_tab/service_request/payment_screen.dart';
 import '../homeScreen/home_tab/service_request/service_details_screen.dart';
 import '../homeScreen/home_tab/service_request/service_type_screen.dart';
-import '../homeScreen/home_tab/service_request/set_date_screen.dart';
 import '../homeScreen/home_tab/service_request/set_location_screen.dart';
-import '../homeScreen/home_tab/service_request/technicalquestions_screen.dart';
 import '../homeScreen/notifications_screen/notifications_screen.dart';
 import '../homeScreen/personal/Invoice_details_screen.dart';
 import '../homeScreen/personal/lastoperations_screen.dart';
@@ -49,8 +47,6 @@ class Routes {
   static const String cardsManagementRoute = '/cardsManagement';
   static const String offerDetailsRoute = '/offerDetails';
   static const String serviceTypeRoute = '/serviceType';
-  static const String setDateRoute = '/setDate';
-  static const String questionsRoute = '/questions';
   static const String setLocationRoute = '/setLocation';
   static const String serviceDetailsRoute = '/serviceDetails';
   static const String privacyPolicyRoute = '/privacyPolicy';
@@ -103,10 +99,6 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => OfferDetails_Screen());
       case Routes.serviceTypeRoute:
         return MaterialPageRoute(builder: (_) => ServiceType_Screen());
-      case Routes.setDateRoute:
-        return MaterialPageRoute(builder: (_) => SetDate_Screen());
-      case Routes.questionsRoute:
-        return MaterialPageRoute(builder: (_) => TechnicalQuestions_Screen());
       case Routes.setLocationRoute:
         return MaterialPageRoute(builder: (_) => SetLocation_Screen());
       case Routes.serviceDetailsRoute:
