@@ -26,7 +26,7 @@ class _Home_TabState extends State<Home_Tab> {
     ImageAssets.networkIcon,
     ImageAssets.gameRepairIcon,
     ImageAssets.pcRepairIcon,
-    ImageAssets.phoneRepairIcon,
+    ImageAssets.phoneRepairIcon
   ];
   List<String> imagesTitle = [
     AppStrings.security_and_monitoring,
@@ -37,7 +37,7 @@ class _Home_TabState extends State<Home_Tab> {
     AppStrings.networks_communications,
     AppStrings.gameMaintenance,
     AppStrings.computerMaintenance,
-    AppStrings.phoneMaintenance,
+    AppStrings.phoneMaintenance
   ];
 
   @override
@@ -103,85 +103,91 @@ class _Home_TabState extends State<Home_Tab> {
                     color: ColorManager.blackColor,
                     fontWeight: FontWeight.bold)),
           ),
-          Divider(
-            color: ColorManager.lightBlueColor,
-            thickness: 2,
-          ),
+          Divider(color: ColorManager.lightBlueColor, thickness: 2),
           // Apartments List (could be GridView as well)
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 8.w),
-            child: GridView.builder(
-              physics: NeverScrollableScrollPhysics(),
-              // Disable scrolling inside GridView
-              shrinkWrap: true,
-              // Let it take only necessary height
-              itemCount: 6,
-              // Replace with your apartments list length
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 3, // Number of items per row
-                crossAxisSpacing: 0.w, // Horizontal space between items
-                mainAxisSpacing: 0.h, // Vertical space between items
-                childAspectRatio: 1, // Adjust the item height to width ratio
-              ),
-              itemBuilder: (context, index) {
-                return InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, Routes.serviceTypeRoute);
-                  },
-                  child: ApartmentCard(
-                    apartmentTitle: imagesTitle[index],
-                    imagePath: imagesPaths[index],
-                  ),
-                ); // Widget for each apartment card
-              },
-            ),
-          ),
-          SizedBox(height: 5.h),
+              padding: EdgeInsets.symmetric(horizontal: 8.w),
+              child: GridView.builder(
+                  physics: NeverScrollableScrollPhysics(),
+                  // Disable scrolling inside GridView
+                  shrinkWrap: true,
+                  // Let it take only necessary height
+                  itemCount: 6,
+                  // Replace with your apartments list length
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3, // Number of items per row
+                      crossAxisSpacing: 0.w, // Horizontal space between items
+                      mainAxisSpacing: 0.h, // Vertical space between items
+                      childAspectRatio:
+                          1 // Adjust the item height to width ratio
+                      ),
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, Routes.serviceTypeRoute);
+                        },
+                        child: ApartmentCard(
+                          apartmentTitle: imagesTitle[index],
+                          imagePath: imagesPaths[index],
+                        )); // Widget for each apartment card
+                  })),
+          Divider(color: ColorManager.lightBlueColor, thickness: 2),
+          /////////////////         Cinema and Consultation Section             ////////////////////////////
+          Row(
+            children: [
+              /////////////////  Cinema Section             ////////////////////////////
 
-          Center(
-            child: Container(
-              width: 400.w,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: Image.asset('assets/images/conclutions.jpg')),
-            ),
+              Expanded(
+                  child: Container(
+                      margin: EdgeInsets.all(12),
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(12),
+                          child: Image.asset('assets/images/cinema.jpg')))),
+              /////////////////    Consultation Section    ////////////////////////////
+              Expanded(
+                  child: InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, Routes.consultationScreenRoute);
+                },
+                child: Container(
+                    margin: EdgeInsets.all(12),
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Image.asset('assets/images/consultionss.jpg'))),
+              )),
+            ],
           ),
-
-          // // More Ask Section______________________________________________________
-          // Padding(
-          //   padding: EdgeInsets.symmetric(horizontal: 16.w),
-          //   child: Text(AppStrings.mostRequested,
-          //       style: Theme.of(context).textTheme.titleMedium!.copyWith(
-          //           color: ColorManager.blackColor,
-          //           fontWeight: FontWeight.bold)),
-          // ),
-          // Divider(
-          //   color: ColorManager.lightBlueColor,
-          //   thickness: 2,
-          // ),
-          // // More Ask list ______________________________________________________
-          // Container(
-          //   padding: EdgeInsets.only(left: AppPadding.p6, top: AppPadding.p8),
-          //   height: 234.h,
-          //   child: ListView.builder(
-          //     scrollDirection: Axis.horizontal,
-          //     // Set the direction to horizontal
-          //     itemCount: 10,
-          //     // Replace with the number of items you want to display
-          //     itemBuilder: (context, index) {
-          //       return Padding(
-          //         padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
-          //         child: OffersCard(), // Custom widget to show image and text
-          //       );
-          //     },
-          //   ),
-          // ),
-          SizedBox(height: 20.h),
         ],
       ),
     );
   }
 }
+// // More Ask Section______________________________________________________
+// Padding(
+//   padding: EdgeInsets.symmetric(horizontal: 16.w),
+//   child: Text(AppStrings.mostRequested,
+//       style: Theme.of(context).textTheme.titleMedium!.copyWith(
+//           color: ColorManager.blackColor,
+//           fontWeight: FontWeight.bold)),
+// ),
+// Divider(
+//   color: ColorManager.lightBlueColor,
+//   thickness: 2,
+// ),
+// // More Ask list ______________________________________________________
+// Container(
+//   padding: EdgeInsets.only(left: AppPadding.p6, top: AppPadding.p8),
+//   height: 234.h,
+//   child: ListView.builder(
+//     scrollDirection: Axis.horizontal,
+//     // Set the direction to horizontal
+//     itemCount: 10,
+//     // Replace with the number of items you want to display
+//     itemBuilder: (context, index) {
+//       return Padding(
+//         padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+//         child: OffersCard(), // Custom widget to show image and text
+//       );
+//     },
+//   ),
+// ),

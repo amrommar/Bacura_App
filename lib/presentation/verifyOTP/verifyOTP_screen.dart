@@ -1,8 +1,8 @@
 import 'package:bacura_app/presentation/resources/DialogUtils.dart';
-import 'package:bacura_app/presentation/verifyOTP/textOTPfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../resources/assets_manager.dart';
 import '../resources/color_manager.dart';
@@ -18,8 +18,7 @@ class VerifyOTP_Screen extends StatefulWidget {
 
 class _VerifyOTP_ScreenState extends State<VerifyOTP_Screen> {
   var formKey = GlobalKey<FormState>();
-  var nameController = TextEditingController();
-  var mobileNumberController = TextEditingController();
+  String pinCode = "";
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +27,6 @@ class _VerifyOTP_ScreenState extends State<VerifyOTP_Screen> {
         ImageAssets.background2Image,
       ),
       Scaffold(
-        //AppBar ________________________________________-
         appBar: AppBar(
           iconTheme: IconThemeData(
             color: ColorManager.primaryBlueColor,
@@ -45,57 +43,90 @@ class _VerifyOTP_ScreenState extends State<VerifyOTP_Screen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              //logo container-----------------------
               Center(
                 child: Container(
-                    width: 280.h,
-                    child: SvgPicture.asset(ImageAssets.bacuraLogo)),
+                  width: 280.h,
+                  child: SvgPicture.asset(ImageAssets.bacuraLogo),
+                ),
               ),
               SizedBox(height: 50.h),
-              ////page title//////////////////////////////////////////////////
               Text(AppStrings.oTPNumber,
                   style: Theme.of(context).textTheme.displayLarge),
               Divider(color: ColorManager.lightBlueColor),
               SizedBox(height: 10.h),
-              ////OTP Number Sent Text //////////////////////////////////////////////////
               Text(AppStrings.OTPNumberSent,
                   style: Theme.of(context)
                       .textTheme
                       .titleSmall!
                       .copyWith(color: ColorManager.greyColor)),
-              ////Number and Change number Text //////////////////////////////////////////////////
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(AppStrings.number,
                       style: Theme.of(context).textTheme.displayMedium),
                   SizedBox(width: 20.w),
-                  Text(AppStrings.changeNumber,
-                      style:
-                          Theme.of(context).textTheme.displayMedium!.copyWith(
-                                color: ColorManager.primaryBlueColor,
-                              )),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text(AppStrings.changeNumber,
+                        style:
+                            Theme.of(context).textTheme.displayMedium!.copyWith(
+                                  color: ColorManager.primaryBlueColor,
+                                )),
+                  ),
                 ],
               ),
               SizedBox(height: 30.h),
               // OTP text Fields ____________________________
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Form(
-                    key: formKey,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        //Mobile Number Field_____________________________________
-                        OTP_TextField(),
-                        OTP_TextField(),
-                        OTP_TextField(),
-                        OTP_TextField(),
+              Form(
+                key: formKey,
+                child: Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: PinCodeTextField(
+                    textStyle: Theme.of(context)
+                        .textTheme
+                        .displayLarge!
+                        .copyWith(
+                            color: ColorManager.primaryBlueColor, fontSize: 28),
+                    appContext: context,
+                    length: 4,
+                    onChanged: (value) {
+                      setState(() {
+                        pinCode = value; // Store the entered PIN
+                      });
+                    },
+                    enablePinAutofill: true,
+                    pinTheme: PinTheme(
+                      shape: PinCodeFieldShape.underline,
+                      borderRadius: BorderRadius.circular(5),
+                      inactiveColor: ColorManager.darkBlueColor,
+                      activeColor: ColorManager.primaryBlueColor,
+                      selectedColor: ColorManager.darkBlueColor,
+                      errorBorderColor: ColorManager.redColor,
+                      inActiveBoxShadow: [
+                        BoxShadow(color: ColorManager.midWhiteColor),
                       ],
-                    )),
+                      activeBoxShadow: [
+                        BoxShadow(color: ColorManager.midWhiteColor),
+                      ],
+                      borderWidth: 1.5,
+                      activeBorderWidth: 1.5,
+                      disabledBorderWidth: 1.5,
+                      inactiveBorderWidth: 1.5,
+                      errorBorderWidth: 1.5,
+                      selectedBorderWidth: 2,
+                      fieldHeight: 50,
+                      fieldWidth: 50,
+                      activeFillColor: ColorManager.lightRedColor,
+                      inactiveFillColor: Colors.yellow,
+                      selectedFillColor: Colors.green,
+                    ),
+                    keyboardType: TextInputType.number,
+                  ),
+                ),
               ),
               SizedBox(height: 20.h),
-              ////Counter and Resend OTP Text //////////////////////////////////////////////////
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -112,30 +143,17 @@ class _VerifyOTP_ScreenState extends State<VerifyOTP_Screen> {
                 ],
               ),
               SizedBox(height: 40.h),
-              ////verify Elevated Button &  send OTP again//////////////////////////////////////////////////
               Center(
                 child: Column(
                   children: [
                     ElevatedButton(
-                        onPressed: () {
-                          if (formKey.currentState!.validate() == true) {
-                            return DialogUtils.showMessage(
-                                title: 'OTP',
-                                context: context,
-                                posActionName: 'Ok',
-                                negActionName: 'Cancel',
-                                posAction: () {
-                                  Navigator.pushNamedAndRemoveUntil(
-                                      context,
-                                      Routes.homeScreenRoute,
-                                      (Route<dynamic> route) => false);
-                                },
-                                message:
-                                    'OTP Confirmed OTP Confirmed OTP Confirmed OTP Confirmed OTP Confirmed OTP Confirmed');
-                          }
-                        },
-                        child: Text(AppStrings.check,
-                            style: Theme.of(context).textTheme.titleMedium)),
+                      onPressed: () {
+                        // Call the validation method
+                        validatePin();
+                      },
+                      child: Text(AppStrings.check,
+                          style: Theme.of(context).textTheme.titleMedium),
+                    ),
                     SizedBox(height: 20.h),
                     Text(AppStrings.sendAgain,
                         style: Theme.of(context).textTheme.bodyMedium),
@@ -147,5 +165,49 @@ class _VerifyOTP_ScreenState extends State<VerifyOTP_Screen> {
         ),
       ),
     ]);
+  }
+
+  // Validation function for the PIN
+  void validatePin() {
+    // Check if the PIN meets the validation criteria
+    if (pinCode.isEmpty) {
+      // Show error message if the PIN is empty
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Please enter the OTP."),
+          backgroundColor: Colors.red,
+        ),
+      );
+    } else if (pinCode.length != 4) {
+      // Show error message if the PIN length is not 4
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("OTP must be 4 digits."),
+          backgroundColor: Colors.red,
+        ),
+      );
+    } else {
+      // Proceed with the validated PIN code
+      print("Valid OTP: $pinCode");
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          duration: Duration(seconds: 1),
+          content: Text("OTP Verified!"),
+          backgroundColor: Colors.green,
+        ),
+      );
+      // Here you can navigate or perform other actions after successful validation
+      DialogUtils.showMessage(
+          title: 'OTP',
+          context: context,
+          posActionName: 'Ok',
+          negActionName: 'Cancel',
+          posAction: () {
+            Navigator.pushNamedAndRemoveUntil(context, Routes.homeScreenRoute,
+                (Route<dynamic> route) => false);
+          },
+          message:
+              'OTP Confirmed!'); // Message to show on successful validation
+    }
   }
 }

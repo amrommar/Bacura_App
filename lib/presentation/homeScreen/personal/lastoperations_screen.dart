@@ -1,5 +1,5 @@
 import 'package:bacura_app/presentation/homeScreen/Requests_tab/widgets/customdeposit_container.dart';
-import 'package:bacura_app/presentation/personal/widgets/custompayment_container.dart';
+import 'package:bacura_app/presentation/homeScreen/personal/widgets/custompayment_container.dart';
 import 'package:bacura_app/presentation/resources/color_manager.dart';
 import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:flutter/material.dart';

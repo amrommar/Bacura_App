@@ -1,3 +1,4 @@
+import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -52,9 +53,14 @@ class Custom_Request_Container extends StatelessWidget {
               ),
               Row(
                 children: [
-                  SvgPicture.asset(
-                    'assets/images/contact_icon.svg',
-                    height: 20.h,
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.customerServiceRoute);
+                    },
+                    child: SvgPicture.asset(
+                      'assets/images/contact_icon.svg',
+                      height: 20.h,
+                    ),
                   ),
                   // Icon(
                   //   Icons.call_outlined,

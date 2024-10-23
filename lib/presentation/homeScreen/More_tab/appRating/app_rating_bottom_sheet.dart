@@ -50,7 +50,7 @@ class _AppRating_BottomSheetState extends State<AppRating_BottomSheet> {
                     backgroundColor: ColorManager.lightBlueColor,
                     text: 'Rate',
                     textColor: ColorManager.primaryBlueColor,
-                    onTap: () {
+                    onPressed: () {
                       Navigator.pop(context);
                     }),
               ],

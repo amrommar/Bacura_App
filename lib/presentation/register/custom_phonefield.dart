@@ -7,17 +7,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
 
-class Custom_PhoneField extends StatelessWidget {
-  String fieldName;
-  String hintText;
-  FutureOr<String?> Function(PhoneNumber?)? validator;
-  TextEditingController controller;
+class CustomPhone_Field extends StatelessWidget {
+  final String fieldName;
+  final String hintText;
+  final FutureOr<String?> Function(PhoneNumber?)? validator;
+  final TextEditingController controller;
+  final Function(PhoneNumber)? onChanged; // Added onChanged for flexibility
 
-  Custom_PhoneField({
+  CustomPhone_Field({
     required this.fieldName,
     required this.hintText,
     this.validator,
     required this.controller,
+    this.onChanged, // Accepting onChanged
   });
 
   @override
@@ -36,11 +38,21 @@ class Custom_PhoneField extends StatelessWidget {
         IntlPhoneField(
           textAlign: TextAlign.start,
           initialCountryCode: 'SA',
-          //Language for phone Field______________________________________
           languageCode: 'ar',
-
+          onChanged: onChanged ?? (phone) {},
+          // Use the provided onChanged
           invalidNumberMessage: AppStrings.invalidMobileNumber,
-          validator: validator,
+          validator: validator ??
+              (phone) {
+                // Use the provided validator
+                if (phone == null || phone.completeNumber.isEmpty) {
+                  return 'Please enter a valid phone number';
+                }
+                if (phone.number.length < 9) {
+                  return 'Invalid Phone number';
+                }
+                return null;
+              },
           style: Theme.of(context)
               .textTheme
               .titleMedium!

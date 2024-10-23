@@ -76,10 +76,17 @@ class _ServiceType_ScreenState extends State<ServiceType_Screen> {
 
 /// container have circle icon and text ////////////////////////////////////
 
-class Service_Type_Container extends StatelessWidget {
+class Service_Type_Container extends StatefulWidget {
   String text;
 
   Service_Type_Container({required this.text});
+
+  @override
+  State<Service_Type_Container> createState() => _Service_Type_ContainerState();
+}
+
+class _Service_Type_ContainerState extends State<Service_Type_Container> {
+  bool isChecked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -98,20 +105,32 @@ class Service_Type_Container extends StatelessWidget {
           ],
           borderRadius: BorderRadius.circular(AppSize.s12),
           color: ColorManager.whiteColor),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Icon(Icons.circle_outlined, color: ColorManager.blackColor),
-          Container(
-              padding: EdgeInsets.only(top: 6.h, right: 8.w, left: 8.w),
-              width: 345.w,
-              child: Text(text,
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge!
-                      .copyWith(color: ColorManager.blackColor)))
-        ],
+      child: InkWell(
+        onTap: () {
+          if (isChecked == false) {
+            isChecked = true;
+          } else if (isChecked == true) {
+            isChecked = false;
+          }
+          setState(() {});
+        },
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            isChecked == false
+                ? Icon(Icons.circle_outlined, color: ColorManager.blackColor)
+                : Icon(Icons.circle, color: ColorManager.primaryBlueColor),
+            Container(
+                padding: EdgeInsets.only(top: 6.h, right: 8.w, left: 8.w),
+                width: 345.w,
+                child: Text(widget.text,
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .copyWith(color: ColorManager.blackColor)))
+          ],
+        ),
       ),
     );
   }
