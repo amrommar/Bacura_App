@@ -71,69 +71,36 @@ class _Offers_TabState extends State<Offers_Tab> {
           SizedBox(height: 5.h),
 
           /// filtering section ///////////////////////////////////////////////////////
+
           Container(
-            height: 46.h,
-            padding: const EdgeInsets.all(AppPadding.p4),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 2),
-                  child: Custom_Filter_Container(
-                      child: InkWell(
-                    onTap: () {
-                      return _showMultiSelect();
-                    },
-                    child: Icon(
-                      Icons.filter_list_outlined,
-                      color: ColorManager.darkBlueColor,
-                    ),
-                  )),
-                ),
-                SizedBox(width: 5.w),
+              height: 50.h,
+              padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 4.h),
+              child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                Filter_Icon(onTap: () {
+                  return _showMultiSelect();
+                }),
 
                 /// filter types section /////////////////////////////////////////////
                 _selectedFilters.isEmpty
-                    ? Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 2),
-                        child: Custom_Filter_Container(
-                            child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: AppPadding.p8),
-                                child: Text('All Offers are on display',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodyMedium!
-                                        .copyWith(
-                                            color:
-                                                ColorManager.darkBlueColor)))),
-                      )
+                    ? Expanded(
+                        child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: filterTitles.length,
+                            itemBuilder: (context, index) {
+                              return UnSelected_Filter_Container(
+                                text: filterTitles[index],
+                              );
+                            }))
                     : Expanded(
                         child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: _selectedFilters.length,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: AppPadding.p2,
-                                    vertical: AppPadding.p2),
-                                child: Custom_Filter_Container(
-                                    child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: AppPadding.p4),
-                                        child: Text(_selectedFilters[index],
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyMedium!
-                                                .copyWith(
-                                                    color: ColorManager
-                                                        .darkBlueColor)))));
-                          },
-                        ),
-                      )
-              ],
-            ),
-          ),
+                            scrollDirection: Axis.horizontal,
+                            itemCount: _selectedFilters.length,
+                            itemBuilder: (context, index) {
+                              return Selected_Filter_Container(
+                                  text: _selectedFilters[index]);
+                            }))
+              ])),
+
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: AppPadding.p6),
             child: Divider(color: ColorManager.lightBlueColor),

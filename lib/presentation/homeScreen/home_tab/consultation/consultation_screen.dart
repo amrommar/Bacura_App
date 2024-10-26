@@ -43,30 +43,24 @@ class _Consultation_ScreenState extends State<Consultation_Screen> {
                     return null;
                   }),
               SizedBox(height: 10.h),
-              Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: ColorManager.whiteColor,
-                  ),
-                  padding: EdgeInsets.all(8),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('*',
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text('*',
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleLarge!
+                            .copyWith(color: ColorManager.greyColor)),
+                    SizedBox(width: 10.w),
+                    Expanded(
+                        child: Text(
+                            'Your consultation will be answered within three days.',
                             style: Theme.of(context)
                                 .textTheme
-                                .titleLarge!
-                                .copyWith(color: ColorManager.greyColor)),
-                        SizedBox(width: 10.w),
-                        Expanded(
-                            child: Text(
-                                'Your consultation will be answered within three days.',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleSmall!
-                                    .copyWith(color: ColorManager.greyColor)))
-                      ])),
+                                .titleSmall!
+                                .copyWith(color: ColorManager.greyColor)))
+                  ]),
               SizedBox(height: 100.h),
               Center(
                   child: SmallElevatedbutton(

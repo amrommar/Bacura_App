@@ -7,15 +7,14 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../../../../resources/strings_manager.dart';
 
-class Termsconditions_Bottomsheet extends StatefulWidget {
+class OTP_Bottomsheet extends StatefulWidget {
   @override
-  State<Termsconditions_Bottomsheet> createState() =>
-      _Termsconditions_BottomsheetState();
+  State<OTP_Bottomsheet> createState() => _OTP_BottomsheetState();
 }
 
-class _Termsconditions_BottomsheetState
-    extends State<Termsconditions_Bottomsheet> {
+class _OTP_BottomsheetState extends State<OTP_Bottomsheet> {
   bool isChecked = false;
+
   var formKey = GlobalKey<FormState>();
   String pinCode = "";
 

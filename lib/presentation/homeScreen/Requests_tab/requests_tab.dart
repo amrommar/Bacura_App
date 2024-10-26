@@ -37,7 +37,7 @@ class _Requests_TabState extends State<Requests_Tab> {
   final List<MultiSelectItem<String>> _filterItems = requestsTypes
       .map((filter) => MultiSelectItem<String>(filter, filter))
       .toList();
-  List<String> _selectedFilters = [];
+  List<String> selectedFilters = [];
 
   void _showMultiSelect() async {
     await showDialog(
@@ -55,11 +55,11 @@ class _Requests_TabState extends State<Requests_Tab> {
               .copyWith(color: ColorManager.greyColor),
           selectedColor: ColorManager.primaryBlueColor,
           items: _filterItems,
-          initialValue: _selectedFilters,
+          initialValue: selectedFilters,
           // Initial selected filters
           onConfirm: (List<String> selectedValues) {
             setState(() {
-              _selectedFilters = selectedValues;
+              selectedFilters = selectedValues;
             });
           },
         );
@@ -69,94 +69,81 @@ class _Requests_TabState extends State<Requests_Tab> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(height: 5.h),
+    int filterLength = (requestsTypes.length) - (selectedFilters.length);
+    requestsTypes.removeWhere((element) => selectedFilters.contains(element));
+    // List<String> finalList = [...requestsTypes, ...selectedFilters];
+    return Column(children: [
+      SizedBox(height: 5.h),
 
-        /// filtering section ///////////////////////////////////////////////////////
-        Container(
-          height: 46.h,
-          padding: const EdgeInsets.all(AppPadding.p4),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 2),
-                child: Custom_Filter_Container(
-                    child: InkWell(
-                  onTap: () {
-                    return _showMultiSelect();
-                  },
-                  child: Icon(
-                    Icons.filter_list_outlined,
-                    color: ColorManager.darkBlueColor,
-                  ),
-                )),
-              ),
-              SizedBox(width: 5.w),
+      /// filtering section ///////////////////////////////////////////////////////
+      Container(
+          height: 50.h,
+          padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 4.h),
+          child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+            Filter_Icon(onTap: () {
+              return _showMultiSelect();
+            }),
 
-              /// filter types section /////////////////////////////////////////////
-              _selectedFilters.isEmpty
-                  ? Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 2),
-                      child: Custom_Filter_Container(
-                          child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: AppPadding.p8),
-                              child: Text('All Requests are on display',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyMedium!
-                                      .copyWith(
-                                          color: ColorManager.darkBlueColor)))),
-                    )
-                  : Expanded(
-                      child: ListView.builder(
+            /// filter types section /////////////////////////////////////////////
+            selectedFilters.isEmpty
+                ? Expanded(
+                    child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        itemCount: _selectedFilters.length,
+                        itemCount: requestsTypes.length,
                         itemBuilder: (context, index) {
-                          return Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: AppPadding.p2, vertical: 2),
-                              child: Custom_Filter_Container(
-                                  child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: AppPadding.p4),
-                                      child: Text(_selectedFilters[index],
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyMedium!
-                                              .copyWith(
-                                                  color: ColorManager
-                                                      .darkBlueColor)))));
-                        },
-                      ),
-                    )
-            ],
-          ),
-        ),
-        Padding(
+                          return UnSelected_Filter_Container(
+                            text: requestsTypes[index],
+                          );
+                        }))
+                : Expanded(
+                    child: Row(
+                      children: [
+                        Expanded(
+                            flex: 1,
+                            child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: selectedFilters.length,
+                                itemBuilder: (context, index) {
+                                  return Row(
+                                    children: [
+                                      Selected_Filter_Container(
+                                          text: selectedFilters[index]),
+                                    ],
+                                  );
+                                })),
+                        Expanded(
+                            flex: 2,
+                            child: ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: filterLength,
+                                itemBuilder: (context, index) {
+                                  return Row(
+                                    children: [
+                                      UnSelected_Filter_Container(
+                                          text: requestsTypes[index]),
+                                    ],
+                                  );
+                                })),
+                      ],
+                    ),
+                  )
+          ])),
+      Padding(
           padding: const EdgeInsets.symmetric(horizontal: AppPadding.p6),
-          child: Divider(color: ColorManager.lightBlueColor),
-        ),
-        Expanded(
+          child: Divider(color: ColorManager.lightBlueColor)),
+      Expanded(
           child: ListView.builder(
-            itemCount: 12,
-            itemBuilder: (context, index) {
-              return InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, Routes.requestDetailsRoute);
-                },
-                child: Custom_Request_Container(
-                  backgroundColor: requestColor(colors[index]),
-                  requestColor: colors[index],
-                ),
-              );
-            },
-          ),
-        ),
-      ],
-    );
+              itemCount: 12,
+              itemBuilder: (context, index) {
+                return InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.requestDetailsRoute);
+                    },
+                    child: Custom_Request_Container(
+                        backgroundColor: requestColor(colors[index]),
+                        requestColor: colors[index]));
+              }))
+    ]);
   }
 
   Color requestColor(Color currentColor) {
@@ -171,10 +158,4 @@ class _Requests_TabState extends State<Requests_Tab> {
     }
     return ColorManager.whiteColor;
   }
-}
-
-class RequestDetailsArguments {
-  final Color color;
-
-  RequestDetailsArguments(this.color);
 }
