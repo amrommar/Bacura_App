@@ -21,17 +21,14 @@ class _OTP_BottomsheetState extends State<OTP_Bottomsheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(
-            color: ColorManager.whiteColor,
-            borderRadius: BorderRadius.circular(20)),
+        decoration: BoxDecoration(color: ColorManager.whiteColor, borderRadius: BorderRadius.circular(20)),
         padding: EdgeInsets.all(20.h),
         child: SingleChildScrollView(
             child: Column(children: [
           ///Title of bottom sheet ////////////
           Align(
             alignment: Alignment.centerLeft,
-            child: Text(AppStrings.oTPNumber,
-                style: Theme.of(context).textTheme.displayLarge),
+            child: Text(AppStrings.oTPNumber, style: Theme.of(context).textTheme.displayLarge),
           ),
           Divider(color: ColorManager.primaryBlueColor),
           // OTP text Fields ____________________________
@@ -43,9 +40,7 @@ class _OTP_BottomsheetState extends State<OTP_Bottomsheet> {
                       textStyle: Theme.of(context)
                           .textTheme
                           .displayLarge!
-                          .copyWith(
-                              color: ColorManager.primaryBlueColor,
-                              fontSize: 28),
+                          .copyWith(color: ColorManager.primaryBlueColor, fontSize: 28),
                       appContext: context,
                       length: 4,
                       onChanged: (value) {
@@ -61,12 +56,8 @@ class _OTP_BottomsheetState extends State<OTP_Bottomsheet> {
                           activeColor: ColorManager.primaryBlueColor,
                           selectedColor: ColorManager.darkBlueColor,
                           errorBorderColor: ColorManager.redColor,
-                          inActiveBoxShadow: [
-                            BoxShadow(color: ColorManager.midWhiteColor)
-                          ],
-                          activeBoxShadow: [
-                            BoxShadow(color: ColorManager.midWhiteColor)
-                          ],
+                          inActiveBoxShadow: [BoxShadow(color: ColorManager.midWhiteColor)],
+                          activeBoxShadow: [BoxShadow(color: ColorManager.midWhiteColor)],
                           borderWidth: 1.5,
                           activeBorderWidth: 1.5,
                           disabledBorderWidth: 1.5,
@@ -83,10 +74,7 @@ class _OTP_BottomsheetState extends State<OTP_Bottomsheet> {
           ////Counter and Resend OTP Text //////////////////////////////////////////////////
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             Text(AppStrings.sendOTPNumberAgain,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium!
-                    .copyWith(color: ColorManager.greyColor)),
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.greyColor)),
             SizedBox(width: 10.w),
             Text('60', style: Theme.of(context).textTheme.displayMedium)
           ]),
@@ -104,18 +92,14 @@ class _OTP_BottomsheetState extends State<OTP_Bottomsheet> {
                         negActionName: 'Cancel',
                         posAction: () {
                           Navigator.pushNamedAndRemoveUntil(
-                              context,
-                              Routes.homeScreenRoute,
-                              (Route<dynamic> route) => false);
+                              context, Routes.homeScreenRoute, (Route<dynamic> route) => false);
                         },
                         message: 'Payment Done');
                   }
                 },
-                child: Text(AppStrings.check,
-                    style: Theme.of(context).textTheme.titleMedium)),
+                child: Text(AppStrings.check, style: Theme.of(context).textTheme.titleMedium)),
             SizedBox(height: 20.h),
-            Text(AppStrings.sendAgain,
-                style: Theme.of(context).textTheme.bodyMedium)
+            Text(AppStrings.sendAgain, style: Theme.of(context).textTheme.bodyMedium)
           ]))
         ])));
   }

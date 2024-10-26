@@ -6,7 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../resources/assets_manager.dart';
 import '../../resources/color_manager.dart';
 import '../../resources/strings_manager.dart';
-import '../../resources/values_manager.dart';
 import 'card_widget.dart';
 
 class Home_Tab extends StatefulWidget {
@@ -43,123 +42,104 @@ class _Home_TabState extends State<Home_Tab> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Ad Slider Section_____________________________________________________
-          Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: AppPadding.p12, vertical: AppPadding.p20),
-            child: CarouselSlider(
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      // Ad Slider Section_____________________________________________________
+      Padding(
+          padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 15.h),
+          child: CarouselSlider(
               items: [
                 Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/baner1.jpg'),
-                      fit: BoxFit.cover,
-                    ),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(image: AssetImage('assets/images/baner1.jpg'), fit: BoxFit.cover),
+                        borderRadius: BorderRadius.circular(8))),
                 Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/baner2.jpg'),
-                      fit: BoxFit.cover,
-                    ),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/baner2.jpg'),
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: BorderRadius.circular(8))),
                 Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/baner3.jpg'),
-                      fit: BoxFit.cover,
-                    ),
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/baner3.jpg'),
+                          fit: BoxFit.cover,
+                        ),
+                        borderRadius: BorderRadius.circular(8)))
               ],
               options: CarouselOptions(
-                height: 142.h,
-                enlargeCenterPage: true,
-                autoPlay: true,
-                aspectRatio: 16 / 9,
-                autoPlayCurve: Curves.fastOutSlowIn,
-                enableInfiniteScroll: true,
-                autoPlayAnimationDuration: Duration(milliseconds: 1000),
-                viewportFraction: 0.8,
-              ),
-            ),
-          ),
-          // Apartments Section______________________________________________________
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
-            child: Text(AppStrings.apartments,
-                style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    color: ColorManager.blackColor,
-                    fontWeight: FontWeight.bold)),
-          ),
-          Divider(color: ColorManager.lightBlueColor, thickness: 2),
-          // Apartments List (could be GridView as well)
-          Container(
-              padding: EdgeInsets.symmetric(horizontal: 8.w),
-              child: GridView.builder(
-                  physics: NeverScrollableScrollPhysics(),
-                  // Disable scrolling inside GridView
-                  shrinkWrap: true,
-                  // Let it take only necessary height
-                  itemCount: 6,
-                  // Replace with your apartments list length
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3, // Number of items per row
-                      crossAxisSpacing: 0.w, // Horizontal space between items
-                      mainAxisSpacing: 0.h, // Vertical space between items
-                      childAspectRatio:
-                          1 // Adjust the item height to width ratio
-                      ),
-                  itemBuilder: (context, index) {
-                    return InkWell(
-                        onTap: () {
-                          Navigator.pushNamed(context, Routes.serviceTypeRoute);
-                        },
-                        child: ApartmentCard(
-                          apartmentTitle: imagesTitle[index],
-                          imagePath: imagesPaths[index],
-                        )); // Widget for each apartment card
-                  })),
-          Divider(color: ColorManager.lightBlueColor, thickness: 2),
-          /////////////////         Cinema and Consultation Section             ////////////////////////////
-          Row(
-            children: [
-              /////////////////  Cinema Section             ////////////////////////////
+                  height: 170.h,
+                  enlargeCenterPage: true,
+                  autoPlay: true,
+                  aspectRatio: 16 / 9,
+                  autoPlayCurve: Curves.fastOutSlowIn,
+                  enableInfiniteScroll: true,
+                  autoPlayAnimationDuration: Duration(milliseconds: 1000),
+                  viewportFraction: 1))),
 
-              Expanded(
-                  child: Container(
-                      margin: EdgeInsets.all(12),
-                      child: ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: Image.asset('assets/images/cinema.jpg')))),
-              /////////////////    Consultation Section    ////////////////////////////
-              Expanded(
-                  child: InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, Routes.consultationScreenRoute);
-                },
-                child: Container(
-                    margin: EdgeInsets.all(12),
-                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: Image.asset('assets/images/consultionss.jpg'))),
-              )),
-            ],
-          ),
-        ],
-      ),
-    );
+      ///////////////////////////////   Departments Section      //////////////////////////////////////////////
+      Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: Text(AppStrings.departments,
+              style: Theme.of(context)
+                  .textTheme
+                  .titleMedium!
+                  .copyWith(color: ColorManager.blackColor, fontWeight: FontWeight.bold))),
+      Divider(color: ColorManager.lightBlueColor, thickness: 2),
+      // Apartments List (could be GridView as well)
+      Container(
+          padding: EdgeInsets.symmetric(horizontal: 8.w),
+          child: GridView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              // Disable scrolling inside GridView
+              shrinkWrap: true,
+              // Let it take only necessary height
+              itemCount: 6,
+              // Replace with your apartments list length
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  // Number of items per row
+                  crossAxisSpacing: 0.w,
+                  // Horizontal space between items
+                  mainAxisSpacing: 0.h,
+                  // Vertical space between items
+                  childAspectRatio: 1),
+              itemBuilder: (context, index) {
+                return InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.serviceTypeRoute);
+                    },
+                    child: DepartmentCard(
+                      departmentTitle: imagesTitle[index],
+                      imagePath: imagesPaths[index],
+                    )); // Widget for each apartment card
+              })),
+      Divider(color: ColorManager.lightBlueColor, thickness: 2),
+      /////////////////         Cinema and Consultation Section             ////////////////////////////
+      Row(children: [
+        /////////////////  Cinema Section             ////////////////////////////
+
+        Expanded(
+            child: Container(
+                margin: EdgeInsets.all(12),
+                child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12), child: Image.asset('assets/images/cinema.jpg')))),
+        /////////////////    Consultation Section    ////////////////////////////
+        Expanded(
+            child: InkWell(
+          onTap: () {
+            Navigator.pushNamed(context, Routes.consultationScreenRoute);
+          },
+          child: Container(
+              margin: EdgeInsets.all(12),
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12), child: Image.asset('assets/images/consultionss.jpg'))),
+        ))
+      ])
+    ]));
   }
 }
 // // More Ask Section______________________________________________________

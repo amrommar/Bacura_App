@@ -29,9 +29,10 @@ class _ServiceType_ScreenState extends State<ServiceType_Screen> {
             Padding(
                 padding: EdgeInsets.only(right: 16.w, top: 16.h, left: 16.w),
                 child: Text('Available Services',
-                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                        color: ColorManager.darkBlueColor,
-                        fontWeight: FontWeight.bold))),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold))),
             // Service_Type_Container(text: 'Consultation'),
             Service_Type_Container(text: 'Installation & programming'),
             Service_Type_Container(text: 'Maintenance'),
@@ -43,8 +44,7 @@ class _ServiceType_ScreenState extends State<ServiceType_Screen> {
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       maximumSize: Size(170.w, 70),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(AppSize.s8))),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSize.s8))),
                   onPressed: () {
                     Navigator.pushNamed(context, Routes.serviceDetailsRoute);
                   },
@@ -57,13 +57,10 @@ class _ServiceType_ScreenState extends State<ServiceType_Screen> {
                         style: Theme.of(context)
                             .textTheme
                             .titleMedium!
-                            .copyWith(
-                                color: ColorManager.whiteColor,
-                                fontWeight: FontWeight.bold),
+                            .copyWith(color: ColorManager.whiteColor, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(width: 10.w),
-                      Icon(Icons.arrow_circle_right_outlined,
-                          color: ColorManager.whiteColor)
+                      Icon(Icons.arrow_circle_right_outlined, color: ColorManager.whiteColor)
                     ],
                   )),
             ),
@@ -93,18 +90,15 @@ class _Service_Type_ContainerState extends State<Service_Type_Container> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
       margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
-      decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: ColorManager.lightBlueColor,
-              // Shadow color with opacity
-              spreadRadius: 2, // Spread radius
-              blurRadius: 4, // Blur radius
-              offset: Offset(0, 3), // Offset in the x and y directions
-            ),
-          ],
-          borderRadius: BorderRadius.circular(AppSize.s12),
-          color: ColorManager.whiteColor),
+      decoration: BoxDecoration(boxShadow: [
+        BoxShadow(
+          color: ColorManager.lightBlueColor,
+          // Shadow color with opacity
+          spreadRadius: 2, // Spread radius
+          blurRadius: 4, // Blur radius
+          offset: Offset(0, 3), // Offset in the x and y directions
+        ),
+      ], borderRadius: BorderRadius.circular(AppSize.s12), color: ColorManager.whiteColor),
       child: InkWell(
         onTap: () {
           if (isChecked == false) {
@@ -125,10 +119,7 @@ class _Service_Type_ContainerState extends State<Service_Type_Container> {
                 width: 345.w,
                 child: Text(widget.text,
                     overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyLarge!
-                        .copyWith(color: ColorManager.blackColor)))
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: ColorManager.blackColor)))
           ],
         ),
       ),

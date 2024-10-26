@@ -20,61 +20,46 @@ class _Consultation_ScreenState extends State<Consultation_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Consultation Screen')),
-      body: Form(
-        key: formKey,
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
-          child: ListView(
-            children: [
-              DropDown_Field(
-                  selectedOption: 'Type 1',
-                  options: options,
-                  fieldName: 'Consultation Type'),
-              question_TextFormField(
-                  fieldName: 'Consultation Description',
-                  hintText: 'Enter Consultation Description....',
-                  controller: descriptionController,
-                  maxLines: 6,
-                  validator: (value) {
-                    if (value == null || value.trim().isEmpty) {
-                      return 'Please Enter Consultation Description';
-                    }
-                    return null;
-                  }),
-              SizedBox(height: 10.h),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text('*',
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleLarge!
-                            .copyWith(color: ColorManager.greyColor)),
-                    SizedBox(width: 10.w),
-                    Expanded(
-                        child: Text(
-                            'Your consultation will be answered within three days.',
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleSmall!
-                                .copyWith(color: ColorManager.greyColor)))
-                  ]),
-              SizedBox(height: 100.h),
-              Center(
-                  child: SmallElevatedbutton(
-                      text: 'Send Request',
-                      onPressed: () {
-                        if (formKey.currentState?.validate() == true) {
-                          showRequestSentBottomSheet();
+        appBar: AppBar(title: Text('Consultation Screen')),
+        body: Form(
+            key: formKey,
+            child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+                child: ListView(children: [
+                  DropDown_Field(selectedOption: 'Type 1', options: options, fieldName: 'Consultation Type'),
+                  question_TextFormField(
+                      fieldName: 'Consultation Description',
+                      hintText: 'Enter Consultation Description....',
+                      controller: descriptionController,
+                      maxLines: 6,
+                      validator: (value) {
+                        if (value == null || value.trim().isEmpty) {
+                          return 'Please Enter Consultation Description';
                         }
-                      }))
-            ],
-          ),
-        ),
-      ),
-    );
+                        return null;
+                      }),
+                  SizedBox(height: 10.h),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text('*',
+                            style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.greyColor)),
+                        SizedBox(width: 10.w),
+                        Expanded(
+                            child: Text('Your consultation will be answered within three days.',
+                                style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.greyColor)))
+                      ]),
+                  SizedBox(height: 100.h),
+                  Center(
+                      child: SmallElevatedbutton(
+                          text: 'Send Request',
+                          onPressed: () {
+                            if (formKey.currentState?.validate() == true) {
+                              showRequestSentBottomSheet();
+                            }
+                          }))
+                ]))));
   }
 
   void showRequestSentBottomSheet() {

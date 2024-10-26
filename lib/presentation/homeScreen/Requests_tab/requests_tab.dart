@@ -2,7 +2,6 @@ import 'package:bacura_app/presentation/homeScreen/Offers_tab/custom_filter_cont
 import 'package:bacura_app/presentation/homeScreen/Requests_tab/widgets/custom_request_container.dart';
 import 'package:bacura_app/presentation/resources/color_manager.dart';
 import 'package:bacura_app/presentation/resources/routes_manager.dart';
-import 'package:bacura_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:multi_select_flutter/dialog/mult_select_dialog.dart';
@@ -26,7 +25,7 @@ class _Requests_TabState extends State<Requests_Tab> {
     ColorManager.yellowColor,
     ColorManager.primaryBlueColor,
     ColorManager.greenColor,
-    ColorManager.redColor,
+    ColorManager.redColor
   ];
   static List<String> requestsTypes = [
     'On Going',
@@ -34,43 +33,36 @@ class _Requests_TabState extends State<Requests_Tab> {
     'Canceled',
     'On hold',
   ];
-  final List<MultiSelectItem<String>> _filterItems = requestsTypes
-      .map((filter) => MultiSelectItem<String>(filter, filter))
-      .toList();
+  final List<MultiSelectItem<String>> _filterItems =
+      requestsTypes.map((filter) => MultiSelectItem<String>(filter, filter)).toList();
   List<String> selectedFilters = [];
 
   void _showMultiSelect() async {
     await showDialog(
-      context: context,
-      builder: (ctx) {
-        return MultiSelectDialog(
-          checkColor: ColorManager.whiteColor,
-          height: 220.h,
-
-          backgroundColor: ColorManager.lightBlueColor,
-          title: Text('Select Category'),
-          itemsTextStyle: Theme.of(context)
-              .textTheme
-              .titleSmall!
-              .copyWith(color: ColorManager.greyColor),
-          selectedColor: ColorManager.primaryBlueColor,
-          items: _filterItems,
-          initialValue: selectedFilters,
-          // Initial selected filters
-          onConfirm: (List<String> selectedValues) {
-            setState(() {
-              selectedFilters = selectedValues;
-            });
-          },
-        );
-      },
-    );
+        context: context,
+        builder: (ctx) {
+          return MultiSelectDialog(
+              checkColor: ColorManager.whiteColor,
+              height: 220.h,
+              backgroundColor: ColorManager.lightBlueColor,
+              title: Text('Select Category'),
+              itemsTextStyle: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.greyColor),
+              selectedColor: ColorManager.primaryBlueColor,
+              items: _filterItems,
+              initialValue: selectedFilters,
+              // Initial selected filters
+              onConfirm: (List<String> selectedValues) {
+                setState(() {
+                  selectedFilters = selectedValues;
+                });
+              });
+        });
   }
 
   @override
   Widget build(BuildContext context) {
-    int filterLength = (requestsTypes.length) - (selectedFilters.length);
-    requestsTypes.removeWhere((element) => selectedFilters.contains(element));
+    // int filterLength = (requestsTypes.length) - (selectedFilters.length);
+    // requestsTypes.removeWhere((element) => selectedFilters.contains(element));
     // List<String> finalList = [...requestsTypes, ...selectedFilters];
     return Column(children: [
       SizedBox(height: 5.h),
@@ -96,41 +88,22 @@ class _Requests_TabState extends State<Requests_Tab> {
                           );
                         }))
                 : Expanded(
-                    child: Row(
-                      children: [
-                        Expanded(
-                            flex: 1,
-                            child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: selectedFilters.length,
-                                itemBuilder: (context, index) {
-                                  return Row(
-                                    children: [
-                                      Selected_Filter_Container(
-                                          text: selectedFilters[index]),
-                                    ],
-                                  );
-                                })),
-                        Expanded(
-                            flex: 2,
-                            child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: filterLength,
-                                itemBuilder: (context, index) {
-                                  return Row(
-                                    children: [
-                                      UnSelected_Filter_Container(
-                                          text: requestsTypes[index]),
-                                    ],
-                                  );
-                                })),
-                      ],
-                    ),
+                    child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: selectedFilters.length,
+                        itemBuilder: (context, index) {
+                          return Row(
+                            children: [
+                              Selected_Filter_Container(text: selectedFilters[index]),
+                            ],
+                          );
+                        }),
                   )
           ])),
-      Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppPadding.p6),
-          child: Divider(color: ColorManager.lightBlueColor)),
+      Divider(color: ColorManager.lightBlueColor),
+
+      /// Requests section ///////////////////////////////////////////////////////
+
       Expanded(
           child: ListView.builder(
               itemCount: 12,
@@ -140,8 +113,7 @@ class _Requests_TabState extends State<Requests_Tab> {
                       Navigator.pushNamed(context, Routes.requestDetailsRoute);
                     },
                     child: Custom_Request_Container(
-                        backgroundColor: requestColor(colors[index]),
-                        requestColor: colors[index]));
+                        backgroundColor: requestColor(colors[index]), requestColor: colors[index]));
               }))
     ]);
   }
