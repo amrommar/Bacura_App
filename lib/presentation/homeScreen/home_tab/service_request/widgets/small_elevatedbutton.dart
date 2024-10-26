@@ -9,28 +9,20 @@ class SmallElevatedbutton extends StatelessWidget {
   Color? backgroundColor = ColorManager.primaryBlueColor;
   Color? textColor = ColorManager.whiteColor;
 
-  SmallElevatedbutton(
-      {required this.text,
-      required this.onPressed,
-      this.backgroundColor,
-      this.textColor});
+  SmallElevatedbutton({required this.text, required this.onPressed, this.backgroundColor, this.textColor});
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
             backgroundColor: backgroundColor,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(AppSize.s30))),
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSize.s30))),
         onPressed: () {
           onPressed();
         },
         child: Text(
           text,
-          style: Theme.of(context)
-              .textTheme
-              .titleMedium!
-              .copyWith(color: textColor, fontWeight: FontWeight.bold),
+          style: Theme.of(context).textTheme.titleMedium!.copyWith(color: textColor, fontWeight: FontWeight.bold),
         ));
   }
 }

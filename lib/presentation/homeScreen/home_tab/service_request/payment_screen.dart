@@ -23,143 +23,103 @@ class _Payment_ScreenState extends State<Payment_Screen> {
   int selectedOption = 0;
 
   // Mask formatter for MM/YY format
-  final maskFormatter =
-  MaskTextInputFormatter(mask: '##/##', filter: {"#": RegExp(r'[0-9]')});
+  final maskFormatter = MaskTextInputFormatter(mask: '##/##', filter: {"#": RegExp(r'[0-9]')});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Payment Screen')),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 16.h),
-          child: Column(
-            children: [
+        appBar: AppBar(title: Text('Payment Screen')),
+        body: SingleChildScrollView(
+            child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 16.h),
+                child: Column(children: [
+                  /// Payment Methods Containers ////////////////////////////////////////////////////////////////////
+                  InkWell(
+                    onTap: () {
+                      selectOption(2);
+                      setState(() {});
+                    },
+                    child: Custom_Payment_Container(
+                        widget: Text('Saved Cards',
+                            style:
+                                Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.darkBlueColor))),
+                  ),
 
-              /// Payment Methods Containers ////////////////////////////////////////////////////////////////////
-              InkWell(
-                onTap: () {
-                  selectOption(2);
-                  setState(() {});
-                },
-                child: Custom_Payment_Container(
-                    widget: Text('Saved Cards',
-                        style: Theme
-                            .of(context)
-                            .textTheme
-                            .titleLarge!
-                            .copyWith(color: ColorManager.darkBlueColor))),
-              ),
+                  InkWell(
+                    onTap: () {
+                      selectOption(1);
+                      setState(() {});
+                    },
+                    child: Custom_Payment_Container(widget: Image.asset('assets/images/logos_mastercard.png')),
+                  ),
 
-              InkWell(
-                onTap: () {
-                  selectOption(1);
-                  setState(() {});
-                },
-                child: Custom_Payment_Container(
-                    widget: Image.asset('assets/images/logos_mastercard.png')),
-              ),
-
-              InkWell(
-                onTap: () {
-                  selectOption(1);
-                  setState(() {});
-                },
-                child: Custom_Payment_Container(
-                    widget: Image.asset('assets/images/Mada_Logo.svg 1.png')),
-              ),
-              InkWell(
-                  onTap: () {
-                    selectOption(3);
-                    setState(() {});
-                  },
-                  child: Custom_Payment_Container(
-                      widget: Text('Pay From Wallet',
-                          style: Theme
-                              .of(context)
-                              .textTheme
-                              .titleLarge!
-                              .copyWith(color: ColorManager.darkBlueColor)))),
-
-              Container(height: 340.h, child: selectedWidget()),
-              ///////////////////////////   terms and conditions checkBox   //////////////////////////////////////////////
-              CheckboxListTile(
-                checkColor: ColorManager.whiteColor,
-                activeColor: ColorManager.primaryBlueColor,
-                title: Text(
-                    'accept the privacy policy and terms and conditions',
-                    style: Theme
-                        .of(context)
-                        .textTheme
-                        .titleSmall!
-                        .copyWith(color: ColorManager.greyColor)),
-                value: isChecked,
-                onChanged: (bool? value) {
-                  setState(() {
-                    isChecked = value ?? false;
-                  });
-                },
-                controlAffinity: ListTileControlAffinity.leading,
-              ),
-
-              /// Pay Button & Price Container ////////////////////////////////////////////////////////////////////
-              Container(
-                height: 120.h,
-                padding: EdgeInsets.all(16),
-                margin: EdgeInsets.all(2),
-                decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: ColorManager.lightBlueColor,
-                        // Shadow color with opacity
-                        spreadRadius: 2,
-                        // Spread radius
-                        blurRadius: 4,
-                        // Blur radius
-                        offset:
-                        Offset(0, 3), // Offset in the x and y directions
-                      )
-                    ],
-                    borderRadius: BorderRadius.circular(AppSize.s12),
-                    color: ColorManager.whiteColor),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('2000 SR',
-                              style: Theme
-                                  .of(context)
+                  InkWell(
+                    onTap: () {
+                      selectOption(1);
+                      setState(() {});
+                    },
+                    child: Custom_Payment_Container(widget: Image.asset('assets/images/Mada_Logo.svg 1.png')),
+                  ),
+                  InkWell(
+                      onTap: () {
+                        selectOption(3);
+                        setState(() {});
+                      },
+                      child: Custom_Payment_Container(
+                          widget: Text('Pay From Wallet',
+                              style: Theme.of(context)
                                   .textTheme
                                   .titleLarge!
-                                  .copyWith(
-                                  color: ColorManager.primaryBlueColor)),
-                          Text(
-                            '(Total includes tax)',
-                            style: Theme
-                                .of(context)
-                                .textTheme
-                                .titleMedium!
-                                .copyWith(color: ColorManager.greyColor),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SmallElevatedbutton(
-                        text: 'Pay',
-                        onPressed: () {
-                          showVerifyOTPBottomSheet();
-                        }),
-                  ],
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
-    );
+                                  .copyWith(color: ColorManager.darkBlueColor)))),
+
+                  Container(height: 340.h, child: selectedWidget()),
+                  ///////////////////////////   terms and conditions checkBox   //////////////////////////////////////////////
+                  CheckboxListTile(
+                    checkColor: ColorManager.whiteColor,
+                    activeColor: ColorManager.primaryBlueColor,
+                    title: Text('accept the privacy policy and terms and conditions',
+                        style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.greyColor)),
+                    value: isChecked,
+                    onChanged: (bool? value) {
+                      setState(() {
+                        isChecked = value ?? false;
+                      });
+                    },
+                    controlAffinity: ListTileControlAffinity.leading,
+                  ),
+
+                  /// Pay Button & Price Container ////////////////////////////////////////////////////////////////////
+                  Container(
+                      height: 120.h,
+                      padding: EdgeInsets.all(16),
+                      margin: EdgeInsets.all(2),
+                      decoration: BoxDecoration(boxShadow: [
+                        BoxShadow(
+                            color: ColorManager.lightBlueColor, spreadRadius: 2, blurRadius: 4, offset: Offset(0, 3))
+                      ], borderRadius: BorderRadius.circular(AppSize.s12), color: ColorManager.whiteColor),
+                      child: Row(children: [
+                        Expanded(
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                              Text('2000 SR',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleLarge!
+                                      .copyWith(color: ColorManager.primaryBlueColor)),
+                              Text(
+                                '(Total includes tax)',
+                                style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.greyColor),
+                              )
+                            ])),
+                        SmallElevatedbutton(
+                            text: 'Pay',
+                            onPressed: () {
+                              showVerifyOTPBottomSheet();
+                            })
+                      ]))
+                ]))));
   }
 
   void showVerifyOTPBottomSheet() {
@@ -181,166 +141,124 @@ class _Payment_ScreenState extends State<Payment_Screen> {
     switch (selectedOption) {
       case 1:
 
-      /// New Card Details Container ////////////////////////////////////////////////////////////////////
+        /// New Card Details Container ////////////////////////////////////////////////////////////////////
         return Padding(
-          padding: EdgeInsets.all(14.h),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-
-              /// Enter Card Number TextField ////////////////////////////////////////
-              CardCustom_TxtField(
-                  hintText: 'Enter Card Number',
-                  controller: cardNumberController,
-                  keyboardType: TextInputType.number,
-                  inputFormatter: [
-                    // Limit to 3 characters
-                    FilteringTextInputFormatter.digitsOnly, // Only allow digits
-                  ],
-                  validator: (value) {
-                    if (value == null || value
-                        .trim()
-                        .isEmpty) {
-                      return 'Please Enter Card Number';
-                    }
-                    return null;
-                  }),
-              SizedBox(height: 8.h),
-
-              /// Enter Expire date & CVV TextField ////////////////////////////////////////
-              Row(
+            padding: EdgeInsets.all(14.h),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Expanded(
-                    child: CardCustom_TxtField(
-                        hintText: 'CVV',
-                        inputFormatter: [
-                          LengthLimitingTextInputFormatter(3),
-                          // Limit to 3 characters
-                          FilteringTextInputFormatter.digitsOnly,
-                          // Only allow digits
-                        ],
-                        controller: cvvController,
-                        keyboardType: TextInputType.number,
-                        validator: (value) {
-                          if (value == null || value
-                              .trim()
-                              .isEmpty) {
-                            return 'Please Enter CVV';
-                          }
-                          return null;
-                        }),
-                  ),
-                  SizedBox(width: 10.w),
-                  Expanded(
-                    child: CardCustom_TxtField(
-                        hintText: 'MM/YY',
-                        controller: mmyyController,
-                        keyboardType: TextInputType.number,
-                        inputFormatter: [maskFormatter],
-                        // Use mask formatter here
-                        validator: (value) {
-                          if (value == null || value
-                              .trim()
-                              .isEmpty) {
-                            return 'Please Enter MM/YY';
-                          }
-                          return null;
-                        }),
-                  ),
-                ],
-              ),
-              SizedBox(height: 8.h),
+                  /// Enter Card Number TextField ////////////////////////////////////////
+                  CardCustom_TxtField(
+                      hintText: 'Enter Card Number',
+                      controller: cardNumberController,
+                      keyboardType: TextInputType.number,
+                      inputFormatter: [
+                        // Limit to 3 characters
+                        FilteringTextInputFormatter.digitsOnly // Only allow digits
+                      ],
+                      validator: (value) {
+                        if (value == null || value.trim().isEmpty) {
+                          return 'Please Enter Card Number';
+                        }
+                        return null;
+                      }),
+                  SizedBox(height: 8.h),
 
-              /// Enter Name TextField ////////////////////////////////////////
-              CardCustom_TxtField(
-                  hintText: 'Enter Name',
-                  controller: nameController,
-                  keyboardType: TextInputType.text,
-                  validator: (value) {
-                    if (value == null || value
-                        .trim()
-                        .isEmpty) {
-                      return 'Please Enter Name';
-                    }
-                    return null;
-                  }),
-            ],
-          ),
-        );
+                  /// Enter Expire date & CVV TextField ////////////////////////////////////////
+                  Row(
+                    children: [
+                      Expanded(
+                        child: CardCustom_TxtField(
+                            hintText: 'CVV',
+                            inputFormatter: [
+                              LengthLimitingTextInputFormatter(3),
+                              // Limit to 3 characters
+                              FilteringTextInputFormatter.digitsOnly,
+                              // Only allow digits
+                            ],
+                            controller: cvvController,
+                            keyboardType: TextInputType.number,
+                            validator: (value) {
+                              if (value == null || value.trim().isEmpty) {
+                                return 'Please Enter CVV';
+                              }
+                              return null;
+                            }),
+                      ),
+                      SizedBox(width: 10.w),
+                      Expanded(
+                        child: CardCustom_TxtField(
+                            hintText: 'MM/YY',
+                            controller: mmyyController,
+                            keyboardType: TextInputType.number,
+                            inputFormatter: [maskFormatter],
+                            // Use mask formatter here
+                            validator: (value) {
+                              if (value == null || value.trim().isEmpty) {
+                                return 'Please Enter MM/YY';
+                              }
+                              return null;
+                            }),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 8.h),
 
-    /// Saved Card CVV Container ////////////////////////////////////////////////////////////////////
+                  /// Enter Name TextField ////////////////////////////////////////
+                  CardCustom_TxtField(
+                      hintText: 'Enter Name',
+                      controller: nameController,
+                      keyboardType: TextInputType.text,
+                      validator: (value) {
+                        if (value == null || value.trim().isEmpty) {
+                          return 'Please Enter Name';
+                        }
+                        return null;
+                      })
+                ]));
+
+      /// Saved Card CVV Container ////////////////////////////////////////////////////////////////////
       case 2:
         return Padding(
-          padding: EdgeInsets.all(14.h),
-          child: CardCustom_TxtField(
-              inputFormatter: [
-                LengthLimitingTextInputFormatter(3), // Limit to 3 characters
-                FilteringTextInputFormatter.digitsOnly, // Only allow digits
-              ],
-              hintText: 'CVV',
-              controller: cvvController,
-              keyboardType: TextInputType.number,
-              validator: (value) {
-                if (value == null || value
-                    .trim()
-                    .isEmpty || value.length > 3) {
-                  return 'Please Enter CVV';
-                }
-                return null;
-              }),
-        );
+            padding: EdgeInsets.all(14.h),
+            child: CardCustom_TxtField(
+                inputFormatter: [
+                  LengthLimitingTextInputFormatter(3), // Limit to 3 characters
+                  FilteringTextInputFormatter.digitsOnly, // Only allow digits
+                ],
+                hintText: 'CVV',
+                controller: cvvController,
+                keyboardType: TextInputType.number,
+                validator: (value) {
+                  if (value == null || value.trim().isEmpty || value.length > 3) {
+                    return 'Please Enter CVV';
+                  }
+                  return null;
+                }));
 
-    /// Pay From Wallet Details Container ////////////////////////////////////////////////////////////////////
+      /// Pay From Wallet Details Container ////////////////////////////////////////////////////////////////////
       case 3:
         return Container(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            children: [
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text('Your wallet balance: ',
-                        style: Theme
-                            .of(context)
-                            .textTheme
-                            .titleLarge!
-                            .copyWith(color: ColorManager.darkBlueColor)),
-                    SizedBox(width: 10.w),
-                    Expanded(
-                        child: Text('1500',
-                            style: Theme
-                                .of(context)
-                                .textTheme
-                                .titleLarge!
-                                .copyWith(
-                                color: ColorManager.primaryBlueColor)))
-                  ]),
+            padding: const EdgeInsets.all(20),
+            child: Column(children: [
+              Row(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.center, children: [
+                Text('Your wallet balance: ',
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.darkBlueColor)),
+                SizedBox(width: 10.w),
+                Expanded(
+                    child: Text('1500',
+                        style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.primaryBlueColor)))
+              ]),
               SizedBox(height: 10.h),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('*',
-                        style: Theme
-                            .of(context)
-                            .textTheme
-                            .titleLarge!
-                            .copyWith(color: ColorManager.greyColor)),
-                    SizedBox(width: 10.w),
-                    Expanded(
-                        child: Text(
-                            'The amount will be deducted from the wallet directly.',
-                            style: Theme
-                                .of(context)
-                                .textTheme
-                                .titleSmall!
-                                .copyWith(color: ColorManager.greyColor)))
-                  ]),
-            ],
-          ),
-        );
+              Row(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Text('*', style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.greyColor)),
+                SizedBox(width: 10.w),
+                Expanded(
+                    child: Text('The amount will be deducted from the wallet directly.',
+                        style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.greyColor)))
+              ])
+            ]));
       default:
         return Container();
     }
@@ -355,35 +273,28 @@ class Custom_Payment_Container extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 6.h),
-      margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
-      decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
+        padding: EdgeInsets.symmetric(vertical: 6.h),
+        margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
               color: ColorManager.lightBlueColor,
               // Shadow color with opacity
               spreadRadius: 2, // Spread radius
               blurRadius: 4, // Blur radius
-              offset: Offset(0, 3), // Offset in the x and y directions
-            ),
-          ],
-          borderRadius: BorderRadius.circular(AppSize.s12),
-          color: ColorManager.whiteColor),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 12),
-            child: widget,
-          ),
-          Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Icon(Icons.circle_outlined,
-                  color: ColorManager.midBlueColor, size: 30))
-        ],
-      ),
-    );
+              offset: Offset(0, 3))
+        ], borderRadius: BorderRadius.circular(AppSize.s12), color: ColorManager.whiteColor),
+        child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 12),
+                child: widget,
+              ),
+              Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(Icons.circle_outlined, color: ColorManager.midBlueColor, size: 30))
+            ]));
   }
 }
 //               /// Terms And Conditions container /////////////////////////////////////////////////////

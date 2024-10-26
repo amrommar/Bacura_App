@@ -38,16 +38,10 @@ class _question_TextFormFieldState extends State<question_TextFormField> {
         children: [
           Text(
             widget.fieldName,
-            style: Theme.of(context)
-                .textTheme
-                .titleMedium!
-                .copyWith(color: ColorManager.blackColor),
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.blackColor),
           ),
           TextFormField(
-            style: Theme.of(context)
-                .textTheme
-                .displayMedium!
-                .copyWith(color: ColorManager.darkBlueColor),
+            style: Theme.of(context).textTheme.displayMedium!.copyWith(color: ColorManager.darkBlueColor),
             validator: widget.validator,
             maxLines: widget.maxLines,
             controller: widget.controller,
@@ -61,13 +55,9 @@ class _question_TextFormFieldState extends State<question_TextFormField> {
                       width: AppSize.s1,
                     ),
                     borderRadius: BorderRadius.circular(AppSize.s8)),
-                contentPadding:
-                    EdgeInsets.only(left: 8.w, right: 8.w, top: 8.h),
+                contentPadding: EdgeInsets.only(left: 8.w, right: 8.w, top: 8.h),
                 hintText: widget.hintText,
-                hintStyle: Theme.of(context)
-                    .textTheme
-                    .bodyMedium!
-                    .copyWith(color: ColorManager.greyColor)),
+                hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.greyColor)),
           )
         ],
       ),

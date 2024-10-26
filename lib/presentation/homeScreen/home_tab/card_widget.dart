@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class ApartmentCard extends StatelessWidget {
+class DepartmentCard extends StatelessWidget {
   String imagePath;
-  String apartmentTitle;
+  String departmentTitle;
 
-  ApartmentCard({required this.imagePath, required this.apartmentTitle});
+  DepartmentCard({required this.imagePath, required this.departmentTitle});
 
   @override
   Widget build(BuildContext context) {
@@ -22,13 +22,10 @@ class ApartmentCard extends StatelessWidget {
               child: SvgPicture.asset(imagePath))),
       Container(
           width: 100.w,
-          child: Text(apartmentTitle,
+          child: Text(departmentTitle,
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
-              style: Theme.of(context)
-                  .textTheme
-                  .titleSmall!
-                  .copyWith(color: ColorManager.blackColor)))
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.blackColor)))
     ]);
   }
 }

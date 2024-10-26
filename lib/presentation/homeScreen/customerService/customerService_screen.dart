@@ -21,26 +21,18 @@ class _CustomerserviceScreenState extends State<Customerservice_Screen> {
                   child: Container(
                       padding: EdgeInsets.all(5),
                       color: ColorManager.whiteColor,
-                      child: Icon(Icons.headset_mic_outlined,
-                          size: 30, color: ColorManager.primaryBlueColor))))
+                      child: Icon(Icons.headset_mic_outlined, size: 30, color: ColorManager.primaryBlueColor))))
         ]),
         body: Column(children: [
           Expanded(
-              child: ListView(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
-                  children: [
-                buildBotMessage("Customer Support",
-                    "Hey, welcome to Service Customer Chat.", "11:25 am"),
-                buildBotMessage("Bacura Support",
-                    "What can we assist you with today?", "11:25 am"),
-                buildUserMessage("Payments", "11:25 am"),
-                buildBotMessage("Bacura Support",
-                    "Select a topic you need help with.", "11:25 am"),
-                buildUserMessage("Make a payment", "11:25 am"),
-                buildBotMessage("Bacura Support",
-                    "Select a payment you need help with", "11:25 am"),
-              ])),
+              child: ListView(padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h), children: [
+            buildBotMessage("Customer Support", "Hey, welcome to Service Customer Chat.", "11:25 am"),
+            buildBotMessage("Bacura Support", "What can we assist you with today?", "11:25 am"),
+            buildUserMessage("Payments", "11:25 am"),
+            buildBotMessage("Bacura Support", "Select a topic you need help with.", "11:25 am"),
+            buildUserMessage("Make a payment", "11:25 am"),
+            buildBotMessage("Bacura Support", "Select a payment you need help with", "11:25 am"),
+          ])),
           buildMessageInput()
         ]));
   }
@@ -50,21 +42,14 @@ class _CustomerserviceScreenState extends State<Customerservice_Screen> {
       CircleAvatar(
           radius: 16,
           backgroundColor: Colors.grey.shade200,
-          child: Icon(Icons.headset_mic_outlined,
-              color: ColorManager.primaryBlueColor)),
+          child: Icon(Icons.headset_mic_outlined, color: ColorManager.primaryBlueColor)),
       SizedBox(width: 8),
       Container(
           margin: EdgeInsets.only(bottom: 10),
           padding: EdgeInsets.all(12),
-          decoration: BoxDecoration(
-              color: Colors.grey.shade100,
-              borderRadius: BorderRadius.circular(15)),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Text(sender,
-                style: TextStyle(
-                    color: ColorManager.darkBlueColor,
-                    fontWeight: FontWeight.bold)),
+          decoration: BoxDecoration(color: Colors.grey.shade100, borderRadius: BorderRadius.circular(15)),
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Text(sender, style: TextStyle(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold)),
             SizedBox(height: 5),
             Text(message),
             Text(time, style: TextStyle(fontSize: 12, color: Colors.grey))
@@ -78,14 +63,10 @@ class _CustomerserviceScreenState extends State<Customerservice_Screen> {
         child: Container(
             margin: EdgeInsets.only(bottom: 10),
             padding: EdgeInsets.all(12),
-            decoration: BoxDecoration(
-                color: ColorManager.lightBlueColor,
-                borderRadius: BorderRadius.circular(15)),
+            decoration: BoxDecoration(color: ColorManager.lightBlueColor, borderRadius: BorderRadius.circular(15)),
             // Let the content decide the width
-            constraints: BoxConstraints(
-                maxWidth: MediaQuery.of(context).size.width * 0.7),
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+            constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.7),
+            child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
               Text(message),
               SizedBox(height: 5),
               Text(time, style: TextStyle(fontSize: 12, color: Colors.grey))
@@ -108,15 +89,10 @@ class _CustomerserviceScreenState extends State<Customerservice_Screen> {
                       filled: true,
                       fillColor: ColorManager.whiteColor,
                       enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: ColorManager.midWhiteColor,
-                            width: AppSize.s1,
-                          ),
+                          borderSide: BorderSide(color: ColorManager.midWhiteColor, width: AppSize.s1),
                           borderRadius: BorderRadius.circular(AppSize.s8)),
                       hintText: "Type message here"))),
-          IconButton(
-              icon: Icon(Icons.send, color: ColorManager.primaryBlueColor),
-              onPressed: () {})
+          IconButton(icon: Icon(Icons.send, color: ColorManager.primaryBlueColor), onPressed: () {})
         ]));
   }
 }
