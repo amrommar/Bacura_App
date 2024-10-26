@@ -1,4 +1,5 @@
 import 'package:bacura_app/presentation/homeScreen/home_tab/consultation/consultation_screen.dart';
+import 'package:bacura_app/presentation/homeScreen/personal/rechargebalance_screen.dart';
 import 'package:bacura_app/presentation/resources/strings_manager.dart';
 import 'package:flutter/material.dart';
 
@@ -63,6 +64,7 @@ class Routes {
   static const String lastOperationsRoute = '/lastOperations';
   static const String invoiceDetailsRoute = '/invoiceDetails';
   static const String consultationScreenRoute = '/consultation';
+  static const String rechargeBalanceRoute = '/rechargeBalance';
   static const String testRoute = '/test';
 }
 
@@ -130,8 +132,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => InvoiceDetails_Screen());
       case Routes.consultationScreenRoute:
         return MaterialPageRoute(builder: (_) => Consultation_Screen());
+      case Routes.rechargeBalanceRoute:
+        return MaterialPageRoute(builder: (_) => RechargeBalance_Screen());
 
-      /// text screen //////////////////////////
+      /// test screen //////////////////////////
       case Routes.testRoute:
         return MaterialPageRoute(builder: (_) => test_screen());
       default:
