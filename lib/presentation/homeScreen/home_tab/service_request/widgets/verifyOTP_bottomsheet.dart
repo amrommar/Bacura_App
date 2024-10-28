@@ -2,10 +2,9 @@ import 'package:bacura_app/presentation/resources/DialogUtils.dart';
 import 'package:bacura_app/presentation/resources/color_manager.dart';
 import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-
-import '../../../../resources/strings_manager.dart';
 
 class OTP_Bottomsheet extends StatefulWidget {
   @override
@@ -24,12 +23,9 @@ class _OTP_BottomsheetState extends State<OTP_Bottomsheet> {
         decoration: BoxDecoration(color: ColorManager.whiteColor, borderRadius: BorderRadius.circular(20)),
         padding: EdgeInsets.all(20.h),
         child: SingleChildScrollView(
-            child: Column(children: [
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           ///Title of bottom sheet ////////////
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Text(AppStrings.oTPNumber, style: Theme.of(context).textTheme.displayLarge),
-          ),
+          Text(AppLocalizations.of(context)!.oTPNumber, style: Theme.of(context).textTheme.displayLarge),
           Divider(color: ColorManager.primaryBlueColor),
           // OTP text Fields ____________________________
           Form(
@@ -73,9 +69,11 @@ class _OTP_BottomsheetState extends State<OTP_Bottomsheet> {
           SizedBox(height: 10.h),
           ////Counter and Resend OTP Text //////////////////////////////////////////////////
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Text(AppStrings.sendOTPNumberAgain,
+            Text(AppLocalizations.of(context)!.sendOTPNumberAgain,
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.greyColor)),
             SizedBox(width: 10.w),
+
+            /// make it a counter to resend the code ////////////
             Text('60', style: Theme.of(context).textTheme.displayMedium)
           ]),
           SizedBox(height: 40.h),
@@ -85,21 +83,23 @@ class _OTP_BottomsheetState extends State<OTP_Bottomsheet> {
             ElevatedButton(
                 onPressed: () {
                   if (formKey.currentState!.validate() == true) {
+                    //////// make a  alert Dialog /////
                     return DialogUtils.showMessage(
                         title: 'OTP',
                         context: context,
-                        posActionName: 'Ok',
-                        negActionName: 'Cancel',
+                        posActionName: AppLocalizations.of(context)!.ok,
+                        negActionName: AppLocalizations.of(context)!.cancel,
                         posAction: () {
                           Navigator.pushNamedAndRemoveUntil(
                               context, Routes.homeScreenRoute, (Route<dynamic> route) => false);
                         },
+                        //// make a good design for this message /////
                         message: 'Payment Done');
                   }
                 },
-                child: Text(AppStrings.check, style: Theme.of(context).textTheme.titleMedium)),
+                child: Text(AppLocalizations.of(context)!.verify, style: Theme.of(context).textTheme.titleMedium)),
             SizedBox(height: 20.h),
-            Text(AppStrings.sendAgain, style: Theme.of(context).textTheme.bodyMedium)
+            Text(AppLocalizations.of(context)!.sendOTPAgain, style: Theme.of(context).textTheme.bodyMedium)
           ]))
         ])));
   }

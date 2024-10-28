@@ -2,6 +2,7 @@ import 'package:bacura_app/presentation/resources/color_manager.dart';
 import 'package:bacura_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
@@ -21,8 +22,7 @@ class _AddCard_BottomSheetState extends State<AddCard_BottomSheet> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   // Mask formatter for MM/YY format
-  final maskFormatter =
-      MaskTextInputFormatter(mask: '##/##', filter: {"#": RegExp(r'[0-9]')});
+  final maskFormatter = MaskTextInputFormatter(mask: '##/##', filter: {"#": RegExp(r'[0-9]')});
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +33,8 @@ class _AddCard_BottomSheetState extends State<AddCard_BottomSheet> {
         child: Form(
           key: formKey,
           child: Container(
-              decoration: BoxDecoration(
-                  color: ColorManager.whiteColor,
-                  borderRadius: BorderRadius.circular(AppSize.s20)),
+              decoration:
+                  BoxDecoration(color: ColorManager.whiteColor, borderRadius: BorderRadius.circular(AppSize.s20)),
               padding: EdgeInsets.all(AppPadding.p16),
               child: SingleChildScrollView(
                 child: Column(
@@ -44,12 +43,12 @@ class _AddCard_BottomSheetState extends State<AddCard_BottomSheet> {
                     children: [
                       /// Enter Card Number TextField
                       CardCustom_TxtField(
-                          hintText: 'Enter Card Number',
+                          hintText: AppLocalizations.of(context)!.enter_card_number,
                           controller: cardNumberController,
                           keyboardType: TextInputType.number,
                           validator: (value) {
                             if (value == null || value.trim().isEmpty) {
-                              return 'Please Enter Card Number';
+                              return AppLocalizations.of(context)!.please_enter_card_number;
                             }
                             return null;
                           }),
@@ -58,12 +57,16 @@ class _AddCard_BottomSheetState extends State<AddCard_BottomSheet> {
                       Row(children: [
                         Expanded(
                             child: CardCustom_TxtField(
-                                hintText: 'CVV',
+                                hintText: AppLocalizations.of(context)!.cvv,
                                 controller: cvvController,
                                 keyboardType: TextInputType.number,
+                                inputFormatter: [
+                                  LengthLimitingTextInputFormatter(3), // Limit to 3 characters
+                                  FilteringTextInputFormatter.digitsOnly, // Only allow digits
+                                ],
                                 validator: (value) {
                                   if (value == null || value.trim().isEmpty) {
-                                    return 'Please Enter CVV';
+                                    return AppLocalizations.of(context)!.cvv;
                                   }
                                   return null;
                                 })),
@@ -71,13 +74,13 @@ class _AddCard_BottomSheetState extends State<AddCard_BottomSheet> {
                         // Add space between the fields
                         Expanded(
                             child: CardCustom_TxtField(
-                                hintText: 'MM/YY',
+                                hintText: AppLocalizations.of(context)!.mm_yy,
                                 controller: mmyyController,
                                 keyboardType: TextInputType.number,
                                 inputFormatter: [maskFormatter],
                                 validator: (value) {
                                   if (value == null || value.trim().isEmpty) {
-                                    return 'Please Enter MM/YY';
+                                    return AppLocalizations.of(context)!.please_enter_mm_yy;
                                   }
                                   return null;
                                 }))
@@ -85,12 +88,12 @@ class _AddCard_BottomSheetState extends State<AddCard_BottomSheet> {
 
                       /// Enter Name TextField
                       CardCustom_TxtField(
-                          hintText: 'Enter Name',
+                          hintText: AppLocalizations.of(context)!.fullName,
                           controller: nameController,
                           keyboardType: TextInputType.text,
                           validator: (value) {
                             if (value == null || value.trim().isEmpty) {
-                              return 'Please Enter Name';
+                              return AppLocalizations.of(context)!.fullName;
                             }
                             return null;
                           }),
@@ -101,30 +104,23 @@ class _AddCard_BottomSheetState extends State<AddCard_BottomSheet> {
                       Center(
                           child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                  maximumSize: Size(200.w, 50.h),
+                                  maximumSize: Size(220.w, 50.h),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius:
-                                        BorderRadius.circular(AppSize.s30),
+                                    borderRadius: BorderRadius.circular(AppSize.s30),
                                   )),
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
                                   Navigator.pop(context);
                                 }
                               },
-                              child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text('Add Credit',
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .titleMedium!
-                                            .copyWith(
-                                                color: ColorManager.whiteColor,
-                                                fontWeight: FontWeight.bold)),
-                                    Icon(Icons.add_card,
-                                        color: ColorManager.whiteColor)
-                                  ])))
+                              child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+                                Text(AppLocalizations.of(context)!.add_credit,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleMedium!
+                                        .copyWith(color: ColorManager.whiteColor, fontWeight: FontWeight.bold)),
+                                Icon(Icons.add_card, color: ColorManager.whiteColor)
+                              ])))
                     ]),
               )),
         ));
@@ -162,18 +158,12 @@ class CardCustom_TxtField extends StatelessWidget {
           filled: true,
           fillColor: ColorManager.soLightGreyColor,
           hintText: hintText,
-          hintStyle: Theme.of(context)
-              .textTheme
-              .titleMedium!
-              .copyWith(color: ColorManager.greyColor),
-          contentPadding: EdgeInsets.symmetric(
-              vertical: AppPadding.p4, horizontal: AppPadding.p12),
+          hintStyle: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.greyColor),
+          contentPadding: EdgeInsets.symmetric(vertical: AppPadding.p4, horizontal: AppPadding.p12),
           border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.0),
-              borderSide: BorderSide(color: Colors.white)),
+              borderRadius: BorderRadius.circular(10.0), borderSide: BorderSide(color: Colors.white)),
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.0),
-              borderSide: BorderSide(color: ColorManager.whiteColor)),
+              borderRadius: BorderRadius.circular(10.0), borderSide: BorderSide(color: ColorManager.whiteColor)),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10.0),
             borderSide: BorderSide(color: ColorManager.whiteColor),

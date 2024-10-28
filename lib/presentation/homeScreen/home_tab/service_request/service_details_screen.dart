@@ -2,13 +2,14 @@ import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/widg
 import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/widgets/question_textformfield.dart';
 import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/widgets/requestsent_bottomsheet.dart';
 import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/widgets/small_elevatedbutton.dart';
-import 'package:date_time_picker/date_time_picker.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:open_street_map_search_and_pick/open_street_map_search_and_pick.dart';
+import 'package:time_picker_spinner_pop_up/time_picker_spinner_pop_up.dart';
 
 import '../../../resources/color_manager.dart';
-import '../../../resources/values_manager.dart';
 
 class ServiceDetails_Screen extends StatefulWidget {
   @override
@@ -30,7 +31,7 @@ class _ServiceDetails_ScreenState extends State<ServiceDetails_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Service Details')),
+        appBar: AppBar(title: Text(AppLocalizations.of(context)!.service_details)),
         body: Padding(
             padding: EdgeInsets.symmetric(vertical: 18.0, horizontal: 16),
             child: Form(
@@ -39,36 +40,45 @@ class _ServiceDetails_ScreenState extends State<ServiceDetails_Screen> {
                     child: SafeArea(
                         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   ////////////////////     Set date Section     /////////////////////////////////////////
-                  Text('Set The Date',
+                  Text(AppLocalizations.of(context)!.set_date,
                       style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.blackColor)),
-                  DateTimePicker(
-                      autovalidate: true,
-                      initialValue: DateTime.now().toString(),
-                      firstDate: DateTime.now(),
-                      style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor),
-                      decoration: InputDecoration(
-                          suffixIcon: Icon(Icons.calendar_month_outlined, color: ColorManager.midBlueColor),
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: ColorManager.lightGreyColor, width: AppSize.s1),
-                              borderRadius: BorderRadius.circular(AppSize.s8)),
-                          contentPadding: EdgeInsets.only(left: 8.w, right: 8.w, top: 8.h)),
-                      lastDate: DateTime(2050),
-                      onChanged: (val) => print(val),
-                      validator: (val) {
-                        print(val);
-                        return null;
+                  Container(
+                    width: double.infinity,
+                    child: TimePickerSpinnerPopUp(
+                      mode: CupertinoDatePickerMode.date,
+                      initTime: DateTime.now(),
+                      minTime: DateTime.now().subtract(const Duration(seconds: 1)),
+                      maxTime: DateTime.now().add(const Duration(days: 10)),
+                      barrierColor: Colors.black12,
+                      //Barrier Color when pop up show
+                      minuteInterval: 1,
+                      padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
+                      cancelText: 'Cancel',
+                      confirmText: 'OK',
+                      pressType: PressType.singlePress,
+                      timeFormat: 'dd/MM/yyyy',
+                      // Customize your time widget
+                      // timeWidgetBuilder: (dateTime) {},
+                      onChange: (dateTime) {
+                        // Implement your logic with select dateTime
                       },
-                      onSaved: (val) => print(val)),
-                  //////////  Set Time Section ///////////////////////////////////////
-                  DropDown_Field(selectedOption: '9 AM - 1 PM', options: options, fieldName: 'Time to coordinate work'),
+                    ),
+                  ),
+                  ////////////////////     Set Time Section     /////////////////////////////////////////
+
+                  SizedBox(height: 10.h),
+                  DropDown_Field(
+                      selectedOption: '9 AM - 1 PM',
+                      options: options,
+                      fieldName: AppLocalizations.of(context)!.set_time),
                   //// Set location Section ///////////////////////////////////////
                   question_TextFormField(
-                      fieldName: 'Location',
-                      hintText: 'Set Your Location',
+                      fieldName: AppLocalizations.of(context)!.location,
+                      hintText: AppLocalizations.of(context)!.click_icon_location,
                       controller: locationController,
                       validator: (value) {
                         if (value == null || value.trim().isEmpty) {
-                          return 'Please Enter Your Location';
+                          return AppLocalizations.of(context)!.please_set_location;
                         }
                         return null;
                       },
@@ -80,20 +90,20 @@ class _ServiceDetails_ScreenState extends State<ServiceDetails_Screen> {
                   //// Write Service Description Section ///////////////////////////////////////
 
                   question_TextFormField(
-                      fieldName: 'Service Description',
-                      hintText: 'Enter Service Description....',
+                      fieldName: AppLocalizations.of(context)!.service_description,
+                      hintText: AppLocalizations.of(context)!.enter_service_description,
                       controller: descriptionController,
                       maxLines: 5,
                       validator: (value) {
                         if (value == null || value.trim().isEmpty) {
-                          return 'Please Enter Service Description';
+                          return AppLocalizations.of(context)!.please_describe_your_consultation;
                         }
                         return null;
                       }),
                   SizedBox(height: 100.h),
                   Center(
                       child: SmallElevatedbutton(
-                          text: 'Send Request',
+                          text: AppLocalizations.of(context)!.send_request,
                           onPressed: () {
                             if (formKey.currentState?.validate() == true) {
                               showRequestSentBottomSheet();
@@ -120,7 +130,7 @@ class _ServiceDetails_ScreenState extends State<ServiceDetails_Screen> {
             color: Colors.white,
             child: OpenStreetMapSearchAndPick(
                 buttonColor: ColorManager.primaryBlueColor,
-                buttonText: 'Set Current Location',
+                buttonText: AppLocalizations.of(context)!.set_current_location,
                 locationPinIconColor: ColorManager.darkRedColor,
                 buttonWidth: 200.w,
                 locationPinTextStyle:

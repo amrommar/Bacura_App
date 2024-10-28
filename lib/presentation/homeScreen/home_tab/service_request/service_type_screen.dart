@@ -1,6 +1,7 @@
 import 'package:bacura_app/presentation/resources/color_manager.dart';
 import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../resources/values_manager.dart';
@@ -15,29 +16,31 @@ class _ServiceType_ScreenState extends State<ServiceType_Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Service Type'),
+        title: Text(AppLocalizations.of(context)!.service_type),
         elevation: 0,
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            /// from Back-End /////////////////
             /// Service image ////////////////////////////////////
             Image.asset('assets/images/Rectangle 78.png', height: 240.h),
 
             /// Available Services Section ////////////////////////////////////
             Padding(
                 padding: EdgeInsets.only(right: 16.w, top: 16.h, left: 16.w),
-                child: Text('Available Services',
+                child: Text(AppLocalizations.of(context)!.available_services,
                     style: Theme.of(context)
                         .textTheme
                         .bodyLarge!
                         .copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold))),
-            // Service_Type_Container(text: 'Consultation'),
+
+            /// from Back-End //////////////////////////
             Service_Type_Container(text: 'Installation & programming'),
             Service_Type_Container(text: 'Maintenance'),
             Service_Type_Container(text: 'Supply'),
-            SizedBox(height: 80.h),
+            SizedBox(height: 100.h),
 
             /// Next ElevatedButton Section ////////////////////////////////////
             Center(
@@ -53,7 +56,7 @@ class _ServiceType_ScreenState extends State<ServiceType_Screen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Next',
+                        AppLocalizations.of(context)!.next,
                         style: Theme.of(context)
                             .textTheme
                             .titleMedium!

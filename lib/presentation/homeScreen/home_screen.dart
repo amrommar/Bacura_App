@@ -6,6 +6,7 @@ import 'package:bacura_app/presentation/resources/color_manager.dart';
 import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:bacura_app/presentation/resources/strings_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
@@ -58,8 +59,8 @@ class _Home_ScreenState extends State<Home_Screen> {
         AnimatedPositioned(
             duration: Duration(milliseconds: 500),
             curve: Curves.easeInOut,
-            bottom: 16.0,
-            left: isFocused ? MediaQuery.of(context).size.width - 75.w : 365.w,
+            bottom: 10.h,
+            left: isFocused ? MediaQuery.of(context).size.width - 100.w : 340.w,
             // Adjusted from -40 to 0
             child: AnimatedOpacity(
                 opacity: isFocused ? 1.0 : 0.5,
@@ -84,26 +85,26 @@ class _Home_ScreenState extends State<Home_Screen> {
         items: [
           /// home
           SalomonBottomBarItem(
-            title: Text(AppStrings.home),
+            title: Text(AppLocalizations.of(context)!.home),
             icon: Icon(Icons.home_filled, color: ColorManager.whiteColor),
             selectedColor: ColorManager.whiteColor,
           ),
 
           /// requests
           SalomonBottomBarItem(
-              title: Text(AppStrings.requests),
+              title: Text(AppLocalizations.of(context)!.requests),
               icon: Icon(Icons.request_page_outlined, color: ColorManager.whiteColor),
               selectedColor: ColorManager.whiteColor),
 
           /// offers
           SalomonBottomBarItem(
-              title: Text(AppStrings.offers),
+              title: Text(AppLocalizations.of(context)!.offers),
               icon: Icon(Icons.local_offer_outlined, color: ColorManager.whiteColor),
               selectedColor: ColorManager.whiteColor),
 
           /// More
           SalomonBottomBarItem(
-              title: Text(AppStrings.more),
+              title: Text(AppLocalizations.of(context)!.more),
               icon: Icon(Icons.more_horiz, color: ColorManager.whiteColor),
               selectedColor: ColorManager.whiteColor),
         ],

@@ -1,5 +1,6 @@
 import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/widgets/dropdown_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../resources/color_manager.dart';
@@ -13,6 +14,7 @@ class Consultation_Screen extends StatefulWidget {
 }
 
 class _Consultation_ScreenState extends State<Consultation_Screen> {
+  //// from Back-End ///////////
   final List<String> options = ['Type 1', 'Type 2', 'Type 3'];
   var descriptionController = TextEditingController();
   var formKey = GlobalKey<FormState>();
@@ -20,21 +22,24 @@ class _Consultation_ScreenState extends State<Consultation_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Consultation Screen')),
+        appBar: AppBar(title: Text(AppLocalizations.of(context)!.consultation_screen)),
         body: Form(
             key: formKey,
             child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
                 child: ListView(children: [
-                  DropDown_Field(selectedOption: 'Type 1', options: options, fieldName: 'Consultation Type'),
+                  DropDown_Field(
+                      selectedOption: 'Type 1',
+                      options: options,
+                      fieldName: AppLocalizations.of(context)!.consultation_type),
                   question_TextFormField(
-                      fieldName: 'Consultation Description',
-                      hintText: 'Enter Consultation Description....',
+                      fieldName: AppLocalizations.of(context)!.consultation_description,
+                      hintText: AppLocalizations.of(context)!.describe_your_consultation,
                       controller: descriptionController,
                       maxLines: 6,
                       validator: (value) {
                         if (value == null || value.trim().isEmpty) {
-                          return 'Please Enter Consultation Description';
+                          return AppLocalizations.of(context)!.please_describe_your_consultation;
                         }
                         return null;
                       }),
@@ -53,7 +58,7 @@ class _Consultation_ScreenState extends State<Consultation_Screen> {
                   SizedBox(height: 100.h),
                   Center(
                       child: SmallElevatedbutton(
-                          text: 'Send Request',
+                          text: AppLocalizations.of(context)!.send,
                           onPressed: () {
                             if (formKey.currentState?.validate() == true) {
                               showRequestSentBottomSheet();

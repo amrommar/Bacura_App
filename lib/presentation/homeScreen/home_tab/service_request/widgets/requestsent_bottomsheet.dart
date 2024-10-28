@@ -3,6 +3,7 @@ import 'package:bacura_app/presentation/resources/color_manager.dart';
 import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:bacura_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RequestSent_BottomSheet extends StatefulWidget {
   @override
@@ -20,19 +21,21 @@ class _RequestSent_BottomSheetState extends State<RequestSent_BottomSheet> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            /// from Back End ///////////////////////
             Image.asset('assets/images/fani_img.png'),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Text(
+                /// from BAckEnd /////////////////
                 'We sent the request, The service provider will contact you.',
                 textAlign: TextAlign.start,
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.greyColor),
               ),
             ),
 
-            /// Go to Questions Or skip Button//////////////////////////////////////////
+            ///////////////    Ok  Button     ///////////////////
             SmallElevatedbutton(
-                text: 'Ok',
+                text: AppLocalizations.of(context)!.ok,
                 onPressed: () {
                   Navigator.pushNamed(context, Routes.paymentScreenRoute);
                 }),
