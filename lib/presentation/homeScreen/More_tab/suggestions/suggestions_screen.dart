@@ -1,11 +1,11 @@
 import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/widgets/question_textformfield.dart';
 import 'package:bacura_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../register/custom_phonefield.dart';
 import '../../../resources/color_manager.dart';
-import '../../../resources/strings_manager.dart';
 
 class Suggestions_Screen extends StatefulWidget {
   const Suggestions_Screen({super.key});
@@ -26,7 +26,7 @@ class _Suggestions_ScreenState extends State<Suggestions_Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Suggetions'),
+        title: Text(AppLocalizations.of(context)!.suggestions),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
@@ -36,36 +36,35 @@ class _Suggestions_ScreenState extends State<Suggestions_Screen> {
             child: Column(
               children: [
                 question_TextFormField(
-                  fieldName: ' Full Name',
-                  hintText: 'Enter your Name',
+                  fieldName: AppLocalizations.of(context)!.fullName,
+                  hintText: AppLocalizations.of(context)!.enterYourName,
                   controller: nameController,
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
-                      return AppStrings.pleaseEnterYourName;
+                      return AppLocalizations.of(context)!.pleaseEnterYourName;
                     }
                     return null;
                   },
                 ),
                 question_TextFormField(
-                  fieldName: ' E-mail',
-                  hintText: 'Enter your Email',
+                  fieldName: AppLocalizations.of(context)!.email,
+                  hintText: AppLocalizations.of(context)!.enter_your_email,
                   controller: emailController,
                   validator: (text) {
                     if (text == null || text.trim().isEmpty) {
-                      return 'Please enter Email';
+                      return AppLocalizations.of(context)!.please_enter_your_email;
                     }
-                    final bool emailValid = RegExp(
-                            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                        .hasMatch(text);
+                    final bool emailValid =
+                        RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(text);
                     if (!emailValid) {
-                      return 'please enter valid email';
+                      return AppLocalizations.of(context)!.please_enter_valid_email;
                     }
                     return null;
                   },
                 ),
                 CustomPhone_Field(
-                  fieldName: 'Mobile Number',
-                  hintText: 'Enter your phone number',
+                  fieldName: AppLocalizations.of(context)!.mobileNumber,
+                  hintText: AppLocalizations.of(context)!.enterYourMobileNumber,
                   controller: mobileNumberController,
                   onChanged: (phone) {
                     setState(() {
@@ -74,13 +73,13 @@ class _Suggestions_ScreenState extends State<Suggestions_Screen> {
                   },
                 ),
                 question_TextFormField(
-                  fieldName: ' Your Suggestions',
-                  hintText: 'Your Suggestions is important....',
+                  fieldName: AppLocalizations.of(context)!.your_suggestions,
+                  hintText: AppLocalizations.of(context)!.your_suggestions_is_important,
                   controller: suggestionsController,
                   maxLines: 8,
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
-                      return 'Please enter your suggestions';
+                      return AppLocalizations.of(context)!.please_enter_your_suggestions;
                     }
                     return null;
                   },
@@ -89,8 +88,7 @@ class _Suggestions_ScreenState extends State<Suggestions_Screen> {
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
                         maximumSize: Size(170.w, 50.h),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(AppSize.s8))),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSize.s8))),
                     onPressed: () {
                       // Validate the form before proceeding
                       if (formKey.currentState?.validate() == true &&
@@ -103,19 +101,18 @@ class _Suggestions_ScreenState extends State<Suggestions_Screen> {
                             duration: Duration(seconds: 1),
                             backgroundColor: ColorManager.midWhiteColor,
                             content: Text(
-                              'Please Enter All Data',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium!
-                                  .copyWith(color: ColorManager.darkRedColor),
+                              AppLocalizations.of(context)!.please_enter_all_data,
+                              style:
+                                  Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkRedColor),
                             )));
                       }
                     },
                     child: Text(
-                      'Send',
-                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                          color: ColorManager.whiteColor,
-                          fontWeight: FontWeight.bold),
+                      AppLocalizations.of(context)!.send,
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleMedium!
+                          .copyWith(color: ColorManager.whiteColor, fontWeight: FontWeight.bold),
                     )),
               ],
             ),

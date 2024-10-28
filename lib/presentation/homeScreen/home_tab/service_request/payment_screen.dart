@@ -2,6 +2,7 @@ import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/widg
 import 'package:bacura_app/presentation/homeScreen/home_tab/service_request/widgets/verifyOTP_bottomsheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
@@ -28,7 +29,7 @@ class _Payment_ScreenState extends State<Payment_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Payment Screen')),
+        appBar: AppBar(title: Text(AppLocalizations.of(context)!.payment_screen)),
         body: SingleChildScrollView(
             child: Container(
                 padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 16.h),
@@ -40,44 +41,45 @@ class _Payment_ScreenState extends State<Payment_Screen> {
                       setState(() {});
                     },
                     child: Custom_Payment_Container(
-                        widget: Text('Saved Cards',
+                        widget: Text(AppLocalizations.of(context)!.saved_cards,
                             style:
                                 Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.darkBlueColor))),
                   ),
 
                   InkWell(
-                    onTap: () {
-                      selectOption(1);
-                      setState(() {});
-                    },
-                    child: Custom_Payment_Container(widget: Image.asset('assets/images/logos_mastercard.png')),
-                  ),
+                      onTap: () {
+                        selectOption(1);
+                        setState(() {});
+                      },
+                      //// from BackEnd //////////////////////////////////
+                      child: Custom_Payment_Container(widget: Image.asset('assets/images/logos_mastercard.png'))),
 
                   InkWell(
-                    onTap: () {
-                      selectOption(1);
-                      setState(() {});
-                    },
-                    child: Custom_Payment_Container(widget: Image.asset('assets/images/Mada_Logo.svg 1.png')),
-                  ),
+                      onTap: () {
+                        selectOption(1);
+                        setState(() {});
+                      },
+                      //// from BackEnd //////////////////////////////////
+
+                      child: Custom_Payment_Container(widget: Image.asset('assets/images/Mada_Logo.svg 1.png'))),
                   InkWell(
                       onTap: () {
                         selectOption(3);
                         setState(() {});
                       },
                       child: Custom_Payment_Container(
-                          widget: Text('Pay From Wallet',
+                          widget: Text(AppLocalizations.of(context)!.pay_from_wallet,
                               style: Theme.of(context)
                                   .textTheme
                                   .titleLarge!
                                   .copyWith(color: ColorManager.darkBlueColor)))),
 
-                  Container(height: 340.h, child: selectedWidget()),
+                  Container(height: 330.h, child: selectedWidget()),
                   ///////////////////////////   terms and conditions checkBox   //////////////////////////////////////////////
                   CheckboxListTile(
                     checkColor: ColorManager.whiteColor,
                     activeColor: ColorManager.primaryBlueColor,
-                    title: Text('accept the privacy policy and terms and conditions',
+                    title: Text(AppLocalizations.of(context)!.accept_the_privacy_policy_and_terms_and_conditions,
                         style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.greyColor)),
                     value: isChecked,
                     onChanged: (bool? value) {
@@ -103,18 +105,19 @@ class _Payment_ScreenState extends State<Payment_Screen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
+                              /// from Back-end //////////////
                               Text('2000 SR',
                                   style: Theme.of(context)
                                       .textTheme
                                       .titleLarge!
                                       .copyWith(color: ColorManager.primaryBlueColor)),
                               Text(
-                                '(Total includes tax)',
-                                style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.greyColor),
+                                AppLocalizations.of(context)!.total_includes_tax,
+                                style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.greyColor),
                               )
                             ])),
                         SmallElevatedbutton(
-                            text: 'Pay',
+                            text: AppLocalizations.of(context)!.pay,
                             onPressed: () {
                               showVerifyOTPBottomSheet();
                             })
@@ -150,7 +153,7 @@ class _Payment_ScreenState extends State<Payment_Screen> {
                 children: [
                   /// Enter Card Number TextField ////////////////////////////////////////
                   CardCustom_TxtField(
-                      hintText: 'Enter Card Number',
+                      hintText: AppLocalizations.of(context)!.enter_card_number,
                       controller: cardNumberController,
                       keyboardType: TextInputType.number,
                       inputFormatter: [
@@ -159,7 +162,7 @@ class _Payment_ScreenState extends State<Payment_Screen> {
                       ],
                       validator: (value) {
                         if (value == null || value.trim().isEmpty) {
-                          return 'Please Enter Card Number';
+                          return AppLocalizations.of(context)!.please_enter_card_number;
                         }
                         return null;
                       }),
@@ -170,7 +173,7 @@ class _Payment_ScreenState extends State<Payment_Screen> {
                     children: [
                       Expanded(
                         child: CardCustom_TxtField(
-                            hintText: 'CVV',
+                            hintText: AppLocalizations.of(context)!.cvv,
                             inputFormatter: [
                               LengthLimitingTextInputFormatter(3),
                               // Limit to 3 characters
@@ -181,7 +184,7 @@ class _Payment_ScreenState extends State<Payment_Screen> {
                             keyboardType: TextInputType.number,
                             validator: (value) {
                               if (value == null || value.trim().isEmpty) {
-                                return 'Please Enter CVV';
+                                return AppLocalizations.of(context)!.please_enter_cvv;
                               }
                               return null;
                             }),
@@ -189,14 +192,14 @@ class _Payment_ScreenState extends State<Payment_Screen> {
                       SizedBox(width: 10.w),
                       Expanded(
                         child: CardCustom_TxtField(
-                            hintText: 'MM/YY',
+                            hintText: AppLocalizations.of(context)!.mm_yy,
                             controller: mmyyController,
                             keyboardType: TextInputType.number,
                             inputFormatter: [maskFormatter],
                             // Use mask formatter here
                             validator: (value) {
                               if (value == null || value.trim().isEmpty) {
-                                return 'Please Enter MM/YY';
+                                return AppLocalizations.of(context)!.please_enter_mm_yy;
                               }
                               return null;
                             }),
@@ -207,12 +210,12 @@ class _Payment_ScreenState extends State<Payment_Screen> {
 
                   /// Enter Name TextField ////////////////////////////////////////
                   CardCustom_TxtField(
-                      hintText: 'Enter Name',
+                      hintText: AppLocalizations.of(context)!.enterYourName,
                       controller: nameController,
                       keyboardType: TextInputType.text,
                       validator: (value) {
                         if (value == null || value.trim().isEmpty) {
-                          return 'Please Enter Name';
+                          return AppLocalizations.of(context)!.pleaseEnterYourName;
                         }
                         return null;
                       })
@@ -227,12 +230,12 @@ class _Payment_ScreenState extends State<Payment_Screen> {
                   LengthLimitingTextInputFormatter(3), // Limit to 3 characters
                   FilteringTextInputFormatter.digitsOnly, // Only allow digits
                 ],
-                hintText: 'CVV',
+                hintText: AppLocalizations.of(context)!.cvv,
                 controller: cvvController,
                 keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value == null || value.trim().isEmpty || value.length > 3) {
-                    return 'Please Enter CVV';
+                    return AppLocalizations.of(context)!.please_enter_cvv;
                   }
                   return null;
                 }));
@@ -243,10 +246,11 @@ class _Payment_ScreenState extends State<Payment_Screen> {
             padding: const EdgeInsets.all(20),
             child: Column(children: [
               Row(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.center, children: [
-                Text('Your wallet balance: ',
+                Text(AppLocalizations.of(context)!.your_wallet_balance,
                     style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.darkBlueColor)),
                 SizedBox(width: 10.w),
                 Expanded(
+                    //// from Back-end /////////////////////
                     child: Text('1500',
                         style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.primaryBlueColor)))
               ]),
@@ -255,6 +259,8 @@ class _Payment_ScreenState extends State<Payment_Screen> {
                 Text('*', style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.greyColor)),
                 SizedBox(width: 10.w),
                 Expanded(
+
+                    /// under updating i want to make it with better design /////////////////
                     child: Text('The amount will be deducted from the wallet directly.',
                         style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.greyColor)))
               ])

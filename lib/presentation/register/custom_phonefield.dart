@@ -2,10 +2,13 @@ import 'dart:async';
 
 import 'package:bacura_app/presentation/resources/color_manager.dart';
 import 'package:bacura_app/presentation/resources/strings_manager.dart';
+import 'package:bacura_app/providers/language_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
+import 'package:provider/provider.dart';
 
 class CustomPhone_Field extends StatelessWidget {
   final String fieldName;
@@ -24,21 +27,16 @@ class CustomPhone_Field extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          fieldName,
-          style: Theme.of(context)
-              .textTheme
-              .titleMedium!
-              .copyWith(color: ColorManager.darkBlueColor),
-        ),
+        Text(fieldName, style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor)),
         SizedBox(height: 10.h),
         IntlPhoneField(
           textAlign: TextAlign.start,
           initialCountryCode: 'SA',
-          languageCode: 'ar',
+          languageCode: provider.appLanguage,
           onChanged: onChanged ?? (phone) {},
           // Use the provided onChanged
           invalidNumberMessage: AppStrings.invalidMobileNumber,
@@ -46,24 +44,18 @@ class CustomPhone_Field extends StatelessWidget {
               (phone) {
                 // Use the provided validator
                 if (phone == null || phone.completeNumber.isEmpty) {
-                  return 'Please enter a valid phone number';
+                  return AppLocalizations.of(context)!.please_enter_valid_phone_number;
                 }
                 if (phone.number.length < 9) {
-                  return 'Invalid Phone number';
+                  return AppLocalizations.of(context)!.invalidMobileNumber;
                 }
                 return null;
               },
-          style: Theme.of(context)
-              .textTheme
-              .titleMedium!
-              .copyWith(color: ColorManager.darkBlueColor),
+          style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor),
           controller: controller,
           decoration: InputDecoration(
               hintText: hintText,
-              hintStyle: Theme.of(context)
-                  .textTheme
-                  .bodyMedium!
-                  .copyWith(color: ColorManager.greyColor)),
+              hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.greyColor)),
         )
       ],
     );

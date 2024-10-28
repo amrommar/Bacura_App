@@ -1,5 +1,6 @@
 import 'package:bacura_app/presentation/resources/color_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class UserGuide_Screen extends StatefulWidget {
   const UserGuide_Screen({super.key});
@@ -13,11 +14,10 @@ class _UserGuide_ScreenState extends State<UserGuide_Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('User Guide'),
+        title: Text(AppLocalizations.of(context)!.user_guide),
       ),
       body: Center(
-        child: Icon(Icons.library_books_outlined,
-            size: 150, color: ColorManager.primaryBlueColor),
+        child: Icon(Icons.library_books_outlined, size: 150, color: ColorManager.primaryBlueColor),
       ),
     );
   }

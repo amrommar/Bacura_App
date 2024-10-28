@@ -1,5 +1,4 @@
 import 'package:bacura_app/presentation/resources/color_manager.dart';
-import 'package:bacura_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -16,7 +15,7 @@ class DepartmentCard extends StatelessWidget {
       Card(
           color: ColorManager.lightBlueColor,
           child: Container(
-              padding: EdgeInsets.all(AppPadding.p20),
+              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
               height: 100.h,
               width: 100.w,
               child: SvgPicture.asset(imagePath))),

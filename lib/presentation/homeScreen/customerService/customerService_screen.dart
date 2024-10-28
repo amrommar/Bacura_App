@@ -1,5 +1,6 @@
 import 'package:bacura_app/presentation/resources/color_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../resources/values_manager.dart';
@@ -13,7 +14,7 @@ class _CustomerserviceScreenState extends State<Customerservice_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Service Customer Chat'), actions: [
+        appBar: AppBar(title: Text(AppLocalizations.of(context)!.service_customer_chat), actions: [
           Padding(
               padding: const EdgeInsets.all(8.0),
               child: ClipRRect(
@@ -26,18 +27,22 @@ class _CustomerserviceScreenState extends State<Customerservice_Screen> {
         body: Column(children: [
           Expanded(
               child: ListView(padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h), children: [
-            buildBotMessage("Customer Support", "Hey, welcome to Service Customer Chat.", "11:25 am"),
-            buildBotMessage("Bacura Support", "What can we assist you with today?", "11:25 am"),
-            buildUserMessage("Payments", "11:25 am"),
-            buildBotMessage("Bacura Support", "Select a topic you need help with.", "11:25 am"),
-            buildUserMessage("Make a payment", "11:25 am"),
-            buildBotMessage("Bacura Support", "Select a payment you need help with", "11:25 am"),
+            buildBotMessage(
+                sender: "Customer Support", message: "Hey, welcome to Service Customer Chat.", time: "11:25 am"),
+            buildBotMessage(
+                sender: "Customer Support", message: "What can we assist you with today?", time: "11:25 am"),
+            buildUserMessage(message: "Payments", time: "11:25 am"),
+            buildBotMessage(
+                sender: "Customer Support", message: "Select a topic you need help with.", time: "11:25 am"),
+            buildUserMessage(message: "Make a payment", time: "11:25 am"),
+            buildBotMessage(
+                sender: "Customer Support", message: "Select a payment you need help with", time: "11:25 am"),
           ])),
           buildMessageInput()
         ]));
   }
 
-  Widget buildBotMessage(String sender, String message, String time) {
+  Widget buildBotMessage({required String sender, required String message, required String time}) {
     return Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
       CircleAvatar(
           radius: 16,
@@ -57,7 +62,7 @@ class _CustomerserviceScreenState extends State<Customerservice_Screen> {
     ]);
   }
 
-  Widget buildUserMessage(String message, String time) {
+  Widget buildUserMessage({required String message, required String time}) {
     return Align(
         alignment: Alignment.centerRight, // Align the message to the right
         child: Container(

@@ -1,6 +1,7 @@
 import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../resources/assets_manager.dart';
@@ -48,6 +49,7 @@ class _Home_TabState extends State<Home_Tab> {
           padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 15.h),
           child: CarouselSlider(
               items: [
+                //////////////       from Back-End      ///////////////////
                 Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
@@ -83,7 +85,7 @@ class _Home_TabState extends State<Home_Tab> {
       ///////////////////////////////   Departments Section      //////////////////////////////////////////////
       Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: Text(AppStrings.departments,
+          child: Text(AppLocalizations.of(context)!.departments,
               style: Theme.of(context)
                   .textTheme
                   .titleMedium!
@@ -104,7 +106,7 @@ class _Home_TabState extends State<Home_Tab> {
                   // Number of items per row
                   crossAxisSpacing: 0.w,
                   // Horizontal space between items
-                  mainAxisSpacing: 0.h,
+                  mainAxisSpacing: 10.h,
                   // Vertical space between items
                   childAspectRatio: 1),
               itemBuilder: (context, index) {
@@ -126,7 +128,10 @@ class _Home_TabState extends State<Home_Tab> {
             child: Container(
                 margin: EdgeInsets.all(12),
                 child: ClipRRect(
-                    borderRadius: BorderRadius.circular(12), child: Image.asset('assets/images/cinema.jpg')))),
+
+                    /// from Back-End /////////////////////
+                    borderRadius: BorderRadius.circular(12),
+                    child: Image.asset('assets/images/cinema.jpg')))),
         /////////////////    Consultation Section    ////////////////////////////
         Expanded(
             child: InkWell(
@@ -136,7 +141,9 @@ class _Home_TabState extends State<Home_Tab> {
           child: Container(
               margin: EdgeInsets.all(12),
               child: ClipRRect(
-                  borderRadius: BorderRadius.circular(12), child: Image.asset('assets/images/consultionss.jpg'))),
+                  //// Form Back-End ///////////////////
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.asset('assets/images/consultionss.jpg'))),
         ))
       ])
     ]));
