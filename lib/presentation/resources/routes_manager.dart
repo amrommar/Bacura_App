@@ -19,7 +19,6 @@ import '../homeScreen/home_screen.dart';
 import '../homeScreen/home_tab/service_request/payment_screen.dart';
 import '../homeScreen/home_tab/service_request/service_details_screen.dart';
 import '../homeScreen/home_tab/service_request/service_type_screen.dart';
-import '../homeScreen/home_tab/service_request/set_location_screen.dart';
 import '../homeScreen/notifications_screen/notifications_screen.dart';
 import '../homeScreen/personal/Invoice_details_screen.dart';
 import '../homeScreen/personal/lastoperations_screen.dart';
@@ -48,7 +47,6 @@ class Routes {
   static const String cardsManagementRoute = '/cardsManagement';
   static const String offerDetailsRoute = '/offerDetails';
   static const String serviceTypeRoute = '/serviceType';
-  static const String setLocationRoute = '/setLocation';
   static const String serviceDetailsRoute = '/serviceDetails';
   static const String privacyPolicyRoute = '/privacyPolicy';
   static const String termsAndConditionsRoute = '/termsAndConditions';
@@ -58,8 +56,7 @@ class Routes {
   static const String paymentScreenRoute = '/paymentScreen';
   static const String technicalSupportRoute = '/technicalSupport';
   static const String complaintScreenRoute = '/complaintScreen';
-  static const String frequentlyAskedQuestionsRoute =
-      '/frequentlyAskedQuestions';
+  static const String frequentlyAskedQuestionsRoute = '/frequentlyAskedQuestions';
   static const String userGuideRoute = '/userGuide';
   static const String lastOperationsRoute = '/lastOperations';
   static const String invoiceDetailsRoute = '/invoiceDetails';
@@ -76,8 +73,7 @@ class RouteGenerator {
       case Routes.onBoardingTwoRoute:
         return MaterialPageRoute(builder: (_) => OnBoardingTwo_Screen());
       case Routes.onBoardingThreeRoute:
-        return MaterialPageRoute(
-            builder: (_) => const OnBoardingThree_Screen());
+        return MaterialPageRoute(builder: (_) => const OnBoardingThree_Screen());
       case Routes.getStartedRoute:
         return MaterialPageRoute(builder: (_) => Getstarted_Screen());
       case Routes.registerRoute:
@@ -89,8 +85,7 @@ class RouteGenerator {
       case Routes.homeScreenRoute:
         return MaterialPageRoute(builder: (_) => Home_Screen());
       case Routes.personalDetailsRoute:
-        return MaterialPageRoute(
-            builder: (_) => const PersonalDetails_Screen());
+        return MaterialPageRoute(builder: (_) => const PersonalDetails_Screen());
       case Routes.walletDetailsRoute:
         return MaterialPageRoute(builder: (_) => const Wallet_Details());
       case Routes.requestDetailsRoute:
@@ -101,8 +96,6 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => OfferDetails_Screen());
       case Routes.serviceTypeRoute:
         return MaterialPageRoute(builder: (_) => ServiceType_Screen());
-      case Routes.setLocationRoute:
-        return MaterialPageRoute(builder: (_) => SetLocation_Screen());
       case Routes.serviceDetailsRoute:
         return MaterialPageRoute(builder: (_) => ServiceDetails_Screen());
       case Routes.privacyPolicyRoute:
@@ -122,8 +115,7 @@ class RouteGenerator {
       case Routes.complaintScreenRoute:
         return MaterialPageRoute(builder: (_) => Complaint_Screen());
       case Routes.frequentlyAskedQuestionsRoute:
-        return MaterialPageRoute(
-            builder: (_) => FrequentlyAskedQuestions_Screen());
+        return MaterialPageRoute(builder: (_) => FrequentlyAskedQuestions_Screen());
       case Routes.userGuideRoute:
         return MaterialPageRoute(builder: (_) => UserGuide_Screen());
       case Routes.lastOperationsRoute:
