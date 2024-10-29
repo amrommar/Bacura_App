@@ -1,6 +1,7 @@
 import 'package:bacura_app/presentation/homeScreen/Requests_tab/widgets/managerequest_bottom_sheet.dart';
 import 'package:bacura_app/presentation/resources/color_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -15,8 +16,8 @@ class Request_Details_Screen extends StatefulWidget {
 
 class _Request_Details_ScreenState extends State<Request_Details_Screen> {
   List<String> details = [
-    '8MP 80m outdoor IP camera - Hikvision',
-    'Package 2 outdoor IP cameras (8 megapixel resolution) with accessories',
+    'كاميرا IP خارجية 8MP 80m - هيكفيجن',
+    'حزمة عدد 2 كاميرا IP خارجية (دقة 8 ميجابكسل) مع الملحقات',
     // 'Package 2 outdoor IP cameras (8 megapixel resolution) with accessories',
   ];
 
@@ -24,24 +25,21 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
   Widget build(BuildContext context) {
     // var args = ModalRoute.of(context)!.settings.arguments as RequestDetailsArguments;
     return Scaffold(
-        appBar: AppBar(title: Text('Request Details')),
+        appBar: AppBar(title: Text(AppLocalizations.of(context)!.request_details)),
         body: Container(
             decoration: BoxDecoration(
                 color: ColorManager.whiteColor,
                 borderRadius: BorderRadius.circular(AppSize.s12),
                 boxShadow: [
                   BoxShadow(
-                      color: ColorManager.midWhiteColor,
-                      // Shadow color with opacity
-                      spreadRadius: 2,
-                      // Spread radius
-                      blurRadius: 4,
-                      // Blur radius
-                      offset: Offset(0, 3) // Offset in the x and y directions
-                      )
+                    color: ColorManager.midWhiteColor,
+                    spreadRadius: 2,
+                    blurRadius: 4,
+                    offset: Offset(0, 3),
+                  )
                 ]),
-            margin: EdgeInsets.all(AppMargin.m12),
-            padding: EdgeInsets.all(AppPadding.p12),
+            margin: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
+            padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
             height: 800.h,
             child: SingleChildScrollView(
                 child: Column(
@@ -49,62 +47,50 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                   ////  Request Number and Icons for Contact section/////////////////////////////////////////////
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text('#3333452',
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleMedium!
-                                .copyWith(
-                                    color: ColorManager.darkBlueColor,
-                                    fontWeight: FontWeight.bold)),
-                        Row(children: [
-                          InkWell(
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, Routes.customerServiceRoute);
-                              },
-                              child: SvgPicture.asset(
-                                  'assets/images/contact_icon.svg',
-                                  height: 20.h)),
-                          SizedBox(width: 10.w),
-                          Icon(Icons.circle,
-                              color: ColorManager.greenColor, size: 15)
-                        ])
-                      ]),
+                  Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                    Text('#3333452',
+                        style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                              color: ColorManager.darkBlueColor,
+                              fontWeight: FontWeight.bold,
+                            )),
+                    Row(children: [
+                      InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, Routes.customerServiceRoute);
+                          },
+                          child: SvgPicture.asset('assets/images/contact_icon.svg', height: 20.h)),
+                      SizedBox(width: 10.w),
+                      Icon(Icons.circle, color: ColorManager.greenColor, size: 15)
+                    ])
+                  ]),
                   Divider(),
                   ////Time and Date section/////////////////////////////////////////////
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(Icons.calendar_month_outlined,
-                                  color: ColorManager.primaryBlueColor,
-                                  size: 20),
-                              SizedBox(width: 5.w),
-                              Text('9/10/2024',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyMedium!
-                                      .copyWith(color: ColorManager.greyColor))
-                            ]),
-                        Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(Icons.access_time_outlined,
-                                  color: ColorManager.primaryBlueColor,
-                                  size: 20),
-                              SizedBox(width: 2.w),
-                              Text('10:35 am',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodyMedium!
-                                      .copyWith(color: ColorManager.greyColor))
-                            ])
-                      ]),
+                  Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                    Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                      Icon(
+                        Icons.calendar_month_outlined,
+                        color: ColorManager.primaryBlueColor,
+                        size: 20,
+                      ),
+                      SizedBox(width: 5.w),
+                      Text('9/10/2024',
+                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                color: ColorManager.greyColor,
+                              ))
+                    ]),
+                    Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                      Icon(
+                        Icons.access_time_outlined,
+                        color: ColorManager.primaryBlueColor,
+                        size: 20,
+                      ),
+                      SizedBox(width: 2.w),
+                      Text('10:35 am',
+                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                color: ColorManager.greyColor,
+                              ))
+                    ])
+                  ]),
 
                   /// Request Details section/////////////////////////////////////////////
                   ListView.builder(
@@ -116,7 +102,7 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
                       itemBuilder: (context, index) {
                         return Container(
                             margin: EdgeInsets.only(top: 5.h),
-                            padding: EdgeInsets.all(AppPadding.p8),
+                            padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
                             decoration: BoxDecoration(
                                 color: ColorManager.lightBlueColor,
                                 borderRadius: BorderRadius.circular(AppSize.s8),
@@ -128,87 +114,69 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
                                       offset: Offset(0, 3)),
                                 ]),
                             child: Column(children: [
-                              Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Image.asset(
-                                        'assets/images/camers_image.png'),
-                                    SizedBox(width: 10.w),
-                                    Expanded(
-                                        child: Text(details[index],
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodyMedium!
-                                                .copyWith(
-                                                  color: ColorManager
-                                                      .darkBlueColor,
-                                                )))
-                                  ]),
-                              Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    Text(
-                                      '1000 SR',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium!
-                                          .copyWith(
-                                              color: ColorManager.darkRedColor),
-                                    )
-                                  ])
+                              Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                                Image.asset('assets/images/camers_image.png'),
+                                SizedBox(width: 10.w),
+                                Expanded(
+                                    child: Text(details[index],
+                                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                              color: ColorManager.darkBlueColor,
+                                            )))
+                              ]),
+                              Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                                Text(
+                                  '1000 ريال',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .copyWith(color: ColorManager.darkRedColor),
+                                )
+                              ])
                             ]));
                       }),
 
                   /// Total Money section/////////////////////////////////////////////
                   Container(
-                      padding: EdgeInsets.only(
-                          left: AppPadding.p8,
-                          right: AppPadding.p8,
-                          top: AppPadding.p8),
+                      padding: EdgeInsets.only(left: 8.w, right: 8.w, top: 8.h),
                       height: 40.h,
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text('Total: ',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleMedium!
-                                    .copyWith(
-                                        color: ColorManager.darkBlueColor,
-                                        fontWeight: FontWeight.bold)),
-                            Text('2000 SR',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleMedium!
-                                    .copyWith(
-                                        color: ColorManager.primaryBlueColor))
-                          ])),
+                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                        Text(AppLocalizations.of(context)!.total,
+                            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                  color: ColorManager.darkBlueColor,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                        Text('2000 ريال',
+                            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                  color: ColorManager.primaryBlueColor,
+                                ))
+                      ])),
                   Divider(),
 
                   ///  location section/////////////////////////////////////////////
                   Custom_Row_Icon_TwoText(
-                      title: 'Location: ',
-                      description: 'Riyad Elared Asmaa bent malet ST',
-                      icon: Icons.location_on),
+                    title: AppLocalizations.of(context)!.location,
+                    description: ' الرياض حي العارض شارع أسماء بنت مالك',
+                    icon: Icons.location_on,
+                  ),
 
                   /// Payment Method section/////////////////////////////////////////////
                   Custom_Row_Icon_TwoText(
-                      title: 'Payment Method: ',
-                      description: 'Credit Card',
+                      title: AppLocalizations.of(context)!.payment_method,
+                      description: 'بطاقة إئتمانية',
                       icon: Icons.credit_card,
                       iconColor: ColorManager.greyColor),
 
                   ///  Payment status section/////////////////////////////////////////////
                   Custom_Row_Icon_TwoText(
-                      title: 'Payment status: ',
-                      description: 'Payment made',
+                      title: AppLocalizations.of(context)!.payment_status,
+                      description: 'تم الدفع',
                       icon: Icons.check_circle,
                       iconColor: ColorManager.darkGreenColor),
 
                   ///  Warranty status section/////////////////////////////////////////////
                   Custom_Row_Icon_TwoText(
-                      title: 'Warranty status: ',
-                      description: 'Valid',
+                      title: AppLocalizations.of(context)!.warranty_status,
+                      description: 'ساري',
                       icon: Icons.verified_user,
                       iconColor: ColorManager.midBlueColor),
                   Divider(),
@@ -224,8 +192,7 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
           margin: EdgeInsets.symmetric(horizontal: 35.w, vertical: 15.h),
           child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(AppSize.s30))),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSize.s30))),
               onPressed: () {
                 showManageRequestBottomSheet();
               },
@@ -233,22 +200,21 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Request Management',
+                    Text(AppLocalizations.of(context)!.request_management,
                         style: Theme.of(context)
                             .textTheme
                             .titleMedium!
-                            .copyWith(
-                                color: ColorManager.whiteColor,
-                                fontWeight: FontWeight.bold)),
-                    Icon(Icons.arrow_circle_up_outlined,
-                        color: ColorManager.whiteColor)
+                            .copyWith(color: ColorManager.whiteColor, fontWeight: FontWeight.bold)),
+                    Icon(Icons.arrow_circle_up_outlined, color: ColorManager.whiteColor)
                   ])));
     } else if (requestColor == ColorManager.redColor) {
       //////////           Request Cancelled icon and text             //////////////////////////////////////////
       return Column(children: [
-        Text('Request Cancelled',
-            style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                color: ColorManager.darkRedColor, fontWeight: FontWeight.w500)),
+        Text(AppLocalizations.of(context)!.request_cancelled,
+            style: Theme.of(context)
+                .textTheme
+                .titleMedium!
+                .copyWith(color: ColorManager.darkRedColor, fontWeight: FontWeight.w500)),
         SizedBox(height: 10.h),
         Icon(Icons.cancel, color: ColorManager.darkRedColor, size: 50)
       ]);
@@ -259,27 +225,27 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
         ElevatedButton(
             style: ElevatedButton.styleFrom(
                 maximumSize: Size(170, 50),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(AppSize.s30))),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSize.s30))),
             onPressed: () {},
-            child: Text('Re Request',
-                style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    color: ColorManager.whiteColor,
-                    fontWeight: FontWeight.bold))),
+            child: Text(AppLocalizations.of(context)!.re_request,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(color: ColorManager.whiteColor, fontWeight: FontWeight.bold))),
         SizedBox(height: 20.h),
         InkWell(
             ///////////////////////////        to go to the receipt file        /////////////////////////////////////
             onTap: () async {
-              final Uri url = Uri.parse(
-                  'https://printo.in/designs/t/bill-receipt-a5-billbook');
+              final Uri url = Uri.parse('https://printo.in/designs/t/bill-receipt-a5-billbook');
               if (!await launchUrl(url)) {
                 throw Exception('Could not launch $url');
               }
             },
-            child: Text('Receipt',
-                style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    color: ColorManager.darkBlueColor,
-                    fontWeight: FontWeight.w500)))
+            child: Text(AppLocalizations.of(context)!.invoice,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleMedium!
+                    .copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.w500)))
       ]);
     }
     return Container();
@@ -300,37 +266,30 @@ class Custom_Row_Icon_TwoText extends StatelessWidget {
   IconData? icon;
   Color iconColor;
 
-  Custom_Row_Icon_TwoText(
-      {required this.title,
-      required this.description,
-      this.icon,
-      this.iconColor = Colors.grey});
+  Custom_Row_Icon_TwoText({required this.title, required this.description, this.icon, this.iconColor = Colors.grey});
 
   @override
   Widget build(BuildContext context) {
     return Container(
         decoration: BoxDecoration(
-            color: ColorManager.lightWhiteColor,
-            borderRadius: BorderRadius.circular(AppSize.s8)),
-        margin: EdgeInsets.only(top: AppMargin.m4),
-        padding: EdgeInsets.symmetric(horizontal: AppPadding.p8),
+          color: ColorManager.lightWhiteColor,
+          borderRadius: BorderRadius.circular(AppSize.s8),
+        ),
+        margin: EdgeInsets.only(top: 4.h),
+        padding: EdgeInsets.symmetric(horizontal: 8.w),
         height: 40.h,
         child: Row(children: [
           Text(title,
-              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                  color: ColorManager.darkBlueColor,
-                  fontWeight: FontWeight.bold)),
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium!
+                  .copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold)),
           Expanded(
-              child:
-                  Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Expanded(
                 child: Text(description,
-                    // 'Riyad Elared Asmaa bent malet ST',
                     overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyMedium!
-                        .copyWith(color: ColorManager.primaryBlueColor))),
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.primaryBlueColor))),
             Icon(icon, size: 20, color: iconColor)
           ]))
         ]));

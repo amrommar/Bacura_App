@@ -8,6 +8,7 @@ import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:bacura_app/presentation/resources/strings_manager.dart';
 import 'package:bacura_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../home_tab/service_request/widgets/dropdown_field.dart';
@@ -27,9 +28,7 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: ColorManager.whiteColor,
-        appBar: AppBar(
-          elevation: 0,
-        ),
+        appBar: AppBar(elevation: 0),
         body: SingleChildScrollView(
             child: Column(children: [
           /// Avatar Section (profile image/ icons) ___________________________________________________________________
@@ -43,44 +42,32 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
                     left: 0.w,
                     right: 0.w,
                     child: Column(children: [
-                      Stack(
-                        children: [
-                          // Profile picture
-                          CircleAvatar(
-                              radius: 50,
-                              backgroundImage:
-                                  AssetImage('assets/images/Ellipse 1.png')),
-                          // Edit icon on top of the profile picture
-                          Positioned(
+                      Stack(children: [
+                        // Profile picture
+                        CircleAvatar(radius: 50, backgroundImage: AssetImage('assets/images/Ellipse 1.png')),
+                        // Edit icon on top of the profile picture
+                        Positioned(
                             ///////////////////////   want method to edit image /////////////////////////////////
                             bottom: 4.h,
                             right: 5.w,
                             child: CircleAvatar(
                               backgroundColor: ColorManager.primaryBlueColor,
                               radius: 12,
-                              child: Icon(Icons.camera_alt_outlined,
-                                  size: 15, color: ColorManager.whiteColor),
-                            ),
-                          ),
-                        ],
-                      ),
+                              child: Icon(Icons.camera_alt_outlined, size: 15, color: ColorManager.whiteColor),
+                            ))
+                      ]),
                       SizedBox(height: 8),
                       // User name
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(AppStrings.userName,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleMedium!
-                                    .copyWith(
-                                        color: ColorManager.darkBlueColor,
-                                        fontWeight: FontWeight.bold)),
-                            SizedBox(width: 5),
-                            //////////////////////// Want method to edit the Name /////////////////////
-                            Icon(Icons.drive_file_rename_outline,
-                                color: ColorManager.primaryBlueColor, size: 25),
-                          ])
+                      Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                        Text(AppStrings.userName,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium!
+                                .copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold)),
+                        SizedBox(width: 5),
+                        //////////////////////// Want method to edit the Name /////////////////////
+                        Icon(Icons.drive_file_rename_outline, color: ColorManager.primaryBlueColor, size: 25),
+                      ])
                     ]))
               ]),
           SizedBox(height: 110.h),
@@ -90,10 +77,21 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
               childWidget: Column(children: [
             CustomRow_Details(
               icon: Icons.phone_outlined,
-              text: AppStrings.mobileNumber,
+              text: AppLocalizations.of(context)!.mobileNumber,
               value: '+966535685692',
               onTap: () {
-                showEditDetailsBottomSheet(AppStrings.mobileNumber);
+                showEditDetailsBottomSheet(AppLocalizations.of(context)!.mobileNumber);
+              },
+            ),
+            Padding(
+                padding: EdgeInsetsDirectional.symmetric(vertical: 2),
+                child: Divider(color: ColorManager.lightBlueColor)),
+            CustomRow_Details(
+              icon: Icons.mail_outline_outlined,
+              text: AppLocalizations.of(context)!.email,
+              value: 'amr1522@gmail.com',
+              onTap: () {
+                showEditDetailsBottomSheet(AppLocalizations.of(context)!.email);
               },
             ),
             Padding(
@@ -101,30 +99,20 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
                 child: Divider(color: ColorManager.lightBlueColor)),
             CustomRow_Details(
                 onTap: () {
-                  showEditDetailsBottomSheet(AppStrings.email);
-                },
-                icon: Icons.mail_outline_outlined,
-                text: AppStrings.email,
-                value: 'amr1522@gmail.com'),
-            Padding(
-                padding: EdgeInsetsDirectional.symmetric(vertical: 2),
-                child: Divider(color: ColorManager.lightBlueColor)),
-            CustomRow_Details(
-                onTap: () {
-                  showEditDetailsBottomSheet(AppStrings.gender);
+                  showEditDetailsBottomSheet(AppLocalizations.of(context)!.gender);
                 },
                 icon: Icons.transgender_outlined,
-                text: AppStrings.gender,
+                text: AppLocalizations.of(context)!.gender,
                 value: 'Male'),
             Padding(
                 padding: EdgeInsetsDirectional.symmetric(vertical: 2),
                 child: Divider(color: ColorManager.lightBlueColor)),
             CustomRow_Details(
                 onTap: () {
-                  showEditDetailsBottomSheet(AppStrings.city);
+                  showEditDetailsBottomSheet(AppLocalizations.of(context)!.city);
                 },
                 icon: Icons.location_on_outlined,
-                text: AppStrings.city,
+                text: AppLocalizations.of(context)!.city,
                 value: 'Riyad'),
           ])),
 
@@ -134,26 +122,16 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
                 Navigator.pushNamed(context, Routes.walletDetailsRoute);
               },
               child: Custom_Container(
-                  childWidget: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                    Icon(Icons.account_balance_wallet_outlined,
-                        color: ColorManager.greyColor),
-                    SizedBox(width: 10.w),
-                    Text(AppStrings.walletManagement,
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium!
-                            .copyWith(color: ColorManager.darkBlueColor)),
-                    Spacer(),
-                    Text('1000 SR',
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyMedium!
-                            .copyWith(color: ColorManager.primaryBlueColor)),
-                    Icon(Icons.navigate_next_rounded,
-                        size: 28, color: ColorManager.blackColor)
-                  ]))),
+                  childWidget: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                Icon(Icons.account_balance_wallet_outlined, color: ColorManager.greyColor),
+                SizedBox(width: 10.w),
+                Text(AppLocalizations.of(context)!.walletManagement,
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.darkBlueColor)),
+                Spacer(),
+                Text('1000 SR',
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.primaryBlueColor)),
+                Icon(Icons.navigate_next_rounded, size: 28, color: ColorManager.blackColor)
+              ]))),
           SizedBox(height: 60.h),
 
           /// Logout Button____________________________________________
@@ -162,22 +140,16 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(),
                   onPressed: () {
-                    Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Getstarted_Screen()),
-                        ModalRoute.withName(Routes
-                            .getStartedRoute)); // Will remove all routes until this one
+                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => Getstarted_Screen()),
+                        ModalRoute.withName(Routes.getStartedRoute)); // Will remove all routes until this one
                   },
                   child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(AppStrings.logout,
-                            style: Theme.of(context).textTheme.titleMedium),
+                        Text(AppLocalizations.of(context)!.logout, style: Theme.of(context).textTheme.titleMedium),
                         SizedBox(width: 10.w),
-                        Icon(Icons.login_outlined,
-                            color: ColorManager.whiteColor, size: 25)
+                        Icon(Icons.login_outlined, color: ColorManager.whiteColor, size: 25)
                       ])))
         ])));
   }
@@ -194,173 +166,149 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
     showModalBottomSheet(
         context: context,
         builder: (context) {
-          if (text == AppStrings.mobileNumber) {
+          if (text == AppLocalizations.of(context)!.mobileNumber) {
             /// mobile number edit //////////////////////
             return Container(
                 height: 250.h,
                 padding: EdgeInsets.all(20),
                 child: SingleChildScrollView(
-                  child: Form(
-                    key: formKey,
-                    child: Column(children: [
-                      CustomPhone_Field(
-                        fieldName: 'Mobile Number',
-                        hintText: 'Enter your phone number',
-                        controller: mobileNumberController,
-                        onChanged: (phone) {
-                          setState(() {
-                            completePhoneNumber = phone
-                                .completeNumber; // Update completePhoneNumber
-                          });
-                        },
-                      ),
-                      SizedBox(height: 20.h),
-                      SmallElevatedbutton(
-                        text: 'Save',
-                        onPressed: () {
-                          // Get the current value of the mobile number directly from the controller
-                          String currentPhoneNumber =
-                              mobileNumberController.text;
+                    child: Form(
+                        key: formKey,
+                        child: Column(children: [
+                          CustomPhone_Field(
+                            fieldName: AppLocalizations.of(context)!.mobileNumber,
+                            hintText: AppLocalizations.of(context)!.enterYourMobileNumber,
+                            controller: mobileNumberController,
+                            onChanged: (phone) {
+                              setState(() {
+                                completePhoneNumber = phone.completeNumber; // Update completePhoneNumber
+                              });
+                            },
+                          ),
+                          SizedBox(height: 20.h),
+                          SmallElevatedbutton(
+                              text: AppLocalizations.of(context)!.save,
+                              onPressed: () {
+                                // Get the current value of the mobile number directly from the controller
+                                String currentPhoneNumber = mobileNumberController.text;
 
-                          // Validate the phone number
-                          if (currentPhoneNumber.isEmpty ||
-                              currentPhoneNumber.length < 9) {
-                            // Close the bottom sheet first
-                            Navigator.pop(context);
+                                // Validate the phone number
+                                if (currentPhoneNumber.isEmpty || currentPhoneNumber.length < 9) {
+                                  // Close the bottom sheet first
+                                  Navigator.pop(context);
 
-                            // Then show the Snackbar
-                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              duration: Duration(seconds: 2),
-                              backgroundColor: ColorManager.midWhiteColor,
-                              content: Text(
-                                'Please enter a valid phone number',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleMedium!
-                                    .copyWith(color: ColorManager.darkRedColor),
-                              ),
-                            ));
-                          } else {
-                            // If valid, proceed to the next screen or save the data
-                            Navigator.pop(
-                                context); // Close the bottom sheet before navigating
-                            Navigator.pushNamed(context, Routes.verifyOTPRoute);
-                          }
-                        },
-                      )
-                    ]),
-                  ),
-                ));
+                                  // Then show the Snackbar
+                                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                      duration: Duration(seconds: 2),
+                                      backgroundColor: ColorManager.midWhiteColor,
+                                      content: Text(
+                                        AppLocalizations.of(context)!.please_enter_valid_phone_number,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleMedium!
+                                            .copyWith(color: ColorManager.darkRedColor),
+                                      )));
+                                } else {
+                                  // If valid, proceed to the next screen or save the data
+                                  Navigator.pop(context); // Close the bottom sheet before navigating
+                                  Navigator.pushNamed(context, Routes.verifyOTPRoute);
+                                }
+                              })
+                        ]))));
           }
 
           /// email edit //////////////////////
-          else if (text == AppStrings.email) {
+          else if (text == AppLocalizations.of(context)!.email) {
             return Container(
-              height: 250.h,
-              padding: EdgeInsets.all(20),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Form(
-                      key: formKey,
-                      child: Custom_TextFormField(
-                        fieldName: AppStrings.email,
-                        hintText: AppStrings.email,
-                        controller: emailController,
-                        validator: (text) {
-                          if (text == null || text.trim().isEmpty) {
-                            return 'Please enter Email';
-                          }
-                          final bool emailValid = RegExp(
-                                  r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                              .hasMatch(text);
-                          if (!emailValid) {
-                            return 'please enter valid email';
-                          }
-                          return null;
-                        },
-                      ),
+                height: 250.h,
+                padding: EdgeInsets.all(20),
+                child: SingleChildScrollView(
+                    child: Column(children: [
+                  Form(
+                    key: formKey,
+                    child: Custom_TextFormField(
+                      fieldName: AppLocalizations.of(context)!.email,
+                      hintText: AppLocalizations.of(context)!.email,
+                      controller: emailController,
+                      validator: (text) {
+                        if (text == null || text.trim().isEmpty) {
+                          return AppLocalizations.of(context)!.enter_your_email;
+                        }
+                        final bool emailValid =
+                            RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                .hasMatch(text);
+                        if (!emailValid) {
+                          return AppLocalizations.of(context)!.please_enter_valid_email;
+                        }
+                        return null;
+                      },
                     ),
-                    SizedBox(height: 20.h),
-                    SmallElevatedbutton(
-                      text: 'Save',
+                  ),
+                  SizedBox(height: 20.h),
+                  SmallElevatedbutton(
+                      text: AppLocalizations.of(context)!.save,
                       onPressed: () {
                         if (formKey.currentState!.validate() == true) {
                           Navigator.pop(context);
                         }
-                      },
-                    )
-                  ],
-                ),
-              ),
-            );
+                      })
+                ])));
           }
 
           /// gender edit //////////////////////
-          else if (text == AppStrings.gender) {
+          else if (text == AppLocalizations.of(context)!.gender) {
             return Container(
-              height: 250.h,
-              padding: EdgeInsets.all(20),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    DropDown_Field(
-                      selectedOption: 'Male',
-                      options: genderOptions,
-                      fieldName: 'Gender',
-                    ),
-                    SizedBox(height: 20.h),
-                    SmallElevatedbutton(
-                        text: 'Save',
-                        onPressed: () {
-                          /////////////////////// Method to save changes //////////////////////
-                          Navigator.pop(context);
-                        })
-                  ],
-                ),
-              ),
-            );
+                height: 250.h,
+                padding: EdgeInsets.all(20),
+                child: Column(children: [
+                  DropDown_Field(
+                    selectedOption: 'Male',
+                    options: genderOptions,
+                    fieldName: AppLocalizations.of(context)!.gender,
+                  ),
+                  SizedBox(height: 20.h),
+                  SmallElevatedbutton(
+                      text: AppLocalizations.of(context)!.save,
+                      onPressed: () {
+                        /////////////////////// Method to save changes //////////////////////
+                        Navigator.pop(context);
+                      })
+                ]));
           }
 
           /// city edit //////////////////////
-          else if (text == AppStrings.city) {
+          else if (text == AppLocalizations.of(context)!.city) {
             return Container(
-              height: 250.h,
-              padding: EdgeInsets.all(20),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    DropDown_Field(
-                      selectedOption: 'Riyad',
-                      options: cityOptions,
-                      fieldName: 'City',
-                    ),
-                    SizedBox(height: 20.h),
-                    SmallElevatedbutton(
-                        text: 'Save',
-                        onPressed: () {
-                          /////////////////////// Method to save changes //////////////////////
-                          Navigator.pop(context);
-                        })
-                  ],
-                ),
-              ),
-            );
+                height: 250.h,
+                padding: EdgeInsets.all(20),
+                child: Column(children: [
+                  DropDown_Field(
+                    selectedOption: 'Riyad',
+                    options: cityOptions,
+                    fieldName: AppLocalizations.of(context)!.city,
+                  ),
+                  SizedBox(height: 20.h),
+                  SmallElevatedbutton(
+                      text: AppLocalizations.of(context)!.save,
+                      onPressed: () {
+                        /////////////////////// Method to save changes //////////////////////
+                        Navigator.pop(context);
+                      })
+                ]));
           }
 
           /// user name edit //////////////////////
-          else if (text == AppStrings.userName) {
+          else if (text == AppLocalizations.of(context)!.fullName) {
             return CustomPhone_Field(
-              hintText: AppStrings.email,
-              controller: emailController,
-              fieldName: AppStrings.email,
-              validator: (value) {
-                if (value == null) {
-                  return AppStrings.email;
-                }
-                return null;
-              },
-            );
+                hintText: AppLocalizations.of(context)!.enterYourName,
+                controller: emailController,
+                fieldName: AppLocalizations.of(context)!.fullName,
+                validator: (value) {
+                  if (value == null) {
+                    return AppLocalizations.of(context)!.pleaseEnterYourName;
+                  }
+                  return null;
+                });
           }
           return Container();
         });
