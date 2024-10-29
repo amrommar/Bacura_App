@@ -33,8 +33,10 @@ class _Home_ScreenState extends State<Home_Screen> {
       appBar: AppBar(
           titleSpacing: 5,
           centerTitle: false,
-          title: Text('Hi, Mohamed',
-              style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.whiteColor)),
+          title: Text('هلا، محمد',
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                    color: ColorManager.whiteColor,
+                  )),
           elevation: 0,
           leading: InkWell(
               onTap: () {
@@ -61,7 +63,6 @@ class _Home_ScreenState extends State<Home_Screen> {
             curve: Curves.easeInOut,
             bottom: 10.h,
             left: isFocused ? MediaQuery.of(context).size.width - 100.w : 340.w,
-            // Adjusted from -40 to 0
             child: AnimatedOpacity(
                 opacity: isFocused ? 1.0 : 0.5,
                 duration: Duration(milliseconds: 500),
@@ -75,7 +76,11 @@ class _Home_ScreenState extends State<Home_Screen> {
                         Navigator.pushNamed(context, Routes.customerServiceRoute);
                       }
                     },
-                    child: Icon(Icons.headset_mic_outlined, color: ColorManager.whiteColor, size: 40),
+                    child: Icon(
+                      Icons.headset_mic_outlined,
+                      color: ColorManager.whiteColor,
+                      size: 40,
+                    ),
                     backgroundColor: ColorManager.primaryBlueColor)))
       ]),
       bottomNavigationBar: SalomonBottomBar(

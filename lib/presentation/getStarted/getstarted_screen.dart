@@ -20,6 +20,7 @@ class _Getstarted_ScreenState extends State<Getstarted_Screen> {
   Widget build(BuildContext context) {
     var provider = Provider.of<AppConfigProvider>(context);
     return Stack(children: [
+      ////   background Image   ////////////////
       Image.asset(ImageAssets.background2Image),
       Scaffold(
           backgroundColor: Colors.transparent,
@@ -29,6 +30,7 @@ class _Getstarted_ScreenState extends State<Getstarted_Screen> {
                   child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
                 //language change icon ________________________________________________
                 Align(
+                    alignment: Alignment.topRight,
                     child: InkWell(
                       onTap: () {
                         provider.changeLanguage();
@@ -38,8 +40,7 @@ class _Getstarted_ScreenState extends State<Getstarted_Screen> {
                               .textTheme
                               .titleMedium!
                               .copyWith(fontWeight: FontWeight.bold, color: ColorManager.primaryBlueColor)),
-                    ),
-                    alignment: Alignment.topRight),
+                    )),
                 SizedBox(height: 20.h),
                 //Bacura logo container _________________________________________
                 Container(width: 280.h, child: SvgPicture.asset(ImageAssets.bacuraLogo)),

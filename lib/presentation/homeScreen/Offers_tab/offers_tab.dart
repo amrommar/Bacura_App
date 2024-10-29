@@ -4,6 +4,7 @@ import 'package:bacura_app/presentation/resources/color_manager.dart';
 import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:bacura_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:multi_select_flutter/dialog/mult_select_dialog.dart';
 import 'package:multi_select_flutter/util/multi_select_item.dart';
@@ -18,6 +19,7 @@ class Offers_Tab extends StatefulWidget {
 }
 
 class _Offers_TabState extends State<Offers_Tab> {
+  /////////////////////////////////////              From Back-End          ////////////////
   static List<String> filterTitles = [
     AppStrings.security_and_monitoring,
     AppStrings.smartSystems,
@@ -29,9 +31,8 @@ class _Offers_TabState extends State<Offers_Tab> {
     AppStrings.computerMaintenance,
     AppStrings.phoneMaintenance,
   ];
-  final List<MultiSelectItem<String>> _filterItems = filterTitles
-      .map((filter) => MultiSelectItem<String>(filter, filter))
-      .toList();
+  final List<MultiSelectItem<String>> _filterItems =
+      filterTitles.map((filter) => MultiSelectItem<String>(filter, filter)).toList();
   List<String> _selectedFilters = [];
 
   void _showMultiSelect() async {
@@ -43,11 +44,8 @@ class _Offers_TabState extends State<Offers_Tab> {
           height: 550.h,
 
           backgroundColor: ColorManager.lightBlueColor,
-          title: Text('Select Category'),
-          itemsTextStyle: Theme.of(context)
-              .textTheme
-              .titleSmall!
-              .copyWith(color: ColorManager.greyColor),
+          title: Text(AppLocalizations.of(context)!.select_category),
+          itemsTextStyle: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.greyColor),
           selectedColor: ColorManager.primaryBlueColor,
           items: _filterItems,
           initialValue: _selectedFilters,
@@ -65,13 +63,11 @@ class _Offers_TabState extends State<Offers_Tab> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: ColorManager.whiteColor,
-      child: Column(
-        children: [
+        color: ColorManager.whiteColor,
+        child: Column(children: [
           SizedBox(height: 5.h),
 
           /// filtering section ///////////////////////////////////////////////////////
-
           Container(
               height: 50.h,
               padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 4.h),
@@ -96,31 +92,25 @@ class _Offers_TabState extends State<Offers_Tab> {
                             scrollDirection: Axis.horizontal,
                             itemCount: _selectedFilters.length,
                             itemBuilder: (context, index) {
-                              return Selected_Filter_Container(
-                                  text: _selectedFilters[index]);
+                              return Selected_Filter_Container(text: _selectedFilters[index]);
                             }))
               ])),
 
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: AppPadding.p6),
-            child: Divider(color: ColorManager.lightBlueColor),
-          ),
+              padding: const EdgeInsets.symmetric(horizontal: AppPadding.p6),
+              child: Divider(color: ColorManager.lightBlueColor)),
 
           /// Offer List section ///////////////////////////////////////////////////////
           Expanded(
-            child: ListView.builder(
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return InkWell(
-                    onTap: () {
-                      Navigator.pushNamed(context, Routes.offerDetailsRoute);
-                    },
-                    child: Custom_Offer_container());
-              },
-            ),
-          ),
-        ],
-      ),
-    );
+              child: ListView.builder(
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, Routes.offerDetailsRoute);
+                        },
+                        child: Custom_Offer_container());
+                  }))
+        ]));
   }
 }

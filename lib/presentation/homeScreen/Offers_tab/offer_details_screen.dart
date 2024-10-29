@@ -4,6 +4,7 @@ import 'package:bacura_app/presentation/resources/routes_manager.dart';
 import 'package:bacura_app/presentation/resources/values_manager.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'offer_card.dart';
@@ -19,35 +20,30 @@ class _OfferDetails_ScreenState extends State<OfferDetails_Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorManager.whiteColor,
-      appBar: AppBar(title: Text('Offer Details')),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 10.h),
+        backgroundColor: ColorManager.whiteColor,
+        appBar: AppBar(title: Text(AppLocalizations.of(context)!.offer_details)),
+        body: SingleChildScrollView(
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          SizedBox(height: 10.h),
+          ////    From Back-End     ///////////////////////////////////////////////////////
+          ///offer Image Section ///////////////////////////////////////////////////////
+          Image.asset('assets/images/camera_offer.png'),
 
-            ///offer Image Section ///////////////////////////////////////////////////////
-            Image.asset('assets/images/camera_offer.png'),
+          /// offer Title Section ///////////////////////////////////////////////////////
+          Container(
+              margin: EdgeInsets.only(top: AppMargin.m8, right: AppMargin.m8, left: AppMargin.m8),
+              child: Text('4 outdoor smart IP cameras (6MP)',
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium!
+                      .copyWith(color: ColorManager.blackColor, fontWeight: FontWeight.bold))),
 
-            /// offer Title Section ///////////////////////////////////////////////////////
-            Container(
-                margin: EdgeInsets.only(
-                    top: AppMargin.m8, right: AppMargin.m8, left: AppMargin.m8),
-                child: Text('4 outdoor smart IP cameras (6MP)',
-                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                        color: ColorManager.blackColor,
-                        fontWeight: FontWeight.bold))),
-
-            ///Details about offer Section ///////////////////////////////////////////////////////
-            Container(
-              margin: EdgeInsets.only(
-                  top: AppMargin.m4, right: AppMargin.m6, left: AppMargin.m6),
-              padding: EdgeInsets.symmetric(
-                  vertical: AppPadding.p8, horizontal: AppPadding.p12),
-              decoration: BoxDecoration(
-                  color: ColorManager.midWhiteColor,
-                  borderRadius: BorderRadius.circular(AppSize.s4)),
+          ///Details about offer Section ///////////////////////////////////////////////////////
+          Container(
+              margin: EdgeInsets.only(top: 4.h, right: 6.w, left: 6.w),
+              padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
+              decoration:
+                  BoxDecoration(color: ColorManager.midWhiteColor, borderRadius: BorderRadius.circular(AppSize.s4)),
               child: ReadMoreText(
                 text:
                     '''Get a package of 4 outdoor IP cameras with 8MP resolution with accessories at a competitive price, free shipping and installation fee discount. You can pay in installments or pay upon receipt. There is a two-year warranty on the products and a year on installing the surveillance cameras. You can order a custom one for your needs. Contact us now and benefit from the surveillance camera offers at wholesale prices. You will get:A complete package consisting of:
@@ -61,51 +57,39 @@ Resolution: 8MP
 Viewing range: up to 60 meters
 Lens aperture: Fixed lens size 2.8 mm
 Possibility of connecting to the mobile via the recording device''',
-              ),
-            ),
-            SizedBox(height: 10.h),
-            // More Ask Section______________________________________________________
-            Container(
+              )),
+          SizedBox(height: 10.h),
+          // More Ask Section______________________________________________________
+          Container(
               padding: EdgeInsets.symmetric(horizontal: 8.w),
               child: Text('Suggested for you',
-                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                      color: ColorManager.blackColor,
-                      fontWeight: FontWeight.bold)),
-            ),
-            Divider(
-              color: ColorManager.lightBlueColor,
-            ),
-            // More Ask list ______________________________________________________
-            Container(
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium!
+                      .copyWith(color: ColorManager.blackColor, fontWeight: FontWeight.bold))),
+          Divider(color: ColorManager.lightBlueColor),
+          // More Ask list ______________________________________________________
+          Container(
               height: 224.h,
               child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                // Set the direction to horizontal
-                itemCount: 10,
-                // Replace with the number of items you want to display
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
-                    child: OffersCard(), // Custom widget to show image and text
-                  );
-                },
-              ),
-            ),
-            SizedBox(height: 50.h),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 10,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
+                        child: OffersCard() // Custom widget to show image and text
+                        );
+                  })),
+          SizedBox(height: 50.h),
 
-            /// Add To Cart Elevated Button//////////////////////////////////////////
-            Center(
+          /// Add To Cart Elevated Button//////////////////////////////////////////
+          Center(
               child: SmallElevatedbutton(
-                  text: 'Pay',
+                  text: AppLocalizations.of(context)!.pay,
                   onPressed: () {
                     Navigator.pushNamed(context, Routes.paymentScreenRoute);
-                  }),
-            )
-          ],
-        ),
-      ),
-    );
+                  }))
+        ])));
   }
 }
 
@@ -130,49 +114,39 @@ class _ReadMoreTextState extends State<ReadMoreText> {
             ? widget.text.substring(0, truncateLength) + '... '
             : widget.text;
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        RichText(
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      RichText(
           text: TextSpan(
-            text: displayText,
-            style: Theme.of(context)
-                .textTheme
-                .titleSmall!
-                .copyWith(color: Colors.black, fontSize: 14, height: 1.15),
-            children: [
-              if (!isExpanded && widget.text.length > truncateLength)
-                TextSpan(
-                  text: 'Read More',
-                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                      color: ColorManager.primaryBlueColor,
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold),
+              text: displayText,
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(color: Colors.black, fontSize: 14, height: 1.15),
+              children: [
+            if (!isExpanded && widget.text.length > truncateLength)
+              TextSpan(
+                  text: AppLocalizations.of(context)!.read_more,
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleSmall!
+                      .copyWith(color: ColorManager.primaryBlueColor, fontSize: 14, fontWeight: FontWeight.bold),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
                       setState(() {
                         isExpanded = true;
                       });
-                    },
-                ),
-              if (isExpanded)
-                TextSpan(
-                  text: ' Read Less',
-                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                      color: ColorManager.primaryBlueColor,
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold),
+                    }),
+            if (isExpanded)
+              TextSpan(
+                  text: AppLocalizations.of(context)!.read_less,
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleSmall!
+                      .copyWith(color: ColorManager.primaryBlueColor, fontSize: 14, fontWeight: FontWeight.bold),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
                       setState(() {
                         isExpanded = false;
                       });
-                    },
-                ),
-            ],
-          ),
-        ),
-      ],
-    );
+                    })
+          ]))
+    ]);
   }
 }

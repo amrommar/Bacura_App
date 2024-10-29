@@ -91,7 +91,7 @@ class _EditCard_BottomSheetState extends State<EditCard_BottomSheet> {
                           keyboardType: TextInputType.text,
                           validator: (value) {
                             if (value == null || value.trim().isEmpty) {
-                              return AppLocalizations.of(context)!.fullName;
+                              return AppLocalizations.of(context)!.pleaseEnterYourName;
                             }
                             return null;
                           }),
