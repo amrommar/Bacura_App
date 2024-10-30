@@ -35,15 +35,16 @@ class AppStrings {
   static const String sendAgain = 'Send OTP Again'; //'إعادة الارسال';
   static const String departments = 'Departments'; // 'الأقسام';
   static const String mostRequested = 'Most Requested'; // 'الاكثر طلبا';
-  static const String security_and_monitoring = 'Security and Monitoring'; // 'أمن ومراقبة';
-  static const String accessControl = 'Access Control'; // 'التحكم في الوصول';
-  static const String gameMaintenance = 'Game Maintenance'; // 'صيانة الالعاب';
-  static const String networks_communications = 'Networks and communications'; // 'الشبكات والاتصالات';
-  static const String computerMaintenance = 'Computer Maintenance'; // 'صيانة الحواسيب';
-  static const String phoneMaintenance = 'Phone Maintenance'; // 'صيانة الهواتف';
-  static const String saveEnergy = 'Save Energy'; // 'حفظ الطاقة';
-  static const String smartSystems = 'Smart Systems'; // 'الانظمة الذكية';
-  static const String soundSystems = 'Sound Systems'; //'أنظمة الصوت';
+  static const String security_and_monitoring = 'أمن ومراقبة'; // 'أمن ومراقبة';
+  static const String accessControl = 'التحكم في الوصول'; // 'التحكم في الوصول';
+  static const String gameMaintenance = 'صيانة الالعاب'; // 'صيانة الالعاب';
+  static const String networks_communications = 'الشبكات والاتصالات'; // 'الشبكات والاتصالات';
+  static const String computerMaintenance = 'صيانة الحواسيب'; // 'صيانة الحواسيب';
+  static const String phoneMaintenance = 'صيانة الهواتف'; // 'صيانة الهواتف';
+  static const String saveEnergy = 'حفظ الطاقة'; // 'حفظ الطاقة';
+  static const String smartSystems = 'الانظمة الذكية'; // 'الانظمة الذكية';
+
+  static const String soundSystems = 'أنظمة الصوت'; //'أنظمة الصوت';
   static const String walletManagement = 'wallet Management'; //'إدارة المحفظة'
   static const String walletBalance = 'wallet Balance'; // 'رصيد المحفظة'
   static const String wallet = 'wallet '; //

@@ -114,10 +114,15 @@ class _VerifyOTP_ScreenState extends State<VerifyOTP_Screen> {
                         // Call the validation method
                         validatePin();
                       },
-                      child:
-                          Text(AppLocalizations.of(context)!.verify, style: Theme.of(context).textTheme.titleMedium)),
+                      child: Text(
+                        AppLocalizations.of(context)!.verify,
+                        style: Theme.of(context).textTheme.titleMedium,
+                      )),
                   SizedBox(height: 20.h),
-                  Text(AppLocalizations.of(context)!.sendOTPAgain, style: Theme.of(context).textTheme.bodyMedium)
+                  Text(
+                    AppLocalizations.of(context)!.sendOTPAgain,
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  )
                 ]))
               ])))
     ]);
@@ -128,18 +133,18 @@ class _VerifyOTP_ScreenState extends State<VerifyOTP_Screen> {
     // Check if the PIN meets the validation criteria
     if (pinCode.isEmpty) {
       // Show error message if the PIN is empty
-      ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text("Please enter the OTP."), backgroundColor: Colors.red));
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(AppLocalizations.of(context)!.please_enter_the_OTP), backgroundColor: Colors.red));
     } else if (pinCode.length != 4) {
       // Show error message if the PIN length is not 4
-      ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text("OTP must be 4 digits."), backgroundColor: Colors.red));
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(AppLocalizations.of(context)!.otp_must_be_four_digits), backgroundColor: Colors.red));
     } else {
       // Proceed with the validated PIN code
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
+        SnackBar(
           duration: Duration(seconds: 1),
-          content: Text("OTP Verified!"),
+          content: Text(AppLocalizations.of(context)!.otp_verified),
           backgroundColor: Colors.green,
         ),
       );

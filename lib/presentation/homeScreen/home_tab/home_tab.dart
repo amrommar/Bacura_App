@@ -53,7 +53,10 @@ class _Home_TabState extends State<Home_Tab> {
                 Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                        image: DecorationImage(image: AssetImage('assets/images/baner1.jpg'), fit: BoxFit.cover),
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/baner1.jpg'),
+                          fit: BoxFit.cover,
+                        ),
                         borderRadius: BorderRadius.circular(8))),
                 Container(
                     width: double.infinity,
@@ -80,7 +83,7 @@ class _Home_TabState extends State<Home_Tab> {
                   autoPlayCurve: Curves.fastOutSlowIn,
                   enableInfiniteScroll: true,
                   autoPlayAnimationDuration: Duration(milliseconds: 1000),
-                  viewportFraction: 1))),
+                  viewportFraction: 0.98))),
 
       ///////////////////////////////   Departments Section      //////////////////////////////////////////////
       Padding(
@@ -122,7 +125,7 @@ class _Home_TabState extends State<Home_Tab> {
       Divider(color: ColorManager.lightBlueColor, thickness: 2),
       /////////////////         Cinema and Consultation Section             ////////////////////////////
       Row(children: [
-        /////////////////  Cinema Section             ////////////////////////////
+        /////////////////       Cinema Section     ////////////////////////////
 
         Expanded(
             child: Container(

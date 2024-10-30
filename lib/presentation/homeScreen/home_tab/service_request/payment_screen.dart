@@ -22,6 +22,7 @@ class _Payment_ScreenState extends State<Payment_Screen> {
   TextEditingController cvvController = TextEditingController();
   TextEditingController mmyyController = TextEditingController();
   int selectedOption = 0;
+  var formKey = GlobalKey<FormState>();
 
   // Mask formatter for MM/YY format
   final maskFormatter = MaskTextInputFormatter(mask: '##/##', filter: {"#": RegExp(r'[0-9]')});
@@ -74,7 +75,7 @@ class _Payment_ScreenState extends State<Payment_Screen> {
                                   .titleLarge!
                                   .copyWith(color: ColorManager.darkBlueColor)))),
 
-                  Container(height: 330.h, child: selectedWidget()),
+                  Container(height: 320.h, child: Form(key: formKey, child: selectedWidget())),
                   ///////////////////////////   terms and conditions checkBox   //////////////////////////////////////////////
                   CheckboxListTile(
                     checkColor: ColorManager.whiteColor,
@@ -119,7 +120,21 @@ class _Payment_ScreenState extends State<Payment_Screen> {
                         SmallElevatedbutton(
                             text: AppLocalizations.of(context)!.pay,
                             onPressed: () {
-                              showVerifyOTPBottomSheet();
+                              if (formKey.currentState!.validate() == true && isChecked) {
+                                showVerifyOTPBottomSheet();
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                  duration: Duration(seconds: 1),
+                                  backgroundColor: ColorManager.midWhiteColor,
+                                  content: Text(
+                                    AppLocalizations.of(context)!.accept_the_privacy_policy_and_terms_and_conditions,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .titleMedium!
+                                        .copyWith(color: ColorManager.darkRedColor, fontSize: 14),
+                                  ),
+                                ));
+                              }
                             })
                       ]))
                 ]))));
@@ -146,7 +161,7 @@ class _Payment_ScreenState extends State<Payment_Screen> {
 
         /// New Card Details Container ////////////////////////////////////////////////////////////////////
         return Padding(
-            padding: EdgeInsets.all(14.h),
+            padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 14.w),
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -166,7 +181,7 @@ class _Payment_ScreenState extends State<Payment_Screen> {
                         }
                         return null;
                       }),
-                  SizedBox(height: 8.h),
+                  SizedBox(height: 5.h),
 
                   /// Enter Expire date & CVV TextField ////////////////////////////////////////
                   Row(
@@ -206,7 +221,7 @@ class _Payment_ScreenState extends State<Payment_Screen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 8.h),
+                  SizedBox(height: 5.h),
 
                   /// Enter Name TextField ////////////////////////////////////////
                   CardCustom_TxtField(
@@ -224,7 +239,7 @@ class _Payment_ScreenState extends State<Payment_Screen> {
       /// Saved Card CVV Container ////////////////////////////////////////////////////////////////////
       case 2:
         return Padding(
-            padding: EdgeInsets.all(14.h),
+            padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h),
             child: CardCustom_TxtField(
                 inputFormatter: [
                   LengthLimitingTextInputFormatter(3), // Limit to 3 characters
@@ -243,20 +258,31 @@ class _Payment_ScreenState extends State<Payment_Screen> {
       /// Pay From Wallet Details Container ////////////////////////////////////////////////////////////////////
       case 3:
         return Container(
-            padding: const EdgeInsets.all(20),
+            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
             child: Column(children: [
               Row(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.center, children: [
-                Text(AppLocalizations.of(context)!.your_wallet_balance,
-                    style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.darkBlueColor)),
+                Text(
+                  AppLocalizations.of(context)!.your_wallet_balance,
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                        color: ColorManager.darkBlueColor,
+                      ),
+                ),
                 SizedBox(width: 10.w),
                 Expanded(
                     //// from Back-end /////////////////////
-                    child: Text('1500',
-                        style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.primaryBlueColor)))
+                    child: Text(
+                  '1500',
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                        color: ColorManager.primaryBlueColor,
+                      ),
+                ))
               ]),
               SizedBox(height: 10.h),
               Row(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text('*', style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.greyColor)),
+                Text(
+                  '*',
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.greyColor),
+                ),
                 SizedBox(width: 10.w),
                 Expanded(
 
@@ -266,15 +292,21 @@ class _Payment_ScreenState extends State<Payment_Screen> {
               ])
             ]));
       default:
-        return Container();
+        return Container(
+          child: Center(
+            child: Text('Select The Wanted Way',
+                style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.lightGreyColor)),
+          ),
+        );
     }
   }
 }
 
 class Custom_Payment_Container extends StatelessWidget {
   Widget widget;
+  IconData icon;
 
-  Custom_Payment_Container({required this.widget});
+  Custom_Payment_Container({required this.widget, this.icon = Icons.circle_outlined});
 
   @override
   Widget build(BuildContext context) {
@@ -297,97 +329,7 @@ class Custom_Payment_Container extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 12),
                 child: widget,
               ),
-              Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Icon(Icons.circle_outlined, color: ColorManager.midBlueColor, size: 30))
+              Padding(padding: const EdgeInsets.all(8.0), child: Icon(icon, color: ColorManager.midBlueColor, size: 30))
             ]));
   }
 }
-//               /// Terms And Conditions container /////////////////////////////////////////////////////
-//               Container(
-//                   height: 150.h,
-//                   decoration: BoxDecoration(
-//                     borderRadius: BorderRadius.circular(12),
-//                   ),
-//                   child: Column(
-//                     children: [
-//                       Expanded(
-//                         child: SingleChildScrollView(
-//                           child: Container(
-//                             decoration: BoxDecoration(
-//                               borderRadius: BorderRadius.circular(12),
-//                               color: ColorManager.midWhiteColor,
-//                             ),
-//                             padding: EdgeInsets.all(8.0),
-//                             child: Text(
-//                               '''الشروط والأحكام
-//
-// مرحبًا بكم في Bacura
-// توفر هذه الشروط والأحكام الأساس القانوني لاستخدامك للتطبيق والخدمات المرتبطة به.
-//
-// قبول الشروط: باستخدام التطبيق، فإنك توافق على الالتزام بهذه الشروط. إذا كنت لا توافق على أي من هذه الشروط، يرجى عدم
-// استخدام التطبيق
-//
-// 1. التعاريف
-//  التطبيق: يشير إلى [اسم التطبيق] وجميع خدماته والمحتوى المرتبط به.
-//  الخدمات: تعني جميع الخدمات والميزات التي يوفرها التطبيق.
-//  المستخدم: أي شخص يستخدم التطبيق أو أي من خدماته.
-//  مزود الخدمة: أي طرف يقدم الخدمات الفعلية للمستخدمين النهائيين أو العملاء
-//  مزود الخدمة: أي طرف يقدم البنية الأساسية أو التقنيات أو الأنظمة التي يعمل عليها التطبيق
-//
-// 2. شروط الاستخدام
-//  الأهلية
-// يجب أن يكون المستخدمون في سن قانونية لإبرام عقد ملزم أو الحصول على موافقة والديهم أو الوصي القانوني لاستخدام التطبيق.
-//  الاستخدام المقبول
-// يجب على المستخدمين استخدام التطبيق فقط للأغراض التي صُمم التطبيق من أجلها وبطريقة لا تنتهك حقوق الآخرين أو تؤثر سلبًا على تشغيل التطبيق. ويشمل ذلك عدم استخدام التطبيق للاحتيال أو المضايقة أو أي استخدام غير قانوني.
-//
-//  إنشاء حساب
-// يجب عليك إنشاء حساب لاستخدام خدمات التطبيق.
-//
-//  إرفاق المستندات
-// قد يتطلب استخدام بعض خدمات التطبيق إرفاق المستندات. يجب على المستخدمين تقديم معلومات صحيحة ودقيقة وحديثة عند إرسال هذه المستندات، والتأكد من أن جميع البيانات والمعلومات المقدمة تتوافق مع المتطلبات المحددة للخدمة.
-//
-//  الاستخدام المستمر
-// بمجرد نشر التعديلات على الشروط، فإن استخدامك للتطبيق بعد هذا التحديث يعتبر قبولاً للشروط المعدلة.
-//
-//  إنهاء الاستخدام
-// نحتفظ بالحق في إنهاء أو تعليق وصولك إلى التطبيق في أي وقت، دون إشعار مسبق، إذا انتهكت هذه الشروط.
-// 3. حقوق الملكية الفكرية
-// جميع حقوق النشر والعلامات التجارية وغيرها من الحقوق في التطبيق ومحتوياته مملوكة لنا. لا يجوز نسخ أي جزء من التطبيق أو توزيعه أو تعديله دون إذن صريح منا.
-// 4. الحد من المسؤولية
-// تنفي الشركة أي مسؤولية ولا تضمن خلو التطبيق من الأخطاء أو العيوب أو أن الخدمات ستكون متاحة دائمًا.
-// 5. التغييرات
-//  تعديل الشروط: للشركة الحق في تعديل هذه الشروط في أي وقت.
-//  إلغاء الخدمة: للشركة الحق في إلغاء الخدمة أو أي جزء منها في أي وقت.
-// 6. الاتصال بنا
-// إذا كانت لديك أي أسئلة حول هذه الشروط والأحكام، يرجى الاتصال بنا على [البريد الإلكتروني] أو [رقم الهاتف].''',
-//                               // Add your full text here
-//                               style: Theme.of(context)
-//                                   .textTheme
-//                                   .titleSmall!
-//                                   .copyWith(color: ColorManager.darkBlueColor),
-//                             ),
-//                           ),
-//                         ),
-//                       ),
-//                       CheckboxListTile(
-//                         checkColor: ColorManager.whiteColor,
-//                         activeColor: ColorManager.primaryBlueColor,
-//                         title: Text(
-//                           'accept the privacy policy and terms and conditions',
-//                           style: Theme.of(context)
-//                               .textTheme
-//                               .titleSmall!
-//                               .copyWith(color: ColorManager.blackColor),
-//                         ),
-//                         value: isChecked,
-//                         onChanged: (bool? value) {
-//                           setState(() {
-//                             isChecked = value ?? false;
-//                           });
-//                         },
-//                         controlAffinity: ListTileControlAffinity
-//                             .leading, // places the checkbox to the left
-//                       ),
-//                     ],
-//                   )),
