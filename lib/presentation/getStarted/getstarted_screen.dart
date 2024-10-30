@@ -46,13 +46,13 @@ class _Getstarted_ScreenState extends State<Getstarted_Screen> {
                 Container(width: 280.h, child: SvgPicture.asset(ImageAssets.bacuraLogo)),
                 SizedBox(height: 95.h),
                 //welcome message ____________________________________
-                Text('Welcome to Bacura App', style: Theme.of(context).textTheme.displayLarge),
+                Text('أهلا بك في تطبيق باكورة', style: Theme.of(context).textTheme.displayLarge),
                 SizedBox(height: 10.h),
                 Container(
                     width: 300.w,
                     child: Text(
                         textAlign: TextAlign.center,
-                        'you Can Browse The Application Without Registering',
+                        'يمكنك تصفح التطبيق بدون ما تسجل',
                         style: Theme.of(context).textTheme.bodyMedium)),
                 SizedBox(height: 100.h),
                 //As A Visitor button______________________________

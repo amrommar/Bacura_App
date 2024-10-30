@@ -7,7 +7,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../register/custom_phonefield.dart';
-import '../resources/strings_manager.dart';
 
 class Login_Screen extends StatefulWidget {
   const Login_Screen({super.key});
@@ -99,7 +98,7 @@ class _Login_ScreenState extends State<Login_Screen> {
                               }
                             },
                             child: Text(
-                              AppStrings.login,
+                              AppLocalizations.of(context)!.login,
                               style: Theme.of(context).textTheme.titleMedium,
                             ))),
 

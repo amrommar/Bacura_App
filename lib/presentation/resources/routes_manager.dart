@@ -1,3 +1,9 @@
+import 'package:bacura_app/ServiceProvider_App/presentation/calender_screen.dart';
+import 'package:bacura_app/ServiceProvider_App/presentation/request_implement_screen.dart';
+import 'package:bacura_app/ServiceProvider_App/presentation/sp_completedrequests_screen.dart';
+import 'package:bacura_app/ServiceProvider_App/presentation/sp_home_screen.dart';
+import 'package:bacura_app/ServiceProvider_App/presentation/sp_personal_details.dart';
+import 'package:bacura_app/ServiceProvider_App/presentation/sp_request_details_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/home_tab/consultation/consultation_screen.dart';
 import 'package:bacura_app/presentation/homeScreen/personal/rechargebalance_screen.dart';
 import 'package:bacura_app/presentation/resources/strings_manager.dart';
@@ -62,6 +68,12 @@ class Routes {
   static const String invoiceDetailsRoute = '/invoiceDetails';
   static const String consultationScreenRoute = '/consultation';
   static const String rechargeBalanceRoute = '/rechargeBalance';
+  static const String spHomeScreenRoute = '/spHomeScreen';
+  static const String spRequestDetailsRoute = '/spRequestDetails';
+  static const String requestImplementRoute = '/requestImplement';
+  static const String spPersonalDetailsRoute = '/spPersonalDetails';
+  static const String spCompletedRequestsRoute = '/spCompletedRequests';
+  static const String calenderRoute = '/calender';
   static const String testRoute = '/test';
 }
 
@@ -126,6 +138,18 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => Consultation_Screen());
       case Routes.rechargeBalanceRoute:
         return MaterialPageRoute(builder: (_) => RechargeBalance_Screen());
+      case Routes.spHomeScreenRoute:
+        return MaterialPageRoute(builder: (_) => Sp_HomeScreen());
+      case Routes.spRequestDetailsRoute:
+        return MaterialPageRoute(builder: (_) => Sp_RequestDetails_Screen());
+      case Routes.requestImplementRoute:
+        return MaterialPageRoute(builder: (_) => RequestImplement_Screen());
+      case Routes.spPersonalDetailsRoute:
+        return MaterialPageRoute(builder: (_) => Sp_PersonalDetails_Screen());
+      case Routes.spCompletedRequestsRoute:
+        return MaterialPageRoute(builder: (_) => Sp_Completedrequests_Screen());
+      case Routes.calenderRoute:
+        return MaterialPageRoute(builder: (_) => Calender_Screen());
 
       /// test screen //////////////////////////
       case Routes.testRoute:
