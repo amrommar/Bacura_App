@@ -27,11 +27,8 @@ class _AppRating_BottomSheetState extends State<AppRating_BottomSheet> {
             child: Column(
               children: [
                 Text(
-                  'Rate Our App',
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleLarge!
-                      .copyWith(color: ColorManager.whiteColor),
+                  'قيم تطبيقنا',
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.whiteColor),
                 ),
                 SizedBox(height: 30.h),
                 Row(
@@ -41,14 +38,13 @@ class _AppRating_BottomSheetState extends State<AppRating_BottomSheet> {
                     Icon(Icons.star, size: 60, color: ColorManager.yellowColor),
                     Icon(Icons.star, size: 60, color: ColorManager.yellowColor),
                     Icon(Icons.star, size: 60, color: ColorManager.yellowColor),
-                    Icon(Icons.star,
-                        size: 60, color: ColorManager.lightGreyColor),
+                    Icon(Icons.star, size: 60, color: ColorManager.lightGreyColor),
                   ],
                 ),
                 SizedBox(height: 30.h),
                 SmallElevatedbutton(
                     backgroundColor: ColorManager.lightBlueColor,
-                    text: 'Rate',
+                    text: 'قيم',
                     textColor: ColorManager.primaryBlueColor,
                     onPressed: () {
                       Navigator.pop(context);

@@ -140,7 +140,7 @@ class _RechargeBalance_ScreenState extends State<RechargeBalance_Screen> {
                                 children: [
                               Padding(
                                   padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
-                                  child: Text('500 SR',
+                                  child: Text('500 ريال',
                                       style: Theme.of(context)
                                           .textTheme
                                           .titleLarge!

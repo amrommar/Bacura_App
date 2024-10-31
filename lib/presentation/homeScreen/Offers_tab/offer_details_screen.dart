@@ -32,7 +32,7 @@ class _OfferDetails_ScreenState extends State<OfferDetails_Screen> {
           /// offer Title Section ///////////////////////////////////////////////////////
           Container(
               margin: EdgeInsets.only(top: AppMargin.m8, right: AppMargin.m8, left: AppMargin.m8),
-              child: Text('4 outdoor smart IP cameras (6MP)',
+              child: Text('4 كاميرات IP ذكية خارجية (6 ميجابكسل)',
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium!
@@ -46,23 +46,23 @@ class _OfferDetails_ScreenState extends State<OfferDetails_Screen> {
                   BoxDecoration(color: ColorManager.midWhiteColor, borderRadius: BorderRadius.circular(AppSize.s4)),
               child: ReadMoreText(
                 text:
-                    '''Get a package of 4 outdoor IP cameras with 8MP resolution with accessories at a competitive price, free shipping and installation fee discount. You can pay in installments or pay upon receipt. There is a two-year warranty on the products and a year on installing the surveillance cameras. You can order a custom one for your needs. Contact us now and benefit from the surveillance camera offers at wholesale prices. You will get:A complete package consisting of:
-4 outdoor IP cameras with 8MP 4K resolution (Model: DS-2CD2T83G2-2I)
-NVR recording device with (8 channels) (Model: DS-7608NI-K2/8P)
-2TB WD storage hard disk
-80 meters of CAT6 - 3M network cable
+                    '''احصل على باقة 4 كاميرات IP خارجية بدقة 8MP مع الملحقات بسعر تنافسي وشحن مجاني وخصم على رسوم التركيب. يمكنك الدفع بالتقسيط أو الدفع عند الاستلام. يوجد ضمان لمدة عامين على المنتجات وسنة على تركيب كاميرات المراقبة. يمكنك طلب واحدة مخصصة لاحتياجاتك. تواصل معنا الآن واستفد من عروض كاميرات المراقبة بأسعار الجملة. سوف تحصل على: حزمة كاملة تتكون من:
+4 كاميرات IP خارجية بدقة 8 ميجابكسل 4K (الموديل: DS-2CD2T83G2-2I)
+جهاز تسجيل NVR مزود بـ (8 قنوات) (موديل: DS-7608NI-K2/8P)
+قرص صلب للتخزين سعة 2 تيرابايت من نوع WD
+80 مترا من كابل الشبكة CAT6 - 3M
 
-Specifications and features:
-Resolution: 8MP
-Viewing range: up to 60 meters
-Lens aperture: Fixed lens size 2.8 mm
-Possibility of connecting to the mobile via the recording device''',
+المواصفات والمميزات:
+الدقة: 8 ميجابكسل
+نطاق الرؤية: يصل إلى 60 مترًا
+فتحة العدسة: مقاس العدسة الثابتة 2.8 ملم
+إمكانية الاتصال بالموبايل عن طريق جهاز التسجيل''',
               )),
           SizedBox(height: 10.h),
           // More Ask Section______________________________________________________
           Container(
               padding: EdgeInsets.symmetric(horizontal: 8.w),
-              child: Text('Suggested for you',
+              child: Text('مقترحة لك',
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium!

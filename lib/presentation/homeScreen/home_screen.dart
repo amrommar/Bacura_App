@@ -20,7 +20,12 @@ class Home_Screen extends StatefulWidget {
 class _Home_ScreenState extends State<Home_Screen> {
   int currentIndex = 0;
 
-  List<Widget> Tabs = [Home_Tab(), Requests_Tab(), Offers_Tab(), More_Tab()];
+  List<Widget> Tabs = [
+    Home_Tab(),
+    Requests_Tab(),
+    Offers_Tab(),
+    More_Tab(),
+  ];
   List<String> appBarTitles = [AppStrings.home, AppStrings.requests, AppStrings.offers, AppStrings.more];
 
   var formKey = GlobalKey<FormState>();

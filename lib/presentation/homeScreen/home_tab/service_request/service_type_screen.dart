@@ -37,9 +37,9 @@ class _ServiceType_ScreenState extends State<ServiceType_Screen> {
                         .copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold))),
 
             /// from Back-End //////////////////////////
-            Service_Type_Container(text: 'Installation & programming'),
-            Service_Type_Container(text: 'Maintenance'),
-            Service_Type_Container(text: 'Supply'),
+            Service_Type_Container(text: 'تركيب وبرمجة'),
+            Service_Type_Container(text: 'صيانة'),
+            Service_Type_Container(text: 'توريد'),
             SizedBox(height: 100.h),
 
             /// Next ElevatedButton Section ////////////////////////////////////

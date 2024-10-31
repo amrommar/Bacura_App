@@ -46,7 +46,7 @@ class _CustomPaymentOperation_ContainerState extends State<CustomPaymentOperatio
                   Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
                     Icon(Icons.access_time_outlined, color: ColorManager.lightBlueColor, size: 20),
                     SizedBox(width: 2.w),
-                    Text('10:35 am',
+                    Text('10:35 ص',
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.whiteColor))
                   ])
                 ])
@@ -56,7 +56,7 @@ class _CustomPaymentOperation_ContainerState extends State<CustomPaymentOperatio
               ////service type section/////////////////////////////////////////////
               Container(
                 width: 400.w,
-                child: Text('8MP 80m outdoor IP camera - Hikvision 8MP 80m outdoor IP camera - Hikvision ',
+                child: Text('كاميرا IP خارجية 8 ميجابكسل 80 متر - هيكفيجن كاميرا IP خارجية 8 ميجابكسل 80 متر - هيكفيجن',
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
                     style: Theme.of(context).textTheme.displayMedium!.copyWith(
@@ -66,7 +66,7 @@ class _CustomPaymentOperation_ContainerState extends State<CustomPaymentOperatio
               SizedBox(height: 10.h),
               ////  money and payment method section/////////////////////////////////////////////
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                Text('1000 SR',
+                Text('1000 ريال',
                     style: Theme.of(context)
                         .textTheme
                         .titleMedium!
@@ -74,7 +74,7 @@ class _CustomPaymentOperation_ContainerState extends State<CustomPaymentOperatio
                 Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Padding(
                     padding: EdgeInsets.all(2.0),
-                    child: Text('Credit Card',
+                    child: Text('بطاقة إئتمان',
                         style: Theme.of(context).textTheme.displayMedium!.copyWith(
                               color: ColorManager.whiteColor,
                             )),

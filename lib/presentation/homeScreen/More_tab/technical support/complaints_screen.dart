@@ -27,7 +27,7 @@ class _Complaint_ScreenState extends State<Complaint_Screen> {
       AppLocalizations.of(context)!.customer_Service,
     ];
     return Scaffold(
-      appBar: AppBar(title: Text('Complaint Screen')),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.complaints)),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 30.0, horizontal: 16),
         child: Form(

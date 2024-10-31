@@ -107,7 +107,7 @@ class _Payment_ScreenState extends State<Payment_Screen> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                               /// from Back-end //////////////
-                              Text('2000 SR',
+                              Text('2000 ريال',
                                   style: Theme.of(context)
                                       .textTheme
                                       .titleLarge!
@@ -287,14 +287,14 @@ class _Payment_ScreenState extends State<Payment_Screen> {
                 Expanded(
 
                     /// under updating i want to make it with better design /////////////////
-                    child: Text('The amount will be deducted from the wallet directly.',
+                    child: Text('سيتم خصم المبلغ من المحفظة مباشرة.',
                         style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.greyColor)))
               ])
             ]));
       default:
         return Container(
           child: Center(
-            child: Text('Select The Wanted Way',
+            child: Text('حدد الطريقة المناسبة',
                 style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.lightGreyColor)),
           ),
         );

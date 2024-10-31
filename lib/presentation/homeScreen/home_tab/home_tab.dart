@@ -50,40 +50,49 @@ class _Home_TabState extends State<Home_Tab> {
           child: CarouselSlider(
               items: [
                 //////////////       from Back-End      ///////////////////
-                Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/baner1.jpg'),
-                          fit: BoxFit.cover,
-                        ),
-                        borderRadius: BorderRadius.circular(8))),
-                Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/baner2.jpg'),
-                          fit: BoxFit.cover,
-                        ),
-                        borderRadius: BorderRadius.circular(8))),
-                Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/baner3.jpg'),
-                          fit: BoxFit.cover,
-                        ),
-                        borderRadius: BorderRadius.circular(8)))
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 5),
+                  child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/baner1.jpg'),
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadius.circular(8))),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 5),
+                  child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/baner1.jpg'),
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadius.circular(8))),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 5),
+                  child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/baner1.jpg'),
+                            fit: BoxFit.cover,
+                          ),
+                          borderRadius: BorderRadius.circular(8))),
+                ),
               ],
               options: CarouselOptions(
-                  height: 170.h,
-                  enlargeCenterPage: true,
+                  height: 165.h,
+                  enlargeCenterPage: false,
                   autoPlay: true,
                   aspectRatio: 16 / 9,
                   autoPlayCurve: Curves.fastOutSlowIn,
                   enableInfiniteScroll: true,
                   autoPlayAnimationDuration: Duration(milliseconds: 1000),
-                  viewportFraction: 0.98))),
+                  viewportFraction: 0.95))),
 
       ///////////////////////////////   Departments Section      //////////////////////////////////////////////
       Padding(
@@ -103,7 +112,7 @@ class _Home_TabState extends State<Home_Tab> {
               shrinkWrap: true,
               // Let it take only necessary height
               itemCount: 6,
-              // Replace with your apartments list length
+              // Replace with your departments list length
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3,
                   // Number of items per row
