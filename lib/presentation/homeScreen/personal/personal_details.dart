@@ -103,7 +103,7 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
                 },
                 icon: Icons.transgender_outlined,
                 text: AppLocalizations.of(context)!.gender,
-                value: 'Male'),
+                value: 'ذكر'),
             Padding(
                 padding: EdgeInsetsDirectional.symmetric(vertical: 2),
                 child: Divider(color: ColorManager.lightBlueColor)),
@@ -113,7 +113,7 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
                 },
                 icon: Icons.location_on_outlined,
                 text: AppLocalizations.of(context)!.city,
-                value: 'Riyad'),
+                value: 'الرياض'),
           ])),
 
           /// Wallet Section ___________________________________________________________________
@@ -128,7 +128,7 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
                 Text(AppLocalizations.of(context)!.walletManagement,
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.darkBlueColor)),
                 Spacer(),
-                Text('1000 SR',
+                Text('1000 ريال',
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.primaryBlueColor)),
                 Icon(Icons.navigate_next_rounded, size: 28, color: ColorManager.blackColor)
               ]))),
@@ -159,8 +159,8 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
 // var cityController = TextEditingController();
 // var genderController = TextEditingController();
     var emailController = TextEditingController();
-    final List<String> genderOptions = ['Male', 'Female'];
-    final List<String> cityOptions = ['Riyad', 'Jadah', 'Makka', 'Damam'];
+    final List<String> genderOptions = ['ذكر', 'أنثي'];
+    final List<String> cityOptions = ['الرياض', 'جده', 'مكة', 'الدمام'];
     final formKey = GlobalKey<FormState>();
 
     showModalBottomSheet(
@@ -262,7 +262,7 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
                 padding: EdgeInsets.all(20),
                 child: Column(children: [
                   DropDown_Field(
-                    selectedOption: 'Male',
+                    selectedOption: 'ذكر',
                     options: genderOptions,
                     fieldName: AppLocalizations.of(context)!.gender,
                   ),
@@ -283,7 +283,7 @@ class _PersonalDetails_ScreenState extends State<PersonalDetails_Screen> {
                 padding: EdgeInsets.all(20),
                 child: Column(children: [
                   DropDown_Field(
-                    selectedOption: 'Riyad',
+                    selectedOption: 'الرياض',
                     options: cityOptions,
                     fieldName: AppLocalizations.of(context)!.city,
                   ),

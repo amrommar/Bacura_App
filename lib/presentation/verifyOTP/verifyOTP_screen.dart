@@ -85,6 +85,7 @@ class _VerifyOTP_ScreenState extends State<VerifyOTP_Screen> {
                                 inActiveBoxShadow: [BoxShadow(color: ColorManager.midWhiteColor)],
                                 activeBoxShadow: [BoxShadow(color: ColorManager.midWhiteColor)],
                                 borderWidth: 1.5,
+                                fieldOuterPadding: EdgeInsets.all(12),
                                 activeBorderWidth: 1.5,
                                 disabledBorderWidth: 1.5,
                                 inactiveBorderWidth: 1.5,
@@ -96,17 +97,8 @@ class _VerifyOTP_ScreenState extends State<VerifyOTP_Screen> {
                                 inactiveFillColor: Colors.yellow,
                                 selectedFillColor: Colors.green),
                             keyboardType: TextInputType.number))),
-                SizedBox(height: 20.h),
-                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Text(AppLocalizations.of(context)!.sendOTPNumberAgain,
-                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.greyColor)),
-                  SizedBox(width: 10.w),
-                  Text(
-                    '60',
-                    style: Theme.of(context).textTheme.displayMedium,
-                  )
-                ]),
-                SizedBox(height: 40.h),
+
+                SizedBox(height: 50.h),
                 Center(
                     child: Column(children: [
                   ElevatedButton(
@@ -119,9 +111,16 @@ class _VerifyOTP_ScreenState extends State<VerifyOTP_Screen> {
                         style: Theme.of(context).textTheme.titleMedium,
                       )),
                   SizedBox(height: 20.h),
-                  Text(
-                    AppLocalizations.of(context)!.sendOTPAgain,
-                    style: Theme.of(context).textTheme.bodyMedium,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        AppLocalizations.of(context)!.sendOTPAgain,
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                      SizedBox(width: 20.w),
+                      Text('60', style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.greyColor))
+                    ],
                   )
                 ]))
               ])))

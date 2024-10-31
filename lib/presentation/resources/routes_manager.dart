@@ -1,4 +1,5 @@
 import 'package:bacura_app/ServiceProvider_App/presentation/calender_screen.dart';
+import 'package:bacura_app/ServiceProvider_App/presentation/messages_screen.dart';
 import 'package:bacura_app/ServiceProvider_App/presentation/request_implement_screen.dart';
 import 'package:bacura_app/ServiceProvider_App/presentation/sp_completedrequests_screen.dart';
 import 'package:bacura_app/ServiceProvider_App/presentation/sp_home_screen.dart';
@@ -74,6 +75,7 @@ class Routes {
   static const String spPersonalDetailsRoute = '/spPersonalDetails';
   static const String spCompletedRequestsRoute = '/spCompletedRequests';
   static const String calenderRoute = '/calender';
+  static const String messagesRoute = '/messages';
   static const String testRoute = '/test';
 }
 
@@ -150,6 +152,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => Sp_Completedrequests_Screen());
       case Routes.calenderRoute:
         return MaterialPageRoute(builder: (_) => Calender_Screen());
+      case Routes.messagesRoute:
+        return MaterialPageRoute(builder: (_) => MessagesScreen());
 
       /// test screen //////////////////////////
       case Routes.testRoute:

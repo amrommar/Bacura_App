@@ -85,7 +85,7 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
                         size: 20,
                       ),
                       SizedBox(width: 2.w),
-                      Text('10:35 am',
+                      Text('10:35 ص',
                           style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                                 color: ColorManager.greyColor,
                               ))

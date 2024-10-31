@@ -45,13 +45,12 @@ class _Notifications_ScreenState extends State<Notifications_Screen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             ///////////////    from Back-End     /////////////////////
-                            Text('Notification Title',
+                            Text('عنوان الاشعار',
                                 style: Theme.of(context)
                                     .textTheme
                                     .titleMedium!
                                     .copyWith(color: ColorManager.darkBlueColor)),
-                            Text(
-                                'Notification Description Description Description Description Description Description Description',
+                            Text('وصف الاشعار وصف الاشعار وصف الاشعار وصف الاشعار وصف الاشعار وصف الاشعار',
                                 overflow: TextOverflow.ellipsis,
                                 style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.greyColor))
                           ]))

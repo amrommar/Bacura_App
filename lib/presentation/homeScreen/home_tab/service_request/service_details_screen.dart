@@ -25,8 +25,8 @@ class _ServiceDetails_ScreenState extends State<ServiceDetails_Screen> {
   var formKey = GlobalKey<FormState>();
   String locationAddress = 'Pick Location';
 
-  String selectedOption = '9 AM - 1 PM';
-  final List<String> options = ['9 AM - 1 PM', '1 PM - 6 PM'];
+  String selectedOption = '9 ص - 1 م';
+  final List<String> options = ['9 ص - 1 م', '1 م - 6 م'];
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +53,8 @@ class _ServiceDetails_ScreenState extends State<ServiceDetails_Screen> {
                       //Barrier Color when pop up show
                       minuteInterval: 1,
                       padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
-                      cancelText: 'Cancel',
-                      confirmText: 'OK',
+                      cancelText: AppLocalizations.of(context)!.cancel,
+                      confirmText: AppLocalizations.of(context)!.ok,
                       pressType: PressType.singlePress,
                       timeFormat: 'dd/MM/yyyy',
                       // Customize your time widget
@@ -68,9 +68,7 @@ class _ServiceDetails_ScreenState extends State<ServiceDetails_Screen> {
 
                   SizedBox(height: 10.h),
                   DropDown_Field(
-                      selectedOption: '9 AM - 1 PM',
-                      options: options,
-                      fieldName: AppLocalizations.of(context)!.set_time),
+                      selectedOption: '9 ص - 1 م', options: options, fieldName: AppLocalizations.of(context)!.set_time),
                   //// Set location Section ///////////////////////////////////////
                   question_TextFormField(
                       fieldName: AppLocalizations.of(context)!.location,

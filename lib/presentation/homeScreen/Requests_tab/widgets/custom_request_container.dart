@@ -91,7 +91,7 @@ class Custom_Request_Container extends StatelessWidget {
                 size: 20,
               ),
               SizedBox(width: 2.w),
-              Text('10:35 am',
+              Text('10:35 ص',
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         color: ColorManager.greyColor,
                       )),

@@ -37,7 +37,7 @@ class OffersCard extends StatelessWidget {
                   children: [
                     Container(
                         width: 175.w,
-                        child: Text('Installing Surveillance Cameras',
+                        child: Text('تركيب كاميرات المراقبة',
                             maxLines: 2, // Set max number of lines to display
                             overflow: TextOverflow.ellipsis,
                             style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.blackColor))),
@@ -52,7 +52,7 @@ class OffersCard extends StatelessWidget {
           Container(
               padding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 8.w),
               ///// from Back-End ////////////////////////
-              child: Text('1000 SR',
+              child: Text('1000 ريال',
                   style: Theme.of(context)
                       .textTheme
                       .titleSmall!

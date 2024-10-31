@@ -27,7 +27,7 @@ class _RequestSent_BottomSheetState extends State<RequestSent_BottomSheet> {
               padding: const EdgeInsets.all(16.0),
               child: Text(
                 /// from BAckEnd /////////////////
-                'We sent the request, The service provider will contact you.',
+                'لقد أرسلنا الطلب، وسيقوم مزود الخدمة بالتواصل معك.',
                 textAlign: TextAlign.start,
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.greyColor),
               ),

@@ -25,7 +25,7 @@ class Custom_Offer_container extends StatelessWidget {
                 Container(
                     ///////////////    from Back-End     /////////////////////
                     width: 150.w,
-                    child: Text('4 External smart IP cameras (6 mega resolution)',
+                    child: Text('4 كاميرات IP ذكية خارجية (دقة 6 ميجا)',
                         style: Theme.of(context)
                             .textTheme
                             .titleSmall!
@@ -40,12 +40,12 @@ class Custom_Offer_container extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     ///////////////    from Back-End     /////////////////////
-                    Text('3 days left',
+                    Text('باقي 3 أيام',
                         style: Theme.of(context)
                             .textTheme
                             .titleSmall!
                             .copyWith(color: ColorManager.darkRedColor, fontSize: 12)),
-                    Text('1000 SR',
+                    Text('1000 ريال',
                         style: Theme.of(context)
                             .textTheme
                             .titleSmall!

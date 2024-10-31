@@ -15,7 +15,7 @@ class Consultation_Screen extends StatefulWidget {
 
 class _Consultation_ScreenState extends State<Consultation_Screen> {
   //// from Back-End ///////////
-  final List<String> options = ['Type 1', 'Type 2', 'Type 3'];
+  final List<String> options = ['استشارة 1', 'استشارة 2', 'استشارة 3'];
   var descriptionController = TextEditingController();
   var formKey = GlobalKey<FormState>();
 
@@ -29,7 +29,7 @@ class _Consultation_ScreenState extends State<Consultation_Screen> {
                 padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
                 child: ListView(children: [
                   DropDown_Field(
-                      selectedOption: 'Type 1',
+                      selectedOption: 'استشارة 1',
                       options: options,
                       fieldName: AppLocalizations.of(context)!.consultation_type),
                   question_TextFormField(
@@ -52,7 +52,7 @@ class _Consultation_ScreenState extends State<Consultation_Screen> {
                             style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.greyColor)),
                         SizedBox(width: 10.w),
                         Expanded(
-                            child: Text('Your consultation will be answered within three days.',
+                            child: Text('سيتم الرد على استشارتك خلال ثلاثة أيام.',
                                 style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.greyColor)))
                       ]),
                   SizedBox(height: 100.h),

@@ -41,7 +41,7 @@ class _InvoiceDetails_ScreenState extends State<InvoiceDetails_Screen> {
                 Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Icon(Icons.access_time_outlined, color: ColorManager.greyColor, size: 20),
                   SizedBox(width: 2.w),
-                  Text('10:35 am',
+                  Text('10:35 ص',
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.primaryBlueColor))
                 ])
               ]),
@@ -52,7 +52,7 @@ class _InvoiceDetails_ScreenState extends State<InvoiceDetails_Screen> {
                     child: Text(AppLocalizations.of(context)!.service_provider_name,
                         style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.primaryBlueColor)),
                   ),
-                  Text('Bacura Tech',
+                  Text('باكورة التقنيات',
                       style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor)),
                 ],
               ),
@@ -67,11 +67,11 @@ class _InvoiceDetails_ScreenState extends State<InvoiceDetails_Screen> {
                       Image.asset('assets/images/camers_image.png'),
                       SizedBox(width: 10.w),
                       Expanded(
-                          child: Text('8MP 80m outdoor IP camera - Hikvision 8MP 80m outdoor IP camera',
+                          child: Text('كاميرا IP خارجية 8MP 80m - كاميرا IP خارجية Hikvision 8MP 80m',
                               style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.greyColor)))
                     ]),
                     Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-                      Text('1000 SR',
+                      Text('1000 ريال',
                           style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.darkRedColor))
                     ])
                   ])),
@@ -83,11 +83,11 @@ class _InvoiceDetails_ScreenState extends State<InvoiceDetails_Screen> {
                       Image.asset('assets/images/camers_image.png'),
                       SizedBox(width: 10.w),
                       Expanded(
-                          child: Text('8MP 80m outdoor IP camera - Hikvision 8MP 80m outdoor IP camera',
+                          child: Text('كاميرا IP خارجية 8MP 80m - كاميرا IP خارجية Hikvision 8MP 80m',
                               style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.greyColor)))
                     ]),
                     Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-                      Text('1000 SR',
+                      Text('1000 ريال',
                           style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.darkRedColor))
                     ])
                   ])),
@@ -110,14 +110,14 @@ class _InvoiceDetails_ScreenState extends State<InvoiceDetails_Screen> {
               ///  Location section/////////////////////////////////////////////
               Custom_Row_Icon_TwoText(
                 title: AppLocalizations.of(context)!.location,
-                description: 'Riyad Elared Asmaa bent malet ST',
+                description: ' الرياض حي العارض شارع أسماء بنت مالك',
                 icon: Icons.location_on,
               ),
 
               ///  Payment Method section/////////////////////////////////////////////
               Custom_Row_Icon_TwoText(
                 title: AppLocalizations.of(context)!.payment_method,
-                description: 'Credit Card',
+                description: 'بطاقة إئتمان',
                 icon: Icons.monetization_on_outlined,
                 iconColor: ColorManager.greyColor,
               ),
@@ -125,7 +125,7 @@ class _InvoiceDetails_ScreenState extends State<InvoiceDetails_Screen> {
               ///  Payment status section/////////////////////////////////////////////
               Custom_Row_Icon_TwoText(
                 title: AppLocalizations.of(context)!.payment_status,
-                description: 'Payment made',
+                description: 'تم الدفع',
                 icon: Icons.check_circle,
                 iconColor: ColorManager.darkGreenColor,
               ),
@@ -133,7 +133,7 @@ class _InvoiceDetails_ScreenState extends State<InvoiceDetails_Screen> {
               ///  Warranty status section/////////////////////////////////////////////
               Custom_Row_Icon_TwoText(
                 title: AppLocalizations.of(context)!.warranty_status,
-                description: 'Valid',
+                description: 'ساري',
                 icon: Icons.verified_user,
                 iconColor: ColorManager.midBlueColor,
               ),

@@ -42,7 +42,7 @@ class _Sp_HomeScreenState extends State<Sp_HomeScreen> {
             IconButton(
                 icon: Icon(Icons.email_outlined, size: 30.h),
                 onPressed: () {
-                  Navigator.pushNamed(context, Routes.notificationsRoute);
+                  Navigator.pushNamed(context, Routes.messagesRoute);
                 }),
             IconButton(
                 icon: Icon(Icons.notifications, size: 30.h),
@@ -51,46 +51,7 @@ class _Sp_HomeScreenState extends State<Sp_HomeScreen> {
                 }),
           ]),
       body: Column(children: [
-        // Container(
-        //     color: ColorManager.lightWhiteColor,
-        //     padding: EdgeInsets.only(bottom: 12.h),
-        //     child: EasyDateTimeLine(
-        //         locale: provider.appLanguage,
-        //         initialDate: DateTime.now(),
-        //         onDateChange: (date) {},
-        //         headerProps: EasyHeaderProps(
-        //           selectedDateStyle:
-        //               Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.primaryBlueColor),
-        //           monthStyle: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.primaryBlueColor),
-        //           monthPickerType: MonthPickerType.switcher,
-        //           dateFormatter: DateFormatter.fullDateDMY(),
-        //         ),
-        //         dayProps: EasyDayProps(
-        //             todayStyle: DayStyle(
-        //                 dayStrStyle:
-        //                     Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.darkBlueColor),
-        //                 dayNumStyle:
-        //                     Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.primaryBlueColor)),
-        //             inactiveDayStyle: DayStyle(
-        //                 dayStrStyle: TextStyle(color: ColorManager.darkBlueColor),
-        //                 dayNumStyle:
-        //                     Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.primaryBlueColor)),
-        //             dayStructure: DayStructure.monthDayNumDayStr,
-        //             activeDayStyle: DayStyle(
-        //                 decoration: BoxDecoration(
-        //               borderRadius: BorderRadius.all(Radius.circular(16)),
-        //               gradient: LinearGradient(
-        //                 begin: Alignment.topRight,
-        //                 end: Alignment.bottomLeft,
-        //                 colors: [
-        //                   ColorManager.darkBlueColor,
-        //                   ColorManager.midBlueColor,
-        //                 ],
-        //               ),
-        //             ))))),
-
         /// Requests section ///////////////////////////////////////////////////////
-
         Expanded(
             child: ListView.builder(
                 itemCount: 12,

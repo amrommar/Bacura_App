@@ -58,7 +58,11 @@ class _More_TabState extends State<More_Tab> {
           }),
 
       ///register_as_a_service_provider tab //////////////////////////////
-      Custom_More_row(text: AppLocalizations.of(context)!.register_as_a_service_provider, onTap: () {}),
+      Custom_More_row(
+          text: AppLocalizations.of(context)!.register_as_a_service_provider,
+          onTap: () {
+            Navigator.pushNamed(context, Routes.spHomeScreenRoute);
+          }),
 
       ///suggestions tab //////////////////////////////
       Custom_More_row(
