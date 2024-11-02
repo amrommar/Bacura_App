@@ -41,7 +41,7 @@ class _AppRating_BottomSheetState extends State<AppRating_BottomSheet> {
                     Icon(Icons.star, size: 60, color: ColorManager.lightGreyColor),
                   ],
                 ),
-                SizedBox(height: 30.h),
+                SizedBox(height: 25.h),
                 SmallElevatedbutton(
                     backgroundColor: ColorManager.lightBlueColor,
                     text: 'قيم',

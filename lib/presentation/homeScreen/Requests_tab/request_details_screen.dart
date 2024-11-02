@@ -181,7 +181,7 @@ class _Request_Details_ScreenState extends State<Request_Details_Screen> {
                       iconColor: ColorManager.midBlueColor),
                   Divider(),
                   SizedBox(height: 50.h),
-                  manageRequestButtons(ColorManager.yellowColor)
+                  manageRequestButtons(ColorManager.redColor)
                 ]))));
   }
 

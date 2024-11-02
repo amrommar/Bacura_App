@@ -34,18 +34,18 @@ class _PrivacyPolicy_ScreenState extends State<PrivacyPolicy_Screen> {
             children: [
               //// from Back-End /////////////////////////////////////////////////
               Text(
-                  '''We at Bacura App are committed to protecting your privacy and ensuring the security of your personal information, This Privacy Policy explains how we collect, use and protect the information you provide to us when you use the App.''',
+                  '''نحن في تطبيق Bacura ملتزمون بحماية خصوصيتك وضمان أمان معلوماتك الشخصية، تشرح سياسة الخصوصية هذه كيفية جمعنا واستخدامنا وحماية المعلومات التي تقدمها لنا عند استخدامك للتطبيق''',
                   style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor),
                   maxLines: null, // Allows unlimited lines
                   textAlign: TextAlign.justify,
                   overflow: TextOverflow.visible),
               Divider(color: ColorManager.whiteColor),
               ///// 1. Collection information /////////////////////////////////////////////////////////
-              Text('1. Collection of Information:',
+              Text('1. جمع المعلومات:',
                   style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.primaryBlueColor)),
               Divider(color: ColorManager.lightBlueColor, thickness: 2),
               Text(
-                '''We collect personal information that you voluntarily provide in the App, such as name, email address, phone number, and other information that we may need to provide the service and to send service-related notifications, updates, or information about special offers and new features. We collect technical information about how you use the App, a record of your activity in the App, including the pages you visit, the features you use, and the time you spend using the App for the purpose of improving the user experience and quality of the Service and analyzing the use of the App, We keep your information only as long as necessary to achieve the purposes for which it was collected, or as required by law.''',
+                '''نحن نجمع المعلومات الشخصية التي تقدمها طواعية في التطبيق، مثل الاسم وعنوان البريد الإلكتروني ورقم الهاتف والمعلومات الأخرى التي قد نحتاجها لتقديم الخدمة وإرسال إشعارات أو تحديثات أو معلومات متعلقة بالخدمة أو حول العروض الخاصة والميزات الجديدة. نحن نجمع معلومات فنية حول كيفية استخدامك للتطبيق، وسجل لنشاطك في التطبيق، بما في ذلك الصفحات التي تزورها والميزات التي تستخدمها والوقت الذي تقضيه في استخدام التطبيق لغرض تحسين تجربة المستخدم وجودة الخدمة وتحليل استخدام التطبيق، ونحتفظ بمعلوماتك فقط طالما كان ذلك ضروريًا لتحقيق الأغراض التي تم جمعها من أجلها، أو حسبما يقتضيه القانون.''',
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.blackColor),
                 maxLines: null, // Allows unlimited lines
                 textAlign: TextAlign.justify,
@@ -54,12 +54,12 @@ class _PrivacyPolicy_ScreenState extends State<PrivacyPolicy_Screen> {
               Divider(color: ColorManager.whiteColor),
               ////2. Protection of Information: /////////////////////////////////////////////////////
               Text(
-                '2. Protection of Information:',
+                '2. حماية المعلومات:',
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.primaryBlueColor),
               ),
               Divider(color: ColorManager.lightBlueColor, thickness: 2),
               Text(
-                '''We are committed to protecting your personal information. We take appropriate security measures to protect your personal information from unauthorized access, use, disclosure, alteration or destruction. This includes using encryption and cyber security technologies to maintain an updated security system.''',
+                '''نحن ملتزمون بحماية معلوماتك الشخصية. ونتخذ التدابير الأمنية المناسبة لحماية معلوماتك الشخصية من الوصول غير المصرح به أو الاستخدام أو الكشف عنها أو تغييرها أو تدميرها. ويشمل ذلك استخدام تقنيات التشفير والأمن السيبراني للحفاظ على نظام أمان محدث.''',
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.blackColor),
                 maxLines: null, // Allows unlimited lines
                 textAlign: TextAlign.justify,
@@ -68,15 +68,15 @@ class _PrivacyPolicy_ScreenState extends State<PrivacyPolicy_Screen> {
               Divider(color: ColorManager.whiteColor),
               ////3. Sharing Information: /////////////////////////////////////////////////////////
               Text(
-                '3. Sharing Information:',
+                '3. مشاركة المعلومات:',
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.primaryBlueColor),
               ),
               Divider(color: ColorManager.lightBlueColor, thickness: 2),
               Text(
-                '''We may share your personal information with a third party but only to the extent necessary to achieve the purposes specified in this policy, such as:
-- Service providers and providers: companies with which we contract to provide certain services on our behalf.
-- Partners: companies with which we cooperate to provide joint offers.
-- Government agencies: if required by law.''',
+                '''قد نشارك معلوماتك الشخصية مع طرف ثالث ولكن فقط بالقدر الضروري لتحقيق الأغراض المحددة في هذه السياسة، مثل:
+- مقدمو الخدمات والمزودون: الشركات التي نتعاقد معها لتقديم خدمات معينة نيابة عنا.
+- الشركاء: الشركات التي نتعاون معها لتقديم عروض مشتركة.
+- الهيئات الحكومية: إذا كان القانون يفرض ذلك.''',
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.blackColor),
                 maxLines: null, // Allows unlimited lines
                 textAlign: TextAlign.justify,
@@ -86,12 +86,12 @@ class _PrivacyPolicy_ScreenState extends State<PrivacyPolicy_Screen> {
 
               ///4. Changes to the Privacy Policy: ./////////////////////////////////////////////
               Text(
-                '4. Changes to the Privacy Policy:',
+                '4. التغييرات على سياسة الخصوصية:',
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.primaryBlueColor),
               ),
               Divider(color: ColorManager.lightBlueColor, thickness: 2),
               Text(
-                '''We reserve the right to modify this policy at any time. We will notify you of any material changes through the application or by email.''',
+                '''نحتفظ بالحق في تعديل هذه السياسة في أي وقت. وسنقوم بإخطارك بأي تغييرات جوهرية من خلال التطبيق أو عبر البريد الإلكتروني.''',
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.blackColor),
                 maxLines: null, // Allows unlimited lines
                 textAlign: TextAlign.justify,
@@ -101,13 +101,13 @@ class _PrivacyPolicy_ScreenState extends State<PrivacyPolicy_Screen> {
               ////5. User Rights: /////////////////////////////////////////////////////
 
               Text(
-                '5. User Rights:',
+                '5. حقوق المستخدم:',
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.primaryBlueColor),
               ),
               Divider(color: ColorManager.lightBlueColor, thickness: 2),
               Text(
-                '''You can access and correct your personal information through the account settings in the application or by contacting us directly.
-You can unsubscribe from marketing messages or delete your account at any time through the account settings or by contacting customer service.''',
+                '''يمكنك الوصول إلى معلوماتك الشخصية وتصحيحها من خلال إعدادات الحساب في التطبيق أو عن طريق الاتصال بنا مباشرة.
+    يمكنك إلغاء الاشتراك في الرسائل التسويقية أو حذف حسابك في أي وقت من خلال إعدادات الحساب أو عن طريق الاتصال بخدمة العملاء.''',
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.blackColor),
                 maxLines: null, // Allows unlimited lines
                 textAlign: TextAlign.justify,
@@ -117,12 +117,12 @@ You can unsubscribe from marketing messages or delete your account at any time t
               ////6. Contact Us /////////////////////////////////////////////////////
 
               Text(
-                '6. Contact Us',
+                '6. اتصل بنا',
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.primaryBlueColor),
               ),
               Divider(color: ColorManager.lightBlueColor, thickness: 2),
               Text(
-                '''If you have any questions about this policy, please contact us at ( Bacura@gmail.com ) or (050428282).''',
+                '''إذا كانت لديك أي أسئلة حول هذه السياسة، يرجى الاتصال بنا على (Bacura@gmail.com) أو (050428282).''',
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.blackColor),
                 maxLines: null, // Allows unlimited lines
                 textAlign: TextAlign.justify,

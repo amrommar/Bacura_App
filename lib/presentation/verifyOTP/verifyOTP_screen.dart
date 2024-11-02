@@ -149,14 +149,14 @@ class _VerifyOTP_ScreenState extends State<VerifyOTP_Screen> {
       );
       // Here you can navigate or perform other actions after successful validation
       DialogUtils.showMessage(
-          title: 'OTP',
+          title: AppLocalizations.of(context)!.oTPNumber,
           context: context,
-          posActionName: 'Ok',
-          negActionName: 'Cancel',
+          posActionName: AppLocalizations.of(context)!.ok,
+          negActionName: AppLocalizations.of(context)!.cancel,
           posAction: () {
             Navigator.pushNamedAndRemoveUntil(context, Routes.homeScreenRoute, (Route<dynamic> route) => false);
           },
-          message: 'OTP Confirmed!'); // Message to show on successful validation
+          message: AppLocalizations.of(context)!.otp_verified); // Message to show on successful validation
     }
   }
 }

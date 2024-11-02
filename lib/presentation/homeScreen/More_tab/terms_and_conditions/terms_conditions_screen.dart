@@ -36,9 +36,10 @@ class _TermsConditions_ScreenState extends State<TermsConditions_Screen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '''Welcome to the Bakora application.
-These terms and conditions provide the legal basis for your use of the application and its related services.
-Acceptance of the terms: By using the application, you agree to abide by these terms. If you do not agree to any of these terms, please do not use the application''',
+                '''مرحبًا بك في تطبيق Bakora.
+توفر هذه الشروط والأحكام الأساس القانوني لاستخدامك للتطبيق والخدمات المرتبطة به.
+
+قبول الشروط: باستخدام التطبيق، فإنك توافق على الالتزام بهذه الشروط. إذا كنت لا توافق على أي من هذه الشروط، يرجى عدم استخدام التطبيق''',
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor),
                 maxLines: null, // Allows unlimited lines
                 textAlign: TextAlign.justify,
@@ -46,15 +47,15 @@ Acceptance of the terms: By using the application, you agree to abide by these t
               ),
               Divider(color: ColorManager.whiteColor),
               ///// 1. Definitions /////////////////////////////////////////////////////////
-              Text('1. Definitions',
+              Text('1. التعاريف: ',
                   style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.primaryBlueColor)),
               Divider(color: ColorManager.lightBlueColor, thickness: 2),
               Text(
-                '''- Application: refers to the Bacura application and all its services and related content.
-- Services: means all services and features provided by the application.
-- User: any person who uses the application or any of its services.
-- Service Provider: any party that provides the actual services to end users or customers
-- Service Provider: any party that provides the infrastructure, technologies or systems on which the application depends''',
+                '''- التطبيق: يشير إلى تطبيق Bacura وجميع خدماته والمحتوى المرتبط به.
+- الخدمات: تعني جميع الخدمات والميزات التي يوفرها التطبيق.
+- المستخدم: أي شخص يستخدم التطبيق أو أي من خدماته.
+- مزود الخدمة: أي طرف يقدم الخدمات الفعلية للمستخدمين النهائيين أو العملاء
+- مزود الخدمة: أي طرف يوفر البنية التحتية أو التقنيات أو الأنظمة التي يعتمد عليها التطبيق''',
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.blackColor),
                 maxLines: null, // Allows unlimited lines
                 textAlign: TextAlign.justify,
@@ -63,17 +64,17 @@ Acceptance of the terms: By using the application, you agree to abide by these t
               Divider(color: ColorManager.whiteColor),
               ////2. Terms of Use /////////////////////////////////////////////////////
               Text(
-                '2. Terms of Use',
+                '2. شروط الاستخدام:',
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.primaryBlueColor),
               ),
               Divider(color: ColorManager.lightBlueColor, thickness: 2),
               Text(
-                '''- Eligibility: Users must be of legal age to enter into a binding contract or have the consent of their parents or legal guardian to use the application.
-- Acceptable Use: Users must use the application only for the purposes for which the application was designed and in a manner that does not violate the rights of others or adversely affect the operation of the application. This includes not using the application for fraud, harassment, or any illegal use.
-- Account Creation: You must create an account to be able to use the application services.
-- Attaching documents: Using some of the application services may require attaching documents. Users must provide correct, accurate and up-to-date information when submitting these documents, and ensure that all data and information provided comply with the specific requirements of the service.
-- Continued use: Once amendments to the terms are published, your use of the application after this update shall be deemed acceptance of the amended terms.
-- Termination of use: We reserve the right to terminate or suspend your access to the application at any time, without prior notice, if you violate these terms.''',
+                '''- الأهلية: يجب أن يكون المستخدمون في سن قانونية لإبرام عقد ملزم أو الحصول على موافقة والديهم أو الوصي القانوني لاستخدام التطبيق.
+- الاستخدام المقبول: يجب على المستخدمين استخدام التطبيق فقط للأغراض التي تم تصميم التطبيق من أجلها وبطريقة لا تنتهك حقوق الآخرين أو تؤثر سلبًا على تشغيل التطبيق. ويشمل ذلك عدم استخدام التطبيق للاحتيال أو المضايقة أو أي استخدام غير قانوني.
+- إنشاء الحساب: يجب عليك إنشاء حساب لتتمكن من استخدام خدمات التطبيق.
+- إرفاق المستندات: قد يتطلب استخدام بعض خدمات التطبيق إرفاق المستندات. يجب على المستخدمين تقديم معلومات صحيحة ودقيقة وحديثة عند إرسال هذه المستندات، والتأكد من أن جميع البيانات والمعلومات المقدمة تتوافق مع المتطلبات المحددة للخدمة.
+- الاستخدام المستمر: بمجرد نشر التعديلات على الشروط، فإن استخدامك للتطبيق بعد هذا التحديث يعتبر قبولاً للشروط المعدلة.
+- إنهاء الاستخدام: نحتفظ بالحق في إنهاء أو تعليق وصولك إلى التطبيق في أي وقت، دون إشعار مسبق، إذا انتهكت هذه الشروط.''',
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.blackColor),
                 maxLines: null, // Allows unlimited lines
                 textAlign: TextAlign.justify,
@@ -82,13 +83,12 @@ Acceptance of the terms: By using the application, you agree to abide by these t
               Divider(color: ColorManager.whiteColor),
               ////3. Intellectual Property Rights /////////////////////////////////////////////////////////
               Text(
-                '3. Intellectual Property Rights',
+                '3. حقوق الملكية الفكرية:',
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.primaryBlueColor),
               ),
               Divider(color: ColorManager.lightBlueColor, thickness: 2),
               Text(
-                '''All copyrights, trademarks and other rights related to the application and its contents are owned by us. No part of the application may be copied,
-distributed or modified without our express permission.''',
+                '''جميع حقوق الطبع والنشر والعلامات التجارية وغيرها من الحقوق المتعلقة بالتطبيق ومحتوياته مملوكة لنا. لا يجوز نسخ أي جزء من التطبيق أو توزيعه أو تعديله دون إذن صريح منا.''',
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.blackColor),
                 maxLines: null, // Allows unlimited lines
                 textAlign: TextAlign.justify,
@@ -98,12 +98,12 @@ distributed or modified without our express permission.''',
 
               ///4. Limitation of Liability ./////////////////////////////////////////////
               Text(
-                '4. Limitation of Liability',
+                '4. حدود المسؤولية:',
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.primaryBlueColor),
               ),
               Divider(color: ColorManager.lightBlueColor, thickness: 2),
               Text(
-                '''The company disclaims any responsibility and does not guarantee that the application will be free from errors or defects or that the services will be available at all times.''',
+                '''تخلي الشركة مسؤوليتها ولا تضمن أن يكون التطبيق خاليًا من الأخطاء أو العيوب أو أن الخدمات ستكون متاحة في جميع الأوقات.''',
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.blackColor),
                 maxLines: null, // Allows unlimited lines
                 textAlign: TextAlign.justify,
@@ -113,13 +113,13 @@ distributed or modified without our express permission.''',
               ////5. User Rights: /////////////////////////////////////////////////////
 
               Text(
-                '5. Changes',
+                '5. التغييرات:',
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.primaryBlueColor),
               ),
               Divider(color: ColorManager.lightBlueColor, thickness: 2),
               Text(
-                '''- Modification of Terms: The company has the right to modify these terms at any time.
-- Cancellation of the service: The company has the right to cancel the service or any part thereof at any time.''',
+                '''- تعديل الشروط: للشركة الحق في تعديل هذه الشروط في أي وقت.
+- إلغاء الخدمة: للشركة الحق في إلغاء الخدمة أو أي جزء منها في أي وقت.''',
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.blackColor),
                 maxLines: null, // Allows unlimited lines
                 textAlign: TextAlign.justify,
@@ -129,12 +129,12 @@ distributed or modified without our express permission.''',
               ////6. Contact Us /////////////////////////////////////////////////////
 
               Text(
-                '6. Contact Us',
+                '6. اتصل بنا:',
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.primaryBlueColor),
               ),
               Divider(color: ColorManager.lightBlueColor, thickness: 2),
               Text(
-                '''If you have any questions about this policy, please contact us at ( Bacura@gmail.com ) or (050428282).''',
+                '''إذا كانت لديك أي أسئلة حول هذه السياسة، يرجى الاتصال بنا على (Bacura@gmail.com) أو (050428282).''',
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.blackColor),
                 maxLines: null, // Allows unlimited lines
                 textAlign: TextAlign.justify,

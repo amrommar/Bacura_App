@@ -14,7 +14,7 @@ class Custom_Offer_container extends StatelessWidget {
         child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           Container(
               height: 110.h,
-              width: 165.w,
+              width: 150.w,
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(AppSize.s8),
                   ///////////////    from Back-End     /////////////////////
