@@ -143,7 +143,7 @@ class _Home_TabState extends State<Home_Tab> {
 
                     /// from Back-End /////////////////////
                     borderRadius: BorderRadius.circular(12),
-                    child: Image.asset('assets/images/cinema.jpg')))),
+                    child: Image.asset('assets/images/Home-Cinema.jpg')))),
         /////////////////    Consultation Section    ////////////////////////////
         Expanded(
             child: InkWell(

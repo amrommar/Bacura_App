@@ -52,7 +52,7 @@ class _Getstarted_ScreenState extends State<Getstarted_Screen> {
                     width: 300.w,
                     child: Text(
                         textAlign: TextAlign.center,
-                        'يمكنك تصفح التطبيق بدون ما تسجل',
+                        'يمكنك تصفح التطبيق بدون تسجيل',
                         style: Theme.of(context).textTheme.bodyMedium)),
                 SizedBox(height: 100.h),
                 //As A Visitor button______________________________
