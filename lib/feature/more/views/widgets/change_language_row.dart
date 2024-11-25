@@ -1,0 +1,38 @@
+import 'package:bacura_app/core/providers/language_provider.dart';
+import 'package:bacura_app/core/utils/color_manager.dart';
+import 'package:bacura_app/core/utils/values_manager.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+
+class ChangeLanguageRow extends StatelessWidget {
+  const ChangeLanguageRow({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    var provider = Provider.of<LanguageProvider>(context);
+    return Container(
+        padding: const EdgeInsets.symmetric(horizontal: AppPadding.p12, vertical: AppPadding.p6),
+        child: Column(children: [
+          Row(children: [
+            Expanded(
+                child: Text(AppLocalizations.of(context)!.app_Language,
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                          color: ColorManager.blackColor,
+                        ))),
+            Padding(
+                padding: const EdgeInsets.symmetric(horizontal: AppPadding.p4),
+                child: InkWell(
+                    onTap: () {
+                      provider.changeLanguage();
+                    },
+                    child: Text(AppLocalizations.of(context)!.ar_en,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(color: ColorManager.primaryBlueColor, fontWeight: FontWeight.bold))))
+          ]),
+          Divider(color: ColorManager.lightBlueColor, thickness: 1)
+        ]));
+  }
+}

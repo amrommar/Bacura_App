@@ -1,0 +1,114 @@
+import 'package:bacura_app/core/utils/color_manager.dart';
+import 'package:bacura_app/feature/home/presentation/views/widgets/small_elevatedbutton.dart';
+import 'package:bacura_app/feature/request_services/presentation/views/widgets/dropdown_field.dart';
+import 'package:bacura_app/feature/request_services/presentation/views/widgets/question_textformfield.dart';
+import 'package:bacura_app/feature/request_services/presentation/views/widgets/requestsent_bottomsheet.dart';
+import 'package:bacura_app/feature/request_services/presentation/views/widgets/service_time_picker.dart';
+import 'package:bacura_app/feature/request_services/presentation/views/widgets/set_location_bottom_sheet.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class ServiceDetailsViewBody extends StatefulWidget {
+  const ServiceDetailsViewBody({super.key});
+
+  @override
+  State<ServiceDetailsViewBody> createState() => _ServiceDetailsViewBodyState();
+}
+
+class _ServiceDetailsViewBodyState extends State<ServiceDetailsViewBody> {
+  var cameraTypeController = TextEditingController();
+  var camerasNumberController = TextEditingController();
+  var propertyTypeController = TextEditingController();
+  var locationController = TextEditingController();
+  var descriptionController = TextEditingController();
+  var formKey = GlobalKey<FormState>();
+
+  String selectedOption = '9 ص - 1 م';
+  final List<String> options = ['9 ص - 1 م', '1 م - 6 م'];
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 16),
+        child: Form(
+            key: formKey,
+            child: SingleChildScrollView(
+                child: SafeArea(
+                    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              ////////////////////     Set date Section     /////////////////////////////////////////
+              Text(AppLocalizations.of(context)!.set_date,
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                        color: ColorManager.blackColor,
+                      )),
+              const ServiceTimePicker(),
+              ////////////////////     Set Time Section     /////////////////////////////////////////
+
+              SizedBox(height: 10.h),
+              DropDown_Field(
+                selectedOption: '9 ص - 1 م',
+                options: options,
+                fieldName: AppLocalizations.of(context)!.set_time,
+              ),
+              //// Set location Section ///////////////////////////////////////
+              questionTextFormField(
+                  fieldName: AppLocalizations.of(context)!.location,
+                  hintText: AppLocalizations.of(context)!.click_icon_location,
+                  controller: locationController,
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return AppLocalizations.of(context)!.please_set_location;
+                    }
+                    return null;
+                  },
+                  suffixIcon: InkWell(
+                      onTap: () {
+                        showLocationBottomSheet(locationController);
+                      },
+                      child: Icon(
+                        Icons.location_on_outlined,
+                        color: ColorManager.midBlueColor,
+                        size: 27,
+                      ))),
+              //// Write Service Description Section ///////////////////////////////////////
+              questionTextFormField(
+                  fieldName: AppLocalizations.of(context)!.service_description,
+                  hintText: AppLocalizations.of(context)!.enter_service_description,
+                  controller: descriptionController,
+                  maxLines: 5,
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return AppLocalizations.of(context)!.please_describe_your_consultation;
+                    }
+                    return null;
+                  }),
+              SizedBox(height: 100.h),
+              Center(
+                  child: SmallElevatedButton(
+                      text: AppLocalizations.of(context)!.send_request,
+                      onPressed: () {
+                        if (formKey.currentState?.validate() == true) {
+                          showRequestSentBottomSheet();
+                        }
+                      }))
+            ])))));
+  }
+
+  void showRequestSentBottomSheet() {
+    showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return RequestSent_BottomSheet();
+        });
+  }
+
+  void showLocationBottomSheet(TextEditingController locationController) {
+    showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return SetLocationBottomSheet(
+            locationController: locationController,
+          );
+        });
+  }
+}

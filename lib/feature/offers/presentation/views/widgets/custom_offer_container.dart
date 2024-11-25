@@ -1,0 +1,56 @@
+import 'package:bacura_app/core/utils/color_manager.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../../core/utils/values_manager.dart';
+
+class Custom_Offer_container extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(AppSize.s8), color: ColorManager.midWhiteColor),
+        margin: EdgeInsets.symmetric(horizontal: AppMargin.m12, vertical: AppMargin.m6),
+        height: 115.h,
+        child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          Container(
+              height: 110.h,
+              width: 150.w,
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(AppSize.s8),
+                  ///////////////    from Back-End     /////////////////////
+                  child: Image.asset('assets/images/offer1.png', fit: BoxFit.cover))),
+          Padding(
+              padding: const EdgeInsets.all(AppPadding.p6),
+              child: Column(children: [
+                Container(
+                    ///////////////    from Back-End     /////////////////////
+                    width: 150.w,
+                    child: Text('4 كاميرات IP ذكية خارجية (دقة 6 ميجا)',
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleSmall!
+                            .copyWith(color: ColorManager.blackColor, fontSize: 14),
+                        maxLines: 4,
+                        overflow: TextOverflow.ellipsis))
+              ])),
+          Padding(
+              padding: const EdgeInsets.all(AppPadding.p6),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    ///////////////    from Back-End     /////////////////////
+                    Text('باقي 3 أيام',
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleSmall!
+                            .copyWith(color: ColorManager.darkRedColor, fontSize: 12)),
+                    Text('1000 ريال',
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleSmall!
+                            .copyWith(color: ColorManager.darkRedColor, fontWeight: FontWeight.bold))
+                  ]))
+        ]));
+  }
+}
