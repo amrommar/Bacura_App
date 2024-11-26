@@ -22,7 +22,10 @@ class SmallElevatedButton extends StatelessWidget {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
             backgroundColor: backgroundColor,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSize.s30))),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+              AppSize.s30,
+            ))),
         onPressed: () {
           onPressed();
         },

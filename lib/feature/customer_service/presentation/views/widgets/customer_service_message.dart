@@ -6,7 +6,12 @@ class CustomerServiceMessage extends StatelessWidget {
   String message;
   String time;
 
-  CustomerServiceMessage({super.key, required this.sender, required this.message, required this.time});
+  CustomerServiceMessage({
+    super.key,
+    required this.sender,
+    required this.message,
+    required this.time,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -27,10 +27,10 @@ class _HomeTabViewState extends State<HomeTabView> {
       Padding(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           child: Text(AppLocalizations.of(context)!.departments,
-              style: Theme.of(context)
-                  .textTheme
-                  .titleMedium!
-                  .copyWith(color: ColorManager.blackColor, fontWeight: FontWeight.bold))),
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                    color: ColorManager.blackColor,
+                    fontWeight: FontWeight.bold,
+                  ))),
       Divider(color: ColorManager.lightBlueColor, thickness: 2),
       // Apartments List (could be GridView as well)
       DepartmentsGridView(),

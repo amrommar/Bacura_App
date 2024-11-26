@@ -36,7 +36,7 @@ class DepartmentsGridView extends StatelessWidget {
     return Container(
         padding: EdgeInsets.symmetric(horizontal: 8.w),
         child: GridView.builder(
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             // Disable scrolling inside GridView
             shrinkWrap: true,
             // Let it take only necessary height

@@ -18,7 +18,9 @@ class HomeAppBarLeading extends StatelessWidget {
               child: CircleAvatar(
                   radius: 23.w,
                   backgroundColor: ColorManager.whiteColor,
-                  child: Image.asset('assets/images/Ellipse 1.png')))
+                  child: Image.asset(
+                    'assets/images/Ellipse 1.png',
+                  )))
         ]));
   }
 }

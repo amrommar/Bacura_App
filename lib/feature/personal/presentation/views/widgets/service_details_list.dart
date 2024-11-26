@@ -10,7 +10,7 @@ class ServiceDetailsList extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-        color: ColorManager.lightWhiteColor,
+        color: ColorManager.soLightWhiteColor,
         borderRadius: BorderRadius.circular(8),
       ),
       child: ListView.separated(

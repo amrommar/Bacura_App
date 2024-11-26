@@ -13,7 +13,7 @@ class NotificationImage extends StatelessWidget {
               color: ColorManager.midWhiteColor,
               spreadRadius: 2,
               blurRadius: 4,
-              offset: Offset(0, 3) // Offset in the x and y directions
+              offset: const Offset(0, 3) // Offset in the x and y directions
               )
         ]),
         child: CircleAvatar(

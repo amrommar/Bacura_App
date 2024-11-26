@@ -1,10 +1,9 @@
 import 'package:bacura_app/core/utils/color_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-class BacuraStoreRow extends StatelessWidget {
-  const BacuraStoreRow({super.key});
+class ShareAppContainer extends StatelessWidget {
+  const ShareAppContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,22 +17,15 @@ class BacuraStoreRow extends StatelessWidget {
         ),
         margin: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
         child: InkWell(
-            onTap: () async {
-              final Uri url = Uri.parse(
-                'https://bacuratec.com/ar/?srsltid=AfmBOoqrtsKPaKM2iJCb48kq_YBiJCFatS1WpeifJQls7AO7HS4cgqNU',
-              );
-              if (!await launchUrl(url)) {
-                throw Exception('Could not launch $url');
-              }
-            },
+            onTap: () {},
             child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
               Icon(
-                Icons.store_outlined,
+                Icons.share_outlined,
                 size: 35,
                 color: ColorManager.midBlueColor,
               ),
               const SizedBox(height: 5),
-              Text(AppLocalizations.of(context)!.bacura_store,
+              Text(AppLocalizations.of(context)!.share_app,
                   style: Theme.of(context).textTheme.displayMedium!.copyWith(
                         color: ColorManager.darkBlueColor,
                       )),

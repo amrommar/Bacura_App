@@ -17,10 +17,11 @@ class _TechnicalSupportViewState extends State<TechnicalSupportView> {
         appBar: AppBar(title: Text(AppLocalizations.of(context)!.technical_support)),
         body: SingleChildScrollView(
             child: Column(children: [
-          SizedBox(height: 20.h),
+          SizedBox(height: 10.h),
 
           ///Frequently asked questions tab //////////////////////////////
           Custom_More_row(
+              widget: Container(),
               text: AppLocalizations.of(context)!.frequently_asked_questions,
               onTap: () {
                 Navigator.pushNamed(context, Routes.frequentlyAskedQuestionsRoute);
@@ -28,6 +29,7 @@ class _TechnicalSupportViewState extends State<TechnicalSupportView> {
 
           ///Complaints tab //////////////////////////////
           Custom_More_row(
+              widget: Container(),
               text: AppLocalizations.of(context)!.complaints,
               onTap: () {
                 Navigator.pushNamed(context, Routes.complaintScreenRoute);
@@ -35,6 +37,7 @@ class _TechnicalSupportViewState extends State<TechnicalSupportView> {
 
           ///User Guide tab //////////////////////////////
           Custom_More_row(
+              widget: Container(),
               text: AppLocalizations.of(context)!.user_guide,
               onTap: () {
                 Navigator.pushNamed(context, Routes.userGuideRoute);

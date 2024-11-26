@@ -17,7 +17,10 @@ class UserMessage extends StatelessWidget {
       child: Container(
           margin: const EdgeInsets.only(bottom: 10),
           padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(color: ColorManager.lightBlueColor, borderRadius: BorderRadius.circular(15)),
+          decoration: BoxDecoration(
+            color: ColorManager.lightBlueColor,
+            borderRadius: BorderRadius.circular(15),
+          ),
           // Let the content decide the width
           constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.7),
           child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [

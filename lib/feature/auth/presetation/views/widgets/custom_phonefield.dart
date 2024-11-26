@@ -32,7 +32,10 @@ class CustomPhoneField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(fieldName, style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor)),
+        Text(fieldName,
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  color: ColorManager.darkBlueColor,
+                )),
         SizedBox(height: 10.h),
         IntlPhoneField(
           textAlign: TextAlign.start,
@@ -52,11 +55,15 @@ class CustomPhoneField extends StatelessWidget {
                 }
                 return null;
               },
-          style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor),
+          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                color: ColorManager.darkBlueColor,
+              ),
           controller: controller,
           decoration: InputDecoration(
               hintText: hintText,
-              hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.greyColor)),
+              hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    color: ColorManager.greyColor,
+                  )),
         )
       ],
     );

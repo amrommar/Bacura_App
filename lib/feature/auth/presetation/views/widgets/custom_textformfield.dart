@@ -29,18 +29,24 @@ class CustomTextFormField extends StatelessWidget {
       children: [
         Text(
           fieldName,
-          style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor),
+          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                color: ColorManager.darkBlueColor,
+              ),
         ),
         SizedBox(height: 10.h),
         TextFormField(
-          style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor),
+          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                color: ColorManager.darkBlueColor,
+              ),
           validator: validator,
           controller: controller,
           keyboardType: keyboardType,
           obscureText: isObsucre,
           decoration: InputDecoration(
               hintText: hintText,
-              hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.greyColor)),
+              hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    color: ColorManager.greyColor,
+                  )),
         )
       ],
     );

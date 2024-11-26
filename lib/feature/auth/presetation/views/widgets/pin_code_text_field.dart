@@ -30,7 +30,7 @@ class CustomPinCodeTextField extends StatelessWidget {
               inActiveBoxShadow: [BoxShadow(color: ColorManager.midWhiteColor)],
               activeBoxShadow: [BoxShadow(color: ColorManager.midWhiteColor)],
               borderWidth: 1.5,
-              fieldOuterPadding: EdgeInsets.all(12),
+              fieldOuterPadding: const EdgeInsets.all(12),
               activeBorderWidth: 1.5,
               disabledBorderWidth: 1.5,
               inactiveBorderWidth: 1.5,

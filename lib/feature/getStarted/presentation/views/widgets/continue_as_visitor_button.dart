@@ -11,9 +11,15 @@ class ContinueAsVisitorButton extends StatelessWidget {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(backgroundColor: ColorManager.lightBlueColor),
         onPressed: () {
-          Navigator.pushNamedAndRemoveUntil(context, Routes.homeScreenRoute, (Route<dynamic> route) => false);
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            Routes.homeScreenRoute,
+            (Route<dynamic> route) => false,
+          );
         },
         child: Text(AppLocalizations.of(context)!.continue_as_a_visitor,
-            style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.primaryBlueColor)));
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  color: ColorManager.primaryBlueColor,
+                )));
   }
 }

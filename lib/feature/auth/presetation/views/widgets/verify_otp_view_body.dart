@@ -29,11 +29,16 @@ class _VerifyOTPViewBodyState extends State<VerifyOTPViewBody> {
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           const BacuraLogoContainer(),
           SizedBox(height: 50.h),
-          Text(AppLocalizations.of(context)!.oTPNumber, style: Theme.of(context).textTheme.displayLarge),
+          Text(
+            AppLocalizations.of(context)!.oTPNumber,
+            style: Theme.of(context).textTheme.displayLarge,
+          ),
           Divider(color: ColorManager.lightBlueColor),
           SizedBox(height: 10.h),
           Text(AppLocalizations.of(context)!.oTPNumberSent,
-              style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.greyColor)),
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    color: ColorManager.greyColor,
+                  )),
           const ChangeNumberRow(),
           SizedBox(height: 30.h),
           // OTP text Fields ____________________________
@@ -63,12 +68,16 @@ class _VerifyOTPViewBodyState extends State<VerifyOTPViewBody> {
     // Check if the PIN meets the validation criteria
     if (pinCode.isEmpty) {
       // Show error message if the PIN is empty
-      ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.please_enter_the_OTP), backgroundColor: Colors.red));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(AppLocalizations.of(context)!.please_enter_the_OTP),
+        backgroundColor: Colors.red,
+      ));
     } else if (pinCode.length != 4) {
       // Show error message if the PIN length is not 4
-      ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppLocalizations.of(context)!.otp_must_be_four_digits), backgroundColor: Colors.red));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(AppLocalizations.of(context)!.otp_must_be_four_digits),
+        backgroundColor: Colors.red,
+      ));
     } else {
       // Proceed with the validated PIN code
       ScaffoldMessenger.of(context).showSnackBar(

@@ -39,7 +39,10 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               const BacuraLogoContainer(),
               SizedBox(height: 50.h),
               // page title
-              Text(AppLocalizations.of(context)!.login, style: Theme.of(context).textTheme.displayLarge),
+              Text(
+                AppLocalizations.of(context)!.login,
+                style: Theme.of(context).textTheme.displayLarge,
+              ),
               Divider(color: ColorManager.lightBlueColor),
               // form for Name And Mobile Number
               Padding(
@@ -65,12 +68,13 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         // Validate the phone number
                         if (currentPhoneNumber.isEmpty || currentPhoneNumber.length < 9) {
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              duration: Duration(seconds: 1),
+                              duration: const Duration(seconds: 1),
                               backgroundColor: ColorManager.midWhiteColor,
                               content: Text(
                                 AppLocalizations.of(context)!.please_enter_valid_phone_number,
-                                style:
-                                    Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkRedColor),
+                                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                      color: ColorManager.darkRedColor,
+                                    ),
                               )));
                         } else {
                           Navigator.pushNamed(context, Routes.verifyOTPRoute);

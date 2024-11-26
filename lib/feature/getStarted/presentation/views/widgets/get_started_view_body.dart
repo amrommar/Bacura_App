@@ -27,7 +27,10 @@ class _GetStartedViewBodyState extends State<GetStartedViewBody> {
           const BacuraLogoContainer(),
           SizedBox(height: 80.h),
           //welcome message ____________________________________
-          Text('أهلا بك في تطبيق باكورة', style: Theme.of(context).textTheme.displayLarge),
+          Text(
+            'أهلا بك في تطبيق باكورة',
+            style: Theme.of(context).textTheme.displayLarge,
+          ),
           SizedBox(height: 10.h),
           Text(
               textAlign: TextAlign.center,

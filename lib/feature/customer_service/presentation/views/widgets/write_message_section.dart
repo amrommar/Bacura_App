@@ -22,10 +22,18 @@ class WriteMessageSection extends StatelessWidget {
                       filled: true,
                       fillColor: ColorManager.whiteColor,
                       enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: ColorManager.midWhiteColor, width: AppSize.s1),
+                          borderSide: BorderSide(
+                            color: ColorManager.midWhiteColor,
+                            width: AppSize.s1,
+                          ),
                           borderRadius: BorderRadius.circular(AppSize.s8)),
                       hintText: "Type message here"))),
-          IconButton(icon: Icon(Icons.send, color: ColorManager.primaryBlueColor), onPressed: () {})
+          IconButton(
+              icon: Icon(
+                Icons.send,
+                color: ColorManager.primaryBlueColor,
+              ),
+              onPressed: () {})
         ]));
   }
 }

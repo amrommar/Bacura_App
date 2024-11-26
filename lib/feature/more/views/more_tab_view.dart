@@ -1,14 +1,14 @@
-import 'package:bacura_app/core/providers/language_provider.dart';
+import 'package:bacura_app/core/utils/color_manager.dart';
 import 'package:bacura_app/core/utils/routes_manager.dart';
 import 'package:bacura_app/feature/more/views/widgets/bacura_store_row.dart';
 import 'package:bacura_app/feature/more/views/widgets/change_language_row.dart';
 import 'package:bacura_app/feature/more/views/widgets/custom_more_row.dart';
+import 'package:bacura_app/feature/more/views/widgets/share_app_container.dart';
 import 'package:bacura_app/feature/more/views/widgets/share_app_icon.dart';
 import 'package:bacura_app/feature/more/views/widgets/social_media_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
 
 class More_Tab extends StatefulWidget {
   const More_Tab({super.key});
@@ -20,23 +20,34 @@ class More_Tab extends StatefulWidget {
 class _More_TabState extends State<More_Tab> {
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<LanguageProvider>(context);
     return SingleChildScrollView(
         child: Column(children: [
-      SizedBox(height: 20.h),
+      SizedBox(height: 10.h),
 
       ///cardsManagement tab //////////////////////////////
       Custom_More_row(
-          text: AppLocalizations.of(context)!.cardsManagement,
-          onTap: () {
-            Navigator.pushNamed(context, Routes.cardsManagementRoute);
-          }),
+        widget: Icon(Icons.credit_card, color: ColorManager.lightGreyColor),
+        text: AppLocalizations.of(context)!.cardsManagement,
+        onTap: () {
+          Navigator.pushNamed(context, Routes.cardsManagementRoute);
+        },
+      ),
 
       ///who_are_we tab //////////////////////////////
-      Custom_More_row(text: AppLocalizations.of(context)!.who_are_we, onTap: () {}),
+      Custom_More_row(
+        widget: CircleAvatar(
+            radius: 14.w,
+            backgroundColor: ColorManager.whiteColor,
+            ///////////////    from Back-End     /////////////////////
+            child: Image.asset('assets/images/bakura (1) 1.png') // Adjust the radius to make sure it fits
+            ),
+        text: AppLocalizations.of(context)!.about_bacura,
+        onTap: () {},
+      ),
 
       ///technical_support tab //////////////////////////////
       Custom_More_row(
+          widget: Icon(Icons.info_outline, color: ColorManager.lightGreyColor),
           text: AppLocalizations.of(context)!.technical_support,
           onTap: () {
             Navigator.pushNamed(context, Routes.technicalSupportRoute);
@@ -44,6 +55,7 @@ class _More_TabState extends State<More_Tab> {
 
       ///terms_and_conditions tab //////////////////////////////
       Custom_More_row(
+          widget: Icon(Icons.article, color: ColorManager.lightGreyColor),
           text: AppLocalizations.of(context)!.terms_and_conditions,
           onTap: () {
             Navigator.pushNamed(context, Routes.termsAndConditionsRoute);
@@ -51,6 +63,7 @@ class _More_TabState extends State<More_Tab> {
 
       ///privacy_policy tab //////////////////////////////
       Custom_More_row(
+          widget: Icon(Icons.privacy_tip, color: ColorManager.lightGreyColor),
           text: AppLocalizations.of(context)!.privacy_policy,
           onTap: () {
             Navigator.pushNamed(context, Routes.privacyPolicyRoute);
@@ -58,6 +71,7 @@ class _More_TabState extends State<More_Tab> {
 
       ///register_as_a_service_provider tab //////////////////////////////
       Custom_More_row(
+          widget: Icon(Icons.account_circle, color: ColorManager.lightGreyColor),
           text: AppLocalizations.of(context)!.register_as_a_service_provider,
           onTap: () {
             Navigator.pushNamed(context, Routes.spHomeScreenRoute);
@@ -65,6 +79,7 @@ class _More_TabState extends State<More_Tab> {
 
       ///suggestions tab //////////////////////////////
       Custom_More_row(
+          widget: Icon(Icons.lightbulb, color: ColorManager.lightGreyColor),
           text: AppLocalizations.of(context)!.suggestions,
           onTap: () {
             Navigator.pushNamed(context, Routes.suggestionsRoute);
@@ -72,16 +87,25 @@ class _More_TabState extends State<More_Tab> {
 
       ///appRating tab //////////////////////////////
       Custom_More_row(
-          text: AppLocalizations.of(context)!.appRating,
+          widget: Icon(Icons.star_border_outlined, color: ColorManager.lightGreyColor),
+          text: AppLocalizations.of(context)!.app_rating,
           onTap: () {
             /// method for app rating
           }),
 
       ///app_Language tab //////////////////////////////
       const ChangeLanguageRow(),
+      SizedBox(height: 10.h),
 
       /// Bacura store Link /////////////////////////////////////////////////////////////
-      const BacuraStoreRow(),
+      const Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          BacuraStoreRow(),
+          SizedBox(width: 20),
+          ShareAppContainer(),
+        ],
+      ),
       SizedBox(height: 50.h),
 
       /// social Media Links /////////////////////////////////////////////////////////////

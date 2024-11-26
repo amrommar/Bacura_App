@@ -15,7 +15,10 @@ class DepartmentCard extends StatelessWidget {
       Card(
           color: ColorManager.lightBlueColor,
           child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+              padding: EdgeInsets.symmetric(
+                horizontal: 20.w,
+                vertical: 20.h,
+              ),
               height: 100.h,
               width: 100.w,
               child: SvgPicture.asset(imagePath))),

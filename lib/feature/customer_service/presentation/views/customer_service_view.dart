@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CustomerServiceView extends StatefulWidget {
+  const CustomerServiceView({super.key});
+
   @override
-  State<CustomerServiceView> createState() => _CustomerserviceScreenState();
+  State<CustomerServiceView> createState() => _CustomerServiceScreenState();
 }
 
-class _CustomerserviceScreenState extends State<CustomerServiceView> {
+class _CustomerServiceScreenState extends State<CustomerServiceView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

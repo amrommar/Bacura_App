@@ -11,18 +11,35 @@ class CustomerServiceViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: [
       Expanded(
-          child: ListView(padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h), children: [
-        CustomerServiceMessage(
-            sender: "Customer Support", message: "Hey, welcome to Service Customer Chat.", time: "11:25 am"),
-        CustomerServiceMessage(
-            sender: "Customer Support", message: "What can we assist you with today?", time: "11:25 am"),
-        UserMessage(message: "Payments", time: "11:25 am"),
-        CustomerServiceMessage(
-            sender: "Customer Support", message: "Select a topic you need help with.", time: "11:25 am"),
-        UserMessage(message: "Make a payment", time: "11:25 am"),
-        CustomerServiceMessage(
-            sender: "Customer Support", message: "Select a payment you need help with", time: "11:25 am"),
-      ])),
+          child: ListView(
+              padding: EdgeInsets.symmetric(
+                horizontal: 16.w,
+                vertical: 24.h,
+              ),
+              children: [
+            CustomerServiceMessage(
+              sender: "Customer Support",
+              message: "Hey, welcome to Service Customer Chat.",
+              time: "11:25 am",
+            ),
+            CustomerServiceMessage(
+              sender: "Customer Support",
+              message: "What can we assist you with today?",
+              time: "11:25 am",
+            ),
+            UserMessage(message: "Payments", time: "11:25 am"),
+            CustomerServiceMessage(
+              sender: "Customer Support",
+              message: "Select a topic you need help with.",
+              time: "11:25 am",
+            ),
+            UserMessage(message: "Make a payment", time: "11:25 am"),
+            CustomerServiceMessage(
+              sender: "Customer Support",
+              message: "Select a payment you need help with",
+              time: "11:25 am",
+            ),
+          ])),
       const WriteMessageSection()
     ]);
   }

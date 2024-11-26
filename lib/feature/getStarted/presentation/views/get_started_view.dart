@@ -18,7 +18,10 @@ class _GetstartedViewState extends State<GetstartedView> {
     return Stack(children: [
       ////   background Image   ////////////////
       Image.asset(ImageAssets.background2Image),
-      const Scaffold(backgroundColor: Colors.transparent, body: GetStartedViewBody())
+      const Scaffold(
+        backgroundColor: Colors.transparent,
+        body: GetStartedViewBody(),
+      )
     ]);
   }
 }

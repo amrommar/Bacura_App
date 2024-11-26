@@ -61,7 +61,7 @@ class _SpImplementRequestViewBodyState extends State<SpImplementRequestViewBody>
               SizedBox(height: 20.h),
               Container(
                 decoration: BoxDecoration(
-                  color: ColorManager.lightWhiteColor,
+                  color: ColorManager.soLightWhiteColor,
                   borderRadius: BorderRadius.circular(8),
                 ),
                 padding: const EdgeInsets.all(16),

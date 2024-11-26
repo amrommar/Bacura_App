@@ -72,7 +72,7 @@ class _ImplementRequestPhaseSectionState extends State<ImplementRequestPhaseSect
         if (widget.time != null)
           Text('(${widget.time!})',
               style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                    color: isCompleted ? ColorManager.greyColor : ColorManager.lightWhiteColor,
+                    color: isCompleted ? ColorManager.greyColor : ColorManager.soLightWhiteColor,
                   ))
       ])
     ]);
