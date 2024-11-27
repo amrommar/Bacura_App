@@ -21,7 +21,7 @@ class ChangeLanguageRow extends StatelessWidget {
         child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
           Icon(
             Icons.language,
-            color: ColorManager.lightGreyColor,
+            color: ColorManager.midBlueColor,
             size: 23,
           ),
           Expanded(

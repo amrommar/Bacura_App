@@ -48,7 +48,7 @@ ThemeData getAppTheme() {
       style: ElevatedButton.styleFrom(
         alignment: Alignment.center,
         minimumSize: Size(170.w, 50.h),
-        padding: EdgeInsets.symmetric(vertical: AppPadding.p10, horizontal: AppPadding.p25),
+        padding: const EdgeInsets.symmetric(vertical: AppPadding.p10, horizontal: AppPadding.p25),
         textStyle: getMediumStyle(fontSize: 24, color: ColorManager.whiteColor),
         backgroundColor: ColorManager.primaryBlueColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSize.s8)),

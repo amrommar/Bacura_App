@@ -2,13 +2,16 @@ import 'package:bacura_app/core/utils/strings_manager.dart';
 import 'package:bacura_app/feature/getStarted/presentation/views/get_started_view.dart';
 import 'package:bacura_app/feature/personal/presentation/views/rechargebalance_screen.dart';
 import 'package:bacura_app/feature/request_services/presentation/views/consultation_view.dart';
-import 'package:bacura_app/feature/service_provider/home/presentation/views/messages_view.dart';
-import 'package:bacura_app/feature/service_provider/home/presentation/views/sp_home_view.dart';
-import 'package:bacura_app/feature/service_provider/personal/presentation/views/calender_view.dart';
-import 'package:bacura_app/feature/service_provider/personal/presentation/views/sp_completed_requests_view.dart';
-import 'package:bacura_app/feature/service_provider/personal/presentation/views/sp_personal_details_view.dart';
-import 'package:bacura_app/feature/service_provider/requests/presentation/views/sp_implement_request_view.dart';
-import 'package:bacura_app/feature/service_provider/requests/presentation/views/sp_request_details_view.dart';
+import 'package:bacura_app/feature/service_provider_registeration/presentation/views/register_institution_view.dart';
+import 'package:bacura_app/feature/service_provider_registeration/presentation/views/register_technician_view.dart';
+import 'package:bacura_app/feature/service_provider_registeration/presentation/views/service_provider_register_view.dart';
+import 'package:bacura_app/feature/technician_app/home/presentation/views/messages_view.dart';
+import 'package:bacura_app/feature/technician_app/home/presentation/views/sp_home_view.dart';
+import 'package:bacura_app/feature/technician_app/personal/presentation/views/calender_view.dart';
+import 'package:bacura_app/feature/technician_app/personal/presentation/views/sp_completed_requests_view.dart';
+import 'package:bacura_app/feature/technician_app/personal/presentation/views/sp_personal_details_view.dart';
+import 'package:bacura_app/feature/technician_app/requests/presentation/views/sp_implement_request_view.dart';
+import 'package:bacura_app/feature/technician_app/requests/presentation/views/sp_request_details_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../feature/auth/presetation/views/login_view.dart';
@@ -75,27 +78,30 @@ class Routes {
   static const String spCompletedRequestsRoute = '/spCompletedRequests';
   static const String calenderRoute = '/calender';
   static const String messagesRoute = '/messages';
+  static const String serviceProviderRegisterRoute = '/serviceProviderRegister';
+  static const String registerInstitutionRoute = '/registerInstitution';
+  static const String registerTechnicianRoute = '/registerTechnician';
 }
 
 class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.onBoardingOneRoute:
-        return MaterialPageRoute(builder: (_) => OnBoardingOne_Screen());
+        return MaterialPageRoute(builder: (_) => const OnBoardingOne_Screen());
       case Routes.onBoardingTwoRoute:
-        return MaterialPageRoute(builder: (_) => OnBoardingTwo_Screen());
+        return MaterialPageRoute(builder: (_) => const OnBoardingTwo_Screen());
       case Routes.onBoardingThreeRoute:
         return MaterialPageRoute(builder: (_) => const OnBoardingThree_Screen());
       case Routes.getStartedRoute:
-        return MaterialPageRoute(builder: (_) => GetstartedView());
+        return MaterialPageRoute(builder: (_) => const GetstartedView());
       case Routes.registerRoute:
-        return MaterialPageRoute(builder: (_) => RegisterView());
+        return MaterialPageRoute(builder: (_) => const RegisterView());
       case Routes.verifyOTPRoute:
-        return MaterialPageRoute(builder: (_) => VerifyOTPView());
+        return MaterialPageRoute(builder: (_) => const VerifyOTPView());
       case Routes.loginRoute:
-        return MaterialPageRoute(builder: (_) => LoginView());
+        return MaterialPageRoute(builder: (_) => const LoginView());
       case Routes.homeScreenRoute:
-        return MaterialPageRoute(builder: (_) => HomeView());
+        return MaterialPageRoute(builder: (_) => const HomeView());
       case Routes.personalDetailsRoute:
         return MaterialPageRoute(builder: (_) => const PersonalDetails_Screen());
       case Routes.walletDetailsRoute:
@@ -105,21 +111,21 @@ class RouteGenerator {
       case Routes.cardsManagementRoute:
         return MaterialPageRoute(builder: (_) => Cards_Management_Screen());
       case Routes.offerDetailsRoute:
-        return MaterialPageRoute(builder: (_) => OfferDetails_Screen());
+        return MaterialPageRoute(builder: (_) => const OfferDetails_Screen());
       case Routes.serviceTypeRoute:
         return MaterialPageRoute(builder: (_) => ServiceType_Screen());
       case Routes.serviceDetailsRoute:
         return MaterialPageRoute(builder: (_) => ServiceDetails_Screen());
       case Routes.privacyPolicyRoute:
-        return MaterialPageRoute(builder: (_) => PrivacyPolicyView());
+        return MaterialPageRoute(builder: (_) => const PrivacyPolicyView());
       case Routes.termsAndConditionsRoute:
-        return MaterialPageRoute(builder: (_) => TermsConditionsView());
+        return MaterialPageRoute(builder: (_) => const TermsConditionsView());
       case Routes.suggestionsRoute:
-        return MaterialPageRoute(builder: (_) => SuggestionsView());
+        return MaterialPageRoute(builder: (_) => const SuggestionsView());
       case Routes.notificationsRoute:
         return MaterialPageRoute(builder: (_) => NotificationsView());
       case Routes.customerServiceRoute:
-        return MaterialPageRoute(builder: (_) => CustomerServiceView());
+        return MaterialPageRoute(builder: (_) => const CustomerServiceView());
       case Routes.paymentScreenRoute:
         return MaterialPageRoute(builder: (_) => Payment_Screen());
       case Routes.technicalSupportRoute:
@@ -127,9 +133,9 @@ class RouteGenerator {
       case Routes.complaintScreenRoute:
         return MaterialPageRoute(builder: (_) => Complaint_View());
       case Routes.frequentlyAskedQuestionsRoute:
-        return MaterialPageRoute(builder: (_) => FrequentlyAskedQuestionsView());
+        return MaterialPageRoute(builder: (_) => const FrequentlyAskedQuestionsView());
       case Routes.userGuideRoute:
-        return MaterialPageRoute(builder: (_) => UserGuideView());
+        return MaterialPageRoute(builder: (_) => const UserGuideView());
       case Routes.lastOperationsRoute:
         return MaterialPageRoute(builder: (_) => LastOperations_Screen());
       case Routes.invoiceDetailsRoute:
@@ -143,15 +149,21 @@ class RouteGenerator {
       case Routes.spRequestDetailsRoute:
         return MaterialPageRoute(builder: (_) => Sp_RequestDetails_Screen());
       case Routes.requestImplementRoute:
-        return MaterialPageRoute(builder: (_) => SpImplementRequestView());
+        return MaterialPageRoute(builder: (_) => const SpImplementRequestView());
       case Routes.spPersonalDetailsRoute:
-        return MaterialPageRoute(builder: (_) => SpPersonalDetailsView());
+        return MaterialPageRoute(builder: (_) => const SpPersonalDetailsView());
       case Routes.spCompletedRequestsRoute:
         return MaterialPageRoute(builder: (_) => Sp_Completedrequests_Screen());
       case Routes.calenderRoute:
         return MaterialPageRoute(builder: (_) => CalenderView());
       case Routes.messagesRoute:
-        return MaterialPageRoute(builder: (_) => MessagesView());
+        return MaterialPageRoute(builder: (_) => const MessagesView());
+      case Routes.serviceProviderRegisterRoute:
+        return MaterialPageRoute(builder: (_) => const ServiceProviderRegisterView());
+      case Routes.registerTechnicianRoute:
+        return MaterialPageRoute(builder: (_) => const RegisterTechnicianView());
+      case Routes.registerInstitutionRoute:
+        return MaterialPageRoute(builder: (_) => const RegisterInstitutionView());
 
       /// test screen //////////////////////////
 
