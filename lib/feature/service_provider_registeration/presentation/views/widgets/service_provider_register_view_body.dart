@@ -8,30 +8,32 @@ class ServiceProviderRegisterViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      const SizedBox(height: 20),
-      ServiceProviderRegisterContainer(
-          iconData: Icons.account_circle,
-          title: 'Register As a Technician',
-          description: '''Join our team of distinguished technicians!
+    return SingleChildScrollView(
+      child: Column(children: [
+        const SizedBox(height: 20),
+        ServiceProviderRegisterContainer(
+            iconData: Icons.account_circle,
+            title: 'Register As a Technician',
+            description: '''Join our team of distinguished technicians!
 Are you a distinguished technical technician?
 If you are an expert in installing smart systems, cameras, networks or control systems, register now and we will contact you soon!''',
-          note:
-              '''Note: Registration does not mean final acceptance, there are criteria and conditions to join our team.''',
-          onTap: () {
-            Navigator.pushNamed(context, Routes.registerTechnicianRoute);
-          }),
-      const SizedBox(height: 20),
-      ServiceProviderRegisterContainer(
-          iconData: FontAwesomeIcons.building,
-          title: 'Register as an Institution',
-          description: '''If you own an institution and need to follow up on your technicians in a distinctive way? 
-                   
+            note:
+                '''Note: Registration does not mean final acceptance, there are criteria and conditions to join our team.''',
+            onTap: () {
+              Navigator.pushNamed(context, Routes.registerTechnicianRoute);
+            }),
+        const SizedBox(height: 20),
+        ServiceProviderRegisterContainer(
+            iconData: FontAwesomeIcons.building,
+            title: 'Register as an Institution',
+            description: '''If you own an institution and need to follow up on your technicians in a distinctive way? 
+                     
 Register with us and follow up on every step of the work with your team with complete transparency and professionalism.''',
-          note: '',
-          onTap: () {
-            Navigator.pushNamed(context, Routes.registerInstitutionRoute);
-          })
-    ]);
+            note: '',
+            onTap: () {
+              Navigator.pushNamed(context, Routes.registerInstitutionRoute);
+            })
+      ]),
+    );
   }
 }

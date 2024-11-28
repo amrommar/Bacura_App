@@ -10,7 +10,7 @@ class RegisterInstitutionView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Register Institution'),
       ),
-      body: const RegisterInstitutionViewBody(),
+      body: RegisterInstitutionViewBody(),
     );
   }
 }
