@@ -4,7 +4,6 @@ import 'package:bacura_app/feature/more/views/widgets/bacura_store_row.dart';
 import 'package:bacura_app/feature/more/views/widgets/change_language_row.dart';
 import 'package:bacura_app/feature/more/views/widgets/custom_more_row.dart';
 import 'package:bacura_app/feature/more/views/widgets/share_app_container.dart';
-import 'package:bacura_app/feature/more/views/widgets/share_app_icon.dart';
 import 'package:bacura_app/feature/more/views/widgets/social_media_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -25,13 +24,13 @@ class _More_TabState extends State<More_Tab> {
       SizedBox(height: 10.h),
 
       ///cardsManagement tab //////////////////////////////
-      Custom_More_row(
-        widget: Icon(Icons.credit_card, color: ColorManager.lightGreyColor),
-        text: AppLocalizations.of(context)!.cardsManagement,
-        onTap: () {
-          Navigator.pushNamed(context, Routes.cardsManagementRoute);
-        },
-      ),
+      // Custom_More_row(
+      //   widget: Icon(Icons.credit_card, color: ColorManager.lightGreyColor),
+      //   text: AppLocalizations.of(context)!.cardsManagement,
+      //   onTap: () {
+      //     Navigator.pushNamed(context, Routes.cardsManagementRoute);
+      //   },
+      // ),
 
       ///who_are_we tab //////////////////////////////
       Custom_More_row(
@@ -47,7 +46,7 @@ class _More_TabState extends State<More_Tab> {
 
       ///technical_support tab //////////////////////////////
       Custom_More_row(
-          widget: Icon(Icons.info_outline, color: ColorManager.lightGreyColor),
+          widget: Icon(Icons.info_outline, color: ColorManager.midRedColor),
           text: AppLocalizations.of(context)!.technical_support,
           onTap: () {
             Navigator.pushNamed(context, Routes.technicalSupportRoute);
@@ -71,15 +70,15 @@ class _More_TabState extends State<More_Tab> {
 
       ///register_as_a_service_provider tab //////////////////////////////
       Custom_More_row(
-          widget: Icon(Icons.account_circle, color: ColorManager.lightGreyColor),
+          widget: Icon(Icons.account_circle, color: ColorManager.primaryBlueColor),
           text: AppLocalizations.of(context)!.register_as_a_service_provider,
           onTap: () {
-            Navigator.pushNamed(context, Routes.spHomeScreenRoute);
+            Navigator.pushNamed(context, Routes.serviceProviderRegisterRoute);
           }),
 
       ///suggestions tab //////////////////////////////
       Custom_More_row(
-          widget: Icon(Icons.lightbulb, color: ColorManager.lightGreyColor),
+          widget: Icon(Icons.lightbulb, color: ColorManager.yellowColor),
           text: AppLocalizations.of(context)!.suggestions,
           onTap: () {
             Navigator.pushNamed(context, Routes.suggestionsRoute);
@@ -87,7 +86,7 @@ class _More_TabState extends State<More_Tab> {
 
       ///appRating tab //////////////////////////////
       Custom_More_row(
-          widget: Icon(Icons.star_border_outlined, color: ColorManager.lightGreyColor),
+          widget: Icon(Icons.star_border_outlined, color: ColorManager.yellowColor),
           text: AppLocalizations.of(context)!.app_rating,
           onTap: () {
             /// method for app rating
@@ -95,7 +94,7 @@ class _More_TabState extends State<More_Tab> {
 
       ///app_Language tab //////////////////////////////
       const ChangeLanguageRow(),
-      SizedBox(height: 10.h),
+      SizedBox(height: 20.h),
 
       /// Bacura store Link /////////////////////////////////////////////////////////////
       const Row(
@@ -110,7 +109,6 @@ class _More_TabState extends State<More_Tab> {
 
       /// social Media Links /////////////////////////////////////////////////////////////
       Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-        const ShareAppIcon(),
         SocialMediaIcon(
           imagePath: 'assets/images/facebook_logo.png',
           path: 'https://www.facebook.com/bacuratec?locale=ar_AR',
@@ -121,6 +119,10 @@ class _More_TabState extends State<More_Tab> {
         ),
         SocialMediaIcon(
           imagePath: 'assets/images/instagram.png',
+          path: 'https://www.instagram.com/bacura_tec/',
+        ),
+        SocialMediaIcon(
+          imagePath: 'assets/images/linkedIn_logo.png',
           path: 'https://www.instagram.com/bacura_tec/',
         ),
       ])

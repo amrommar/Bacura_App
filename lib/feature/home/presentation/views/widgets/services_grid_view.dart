@@ -1,0 +1,77 @@
+import 'package:bacura_app/core/utils/assets_manager.dart';
+import 'package:bacura_app/core/utils/color_manager.dart';
+import 'package:bacura_app/core/utils/routes_manager.dart';
+import 'package:bacura_app/core/utils/strings_manager.dart';
+import 'package:bacura_app/feature/home/presentation/views/widgets/service_card.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+class ServicesGridView extends StatelessWidget {
+  ServicesGridView({super.key});
+
+  List<String> imagesPaths = [
+    ImageAssets.cameraIcon,
+    ImageAssets.smartHomeIcon,
+    ImageAssets.accessControlIcon,
+    ImageAssets.soundSystemsIcon,
+    ImageAssets.savePowerIcon,
+    ImageAssets.networkIcon,
+    ImageAssets.gameRepairIcon,
+    ImageAssets.pcRepairIcon,
+    ImageAssets.phoneRepairIcon
+  ];
+  List<String> imagesTitle = [
+    AppStrings.security_and_monitoring,
+    AppStrings.smartSystems,
+    AppStrings.accessControl,
+    AppStrings.soundSystems,
+    AppStrings.saveEnergy,
+    AppStrings.networks_communications,
+    AppStrings.gameMaintenance,
+    AppStrings.computerMaintenance,
+    AppStrings.phoneMaintenance
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding: const EdgeInsets.all(4),
+        decoration: BoxDecoration(
+          color: ColorManager.midWhiteColor,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+                padding: const EdgeInsets.only(right: 16, left: 16, top: 6),
+                child: Text(AppLocalizations.of(context)!.services,
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                          color: ColorManager.blackColor,
+                          fontWeight: FontWeight.bold,
+                        ))),
+            GridView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                // Disable scrolling inside GridView
+                shrinkWrap: true,
+                // Let it take only necessary height
+                itemCount: 6,
+                // Replace with your departments list length
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3, // Number of items per row
+                    crossAxisSpacing: 0, // Horizontal space between items
+                    mainAxisSpacing: 5, // Vertical space between items
+                    childAspectRatio: 0.89),
+                itemBuilder: (context, index) {
+                  return InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, Routes.serviceTypeRoute);
+                      },
+                      child: ServiceCard(
+                        departmentTitle: imagesTitle[index],
+                        imagePath: imagesPaths[index],
+                      )); // Widget for each apartment card
+                }),
+          ],
+        ));
+  }
+}

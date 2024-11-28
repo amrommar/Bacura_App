@@ -22,7 +22,7 @@ class Custom_More_row extends StatelessWidget {
           color: ColorManager.lightWhiteColor,
           borderRadius: BorderRadius.circular(8),
         ),
-        margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+        margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
         padding: const EdgeInsets.all(12),
         child: InkWell(
             onTap: () {

@@ -8,17 +8,20 @@ class RareService extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        child: InkWell(
-      onTap: () {
-        onTap();
-      },
-      child: Container(
-          margin: const EdgeInsets.all(12),
-          child: ClipRRect(
-              //// Form Back-End ///////////////////
-              borderRadius: BorderRadius.circular(12),
-              child: Image.asset(imagePath))),
-    ));
+    return SizedBox(
+      height: 180,
+      width: 180,
+      child: InkWell(
+        onTap: () {
+          onTap();
+        },
+        child: Container(
+            margin: const EdgeInsets.all(8),
+            child: ClipRRect(
+                //// Form Back-End ///////////////////
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset(imagePath))),
+      ),
+    );
   }
 }

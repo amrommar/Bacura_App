@@ -6,6 +6,7 @@ class ColorManager {
   static Color whiteColor = const Color(0xffFFFFFF);
   static Color midWhiteColor = const Color(0xffeff6fb);
   static Color redColor = const Color(0xffFF0D0D);
+  static Color midRedColor = const Color(0xfff85050);
   static Color darkRedColor = const Color(0xffD42323);
   static Color midBlueColor = const Color(0xff2a74bc);
   static Color yellowColor = const Color(0xffF9E10C);
