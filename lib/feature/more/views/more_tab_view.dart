@@ -41,7 +41,9 @@ class _More_TabState extends State<More_Tab> {
             child: Image.asset('assets/images/bakura (1) 1.png') // Adjust the radius to make sure it fits
             ),
         text: AppLocalizations.of(context)!.about_bacura,
-        onTap: () {},
+        onTap: () {
+          Navigator.pushNamed(context, Routes.aboutUsRoute);
+        },
       ),
 
       ///technical_support tab //////////////////////////////

@@ -1,5 +1,6 @@
 import 'package:bacura_app/core/utils/strings_manager.dart';
 import 'package:bacura_app/feature/getStarted/presentation/views/get_started_view.dart';
+import 'package:bacura_app/feature/more/views/about_us_view.dart';
 import 'package:bacura_app/feature/personal/presentation/views/rechargebalance_screen.dart';
 import 'package:bacura_app/feature/request_services/presentation/views/consultation_view.dart';
 import 'package:bacura_app/feature/service_provider_registeration/presentation/views/register_institution_view.dart';
@@ -81,6 +82,7 @@ class Routes {
   static const String serviceProviderRegisterRoute = '/serviceProviderRegister';
   static const String registerInstitutionRoute = '/registerInstitution';
   static const String registerTechnicianRoute = '/registerTechnician';
+  static const String aboutUsRoute = '/aboutUs';
 }
 
 class RouteGenerator {
@@ -164,6 +166,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const RegisterTechnicianView());
       case Routes.registerInstitutionRoute:
         return MaterialPageRoute(builder: (_) => const RegisterInstitutionView());
+      case Routes.aboutUsRoute:
+        return MaterialPageRoute(builder: (_) => const AboutUsView());
 
       /// test screen //////////////////////////
 
