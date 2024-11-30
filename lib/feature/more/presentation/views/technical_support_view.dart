@@ -1,9 +1,9 @@
-import 'package:bacura_app/feature/more/views/widgets/custom_more_row.dart';
+import 'package:bacura_app/feature/more/presentation/views/widgets/custom_more_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../core/utils/routes_manager.dart';
+import '../../../../core/utils/routes_manager.dart';
 
 class TechnicalSupportView extends StatefulWidget {
   @override

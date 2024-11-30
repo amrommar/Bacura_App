@@ -1,5 +1,5 @@
 import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:bacura_app/feature/more/views/widgets/terms_conditions_view_body.dart';
+import 'package:bacura_app/feature/more/terms_conditions_privacy/presentation/views/widgets/terms_conditions_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -15,8 +15,12 @@ class _TermsConditionsViewState extends State<TermsConditionsView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text(AppLocalizations.of(context)!.terms_and_conditions,
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.whiteColor))),
+          title: Text(
+        AppLocalizations.of(context)!.terms_and_conditions,
+        style: Theme.of(context).textTheme.titleLarge!.copyWith(
+              color: ColorManager.whiteColor,
+            ),
+      )),
       body: const TermsConditionsViewBody(),
     );
   }

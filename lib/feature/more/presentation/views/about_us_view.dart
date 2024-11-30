@@ -1,4 +1,4 @@
-import 'package:bacura_app/feature/more/views/widgets/about_us_view_body.dart';
+import 'package:bacura_app/feature/more/presentation/views/widgets/about_us_view_body.dart';
 import 'package:flutter/material.dart';
 
 class AboutUsView extends StatelessWidget {

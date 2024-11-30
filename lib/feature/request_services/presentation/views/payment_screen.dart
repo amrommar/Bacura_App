@@ -9,7 +9,7 @@ import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../../../../core/utils/color_manager.dart';
 import '../../../../core/utils/values_manager.dart';
-import '../../../more/views/widgets/add_card_bottomsheet.dart';
+import '../../../more/presentation/views/widgets/add_card_bottomsheet.dart';
 
 class Payment_Screen extends StatefulWidget {
   @override
