@@ -1,5 +1,6 @@
 import 'package:bacura_app/core/utils/strings_manager.dart';
 import 'package:bacura_app/feature/getStarted/presentation/views/get_started_view.dart';
+import 'package:bacura_app/feature/more/presentation/views/about_us_view.dart';
 import 'package:bacura_app/feature/personal/presentation/views/rechargebalance_screen.dart';
 import 'package:bacura_app/feature/request_services/presentation/views/consultation_view.dart';
 import 'package:bacura_app/feature/service_provider_registeration/presentation/views/register_institution_view.dart';
@@ -19,14 +20,14 @@ import '../../feature/auth/presetation/views/register_view.dart';
 import '../../feature/auth/presetation/views/verify_otp_view.dart';
 import '../../feature/customer_service/presentation/views/customer_service_view.dart';
 import '../../feature/home/presentation/views/home_view.dart';
-import '../../feature/more/views/cards_management_screen.dart';
-import '../../feature/more/views/complaints_view.dart';
-import '../../feature/more/views/frequently_asked_questions_view.dart';
-import '../../feature/more/views/privacy_policy_view.dart';
-import '../../feature/more/views/suggestions_view.dart';
-import '../../feature/more/views/technical_support_view.dart';
-import '../../feature/more/views/terms_conditions_view.dart';
-import '../../feature/more/views/userguide_view.dart';
+import '../../feature/more/presentation/views/cards_management_screen.dart';
+import '../../feature/more/presentation/views/complaints_view.dart';
+import '../../feature/more/presentation/views/frequently_asked_questions_view.dart';
+import '../../feature/more/presentation/views/suggestions_view.dart';
+import '../../feature/more/presentation/views/technical_support_view.dart';
+import '../../feature/more/presentation/views/userguide_view.dart';
+import '../../feature/more/terms_conditions_privacy/presentation/views/privacy_policy_view.dart';
+import '../../feature/more/terms_conditions_privacy/presentation/views/terms_conditions_view.dart';
 import '../../feature/notifications/presentation/views/notifications_view.dart';
 import '../../feature/offers/presentation/views/offer_details_screen.dart';
 import '../../feature/onboarding/presentation/views/onboardingone_view.dart';
@@ -81,6 +82,7 @@ class Routes {
   static const String serviceProviderRegisterRoute = '/serviceProviderRegister';
   static const String registerInstitutionRoute = '/registerInstitution';
   static const String registerTechnicianRoute = '/registerTechnician';
+  static const String aboutUsRoute = '/aboutUs';
 }
 
 class RouteGenerator {
@@ -164,6 +166,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const RegisterTechnicianView());
       case Routes.registerInstitutionRoute:
         return MaterialPageRoute(builder: (_) => const RegisterInstitutionView());
+      case Routes.aboutUsRoute:
+        return MaterialPageRoute(builder: (_) => const AboutUsView());
 
       /// test screen //////////////////////////
 

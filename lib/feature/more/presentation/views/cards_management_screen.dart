@@ -1,7 +1,7 @@
 import 'package:bacura_app/core/providers/language_provider.dart';
 import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:bacura_app/feature/more/views/widgets/add_card_bottomsheet.dart';
-import 'package:bacura_app/feature/more/views/widgets/edit_card_bottomsheet.dart';
+import 'package:bacura_app/feature/more/presentation/views/widgets/add_card_bottomsheet.dart';
+import 'package:bacura_app/feature/more/presentation/views/widgets/edit_card_bottomsheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

@@ -3,7 +3,7 @@ import 'package:bacura_app/feature/home/presentation/views/home_tab_view.dart';
 import 'package:bacura_app/feature/home/presentation/views/widgets/home_app_bar_leading.dart';
 import 'package:bacura_app/feature/home/presentation/views/widgets/home_bottom_navigation_bar.dart';
 import 'package:bacura_app/feature/home/presentation/views/widgets/home_floating_action_button.dart';
-import 'package:bacura_app/feature/more/views/more_tab_view.dart';
+import 'package:bacura_app/feature/more/presentation/views/more_tab_view.dart';
 import 'package:bacura_app/feature/notifications/presentation/views/widgets/notifications_icon.dart';
 import 'package:bacura_app/feature/offers/presentation/views/offers_tab.dart';
 import 'package:bacura_app/feature/requests/presetation/views/requests_tab_view.dart';

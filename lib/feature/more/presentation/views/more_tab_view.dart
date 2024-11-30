@@ -1,10 +1,10 @@
 import 'package:bacura_app/core/utils/color_manager.dart';
 import 'package:bacura_app/core/utils/routes_manager.dart';
-import 'package:bacura_app/feature/more/views/widgets/bacura_store_row.dart';
-import 'package:bacura_app/feature/more/views/widgets/change_language_row.dart';
-import 'package:bacura_app/feature/more/views/widgets/custom_more_row.dart';
-import 'package:bacura_app/feature/more/views/widgets/share_app_container.dart';
-import 'package:bacura_app/feature/more/views/widgets/social_media_icon.dart';
+import 'package:bacura_app/feature/more/presentation/views/widgets/bacura_store_row.dart';
+import 'package:bacura_app/feature/more/presentation/views/widgets/change_language_row.dart';
+import 'package:bacura_app/feature/more/presentation/views/widgets/custom_more_row.dart';
+import 'package:bacura_app/feature/more/presentation/views/widgets/share_app_container.dart';
+import 'package:bacura_app/feature/more/presentation/views/widgets/social_media_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -41,7 +41,9 @@ class _More_TabState extends State<More_Tab> {
             child: Image.asset('assets/images/bakura (1) 1.png') // Adjust the radius to make sure it fits
             ),
         text: AppLocalizations.of(context)!.about_bacura,
-        onTap: () {},
+        onTap: () {
+          Navigator.pushNamed(context, Routes.aboutUsRoute);
+        },
       ),
 
       ///technical_support tab //////////////////////////////

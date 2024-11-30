@@ -1,5 +1,5 @@
 import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:bacura_app/feature/more/views/widgets/privacy_policy_view_body.dart';
+import 'package:bacura_app/feature/more/terms_conditions_privacy/presentation/views/widgets/privacy_policy_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

@@ -1,4 +1,4 @@
-import 'package:bacura_app/feature/more/views/widgets/user_guide_view_body.dart';
+import 'package:bacura_app/feature/more/presentation/views/widgets/user_guide_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
