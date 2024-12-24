@@ -1,4 +1,4 @@
-import 'package:bacura_app/feature/auth/presetation/views/widgets/bacura_logo_container.dart';
+import 'package:bacura_app/feature/auth/presentation/views/widgets/bacura_logo_container.dart';
 import 'package:bacura_app/feature/getStarted/presentation/views/widgets/change_language_icon.dart';
 import 'package:bacura_app/feature/getStarted/presentation/views/widgets/continue_as_visitor_button.dart';
 import 'package:bacura_app/feature/getStarted/presentation/views/widgets/login_button.dart';

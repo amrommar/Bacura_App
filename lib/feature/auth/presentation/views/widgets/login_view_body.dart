@@ -1,7 +1,7 @@
 import 'package:bacura_app/core/utils/color_manager.dart';
 import 'package:bacura_app/core/utils/routes_manager.dart';
-import 'package:bacura_app/feature/auth/presetation/views/widgets/bacura_logo_container.dart';
-import 'package:bacura_app/feature/auth/presetation/views/widgets/custom_phonefield.dart';
+import 'package:bacura_app/feature/auth/presentation/views/widgets/bacura_logo_container.dart';
+import 'package:bacura_app/feature/auth/presentation/views/widgets/custom_phonefield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

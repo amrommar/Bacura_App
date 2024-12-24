@@ -1,5 +1,6 @@
 import 'package:bacura_app/core/utils/color_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ServiceProviderRegisterContainer extends StatelessWidget {
   IconData iconData;
@@ -65,7 +66,7 @@ class ServiceProviderRegisterContainer extends StatelessWidget {
                       onTap();
                     },
                     child: Text(
-                      'Register Now',
+                      AppLocalizations.of(context)!.register_now,
                       style: Theme.of(context).textTheme.titleMedium,
                     ))),
             const SizedBox(height: 10),

@@ -1,4 +1,7 @@
 import 'package:bacura_app/core/utils/strings_manager.dart';
+import 'package:bacura_app/feature/auth/presentation/views/login_view.dart';
+import 'package:bacura_app/feature/auth/presentation/views/register_view.dart';
+import 'package:bacura_app/feature/auth/presentation/views/verify_otp_view.dart';
 import 'package:bacura_app/feature/getStarted/presentation/views/get_started_view.dart';
 import 'package:bacura_app/feature/more/presentation/views/about_us_view.dart';
 import 'package:bacura_app/feature/personal/presentation/views/rechargebalance_screen.dart';
@@ -15,9 +18,6 @@ import 'package:bacura_app/feature/technician_app/requests/presentation/views/sp
 import 'package:bacura_app/feature/technician_app/requests/presentation/views/sp_request_details_view.dart';
 import 'package:flutter/material.dart';
 
-import '../../feature/auth/presetation/views/login_view.dart';
-import '../../feature/auth/presetation/views/register_view.dart';
-import '../../feature/auth/presetation/views/verify_otp_view.dart';
 import '../../feature/customer_service/presentation/views/customer_service_view.dart';
 import '../../feature/home/presentation/views/home_view.dart';
 import '../../feature/more/presentation/views/cards_management_screen.dart';

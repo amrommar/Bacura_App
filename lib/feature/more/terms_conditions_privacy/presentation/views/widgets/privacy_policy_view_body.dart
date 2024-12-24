@@ -28,6 +28,8 @@ class PrivacyPolicyViewBody extends StatelessWidget {
           children: [
             //// from Back-End /////////////////////////////////////////////////
             const PrivacyPolicyIntro(),
+            Divider(color: ColorManager.whiteColor, thickness: 1),
+
             ///// 1. Collection information /////////////////////////////////////////////////////////
             TitleWidget(title: AppLocalizations.of(context)!.privacy_collection_of_information),
             Divider(color: ColorManager.lightBlueColor, thickness: 1),

@@ -8,10 +8,14 @@ import 'core/utils/routes_manager.dart';
 import 'core/utils/theme_manager.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-    create: (context) => LanguageProvider(),
-    child: const MyApp(),
-  ));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => LanguageProvider()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -35,7 +39,7 @@ class _MyAppState extends State<MyApp> {
         supportedLocales: AppLocalizations.supportedLocales,
         debugShowCheckedModeBanner: false,
         onGenerateRoute: RouteGenerator.getRoute,
-        initialRoute: Routes.privacyPolicyRoute,
+        initialRoute: Routes.registerRoute,
         theme: getAppTheme(),
       ),
     );

@@ -20,7 +20,7 @@ class ServicesGridView extends StatelessWidget {
     ImageAssets.pcRepairIcon,
     ImageAssets.phoneRepairIcon
   ];
-  List<String> imagesTitle = [
+  List<String> imageTitle = [
     AppStrings.security_and_monitoring,
     AppStrings.smartSystems,
     AppStrings.accessControl,
@@ -34,6 +34,17 @@ class ServicesGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> imagesTitle = [
+      AppLocalizations.of(context)!.surveillance_cameras,
+      AppLocalizations.of(context)!.smart_systems,
+      AppLocalizations.of(context)!.access_control,
+      AppLocalizations.of(context)!.sound_systems,
+      AppLocalizations.of(context)!.save_energy,
+      AppLocalizations.of(context)!.internet_communications_networks,
+      AppStrings.gameMaintenance,
+      AppStrings.computerMaintenance,
+      AppStrings.phoneMaintenance
+    ];
     return Container(
         padding: const EdgeInsets.all(4),
         decoration: BoxDecoration(

@@ -1,6 +1,7 @@
 import 'package:bacura_app/core/utils/routes_manager.dart';
 import 'package:bacura_app/feature/service_provider_registeration/presentation/views/widgets/service_provider_register_container.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ServiceProviderRegisterViewBody extends StatelessWidget {
@@ -13,22 +14,17 @@ class ServiceProviderRegisterViewBody extends StatelessWidget {
         const SizedBox(height: 20),
         ServiceProviderRegisterContainer(
             iconData: Icons.account_circle,
-            title: 'Register As a Technician',
-            description: '''Join our team of distinguished technicians!
-Are you a distinguished technical technician?
-If you are an expert in installing smart systems, cameras, networks or control systems, register now and we will contact you soon!''',
-            note:
-                '''Note: Registration does not mean final acceptance, there are criteria and conditions to join our team.''',
+            title: AppLocalizations.of(context)!.register_as_technician,
+            description: AppLocalizations.of(context)!.register_as_technician_info,
+            note: AppLocalizations.of(context)!.register_as_technician_note,
             onTap: () {
               Navigator.pushNamed(context, Routes.registerTechnicianRoute);
             }),
         const SizedBox(height: 20),
         ServiceProviderRegisterContainer(
             iconData: FontAwesomeIcons.building,
-            title: 'Register as an Institution',
-            description: '''If you own an institution and need to follow up on your technicians in a distinctive way? 
-                     
-Register with us and follow up on every step of the work with your team with complete transparency and professionalism.''',
+            title: AppLocalizations.of(context)!.register_as_partner,
+            description: AppLocalizations.of(context)!.register_as_partner_info,
             note: '',
             onTap: () {
               Navigator.pushNamed(context, Routes.registerInstitutionRoute);

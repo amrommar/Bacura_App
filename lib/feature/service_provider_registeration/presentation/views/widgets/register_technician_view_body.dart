@@ -5,6 +5,7 @@ import 'package:bacura_app/feature/service_provider_registeration/presentation/v
 import 'package:bacura_app/feature/service_provider_registeration/presentation/views/widgets/terms_conditions_check.dart';
 import 'package:bacura_app/feature/service_provider_registeration/presentation/views/widgets/upload_image_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RegisterTechnicianViewBody extends StatefulWidget {
   const RegisterTechnicianViewBody({super.key});
@@ -24,23 +25,23 @@ class _RegisterTechnicianViewBodyState extends State<RegisterTechnicianViewBody>
         child: Column(
           children: [
             const SizedBox(height: 10),
-            Text('Register As a Technician',
+            Text(AppLocalizations.of(context)!.register_as_technician,
                 style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       color: ColorManager.blackColor,
                       fontWeight: FontWeight.bold,
                     )),
             const SizedBox(height: 10),
-            CustomRegistrationTextField(hintText: 'Technician Name *'),
-            CustomRegistrationTextField(hintText: 'ID Number *'),
+            CustomRegistrationTextField(hintText: AppLocalizations.of(context)!.technician_name),
+            CustomRegistrationTextField(hintText: AppLocalizations.of(context)!.id_number),
             const SizedBox(height: 5),
-            RegisterPhoneField(hintText: 'Mobile Number ', controller: controller),
+            RegisterPhoneField(hintText: AppLocalizations.of(context)!.mobileNumber, controller: controller),
             const SizedBox(height: 10),
             CityDropDownField(selectedOption: 'Riyad', options: const ['Riyad', 'Jedda']),
-            CustomRegistrationTextField(hintText: 'Profession *'),
+            CustomRegistrationTextField(hintText: AppLocalizations.of(context)!.profession),
             const SizedBox(height: 6),
-            UploadImageField(label: 'Identity Image'),
+            UploadImageField(label: AppLocalizations.of(context)!.identity_image),
             const SizedBox(height: 10),
-            UploadImageField(label: 'Personal Image'),
+            UploadImageField(label: AppLocalizations.of(context)!.personal_image),
             const SizedBox(height: 10),
             const TermsConditionsCheck(),
             const SizedBox(height: 60),
@@ -48,7 +49,7 @@ class _RegisterTechnicianViewBodyState extends State<RegisterTechnicianViewBody>
                 child: ElevatedButton(
                     onPressed: () {},
                     child: Text(
-                      'Send Request',
+                      AppLocalizations.of(context)!.send_request,
                       style: Theme.of(context).textTheme.titleMedium,
                     ))),
           ],

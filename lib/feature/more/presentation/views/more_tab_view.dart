@@ -120,11 +120,11 @@ class _More_TabState extends State<More_Tab> {
           path: 'https://x.com/bacura_tec',
         ),
         SocialMediaIcon(
-          imagePath: 'assets/images/instagram.png',
-          path: 'https://www.instagram.com/bacura_tec/',
+          imagePath: 'assets/images/linkin iconn.png',
+          path: 'https://www.linkedin.com/company/bacura-tec',
         ),
         SocialMediaIcon(
-          imagePath: 'assets/images/linkedIn_logo.png',
+          imagePath: 'assets/images/instagram.png',
           path: 'https://www.instagram.com/bacura_tec/',
         ),
       ])

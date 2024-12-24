@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:bacura_app/core/providers/language_provider.dart';
 import 'package:bacura_app/core/utils/color_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
@@ -51,7 +52,7 @@ class _UploadImageFieldState extends State<UploadImageField> {
             borderRadius: BorderRadius.circular(12),
           ),
           child: Text(
-            _imageFile != null ? 'Image uploaded' : widget.label,
+            _imageFile != null ? AppLocalizations.of(context)!.image_uploaded : widget.label,
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.normal,
@@ -68,9 +69,9 @@ class _UploadImageFieldState extends State<UploadImageField> {
             backgroundColor: ColorManager.primaryBlueColor,
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           ),
-          child: const Text(
-            'Attach',
-            style: TextStyle(fontSize: 16, color: Colors.white),
+          child: Text(
+            AppLocalizations.of(context)!.attach,
+            style: const TextStyle(fontSize: 16, color: Colors.white),
           ),
         ),
       ],

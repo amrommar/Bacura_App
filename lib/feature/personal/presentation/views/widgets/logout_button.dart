@@ -12,7 +12,7 @@ class LogoutButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.all(AppPadding.p12),
+        padding: const EdgeInsets.all(AppPadding.p16),
         child: ElevatedButton(
             style: ElevatedButton.styleFrom(),
             onPressed: () {

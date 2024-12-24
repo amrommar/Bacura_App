@@ -84,7 +84,7 @@ class _RequestDetailsViewBodyState extends State<RequestDetailsViewBody> {
                   iconColor: ColorManager.midBlueColor),
               const Divider(),
               SizedBox(height: 50.h),
-              manageRequestButtons(ColorManager.redColor),
+              manageRequestButtons(ColorManager.yellowColor),
               SizedBox(height: 20.h),
             ])));
   }

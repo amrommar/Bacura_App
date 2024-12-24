@@ -28,6 +28,7 @@ class ServiceCard extends StatelessWidget {
             departmentTitle,
             textAlign: TextAlign.center,
             maxLines: 2,
+            overflow: TextOverflow.ellipsis,
             style: Theme.of(context).textTheme.titleSmall!.copyWith(
                   color: ColorManager.blackColor,
                 ),

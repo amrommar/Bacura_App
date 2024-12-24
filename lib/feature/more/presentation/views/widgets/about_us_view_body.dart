@@ -1,6 +1,7 @@
 import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:bacura_app/feature/auth/presetation/views/widgets/bacura_logo_container.dart';
+import 'package:bacura_app/feature/auth/presentation/views/widgets/bacura_logo_container.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AboutUsViewBody extends StatelessWidget {
@@ -18,13 +19,13 @@ class AboutUsViewBody extends StatelessWidget {
           const BacuraLogoContainer(),
           Divider(color: ColorManager.whiteColor),
           Text(
-            '''With Bacura, We provide you with an integrated solution to manage your Technical, Smart and Security needs with ease and professionalism. Whether you are looking to install High-Quality Surveillance Cameras, Smart Systems, or Innovative Technical Solutions for your Home or Workplace, our Application is the Perfect Choice.''',
+            AppLocalizations.of(context)!.about_us,
             style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor),
             textAlign: TextAlign.justify,
           ),
           Divider(color: ColorManager.whiteColor),
           Text(
-            '''We guarantee you High-Quality Technical Services with Efficiency and speed of implementation, with a professional Team around the clock and continuous Technical Support, your Security and Comfort are now at your Fingertips.''',
+            AppLocalizations.of(context)!.about_us_body,
             style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor),
             textAlign: TextAlign.justify,
           ),
@@ -32,7 +33,7 @@ class AboutUsViewBody extends StatelessWidget {
           Row(
             children: [
               Text(
-                'Our Website:   ',
+                AppLocalizations.of(context)!.our_website,
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       color: ColorManager.greyColor,
                     ),

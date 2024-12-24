@@ -1,4 +1,4 @@
-import 'package:bacura_app/feature/auth/presetation/views/widgets/register_view_body.dart';
+import 'package:bacura_app/feature/auth/presentation/views/widgets/register_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

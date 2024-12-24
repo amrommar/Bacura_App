@@ -7,8 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'widgets/offer_card.dart';
-
 class OfferDetails_Screen extends StatefulWidget {
   const OfferDetails_Screen({super.key});
 
@@ -59,33 +57,12 @@ class _OfferDetails_ScreenState extends State<OfferDetails_Screen> {
 إمكانية الاتصال بالموبايل عن طريق جهاز التسجيل''',
               )),
           SizedBox(height: 10.h),
-          // More Ask Section______________________________________________________
-          Container(
-              padding: EdgeInsets.symmetric(horizontal: 8.w),
-              child: Text('مقترحة لك',
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleMedium!
-                      .copyWith(color: ColorManager.blackColor, fontWeight: FontWeight.bold))),
-          Divider(color: ColorManager.lightBlueColor),
-          // More Ask list ______________________________________________________
-          Container(
-              height: 224.h,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 10,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
-                        child: OffersCard() // Custom widget to show image and text
-                        );
-                  })),
           SizedBox(height: 50.h),
 
           /// Add To Cart Elevated Button//////////////////////////////////////////
           Center(
               child: SmallElevatedButton(
-                  text: AppLocalizations.of(context)!.pay,
+                  text: AppLocalizations.of(context)!.request,
                   onPressed: () {
                     Navigator.pushNamed(context, Routes.paymentScreenRoute);
                   }))
