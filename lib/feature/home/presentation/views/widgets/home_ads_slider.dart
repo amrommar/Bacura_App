@@ -11,12 +11,10 @@ class HomeAdsSlider extends StatelessWidget {
     return Padding(
         padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 15.h),
         child: CarouselSlider(
-            items: const [
-              //////////////       from Back-End      ///////////////////
-              AdsContainer(),
-              AdsContainer(),
-              AdsContainer(),
-            ],
+            items: List.generate(
+              10, // Number of items
+              (index) => AdsContainer(), // Create each widget dynamically
+            ),
             options: CarouselOptions(
                 height: 165.h,
                 enlargeCenterPage: false,

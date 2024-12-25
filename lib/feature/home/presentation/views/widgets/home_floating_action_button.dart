@@ -12,34 +12,52 @@ class HomeFloatingActionButton extends StatefulWidget {
 
 class _HomeFloatingActionButtonState extends State<HomeFloatingActionButton> {
   bool isFocused = false;
+  bool hasClickedOnce = false; // Tracks whether the FAB has been clicked once
 
   @override
   Widget build(BuildContext context) {
+    // Check the current text direction (LTR or RTL)
+    bool isRTL = Directionality.of(context) == TextDirection.rtl;
+
     return Stack(children: [
       AnimatedPositioned(
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeInOut,
+        bottom: 5.h,
+        // Adjust position based on text direction
+        left: isRTL
+            ? (isFocused
+                ? MediaQuery.of(context).size.width - 100.w // RTL focused
+                : MediaQuery.of(context).size.width - 60.w) // RTL default
+            : (isFocused
+                ? MediaQuery.of(context).size.width - 400.w // LTR focused
+                : MediaQuery.of(context).size.width - 430.w),
+        // LTR default
+        child: AnimatedOpacity(
+          opacity: isFocused ? 1.0 : 0.6,
           duration: const Duration(milliseconds: 500),
-          curve: Curves.easeInOut,
-          bottom: 10.h,
-          left: isFocused ? MediaQuery.of(context).size.width - 100.w : 340.w,
-          child: AnimatedOpacity(
-              opacity: isFocused ? 1.0 : 0.5,
-              duration: const Duration(milliseconds: 500),
-              child: FloatingActionButton(
-                  onPressed: () {
-                    if (!isFocused) {
-                      setState(() {
-                        isFocused = true;
-                      });
-                    } else {
-                      Navigator.pushNamed(context, Routes.customerServiceRoute);
-                    }
-                  },
-                  backgroundColor: ColorManager.primaryBlueColor,
-                  child: Icon(
-                    Icons.headset_mic_outlined,
-                    color: ColorManager.whiteColor,
-                    size: 40,
-                  ))))
+          child: FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                if (!isFocused) {
+                  // First click focuses the button
+                  isFocused = true;
+                  hasClickedOnce = true;
+                } else if (hasClickedOnce) {
+                  // Second click navigates to the route
+                  Navigator.pushNamed(context, Routes.customerServiceRoute);
+                }
+              });
+            },
+            backgroundColor: ColorManager.primaryBlueColor,
+            child: Icon(
+              Icons.headset_mic_outlined,
+              color: ColorManager.whiteColor,
+              size: 40,
+            ),
+          ),
+        ),
+      )
     ]);
   }
 }
