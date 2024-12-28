@@ -22,6 +22,23 @@ class _VerifyOTPViewBodyState extends State<VerifyOTPViewBody> {
 
   String pinCode = "";
 
+  void showCustomDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => CustomAlertDialog(
+        title: AppLocalizations.of(context)!.continue_to_pay,
+        imagePath: 'assets/images/bad-feedback.png',
+        content: Text('تم تسجيل الدخول بنجاح'),
+        onCancel: () {
+          Navigator.of(context).pop();
+        },
+        onOk: () {
+          Navigator.pushNamed(context, Routes.homeScreenRoute);
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -88,19 +105,8 @@ class _VerifyOTPViewBodyState extends State<VerifyOTPViewBody> {
         ),
       );
       // Here you can navigate or perform other actions after successful validation
-      DialogUtils.showMessage(
-          title: AppLocalizations.of(context)!.oTPNumber,
-          context: context,
-          posActionName: AppLocalizations.of(context)!.ok,
-          negActionName: AppLocalizations.of(context)!.cancel,
-          posAction: () {
-            Navigator.pushNamedAndRemoveUntil(
-              context,
-              Routes.homeScreenRoute,
-              (Route<dynamic> route) => false,
-            );
-          },
-          message: AppLocalizations.of(context)!.otp_verified); // Message to show on successful validation
+      showCustomDialog(context);
+      // Message to show on successful validation
     }
   }
 }

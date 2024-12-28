@@ -49,7 +49,7 @@ class _RequestDetailsViewBodyState extends State<RequestDetailsViewBody> {
 
               /// Request Details section/////////////////////////////////////////////
               ///
-              RequestComponentsList(),
+              const RequestComponentsList(),
 
               /// Total Money section/////////////////////////////////////////////
               const RequestTotalPriceRow(),

@@ -1,6 +1,5 @@
 import 'package:bacura_app/core/utils/DialogUtils.dart';
 import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:bacura_app/core/utils/routes_manager.dart';
 import 'package:bacura_app/feature/auth/presentation/views/widgets/pin_code_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -58,16 +57,13 @@ class _OTP_BottomsheetState extends State<OTP_Bottomsheet> {
             ElevatedButton(
                 onPressed: () {
                   //// make a good design for this Dialog /////
-                  DialogUtils.showMessage(
-                      title: 'OTP',
-                      context: context,
-                      posActionName: AppLocalizations.of(context)!.ok,
-                      negActionName: AppLocalizations.of(context)!.cancel,
-                      posAction: () {
-                        Navigator.pushNamedAndRemoveUntil(
-                            context, Routes.homeScreenRoute, (Route<dynamic> route) => false);
-                      },
-                      message: 'Payment Done');
+                  CustomAlertDialog(
+                    title: 'Successfully Login',
+                    imagePath: 'assets/images/bad-feedback.png',
+                    content: Text('تم تسجيل الدخول بنجاح'),
+                    onCancel: () {},
+                    onOk: () {},
+                  );
                 },
                 child: Text(
                   AppLocalizations.of(context)!.verify,

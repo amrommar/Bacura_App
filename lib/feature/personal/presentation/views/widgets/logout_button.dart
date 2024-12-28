@@ -1,3 +1,4 @@
+import 'package:bacura_app/core/utils/DialogUtils.dart';
 import 'package:bacura_app/core/utils/color_manager.dart';
 import 'package:bacura_app/core/utils/routes_manager.dart';
 import 'package:bacura_app/core/utils/values_manager.dart';
@@ -9,6 +10,28 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class LogoutButton extends StatelessWidget {
   const LogoutButton({super.key});
 
+  void showCustomDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => CustomAlertDialog(
+        title: 'تأكيد',
+        imagePath: 'assets/images/log-out.png',
+        content: Text('تأكيد تسجيل الخروج'),
+        onCancel: () {
+          Navigator.of(context).pop();
+        },
+        onOk: () {
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const GetstartedView(),
+              ),
+              ModalRoute.withName(Routes.getStartedRoute)); // Will remove all routes until this one
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,12 +39,7 @@ class LogoutButton extends StatelessWidget {
         child: ElevatedButton(
             style: ElevatedButton.styleFrom(),
             onPressed: () {
-              Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const GetstartedView(),
-                  ),
-                  ModalRoute.withName(Routes.getStartedRoute)); // Will remove all routes until this one
+              showCustomDialog(context);
             },
             child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,

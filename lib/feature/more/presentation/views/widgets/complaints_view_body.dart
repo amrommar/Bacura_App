@@ -1,3 +1,6 @@
+import 'package:bacura_app/core/utils/DialogUtils.dart';
+import 'package:bacura_app/core/utils/routes_manager.dart';
+import 'package:bacura_app/feature/home/presentation/views/home_view.dart';
 import 'package:bacura_app/feature/home/presentation/views/widgets/small_elevatedbutton.dart';
 import 'package:bacura_app/feature/request_services/presentation/views/widgets/dropdown_field.dart';
 import 'package:bacura_app/feature/request_services/presentation/views/widgets/question_textformfield.dart';
@@ -14,6 +17,28 @@ class ComplaintsViewBody extends StatelessWidget {
   var formKey = GlobalKey<FormState>();
 
   ComplaintsViewBody({super.key});
+
+  void showCustomDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => CustomAlertDialog(
+        title: 'تأكيد',
+        imagePath: 'assets/images/bad-feedback.png',
+        content: const Text('تم إرسال شكواك بنجاح'),
+        onCancel: () {
+          Navigator.of(context).pop();
+        },
+        onOk: () {
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const HomeView(),
+              ),
+              ModalRoute.withName(Routes.homeScreenRoute)); // Will remove all routes until this one
+        },
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +78,7 @@ class ComplaintsViewBody extends StatelessWidget {
                 text: AppLocalizations.of(context)!.send_complaint,
                 onPressed: () {
                   if (formKey.currentState?.validate() == true) {
-                    Navigator.pop(context);
+                    showCustomDialog(context);
                   }
                 },
               ))

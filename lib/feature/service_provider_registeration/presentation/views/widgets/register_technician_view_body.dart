@@ -1,4 +1,7 @@
+import 'package:bacura_app/core/utils/DialogUtils.dart';
 import 'package:bacura_app/core/utils/color_manager.dart';
+import 'package:bacura_app/core/utils/routes_manager.dart';
+import 'package:bacura_app/feature/home/presentation/views/home_view.dart';
 import 'package:bacura_app/feature/service_provider_registeration/presentation/views/widgets/city_drop_down_field.dart';
 import 'package:bacura_app/feature/service_provider_registeration/presentation/views/widgets/custom_registration_text_field.dart';
 import 'package:bacura_app/feature/service_provider_registeration/presentation/views/widgets/register_phone_field.dart';
@@ -16,6 +19,28 @@ class RegisterTechnicianViewBody extends StatefulWidget {
 
 class _RegisterTechnicianViewBodyState extends State<RegisterTechnicianViewBody> {
   TextEditingController controller = TextEditingController();
+
+  void showCustomDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => CustomAlertDialog(
+        title: 'تأكيد',
+        imagePath: 'assets/images/personal-information.png',
+        content: Text('تسجيل البيانات بنجاح '),
+        onCancel: () {
+          Navigator.of(context).pop();
+        },
+        onOk: () {
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const HomeView(),
+              ),
+              ModalRoute.withName(Routes.homeScreenRoute)); // Will remove all routes until this one
+        },
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +72,9 @@ class _RegisterTechnicianViewBodyState extends State<RegisterTechnicianViewBody>
             const SizedBox(height: 60),
             Center(
                 child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      showCustomDialog(context);
+                    },
                     child: Text(
                       AppLocalizations.of(context)!.send_request,
                       style: Theme.of(context).textTheme.titleMedium,
