@@ -7,6 +7,7 @@ import 'package:bacura_app/feature/more/presentation/views/widgets/share_app_con
 import 'package:bacura_app/feature/more/presentation/views/widgets/social_media_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class More_Tab extends StatefulWidget {
@@ -17,6 +18,71 @@ class More_Tab extends StatefulWidget {
 }
 
 class _More_TabState extends State<More_Tab> {
+  void _showRatingDialog() {
+    double _rating = 0.0; // Temporary variable to store rating value
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(AppLocalizations.of(context)!.app_rating),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text(
+                'How would you rate our app?',
+                style: TextStyle(fontSize: 16),
+              ),
+              const SizedBox(height: 20),
+              RatingBar.builder(
+                initialRating: 0,
+                minRating: 1,
+                allowHalfRating: true,
+                itemCount: 5,
+                itemBuilder: (context, _) => const Icon(
+                  Icons.star,
+                  color: Colors.amber,
+                ),
+                onRatingUpdate: (rating) {
+                  _rating = rating; // Update rating value
+                },
+              ),
+              const SizedBox(height: 10),
+              const TextField(
+                decoration: InputDecoration(
+                  hintText: 'Tell us more about your experience...',
+                  border: OutlineInputBorder(),
+                ),
+                maxLines: 3,
+              ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context); // Close the dialog
+              },
+              child: Text(AppLocalizations.of(context)!.cancel),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Handle rating submission
+                Navigator.pop(context);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Thank you for your feedback!')),
+                );
+              },
+              child: Text(
+                AppLocalizations.of(context)!.send,
+                style: TextStyle(color: ColorManager.whiteColor),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -88,11 +154,12 @@ class _More_TabState extends State<More_Tab> {
 
       ///appRating tab //////////////////////////////
       Custom_More_row(
-          widget: Icon(Icons.star_border_outlined, color: ColorManager.yellowColor),
-          text: AppLocalizations.of(context)!.app_rating,
-          onTap: () {
-            /// method for app rating
-          }),
+        widget: Icon(Icons.star_border_outlined, color: ColorManager.yellowColor),
+        text: AppLocalizations.of(context)!.app_rating,
+        onTap: _showRatingDialog,
+
+        /// method for app rating
+      ),
 
       ///app_Language tab //////////////////////////////
       const ChangeLanguageRow(),
@@ -113,7 +180,7 @@ class _More_TabState extends State<More_Tab> {
       Row(mainAxisAlignment: MainAxisAlignment.center, children: [
         SocialMediaIcon(
           imagePath: 'assets/images/facebook_logo.png',
-          path: 'https://www.facebook.com/bacuratec?locale=ar_AR',
+          path: 'https://www.facebook.com/bacuratec',
         ),
         SocialMediaIcon(
           imagePath: 'assets/images/x.png',

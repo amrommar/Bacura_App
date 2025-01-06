@@ -1,12 +1,15 @@
 import 'dart:io';
 
 import 'package:bacura_app/core/utils/color_manager.dart';
+import 'package:bacura_app/core/utils/routes_manager.dart';
+import 'package:bacura_app/feature/auth/presentation/views/widgets/custom_phonefield.dart';
 import 'package:bacura_app/feature/auth/presentation/views/widgets/custom_textformfield.dart';
 import 'package:bacura_app/feature/home/presentation/views/widgets/small_elevatedbutton.dart';
 import 'package:bacura_app/feature/personal/presentation/views/widgets/avatar_section.dart';
 import 'package:bacura_app/feature/personal/presentation/views/widgets/custom_container.dart';
 import 'package:bacura_app/feature/personal/presentation/views/widgets/logout_button.dart';
 import 'package:bacura_app/feature/personal/presentation/views/widgets/personal_row_details.dart';
+import 'package:bacura_app/feature/request_services/presentation/views/widgets/dropdown_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -137,61 +140,274 @@ class _PersonalDetailsViewBodyState extends State<PersonalDetailsViewBody> {
     ]));
   }
 
-  void showEditDetailsBottomSheet(String text) {
+  showEditDetailsBottomSheet(String text) {
+    var mobileNumberController = TextEditingController();
+// var cityController = TextEditingController();
+// var genderController = TextEditingController();
+    var emailController = TextEditingController();
+    final List<String> genderOptions = ['ذكر', 'أنثي'];
+    final List<String> cityOptions = ['الرياض', 'جده', 'مكة', 'الدمام'];
     final formKey = GlobalKey<FormState>();
-
     showModalBottomSheet(
-      isScrollControlled: true, // Allows the BottomSheet to expand with the keyboard
-      context: context,
-      builder: (context) {
-        return Padding(
-          padding: EdgeInsets.only(
-            bottom: MediaQuery.of(context).viewInsets.bottom, // Adjust for keyboard
-          ),
-          child: SingleChildScrollView(
-            child: Container(
-              padding: const EdgeInsets.all(20),
-              child: Form(
-                key: formKey,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min, // Ensures it takes minimum space
-                  children: [
-                    if (text == AppLocalizations.of(context)!.fullName) ...[
-                      CustomTextFormField(
-                        fieldName: AppLocalizations.of(context)!.fullName,
-                        hintText: AppLocalizations.of(context)!.enterYourName,
-                        controller: nameController,
-                        validator: (value) {
-                          if (value == null || value.trim().isEmpty) {
-                            return AppLocalizations.of(context)!.pleaseEnterYourName;
-                          }
-                          return null;
-                        },
+        context: context,
+        builder: (context) {
+          if (text == AppLocalizations.of(context)!.mobileNumber) {
+            /// mobile number edit //////////////////////
+            return Padding(
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom, // Adjust for keyboard
+              ),
+              child: SingleChildScrollView(
+                child: Container(
+                    padding: const EdgeInsets.all(20),
+                    child: Form(
+                        key: formKey,
+                        child: Column(children: [
+                          CustomPhoneField(
+                            fieldName: AppLocalizations.of(context)!.mobileNumber,
+                            hintText: AppLocalizations.of(context)!.enterYourMobileNumber,
+                            controller: mobileNumberController,
+                            onChanged: (phone) {
+                              setState(() {
+                                completePhoneNumber = phone.completeNumber; // Update completePhoneNumber
+                              });
+                            },
+                          ),
+                          SizedBox(height: 20.h),
+                          SmallElevatedButton(
+                              text: AppLocalizations.of(context)!.save,
+                              onPressed: () {
+                                // Get the current value of the mobile number directly from the controller
+                                String currentPhoneNumber = mobileNumberController.text;
+                                // Validate the phone number
+                                if (currentPhoneNumber.isEmpty || currentPhoneNumber.length < 9) {
+                                  // Close the bottom sheet first
+                                  Navigator.pop(context);
+                                  // Then show the Snackbar
+                                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                      duration: const Duration(seconds: 2),
+                                      backgroundColor: ColorManager.midWhiteColor,
+                                      content: Text(
+                                        AppLocalizations.of(context)!.please_enter_valid_phone_number,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleMedium!
+                                            .copyWith(color: ColorManager.darkRedColor),
+                                      )));
+                                } else {
+                                  // If valid, proceed to the next screen or save the data
+                                  Navigator.pop(context); // Close the bottom sheet before navigating
+                                  Navigator.pushNamed(context, Routes.verifyOTPRoute);
+                                }
+                              })
+                        ]))),
+              ),
+            );
+          }
+
+          /// email edit //////////////////////
+          else if (text == AppLocalizations.of(context)!.email) {
+            return Padding(
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom, // Adjust for keyboard
+              ),
+              child: SingleChildScrollView(
+                child: Container(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(children: [
+                      Form(
+                        key: formKey,
+                        child: CustomTextFormField(
+                          fieldName: AppLocalizations.of(context)!.email,
+                          hintText: AppLocalizations.of(context)!.email,
+                          controller: emailController,
+                          validator: (text) {
+                            if (text == null || text.trim().isEmpty) {
+                              return AppLocalizations.of(context)!.enter_your_email;
+                            }
+                            final bool emailValid =
+                                RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                    .hasMatch(text);
+                            if (!emailValid) {
+                              return AppLocalizations.of(context)!.please_enter_valid_email;
+                            }
+                            return null;
+                          },
+                        ),
                       ),
                       SizedBox(height: 20.h),
                       SmallElevatedButton(
-                        text: AppLocalizations.of(context)!.save,
-                        onPressed: () {
-                          if (formKey.currentState!.validate()) {
-                            setState(() {
-                              name = nameController.text; // Update name in state
-                            });
-                            Navigator.pop(context);
-                          }
-                        },
+                          text: AppLocalizations.of(context)!.save,
+                          onPressed: () {
+                            if (formKey.currentState!.validate() == true) {
+                              Navigator.pop(context);
+                            }
+                          })
+                    ])),
+              ),
+            );
+          }
+
+          /// gender edit //////////////////////
+          else if (text == AppLocalizations.of(context)!.gender) {
+            return Padding(
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom, // Adjust for keyboard
+              ),
+              child: SingleChildScrollView(
+                child: Container(
+                    height: 250.h,
+                    padding: const EdgeInsets.all(20),
+                    child: Column(children: [
+                      DropDown_Field(
+                        selectedOption: 'ذكر',
+                        options: genderOptions,
+                        fieldName: AppLocalizations.of(context)!.gender,
                       ),
-                    ],
-                    // Add other fields for mobile number, email, etc.
-                  ],
+                      SizedBox(height: 20.h),
+                      SmallElevatedButton(
+                          text: AppLocalizations.of(context)!.save,
+                          onPressed: () {
+                            /////////////////////// Method to save changes //////////////////////
+                            Navigator.pop(context);
+                          })
+                    ])),
+              ),
+            );
+          }
+
+          /// city edit //////////////////////
+          else if (text == AppLocalizations.of(context)!.city) {
+            return Padding(
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom, // Adjust for keyboard
+              ),
+              child: SingleChildScrollView(
+                child: Container(
+                    height: 250.h,
+                    padding: const EdgeInsets.all(20),
+                    child: Column(children: [
+                      DropDown_Field(
+                        selectedOption: 'الرياض',
+                        options: cityOptions,
+                        fieldName: AppLocalizations.of(context)!.city,
+                      ),
+                      SizedBox(height: 20.h),
+                      SmallElevatedButton(
+                          text: AppLocalizations.of(context)!.save,
+                          onPressed: () {
+                            /////////////////////// Method to save changes //////////////////////
+                            Navigator.pop(context);
+                          })
+                    ])),
+              ),
+            );
+          }
+
+          /// user name edit //////////////////////
+          else if (text == AppLocalizations.of(context)!.fullName) {
+            return Padding(
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom, // Adjust for keyboard
+              ),
+              child: SingleChildScrollView(
+                child: Container(
+                  padding: const EdgeInsets.all(20),
+                  child: Form(
+                    key: formKey,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min, // Ensures it takes minimum space
+                      children: [
+                        if (text == AppLocalizations.of(context)!.fullName) ...[
+                          CustomTextFormField(
+                            fieldName: AppLocalizations.of(context)!.fullName,
+                            hintText: AppLocalizations.of(context)!.enterYourName,
+                            controller: nameController,
+                            validator: (value) {
+                              if (value == null || value.trim().isEmpty) {
+                                return AppLocalizations.of(context)!.pleaseEnterYourName;
+                              }
+                              return null;
+                            },
+                          ),
+                          SizedBox(height: 20.h),
+                          SmallElevatedButton(
+                            text: AppLocalizations.of(context)!.save,
+                            onPressed: () {
+                              if (formKey.currentState!.validate()) {
+                                setState(() {
+                                  name = nameController.text; // Update name in state
+                                });
+                                Navigator.pop(context);
+                              }
+                            },
+                          ),
+                        ],
+                        // Add other fields for mobile number, email, etc.
+                      ],
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
-        );
-      },
-    );
+            );
+          }
+          return Container();
+        });
+    // void showEditDetailsBottomSheet(String text) {
+    //   final formKey = GlobalKey<FormState>();
+    //
+    //   showModalBottomSheet(
+    //     isScrollControlled: true, // Allows the BottomSheet to expand with the keyboard
+    //     context: context,
+    //     builder: (context) {
+    //       return Padding(
+    //         padding: EdgeInsets.only(
+    //           bottom: MediaQuery.of(context).viewInsets.bottom, // Adjust for keyboard
+    //         ),
+    //         child: SingleChildScrollView(
+    //           child: Container(
+    //             padding: const EdgeInsets.all(20),
+    //             child: Form(
+    //               key: formKey,
+    //               child: Column(
+    //                 mainAxisSize: MainAxisSize.min, // Ensures it takes minimum space
+    //                 children: [
+    //                   if (text == AppLocalizations.of(context)!.fullName) ...[
+    //                     CustomTextFormField(
+    //                       fieldName: AppLocalizations.of(context)!.fullName,
+    //                       hintText: AppLocalizations.of(context)!.enterYourName,
+    //                       controller: nameController,
+    //                       validator: (value) {
+    //                         if (value == null || value.trim().isEmpty) {
+    //                           return AppLocalizations.of(context)!.pleaseEnterYourName;
+    //                         }
+    //                         return null;
+    //                       },
+    //                     ),
+    //                     SizedBox(height: 20.h),
+    //                     SmallElevatedButton(
+    //                       text: AppLocalizations.of(context)!.save,
+    //                       onPressed: () {
+    //                         if (formKey.currentState!.validate()) {
+    //                           setState(() {
+    //                             name = nameController.text; // Update name in state
+    //                           });
+    //                           Navigator.pop(context);
+    //                         }
+    //                       },
+    //                     ),
+    //                   ],
+    //                   // Add other fields for mobile number, email, etc.
+    //                 ],
+    //               ),
+    //             ),
+    //           ),
+    //         ),
+    //       );
+    //     },
+    //   );
+    // }
   }
-}
 
 // /// Wallet Section ___________________________________________________________________
 // InkWell(
@@ -209,3 +425,4 @@ class _PersonalDetailsViewBodyState extends State<PersonalDetailsViewBody> {
 //           style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.primaryBlueColor)),
 //       Icon(Icons.navigate_next_rounded, size: 28, color: ColorManager.blackColor)
 //     ]))),
+}

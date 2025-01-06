@@ -3,15 +3,13 @@ import 'package:bacura_app/feature/technician_app/requests/presentation/views/wi
 import 'package:flutter/material.dart';
 
 class ImplementRequestPhaseSection extends StatefulWidget {
-  final Function(bool) onToggle;
   final String title;
   final String? time;
-  final bool initialCompleted; // Initial state of completion
+  final bool initialCompleted;
   final bool isLast;
 
   const ImplementRequestPhaseSection({
     super.key,
-    required this.onToggle,
     required this.title,
     this.time,
     required this.initialCompleted,
@@ -19,62 +17,71 @@ class ImplementRequestPhaseSection extends StatefulWidget {
   });
 
   @override
-  State<ImplementRequestPhaseSection> createState() => _ImplementRequestPhaseSectionState();
+  ImplementRequestPhaseSectionState createState() => ImplementRequestPhaseSectionState();
 }
 
-class _ImplementRequestPhaseSectionState extends State<ImplementRequestPhaseSection> {
+class ImplementRequestPhaseSectionState extends State<ImplementRequestPhaseSection> {
   late bool isCompleted;
 
   @override
   void initState() {
     super.initState();
-    isCompleted = widget.initialCompleted; // Initialize the state based on initialCompleted
+    isCompleted = widget.initialCompleted;
+  }
+
+  void setCompleted(bool completed) {
+    setState(() {
+      isCompleted = completed;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      InkWell(
-          onTap: () {
-            setState(() {
-              isCompleted = !isCompleted; // Toggle the completion state
-              widget.onToggle(isCompleted); // Call the callback with the new state
-            });
-          },
-          child: Column(children: [
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Column(
+          children: [
             Icon(
               isCompleted ? Icons.check_circle : Icons.radio_button_unchecked,
               color: isCompleted ? ColorManager.midBlueColor : ColorManager.lightGreyColor,
             ),
             if (!widget.isLast) ...[
               const SizedBox(height: 4.0),
-              // Dashed vertical line
               SizedBox(
-                  height: 40.0,
-                  width: 2.0,
-                  child: CustomPaint(
-                      painter: DashPainter(
+                height: 40.0,
+                width: 2.0,
+                child: CustomPaint(
+                  painter: DashPainter(
                     dashHeight: 4.0,
                     dashSpace: 4.0,
                     color: isCompleted ? ColorManager.primaryBlueColor : ColorManager.lightGreyColor,
-                  )))
-            ]
-          ])),
-      const SizedBox(width: 8.0),
-      Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-        Text(
-          widget.title,
-          style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                color: isCompleted ? ColorManager.primaryBlueColor : ColorManager.lightGreyColor,
+                  ),
+                ),
               ),
+            ],
+          ],
         ),
-        const SizedBox(width: 10.0),
-        if (widget.time != null)
-          Text('(${widget.time!})',
-              style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                    color: isCompleted ? ColorManager.greyColor : ColorManager.soLightWhiteColor,
-                  ))
-      ])
-    ]);
+        const SizedBox(width: 8.0),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              widget.title,
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                    color: isCompleted ? ColorManager.primaryBlueColor : ColorManager.lightGreyColor,
+                  ),
+            ),
+            if (widget.time != null)
+              Text(
+                '(${widget.time!})',
+                style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                      color: isCompleted ? ColorManager.greyColor : ColorManager.soLightWhiteColor,
+                    ),
+              ),
+          ],
+        ),
+      ],
+    );
   }
 }

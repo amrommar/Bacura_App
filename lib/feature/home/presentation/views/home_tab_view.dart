@@ -33,12 +33,16 @@ class _HomeTabViewState extends State<HomeTabView> {
       Row(mainAxisAlignment: MainAxisAlignment.center, children: [
         /////////////////       Cinema Section     ////////////////////////////
         RareService(
-          onTap: () {},
-          imagePath: 'assets/images/Home-Cinema.jpg',
+          onTap: () {
+            Navigator.pushNamed(context, Routes.cinemaDetailsRoute);
+          },
+          imagePath: 'assets/images/cinemaWhite.png',
+          serviceTitle: 'السينما المنزلية',
         ),
         /////////////////    Consultation Section    ////////////////////////////
         RareService(
-          imagePath: 'assets/images/consultionss.jpg',
+          imagePath: 'assets/images/consultationWhite.png',
+          serviceTitle: 'الاستشارات',
           onTap: () {
             Navigator.pushNamed(context, Routes.consultationScreenRoute);
           },

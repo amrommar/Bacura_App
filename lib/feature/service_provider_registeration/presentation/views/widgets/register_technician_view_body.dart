@@ -18,7 +18,12 @@ class RegisterTechnicianViewBody extends StatefulWidget {
 }
 
 class _RegisterTechnicianViewBodyState extends State<RegisterTechnicianViewBody> {
-  TextEditingController controller = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _idController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  String _selectedCity = 'Riyad';
+  bool _termsAccepted = false;
 
   void showCustomDialog(BuildContext context) {
     showDialog(
@@ -42,44 +47,103 @@ class _RegisterTechnicianViewBodyState extends State<RegisterTechnicianViewBody>
     );
   }
 
+  void _submitForm() {
+    if (_formKey.currentState!.validate()) {
+      if (!_termsAccepted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: ColorManager.midRedColor,
+            content: Text(AppLocalizations.of(context)!.please_enter_all_data),
+            duration: const Duration(seconds: 1),
+          ),
+        );
+        return;
+      }
+      showCustomDialog(context);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
       child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 10),
-            Text(AppLocalizations.of(context)!.register_as_technician,
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: [
+              const SizedBox(height: 10),
+              Text(
+                AppLocalizations.of(context)!.register_as_technician,
                 style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       color: ColorManager.blackColor,
                       fontWeight: FontWeight.bold,
-                    )),
-            const SizedBox(height: 10),
-            CustomRegistrationTextField(hintText: AppLocalizations.of(context)!.technician_name),
-            CustomRegistrationTextField(hintText: AppLocalizations.of(context)!.id_number),
-            const SizedBox(height: 5),
-            RegisterPhoneField(hintText: AppLocalizations.of(context)!.mobileNumber, controller: controller),
-            const SizedBox(height: 10),
-            CityDropDownField(selectedOption: 'Riyad', options: const ['Riyad', 'Jedda']),
-            CustomRegistrationTextField(hintText: AppLocalizations.of(context)!.profession),
-            const SizedBox(height: 6),
-            UploadImageField(label: AppLocalizations.of(context)!.identity_image),
-            const SizedBox(height: 10),
-            UploadImageField(label: AppLocalizations.of(context)!.personal_image),
-            const SizedBox(height: 10),
-            const TermsConditionsCheck(),
-            const SizedBox(height: 60),
-            Center(
+                    ),
+              ),
+              const SizedBox(height: 10),
+              CustomRegistrationTextField(
+                hintText: AppLocalizations.of(context)!.technician_name,
+                controller: _nameController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return AppLocalizations.of(context)!.pleaseEnterYourName;
+                  }
+                  return null;
+                },
+              ),
+              CustomRegistrationTextField(
+                hintText: AppLocalizations.of(context)!.id_number,
+                controller: _idController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return AppLocalizations.of(context)!.please_enter_id_number;
+                  }
+                  if (value.length != 10) {
+                    return AppLocalizations.of(context)!.invalid_id_number;
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 5),
+              RegisterPhoneField(
+                hintText: AppLocalizations.of(context)!.mobileNumber,
+                controller: _phoneController,
+              ),
+              const SizedBox(height: 10),
+              CityDropDownField(
+                selectedOption: _selectedCity,
+                options: const ['Riyad', 'Jedda'],
+                onChanged: (String? newValue) {
+                  setState(() {
+                    _selectedCity = newValue!;
+                  });
+                },
+              ),
+              const SizedBox(height: 6),
+              UploadImageField(label: AppLocalizations.of(context)!.identity_image),
+              const SizedBox(height: 10),
+              UploadImageField(label: AppLocalizations.of(context)!.personal_image),
+              const SizedBox(height: 10),
+              TermsConditionsCheck(
+                value: _termsAccepted,
+                onChanged: (value) {
+                  setState(() {
+                    _termsAccepted = value!;
+                  });
+                },
+              ),
+              const SizedBox(height: 60),
+              Center(
                 child: ElevatedButton(
-                    onPressed: () {
-                      showCustomDialog(context);
-                    },
-                    child: Text(
-                      AppLocalizations.of(context)!.send_request,
-                      style: Theme.of(context).textTheme.titleMedium,
-                    ))),
-          ],
+                  onPressed: _submitForm,
+                  child: Text(
+                    AppLocalizations.of(context)!.send_request,
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

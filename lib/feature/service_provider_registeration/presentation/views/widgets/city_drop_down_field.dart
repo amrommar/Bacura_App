@@ -6,11 +6,14 @@ import '../../../../../core/utils/color_manager.dart';
 
 class CityDropDownField extends StatefulWidget {
   String selectedOption;
-  List<String> options;
+  final List<String> options;
+  final Function(String?) onChanged;
 
   CityDropDownField({
+    super.key,
     required this.selectedOption,
     required this.options,
+    required this.onChanged,
   });
 
   @override

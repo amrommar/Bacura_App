@@ -202,5 +202,11 @@
   "register_now": "Register Now",
   "take_picture": "Take a Picture",
   "choose_from_gallery": "Choose from Gallery",
-  "request": "Request The Offer"
+  "request": "Request The Offer",
+  "invalid_id_number": "Invalid Id Number",
+  "please_enter_id_number": "Please Enter Id Number",
+  "please_accept_terms": "Please accept Terms",
+  "please_enter_responsible_name": "Please Enter Responsible Name",
+  "please_enter_registration_number": "Please enter the commercial registration number",
+  "invalid_registration_number": "Invalid Registration Number"
 }

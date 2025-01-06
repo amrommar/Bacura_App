@@ -2,15 +2,15 @@ import 'package:bacura_app/core/utils/color_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class TermsConditionsCheck extends StatefulWidget {
-  const TermsConditionsCheck({super.key});
+class TermsConditionsCheck extends StatelessWidget {
+  final bool value;
+  final Function(bool?)? onChanged;
 
-  @override
-  State<TermsConditionsCheck> createState() => _TermsConditionsCheckState();
-}
-
-class _TermsConditionsCheckState extends State<TermsConditionsCheck> {
-  bool isChecked = false;
+  const TermsConditionsCheck({
+    super.key,
+    required this.value,
+    required this.onChanged,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +21,8 @@ class _TermsConditionsCheckState extends State<TermsConditionsCheck> {
           style: Theme.of(context).textTheme.titleSmall!.copyWith(
                 color: ColorManager.greyColor,
               )),
-      value: isChecked,
-      onChanged: (bool? value) {
-        setState(() {
-          isChecked = value ?? false;
-        });
-      },
+      value: value,
+      onChanged: onChanged,
       controlAffinity: ListTileControlAffinity.leading,
     );
   }

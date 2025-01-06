@@ -5,6 +5,7 @@ import 'package:bacura_app/feature/auth/presentation/views/verify_otp_view.dart'
 import 'package:bacura_app/feature/getStarted/presentation/views/get_started_view.dart';
 import 'package:bacura_app/feature/more/presentation/views/about_us_view.dart';
 import 'package:bacura_app/feature/personal/presentation/views/rechargebalance_screen.dart';
+import 'package:bacura_app/feature/request_services/presentation/views/cinema_details_view.dart';
 import 'package:bacura_app/feature/request_services/presentation/views/consultation_view.dart';
 import 'package:bacura_app/feature/service_provider_registeration/presentation/views/register_institution_view.dart';
 import 'package:bacura_app/feature/service_provider_registeration/presentation/views/register_technician_view.dart';
@@ -83,6 +84,7 @@ class Routes {
   static const String registerInstitutionRoute = '/registerInstitution';
   static const String registerTechnicianRoute = '/registerTechnician';
   static const String aboutUsRoute = '/aboutUs';
+  static const String cinemaDetailsRoute = '/cinemaDetails';
 }
 
 class RouteGenerator {
@@ -168,6 +170,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const RegisterInstitutionView());
       case Routes.aboutUsRoute:
         return MaterialPageRoute(builder: (_) => const AboutUsView());
+      case Routes.cinemaDetailsRoute:
+        return MaterialPageRoute(builder: (_) => const CinemaDetailsView());
 
       /// test screen //////////////////////////
 

@@ -11,14 +11,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RegisterInstitutionViewBody extends StatefulWidget {
-  RegisterInstitutionViewBody({super.key});
+  const RegisterInstitutionViewBody({super.key});
 
   @override
   State<RegisterInstitutionViewBody> createState() => _RegisterInstitutionViewBodyState();
 }
 
 class _RegisterInstitutionViewBodyState extends State<RegisterInstitutionViewBody> {
-  TextEditingController controller = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>(); // Form key for validation
+  final TextEditingController _responsibleNameController = TextEditingController();
+  final TextEditingController _registrationNumberController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  String _selectedCity = 'Riyad';
+  bool _termsAccepted = false;
 
   void showCustomDialog(BuildContext context) {
     showDialog(
@@ -42,54 +47,105 @@ class _RegisterInstitutionViewBodyState extends State<RegisterInstitutionViewBod
     );
   }
 
+  void _submitForm() {
+    if (_formKey.currentState!.validate()) {
+      if (!_termsAccepted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: ColorManager.midRedColor,
+            content: Text(AppLocalizations.of(context)!.please_enter_all_data),
+            duration: const Duration(seconds: 1),
+          ),
+        );
+        return;
+      }
+
+      // If all validations pass
+      showCustomDialog(context);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
       child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 10),
-            Text(AppLocalizations.of(context)!.register_as_partner,
+        child: Form(
+          key: _formKey, // Attach form key
+          child: Column(
+            children: [
+              const SizedBox(height: 10),
+              Text(
+                AppLocalizations.of(context)!.register_as_partner,
                 style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       color: ColorManager.blackColor,
                       fontWeight: FontWeight.bold,
-                    )),
-            const SizedBox(height: 10),
-            CustomRegistrationTextField(
-              hintText: AppLocalizations.of(context)!.responsible_name,
-            ),
-            CustomRegistrationTextField(
-              hintText: AppLocalizations.of(context)!.commercial_registration_number,
-            ),
-            const SizedBox(height: 5),
-            RegisterPhoneField(
-              hintText: AppLocalizations.of(context)!.mobileNumber,
-              controller: controller,
-            ),
-            const SizedBox(height: 10),
-            CityDropDownField(
-              selectedOption: 'Riyad',
-              options: const ['Riyad', 'Jedda'],
-            ),
-            const SizedBox(height: 6),
-            UploadImageFieldIcon(
-              label: AppLocalizations.of(context)!.commercial_registration_image,
-            ),
-            const SizedBox(height: 10),
-            const TermsConditionsCheck(),
-            const SizedBox(height: 100),
-            const SizedBox(height: 10),
-            Center(
+                    ),
+              ),
+              const SizedBox(height: 10),
+              CustomRegistrationTextField(
+                hintText: AppLocalizations.of(context)!.responsible_name,
+                controller: _responsibleNameController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return AppLocalizations.of(context)!.please_enter_responsible_name;
+                  }
+                  return null;
+                },
+              ),
+              CustomRegistrationTextField(
+                hintText: AppLocalizations.of(context)!.commercial_registration_number,
+                controller: _registrationNumberController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return AppLocalizations.of(context)!.please_enter_registration_number;
+                  }
+                  if (value.length != 10) {
+                    return AppLocalizations.of(context)!.invalid_registration_number;
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 5),
+              RegisterPhoneField(
+                hintText: AppLocalizations.of(context)!.mobileNumber,
+                controller: _phoneController,
+              ),
+              const SizedBox(height: 10),
+              CityDropDownField(
+                selectedOption: _selectedCity,
+                options: const ['Riyad', 'Jedda'],
+                onChanged: (String? newValue) {
+                  setState(() {
+                    _selectedCity = newValue!;
+                  });
+                },
+              ),
+              const SizedBox(height: 6),
+              UploadImageFieldIcon(
+                label: AppLocalizations.of(context)!.commercial_registration_image,
+              ),
+              const SizedBox(height: 10),
+              TermsConditionsCheck(
+                value: _termsAccepted,
+                onChanged: (value) {
+                  setState(() {
+                    _termsAccepted = value!;
+                  });
+                },
+              ),
+              const SizedBox(height: 100),
+              Center(
                 child: ElevatedButton(
-                    onPressed: () {
-                      showCustomDialog(context);
-                    },
-                    child: Text(
-                      AppLocalizations.of(context)!.send_request,
-                      style: Theme.of(context).textTheme.titleMedium,
-                    ))),
-          ],
+                  onPressed: _submitForm,
+                  child: Text(
+                    AppLocalizations.of(context)!.send_request,
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

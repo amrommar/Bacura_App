@@ -1,4 +1,5 @@
 import 'package:bacura_app/core/utils/color_manager.dart';
+import 'package:bacura_app/core/utils/routes_manager.dart';
 import 'package:bacura_app/core/utils/values_manager.dart';
 import 'package:bacura_app/feature/home/presentation/views/widgets/small_elevatedbutton.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,11 @@ class _RequestSent_BottomSheetState extends State<RequestSent_BottomSheet> {
             ),
 
             ///////////////    Ok  Button     ///////////////////
-            SmallElevatedButton(text: AppLocalizations.of(context)!.ok, onPressed: () {}),
+            SmallElevatedButton(
+                text: AppLocalizations.of(context)!.ok,
+                onPressed: () {
+                  Navigator.pushNamed(context, Routes.homeScreenRoute);
+                }),
           ],
         ),
       ),

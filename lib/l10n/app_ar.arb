@@ -202,5 +202,11 @@
   "register_now": "سجل الآن",
   "take_picture": "التقط صورة",
   "choose_from_gallery": "اختر من المعرض",
-  "request": "طلب العرض"
+  "request": "طلب العرض",
+  "invalid_id_number": "رقم الهوية غير صالح",
+  "please_enter_id_number": "الرجاء إدخال رقم الهوية",
+  "please_accept_terms": "يرجى قبول الشروط",
+  "please_enter_responsible_name": "الرجاء إدخال اسم المسئول",
+  "please_enter_registration_number": "الرجاء إدخال رقم السجل التجاري",
+  "invalid_registration_number": "رقم السجل غير صحيح"
 }
