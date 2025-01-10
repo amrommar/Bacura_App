@@ -39,7 +39,7 @@ class _MyAppState extends State<MyApp> {
         supportedLocales: AppLocalizations.supportedLocales,
         debugShowCheckedModeBanner: false,
         onGenerateRoute: RouteGenerator.getRoute,
-        initialRoute: Routes.homeScreenRoute,
+        initialRoute: Routes.loginRoute,
         theme: getAppTheme(),
       ),
     );
