@@ -44,7 +44,7 @@ class _TechnicalSupportViewState extends State<TechnicalSupportView> {
                 Navigator.pushNamed(context, Routes.userGuideRoute);
               }),
           SizedBox(height: 70.h),
-          BacuraLogoContainer()
+          const BacuraLogoContainer()
         ])));
   }
 }
