@@ -1,6 +1,5 @@
 import 'package:bacura_app/core/utils/color_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextFormField extends StatelessWidget {
   String fieldName;
@@ -33,7 +32,6 @@ class CustomTextFormField extends StatelessWidget {
                 color: ColorManager.darkBlueColor,
               ),
         ),
-        SizedBox(height: 10.h),
         TextFormField(
           style: Theme.of(context).textTheme.titleMedium!.copyWith(
                 color: ColorManager.darkBlueColor,

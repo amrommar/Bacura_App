@@ -26,7 +26,7 @@ class _RegisterViewState extends State<RegisterView> {
               backgroundColor: ColorManager.transparent,
               elevation: 0,
               centerTitle: true,
-              toolbarHeight: 100.h),
+              toolbarHeight: 40.h),
           backgroundColor: ColorManager.transparent,
           body: const RegisterViewBody())
     ]);
