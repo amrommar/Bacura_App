@@ -1,13 +1,14 @@
 import 'package:bacura_app/core/providers/language_provider.dart';
+import 'package:bacura_app/core/services/services_initializer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-
 import 'core/utils/routes_manager.dart';
 import 'core/utils/theme_manager.dart';
 
-void main() {
+void main() async {
+  await ServiceInitializer().initializeSettings();
   runApp(
     MultiProvider(
       providers: [
@@ -39,7 +40,7 @@ class _MyAppState extends State<MyApp> {
         supportedLocales: AppLocalizations.supportedLocales,
         debugShowCheckedModeBanner: false,
         onGenerateRoute: RouteGenerator.getRoute,
-        initialRoute: Routes.homeScreenRoute,
+        initialRoute: Routes.getStartedRoute,
         theme: getAppTheme(),
       ),
     );

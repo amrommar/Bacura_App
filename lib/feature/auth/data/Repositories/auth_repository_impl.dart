@@ -1,21 +1,19 @@
+import 'package:bacura_app/core/error/failaure.dart';
 import 'package:bacura_app/feature/auth/data/DataSource/auth_remote_data_source.dart';
+import 'package:bacura_app/feature/auth/domain/Repositories/base_auth_repository.dart';
+import 'package:bacura_app/feature/auth/domain/usecases/login_usecase.dart';
+import 'package:dartz/dartz.dart';
 
-import '../../domain/entities/user.dart';
-import '../../domain/repositories/auth_repository.dart';
-import '../models/login_request_model.dart';
+class AuthRepository extends BaseAuthRepository {
+  final BaseAuthRemoteDataSource baseAuthRemoteDataSource;
 
-class AuthRepositoryImpl implements AuthRepository {
-  final AuthRemoteDataSource remoteDataSource;
-
-  AuthRepositoryImpl({required this.remoteDataSource});
-
+  AuthRepository({required this.baseAuthRemoteDataSource});
   @override
-  Future<void> login(User user) async {
-    final loginModel = LoginRequestModel(
-      phone: user.phone,
-      countryCode: user.countryCode,
-    );
-
-    await remoteDataSource.login(loginModel);
+  Future<Either<Failure, void>> login({required LoginParameter loginParameter}) async {
+    try {
+      return Right(await baseAuthRemoteDataSource.login(loginParameter));
+    } on Failure catch (ex) {
+      return Left(ServerFailure(code: ex.code, message: ex.message));
+    }
   }
 }

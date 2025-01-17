@@ -173,8 +173,6 @@ class RouteGenerator {
       case Routes.cinemaDetailsRoute:
         return MaterialPageRoute(builder: (_) => const CinemaDetailsView());
 
-      /// test screen //////////////////////////
-
       default:
         return unDefinedRoute();
     }
