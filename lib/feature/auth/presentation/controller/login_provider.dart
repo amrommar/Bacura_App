@@ -13,9 +13,8 @@ class LoginProvider with ChangeNotifier {
             style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkRedColor),
           )));
     } else {
-      sl<LoginUseCase>()
-          .call(LoginParameter(phone: mobileNumberController.text, countryCode: AppConstants.countryCode));
-      Navigator.pushNamed(context, Routes.verifyOTPRoute);
+      sl<LoginUseCase>().call(LoginParameter(phone: mobileNumberController.text, countryCode: AppConstants.countryCode));
+      Navigator.pushNamed(context, Routes.verifyOTPRoute, arguments: mobileNumberController.text);
     }
   }
 }

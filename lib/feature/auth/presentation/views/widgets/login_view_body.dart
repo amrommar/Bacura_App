@@ -17,8 +17,8 @@ class _LoginViewBodyState extends State<LoginViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<LoginProvider>(
-      builder: (context, provider, child) => SingleChildScrollView(
+    return Consumer<LoginProvider>(builder: (context, provider, child) {
+      return SingleChildScrollView(
           child: Container(
               padding: EdgeInsets.symmetric(horizontal: 29.w, vertical: 65.h),
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -50,7 +50,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           style: Theme.of(context).textTheme.titleMedium,
                         ))),
                 SizedBox(height: 20.h)
-              ]))),
-    );
+              ])));
+    });
   }
 }
