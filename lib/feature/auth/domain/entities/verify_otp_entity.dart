@@ -1,7 +1,3 @@
-/// message : null
-/// data : {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiI0IiwibmJmIjoxNzM3MTk2MDk5LCJleHAiOjE3Mzg0MDU2OTksImlhdCI6MTczNzE5NjA5OSwiaXNzIjoiV2ViLUFwcGxpY2F0aW9uIiwiYXVkIjoiV2ViLUFwaSJ9.FB5SzgW_xTwDSNaWS9WH1itrflM095jOBD59ENOqwJQ","country_code":null,"phone":null,"is_completed":true,"otp":null,"role":"Customer"}
-/// error : null
-
 class VerifyOtpEntity {
   VerifyOtpEntity({
     this.message,

@@ -25,7 +25,6 @@ export 'package:bacura_app/core/utils/values_manager.dart';
 export 'package:bacura_app/feature/auth/data/DataSource/auth_remote_data_source.dart';
 export 'package:bacura_app/feature/auth/data/Repositories/auth_repository_impl.dart';
 export 'package:bacura_app/feature/auth/domain/Repositories/base_auth_repository.dart';
-export 'package:bacura_app/feature/auth/domain/Repositories/base_verify_repository.dart';
 export 'package:bacura_app/feature/auth/domain/entities/verify_otp_entity.dart';
 export 'package:bacura_app/feature/auth/domain/usecases/login_usecase.dart';
 export 'package:bacura_app/feature/auth/presentation/controller/login_provider.dart';

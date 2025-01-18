@@ -1,3 +1,4 @@
+import 'package:bacura_app/feature/auth/domain/usecases/verify_otp_usecase.dart';
 import 'package:bacura_app/feature/auth/index.dart';
 import 'package:get_it/get_it.dart';
 
@@ -5,10 +6,10 @@ final sl = GetIt.instance;
 
 class DependencyInjectionServices {
   init() async {
-    _initializeLoginUser();
+    _initializeAuthUser();
   }
 
-  _initializeLoginUser() {
+  _initializeAuthUser() {
     //    /// Repository
     sl.registerLazySingleton<BaseAuthRepository>(() => AuthRepository(baseAuthRemoteDataSource: sl()));
 
