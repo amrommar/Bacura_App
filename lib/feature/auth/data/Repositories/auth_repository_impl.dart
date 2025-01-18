@@ -17,8 +17,11 @@ class AuthRepository extends BaseAuthRepository {
   }
 
   @override
-  Future<Either<Failure, VerifyOtpEntity>> verify({required VerifyParameter verifyParameter}) {
-    // TODO: implement verify
-    throw UnimplementedError();
+  Future<Either<Failure, VerifyOtpEntity>> verify({required VerifyParameter verifyParameter}) async {
+    try {
+      return Right(await baseAuthRemoteDataSource.verify(verifyParameter));
+    } on Failure catch (ex) {
+      return Left(ServerFailure(code: ex.code, message: ex.message));
+    }
   }
 }
