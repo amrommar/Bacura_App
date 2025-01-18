@@ -2,7 +2,7 @@ import 'package:bacura_app/core/network/model/api_response.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/auth/data/models/verify_data_model.dart';
 import 'package:bacura_app/feature/auth/data/models/verify_otp_model.dart';
-import 'package:bacura_app/feature/auth/domain/usecases/verify_otp_usecase.dart';
+import 'package:bacura_app/feature/auth/domain/usecases/verify_usecase.dart';
 
 abstract class BaseAuthRemoteDataSource {
   Future<void> login(LoginParameter loginParameter);
