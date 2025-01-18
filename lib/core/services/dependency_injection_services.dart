@@ -15,7 +15,9 @@ class DependencyInjectionServices {
     ///Data Sources
     sl.registerLazySingleton<BaseAuthRemoteDataSource>(() => AuthRemoteDataSource());
 
+
     ///Use Cases
     sl.registerLazySingleton<LoginUseCase>(() => LoginUseCase(baseAuthRepository: sl()));
+    sl.registerLazySingleton<VerifyOTPUseCase>(() => VerifyOTPUseCase(baseAuthRepository: sl()));
   }
 }
