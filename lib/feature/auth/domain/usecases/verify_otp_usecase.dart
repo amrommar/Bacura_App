@@ -2,13 +2,13 @@ import 'package:bacura_app/core/utils/index.dart';
 import 'package:dartz/dartz.dart';
 
 class VerifyOTPUseCase extends BaseUseCases<VerifyOtpEntity, VerifyParameter> {
-  final BaseVerifyRepository baseVerifyRepository;
+  final BaseAuthRepository baseAuthRepository;
 
-  VerifyOTPUseCase({required this.baseVerifyRepository});
+  VerifyOTPUseCase({required this.baseAuthRepository});
 
   @override
   Future<Either<Failure, VerifyOtpEntity>> call(VerifyParameter parameters) {
-    return baseVerifyRepository.verify(verifyParameter: parameters);
+    return baseAuthRepository.verify(verifyParameter: parameters);
   }
 }
 
