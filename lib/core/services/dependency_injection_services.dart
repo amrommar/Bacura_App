@@ -1,4 +1,5 @@
-import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/auth/index.dart';
+import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;
 

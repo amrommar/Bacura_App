@@ -16,10 +16,19 @@ class LoginParameter extends Equatable {
   final String phone;
   final String countryCode;
 
-  const LoginParameter({required this.phone, required this.countryCode});
+  const LoginParameter({
+    required this.phone,
+    required this.countryCode,
+  });
 
-  Map<String, dynamic> toMap() => {'phone': phone, 'country_code': countryCode};
+  Map<String, dynamic> toMap() => {
+        'phone': phone,
+        'country_code': countryCode,
+      };
 
   @override
-  List<Object?> get props => [phone, countryCode];
+  List<Object?> get props => [
+        phone,
+        countryCode,
+      ];
 }
