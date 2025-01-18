@@ -1,5 +1,4 @@
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/auth/presentation/controller/auth_provider.dart';
 import 'package:get/get.dart';
 
 class LoginProvider with ChangeNotifier {

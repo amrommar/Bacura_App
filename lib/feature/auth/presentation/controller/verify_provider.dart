@@ -1,6 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/auth/domain/usecases/verify_otp_usecase.dart';
-import 'package:bacura_app/feature/auth/presentation/controller/auth_provider.dart';
 import 'package:get/get.dart';
 
 class VerifyProvider extends ChangeNotifier {
