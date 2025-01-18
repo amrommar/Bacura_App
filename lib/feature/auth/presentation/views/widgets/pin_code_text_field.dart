@@ -1,6 +1,4 @@
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:flutter/material.dart';
-import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class CustomPinCodeTextField extends StatelessWidget {
   Function(dynamic) onChanged;

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class MoreTabViewBody extends StatelessWidget {
   const MoreTabViewBody({super.key});

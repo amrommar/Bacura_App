@@ -1,7 +1,4 @@
-import 'package:bacura_app/core/services/dependency_injection_services.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class ServiceInitializer {
   ServiceInitializer._();

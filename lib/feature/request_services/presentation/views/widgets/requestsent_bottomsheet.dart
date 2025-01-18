@@ -1,9 +1,4 @@
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:bacura_app/core/utils/routes_manager.dart';
-import 'package:bacura_app/core/utils/values_manager.dart';
-import 'package:bacura_app/feature/home/presentation/views/widgets/small_elevatedbutton.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class RequestSent_BottomSheet extends StatefulWidget {
   @override

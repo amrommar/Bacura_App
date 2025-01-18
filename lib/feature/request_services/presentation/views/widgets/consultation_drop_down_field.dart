@@ -1,6 +1,4 @@
-import 'package:bacura_app/feature/request_services/presentation/views/widgets/dropdown_field.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class ConsultationDropDownField extends StatelessWidget {
   ConsultationDropDownField({super.key});

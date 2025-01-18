@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class SocialMediaIcon extends StatelessWidget {
   String path;

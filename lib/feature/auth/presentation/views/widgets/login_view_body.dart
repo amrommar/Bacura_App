@@ -1,4 +1,4 @@
-import 'package:bacura_app/feature/auth/index.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});

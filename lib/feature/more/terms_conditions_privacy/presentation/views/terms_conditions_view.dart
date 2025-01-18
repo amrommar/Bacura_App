@@ -1,7 +1,4 @@
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:bacura_app/feature/more/terms_conditions_privacy/presentation/views/widgets/terms_conditions_view_body.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class TermsConditionsView extends StatefulWidget {
   const TermsConditionsView({super.key});

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class ColorManager {
   static Color primaryBlueColor = const Color(0xff1C65AE);

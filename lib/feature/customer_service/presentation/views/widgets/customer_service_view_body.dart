@@ -1,8 +1,4 @@
-import 'package:bacura_app/feature/customer_service/presentation/views/widgets/customer_service_message.dart';
-import 'package:bacura_app/feature/customer_service/presentation/views/widgets/user_message.dart';
-import 'package:bacura_app/feature/customer_service/presentation/views/widgets/write_message_section.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class CustomerServiceViewBody extends StatelessWidget {
   const CustomerServiceViewBody({super.key});

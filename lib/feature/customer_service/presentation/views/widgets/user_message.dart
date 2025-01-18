@@ -1,7 +1,4 @@
-import 'package:bacura_app/core/providers/language_provider.dart';
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class UserMessage extends StatelessWidget {
   String message;

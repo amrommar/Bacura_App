@@ -1,8 +1,4 @@
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:open_street_map_search_and_pick/open_street_map_search_and_pick.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class SetLocationBottomSheet extends StatefulWidget {
   var locationController = TextEditingController();

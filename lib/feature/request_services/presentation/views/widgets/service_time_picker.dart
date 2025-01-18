@@ -1,7 +1,5 @@
+import 'package:bacura_app/core/utils/index.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:time_picker_spinner_pop_up/time_picker_spinner_pop_up.dart';
 
 class ServiceTimePicker extends StatelessWidget {
   const ServiceTimePicker({super.key});

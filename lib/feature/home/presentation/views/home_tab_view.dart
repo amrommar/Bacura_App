@@ -1,10 +1,4 @@
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:bacura_app/core/utils/routes_manager.dart';
-import 'package:bacura_app/feature/home/presentation/views/widgets/home_ads_slider.dart';
-import 'package:bacura_app/feature/home/presentation/views/widgets/rare_service.dart';
-import 'package:bacura_app/feature/home/presentation/views/widgets/services_grid_view.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class HomeTabView extends StatefulWidget {
   const HomeTabView({super.key});

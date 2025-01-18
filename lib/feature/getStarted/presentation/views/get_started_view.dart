@@ -1,8 +1,4 @@
-import 'package:bacura_app/core/providers/language_provider.dart';
-import 'package:bacura_app/core/utils/assets_manager.dart';
-import 'package:bacura_app/feature/getStarted/presentation/views/widgets/get_started_view_body.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class GetstartedView extends StatefulWidget {
   const GetstartedView({super.key});

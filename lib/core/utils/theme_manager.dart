@@ -1,10 +1,4 @@
-import 'package:bacura_app/core/utils/styles_manager.dart';
-import 'package:bacura_app/core/utils/values_manager.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'color_manager.dart';
-import 'font_manager.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 ThemeData getAppTheme() {
   return ThemeData(

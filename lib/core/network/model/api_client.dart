@@ -1,9 +1,4 @@
-// ignore: constant_identifier_names
-import 'package:bacura_app/core/error/failaure.dart';
-import 'package:bacura_app/core/network/model/last_api_error_recorded.dart';
-import 'package:bacura_app/core/network/model/network_constants.dart';
-import 'package:dio/dio.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 enum RequestType { GET, POST, PUT, PATCH, DELETE }
 
@@ -36,7 +31,14 @@ class ApiClient {
           sendTimeout: NetworkConstants.timeOutDuration,
         );
     client.interceptors.addAll([
-      PrettyDioLogger(requestHeader: true, requestBody: true, responseBody: true, responseHeader: true, error: true, compact: true, maxWidth: 120),
+      PrettyDioLogger(
+          requestHeader: true,
+          requestBody: true,
+          responseBody: true,
+          responseHeader: true,
+          error: true,
+          compact: true,
+          maxWidth: 120),
       // HeaderInterceptor(),
       // RefreshTokenInterceptor(),
       // ErrorInterceptors(),
@@ -122,14 +124,17 @@ class ApiClient {
           DateTime.now().difference(lastErrorRecorded!.time).inSeconds < 5) {
         throw Exception(NetworkConstants.repetitiveException);
       } else {
-        lastErrorRecorded = LastApiErrorRecorded(time: DateTime.now(), message: error.message ?? error.response?.statusMessage ?? "");
+        lastErrorRecorded =
+            LastApiErrorRecorded(time: DateTime.now(), message: error.message ?? error.response?.statusMessage ?? "");
         throw ServerFailure(
           code: error.response?.statusCode ?? 500,
           message: error.message ?? error.response?.statusMessage ?? "",
         );
       }
     } catch (error) {
-      if (lastErrorRecorded != null && lastErrorRecorded!.message == error.toString() && DateTime.now().difference(lastErrorRecorded!.time).inSeconds < 5) {
+      if (lastErrorRecorded != null &&
+          lastErrorRecorded!.message == error.toString() &&
+          DateTime.now().difference(lastErrorRecorded!.time).inSeconds < 5) {
         throw Exception(NetworkConstants.repetitiveException);
       } else {
         lastErrorRecorded = LastApiErrorRecorded(time: DateTime.now(), message: error.toString());

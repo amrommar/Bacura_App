@@ -1,7 +1,4 @@
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class HomeBottomNavigationBar extends StatefulWidget {
   HomeBottomNavigationBar({super.key, required this.onTap, required this.currentIndex});

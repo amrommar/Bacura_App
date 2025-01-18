@@ -1,9 +1,4 @@
-import 'package:bacura_app/core/utils/assets_manager.dart';
-import 'package:bacura_app/core/utils/values_manager.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../../core/utils/color_manager.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class OffersCard extends StatelessWidget {
   @override

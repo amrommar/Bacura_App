@@ -1,8 +1,4 @@
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:bacura_app/feature/auth/presentation/views/widgets/bacura_logo_container.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class AboutUsViewBody extends StatelessWidget {
   const AboutUsViewBody({super.key});

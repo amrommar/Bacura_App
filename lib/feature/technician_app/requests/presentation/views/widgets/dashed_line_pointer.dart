@@ -1,3 +1,4 @@
+import 'package:bacura_app/core/utils/index.dart';
 import 'package:flutter/material.dart';
 
 class DashPainter extends CustomPainter {

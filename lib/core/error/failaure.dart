@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 abstract class Failure extends Equatable {
   final int code;

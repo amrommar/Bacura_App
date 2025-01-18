@@ -1,4 +1,4 @@
-import 'dart:ui';
+import 'package:bacura_app/core/utils/index.dart';
 
 class FontConstants {
   static const String fontFamily = "Tajawal";

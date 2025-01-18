@@ -1,11 +1,4 @@
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:bacura_app/feature/auth/presentation/views/widgets/bacura_logo_container.dart';
-import 'package:bacura_app/feature/more/technical_support/views/widgets/user_guide_content.dart';
-import 'package:bacura_app/feature/more/technical_support/views/widgets/user_guide_small_list.dart';
-import 'package:bacura_app/feature/more/technical_support/views/widgets/user_guide_small_title.dart';
-import 'package:bacura_app/feature/more/technical_support/views/widgets/user_guide_title.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class UserGuideViewBody extends StatelessWidget {
   const UserGuideViewBody({super.key});

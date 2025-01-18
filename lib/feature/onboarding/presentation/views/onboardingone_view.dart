@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class OnBoardingOne_Screen extends StatefulWidget {
   const OnBoardingOne_Screen({super.key});

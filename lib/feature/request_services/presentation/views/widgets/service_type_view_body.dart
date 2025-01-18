@@ -1,10 +1,4 @@
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:bacura_app/core/utils/routes_manager.dart';
-import 'package:bacura_app/feature/request_services/presentation/views/widgets/next_button.dart';
-import 'package:bacura_app/feature/request_services/presentation/views/widgets/service_type_container.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class ServiceTypeViewBody extends StatefulWidget {
   const ServiceTypeViewBody({super.key});

@@ -1,14 +1,4 @@
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:bacura_app/core/utils/routes_manager.dart';
-import 'package:bacura_app/feature/more/presentation/views/widgets/bacura_store_row.dart';
-import 'package:bacura_app/feature/more/presentation/views/widgets/change_language_row.dart';
-import 'package:bacura_app/feature/more/presentation/views/widgets/custom_more_row.dart';
-import 'package:bacura_app/feature/more/presentation/views/widgets/share_app_container.dart';
-import 'package:bacura_app/feature/more/presentation/views/widgets/social_media_icon.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class More_Tab extends StatefulWidget {
   const More_Tab({super.key});

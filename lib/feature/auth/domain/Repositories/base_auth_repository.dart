@@ -1,5 +1,4 @@
-import 'package:bacura_app/core/error/failaure.dart';
-import 'package:bacura_app/feature/auth/domain/usecases/login_usecase.dart';
+import 'package:bacura_app/core/utils/index.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class BaseAuthRepository {

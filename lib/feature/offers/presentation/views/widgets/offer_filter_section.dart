@@ -1,10 +1,4 @@
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:bacura_app/feature/offers/presentation/views/widgets/custom_filter_container.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:multi_select_flutter/dialog/mult_select_dialog.dart';
-import 'package:multi_select_flutter/util/multi_select_item.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class OfferFilterSection extends StatefulWidget {
   @override

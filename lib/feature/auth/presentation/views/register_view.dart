@@ -1,9 +1,8 @@
+import 'package:bacura_app/core/utils/assets_manager.dart';
+import 'package:bacura_app/core/utils/color_manager.dart';
 import 'package:bacura_app/feature/auth/presentation/views/widgets/register_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../core/utils/assets_manager.dart';
-import '../../../../core/utils/color_manager.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({super.key});

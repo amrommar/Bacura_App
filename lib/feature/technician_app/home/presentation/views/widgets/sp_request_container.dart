@@ -1,11 +1,4 @@
-import 'package:bacura_app/feature/technician_app/home/presentation/views/widgets/sp_request_num_row.dart';
-import 'package:bacura_app/feature/technician_app/home/presentation/views/widgets/sp_request_work_time_row.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../../../core/utils/color_manager.dart';
-import '../../../../../../core/utils/routes_manager.dart';
-import '../../../../../../core/utils/values_manager.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class SPRequestContainer extends StatelessWidget {
   const SPRequestContainer({super.key});

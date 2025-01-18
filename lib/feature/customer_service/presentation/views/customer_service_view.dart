@@ -1,7 +1,4 @@
-import 'package:bacura_app/feature/customer_service/presentation/views/widgets/customer_service_app_bar_action.dart';
-import 'package:bacura_app/feature/customer_service/presentation/views/widgets/customer_service_view_body.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class CustomerServiceView extends StatefulWidget {
   const CustomerServiceView({super.key});

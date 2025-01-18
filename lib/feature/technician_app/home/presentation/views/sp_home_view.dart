@@ -1,10 +1,4 @@
-import 'package:bacura_app/core/providers/language_provider.dart';
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:bacura_app/core/utils/routes_manager.dart';
-import 'package:bacura_app/feature/technician_app/home/presentation/views/widgets/sp_request_container.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:provider/provider.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class SpHomeView extends StatefulWidget {
   @override

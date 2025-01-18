@@ -1,13 +1,4 @@
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:bacura_app/feature/home/presentation/views/widgets/small_elevatedbutton.dart';
-import 'package:bacura_app/feature/request_services/presentation/views/widgets/dropdown_field.dart';
-import 'package:bacura_app/feature/request_services/presentation/views/widgets/question_textformfield.dart';
-import 'package:bacura_app/feature/request_services/presentation/views/widgets/requestsent_bottomsheet.dart';
-import 'package:bacura_app/feature/request_services/presentation/views/widgets/service_time_picker.dart';
-import 'package:bacura_app/feature/request_services/presentation/views/widgets/set_location_bottom_sheet.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class ServiceDetailsViewBody extends StatefulWidget {
   const ServiceDetailsViewBody({super.key});

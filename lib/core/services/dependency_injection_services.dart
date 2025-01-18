@@ -1,8 +1,4 @@
-import 'package:bacura_app/feature/auth/data/DataSource/auth_remote_data_source.dart';
-import 'package:bacura_app/feature/auth/data/Repositories/auth_repository_impl.dart';
-import 'package:bacura_app/feature/auth/domain/Repositories/base_auth_repository.dart';
-import 'package:bacura_app/feature/auth/domain/usecases/login_usecase.dart';
-import 'package:get_it/get_it.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 final sl = GetIt.instance;
 

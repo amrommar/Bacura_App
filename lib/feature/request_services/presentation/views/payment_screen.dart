@@ -1,15 +1,4 @@
-import 'package:bacura_app/feature/home/presentation/views/widgets/small_elevatedbutton.dart';
-import 'package:bacura_app/feature/request_services/presentation/views/widgets/custom_shadow_container_row.dart';
-import 'package:bacura_app/feature/request_services/presentation/views/widgets/verifyOTP_bottomsheet.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-
-import '../../../../core/utils/color_manager.dart';
-import '../../../../core/utils/values_manager.dart';
-import '../../../more/presentation/views/widgets/add_card_bottomsheet.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class Payment_Screen extends StatefulWidget {
   @override

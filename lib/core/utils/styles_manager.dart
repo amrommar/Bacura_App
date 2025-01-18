@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-
-import 'font_manager.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 TextStyle _getTextStyle(double fontSize, FontWeight fontWeight, Color color) {
   return TextStyle(

@@ -1,6 +1,4 @@
-import 'package:bacura_app/feature/technician_app/requests/presentation/views/widgets/sp_request_details_view_body.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class Sp_RequestDetails_Screen extends StatefulWidget {
   @override

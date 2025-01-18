@@ -1,5 +1,4 @@
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:flutter/material.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class Custom_More_row extends StatelessWidget {
   String text;

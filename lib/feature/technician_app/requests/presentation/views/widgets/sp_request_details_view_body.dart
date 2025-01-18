@@ -1,14 +1,4 @@
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:bacura_app/core/utils/routes_manager.dart';
-import 'package:bacura_app/core/utils/values_manager.dart';
-import 'package:bacura_app/feature/requests/presetation/views/widgets/request_details_icon_texts_row.dart';
-import 'package:bacura_app/feature/requests/presetation/views/widgets/request_time_date.dart';
-import 'package:bacura_app/feature/technician_app/home/presentation/views/widgets/sp_request_num_row.dart';
-import 'package:bacura_app/feature/technician_app/requests/presentation/views/widgets/customer_name_row.dart';
-import 'package:bacura_app/feature/technician_app/requests/presentation/views/widgets/customer_request_components.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class SpRequestDetailsViewBody extends StatefulWidget {
   const SpRequestDetailsViewBody({super.key});

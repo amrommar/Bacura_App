@@ -1,14 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
-import '../../../../../core/utils/color_manager.dart';
-
-class SpPersonalRowDetails extends StatefulWidget {
+class SpProfileRowDetails extends StatefulWidget {
   IconData icon;
   String text;
   String value;
 
-  SpPersonalRowDetails({
+  SpProfileRowDetails({
     super.key,
     required this.icon,
     required this.text,
@@ -16,10 +13,10 @@ class SpPersonalRowDetails extends StatefulWidget {
   });
 
   @override
-  State<SpPersonalRowDetails> createState() => _SpPersonalRowDetailsState();
+  State<SpProfileRowDetails> createState() => _SpProfileRowDetailsState();
 }
 
-class _SpPersonalRowDetailsState extends State<SpPersonalRowDetails> {
+class _SpProfileRowDetailsState extends State<SpProfileRowDetails> {
   ////// Custom Row contain: (Icon - Column : 'text / text' - text)/////////////////////////////////////
   @override
   Widget build(BuildContext context) {

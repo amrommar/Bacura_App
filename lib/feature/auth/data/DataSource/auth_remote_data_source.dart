@@ -1,6 +1,4 @@
-import 'package:bacura_app/core/network/model/api_client.dart';
-import 'package:bacura_app/core/network/model/api_endoint.dart';
-import 'package:bacura_app/feature/auth/domain/usecases/login_usecase.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 abstract class BaseAuthRemoteDataSource {
   Future<void> login(LoginParameter loginParameter);

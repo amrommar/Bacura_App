@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../../core/utils/color_manager.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class Selected_Filter_Container extends StatelessWidget {
   String text;

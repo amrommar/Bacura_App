@@ -1,12 +1,4 @@
-import 'package:bacura_app/core/utils/DialogUtils.dart';
-import 'package:bacura_app/core/utils/routes_manager.dart';
-import 'package:bacura_app/feature/home/presentation/views/home_view.dart';
-import 'package:bacura_app/feature/home/presentation/views/widgets/small_elevatedbutton.dart';
-import 'package:bacura_app/feature/request_services/presentation/views/widgets/dropdown_field.dart';
-import 'package:bacura_app/feature/request_services/presentation/views/widgets/question_textformfield.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class ComplaintsViewBody extends StatelessWidget {
   var cameraTypeController = TextEditingController();

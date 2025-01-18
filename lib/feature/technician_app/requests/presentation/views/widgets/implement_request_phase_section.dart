@@ -1,6 +1,4 @@
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:bacura_app/feature/technician_app/requests/presentation/views/widgets/dashed_line_pointer.dart';
-import 'package:flutter/material.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class ImplementRequestPhaseSection extends StatefulWidget {
   final String title;

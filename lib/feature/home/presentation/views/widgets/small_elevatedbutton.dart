@@ -1,7 +1,4 @@
-import 'package:bacura_app/core/utils/values_manager.dart';
-import 'package:flutter/material.dart';
-
-import '../../../../../core/utils/color_manager.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class SmallElevatedButton extends StatelessWidget {
   String text;

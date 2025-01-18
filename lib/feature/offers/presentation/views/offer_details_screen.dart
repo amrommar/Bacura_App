@@ -1,11 +1,4 @@
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:bacura_app/core/utils/routes_manager.dart';
-import 'package:bacura_app/core/utils/values_manager.dart';
-import 'package:bacura_app/feature/home/presentation/views/widgets/small_elevatedbutton.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class OfferDetails_Screen extends StatefulWidget {
   const OfferDetails_Screen({super.key});

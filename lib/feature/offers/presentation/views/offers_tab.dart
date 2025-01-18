@@ -1,10 +1,4 @@
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:bacura_app/core/utils/routes_manager.dart';
-import 'package:bacura_app/core/utils/values_manager.dart';
-import 'package:bacura_app/feature/offers/presentation/views/widgets/custom_offer_container.dart';
-import 'package:bacura_app/feature/offers/presentation/views/widgets/offer_filter_section.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class Offers_Tab extends StatefulWidget {
   const Offers_Tab({super.key});

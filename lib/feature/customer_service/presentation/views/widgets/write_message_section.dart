@@ -1,6 +1,4 @@
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:bacura_app/core/utils/values_manager.dart';
-import 'package:flutter/material.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class WriteMessageSection extends StatelessWidget {
   const WriteMessageSection({super.key});
