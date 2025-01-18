@@ -40,7 +40,7 @@ export 'package:bacura_app/feature/auth/presentation/views/widgets/pin_code_text
 export 'package:bacura_app/feature/auth/presentation/views/widgets/register_view_body.dart';
 export 'package:bacura_app/feature/auth/presentation/views/widgets/resend_otp_again.dart';
 export 'package:bacura_app/feature/auth/presentation/views/widgets/verify_button.dart';
-export 'package:bacura_app/feature/auth/presentation/views/widgets/verify_otp_view_body.dart';
+export 'package:bacura_app/feature/auth/presentation/views/widgets/verify_view.dart';
 export 'package:bacura_app/feature/customer_service/presentation/views/customer_service_view.dart';
 export 'package:bacura_app/feature/customer_service/presentation/views/widgets/customer_service_app_bar_action.dart';
 export 'package:bacura_app/feature/customer_service/presentation/views/widgets/customer_service_message.dart';

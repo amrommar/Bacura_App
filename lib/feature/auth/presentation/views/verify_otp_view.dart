@@ -20,7 +20,7 @@ class _VerifyOTPViewState extends State<VerifyOTPView> {
               toolbarHeight: 100.h),
           backgroundColor: ColorManager.transparent,
           resizeToAvoidBottomInset: false,
-          body: const VerifyOTPViewBody())
+          body: const VerifyView())
     ]);
   }
 

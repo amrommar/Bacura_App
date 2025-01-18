@@ -1,20 +1,29 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/auth/presentation/controller/auth_provider.dart';
+import 'package:get/get.dart';
 
 class LoginProvider with ChangeNotifier {
   var mobileNumberController = TextEditingController();
 
   void onLoginSubmit(BuildContext context) {
-    if (mobileNumberController.text.isEmpty || mobileNumberController.text.length < 9) {
+    final mobileNumber = mobileNumberController.text;
+
+    if (mobileNumber.isEmpty || mobileNumber.length < 9) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          duration: const Duration(seconds: 1),
-          backgroundColor: ColorManager.midWhiteColor,
-          content: Text(
-            AppLocalizations.of(context)!.please_enter_valid_phone_number,
-            style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkRedColor),
-          )));
+        duration: const Duration(seconds: 1),
+        backgroundColor: ColorManager.midWhiteColor,
+        content: Text(
+          AppLocalizations.of(context)!.please_enter_valid_phone_number,
+          style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkRedColor),
+        ),
+      ));
     } else {
-      sl<LoginUseCase>().call(LoginParameter(phone: mobileNumberController.text, countryCode: AppConstants.countryCode));
-      Navigator.pushNamed(context, Routes.verifyOTPRoute, arguments: mobileNumberController.text);
+      print(mobileNumberController.text);
+      Navigator.pushNamed(
+        context,
+        Routes.verifyOTPRoute,
+        arguments: mobileNumber,
+      );
     }
   }
 }

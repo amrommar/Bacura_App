@@ -8,10 +8,9 @@ class CustomPinCodeTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: EdgeInsets.all(4.h),
       child: PinCodeTextField(
-          textStyle:
-              Theme.of(context).textTheme.displayLarge!.copyWith(color: ColorManager.primaryBlueColor, fontSize: 28),
+          textStyle: Theme.of(context).textTheme.displayLarge!.copyWith(color: ColorManager.primaryBlueColor, fontSize: 32.sp),
           appContext: context,
           length: 4,
           onChanged: (value) {

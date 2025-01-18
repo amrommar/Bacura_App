@@ -1,19 +1,18 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/auth/presentation/controller/verify_provider.dart';
 
-class VerifyOTPViewBody extends StatefulWidget {
-  const VerifyOTPViewBody({super.key});
+class VerifyView extends StatefulWidget {
+  const VerifyView({super.key});
 
   @override
-  State<VerifyOTPViewBody> createState() => _VerifyOTPViewBodyState();
+  State<VerifyView> createState() => _VerifyViewState();
 }
 
-class _VerifyOTPViewBodyState extends State<VerifyOTPViewBody> {
+class _VerifyViewState extends State<VerifyView> {
   var formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    final mobileNumber = ModalRoute.of(context)!.settings.arguments as String?;
     return ChangeNotifierProvider(
       create: (context) => VerifyProvider(),
       child: Consumer<VerifyProvider>(
@@ -34,17 +33,22 @@ class _VerifyOTPViewBodyState extends State<VerifyOTPViewBody> {
                       )),
               const ChangeNumberRow(),
               SizedBox(height: 30.h),
-              Form(
+              Expanded(
+                child: Form(
                   key: formKey,
-                  child: CustomPinCodeTextField(onChanged: (value) {
-                    provider.pinCode = value;
-                  })),
+                  child: CustomPinCodeTextField(
+                    onChanged: (value) {
+                      provider.pinCode = value;
+                    },
+                  ),
+                ),
+              ),
               SizedBox(height: 50.h),
               Center(
                   child: Column(children: [
                 VerifyButton(
                   onPressed: () {
-                    provider.validatePin(context, mobileNumber ?? '');
+                    provider.validatePin(context);
                   },
                 ),
                 SizedBox(height: 20.h),
