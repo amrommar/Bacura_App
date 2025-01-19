@@ -76,7 +76,7 @@ class _RegisterViewBodyState extends State<RegisterViewBody> {
                       ),
                       CustomDropDownField(
                         selectedOption: 'ذكر',
-                        options: const ['ذكر', 'Female'],
+                        options: const ['ذكر', 'أنثي'],
                         fieldName: AppLocalizations.of(context)!.gender,
                         onChanged: (String? newValue) {
                           if (newValue == null) {
