@@ -31,7 +31,7 @@ class _CinemaDetailsViewBodyState extends State<CinemaDetailsViewBody> {
               children: [
                 ////////////////////     Styled Introductory Title Section     /////////////////////////////////////////
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 16),
+                  padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 16),
                   width: double.infinity,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
@@ -66,7 +66,7 @@ class _CinemaDetailsViewBodyState extends State<CinemaDetailsViewBody> {
                 const ServiceTimePicker(),
                 ////////////////////     Set Time Section     /////////////////////////
                 SizedBox(height: 10.h),
-                DropDown_Field(
+                CustomDropDownField(
                   selectedOption: '9 ص - 1 م',
                   options: options,
                   fieldName: AppLocalizations.of(context)!.set_time,

@@ -29,7 +29,7 @@ export 'package:bacura_app/feature/auth/domain/entities/verify_otp_entity.dart';
 export 'package:bacura_app/feature/auth/domain/usecases/login_usecase.dart';
 export 'package:bacura_app/feature/auth/presentation/controller/login_provider.dart';
 export 'package:bacura_app/feature/auth/presentation/views/login_view.dart';
-export 'package:bacura_app/feature/auth/presentation/views/register_view.dart';
+export 'package:bacura_app/feature/profile/presentation/views/complete_profile_view.dart';
 export 'package:bacura_app/feature/auth/presentation/views/verify_otp_view.dart';
 export 'package:bacura_app/feature/auth/presentation/views/widgets/bacura_logo_container.dart';
 export 'package:bacura_app/feature/auth/presentation/views/widgets/change_number_row.dart';
@@ -37,7 +37,7 @@ export 'package:bacura_app/feature/auth/presentation/views/widgets/custom_phonef
 export 'package:bacura_app/feature/auth/presentation/views/widgets/custom_textformfield.dart';
 export 'package:bacura_app/feature/auth/presentation/views/widgets/login_view_body.dart';
 export 'package:bacura_app/feature/auth/presentation/views/widgets/pin_code_text_field.dart';
-export 'package:bacura_app/feature/auth/presentation/views/widgets/register_view_body.dart';
+export 'package:bacura_app/feature/profile/presentation/views/components/register_view_body.dart';
 export 'package:bacura_app/feature/auth/presentation/views/widgets/resend_otp_again.dart';
 export 'package:bacura_app/feature/auth/presentation/views/widgets/verify_button.dart';
 export 'package:bacura_app/feature/auth/presentation/views/widgets/verify_view.dart';
@@ -140,7 +140,7 @@ export 'package:bacura_app/feature/request_services/presentation/views/widgets/c
 export 'package:bacura_app/feature/request_services/presentation/views/widgets/consultation_drop_down_field.dart';
 export 'package:bacura_app/feature/request_services/presentation/views/widgets/consultation_note_row.dart';
 export 'package:bacura_app/feature/request_services/presentation/views/widgets/custom_shadow_container_row.dart';
-export 'package:bacura_app/feature/request_services/presentation/views/widgets/dropdown_field.dart';
+export 'package:bacura_app/feature/request_services/presentation/views/widgets/custom_drop_down_field.dart';
 export 'package:bacura_app/feature/request_services/presentation/views/widgets/next_button.dart';
 export 'package:bacura_app/feature/request_services/presentation/views/widgets/question_textformfield.dart';
 export 'package:bacura_app/feature/request_services/presentation/views/widgets/requestsent_bottomsheet.dart';

@@ -4,7 +4,7 @@ class CustomTextFormField extends StatelessWidget {
   String fieldName;
   String hintText;
   Widget? suffixIcon;
-  bool isObsucre;
+  bool isObscures;
   var keyboardType;
   String? Function(String?)? validator;
   TextEditingController controller;
@@ -14,7 +14,7 @@ class CustomTextFormField extends StatelessWidget {
     required this.fieldName,
     required this.hintText,
     this.suffixIcon,
-    this.isObsucre = false,
+    this.isObscures = false,
     this.validator,
     required this.controller,
     this.keyboardType = TextInputType.text,
@@ -38,7 +38,7 @@ class CustomTextFormField extends StatelessWidget {
           validator: validator,
           controller: controller,
           keyboardType: keyboardType,
-          obscureText: isObsucre,
+          obscureText: isObscures,
           decoration: InputDecoration(
               hintText: hintText,
               hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(

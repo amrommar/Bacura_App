@@ -15,7 +15,7 @@ class RowToRegister extends StatelessWidget {
       SizedBox(width: 5.w),
       InkWell(
         onTap: () {
-          Navigator.pushNamed(context, Routes.registerRoute);
+          Navigator.pushNamed(context, Routes.completeProfileRoute);
         },
         child: Text(
           AppLocalizations.of(context)!.create_an_account,

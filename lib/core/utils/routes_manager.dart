@@ -5,7 +5,7 @@ class Routes {
   static const String onBoardingTwoRoute = '/onBoardingTwo';
   static const String onBoardingThreeRoute = '/onBoardingThree';
   static const String getStartedRoute = '/getStarted';
-  static const String registerRoute = '/register';
+  static const String completeProfileRoute = '/register';
   static const String verifyOTPRoute = '/verifyOTP';
   static const String loginRoute = '/login';
   static const String homeScreenRoute = '/homeScreen';
@@ -55,8 +55,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const OnBoardingThree_Screen());
       case Routes.getStartedRoute:
         return MaterialPageRoute(builder: (_) => const GetstartedView());
-      case Routes.registerRoute:
-        return MaterialPageRoute(builder: (_) => const RegisterView());
+      case Routes.completeProfileRoute:
+        return MaterialPageRoute(builder: (_) => const CompleteProfileView());
       case Routes.verifyOTPRoute:
         return MaterialPageRoute(builder: (_) => const VerifyOTPView());
       case Routes.loginRoute:
@@ -104,7 +104,7 @@ class RouteGenerator {
       case Routes.consultationScreenRoute:
         return MaterialPageRoute(builder: (_) => Consultation_View());
       case Routes.rechargeBalanceRoute:
-        return MaterialPageRoute(builder: (_) => RechargeBalance_Screen());
+        return MaterialPageRoute(builder: (_) => const RechargeBalance_Screen());
       case Routes.spHomeScreenRoute:
         return MaterialPageRoute(builder: (_) => SpHomeView());
       case Routes.spRequestDetailsRoute:

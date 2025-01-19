@@ -1,17 +1,17 @@
 import 'package:bacura_app/core/utils/assets_manager.dart';
 import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:bacura_app/feature/auth/presentation/views/widgets/register_view_body.dart';
+import 'package:bacura_app/feature/profile/presentation/views/components/register_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class RegisterView extends StatefulWidget {
-  const RegisterView({super.key});
+class CompleteProfileView extends StatefulWidget {
+  const CompleteProfileView({super.key});
 
   @override
-  State<RegisterView> createState() => _RegisterViewState();
+  State<CompleteProfileView> createState() => _CompleteProfileViewState();
 }
 
-class _RegisterViewState extends State<RegisterView> {
+class _CompleteProfileViewState extends State<CompleteProfileView> {
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
@@ -20,7 +20,7 @@ class _RegisterViewState extends State<RegisterView> {
           appBar: AppBar(
               iconTheme: IconThemeData(
                 color: ColorManager.primaryBlueColor,
-                size: 30,
+                size: 30.h,
               ),
               backgroundColor: ColorManager.transparent,
               elevation: 0,

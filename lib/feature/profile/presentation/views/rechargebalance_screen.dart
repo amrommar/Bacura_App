@@ -1,6 +1,8 @@
 import 'package:bacura_app/core/utils/index.dart';
 
 class RechargeBalance_Screen extends StatefulWidget {
+  const RechargeBalance_Screen({super.key});
+
   @override
   State<RechargeBalance_Screen> createState() => _RechargeBalance_ScreenState();
 }
@@ -34,10 +36,7 @@ class _RechargeBalance_ScreenState extends State<RechargeBalance_Screen> {
                       },
                       child: Custom_Payment_Container(
                           widget: Text(AppLocalizations.of(context)!.saved_cards,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleLarge!
-                                  .copyWith(color: ColorManager.darkBlueColor)))),
+                              style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.darkBlueColor)))),
                   InkWell(
                       onTap: () {
                         selectOption(1);
@@ -64,7 +63,7 @@ class _RechargeBalance_ScreenState extends State<RechargeBalance_Screen> {
                         selectedWidget(),
                         Container(
                             width: double.infinity,
-                            padding: EdgeInsets.all(16),
+                            padding: const EdgeInsets.all(16),
                             child: Column(children: [
                               Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
                                 RechargeMoney_Container(text: '100'),
@@ -113,29 +112,22 @@ class _RechargeBalance_ScreenState extends State<RechargeBalance_Screen> {
                   Container(
                       height: 120.h,
                       padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
-                      margin: EdgeInsets.all(2),
+                      margin: const EdgeInsets.all(2),
                       decoration: BoxDecoration(boxShadow: [
                         BoxShadow(
                           color: ColorManager.lightBlueColor,
                           spreadRadius: 2,
                           blurRadius: 4,
-                          offset: Offset(0, 3),
+                          offset: const Offset(0, 3),
                         )
                       ], borderRadius: BorderRadius.circular(AppSize.s12), color: ColorManager.whiteColor),
                       child: Row(children: [
                         Expanded(
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                              Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
-                                  child: Text('500 ريال',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .titleLarge!
-                                          .copyWith(color: ColorManager.primaryBlueColor))),
-                            ])),
+                            child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.center, children: [
+                          Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+                              child: Text('500 ريال', style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.primaryBlueColor))),
+                        ])),
                         SmallElevatedButton(
                             text: AppLocalizations.of(context)!.recharge,
                             onPressed: () {
@@ -143,14 +135,11 @@ class _RechargeBalance_ScreenState extends State<RechargeBalance_Screen> {
                                 showVerifyOTPBottomSheet();
                               } else {
                                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                  duration: Duration(seconds: 1),
+                                  duration: const Duration(seconds: 1),
                                   backgroundColor: ColorManager.midWhiteColor,
                                   content: Text(
                                     AppLocalizations.of(context)!.accept_the_privacy_policy_and_terms_and_conditions,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .titleMedium!
-                                        .copyWith(color: ColorManager.darkRedColor, fontSize: 14),
+                                    style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkRedColor, fontSize: 14),
                                   ),
                                 ));
                               }
@@ -180,68 +169,65 @@ class _RechargeBalance_ScreenState extends State<RechargeBalance_Screen> {
         /// New Card Details Container ////////////////////////////////////////////////////////////////////
         return Padding(
             padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  /// Enter Card Number TextField ////////////////////////////////////////
-                  CardCustom_TxtField(
-                      hintText: AppLocalizations.of(context)!.enter_card_number,
-                      controller: cardNumberController,
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.start, children: [
+              /// Enter Card Number TextField ////////////////////////////////////////
+              CardCustom_TxtField(
+                  hintText: AppLocalizations.of(context)!.enter_card_number,
+                  controller: cardNumberController,
+                  keyboardType: TextInputType.number,
+                  inputFormatter: [FilteringTextInputFormatter.digitsOnly],
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return AppLocalizations.of(context)!.please_enter_card_number;
+                    }
+                    return null;
+                  }),
+              SizedBox(height: 8.h),
+
+              /// Enter Expire date & CVV TextField ////////////////////////////////////////
+              Row(children: [
+                Expanded(
+                  child: CardCustom_TxtField(
+                      hintText: AppLocalizations.of(context)!.cvv,
+                      inputFormatter: [LengthLimitingTextInputFormatter(3), FilteringTextInputFormatter.digitsOnly],
+                      controller: cvvController,
                       keyboardType: TextInputType.number,
-                      inputFormatter: [FilteringTextInputFormatter.digitsOnly],
                       validator: (value) {
                         if (value == null || value.trim().isEmpty) {
-                          return AppLocalizations.of(context)!.please_enter_card_number;
+                          return AppLocalizations.of(context)!.cvv;
                         }
                         return null;
                       }),
-                  SizedBox(height: 8.h),
+                ),
+                SizedBox(width: 10.w),
+                Expanded(
+                    child: CardCustom_TxtField(
+                        hintText: AppLocalizations.of(context)!.mm_yy,
+                        controller: mmyyController,
+                        keyboardType: TextInputType.number,
+                        inputFormatter: [maskFormatter],
+                        // Use mask formatter here
+                        validator: (value) {
+                          if (value == null || value.trim().isEmpty) {
+                            return AppLocalizations.of(context)!.please_enter_mm_yy;
+                          }
+                          return null;
+                        }))
+              ]),
+              SizedBox(height: 8.h),
 
-                  /// Enter Expire date & CVV TextField ////////////////////////////////////////
-                  Row(children: [
-                    Expanded(
-                      child: CardCustom_TxtField(
-                          hintText: AppLocalizations.of(context)!.cvv,
-                          inputFormatter: [LengthLimitingTextInputFormatter(3), FilteringTextInputFormatter.digitsOnly],
-                          controller: cvvController,
-                          keyboardType: TextInputType.number,
-                          validator: (value) {
-                            if (value == null || value.trim().isEmpty) {
-                              return AppLocalizations.of(context)!.cvv;
-                            }
-                            return null;
-                          }),
-                    ),
-                    SizedBox(width: 10.w),
-                    Expanded(
-                        child: CardCustom_TxtField(
-                            hintText: AppLocalizations.of(context)!.mm_yy,
-                            controller: mmyyController,
-                            keyboardType: TextInputType.number,
-                            inputFormatter: [maskFormatter],
-                            // Use mask formatter here
-                            validator: (value) {
-                              if (value == null || value.trim().isEmpty) {
-                                return AppLocalizations.of(context)!.please_enter_mm_yy;
-                              }
-                              return null;
-                            }))
-                  ]),
-                  SizedBox(height: 8.h),
-
-                  /// Enter Name TextField ////////////////////////////////////////
-                  CardCustom_TxtField(
-                      hintText: AppLocalizations.of(context)!.enterYourName,
-                      controller: nameController,
-                      keyboardType: TextInputType.text,
-                      validator: (value) {
-                        if (value == null || value.trim().isEmpty) {
-                          return AppLocalizations.of(context)!.pleaseEnterYourName;
-                        }
-                        return null;
-                      })
-                ]));
+              /// Enter Name TextField ////////////////////////////////////////
+              CardCustom_TxtField(
+                  hintText: AppLocalizations.of(context)!.enterYourName,
+                  controller: nameController,
+                  keyboardType: TextInputType.text,
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return AppLocalizations.of(context)!.pleaseEnterYourName;
+                    }
+                    return null;
+                  })
+            ]));
 
       /// Saved Card CVV Container ////////////////////////////////////////////////////////////////////
       case 2:
@@ -268,7 +254,7 @@ class _RechargeBalance_ScreenState extends State<RechargeBalance_Screen> {
 class Custom_Payment_Container extends StatelessWidget {
   Widget widget;
 
-  Custom_Payment_Container({required this.widget});
+  Custom_Payment_Container({super.key, required this.widget});
 
   @override
   Widget build(BuildContext context) {
@@ -280,28 +266,23 @@ class Custom_Payment_Container extends StatelessWidget {
             color: ColorManager.lightBlueColor,
             spreadRadius: 2,
             blurRadius: 4,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           )
         ], borderRadius: BorderRadius.circular(AppSize.s12), color: ColorManager.whiteColor),
-        child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12.w),
-                child: widget,
-              ),
-              Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
-                  child: Icon(Icons.circle_outlined, color: ColorManager.midBlueColor, size: 30))
-            ]));
+        child: Row(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12.w),
+            child: widget,
+          ),
+          Padding(padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h), child: Icon(Icons.circle_outlined, color: ColorManager.midBlueColor, size: 30))
+        ]));
   }
 }
 
 class RechargeMoney_Container extends StatefulWidget {
   String text;
 
-  RechargeMoney_Container({required this.text});
+  RechargeMoney_Container({super.key, required this.text});
 
   @override
   State<RechargeMoney_Container> createState() => _RechargeMoney_ContainerState();
@@ -320,7 +301,7 @@ class _RechargeMoney_ContainerState extends State<RechargeMoney_Container> {
               color: ColorManager.midWhiteColor,
               spreadRadius: 2,
               blurRadius: 4,
-              offset: Offset(0, 3),
+              offset: const Offset(0, 3),
             )
           ],
           borderRadius: BorderRadius.circular(AppSize.s6),
@@ -329,10 +310,7 @@ class _RechargeMoney_ContainerState extends State<RechargeMoney_Container> {
         child: Center(
             child: Text(
           widget.text,
-          style: Theme.of(context)
-              .textTheme
-              .titleLarge!
-              .copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.w500),
+          style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.w500),
         )));
   }
 }

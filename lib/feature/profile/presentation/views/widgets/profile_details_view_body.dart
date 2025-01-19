@@ -31,7 +31,7 @@ class _ProfileDetailsViewBodyState extends State<ProfileDetailsViewBody> {
       context: context,
       builder: (context) {
         return Container(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Wrap(
             children: [
               ListTile(
@@ -174,10 +174,7 @@ class _ProfileDetailsViewBodyState extends State<ProfileDetailsViewBody> {
                                       backgroundColor: ColorManager.midWhiteColor,
                                       content: Text(
                                         AppLocalizations.of(context)!.please_enter_valid_phone_number,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .titleMedium!
-                                            .copyWith(color: ColorManager.darkRedColor),
+                                        style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkRedColor),
                                       )));
                                 } else {
                                   // If valid, proceed to the next screen or save the data
@@ -210,9 +207,7 @@ class _ProfileDetailsViewBodyState extends State<ProfileDetailsViewBody> {
                             if (text == null || text.trim().isEmpty) {
                               return AppLocalizations.of(context)!.enter_your_email;
                             }
-                            final bool emailValid =
-                                RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                    .hasMatch(text);
+                            final bool emailValid = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(text);
                             if (!emailValid) {
                               return AppLocalizations.of(context)!.please_enter_valid_email;
                             }
@@ -244,7 +239,7 @@ class _ProfileDetailsViewBodyState extends State<ProfileDetailsViewBody> {
                     height: 250.h,
                     padding: const EdgeInsets.all(20),
                     child: Column(children: [
-                      DropDown_Field(
+                      CustomDropDownField(
                         selectedOption: 'ذكر',
                         options: genderOptions,
                         fieldName: AppLocalizations.of(context)!.gender,
@@ -272,7 +267,7 @@ class _ProfileDetailsViewBodyState extends State<ProfileDetailsViewBody> {
                     height: 250.h,
                     padding: const EdgeInsets.all(20),
                     child: Column(children: [
-                      DropDown_Field(
+                      CustomDropDownField(
                         selectedOption: 'الرياض',
                         options: cityOptions,
                         fieldName: AppLocalizations.of(context)!.city,

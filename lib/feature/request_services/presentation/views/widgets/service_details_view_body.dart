@@ -36,7 +36,7 @@ class _ServiceDetailsViewBodyState extends State<ServiceDetailsViewBody> {
               ////////////////////     Set Time Section     /////////////////////////////////////////
 
               SizedBox(height: 10.h),
-              DropDown_Field(
+              CustomDropDownField(
                 selectedOption: '9 ص - 1 م',
                 options: options,
                 fieldName: AppLocalizations.of(context)!.set_time,
