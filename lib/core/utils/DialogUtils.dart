@@ -6,15 +6,17 @@ class CustomAlertDialog extends StatelessWidget {
   final Widget content;
   final VoidCallback onCancel;
   final VoidCallback onOk;
+  final bool isOk;
 
   const CustomAlertDialog({
-    Key? key,
+    super.key,
     required this.title,
     required this.imagePath,
     required this.content,
     required this.onCancel,
     required this.onOk,
-  }) : super(key: key);
+    this.isOk = true,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -49,13 +51,14 @@ class CustomAlertDialog extends StatelessWidget {
             style: TextStyle(color: ColorManager.blackColor, fontSize: 18),
           ),
         ),
-        TextButton(
-          onPressed: onOk,
-          child: Text(
-            AppLocalizations.of(context)!.ok,
-            style: TextStyle(color: ColorManager.blackColor, fontSize: 18),
+        if (isOk)
+          TextButton(
+            onPressed: onOk,
+            child: Text(
+              AppLocalizations.of(context)!.ok,
+              style: TextStyle(color: ColorManager.blackColor, fontSize: 18),
+            ),
           ),
-        ),
       ],
     );
   }

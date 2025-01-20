@@ -1,7 +1,8 @@
 import 'package:bacura_app/core/utils/index.dart';
 
 class VerifyBottomSheet extends StatefulWidget {
-  const VerifyBottomSheet({super.key});
+  final String mobileNumber;
+  const VerifyBottomSheet({super.key, required this.mobileNumber});
 
   @override
   State<VerifyBottomSheet> createState() => _VerifyBottomSheetState();
@@ -45,7 +46,7 @@ class _VerifyBottomSheetState extends State<VerifyBottomSheet> {
                   child: Column(children: [
                 VerifyButtonWidget(
                   onPressed: () {
-                    provider.validatePin(context);
+                    provider.validatePin(context, widget.mobileNumber);
                   },
                 ),
                 SizedBox(height: 20.h),
