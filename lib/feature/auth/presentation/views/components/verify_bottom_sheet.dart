@@ -14,8 +14,8 @@ class _VerifyBottomSheetState extends State<VerifyBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => LoginProvider(),
-      child: Consumer<LoginProvider>(
+      create: (context) => AuthProvider(),
+      child: Consumer<AuthProvider>(
         builder: (context, provider, child) => Container(
             padding: EdgeInsets.symmetric(horizontal: 29.w),
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

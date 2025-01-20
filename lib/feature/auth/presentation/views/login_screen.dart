@@ -13,7 +13,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Stack(children: [
       Image.asset(ImageAssets.background2Image),
       ChangeNotifierProvider(
-        create: (context) => LoginProvider(),
+        create: (context) => AuthProvider(),
         child: Scaffold(
             appBar: AppBar(
               iconTheme: IconThemeData(
@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
               toolbarHeight: 100.h,
             ),
             backgroundColor: ColorManager.transparent,
-            body: Consumer<LoginProvider>(builder: (context, provider, child) {
+            body: Consumer<AuthProvider>(builder: (context, provider, child) {
               return SingleChildScrollView(
                   child: Container(
                       padding: EdgeInsets.symmetric(horizontal: 29.w, vertical: 65.h),

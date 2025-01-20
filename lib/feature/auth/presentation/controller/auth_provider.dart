@@ -2,9 +2,11 @@ import 'package:bacura_app/core/utils/dialig_function.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/auth/domain/usecases/verify_usecase.dart';
 import 'package:bacura_app/feature/auth/presentation/views/components/verify_bottom_sheet.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-class LoginProvider with ChangeNotifier {
+class AuthProvider with ChangeNotifier {
   var mobileNumberController = TextEditingController();
+  final secureStorage = const FlutterSecureStorage();
 
   String pinCode = "";
   late VerifyOtpEntity verifyOtpEntity;
@@ -44,7 +46,10 @@ class LoginProvider with ChangeNotifier {
         );
       }, (r) {
         verifyOtpEntity = r;
-
+        if (verifyOtpEntity.data!.token != null) {
+          //!change key according to true value
+          secureStorage.write(key: 'accessToken', value: verifyOtpEntity.data!.token);
+        }
         showCustomDialog(
             context: context,
             title: 'تم تسجيل الدخول بنجاح',
