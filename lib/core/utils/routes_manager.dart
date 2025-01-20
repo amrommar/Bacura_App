@@ -52,7 +52,7 @@ class RouteGenerator {
       case Routes.onBoardingThreeRoute:
         return MaterialPageRoute(builder: (_) => const OnBoardingThree_Screen());
       case Routes.getStartedRoute:
-        return MaterialPageRoute(builder: (_) => const GetstartedScreen());
+        return MaterialPageRoute(builder: (_) => const GetStartedScreen());
       case Routes.completeProfileRoute:
         return MaterialPageRoute(builder: (_) => const CompleteProfileScreen());
       case Routes.verifyOTPRoute:
@@ -66,13 +66,13 @@ class RouteGenerator {
       case Routes.walletDetailsRoute:
         return MaterialPageRoute(builder: (_) => const WalletDetailsScreen());
       case Routes.requestDetailsRoute:
-        return MaterialPageRoute(builder: (_) => RequestDetailsScreen());
+        return MaterialPageRoute(builder: (_) => const RequestDetailsScreen());
       case Routes.cardsManagementRoute:
         return MaterialPageRoute(builder: (_) => Cards_Management_Screen());
       case Routes.offerDetailsRoute:
         return MaterialPageRoute(builder: (_) => const OfferDetailsScreen());
       case Routes.serviceTypeRoute:
-        return MaterialPageRoute(builder: (_) => ServiceTypeScreen());
+        return MaterialPageRoute(builder: (_) => const ServiceTypeScreen());
       case Routes.serviceDetailsRoute:
         return MaterialPageRoute(builder: (_) => ServiceDetailsScreen());
       case Routes.privacyPolicyRoute:

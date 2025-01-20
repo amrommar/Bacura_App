@@ -9,7 +9,7 @@ class CustomLogoutButton extends StatelessWidget {
       builder: (context) => CustomAlertDialog(
         title: 'تأكيد',
         imagePath: 'assets/images/log-out.png',
-        content: Text('تأكيد تسجيل الخروج'),
+        content: const Text('تأكيد تسجيل الخروج'),
         onCancel: () {
           Navigator.of(context).pop();
         },
@@ -17,7 +17,7 @@ class CustomLogoutButton extends StatelessWidget {
           Navigator.pushAndRemoveUntil(
               context,
               MaterialPageRoute(
-                builder: (context) => const GetstartedScreen(),
+                builder: (context) => const GetStartedScreen(),
               ),
               ModalRoute.withName(Routes.getStartedRoute)); // Will remove all routes until this one
         },
@@ -34,20 +34,17 @@ class CustomLogoutButton extends StatelessWidget {
             onPressed: () {
               showCustomDialog(context);
             },
-            child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    AppLocalizations.of(context)!.logout,
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
-                  SizedBox(width: 10.w),
-                  Icon(
-                    Icons.login_outlined,
-                    color: ColorManager.whiteColor,
-                    size: 25,
-                  )
-                ])));
+            child: Row(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.center, children: [
+              Text(
+                AppLocalizations.of(context)!.logout,
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              SizedBox(width: 10.w),
+              Icon(
+                Icons.login_outlined,
+                color: ColorManager.whiteColor,
+                size: 25,
+              )
+            ])));
   }
 }

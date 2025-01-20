@@ -1,23 +1,22 @@
 import 'package:bacura_app/core/utils/index.dart';
 
-class GetstartedScreen extends StatefulWidget {
-  const GetstartedScreen({super.key});
+class GetStartedScreen extends StatefulWidget {
+  const GetStartedScreen({super.key});
 
   @override
-  State<GetstartedScreen> createState() => _GetstartedScreenState();
+  State<GetStartedScreen> createState() => _GetStartedScreenState();
 }
 
-class _GetstartedScreenState extends State<GetstartedScreen> {
+class _GetStartedScreenState extends State<GetStartedScreen> {
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<LanguageProvider>(context);
     return Stack(children: [
-      ////   background Image   ////////////////
+      //   background Image
       Image.asset(ImageAssets.background2Image),
       Scaffold(
         backgroundColor: Colors.transparent,
         body: Container(
-            padding: EdgeInsets.symmetric(horizontal: 29.w, vertical: 70.h),
+            padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 70.h),
             child: SingleChildScrollView(
                 child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
               //language change icon ________________________________________________
@@ -32,10 +31,7 @@ class _GetstartedScreenState extends State<GetstartedScreen> {
                 style: Theme.of(context).textTheme.displayLarge,
               ),
               SizedBox(height: 10.h),
-              Text(
-                  textAlign: TextAlign.center,
-                  'يمكنك تصفح التطبيق بدون تسجيل',
-                  style: Theme.of(context).textTheme.bodyMedium),
+              Text(textAlign: TextAlign.center, 'يمكنك تصفح التطبيق بدون تسجيل', style: Theme.of(context).textTheme.bodyMedium),
               SizedBox(height: 80.h),
               //As A Visitor button______________________________
               const ContinueAsVisitorButton(),
@@ -43,8 +39,8 @@ class _GetstartedScreenState extends State<GetstartedScreen> {
               //Login button______________________________
               const LoginButton(),
               SizedBox(height: 18.h),
-              //Register button______________________________
-              const RegisterRowWidget(),
+              // //Register button______________________________
+              // const RegisterRowWidget(),
             ]))),
       )
     ]);
