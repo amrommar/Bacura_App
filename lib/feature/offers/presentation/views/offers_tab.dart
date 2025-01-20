@@ -1,13 +1,13 @@
 import 'package:bacura_app/core/utils/index.dart';
 
-class Offers_Tab extends StatefulWidget {
-  const Offers_Tab({super.key});
+class OffersTab extends StatefulWidget {
+  const OffersTab({super.key});
 
   @override
-  State<Offers_Tab> createState() => _Offers_TabState();
+  State<OffersTab> createState() => _OffersTabState();
 }
 
-class _Offers_TabState extends State<Offers_Tab> {
+class _OffersTabState extends State<OffersTab> {
   /////////////////////////////////////              From Back-End          ////////////////
 
   @override
@@ -17,7 +17,7 @@ class _Offers_TabState extends State<Offers_Tab> {
         child: Column(children: [
           SizedBox(height: 5.h),
 
-          OfferFilterSection(),
+          OfferFilterWidget(),
 
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: AppPadding.p6),
@@ -32,7 +32,7 @@ class _Offers_TabState extends State<Offers_Tab> {
                         onTap: () {
                           Navigator.pushNamed(context, Routes.offerDetailsRoute);
                         },
-                        child: Custom_Offer_container());
+                        child: CustomOfferContainerWidget());
                   }))
         ]));
   }

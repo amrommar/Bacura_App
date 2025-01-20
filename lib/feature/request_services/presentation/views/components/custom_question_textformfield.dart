@@ -1,0 +1,63 @@
+import 'package:bacura_app/core/utils/index.dart';
+
+class CustomQuestionTextFormField extends StatefulWidget {
+  String fieldName;
+  String hintText;
+  Widget? suffixIcon;
+  bool isObsucre;
+  int maxLines;
+  var keyBoardType;
+  String? Function(String?)? validator;
+  TextEditingController controller;
+
+  CustomQuestionTextFormField({
+    required this.fieldName,
+    this.maxLines = 1,
+    required this.hintText,
+    this.suffixIcon,
+    this.isObsucre = false,
+    this.validator,
+    required this.controller,
+    this.keyBoardType = TextInputType.text,
+  });
+
+  @override
+  State<CustomQuestionTextFormField> createState() => _CustomQuestionTextFormFieldState();
+}
+
+class _CustomQuestionTextFormFieldState extends State<CustomQuestionTextFormField> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 6),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            widget.fieldName,
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.blackColor),
+          ),
+          TextFormField(
+            style: Theme.of(context).textTheme.displayMedium!.copyWith(color: ColorManager.darkBlueColor),
+            validator: widget.validator,
+            maxLines: widget.maxLines,
+            controller: widget.controller,
+            keyboardType: widget.keyBoardType,
+            obscureText: widget.isObsucre,
+            decoration: InputDecoration(
+                suffixIcon: widget.suffixIcon,
+                enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: ColorManager.lightGreyColor,
+                      width: AppSize.s1,
+                    ),
+                    borderRadius: BorderRadius.circular(AppSize.s8)),
+                contentPadding: EdgeInsets.only(left: 8.w, right: 8.w, top: 8.h),
+                hintText: widget.hintText,
+                hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.greyColor)),
+          )
+        ],
+      ),
+    );
+  }
+}

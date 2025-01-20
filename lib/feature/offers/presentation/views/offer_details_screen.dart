@@ -1,13 +1,13 @@
 import 'package:bacura_app/core/utils/index.dart';
 
-class OfferDetails_Screen extends StatefulWidget {
-  const OfferDetails_Screen({super.key});
+class OfferDetailsScreen extends StatefulWidget {
+  const OfferDetailsScreen({super.key});
 
   @override
-  State<OfferDetails_Screen> createState() => _OfferDetails_ScreenState();
+  State<OfferDetailsScreen> createState() => _OfferDetailsScreenState();
 }
 
-class _OfferDetails_ScreenState extends State<OfferDetails_Screen> {
+class _OfferDetailsScreenState extends State<OfferDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,12 +53,7 @@ class _OfferDetails_ScreenState extends State<OfferDetails_Screen> {
           SizedBox(height: 50.h),
 
           /// Add To Cart Elevated Button//////////////////////////////////////////
-          Center(
-              child: SmallElevatedButton(
-                  text: AppLocalizations.of(context)!.request,
-                  onPressed: () {
-                    Navigator.pushNamed(context, Routes.paymentScreenRoute);
-                  }))
+          Center(child: CustomSmallElevatedButton(text: AppLocalizations.of(context)!.request, onPressed: () {}))
         ])));
   }
 }

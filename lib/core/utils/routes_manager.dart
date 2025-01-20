@@ -21,7 +21,6 @@ class Routes {
   static const String suggestionsRoute = '/suggestions';
   static const String notificationsRoute = '/notifications';
   static const String customerServiceRoute = '/customerService';
-  static const String paymentScreenRoute = '/paymentScreen';
   static const String technicalSupportRoute = '/technicalSupport';
   static const String complaintScreenRoute = '/complaintScreen';
   static const String frequentlyAskedQuestionsRoute = '/frequentlyAskedQuestions';
@@ -29,7 +28,6 @@ class Routes {
   static const String lastOperationsRoute = '/lastOperations';
   static const String invoiceDetailsRoute = '/invoiceDetails';
   static const String consultationScreenRoute = '/consultation';
-  static const String rechargeBalanceRoute = '/rechargeBalance';
   static const String spHomeScreenRoute = '/spHomeScreen';
   static const String spRequestDetailsRoute = '/spRequestDetails';
   static const String requestImplementRoute = '/requestImplement';
@@ -54,41 +52,39 @@ class RouteGenerator {
       case Routes.onBoardingThreeRoute:
         return MaterialPageRoute(builder: (_) => const OnBoardingThree_Screen());
       case Routes.getStartedRoute:
-        return MaterialPageRoute(builder: (_) => const GetstartedView());
+        return MaterialPageRoute(builder: (_) => const GetstartedScreen());
       case Routes.completeProfileRoute:
-        return MaterialPageRoute(builder: (_) => const CompleteProfileView());
+        return MaterialPageRoute(builder: (_) => const CompleteProfileScreen());
       case Routes.verifyOTPRoute:
-        return MaterialPageRoute(builder: (_) => const VerifyOTPView());
+        return MaterialPageRoute(builder: (_) => const VerifyScreen());
       case Routes.loginRoute:
-        return MaterialPageRoute(builder: (_) => const LoginView());
+        return MaterialPageRoute(builder: (_) => const LoginScreen());
       case Routes.homeScreenRoute:
-        return MaterialPageRoute(builder: (_) => const HomeView());
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
       case Routes.personalDetailsRoute:
-        return MaterialPageRoute(builder: (_) => const ProfileDetails_Screen());
+        return MaterialPageRoute(builder: (_) => const ProfileDetailsScreen());
       case Routes.walletDetailsRoute:
-        return MaterialPageRoute(builder: (_) => const Wallet_Details());
+        return MaterialPageRoute(builder: (_) => const WalletDetailsScreen());
       case Routes.requestDetailsRoute:
-        return MaterialPageRoute(builder: (_) => Request_Details_Screen());
+        return MaterialPageRoute(builder: (_) => RequestDetailsScreen());
       case Routes.cardsManagementRoute:
         return MaterialPageRoute(builder: (_) => Cards_Management_Screen());
       case Routes.offerDetailsRoute:
-        return MaterialPageRoute(builder: (_) => const OfferDetails_Screen());
+        return MaterialPageRoute(builder: (_) => const OfferDetailsScreen());
       case Routes.serviceTypeRoute:
-        return MaterialPageRoute(builder: (_) => ServiceType_Screen());
+        return MaterialPageRoute(builder: (_) => ServiceTypeScreen());
       case Routes.serviceDetailsRoute:
-        return MaterialPageRoute(builder: (_) => ServiceDetails_Screen());
+        return MaterialPageRoute(builder: (_) => ServiceDetailsScreen());
       case Routes.privacyPolicyRoute:
         return MaterialPageRoute(builder: (_) => const PrivacyPolicyView());
       case Routes.termsAndConditionsRoute:
         return MaterialPageRoute(builder: (_) => const TermsConditionsView());
       case Routes.suggestionsRoute:
-        return MaterialPageRoute(builder: (_) => const SuggestionsView());
+        return MaterialPageRoute(builder: (_) => const SuggestionsScreen());
       case Routes.notificationsRoute:
-        return MaterialPageRoute(builder: (_) => NotificationsView());
+        return MaterialPageRoute(builder: (_) => NotificationsScreen());
       case Routes.customerServiceRoute:
         return MaterialPageRoute(builder: (_) => const CustomerServiceView());
-      case Routes.paymentScreenRoute:
-        return MaterialPageRoute(builder: (_) => Payment_Screen());
       case Routes.technicalSupportRoute:
         return MaterialPageRoute(builder: (_) => TechnicalSupportView());
       case Routes.complaintScreenRoute:
@@ -98,37 +94,35 @@ class RouteGenerator {
       case Routes.userGuideRoute:
         return MaterialPageRoute(builder: (_) => const UserGuideView());
       case Routes.lastOperationsRoute:
-        return MaterialPageRoute(builder: (_) => LastOperations_Screen());
+        return MaterialPageRoute(builder: (_) => LastOperationsScreen());
       case Routes.invoiceDetailsRoute:
-        return MaterialPageRoute(builder: (_) => InvoiceDetailsView());
+        return MaterialPageRoute(builder: (_) => InvoiceDetailsScreen());
       case Routes.consultationScreenRoute:
-        return MaterialPageRoute(builder: (_) => Consultation_View());
-      case Routes.rechargeBalanceRoute:
-        return MaterialPageRoute(builder: (_) => const RechargeBalance_Screen());
+        return MaterialPageRoute(builder: (_) => ConsultationScreen());
       case Routes.spHomeScreenRoute:
-        return MaterialPageRoute(builder: (_) => SpHomeView());
+        return MaterialPageRoute(builder: (_) => SpHomeScreen());
       case Routes.spRequestDetailsRoute:
         return MaterialPageRoute(builder: (_) => Sp_RequestDetails_Screen());
       case Routes.requestImplementRoute:
         return MaterialPageRoute(builder: (_) => const SpImplementRequestView());
       case Routes.spPersonalDetailsRoute:
-        return MaterialPageRoute(builder: (_) => const SpProfileDetailsView());
+        return MaterialPageRoute(builder: (_) => const SpProfileDetailsScreen());
       case Routes.spCompletedRequestsRoute:
-        return MaterialPageRoute(builder: (_) => Sp_Completedrequests_Screen());
+        return MaterialPageRoute(builder: (_) => SpCompletedrequestsScreen());
       case Routes.calenderRoute:
-        return MaterialPageRoute(builder: (_) => CalenderView());
+        return MaterialPageRoute(builder: (_) => CalenderScreen());
       case Routes.messagesRoute:
-        return MaterialPageRoute(builder: (_) => const MessagesView());
+        return MaterialPageRoute(builder: (_) => const MessagesScreen());
       case Routes.serviceProviderRegisterRoute:
-        return MaterialPageRoute(builder: (_) => const ServiceProviderRegisterView());
+        return MaterialPageRoute(builder: (_) => const ServiceProviderRegisterScreen());
       case Routes.registerTechnicianRoute:
-        return MaterialPageRoute(builder: (_) => const RegisterTechnicianView());
+        return MaterialPageRoute(builder: (_) => const RegisterTechnicianScreen());
       case Routes.registerInstitutionRoute:
-        return MaterialPageRoute(builder: (_) => const RegisterInstitutionView());
+        return MaterialPageRoute(builder: (_) => const RegisterInstitutionScreen());
       case Routes.aboutUsRoute:
-        return MaterialPageRoute(builder: (_) => const AboutUsView());
+        return MaterialPageRoute(builder: (_) => const AboutUsScreen());
       case Routes.cinemaDetailsRoute:
-        return MaterialPageRoute(builder: (_) => const CinemaDetailsView());
+        return MaterialPageRoute(builder: (_) => const CinemaDetailsScreen());
 
       default:
         return unDefinedRoute();

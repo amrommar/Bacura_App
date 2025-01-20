@@ -15,7 +15,7 @@ class _TechnicalSupportViewState extends State<TechnicalSupportView> {
           SizedBox(height: 10.h),
 
           ///Frequently asked questions tab //////////////////////////////
-          CustomSupportContainer(
+          CustomSupportContainerWidget(
               widget: Image.asset('assets/images/question.png', height: 80),
               text: AppLocalizations.of(context)!.frequently_asked_questions,
               onTap: () {
@@ -23,7 +23,7 @@ class _TechnicalSupportViewState extends State<TechnicalSupportView> {
               }),
 
           ///Complaints tab //////////////////////////////
-          CustomSupportContainer(
+          CustomSupportContainerWidget(
               widget: Image.asset('assets/images/bad-feedback.png', height: 80),
               text: AppLocalizations.of(context)!.complaints,
               onTap: () {
@@ -31,14 +31,14 @@ class _TechnicalSupportViewState extends State<TechnicalSupportView> {
               }),
 
           ///User Guide tab //////////////////////////////
-          CustomSupportContainer(
+          CustomSupportContainerWidget(
               widget: Image.asset('assets/images/manual-book.png', height: 80),
               text: AppLocalizations.of(context)!.user_guide,
               onTap: () {
                 Navigator.pushNamed(context, Routes.userGuideRoute);
               }),
           SizedBox(height: 70.h),
-          const BacuraLogoContainer()
+          const BacuraLogoWidget()
         ])));
   }
 }

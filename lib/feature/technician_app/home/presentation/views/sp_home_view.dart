@@ -1,11 +1,11 @@
 import 'package:bacura_app/core/utils/index.dart';
 
-class SpHomeView extends StatefulWidget {
+class SpHomeScreen extends StatefulWidget {
   @override
-  State<SpHomeView> createState() => _SpHomeViewState();
+  State<SpHomeScreen> createState() => _SpHomeScreenState();
 }
 
-class _SpHomeViewState extends State<SpHomeView> {
+class _SpHomeScreenState extends State<SpHomeScreen> {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<LanguageProvider>(context);
@@ -49,7 +49,7 @@ class _SpHomeViewState extends State<SpHomeView> {
             child: ListView.builder(
                 itemCount: 12,
                 itemBuilder: (context, index) {
-                  return InkWell(onTap: () {}, child: SPRequestContainer());
+                  return InkWell(onTap: () {}, child: SPRequestitemWidget());
                 }))
       ]),
     );
