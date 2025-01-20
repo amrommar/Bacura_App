@@ -46,9 +46,8 @@ class AuthProvider with ChangeNotifier {
         );
       }, (r) {
         verifyOtpEntity = r;
-        if (verifyOtpEntity.data!.token != null) {
-          //!change key according to true value
-          secureStorage.write(key: 'accessToken', value: verifyOtpEntity.data!.token);
+        if (verifyOtpEntity.data?.token != null) {
+          secureStorage.write(key: 'token', value: verifyOtpEntity.data!.token);
         }
         showCustomDialog(
             context: context,
