@@ -55,8 +55,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const GetStartedScreen());
       case Routes.completeProfileRoute:
         return MaterialPageRoute(builder: (_) => const CompleteProfileScreen());
-      case Routes.verifyOTPRoute:
-        return MaterialPageRoute(builder: (_) => const VerifyScreen());
+      // case Routes.verifyOTPRoute:
+      //   return MaterialPageRoute(builder: (_) => const VerifyScreen());
       case Routes.loginRoute:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       case Routes.homeScreenRoute:
