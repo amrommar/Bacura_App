@@ -2,6 +2,7 @@ import 'package:bacura_app/core/utils/index.dart';
 
 class VerifyBottomSheet extends StatefulWidget {
   final String mobileNumber;
+
   const VerifyBottomSheet({super.key, required this.mobileNumber});
 
   @override
@@ -17,7 +18,12 @@ class _VerifyBottomSheetState extends State<VerifyBottomSheet> {
       create: (context) => AuthProvider(),
       child: Consumer<AuthProvider>(
         builder: (context, provider, child) => Container(
-            padding: EdgeInsets.symmetric(horizontal: 29.w),
+            height: 500.h,
+            decoration: BoxDecoration(
+              color: ColorManager.whiteColor,
+              borderRadius: BorderRadius.circular(30),
+            ),
+            padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 30.w),
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text(
                 AppLocalizations.of(context)!.oTPNumber,
@@ -29,19 +35,17 @@ class _VerifyBottomSheetState extends State<VerifyBottomSheet> {
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(
                         color: ColorManager.greyColor,
                       )),
-              const ChangeNumberWidget(),
+              ChangeNumberWidget(mobileNumber: widget.mobileNumber),
               SizedBox(height: 30.h),
-              Expanded(
-                child: Form(
-                  key: formKey,
-                  child: CustomPinCodeTextField(
-                    onChanged: (value) {
-                      provider.pinCode = value;
-                    },
-                  ),
+              Form(
+                key: formKey,
+                child: CustomPinCodeTextField(
+                  onChanged: (value) {
+                    provider.pinCode = value;
+                  },
                 ),
               ),
-              SizedBox(height: 50.h),
+              SizedBox(height: 70.h),
               Center(
                   child: Column(children: [
                 VerifyButtonWidget(
