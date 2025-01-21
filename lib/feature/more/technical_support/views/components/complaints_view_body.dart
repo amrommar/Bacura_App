@@ -26,7 +26,7 @@ class ComplaintsViewBody extends StatelessWidget {
               MaterialPageRoute(
                 builder: (context) => const HomeScreen(),
               ),
-              ModalRoute.withName(Routes.homeScreenRoute)); // Will remove all routes until this one
+              ModalRoute.withName(Routes.homeRoute)); // Will remove all routes until this one
         },
       ),
     );

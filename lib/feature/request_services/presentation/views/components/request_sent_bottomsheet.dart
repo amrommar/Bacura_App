@@ -1,6 +1,8 @@
 import 'package:bacura_app/core/utils/index.dart';
 
 class RequestSentBottomSheet extends StatefulWidget {
+  const RequestSentBottomSheet({super.key});
+
   @override
   State<RequestSentBottomSheet> createState() => _RequestSentBottomSheetState();
 }
@@ -38,7 +40,7 @@ class _RequestSentBottomSheetState extends State<RequestSentBottomSheet> {
             CustomSmallElevatedButton(
                 text: AppLocalizations.of(context)!.ok,
                 onPressed: () {
-                  Navigator.pushNamed(context, Routes.homeScreenRoute);
+                  Navigator.pushNamed(context, Routes.homeRoute);
                 }),
           ],
         ),

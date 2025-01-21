@@ -10,7 +10,7 @@ class ContinueAsVisitorButton extends StatelessWidget {
         onPressed: () {
           Navigator.pushNamedAndRemoveUntil(
             context,
-            Routes.homeScreenRoute,
+            Routes.homeRoute,
             (Route<dynamic> route) => false,
           );
         },

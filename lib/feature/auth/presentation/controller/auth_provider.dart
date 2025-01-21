@@ -59,7 +59,7 @@ class AuthProvider with ChangeNotifier {
               if (verifyOtpEntity?.data?.token != null) {
                 secureStorage.write(key: 'token', value: verifyOtpEntity?.data?.token);
               }
-              Navigator.pushNamed(context, Routes.homeScreenRoute);
+              Navigator.pushNamed(context, Routes.homeRoute);
             });
       });
     }

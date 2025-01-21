@@ -8,7 +8,7 @@ class Routes {
   static const String completeProfileRoute = '/register';
   static const String verifyOTPRoute = '/verifyOTP';
   static const String loginRoute = '/login';
-  static const String homeScreenRoute = '/homeScreen';
+  static const String homeRoute = '/homeScreen';
   static const String personalDetailsRoute = '/personalDetails';
   static const String walletDetailsRoute = '/walletDetails';
   static const String requestDetailsRoute = '/requestDetails';
@@ -59,7 +59,7 @@ class RouteGenerator {
       //   return MaterialPageRoute(builder: (_) => const VerifyScreen());
       case Routes.loginRoute:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
-      case Routes.homeScreenRoute:
+      case Routes.homeRoute:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       case Routes.personalDetailsRoute:
         return MaterialPageRoute(builder: (_) => const ProfileDetailsScreen());
