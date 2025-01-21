@@ -100,7 +100,7 @@ export 'package:bacura_app/feature/onboarding/presentation/views/onboarding_one_
 export 'package:bacura_app/feature/onboarding/presentation/views/onboarding_three_screen.dart';
 export 'package:bacura_app/feature/onboarding/presentation/views/onboarding_two_screen.dart';
 export 'package:bacura_app/feature/profile/presentation/views/Invoice_details_screen.dart';
-export 'package:bacura_app/feature/profile/presentation/views/complete_profile_screen.dart';
+export 'package:bacura_app/feature/auth/presentation/views/complete_profile_screen.dart';
 export 'package:bacura_app/feature/profile/presentation/views/components/avatar_widget.dart';
 export 'package:bacura_app/feature/profile/presentation/views/components/completed_requests_widget.dart';
 export 'package:bacura_app/feature/profile/presentation/views/components/custom_logout_button.dart';

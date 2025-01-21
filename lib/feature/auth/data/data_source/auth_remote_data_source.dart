@@ -2,11 +2,13 @@ import 'package:bacura_app/core/network/model/api_response.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/auth/data/models/verify_data_model.dart';
 import 'package:bacura_app/feature/auth/data/models/verify_otp_model.dart';
+import 'package:bacura_app/feature/auth/domain/usecases/complete_profile_use_case.dart';
 import 'package:bacura_app/feature/auth/domain/usecases/verify_usecase.dart';
 
 abstract class BaseAuthRemoteDataSource {
   Future<void> login(LoginParameter loginParameter);
   Future<VerifyOtpEntity> verify(VerifyParameter verifyParameter);
+  Future<void> completeProfileData(CompleteParameter completeParameter);
 }
 
 class AuthRemoteDataSource implements BaseAuthRemoteDataSource {
@@ -39,5 +41,14 @@ class AuthRemoteDataSource implements BaseAuthRemoteDataSource {
     } catch (error) {
       return VerifyOtpEntity(error: error.toString());
     }
+  }
+
+  @override
+  Future<void> completeProfileData(CompleteParameter completeParameter) async {
+    await ApiClient().apiCall(
+      requestType: RequestType.PATCH,
+      url: ApiEndPoint.completeProfilePath,
+      body: completeParameter.toMap(),
+    );
   }
 }

@@ -1,15 +1,14 @@
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/profile/domain/repository/base_profile_repository.dart';
 import 'package:dartz/dartz.dart';
 
 class CompleteProfileUseCase extends BaseUseCases<void, CompleteParameter> {
-  final BaseProfileRepository baseProfileRepository;
+  final BaseAuthRepository baseAuthRepository;
 
-  CompleteProfileUseCase({required this.baseProfileRepository});
+  CompleteProfileUseCase({required this.baseAuthRepository});
 
   @override
   Future<Either<Failure, dynamic>> call(parameters) {
-    return baseProfileRepository.completeProfileData(completeParameter: parameters);
+    return baseAuthRepository.completeProfileData(completeParameter: parameters);
   }
 }
 

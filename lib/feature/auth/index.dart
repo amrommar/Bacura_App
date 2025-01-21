@@ -12,4 +12,4 @@ export 'package:bacura_app/feature/auth/presentation/views/components/custom_tex
 export 'package:bacura_app/feature/auth/presentation/views/components/resend_otp_again_widget.dart';
 export 'package:bacura_app/feature/auth/presentation/views/components/verify_button_widget.dart';
 export 'package:bacura_app/feature/auth/presentation/views/login_screen.dart';
-export 'package:bacura_app/feature/profile/presentation/views/complete_profile_screen.dart';
+export 'package:bacura_app/feature/auth/presentation/views/complete_profile_screen.dart';

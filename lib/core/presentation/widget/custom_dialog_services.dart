@@ -1,5 +1,5 @@
 import 'package:bacura_app/core/utils/app_sizes.dart';
-import 'package:bacura_app/core/widget/custom_dialog.dart';
+import 'package:bacura_app/core/presentation/widget/custom_dialog.dart';
 import 'package:flutter/material.dart';
 
 class DialogWidget {
