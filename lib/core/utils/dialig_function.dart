@@ -1,12 +1,13 @@
 import 'package:bacura_app/core/utils/index.dart';
 
-void showCustomDialog(
+void CustomShowCustomDialog(
     {required BuildContext context,
     required String title,
     required String imagePath,
     required String content,
     required Function() onCancel,
     required Function() onOk,
+    required bool isCancel,
     required bool isOk}) {
   showDialog(
     context: context,
@@ -17,6 +18,7 @@ void showCustomDialog(
       onCancel: onCancel,
       onOk: onOk,
       isOk: isOk,
+      isCancel: isCancel,
     ),
   );
 }

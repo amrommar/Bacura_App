@@ -9,18 +9,18 @@ class AuthProvider with ChangeNotifier {
   final secureStorage = const FlutterSecureStorage();
 
   String pinCode = "";
-  late VerifyOtpEntity verifyOtpEntity;
+  late VerifyOtpEntity? verifyOtpEntity;
 
   Future<void> validatePin(BuildContext context, String mobileNumber) async {
     Future.delayed(Duration.zero, () {});
     if (pinCode.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(AppLocalizations.of(context)!.please_enter_the_OTP),
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text('الرجاء ادخال رمز التحقيق'),
         backgroundColor: Colors.red,
       ));
     } else if (pinCode.length != 4) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(AppLocalizations.of(context)!.otp_must_be_four_digits),
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text('الرجاء ادخال رمز التحقيق'),
         backgroundColor: Colors.red,
       ));
     } else {
@@ -33,12 +33,13 @@ class AuthProvider with ChangeNotifier {
         ),
       );
       result.fold((l) {
-        showCustomDialog(
+        CustomShowCustomDialog(
           context: context,
           title: 'الرجاء التاكد من رمز التحقيق',
           imagePath: 'assets/images/bad-feedback.png',
           content: 'رمز التحقق قد يكون خاطئ ارجوك حاولا ثانياً',
           isOk: false,
+          isCancel: true,
           onCancel: () {
             Navigator.of(context).pop();
           },
@@ -46,19 +47,18 @@ class AuthProvider with ChangeNotifier {
         );
       }, (r) {
         verifyOtpEntity = r;
-        if (verifyOtpEntity.data?.token != null) {
-          secureStorage.write(key: 'token', value: verifyOtpEntity.data!.token);
-        }
-        showCustomDialog(
+        CustomShowCustomDialog(
             context: context,
             title: 'تم تسجيل الدخول بنجاح',
             imagePath: 'assets/images/bad-feedback.png',
             content: 'تم تسجيل الدخول بنجاح',
             isOk: true,
-            onCancel: () {
-              Navigator.of(context).pop();
-            },
+            isCancel: false,
+            onCancel: () {},
             onOk: () {
+              if (verifyOtpEntity?.data?.token != null) {
+                secureStorage.write(key: 'token', value: verifyOtpEntity?.data?.token);
+              }
               Navigator.pushNamed(context, Routes.homeScreenRoute);
             });
       });

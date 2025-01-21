@@ -7,6 +7,7 @@ class CustomAlertDialog extends StatelessWidget {
   final VoidCallback onCancel;
   final VoidCallback onOk;
   final bool isOk;
+  final bool isCancel;
 
   const CustomAlertDialog({
     super.key,
@@ -16,6 +17,7 @@ class CustomAlertDialog extends StatelessWidget {
     required this.onCancel,
     required this.onOk,
     this.isOk = true,
+    this.isCancel = true,
   });
 
   @override
@@ -44,13 +46,14 @@ class CustomAlertDialog extends StatelessWidget {
       ),
       content: content,
       actions: [
-        TextButton(
-          onPressed: onCancel,
-          child: Text(
-            AppLocalizations.of(context)!.cancel,
-            style: TextStyle(color: ColorManager.blackColor, fontSize: 18),
+        if (isCancel)
+          TextButton(
+            onPressed: onCancel,
+            child: Text(
+              AppLocalizations.of(context)!.cancel,
+              style: TextStyle(color: ColorManager.blackColor, fontSize: 18),
+            ),
           ),
-        ),
         if (isOk)
           TextButton(
             onPressed: onOk,

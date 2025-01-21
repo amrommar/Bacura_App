@@ -21,13 +21,23 @@ class AuthRemoteDataSource implements BaseAuthRemoteDataSource {
 
   @override
   Future<VerifyOtpEntity> verify(VerifyParameter verifyParameter) async {
-    var response = await ApiClient().apiCall(
-      requestType: RequestType.POST,
-      url: ApiEndPoint.verifyPath,
-      body: verifyParameter.toMap(),
-    );
-    return APIResponse<VerifyOtpModel>.fromJson(response?.data, (data) {
-      return VerifyOtpModel.fromMap(data);
-    }).data!;
+    try {
+      var response = await ApiClient().apiCall(
+        requestType: RequestType.POST,
+        url: ApiEndPoint.verifyPath,
+        body: verifyParameter.toMap(),
+      );
+
+      if (response?.data != null) {
+        return APIResponse<VerifyOtpModel>.fromJson(
+          response?.data,
+          (data) => VerifyOtpModel.fromMap(data),
+        ).data!;
+      } else {
+        throw Exception('Empty response data');
+      }
+    } catch (error) {
+      return VerifyOtpEntity(error: error.toString());
+    }
   }
 }
