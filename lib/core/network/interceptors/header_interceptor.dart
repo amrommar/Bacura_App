@@ -1,15 +1,21 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-/// This interceptor used to manage the request headers.
 class HeaderInterceptor extends Interceptor {
+  final FlutterSecureStorage _secureStorage = const FlutterSecureStorage();
+
   @override
-  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    options.headers.addAll({
-      // if (UserManager.accessToken != null) ...{
-      //   NetworkConstants.authorizationKey: 'Bearer ${UserManager.accessToken}',
-      // },
-    });
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
+    String? accessToken = await _secureStorage.read(key: 'token');
+
+    if (accessToken != null) {
+      options.headers.addAll({
+        NetworkConstants.authorizationKey: 'Bearer $accessToken',
+      });
+    }
+
     options.headers.removeWhere((key, value) => value == null);
+
     handler.next(options);
   }
 }

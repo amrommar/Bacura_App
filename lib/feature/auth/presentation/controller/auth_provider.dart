@@ -35,6 +35,9 @@ class AuthProvider with ChangeNotifier {
       result.fold((l) {}, (r) {
         verifyOtpEntity = r;
         if (verifyOtpEntity?.error == null) {
+          if (verifyOtpEntity?.data?.token != null) {
+            secureStorage.write(key: 'token', value: verifyOtpEntity?.data?.token);
+          }
           customShowCustomDialog(
               context: context,
               title: 'تم تسجيل الدخول بنجاح',
@@ -44,9 +47,6 @@ class AuthProvider with ChangeNotifier {
               isCancel: false,
               onCancel: () {},
               onOk: () {
-                // if (verifyOtpEntity?.data?.token != null) {
-                //   secureStorage.write(key: 'token', value: verifyOtpEntity?.data?.token);
-                // }
                 if (verifyOtpEntity?.data?.role == 'Admin') {
                   Navigator.pushNamed(context, Routes.spHomeScreenRoute);
                 } else {
