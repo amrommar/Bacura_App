@@ -33,7 +33,6 @@ class AuthProvider with ChangeNotifier {
         ),
       );
       result.fold((l) {}, (r) {
-        print('r11111: ${r?.error}');
         verifyOtpEntity = r;
         if (verifyOtpEntity?.error == null) {
           customShowCustomDialog(
