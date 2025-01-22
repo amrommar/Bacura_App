@@ -20,10 +20,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 color: ColorManager.primaryBlueColor,
                 size: 30.h,
               ),
-              backgroundColor: ColorManager.transparent,
+              backgroundColor: Colors.transparent,
               elevation: 0,
               centerTitle: true,
-              toolbarHeight: 100.h,
+              toolbarHeight: 50.h,
+              shadowColor: Colors.transparent,
             ),
             backgroundColor: ColorManager.transparent,
             body: Consumer<AuthProvider>(builder: (context, provider, child) {

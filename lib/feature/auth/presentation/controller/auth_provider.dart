@@ -32,35 +32,38 @@ class AuthProvider with ChangeNotifier {
           otp: pinCode,
         ),
       );
-      result.fold((l) {
-        CustomShowCustomDialog(
-          context: context,
-          title: 'الرجاء التاكد من رمز التحقيق',
-          imagePath: 'assets/images/bad-feedback.png',
-          content: 'رمز التحقق قد يكون خاطئ ارجوك حاولا ثانياً',
-          isOk: false,
-          isCancel: true,
-          onCancel: () {
-            Navigator.of(context).pop();
-          },
-          onOk: () {},
-        );
-      }, (r) {
+      result.fold((l) {}, (r) {
+        print('r11111: ${r?.error}');
         verifyOtpEntity = r;
-        CustomShowCustomDialog(
+        if (verifyOtpEntity?.error == null) {
+          customShowCustomDialog(
+              context: context,
+              title: 'تم تسجيل الدخول بنجاح',
+              imagePath: 'assets/images/bad-feedback.png',
+              content: 'تم تسجيل الدخول بنجاح',
+              isOk: true,
+              isCancel: false,
+              onCancel: () {},
+              onOk: () {
+                if (verifyOtpEntity?.data?.token != null) {
+                  secureStorage.write(key: 'token', value: verifyOtpEntity?.data?.token);
+                }
+                Navigator.pushNamed(context, Routes.homeRoute);
+              });
+        } else {
+          customShowCustomDialog(
             context: context,
-            title: 'تم تسجيل الدخول بنجاح',
+            title: 'الرجاء التاكد من رمز التحقيق',
             imagePath: 'assets/images/bad-feedback.png',
-            content: 'تم تسجيل الدخول بنجاح',
-            isOk: true,
-            isCancel: false,
-            onCancel: () {},
-            onOk: () {
-              if (verifyOtpEntity?.data?.token != null) {
-                secureStorage.write(key: 'token', value: verifyOtpEntity?.data?.token);
-              }
-              Navigator.pushNamed(context, Routes.homeRoute);
-            });
+            content: 'رمز التحقق قد يكون خاطئ ارجوك حاولا ثانياً',
+            isOk: false,
+            isCancel: true,
+            onCancel: () {
+              Navigator.of(context).pop();
+            },
+            onOk: () {},
+          );
+        }
       });
     }
   }

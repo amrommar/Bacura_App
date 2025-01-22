@@ -32,9 +32,10 @@ class AuthRemoteDataSource implements BaseAuthRemoteDataSource {
 
       if (response?.data != null) {
         return APIResponse<VerifyOtpModel>.fromJson(
-          response?.data,
-          (data) => VerifyOtpModel.fromMap(data),
-        ).data!;
+              response?.data,
+              (data) => VerifyOtpModel.fromMap(data),
+            ).data ??
+            const VerifyOtpEntity();
       } else {
         throw Exception('Empty response data');
       }

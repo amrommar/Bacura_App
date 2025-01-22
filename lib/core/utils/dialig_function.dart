@@ -1,6 +1,6 @@
 import 'package:bacura_app/core/utils/index.dart';
 
-void CustomShowCustomDialog(
+void customShowCustomDialog(
     {required BuildContext context,
     required String title,
     required String imagePath,
