@@ -68,9 +68,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                                   if (text == null || text.trim().isEmpty) {
                                     return AppLocalizations.of(context)!.enter_your_email;
                                   }
-                                  final bool emailValid =
-                                      RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                          .hasMatch(text);
+                                  final bool emailValid = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(text);
                                   if (!emailValid) {
                                     return AppLocalizations.of(context)!.please_enter_valid_email;
                                   }
@@ -112,11 +110,10 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                             onPressed: () {
                               // Validate the form before proceeding
                               if (formKey.currentState?.validate() == true) {
-                                provider.completeProfile();
+                                provider.completeProfile(context);
                               }
                             },
-                            child: Text(AppLocalizations.of(context)!.register,
-                                style: Theme.of(context).textTheme.titleMedium))),
+                            child: Text(AppLocalizations.of(context)!.register, style: Theme.of(context).textTheme.titleMedium))),
                     SizedBox(height: 18.h),
                   ])),
             ),

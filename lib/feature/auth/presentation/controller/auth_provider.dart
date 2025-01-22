@@ -44,10 +44,18 @@ class AuthProvider with ChangeNotifier {
               isCancel: false,
               onCancel: () {},
               onOk: () {
-                if (verifyOtpEntity?.data?.token != null) {
-                  secureStorage.write(key: 'token', value: verifyOtpEntity?.data?.token);
+                // if (verifyOtpEntity?.data?.token != null) {
+                //   secureStorage.write(key: 'token', value: verifyOtpEntity?.data?.token);
+                // }
+                if (verifyOtpEntity?.data?.role == 'Admin') {
+                  Navigator.pushNamed(context, Routes.spHomeScreenRoute);
+                } else {
+                  if (verifyOtpEntity?.data?.isCompleted == true) {
+                    Navigator.pushNamed(context, Routes.homeRoute);
+                  } else {
+                    Navigator.pushNamed(context, Routes.completeProfileRoute);
+                  }
                 }
-                Navigator.pushNamed(context, Routes.homeRoute);
               });
         } else {
           customShowCustomDialog(
