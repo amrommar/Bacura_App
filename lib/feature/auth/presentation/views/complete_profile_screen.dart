@@ -1,5 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/profile/presentation/controller/complete_profile_provider.dart';
+import 'package:bacura_app/feature/auth/presentation/controller/complete_profile_provider.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class CompleteProfileScreen extends StatefulWidget {

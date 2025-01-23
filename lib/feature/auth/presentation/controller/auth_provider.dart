@@ -35,7 +35,6 @@ class AuthProvider with ChangeNotifier {
         ),
       );
       result.fold((l) {
-        print('error fe leftttttttttttttttttttttttttttttt');
         customShowCustomDialog(
           context: context,
           title: 'الرجاء التاكد من رمز التحقيق',
@@ -48,7 +47,7 @@ class AuthProvider with ChangeNotifier {
         );
       }, (r) {
         verifyDataEntity = r;
-        print('verifyOtpEntity?.data?.token ${verifyDataEntity?.token}');
+
         if (verifyDataEntity?.token != null) {
           secureStorage.write(key: 'token', value: verifyDataEntity?.token);
         }
@@ -62,14 +61,6 @@ class AuthProvider with ChangeNotifier {
             isCancel: false,
             onCancel: () {},
             onOk: () async {
-              print('success ${verifyDataEntity?.token}');
-
-              if (verifyDataEntity?.token != null) {
-                final storedToken = await secureStorage.read(key: 'token');
-                print('Stored Token: $storedToken');
-              } else {
-                print('no toke');
-              }
               if (verifyDataEntity?.role == 'Admin') {
                 Navigator.pushNamed(context, Routes.spHomeScreenRoute);
               } else {
@@ -97,8 +88,7 @@ class AuthProvider with ChangeNotifier {
         ),
       ));
     } else {
-      sl<LoginUseCase>()
-          .call(LoginParameter(phone: mobileNumberController.text, countryCode: AppConstants.countryCode));
+      sl<LoginUseCase>().call(LoginParameter(phone: mobileNumberController.text, countryCode: AppConstants.countryCode));
       showVerifyBottomSheet(context);
     }
   }

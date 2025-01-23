@@ -5,26 +5,18 @@ class AvatarWidget extends StatelessWidget {
   final VoidCallback onEditImage;
   final VoidCallback onEditName; // Callback to edit name
   final String userName; // Current user name
+  final String imagePath;
 
-  const AvatarWidget({
-    Key? key,
-    this.imageFile,
-    required this.onEditImage,
-    required this.onEditName,
-    required this.userName,
-  }) : super(key: key);
+  const AvatarWidget({super.key, this.imageFile, required this.onEditImage, required this.onEditName, required this.userName, required this.imagePath});
 
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      // Blue container background
       Container(
         height: 80,
         width: double.infinity,
         color: ColorManager.primaryBlueColor,
       ),
-
-      // Profile Picture Section
       Transform.translate(
           offset: const Offset(0, -50),
           child: Column(children: [
@@ -33,8 +25,7 @@ class AvatarWidget extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: ColorManager.lightBlueColor, // Border color
-                    width: 3.0, // Border width
+                    color: ColorManager.lightBlueColor,
                   ),
                   boxShadow: [
                     BoxShadow(
@@ -46,9 +37,7 @@ class AvatarWidget extends StatelessWidget {
                 ),
                 child: CircleAvatar(
                   radius: 50,
-                  backgroundImage: imageFile != null
-                      ? FileImage(imageFile!) as ImageProvider
-                      : const AssetImage('assets/images/Ellipse 1.png'),
+                  child: Image.network(imagePath),
                 ),
               ),
               Positioned(

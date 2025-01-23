@@ -4,6 +4,7 @@ class ColorManager {
   static Color primaryBlueColor = const Color(0xff1C65AE);
   static Color blackColor = const Color(0xff000000);
   static Color whiteColor = const Color(0xffFFFFFF);
+  static Color cardColor = const Color(0xFFF2F2F2);
   static Color midWhiteColor = const Color(0xffeff6fb);
   static Color redColor = const Color(0xffFF0D0D);
   static Color midRedColor = const Color(0xfff85050);

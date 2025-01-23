@@ -2,6 +2,7 @@ import 'package:bacura_app/core/utils/index.dart';
 
 ThemeData getAppTheme() {
   return ThemeData(
+    cardColor: ColorManager.cardColor,
     //---------------------------------------------------- main Colors
     primaryColor: ColorManager.primaryBlueColor,
     canvasColor: ColorManager.primaryBlueColor,
@@ -67,17 +68,14 @@ ThemeData getAppTheme() {
         labelStyle: getRegularStyle(fontSize: AppSize.s20, color: ColorManager.greyColor),
         errorStyle: getRegularStyle(fontSize: AppSize.s20, color: ColorManager.redColor),
         // ------------------enabledBorder--------------------------------------------------
-        enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: ColorManager.darkBlueColor, width: AppSize.s2),
-            borderRadius: BorderRadius.circular(AppSize.s8)),
+        enabledBorder:
+            OutlineInputBorder(borderSide: BorderSide(color: ColorManager.darkBlueColor, width: AppSize.s2), borderRadius: BorderRadius.circular(AppSize.s8)),
         //----------------------------------------------focused Border-
         focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: ColorManager.primaryBlueColor, width: AppSize.s1),
-            borderRadius: BorderRadius.circular(AppSize.s8)),
+            borderSide: BorderSide(color: ColorManager.primaryBlueColor, width: AppSize.s1), borderRadius: BorderRadius.circular(AppSize.s8)),
         //----------------------------------------------ErrorBorder
-        errorBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: ColorManager.redColor, width: AppSize.s1),
-            borderRadius: BorderRadius.circular(AppSize.s8))),
+        errorBorder:
+            OutlineInputBorder(borderSide: BorderSide(color: ColorManager.redColor, width: AppSize.s1), borderRadius: BorderRadius.circular(AppSize.s8))),
 
     //CardView Theme
 
