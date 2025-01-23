@@ -1,5 +1,6 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/auth/domain/entities/verify_data_entity.dart';
+import 'package:bacura_app/feature/auth/index.dart';
 import 'package:dartz/dartz.dart';
 
 class VerifyOTPUseCase extends BaseUseCases<VerifyDataEntity?, VerifyParameter> {

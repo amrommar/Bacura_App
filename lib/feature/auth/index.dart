@@ -4,12 +4,7 @@ export 'package:bacura_app/feature/auth/domain/Repositories/base_auth_repository
 export 'package:bacura_app/feature/auth/domain/entities/verify_otp_entity.dart';
 export 'package:bacura_app/feature/auth/domain/usecases/login_usecase.dart';
 export 'package:bacura_app/feature/auth/presentation/controller/auth_provider.dart';
-export 'package:bacura_app/feature/auth/presentation/views/components/bacura_logo_widget.dart';
+export 'package:bacura_app/feature/auth/presentation/views/complete_profile_screen.dart';
 export 'package:bacura_app/feature/auth/presentation/views/components/change_number_widget.dart';
-export 'package:bacura_app/feature/auth/presentation/views/components/custom_phonefield.dart';
-export 'package:bacura_app/feature/auth/presentation/views/components/custom_pin_code_text_field.dart';
-export 'package:bacura_app/feature/auth/presentation/views/components/custom_textformfield.dart';
 export 'package:bacura_app/feature/auth/presentation/views/components/resend_otp_again_widget.dart';
 export 'package:bacura_app/feature/auth/presentation/views/components/verify_button_widget.dart';
-export 'package:bacura_app/feature/auth/presentation/views/login_screen.dart';
-export 'package:bacura_app/feature/auth/presentation/views/complete_profile_screen.dart';

@@ -1,26 +1,16 @@
-import 'package:bacura_app/core/utils/DialogUtils.dart';
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:bacura_app/core/utils/routes_manager.dart';
-import 'package:bacura_app/feature/home/presentation/views/home_Screen.dart';
-import 'package:bacura_app/feature/service_provider_registeration/presentation/views/components/city_drop_down_widget.dart';
-import 'package:bacura_app/feature/service_provider_registeration/presentation/views/components/custom_registration_text_field.dart';
-import 'package:bacura_app/feature/service_provider_registeration/presentation/views/components/register_phone_field.dart';
-import 'package:bacura_app/feature/service_provider_registeration/presentation/views/components/terms_conditions_check.dart';
-import 'package:bacura_app/feature/service_provider_registeration/presentation/views/components/upload_image_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
-class RegisterTechnicianScreen extends StatefulWidget {
-  const RegisterTechnicianScreen({super.key});
+class RegisterInstitutionScreen extends StatefulWidget {
+  const RegisterInstitutionScreen({super.key});
 
   @override
-  State<RegisterTechnicianScreen> createState() => _RegisterTechnicianScreenState();
+  State<RegisterInstitutionScreen> createState() => _RegisterInstitutionScreenState();
 }
 
-class _RegisterTechnicianScreenState extends State<RegisterTechnicianScreen> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _idController = TextEditingController();
+class _RegisterInstitutionScreenState extends State<RegisterInstitutionScreen> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>(); // Form key for validation
+  final TextEditingController _responsibleNameController = TextEditingController();
+  final TextEditingController _registrationNumberController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
   String _selectedCity = 'Riyad';
   bool _termsAccepted = false;
@@ -59,6 +49,8 @@ class _RegisterTechnicianScreenState extends State<RegisterTechnicianScreen> {
         );
         return;
       }
+
+      // If all validations pass
       showCustomDialog(context);
     }
   }
@@ -67,18 +59,18 @@ class _RegisterTechnicianScreenState extends State<RegisterTechnicianScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.register_technician),
+        title: Text(AppLocalizations.of(context)!.register_institution),
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
         child: SingleChildScrollView(
           child: Form(
-            key: _formKey,
+            key: _formKey, // Attach form key
             child: Column(
               children: [
                 const SizedBox(height: 10),
                 Text(
-                  AppLocalizations.of(context)!.register_as_technician,
+                  AppLocalizations.of(context)!.register_as_partner,
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         color: ColorManager.blackColor,
                         fontWeight: FontWeight.bold,
@@ -86,24 +78,24 @@ class _RegisterTechnicianScreenState extends State<RegisterTechnicianScreen> {
                 ),
                 const SizedBox(height: 10),
                 CustomRegistrationTextField(
-                  hintText: AppLocalizations.of(context)!.technician_name,
-                  controller: _nameController,
+                  hintText: AppLocalizations.of(context)!.responsible_name,
+                  controller: _responsibleNameController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return AppLocalizations.of(context)!.pleaseEnterYourName;
+                      return AppLocalizations.of(context)!.please_enter_responsible_name;
                     }
                     return null;
                   },
                 ),
                 CustomRegistrationTextField(
-                  hintText: AppLocalizations.of(context)!.id_number,
-                  controller: _idController,
+                  hintText: AppLocalizations.of(context)!.commercial_registration_number,
+                  controller: _registrationNumberController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return AppLocalizations.of(context)!.please_enter_id_number;
+                      return AppLocalizations.of(context)!.please_enter_registration_number;
                     }
                     if (value.length != 10) {
-                      return AppLocalizations.of(context)!.invalid_id_number;
+                      return AppLocalizations.of(context)!.invalid_registration_number;
                     }
                     return null;
                   },
@@ -124,9 +116,9 @@ class _RegisterTechnicianScreenState extends State<RegisterTechnicianScreen> {
                   },
                 ),
                 const SizedBox(height: 6),
-                UploadImageWidget(label: AppLocalizations.of(context)!.identity_image),
-                const SizedBox(height: 10),
-                UploadImageWidget(label: AppLocalizations.of(context)!.personal_image),
+                UploadImageFieldIcon(
+                  label: AppLocalizations.of(context)!.commercial_registration_image,
+                ),
                 const SizedBox(height: 10),
                 TermsConditionsCheck(
                   value: _termsAccepted,
@@ -136,7 +128,7 @@ class _RegisterTechnicianScreenState extends State<RegisterTechnicianScreen> {
                     });
                   },
                 ),
-                const SizedBox(height: 60),
+                const SizedBox(height: 100),
                 Center(
                   child: ElevatedButton(
                     onPressed: _submitForm,

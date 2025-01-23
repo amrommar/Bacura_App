@@ -1,8 +1,4 @@
-import 'package:bacura_app/core/utils/routes_manager.dart';
-import 'package:bacura_app/feature/service_provider_registeration/presentation/views/components/service_provider_register_container.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class ServiceProviderRegisterScreen extends StatelessWidget {
   const ServiceProviderRegisterScreen({super.key});

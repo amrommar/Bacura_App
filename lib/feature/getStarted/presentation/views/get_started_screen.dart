@@ -1,4 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/getStarted/index.dart';
 
 class GetStartedScreen extends StatefulWidget {
   const GetStartedScreen({super.key});
@@ -31,7 +32,10 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 style: Theme.of(context).textTheme.displayLarge,
               ),
               SizedBox(height: 10.h),
-              Text(textAlign: TextAlign.center, 'يمكنك تصفح التطبيق بدون تسجيل', style: Theme.of(context).textTheme.bodyMedium),
+              Text(
+                  textAlign: TextAlign.center,
+                  'يمكنك تصفح التطبيق بدون تسجيل',
+                  style: Theme.of(context).textTheme.bodyMedium),
               SizedBox(height: 80.h),
               //As A Visitor button______________________________
               const ContinueAsVisitorButton(),

@@ -1,13 +1,14 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/more/index.dart';
 
-class FrequentlyAskedQuestionsView extends StatefulWidget {
-  const FrequentlyAskedQuestionsView({super.key});
+class FAQScreen extends StatefulWidget {
+  const FAQScreen({super.key});
 
   @override
-  State<FrequentlyAskedQuestionsView> createState() => _FrequentlyAskedQuestionsViewState();
+  State<FAQScreen> createState() => _FAQScreenState();
 }
 
-class _FrequentlyAskedQuestionsViewState extends State<FrequentlyAskedQuestionsView> {
+class _FAQScreenState extends State<FAQScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

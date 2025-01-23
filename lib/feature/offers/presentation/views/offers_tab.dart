@@ -1,4 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/offers/index.dart';
 
 class OffersTab extends StatefulWidget {
   const OffersTab({super.key});

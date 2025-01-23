@@ -1,11 +1,4 @@
-import 'dart:io';
-
-import 'package:bacura_app/core/providers/language_provider.dart';
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:provider/provider.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class UploadImageWidget extends StatefulWidget {
   String label;

@@ -1,0 +1,9 @@
+export 'package:bacura_app/feature/profile/presentation/views/components/avatar_widget.dart';
+export 'package:bacura_app/feature/profile/presentation/views/components/download_invoice_widget.dart';
+export 'package:bacura_app/feature/profile/presentation/views/components/invoice_time_date_widget.dart';
+export 'package:bacura_app/feature/profile/presentation/views/components/payment_operation_row.dart';
+export 'package:bacura_app/feature/profile/presentation/views/components/payment_operation_widget.dart';
+export 'package:bacura_app/feature/profile/presentation/views/components/profile_details_widget.dart';
+export 'package:bacura_app/feature/profile/presentation/views/components/service_details_list.dart';
+export 'package:bacura_app/feature/profile/presentation/views/components/service_provider_name_widget.dart';
+export 'package:bacura_app/feature/profile/presentation/views/components/total_price_widget.dart';

@@ -1,4 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/requests/index.dart';
 
 class RequestDetailsWidget extends StatelessWidget {
   Color backgroundColor;

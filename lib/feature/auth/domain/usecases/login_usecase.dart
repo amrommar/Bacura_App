@@ -1,4 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/auth/index.dart';
 import 'package:dartz/dartz.dart';
 
 class LoginUseCase extends BaseUseCases<void, LoginParameter> {

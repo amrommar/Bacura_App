@@ -8,8 +8,13 @@ class CompleteProfileProvider with ChangeNotifier {
   String selectedLocation = '';
 
   completeProfile(BuildContext context) async {
-    var result = await sl<CompleteProfileUseCase>()
-        .call(CompleteParameter(email: emailController.text, fullName: nameController.text, gender: selectedGender, location: selectedLocation));
+    var result = await sl<CompleteProfileUseCase>().call(
+      CompleteParameter(
+          email: emailController.text,
+          fullName: nameController.text,
+          gender: selectedGender,
+          location: selectedLocation),
+    );
 
     result.fold((l) {}, (r) {
       Navigator.pushNamed(context, Routes.homeRoute);

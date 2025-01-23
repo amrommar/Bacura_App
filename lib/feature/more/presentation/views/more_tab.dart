@@ -1,4 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/more/index.dart';
 
 class MoreTab extends StatefulWidget {
   const MoreTab({super.key});

@@ -1,21 +1,16 @@
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/service_provider_registeration/presentation/views/components/city_drop_down_widget.dart';
-import 'package:bacura_app/feature/service_provider_registeration/presentation/views/components/custom_registration_text_field.dart';
-import 'package:bacura_app/feature/service_provider_registeration/presentation/views/components/register_phone_field.dart';
-import 'package:bacura_app/feature/service_provider_registeration/presentation/views/components/terms_conditions_check.dart';
-import 'package:bacura_app/feature/service_provider_registeration/presentation/views/components/upload_image_field_icon.dart';
 
-class RegisterInstitutionScreen extends StatefulWidget {
-  const RegisterInstitutionScreen({super.key});
+class RegisterTechnicianScreen extends StatefulWidget {
+  const RegisterTechnicianScreen({super.key});
 
   @override
-  State<RegisterInstitutionScreen> createState() => _RegisterInstitutionScreenState();
+  State<RegisterTechnicianScreen> createState() => _RegisterTechnicianScreenState();
 }
 
-class _RegisterInstitutionScreenState extends State<RegisterInstitutionScreen> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>(); // Form key for validation
-  final TextEditingController _responsibleNameController = TextEditingController();
-  final TextEditingController _registrationNumberController = TextEditingController();
+class _RegisterTechnicianScreenState extends State<RegisterTechnicianScreen> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _idController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
   String _selectedCity = 'Riyad';
   bool _termsAccepted = false;
@@ -54,8 +49,6 @@ class _RegisterInstitutionScreenState extends State<RegisterInstitutionScreen> {
         );
         return;
       }
-
-      // If all validations pass
       showCustomDialog(context);
     }
   }
@@ -64,18 +57,18 @@ class _RegisterInstitutionScreenState extends State<RegisterInstitutionScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.register_institution),
+        title: Text(AppLocalizations.of(context)!.register_technician),
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
         child: SingleChildScrollView(
           child: Form(
-            key: _formKey, // Attach form key
+            key: _formKey,
             child: Column(
               children: [
                 const SizedBox(height: 10),
                 Text(
-                  AppLocalizations.of(context)!.register_as_partner,
+                  AppLocalizations.of(context)!.register_as_technician,
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         color: ColorManager.blackColor,
                         fontWeight: FontWeight.bold,
@@ -83,24 +76,24 @@ class _RegisterInstitutionScreenState extends State<RegisterInstitutionScreen> {
                 ),
                 const SizedBox(height: 10),
                 CustomRegistrationTextField(
-                  hintText: AppLocalizations.of(context)!.responsible_name,
-                  controller: _responsibleNameController,
+                  hintText: AppLocalizations.of(context)!.technician_name,
+                  controller: _nameController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return AppLocalizations.of(context)!.please_enter_responsible_name;
+                      return AppLocalizations.of(context)!.pleaseEnterYourName;
                     }
                     return null;
                   },
                 ),
                 CustomRegistrationTextField(
-                  hintText: AppLocalizations.of(context)!.commercial_registration_number,
-                  controller: _registrationNumberController,
+                  hintText: AppLocalizations.of(context)!.id_number,
+                  controller: _idController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return AppLocalizations.of(context)!.please_enter_registration_number;
+                      return AppLocalizations.of(context)!.please_enter_id_number;
                     }
                     if (value.length != 10) {
-                      return AppLocalizations.of(context)!.invalid_registration_number;
+                      return AppLocalizations.of(context)!.invalid_id_number;
                     }
                     return null;
                   },
@@ -121,9 +114,9 @@ class _RegisterInstitutionScreenState extends State<RegisterInstitutionScreen> {
                   },
                 ),
                 const SizedBox(height: 6),
-                UploadImageFieldIcon(
-                  label: AppLocalizations.of(context)!.commercial_registration_image,
-                ),
+                UploadImageWidget(label: AppLocalizations.of(context)!.identity_image),
+                const SizedBox(height: 10),
+                UploadImageWidget(label: AppLocalizations.of(context)!.personal_image),
                 const SizedBox(height: 10),
                 TermsConditionsCheck(
                   value: _termsAccepted,
@@ -133,7 +126,7 @@ class _RegisterInstitutionScreenState extends State<RegisterInstitutionScreen> {
                     });
                   },
                 ),
-                const SizedBox(height: 100),
+                const SizedBox(height: 60),
                 Center(
                   child: ElevatedButton(
                     onPressed: _submitForm,

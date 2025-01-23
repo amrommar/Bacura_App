@@ -1,11 +1,12 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/more/index.dart';
 
-class TechnicalSupportView extends StatefulWidget {
+class TechnicalSupportScreen extends StatefulWidget {
   @override
-  State<TechnicalSupportView> createState() => _TechnicalSupportViewState();
+  State<TechnicalSupportScreen> createState() => _TechnicalSupportScreenState();
 }
 
-class _TechnicalSupportViewState extends State<TechnicalSupportView> {
+class _TechnicalSupportScreenState extends State<TechnicalSupportScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
