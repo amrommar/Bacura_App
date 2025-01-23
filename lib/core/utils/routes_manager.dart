@@ -102,7 +102,7 @@ class RouteGenerator {
       case Routes.spHomeScreenRoute:
         return MaterialPageRoute(builder: (_) => SpHomeScreen());
       case Routes.spRequestDetailsRoute:
-        return MaterialPageRoute(builder: (_) => Sp_RequestDetails_Screen());
+        return MaterialPageRoute(builder: (_) => SpRequestDetailsScreen());
       case Routes.requestImplementRoute:
         return MaterialPageRoute(builder: (_) => const SpImplementRequestScreen());
       case Routes.spPersonalDetailsRoute:

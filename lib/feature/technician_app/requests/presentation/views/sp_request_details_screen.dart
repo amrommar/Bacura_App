@@ -1,12 +1,12 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/technician_app/index.dart';
 
-class Sp_RequestDetails_Screen extends StatefulWidget {
+class SpRequestDetailsScreen extends StatefulWidget {
   @override
-  State<Sp_RequestDetails_Screen> createState() => _Sp_RequestDetails_ScreenState();
+  State<SpRequestDetailsScreen> createState() => _SpRequestDetailsScreenState();
 }
 
-class _Sp_RequestDetails_ScreenState extends State<Sp_RequestDetails_Screen> {
+class _SpRequestDetailsScreenState extends State<SpRequestDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
