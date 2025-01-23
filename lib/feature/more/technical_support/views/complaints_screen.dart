@@ -1,11 +1,11 @@
 import 'package:bacura_app/core/utils/index.dart';
 
-class Complaint_View extends StatefulWidget {
+class ComplaintScreen extends StatefulWidget {
   @override
-  State<Complaint_View> createState() => _Complaint_ViewState();
+  State<ComplaintScreen> createState() => _ComplaintScreenState();
 }
 
-class _Complaint_ViewState extends State<Complaint_View> {
+class _ComplaintScreenState extends State<ComplaintScreen> {
   var cameraTypeController = TextEditingController();
   var camerasNumberController = TextEditingController();
   var propertyTypeController = TextEditingController();

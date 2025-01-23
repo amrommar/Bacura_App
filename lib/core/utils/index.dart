@@ -87,8 +87,8 @@ export 'package:bacura_app/feature/technician_app/home/presentation/views/sp_hom
 export 'package:bacura_app/feature/technician_app/profile/presentation/views/calender_screen.dart';
 export 'package:bacura_app/feature/technician_app/profile/presentation/views/sp_completed_requests_screen.dart';
 export 'package:bacura_app/feature/technician_app/profile/presentation/views/sp_profile_details_screen.dart';
-export 'package:bacura_app/feature/technician_app/requests/presentation/views/sp_implement_request_view.dart';
-export 'package:bacura_app/feature/technician_app/requests/presentation/views/sp_request_details_view.dart';
+export 'package:bacura_app/feature/technician_app/requests/presentation/views/sp_implement_request_screen.dart';
+export 'package:bacura_app/feature/technician_app/requests/presentation/views/sp_request_details_screen.dart';
 export 'package:carousel_slider/carousel_slider.dart';
 export 'package:dio/dio.dart';
 export 'package:equatable/equatable.dart';

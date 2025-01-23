@@ -2,14 +2,14 @@ import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/request_services/index.dart';
 import 'package:bacura_app/feature/technician_app/index.dart';
 
-class SpImplementRequestView extends StatefulWidget {
-  const SpImplementRequestView({super.key});
+class SpImplementRequestScreen extends StatefulWidget {
+  const SpImplementRequestScreen({super.key});
 
   @override
-  State<SpImplementRequestView> createState() => _SpImplementRequestViewState();
+  State<SpImplementRequestScreen> createState() => _SpImplementRequestScreenState();
 }
 
-class _SpImplementRequestViewState extends State<SpImplementRequestView> {
+class _SpImplementRequestScreenState extends State<SpImplementRequestScreen> {
   String buttonText = 'الوصول للعميل';
 
   final GlobalKey<ImplementRequestPhaseSectionState> phase1Key = GlobalKey();

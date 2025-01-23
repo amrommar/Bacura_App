@@ -84,11 +84,11 @@ class RouteGenerator {
       case Routes.notificationsRoute:
         return MaterialPageRoute(builder: (_) => NotificationsScreen());
       case Routes.customerServiceRoute:
-        return MaterialPageRoute(builder: (_) => const CustomerServiceView());
+        return MaterialPageRoute(builder: (_) => const CustomerServiceScreen());
       case Routes.technicalSupportRoute:
         return MaterialPageRoute(builder: (_) => TechnicalSupportScreen());
       case Routes.complaintScreenRoute:
-        return MaterialPageRoute(builder: (_) => Complaint_View());
+        return MaterialPageRoute(builder: (_) => ComplaintScreen());
       case Routes.frequentlyAskedQuestionsRoute:
         return MaterialPageRoute(builder: (_) => const FAQScreen());
       case Routes.userGuideRoute:
@@ -104,7 +104,7 @@ class RouteGenerator {
       case Routes.spRequestDetailsRoute:
         return MaterialPageRoute(builder: (_) => Sp_RequestDetails_Screen());
       case Routes.requestImplementRoute:
-        return MaterialPageRoute(builder: (_) => const SpImplementRequestView());
+        return MaterialPageRoute(builder: (_) => const SpImplementRequestScreen());
       case Routes.spPersonalDetailsRoute:
         return MaterialPageRoute(builder: (_) => const SpProfileDetailsScreen());
       case Routes.spCompletedRequestsRoute:
