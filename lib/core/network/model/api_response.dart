@@ -1,25 +1,25 @@
-import 'package:bacura_app/core/utils/index.dart';
-
 class APIResponse<T> {
-  bool success;
   T? data;
-  ErrorMessage? message;
+  String? message;
+  String? error;
 
-  APIResponse(this.success, this.data, this.message);
+  APIResponse(this.data, this.message, this.error);
 
-  factory APIResponse.fromJson(Map<String, dynamic> json, Function? builder) {
+  factory APIResponse.fromJson(Map<String, dynamic> json, T Function(Map<String, dynamic>)? builder) {
     return APIResponse(
-      json['success'] != null ? json['success'] as bool : false,
-      (builder == null || json['result'] == null) ? json['result'] : builder(json['result']),
-      json['error'] == null ? null : ErrorMessage.fromJson(json['error']),
+      json['data'] != null && builder != null ? builder(json['data']) : null,
+      json['message'] as String?,
+      json['error'] as String?,
     );
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> jsonData = <String, dynamic>{};
-    jsonData['result'] = data;
-    jsonData['error'] = message?.toJson();
-    jsonData['success'] = success;
+    jsonData['data'] = data;
+    jsonData['message'] = message;
+    jsonData['error'] = error;
     return jsonData;
   }
+
+  bool get isSuccess => error == null;
 }

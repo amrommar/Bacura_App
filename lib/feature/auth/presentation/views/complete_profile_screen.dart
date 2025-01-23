@@ -1,5 +1,6 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/profile/presentation/controller/complete_profile_provider.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class CompleteProfileScreen extends StatefulWidget {
   const CompleteProfileScreen({super.key});
@@ -13,6 +14,8 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    const FlutterSecureStorage secureStorage = FlutterSecureStorage();
+
     return Stack(children: [
       Image.asset(ImageAssets.background2Image),
       Scaffold(
@@ -88,8 +91,8 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                               },
                             ),
                             CustomDropDownField(
-                              selectedOption: 'ذكر',
-                              options: const ['ذكر', 'أنثي'],
+                              selectedOption: 'male',
+                              options: const ['male', 'female'],
                               fieldName: AppLocalizations.of(context)!.gender,
                               onChanged: (String? newValue) {
                                 if (newValue == null) {
@@ -107,9 +110,16 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                     SizedBox(height: 20.h),
                     Center(
                         child: ElevatedButton(
-                            onPressed: () {
+                            onPressed: () async {
+                              String? accessToken = await secureStorage.read(key: 'token');
+
                               // Validate the form before proceeding
                               if (formKey.currentState?.validate() == true) {
+                                if (accessToken != null) {
+                                  print('accessToken: $accessToken');
+                                } else {
+                                  print('accessToken: null');
+                                }
                                 provider.completeProfile(context);
                               }
                             },

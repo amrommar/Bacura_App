@@ -10,11 +10,11 @@ class VerifyDataModel extends VerifyDataEntity {
     super.role,
   });
   factory VerifyDataModel.fromJson(Map<String, dynamic> json) => VerifyDataModel(
-        token: json['token'] ?? '',
-        countryCode: json['country_code'] ?? '',
-        phone: json['phone'] ?? '',
-        isCompleted: json['is_completed'] ?? '',
-        otp: json['otp'] ?? '',
-        role: json['role'] ?? '',
+        token: json['token'],
+        countryCode: json['country_code'],
+        phone: json['phone'],
+        isCompleted: json['is_completed'],
+        otp: json['otp'],
+        role: json['role'],
       );
 }

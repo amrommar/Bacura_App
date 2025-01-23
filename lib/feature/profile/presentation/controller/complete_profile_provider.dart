@@ -11,7 +11,7 @@ class CompleteProfileProvider with ChangeNotifier {
     var result = await sl<CompleteProfileUseCase>()
         .call(CompleteParameter(email: emailController.text, fullName: nameController.text, gender: selectedGender, location: selectedLocation));
 
-    result.fold((l) => null, (r) {
+    result.fold((l) {}, (r) {
       Navigator.pushNamed(context, Routes.homeRoute);
     });
   }
