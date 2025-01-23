@@ -41,7 +41,7 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                       imagePath: profileEntity.image ?? 'assets/images/Ellipse 1.png',
                       userName: provider.myProfileEntity.name!,
                       onEditName: () {
-                        showEditDetailsBottomSheet(AppLocalizations.of(context)!.fullName);
+                        showEditDetailsBottomSheet(AppLocalizations.of(context)!.fullName, context);
                       },
                     ),
 
@@ -52,7 +52,7 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                         text: AppLocalizations.of(context)!.mobileNumber,
                         value: '+${profileEntity.countryCode}${profileEntity.phone}',
                         onTap: () {
-                          showEditDetailsBottomSheet(AppLocalizations.of(context)!.mobileNumber);
+                          showEditDetailsBottomSheet(AppLocalizations.of(context)!.mobileNumber, context);
                         },
                       ),
                       Divider(color: ColorManager.lightBlueColor, height: 20),
@@ -61,13 +61,13 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                         text: AppLocalizations.of(context)!.email,
                         value: profileEntity.email!,
                         onTap: () {
-                          showEditDetailsBottomSheet(AppLocalizations.of(context)!.email);
+                          showEditDetailsBottomSheet(AppLocalizations.of(context)!.email, context);
                         },
                       ),
                       Divider(color: ColorManager.lightBlueColor, height: 20),
                       ProfileDetailsWidget(
                           onTap: () {
-                            showEditDetailsBottomSheet(AppLocalizations.of(context)!.gender);
+                            showEditDetailsBottomSheet(AppLocalizations.of(context)!.gender, context);
                           },
                           icon: Icons.transgender_outlined,
                           text: AppLocalizations.of(context)!.gender,
@@ -75,7 +75,7 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                       Divider(color: ColorManager.lightBlueColor, height: 20),
                       ProfileDetailsWidget(
                           onTap: () {
-                            showEditDetailsBottomSheet(AppLocalizations.of(context)!.city);
+                            showEditDetailsBottomSheet(AppLocalizations.of(context)!.city, context);
                           },
                           icon: Icons.location_on_outlined,
                           text: AppLocalizations.of(context)!.city,
@@ -93,45 +93,48 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
     );
   }
 
-  showEditDetailsBottomSheet(String text) {
+  showEditDetailsBottomSheet(String text, BuildContext context) {
     final formKey = GlobalKey<FormState>();
     showModalBottomSheet(
       context: context,
       builder: (context) {
-        return Consumer<MyProfileProvider>(
-          builder: (context, provider, child) {
-            if (text == AppLocalizations.of(context)!.mobileNumber) {
-              /// mobile number edit //////////////////////
-              return EditPhoneNumberBottomSheet(
-                formKey: formKey,
-                mobileNumberController: provider.mobileNumberController,
-              );
-            }
+        return ChangeNotifierProvider(
+          create: (context) => MyProfileProvider(),
+          child: Consumer<MyProfileProvider>(
+            builder: (context, provider, child) {
+              if (text == AppLocalizations.of(context)!.mobileNumber) {
+                /// mobile number edit //////////////////////
+                return EditPhoneNumberBottomSheet(
+                  formKey: formKey,
+                  mobileNumberController: provider.mobileNumberController,
+                );
+              }
 
-            /// email edit //////////////////////
-            else if (text == AppLocalizations.of(context)!.email) {
-              return EditEmailBottomSheet(
-                formKey: formKey,
-                emailController: provider.emailController,
-              );
-            }
+              /// email edit //////////////////////
+              else if (text == AppLocalizations.of(context)!.email) {
+                return EditEmailBottomSheet(
+                  formKey: formKey,
+                  emailController: provider.emailController,
+                );
+              }
 
-            /// gender edit //////////////////////
-            else if (text == AppLocalizations.of(context)!.gender) {
-              return EditGenderBottomSheet(genderOptions: provider.genderOptions);
-            }
+              /// gender edit //////////////////////
+              else if (text == AppLocalizations.of(context)!.gender) {
+                return EditGenderBottomSheet(genderOptions: provider.genderOptions);
+              }
 
-            /// city edit //////////////////////
-            else if (text == AppLocalizations.of(context)!.city) {
-              return EditLocationBottomSheet(cityOptions: provider.cityOptions);
-            }
+              /// city edit //////////////////////
+              else if (text == AppLocalizations.of(context)!.city) {
+                return EditLocationBottomSheet(cityOptions: provider.cityOptions);
+              }
 
-            /// user name edit //////////////////////
-            else if (text == AppLocalizations.of(context)!.fullName) {
-              return EditNameBottomSheet(formKey: formKey);
-            }
-            return Container();
-          },
+              /// user name edit //////////////////////
+              // else if (text == AppLocalizations.of(context)!.fullName) {
+              //   return EditNameBottomSheet(formKey: formKey);
+              // }
+              return Container();
+            },
+          ),
         );
       },
     );
