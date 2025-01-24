@@ -109,8 +109,10 @@ class MyProfileProvider with ChangeNotifier {
           padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: ChangeNotifierProvider.value(
             value: this,
-            child: const EditDataBottomSheet(
-              bottomSheetContent: EditPhoneNumberBottomSheet(),
+            child: EditDataBottomSheet(
+              bottomSheetContent: EditPhoneNumberBottomSheet(
+                mobileNumberController: phoneNumController,
+              ),
             ),
           ),
         ));
