@@ -13,7 +13,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
   Widget build(BuildContext context) {
     return Stack(children: [
       //   background Image
-      Image.asset(ImageAssets.background2Image),
+      Image.asset(AppAssets.background2Image),
       Scaffold(
         backgroundColor: Colors.transparent,
         body: Container(
@@ -32,10 +32,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 style: Theme.of(context).textTheme.displayLarge,
               ),
               SizedBox(height: 10.h),
-              Text(
-                  textAlign: TextAlign.center,
-                  'يمكنك تصفح التطبيق بدون تسجيل',
-                  style: Theme.of(context).textTheme.bodyMedium),
+              Text(textAlign: TextAlign.center, 'يمكنك تصفح التطبيق بدون تسجيل', style: Theme.of(context).textTheme.bodyMedium),
               SizedBox(height: 80.h),
               //As A Visitor button______________________________
               const ContinueAsVisitorButton(),

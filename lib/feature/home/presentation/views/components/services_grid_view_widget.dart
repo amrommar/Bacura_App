@@ -5,15 +5,15 @@ class ServicesGridView extends StatelessWidget {
   ServicesGridView({super.key});
 
   List<String> imagesPaths = [
-    ImageAssets.cameraIcon,
-    ImageAssets.smartHomeIcon,
-    ImageAssets.accessControlIcon,
-    ImageAssets.soundSystemsIcon,
-    ImageAssets.savePowerIcon,
-    ImageAssets.networkIcon,
-    ImageAssets.gameRepairIcon,
-    ImageAssets.pcRepairIcon,
-    ImageAssets.phoneRepairIcon
+    AppAssets.cameraIcon,
+    AppAssets.smartHomeIcon,
+    AppAssets.accessControlIcon,
+    AppAssets.soundSystemsIcon,
+    AppAssets.savePowerIcon,
+    AppAssets.networkIcon,
+    AppAssets.gameRepairIcon,
+    AppAssets.pcRepairIcon,
+    AppAssets.phoneRepairIcon
   ];
   List<String> imageTitle = [
     AppStrings.security_and_monitoring,

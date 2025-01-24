@@ -19,7 +19,7 @@ export 'package:bacura_app/core/services/services_initializer.dart';
 export 'package:bacura_app/core/services/usecases.dart';
 export 'package:bacura_app/core/utils/DialogUtils.dart';
 export 'package:bacura_app/core/utils/app_constants.dart';
-export 'package:bacura_app/core/utils/assets_manager.dart';
+export 'package:bacura_app/core/utils/app_assets.dart';
 export 'package:bacura_app/core/utils/color_manager.dart';
 export 'package:bacura_app/core/utils/font_manager.dart';
 export 'package:bacura_app/core/utils/index.dart';

@@ -1,7 +1,13 @@
 import 'package:bacura_app/core/presentation/widget/custom_dialog_services.dart';
+import 'package:bacura_app/core/presentation/widget/custom_modal_bottom_sheet.dart';
+import 'package:bacura_app/core/utils/app_sizes.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/profile/domain/entity/my_profile_entity.dart';
 import 'package:bacura_app/feature/profile/domain/use_case/my_profile_use_case.dart';
+import 'package:bacura_app/feature/profile/presentation/views/components/edit_data_bottom_sheet.dart';
+import 'package:bacura_app/feature/profile/presentation/views/components/edit_email_bottom_sheet.dart';
+import 'package:bacura_app/feature/profile/presentation/views/components/edit_phone_number_bottom_sheet.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
 
 class MyProfileProvider with ChangeNotifier {
@@ -16,19 +22,31 @@ class MyProfileProvider with ChangeNotifier {
   String? completePhoneNumber;
   File? selectedImage;
 
-  var mobileNumberController = TextEditingController();
+  final BuildContext context;
 
-  var emailController = TextEditingController();
   final List<String> genderOptions = ['ذكر', 'أنثي'];
   final List<String> cityOptions = ['الرياض', 'جده', 'مكة', 'الدمام'];
   final ImagePicker _picker = ImagePicker();
   final TextEditingController nameController = TextEditingController();
-  MyProfileProvider() {
+  TextEditingController phoneNumController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+
+  GlobalKey countryPickerWidgetKey = GlobalKey();
+  double? textFieldHeight;
+
+  MyProfileProvider(this.context) {
     init();
   }
 
   init() async {
     await _getMyProfile();
+  }
+
+  getTextFieldHeight() {
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      textFieldHeight = countryPickerWidgetKey.currentContext?.size?.height ?? AppSizes.ph45;
+      notifyListeners();
+    });
   }
 
   Future<void> _getMyProfile() async {
@@ -77,5 +95,51 @@ class MyProfileProvider with ChangeNotifier {
         );
       },
     );
+  }
+
+  Future<void> openEditPhoneBottomSheet() async {
+    await CustomModalBottomSheet.showModalBottomSheet(
+        context: context,
+        enableDrag: true,
+        height: MediaQuery.of(context).size.height * 0.9,
+        body: Padding(
+          padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: ChangeNotifierProvider.value(
+            value: this,
+            child: const EditDataBottomSheet(
+              bottomSheetContent: EditPhoneNumberBottomSheet(),
+            ),
+          ),
+        ));
+    // await Provider.of<MainCoreProvider>(Get.context!, listen: false).getCachedUserCredential();
+    _getMyProfile();
+  }
+
+  Future<void> openEmailBottomSheet() async {
+    await CustomModalBottomSheet.showModalBottomSheet(
+        context: context,
+        enableDrag: true,
+        height: MediaQuery.of(context).size.height * 0.9,
+        body: Padding(
+          padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: ChangeNotifierProvider.value(
+            value: this,
+            child: EditDataBottomSheet(
+              bottomSheetContent: EditEmailBottomSheet(
+                emailController: emailController,
+              ),
+            ),
+          ),
+        ));
+    // await Provider.of<MainCoreProvider>(Get.context!, listen: false).getCachedUserCredential();
+    _getMyProfile();
+  }
+
+  String? phoneNumberValidator(String? value) {
+    if (value!.isEmpty) {
+      return 'mobileNumberIsNotCorrect';
+    } else {
+      return 'mobileNumberIsNotCorrect';
+    }
   }
 }

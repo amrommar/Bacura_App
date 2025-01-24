@@ -18,7 +18,7 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
       backgroundColor: ColorManager.whiteColor,
       appBar: AppBar(elevation: 0),
       body: ChangeNotifierProvider(
-        create: (context) => MyProfileProvider(),
+        create: (context) => MyProfileProvider(context),
         child: SingleChildScrollView(
           child: Consumer<MyProfileProvider>(builder: (context, provider, child) {
             var profileEntity = provider.myProfileEntity;
@@ -35,58 +35,66 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                       ),
                     ),
                   )
-                : Column(children: [
-                    AvatarWidget(
-                      onEditImage: () async => await provider.pickImage(context),
-                      imagePath: profileEntity.image ?? 'assets/images/Ellipse 1.png',
-                      userName: provider.myProfileEntity.name!,
-                      onEditName: () {
-                        showEditDetailsBottomSheet(AppLocalizations.of(context)!.fullName, context);
-                      },
-                    ),
-
-                    CustomShadowWidget(
-                        childWidget: Column(children: [
-                      ProfileDetailsWidget(
-                        icon: Icons.phone_outlined,
-                        text: AppLocalizations.of(context)!.mobileNumber,
-                        value: '+${profileEntity.countryCode}${profileEntity.phone}',
-                        onTap: () {
-                          showEditDetailsBottomSheet(AppLocalizations.of(context)!.mobileNumber, context);
+                : Column(
+                    children: [
+                      AvatarWidget(
+                        onEditImage: () async => await provider.pickImage(context),
+                        imagePath: profileEntity.image ?? 'assets/images/Ellipse 1.png',
+                        userName: provider.myProfileEntity.name!,
+                        onEditName: () {
+                          showEditDetailsBottomSheet(AppLocalizations.of(context)!.fullName, context);
                         },
                       ),
-                      Divider(color: ColorManager.lightBlueColor, height: 20),
-                      ProfileDetailsWidget(
-                        icon: Icons.mail_outline_outlined,
-                        text: AppLocalizations.of(context)!.email,
-                        value: profileEntity.email!,
-                        onTap: () {
-                          showEditDetailsBottomSheet(AppLocalizations.of(context)!.email, context);
-                        },
+
+                      CustomShadowWidget(
+                        childWidget: Column(
+                          children: [
+                            InkWell(
+                              onTap: () async {
+                                provider.openEditPhoneBottomSheet();
+                              },
+                              child: ProfileDetailsWidget(
+                                icon: Icons.phone_outlined,
+                                text: AppLocalizations.of(context)!.mobileNumber,
+                                value: '+${profileEntity.countryCode}${profileEntity.phone}',
+                                onTap: () {},
+                              ),
+                            ),
+                            Divider(color: ColorManager.lightBlueColor, height: 20),
+                            ProfileDetailsWidget(
+                              icon: Icons.mail_outline_outlined,
+                              text: AppLocalizations.of(context)!.email,
+                              value: profileEntity.email!,
+                              onTap: () {
+                                provider.openEmailBottomSheet();
+                              },
+                            ),
+                            Divider(color: ColorManager.lightBlueColor, height: 20),
+                            ProfileDetailsWidget(
+                                onTap: () {
+                                  showEditDetailsBottomSheet(AppLocalizations.of(context)!.gender, context);
+                                },
+                                icon: Icons.transgender_outlined,
+                                text: AppLocalizations.of(context)!.gender,
+                                value: profileEntity.gender!),
+                            Divider(color: ColorManager.lightBlueColor, height: 20),
+                            ProfileDetailsWidget(
+                                onTap: () {
+                                  showEditDetailsBottomSheet(AppLocalizations.of(context)!.city, context);
+                                },
+                                icon: Icons.location_on_outlined,
+                                text: AppLocalizations.of(context)!.city,
+                                value: profileEntity.location!),
+                          ],
+                        ),
                       ),
-                      Divider(color: ColorManager.lightBlueColor, height: 20),
-                      ProfileDetailsWidget(
-                          onTap: () {
-                            showEditDetailsBottomSheet(AppLocalizations.of(context)!.gender, context);
-                          },
-                          icon: Icons.transgender_outlined,
-                          text: AppLocalizations.of(context)!.gender,
-                          value: profileEntity.gender!),
-                      Divider(color: ColorManager.lightBlueColor, height: 20),
-                      ProfileDetailsWidget(
-                          onTap: () {
-                            showEditDetailsBottomSheet(AppLocalizations.of(context)!.city, context);
-                          },
-                          icon: Icons.location_on_outlined,
-                          text: AppLocalizations.of(context)!.city,
-                          value: profileEntity.location!),
-                    ])),
 
-                    SizedBox(height: 80.h),
+                      SizedBox(height: 80.h),
 
-                    // Logout Button
-                    const CustomLogoutButton(),
-                  ]);
+                      // Logout Button
+                      const CustomLogoutButton(),
+                    ],
+                  );
           }),
         ),
       ),
@@ -94,28 +102,20 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
   }
 
   showEditDetailsBottomSheet(String text, BuildContext context) {
-    final formKey = GlobalKey<FormState>();
     showModalBottomSheet(
       context: context,
       builder: (context) {
         return ChangeNotifierProvider(
-          create: (context) => MyProfileProvider(),
+          create: (context) => MyProfileProvider(context),
           child: Consumer<MyProfileProvider>(
             builder: (context, provider, child) {
               if (text == AppLocalizations.of(context)!.mobileNumber) {
                 /// mobile number edit //////////////////////
-                return EditPhoneNumberBottomSheet(
-                  formKey: formKey,
-                  mobileNumberController: provider.mobileNumberController,
-                );
+                return const EditPhoneNumberBottomSheet();
               }
 
               /// email edit //////////////////////
               else if (text == AppLocalizations.of(context)!.email) {
-                return EditEmailBottomSheet(
-                  formKey: formKey,
-                  emailController: provider.emailController,
-                );
               }
 
               /// gender edit //////////////////////
@@ -267,58 +267,6 @@ class EditGenderBottomSheet extends StatelessWidget {
                     })
               ])),
         ),
-      ),
-    );
-  }
-}
-
-class EditEmailBottomSheet extends StatelessWidget {
-  const EditEmailBottomSheet({
-    super.key,
-    required this.formKey,
-    required this.emailController,
-  });
-
-  final GlobalKey<FormState> formKey;
-  final TextEditingController emailController;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        bottom: MediaQuery.of(context).viewInsets.bottom,
-      ),
-      child: SingleChildScrollView(
-        child: Container(
-            padding: const EdgeInsets.all(20),
-            child: Column(children: [
-              Form(
-                key: formKey,
-                child: CustomTextFormField(
-                  fieldName: AppLocalizations.of(context)!.email,
-                  hintText: AppLocalizations.of(context)!.email,
-                  controller: emailController,
-                  validator: (text) {
-                    if (text == null || text.trim().isEmpty) {
-                      return AppLocalizations.of(context)!.enter_your_email;
-                    }
-                    final bool emailValid = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(text);
-                    if (!emailValid) {
-                      return AppLocalizations.of(context)!.please_enter_valid_email;
-                    }
-                    return null;
-                  },
-                ),
-              ),
-              SizedBox(height: 20.h),
-              CustomSmallElevatedButton(
-                  text: AppLocalizations.of(context)!.save,
-                  onPressed: () {
-                    if (formKey.currentState!.validate() == true) {
-                      Navigator.pop(context);
-                    }
-                  })
-            ])),
       ),
     );
   }
