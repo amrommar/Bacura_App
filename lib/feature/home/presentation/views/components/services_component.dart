@@ -1,8 +1,8 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/home/index.dart';
 
-class ServicesGridView extends StatelessWidget {
-  ServicesGridView({super.key});
+class ServicesComponent extends StatelessWidget {
+  ServicesComponent({super.key});
 
   List<String> imagesPaths = [
     AppAssets.cameraIcon,
