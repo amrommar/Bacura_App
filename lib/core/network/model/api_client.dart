@@ -24,15 +24,10 @@ class ApiClient {
   }) {
     client = client ?? Dio();
 
-    client.options = options ??
-        BaseOptions(
-          baseUrl: customBaseUrl ?? NetworkConstants.developmentBaseUrl,
-          receiveTimeout: NetworkConstants.timeOutDuration,
-          connectTimeout: NetworkConstants.timeOutDuration,
-          sendTimeout: NetworkConstants.timeOutDuration,
-        );
+    client.options = options ?? BaseOptions(baseUrl: customBaseUrl ?? NetworkConstants.developmentBaseUrl, headers: {});
     client.interceptors.addAll([
-      PrettyDioLogger(requestHeader: true, requestBody: true, responseBody: true, responseHeader: true, error: true, compact: true, maxWidth: 120),
+      PrettyDioLogger(
+          requestHeader: true, requestBody: true, responseBody: true, responseHeader: true, error: true, compact: true, maxWidth: 120, logPrint: print),
       HeaderInterceptor(),
       // RefreshTokenInterceptor(),
       // ErrorInterceptors(),
@@ -57,6 +52,7 @@ class ApiClient {
   }) async {
     late Response result;
     Options options = Options(headers: customHeader);
+
     dynamic data = isMultiPart ? FormData.fromMap(body) : body;
     try {
       switch (requestType) {

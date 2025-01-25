@@ -2,7 +2,6 @@ import 'package:bacura_app/core/presentation/widget/custom_loading_shimmer.dart'
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/profile/index.dart';
 import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
-import 'package:bacura_app/feature/profile/presentation/views/components/edit_phone_number_bottom_sheet.dart';
 
 class ProfileDetailsScreen extends StatefulWidget {
   const ProfileDetailsScreen({super.key});
@@ -38,8 +37,10 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                 : Column(
                     children: [
                       AvatarWidget(
-                        onEditImage: () async => await provider.pickImage(context),
-                        imagePath: profileEntity.image ?? 'assets/images/Ellipse 1.png',
+                        onEditImage: () async {
+                          await provider.pickImage(context);
+                        },
+                        imagePath: profileEntity.image ?? 'assets/images/png/Ellipse 1.png',
                         userName: provider.myProfileEntity.name!,
                         onEditName: () {
                           provider.openNameBottomSheet();

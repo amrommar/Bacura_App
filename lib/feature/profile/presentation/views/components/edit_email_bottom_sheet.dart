@@ -1,4 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
 
 class EditEmailBottomSheet extends StatelessWidget {
   const EditEmailBottomSheet({
@@ -11,12 +12,9 @@ class EditEmailBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
-    return Padding(
-      padding: EdgeInsets.only(
-        bottom: MediaQuery.of(context).viewInsets.bottom,
-      ),
-      child: SingleChildScrollView(
-        child: Container(
+    return SingleChildScrollView(
+      child: Consumer<MyProfileProvider>(
+        builder: (context, provider, child) => Container(
             padding: const EdgeInsets.all(20),
             child: Column(children: [
               Form(
@@ -37,11 +35,12 @@ class EditEmailBottomSheet extends StatelessWidget {
                   },
                 ),
               ),
-              SizedBox(height: 20.h),
+              SizedBox(height: 40.h),
               CustomSmallElevatedButton(
                   text: AppLocalizations.of(context)!.save,
                   onPressed: () {
                     if (formKey.currentState!.validate() == true) {
+                      provider.updateMyProfile();
                       Navigator.pop(context);
                     }
                   })

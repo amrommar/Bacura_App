@@ -1,4 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
 
 class EditLocationBottomSheet extends StatelessWidget {
   const EditLocationBottomSheet({
@@ -10,28 +11,35 @@ class EditLocationBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        bottom: MediaQuery.of(context).viewInsets.bottom,
-      ),
-      child: SingleChildScrollView(
-        child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-            child: Column(children: [
+    return SingleChildScrollView(
+      child: Consumer<MyProfileProvider>(builder: (context, provider, child) {
+        return Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          child: Column(
+            children: [
               CustomDropDownField(
-                selectedOption: 'الرياض',
+                selectedOption: provider.myProfileEntity.location!,
                 options: cityOptions,
                 fieldName: AppLocalizations.of(context)!.city,
+                onChanged: (String? newValue) {
+                  if (newValue == null) {
+                    return;
+                  }
+                  provider.selectedCity = newValue;
+                },
               ),
-              SizedBox(height: 20.h),
+              SizedBox(height: 40.h),
               CustomSmallElevatedButton(
                   text: AppLocalizations.of(context)!.save,
                   onPressed: () {
                     /////////////////////// Method to save changes //////////////////////
+                    provider.updateMyProfile();
                     Navigator.pop(context);
                   })
-            ])),
-      ),
+            ],
+          ),
+        );
+      }),
     );
   }
 }

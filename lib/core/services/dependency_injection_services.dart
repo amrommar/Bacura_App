@@ -5,6 +5,7 @@ import 'package:bacura_app/feature/profile/data/repository/profile_repository.da
 import 'package:bacura_app/feature/profile/domain/repository/base_profile_repository.dart';
 import 'package:bacura_app/feature/auth/domain/usecases/complete_profile_use_case.dart';
 import 'package:bacura_app/feature/profile/domain/use_case/my_profile_use_case.dart';
+import 'package:bacura_app/feature/profile/domain/use_case/update_profile_use_case.dart';
 import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;
@@ -37,5 +38,6 @@ class DependencyInjectionServices {
 
     ///Use Cases
     sl.registerLazySingleton<MyProfileUseCase>(() => MyProfileUseCase(baseProfileRepository: sl()));
+    sl.registerLazySingleton<UpdateProfileUseCase>(() => UpdateProfileUseCase(baseProfileRepository: sl()));
   }
 }

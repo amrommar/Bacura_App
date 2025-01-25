@@ -2,8 +2,10 @@ import 'package:bacura_app/core/presentation/widget/custom_dialog_services.dart'
 import 'package:bacura_app/core/presentation/widget/custom_modal_bottom_sheet.dart';
 import 'package:bacura_app/core/utils/app_sizes.dart';
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/auth/presentation/views/components/verify_bottom_sheet.dart';
 import 'package:bacura_app/feature/profile/domain/entity/my_profile_entity.dart';
 import 'package:bacura_app/feature/profile/domain/use_case/my_profile_use_case.dart';
+import 'package:bacura_app/feature/profile/domain/use_case/update_profile_use_case.dart';
 import 'package:bacura_app/feature/profile/presentation/views/components/edit_data_bottom_sheet.dart';
 import 'package:bacura_app/feature/profile/presentation/views/components/edit_email_bottom_sheet.dart';
 import 'package:bacura_app/feature/profile/presentation/views/components/edit_gender_bottom_sheet.dart';
@@ -24,6 +26,8 @@ class MyProfileProvider with ChangeNotifier {
   bool isLoading = true;
   String? completePhoneNumber;
   File? selectedImage;
+  String? selectedGender;
+  String? selectedCity;
 
   final BuildContext context;
 
@@ -63,6 +67,18 @@ class MyProfileProvider with ChangeNotifier {
     });
   }
 
+  Future<void> updateMyProfile() async {
+    await sl<UpdateProfileUseCase>().call(UpdateProfileParameters(
+      name: myProfileEntity.name == nameController.text ? null : nameController.text,
+      email: myProfileEntity.email == emailController.text ? null : emailController.text,
+      phone: myProfileEntity.phone == completePhoneNumber ? null : completePhoneNumber,
+      gender: myProfileEntity.gender == selectedGender ? null : selectedGender,
+      location: myProfileEntity.location == selectedCity ? null : selectedCity,
+      image: myProfileEntity.image == selectedImage?.path ? null : selectedImage?.path,
+    ));
+    _getMyProfile();
+  }
+
   Future<void> pickImage(BuildContext context) async {
     showModalBottomSheet(
       context: context,
@@ -79,6 +95,7 @@ class MyProfileProvider with ChangeNotifier {
                   final pickedFile = await _picker.pickImage(source: ImageSource.camera);
                   if (pickedFile != null) {
                     selectedImage = File(pickedFile.path);
+                    updateMyProfile();
                   }
                 },
               ),
@@ -90,6 +107,7 @@ class MyProfileProvider with ChangeNotifier {
                   final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
                   if (pickedFile != null) {
                     selectedImage = File(pickedFile.path);
+                    updateMyProfile();
                   }
                 },
               ),
@@ -100,11 +118,28 @@ class MyProfileProvider with ChangeNotifier {
     );
   }
 
+  Future<void> openNameBottomSheet() async {
+    await CustomModalBottomSheet.showModalBottomSheet(
+        context: context,
+        enableDrag: true,
+        height: MediaQuery.of(context).size.height * 0.4,
+        body: Padding(
+          padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          child: ChangeNotifierProvider.value(
+            value: this,
+            child: const EditDataBottomSheet(
+              bottomSheetContent: EditNameBottomSheet(),
+            ),
+          ),
+        ));
+    // await Provider.of<MainCoreProvider>(Get.context!, listen: false).getCachedUserCredential();
+  }
+
   Future<void> openEditPhoneBottomSheet() async {
     await CustomModalBottomSheet.showModalBottomSheet(
         context: context,
         enableDrag: true,
-        height: MediaQuery.of(context).size.height * 0.5,
+        height: MediaQuery.of(context).size.height * 0.4,
         body: Padding(
           padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: ChangeNotifierProvider.value(
@@ -117,30 +152,13 @@ class MyProfileProvider with ChangeNotifier {
           ),
         ));
     // await Provider.of<MainCoreProvider>(Get.context!, listen: false).getCachedUserCredential();
-    _getMyProfile();
-  }
-
-  Future<void> openNameBottomSheet() async {
-    await CustomModalBottomSheet.showModalBottomSheet(
-        context: context,
-        enableDrag: true,
-        height: MediaQuery.of(context).size.height * 0.5,
-        body: Padding(
-          padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
-          child: ChangeNotifierProvider.value(
-            value: this,
-            child: const EditNameBottomSheet(),
-          ),
-        ));
-    // await Provider.of<MainCoreProvider>(Get.context!, listen: false).getCachedUserCredential();
-    _getMyProfile();
   }
 
   Future<void> openEmailBottomSheet() async {
     await CustomModalBottomSheet.showModalBottomSheet(
         context: context,
         enableDrag: true,
-        height: MediaQuery.of(context).size.height * 0.5,
+        height: MediaQuery.of(context).size.height * 0.4,
         body: Padding(
           padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: ChangeNotifierProvider.value(
@@ -153,27 +171,23 @@ class MyProfileProvider with ChangeNotifier {
           ),
         ));
     // await Provider.of<MainCoreProvider>(Get.context!, listen: false).getCachedUserCredential();
-    _getMyProfile();
   }
 
   Future<void> openGenderBottomSheet() async {
     await CustomModalBottomSheet.showModalBottomSheet(
         context: context,
         enableDrag: true,
-        height: MediaQuery.of(context).size.height * 0.3,
+        height: MediaQuery.of(context).size.height * 0.4,
         body: Padding(
           padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: ChangeNotifierProvider.value(
             value: this,
             child: const EditDataBottomSheet(
-              bottomSheetContent: EditGenderBottomSheet(
-                genderOptions: [],
-              ),
+              bottomSheetContent: EditGenderBottomSheet(),
             ),
           ),
         ));
     // await Provider.of<MainCoreProvider>(Get.context!, listen: false).getCachedUserCredential();
-    _getMyProfile();
   }
 
   Future<void> openCityBottomSheet() async {
@@ -185,15 +199,24 @@ class MyProfileProvider with ChangeNotifier {
           padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
           child: ChangeNotifierProvider.value(
             value: this,
-            child: const EditDataBottomSheet(
+            child: EditDataBottomSheet(
               bottomSheetContent: EditLocationBottomSheet(
-                cityOptions: [],
+                cityOptions: cityOptions,
               ),
             ),
           ),
         ));
     // await Provider.of<MainCoreProvider>(Get.context!, listen: false).getCachedUserCredential();
-    _getMyProfile();
+  }
+
+  void showVerifyBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return VerifyBottomSheet(
+            mobileNumber: phoneNumController.text,
+          );
+        });
   }
 
   String? phoneNumberValidator(String? value) {

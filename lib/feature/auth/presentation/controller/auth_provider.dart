@@ -38,11 +38,13 @@ class AuthProvider with ChangeNotifier {
         customShowCustomDialog(
           context: context,
           title: 'الرجاء التاكد من رمز التحقيق',
-          imagePath: 'assets/images/bad-feedback.png',
+          imagePath: 'assets/images/png/bad-feedback.png',
           content: 'رمز التحقق قد يكون خاطئ ارجوك حاولا ثانياً',
           isOk: false,
           isCancel: true,
-          onCancel: () {},
+          onCancel: () {
+            Navigator.pop(context);
+          },
           onOk: () {},
         );
       }, (r) {

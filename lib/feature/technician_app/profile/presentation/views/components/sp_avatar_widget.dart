@@ -20,7 +20,7 @@ class SpAvatarWidget extends StatelessWidget {
                   const CircleAvatar(
                       radius: 50,
                       backgroundImage: AssetImage(
-                        'assets/images/Ellipse 1.png',
+                        'assets/images/png/Ellipse 1.png',
                       )),
                   // Edit icon on top of the profile picture
                   Positioned(
@@ -36,11 +36,7 @@ class SpAvatarWidget extends StatelessWidget {
                 const SizedBox(height: 8),
                 // User name
                 Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Text('محمد صلاح',
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleMedium!
-                          .copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold)),
+                  Text('محمد صلاح', style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold)),
                   const SizedBox(width: 5),
                   //////////////////////// Want method to edit the Name /////////////////////
                   Icon(Icons.drive_file_rename_outline, color: ColorManager.primaryBlueColor, size: 25),

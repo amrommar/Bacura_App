@@ -51,7 +51,10 @@ class _VerifyBottomSheetState extends State<VerifyBottomSheet> {
                   child: Column(children: [
                 VerifyButtonWidget(
                   onPressed: () {
-                    provider.validatePin(context, widget.mobileNumber);
+                    provider.validatePin(
+                      context,
+                      widget.mobileNumber,
+                    );
                   },
                 ),
                 SizedBox(height: 20.h),

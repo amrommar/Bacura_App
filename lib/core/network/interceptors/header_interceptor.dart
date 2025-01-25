@@ -10,6 +10,7 @@ class HeaderInterceptor extends Interceptor {
 
     if (accessToken != null) {
       options.headers.addAll({
+        NetworkConstants.contentTypeKey: options.headers.containsKey("isMultiPartFile") ? NetworkConstants.multipartValue : NetworkConstants.jsonTypeValue,
         NetworkConstants.authorizationKey: 'Bearer $accessToken',
       });
     }

@@ -10,9 +10,9 @@ class NetworkConstants {
   static String tenantIdKey = "Abp.TenantId";
   static String countryIdKey = "CountryId";
   static String authorizationKey = "Authorization";
-
-  static String multipartValue = "multipart/form-data";
   static String jsonTypeValue = "application/json-patch+json";
+  static String multipartValue = "multipart/form-data";
+
   static String acceptValue = "text/plain";
   static const String repetitiveException = "Repetitive_Exception";
 
