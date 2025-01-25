@@ -2,7 +2,12 @@ import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/home/index.dart';
 
 class AdsSlider extends StatelessWidget {
-  const AdsSlider({super.key});
+  List<String> images = [
+    AppAssets.banner,
+    AppAssets.banner2,
+    AppAssets.banner3,
+
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -10,8 +15,11 @@ class AdsSlider extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 15.h),
         child: CarouselSlider(
             items: List.generate(
-              10, // Number of items
-              (index) => AdsWidget(), // Create each widget dynamically
+              3, // Number of items
+                  (index) =>
+                  AdsWidget(
+                    imagePath: images[index],
+                  ), // Create each widget dynamically
             ),
             options: CarouselOptions(
                 height: 165.h,

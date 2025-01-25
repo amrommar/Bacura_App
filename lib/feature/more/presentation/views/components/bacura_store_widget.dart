@@ -17,7 +17,7 @@ class BacuraStoreWidget extends StatelessWidget {
         child: InkWell(
             onTap: () async {
               final Uri url = Uri.parse(
-                'https://bacuratec.com/ar/?srsltid=AfmBOoqrtsKPaKM2iJCb48kq_YBiJCFatS1WpeifJQls7AO7HS4cgqNU',
+                AppAssets.bacuraStoreURL,
               );
               if (!await launchUrl(url)) {
                 throw Exception('Could not launch $url');

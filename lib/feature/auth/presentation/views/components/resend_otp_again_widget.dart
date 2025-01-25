@@ -15,6 +15,9 @@ class ResendOtpAgainWidget extends StatelessWidget {
         SizedBox(width: 20.w),
         Text(
           '60',
+
+          ///==================================================== want counter to resend OTP again
+          ///===============================================================================================
           style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                 color: ColorManager.greyColor,
               ),

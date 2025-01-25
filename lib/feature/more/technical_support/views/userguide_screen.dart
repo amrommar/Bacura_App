@@ -22,7 +22,7 @@ class _UserGuideScreenState extends State<UserGuideScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const BacuraLogoWidget(),
-                SizedBox(height: 10),
+                SizedBox(height: 10.h),
                 Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
@@ -31,9 +31,9 @@ class _UserGuideScreenState extends State<UserGuideScreen> {
                   ),
                   child: Column(
                     children: [
-                      const SizedBox(height: 10),
+                      SizedBox(height: 10.h),
                       UserGuideTitle(title: 'مرحبًا بك في تطبيق باكورة التقنيات!'),
-                      const SizedBox(height: 10),
+                      SizedBox(height: 10.h),
                       UserGuideContent(
                         content:
                             '''يسرّنا انضمامك إلى تطبيق باكورة التقنيات، الحل المتكامل لتلبية جميع احتياجاتك من الخدمات التقنية والذكية والأمنية. من خلال تطبيقنا، يمكنك بسهولة طلب خدمات تركيب كاميرات المراقبة، الأنظمة الذكية، وأنظمة التحكم في الدخول، مع ضمان تنفيذ احترافي وجودة عالية.
@@ -51,9 +51,9 @@ class _UserGuideScreenState extends State<UserGuideScreen> {
                     ),
                     child: Column(
                       children: [
-                        const SizedBox(height: 10),
+                        SizedBox(height: 10.h),
                         UserGuideTitle(title: 'ابدأ رحلتك معنا بسهولة'),
-                        const SizedBox(height: 10),
+                        SizedBox(height: 10.h),
                         UserGuideContent(
                           content:
                               '''لتسجيل الدخول إلى تطبيق باكورة التقنيات والاستفادة من خدماتنا المتنوعة، كل ما عليك فعله هو إدخال رقم جوالك، وستصلك رسالة نصية تحتوي على رمز تحقق. قم بإدخال الرمز في الحقل المخصص ليتم تسجيل دخولك مباشرة وبكل سهولة.
@@ -72,9 +72,9 @@ class _UserGuideScreenState extends State<UserGuideScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const SizedBox(height: 10),
+                        SizedBox(height: 10.h),
                         Center(child: UserGuideTitle(title: 'طريقة طلب الخدمة بسهولة')),
-                        const SizedBox(height: 10),
+                        SizedBox(height: 10.h),
                         UserGuideContent(
                             content:
                                 '''للحصول على خدمات باكورة التقنيات بكل سهولة واحترافية، يمكنك اتباع الخطوات التالية:'''),
@@ -148,9 +148,9 @@ class _UserGuideScreenState extends State<UserGuideScreen> {
                     ),
                     child: Column(
                       children: [
-                        const SizedBox(height: 10),
+                        SizedBox(height: 10.h),
                         UserGuideTitle(title: 'متابعة حالة الطلب بسهولة'),
-                        const SizedBox(height: 10),
+                        SizedBox(height: 10.h),
                         UserGuideContent(
                             content:
                                 '''      يمكنك متابعة حالة طلبك بكل سهولة من خلال شاشة الطلبات داخل التطبيق، حيث يتم تحديث حالة الطلب بشكل مستمر لتبقى على اطلاع بكل جديد. كما تصلك إشعارات فورية حول أي تحديثات تتعلق بطلبك عبر قسم الإشعارات لضمان تجربة سلسة واحترافية.
@@ -168,9 +168,9 @@ class _UserGuideScreenState extends State<UserGuideScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const SizedBox(height: 10),
+                        SizedBox(height: 10.h),
                         Center(child: UserGuideTitle(title: 'التواصل مع الدعم الفني')),
-                        const SizedBox(height: 10),
+                        SizedBox(height: 10.h),
                         UserGuideContent(content: '''
                   لضمان حصولك على أفضل تجربة ودعم متكامل، يوفر تطبيق باكورة التقنيات عدة طرق للتواصل مع فريق الدعم الفني بكل سهولة ومرونة:'''),
                         UserGuideSmallList(content: '- تقديم الشكاوى:'),
@@ -196,15 +196,15 @@ class _UserGuideScreenState extends State<UserGuideScreen> {
                     ),
                     child: Column(
                       children: [
-                        const SizedBox(height: 10),
+                        SizedBox(height: 10.h),
                         UserGuideTitle(title: 'إدارة حسابك الشخصي'),
-                        const SizedBox(height: 10),
+                        SizedBox(height: 10.h),
                         UserGuideContent(content: '''
                               تحكّم بحسابك بسهولة من خلال شاشة الصفحة الشخصية في تطبيق باكورة التقنيات، حيث يمكنك:
                               تعديل بياناتك الشخصية بسرعة عبر الضغط على المعلومات التي ترغب بتحديثها ثم حفظ التغييرات.'''),
                       ],
                     )),
-                const SizedBox(height: 10),
+                SizedBox(height: 10.h),
               ],
             ),
           )),

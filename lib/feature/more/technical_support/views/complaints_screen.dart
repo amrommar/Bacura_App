@@ -19,9 +19,9 @@ class _ComplaintScreenState extends State<ComplaintScreen> {
       showDialog(
         context: context,
         builder: (context) => CustomAlertDialog(
-          title: 'تأكيد',
-          imagePath: 'assets/images/bad-feedback.png',
-          content: const Text('تم إرسال شكواك بنجاح'),
+          title: AppStrings.confirm,
+          imagePath: AppAssets.badFeedback,
+          content: const Text(AppStrings.yourComplaintSentSuccessfully),
           onCancel: () {
             Navigator.of(context).pop();
           },

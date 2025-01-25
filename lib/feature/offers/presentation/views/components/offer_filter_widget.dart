@@ -1,6 +1,8 @@
 import 'package:bacura_app/core/utils/index.dart';
 
 class OfferFilterWidget extends StatefulWidget {
+  const OfferFilterWidget({super.key});
+
   @override
   State<OfferFilterWidget> createState() => _RequestsFilterState();
 }
@@ -19,10 +21,10 @@ class _RequestsFilterState extends State<OfferFilterWidget> {
       AppLocalizations.of(context)!.internet_communications_networks,
     ];
 
-    final List<MultiSelectItem<String>> _filterItems =
+    final List<MultiSelectItem<String>> filterItems =
         filterTitles.map((filter) => MultiSelectItem<String>(filter, filter)).toList();
 
-    void _showMultiSelect() async {
+    void showMultiSelect() async {
       await showDialog(
         context: context,
         builder: (ctx) {
@@ -33,7 +35,7 @@ class _RequestsFilterState extends State<OfferFilterWidget> {
             title: Text(AppLocalizations.of(context)!.select_category),
             itemsTextStyle: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.greyColor),
             selectedColor: ColorManager.primaryBlueColor,
-            items: _filterItems,
+            items: filterItems,
             initialValue: selectedFilters,
             onConfirm: (List<String> selectedValues) {
               setState(() {
@@ -53,7 +55,7 @@ class _RequestsFilterState extends State<OfferFilterWidget> {
         children: [
           // Filter Icon
           Filter_Icon(
-            onTap: _showMultiSelect,
+            onTap: showMultiSelect,
           ),
           Expanded(
             child: ListView(

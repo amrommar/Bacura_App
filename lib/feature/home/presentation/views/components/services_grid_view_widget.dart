@@ -21,7 +21,7 @@ class ServicesGridView extends StatelessWidget {
     AppStrings.accessControl,
     AppStrings.soundSystems,
     AppStrings.saveEnergy,
-    AppStrings.networks_communications,
+    AppStrings.networksCommunications,
     AppStrings.gameMaintenance,
     AppStrings.computerMaintenance,
     AppStrings.phoneMaintenance

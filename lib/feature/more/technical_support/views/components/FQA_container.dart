@@ -19,7 +19,7 @@ class FQAContainer extends StatelessWidget {
               color: ColorManager.soLightGreyColor,
               spreadRadius: 1,
               blurRadius: 1,
-              offset: Offset(0, 1), // changes position of shadow
+              offset: const Offset(0, 1), // changes position of shadow
             ),
           ]),
       padding: const EdgeInsets.all(8),
@@ -41,13 +41,8 @@ class FQAContainer extends StatelessWidget {
               ),
             ],
           ),
-          Divider(
-            color: ColorManager.whiteColor,
-            height: 5,
-          ),
-          SizedBox(
-            height: 5,
-          ),
+          Divider(color: ColorManager.whiteColor, height: 5.h),
+          SizedBox(height: 5.h),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -55,7 +50,7 @@ class FQAContainer extends StatelessWidget {
                 Icons.question_answer_outlined,
                 color: ColorManager.midBlueColor,
               ),
-              SizedBox(width: 5),
+              SizedBox(width: 5.w),
               Expanded(
                 child: Text(answer,
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.greyColor)),

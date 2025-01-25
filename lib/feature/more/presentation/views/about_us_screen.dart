@@ -7,12 +7,15 @@ class AboutUsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('About Us'),
+        title: const Text(AppStrings.aboutUs),
       ),
       body: Container(
         padding: const EdgeInsets.all(12),
         margin: const EdgeInsets.all(8),
-        decoration: BoxDecoration(color: ColorManager.midWhiteColor, borderRadius: BorderRadius.circular(12)),
+        decoration: BoxDecoration(
+          color: ColorManager.midWhiteColor,
+          borderRadius: BorderRadius.circular(12),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -29,7 +32,7 @@ class AboutUsScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor),
               textAlign: TextAlign.justify,
             ),
-            const SizedBox(height: 25),
+            SizedBox(height: 25.h),
             Row(
               children: [
                 Text(
@@ -41,14 +44,14 @@ class AboutUsScreen extends StatelessWidget {
                 InkWell(
                   onTap: () async {
                     final Uri url = Uri.parse(
-                      'https://bacuratec.sa/',
+                      AppAssets.bacuraWebsiteURl,
                     );
                     if (!await launchUrl(url)) {
                       throw Exception('Could not launch $url');
                     }
                   },
                   child: Text(
-                    'https://bacuratec.sa',
+                    AppAssets.bacuraWebsiteURl,
                     style: Theme.of(context).textTheme.displayMedium!.copyWith(
                           color: ColorManager.primaryBlueColor,
                         ),

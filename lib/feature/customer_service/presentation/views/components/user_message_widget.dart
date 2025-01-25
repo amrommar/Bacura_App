@@ -10,7 +10,7 @@ class UserMessageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     var provider = Provider.of<LanguageProvider>(context);
     return Align(
-      alignment: provider.appLanguage == 'en' ? Alignment.centerRight : Alignment.centerLeft,
+      alignment: provider.appLanguage == AppStrings.en ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
           margin: const EdgeInsets.only(bottom: 10),
           padding: const EdgeInsets.all(12),

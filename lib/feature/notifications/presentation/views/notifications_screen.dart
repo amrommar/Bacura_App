@@ -23,8 +23,11 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                   const NotificationContentWidget()
                 ]));
           },
-          separatorBuilder: (context, index) =>
-              Container(width: 430.w, color: ColorManager.lightBlueColor, height: 1.h),
+          separatorBuilder: (context, index) => Container(
+                width: 430.w,
+                color: ColorManager.lightBlueColor,
+                height: 1.h,
+              ),
           itemCount: 15),
     );
   }

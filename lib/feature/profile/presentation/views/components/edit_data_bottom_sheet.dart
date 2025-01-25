@@ -16,13 +16,19 @@ class _EditDataBottomSheetState extends State<EditDataBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: widget.backgroundColor, borderRadius: BorderRadius.circular(AppSizes.br16)),
+      decoration: BoxDecoration(
+        color: widget.backgroundColor,
+        borderRadius: BorderRadius.circular(AppSizes.br16),
+      ),
       padding: EdgeInsets.all(AppSizes.pw16),
       child: SizedBox(
         height: MediaQuery.of(context).size.height * 0.9,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [const HeaderModalBottomSheetDefault(), Flexible(child: widget.bottomSheetContent)],
+          children: [
+            const HeaderModalBottomSheetDefault(),
+            Flexible(child: widget.bottomSheetContent),
+          ],
         ),
       ),
     );

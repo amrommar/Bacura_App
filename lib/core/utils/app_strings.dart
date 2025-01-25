@@ -1,9 +1,9 @@
 class AppStrings {
   static const String no_Route_Founded = 'No Route Founded'; // 'لم يتم العثور على مسار'
-  static const String ar = 'AR';
-  static const String welcome_message = 'Welcome to Bacura App'; //  'أسفرت و أنورت';
+  static const String ar = 'ar';
+  static const String en = 'en';
   static const String you_can_browse_the_application_without_registering =
-      'you Can Browse The Application Without Registering'; // 'تقدر تتصفح التطبيق بدون ما تسجل';
+      'يمكنك تصفح التطبيق بدون تسجيل'; // 'تقدر تتصفح التطبيق بدون ما تسجل';
   static const String continue_as_a_visitor = 'As a Visitor'; // 'الإستمرار كزائر';
   static const String login = 'Login'; //'تسجيل الدخول';
   static const String logout = 'Logout'; //'تسجيل الدخول';
@@ -28,7 +28,7 @@ class AppStrings {
   static const String cart = 'Cart'; // 'السلة';
   static const String oTPNumber = 'OTP Number'; // 'رمز التحقق';
   static const String sendOTPNumberAgain = 'Send OTP Number Again After'; // ' إعادة إرسال رمز التحقق بعد';
-  static const String OTPNumberSent = 'OTP Number has already Sent to'; //'تم إرسال رمز التحقق الي رقم';
+  static const String oTPNumberSent = 'OTP Number has already Sent to'; //'تم إرسال رمز التحقق الي رقم';
   static const String number = '+966 ****** 965';
   static const String changeNumber = 'Change Number'; // 'تغيير الرقم؟';
   static const String check = 'Verify'; // 'تحقق';
@@ -38,12 +38,11 @@ class AppStrings {
   static const String security_and_monitoring = 'كاميرات المراقبة'; // 'أمن ومراقبة';
   static const String accessControl = 'التحكم في الوصول'; // 'التحكم في الوصول';
   static const String gameMaintenance = 'صيانة الالعاب'; // 'صيانة الالعاب';
-  static const String networks_communications = 'شبكات النت والاتصالات'; // 'الشبكات والاتصالات';
+  static const String networksCommunications = 'شبكات النت والاتصالات'; // 'الشبكات والاتصالات';
   static const String computerMaintenance = 'صيانة الحواسيب'; // 'صيانة الحواسيب';
   static const String phoneMaintenance = 'صيانة الهواتف'; // 'صيانة الهواتف';
   static const String saveEnergy = 'حفظ الطاقة'; // 'حفظ الطاقة';
   static const String smartSystems = 'الأنظمة الذكية'; // 'الانظمة الذكية';
-
   static const String soundSystems = 'الأنظمة الصوتية'; //'أنظمة الصوت';
   static const String walletManagement = 'wallet Management'; //'إدارة المحفظة'
   static const String walletBalance = 'wallet Balance'; // 'رصيد المحفظة'
@@ -55,7 +54,7 @@ class AppStrings {
   static const String payment = 'Payment'; //
   static const String installingSurveillanceCameras = 'Installing Surveillance Cameras'; //'أنظمة الصوت';
   static const String cardsManagement = 'Cards Management';
-  static const String app_Language = 'App Language'; //
+  static const String appLanguage = 'App Language'; //
   static const String who_are_we = 'Who are we?'; //
   static const String technical_support = 'Technical Support'; //
   static const String terms_and_conditions = 'Terms and Conditions'; //
@@ -63,5 +62,20 @@ class AppStrings {
   static const String register_as_a_service_provider = 'Register as a service provider'; //
   static const String suggestions = 'Suggestions'; //
   static const String appRating = 'App Rating'; //
-  static const String bacura_store = 'Bacura Store'; //
+  static const String bacuraStore = 'Bacura Store'; //
+  static const String riyad = 'Riyad'; //
+  static const String jeddah = 'Jeddah'; //
+  static const String male = 'male'; //
+  static const String female = 'female'; //
+  static const String typeMessageHere = 'Type message here'; //
+  static const String welcomeToBacuraApp = 'أهلا بك في تطبيق باكورة'; //
+  static const String cinema = 'السينما المنزلية'; //
+  static const String consultation = 'الاستشارات'; //
+  static const String aboutUs = 'من نحن';
+  static const String bacuraWebsiteURl = 'https://bacuratec.sa';
+  static const String howWouldYouRateOurApp = 'How would you rate our app?';
+  static const String tellUsMoreAboutYourExperience = 'Tell us more about your experience...';
+  static const String thankYouForYourFeedback = 'Thank you for your feedback!';
+  static const String confirm = 'تأكيد';
+  static const String yourComplaintSentSuccessfully = 'تم إرسال شكواك بنجاح';
 }

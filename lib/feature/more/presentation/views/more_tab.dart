@@ -21,10 +21,10 @@ class _MoreTabState extends State<MoreTab> {
             mainAxisSize: MainAxisSize.min,
             children: [
               const Text(
-                'How would you rate our app?',
+                AppStrings.howWouldYouRateOurApp,
                 style: TextStyle(fontSize: 16),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               RatingBar.builder(
                 initialRating: 0,
                 minRating: 1,
@@ -38,10 +38,10 @@ class _MoreTabState extends State<MoreTab> {
                   _rating = rating; // Update rating value
                 },
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: 10.h),
               const TextField(
                 decoration: InputDecoration(
-                  hintText: 'Tell us more about your experience...',
+                  hintText: AppStrings.tellUsMoreAboutYourExperience,
                   border: OutlineInputBorder(),
                 ),
                 maxLines: 3,
@@ -60,7 +60,7 @@ class _MoreTabState extends State<MoreTab> {
                 // Handle rating submission
                 Navigator.pop(context);
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Thank you for your feedback!')),
+                  const SnackBar(content: Text(AppStrings.thankYouForYourFeedback)),
                 );
               },
               child: Text(
@@ -95,7 +95,7 @@ class _MoreTabState extends State<MoreTab> {
             radius: 14.w,
             backgroundColor: ColorManager.whiteColor,
             ///////////////    from Back-End     /////////////////////
-            child: Image.asset('assets/images/bakura (1) 1.png') // Adjust the radius to make sure it fits
+            child: Image.asset(AppAssets.bacuraImage) // Adjust the radius to make sure it fits
             ),
         text: AppLocalizations.of(context)!.about_bacura,
         onTap: () {
@@ -157,12 +157,12 @@ class _MoreTabState extends State<MoreTab> {
       SizedBox(height: 20.h),
 
       /// Bacura store Link /////////////////////////////////////////////////////////////
-      const Row(
+      Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          BacuraStoreWidget(),
-          SizedBox(width: 20),
-          ShareAppWidget(),
+          const BacuraStoreWidget(),
+          SizedBox(width: 20.w),
+          const ShareAppWidget(),
         ],
       ),
       SizedBox(height: 50.h),
@@ -170,24 +170,24 @@ class _MoreTabState extends State<MoreTab> {
       /// social Media Links /////////////////////////////////////////////////////////////
       Row(mainAxisAlignment: MainAxisAlignment.center, children: [
         SocialMediaWidget(
-          imagePath: 'assets/images/facebook_logo.png',
-          path: 'https://www.facebook.com/bacuratec',
+          imagePath: AppAssets.facebookLogo,
+          path: AppAssets.bacuraFacebookURL,
         ),
         SocialMediaWidget(
-          imagePath: 'assets/images/snap-01.png',
-          path: 'https://www.snapchat.com/add/bacura_tec',
+          imagePath: AppAssets.snapLogo,
+          path: AppAssets.bacuraSnapURL,
         ),
         SocialMediaWidget(
-          imagePath: 'assets/images/x.png',
-          path: 'https://x.com/bacura_tec',
+          imagePath: AppAssets.xLogo,
+          path: AppAssets.bacuraXURL,
         ),
         SocialMediaWidget(
-          imagePath: 'assets/images/linkin iconn.png',
-          path: 'https://www.linkedin.com/company/bacura-tec',
+          imagePath: AppAssets.linkedInLogo,
+          path: AppAssets.bacuraLinkedInURL,
         ),
         SocialMediaWidget(
-          imagePath: 'assets/images/instagram.png',
-          path: 'https://www.instagram.com/bacura_tec/',
+          imagePath: AppAssets.instagramLogo,
+          path: AppAssets.bacuraInstagramURL,
         ),
       ])
     ]));

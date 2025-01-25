@@ -18,7 +18,7 @@ class _OffersTabState extends State<OffersTab> {
         child: Column(children: [
           SizedBox(height: 5.h),
 
-          OfferFilterWidget(),
+          const OfferFilterWidget(),
 
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: AppPadding.p6),

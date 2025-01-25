@@ -25,7 +25,7 @@ class WriteMessageWidget extends StatelessWidget {
                             width: AppSize.s1,
                           ),
                           borderRadius: BorderRadius.circular(AppSize.s8)),
-                      hintText: "Type message here"))),
+                      hintText: AppStrings.typeMessageHere))),
           IconButton(
               icon: Icon(
                 Icons.send,

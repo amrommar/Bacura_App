@@ -71,7 +71,9 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                                   if (text == null || text.trim().isEmpty) {
                                     return AppLocalizations.of(context)!.enter_your_email;
                                   }
-                                  final bool emailValid = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(text);
+                                  final bool emailValid =
+                                      RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                                          .hasMatch(text);
                                   if (!emailValid) {
                                     return AppLocalizations.of(context)!.please_enter_valid_email;
                                   }
@@ -80,8 +82,11 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                                 keyboardType: TextInputType.text),
                             SizedBox(height: 10.h),
                             CustomDropDownField(
-                              selectedOption: 'الرياض',
-                              options: const ['جده', 'الرياض'],
+                              selectedOption: AppStrings.riyad,
+                              options: const [
+                                AppStrings.jeddah,
+                                AppStrings.riyad,
+                              ],
                               fieldName: AppLocalizations.of(context)!.city,
                               onChanged: (String? newValue) {
                                 if (newValue == null) {
@@ -91,8 +96,11 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                               },
                             ),
                             CustomDropDownField(
-                              selectedOption: 'male',
-                              options: const ['male', 'female'],
+                              selectedOption: AppStrings.male,
+                              options: const [
+                                AppStrings.male,
+                                AppStrings.female,
+                              ],
                               fieldName: AppLocalizations.of(context)!.gender,
                               onChanged: (String? newValue) {
                                 if (newValue == null) {
@@ -123,7 +131,8 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                                 provider.completeProfile(context);
                               }
                             },
-                            child: Text(AppLocalizations.of(context)!.register, style: Theme.of(context).textTheme.titleMedium))),
+                            child: Text(AppLocalizations.of(context)!.register,
+                                style: Theme.of(context).textTheme.titleMedium))),
                     SizedBox(height: 18.h),
                   ])),
             ),

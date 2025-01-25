@@ -1,6 +1,6 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/more/index.dart';
-import 'package:bacura_app/feature/more/presentation/views/components/edit_card_bottomsheet.dart';
+import 'package:bacura_app/feature/more/presentation/views/unused_components/edit_card_bottomsheet.dart';
 
 class Cards_Management_Screen extends StatefulWidget {
   @override
@@ -103,7 +103,7 @@ class _Cards_Management_ScreenState extends State<Cards_Management_Screen> {
     showModalBottomSheet(
         context: context,
         builder: (context) {
-          return EditCard_BottomSheet();
+          return EditCardBottomSheet();
         });
   }
 }

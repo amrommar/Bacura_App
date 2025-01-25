@@ -14,7 +14,7 @@ class _HomeTabState extends State<HomeTab> {
     return SingleChildScrollView(
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
       // Ad Slider Section_____________________________________________________
-      const AdsSlider(),
+      AdsSlider(),
 
       ///////////////////////////////   Services Section      //////////////////////////////////////////////
       // Services List (could be GridView as well)
@@ -31,13 +31,13 @@ class _HomeTabState extends State<HomeTab> {
           onTap: () {
             Navigator.pushNamed(context, Routes.cinemaDetailsRoute);
           },
-          imagePath: 'assets/images/cinemaWhite.png',
-          serviceTitle: 'السينما المنزلية',
+          imagePath: AppAssets.cinema,
+          serviceTitle: AppStrings.cinema,
         ),
         /////////////////    Consultation Section    ////////////////////////////
         RareServiceWidget(
-          imagePath: 'assets/images/consultationWhite.png',
-          serviceTitle: 'الاستشارات',
+          imagePath: AppAssets.consultation,
+          serviceTitle: AppStrings.consultation,
           onTap: () {
             Navigator.pushNamed(context, Routes.consultationScreenRoute);
           },

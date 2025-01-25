@@ -5,7 +5,7 @@ class RareServiceWidget extends StatelessWidget {
   final String imagePath;
   final String serviceTitle;
 
-  RareServiceWidget({
+  const RareServiceWidget({
     super.key,
     required this.onTap,
     required this.imagePath,

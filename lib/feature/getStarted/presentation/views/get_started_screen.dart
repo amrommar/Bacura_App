@@ -28,11 +28,15 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
               SizedBox(height: 80.h),
               //welcome message ____________________________________
               Text(
-                'أهلا بك في تطبيق باكورة',
+                AppStrings.welcomeToBacuraApp,
                 style: Theme.of(context).textTheme.displayLarge,
               ),
               SizedBox(height: 10.h),
-              Text(textAlign: TextAlign.center, 'يمكنك تصفح التطبيق بدون تسجيل', style: Theme.of(context).textTheme.bodyMedium),
+              Text(
+                textAlign: TextAlign.center,
+                AppStrings.you_can_browse_the_application_without_registering,
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
               SizedBox(height: 80.h),
               //As A Visitor button______________________________
               const ContinueAsVisitorButton(),

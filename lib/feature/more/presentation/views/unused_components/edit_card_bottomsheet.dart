@@ -1,11 +1,11 @@
 import 'package:bacura_app/core/utils/index.dart';
 
-class EditCard_BottomSheet extends StatefulWidget {
+class EditCardBottomSheet extends StatefulWidget {
   @override
-  State<EditCard_BottomSheet> createState() => _EditCard_BottomSheetState();
+  State<EditCardBottomSheet> createState() => _EditCardBottomSheetState();
 }
 
-class _EditCard_BottomSheetState extends State<EditCard_BottomSheet> {
+class _EditCardBottomSheetState extends State<EditCardBottomSheet> {
   TextEditingController cardNumberController = TextEditingController();
   TextEditingController nameController = TextEditingController();
   TextEditingController cvvController = TextEditingController();
@@ -25,9 +25,11 @@ class _EditCard_BottomSheetState extends State<EditCard_BottomSheet> {
         child: Form(
           key: formKey,
           child: Container(
-              decoration:
-                  BoxDecoration(color: ColorManager.whiteColor, borderRadius: BorderRadius.circular(AppSize.s20)),
-              padding: EdgeInsets.all(AppPadding.p16),
+              decoration: BoxDecoration(
+                color: ColorManager.whiteColor,
+                borderRadius: BorderRadius.circular(AppSize.s20),
+              ),
+              padding: const EdgeInsets.all(AppPadding.p16),
               child: SingleChildScrollView(
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

@@ -9,7 +9,10 @@ class ChangeNumberWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
       //// from Back-End ////////////////////////
-      Text('${mobileNumber.substring(0, 3)}****${mobileNumber.substring(6, 9)} 966+', style: Theme.of(context).textTheme.displayMedium),
+      Text(
+        '${mobileNumber.substring(7, 9)}******${mobileNumber.substring(0, 2)} 966+',
+        style: Theme.of(context).textTheme.displayMedium,
+      ),
       SizedBox(width: 20.w),
       InkWell(
         onTap: () {

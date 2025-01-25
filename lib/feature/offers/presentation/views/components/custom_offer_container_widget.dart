@@ -5,20 +5,23 @@ class CustomOfferContainerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(AppSize.s8), color: ColorManager.midWhiteColor),
-        margin: EdgeInsets.symmetric(horizontal: AppMargin.m12, vertical: AppMargin.m6),
+        margin: const EdgeInsets.symmetric(horizontal: AppMargin.m12, vertical: AppMargin.m6),
         height: 115.h,
         child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-          Container(
+          SizedBox(
               height: 110.h,
               width: 150.w,
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(AppSize.s8),
                   ///////////////    from Back-End     /////////////////////
-                  child: Image.asset('assets/images/offer1.png', fit: BoxFit.cover))),
+                  child: Image.asset(
+                    AppAssets.offer1,
+                    fit: BoxFit.cover,
+                  ))),
           Padding(
               padding: const EdgeInsets.all(AppPadding.p6),
               child: Column(children: [
-                Container(
+                SizedBox(
                     ///////////////    from Back-End     /////////////////////
                     width: 150.w,
                     child: Text('4 كاميرات IP ذكية خارجية (دقة 6 ميجا)',
@@ -37,15 +40,15 @@ class CustomOfferContainerWidget extends StatelessWidget {
                   children: [
                     ///////////////    from Back-End     /////////////////////
                     Text('باقي 3 أيام',
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleSmall!
-                            .copyWith(color: ColorManager.darkRedColor, fontSize: 12)),
+                        style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                              color: ColorManager.darkRedColor,
+                              fontSize: 12,
+                            )),
                     Text('1000 ريال',
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleSmall!
-                            .copyWith(color: ColorManager.darkRedColor, fontWeight: FontWeight.bold))
+                        style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                              color: ColorManager.darkRedColor,
+                              fontWeight: FontWeight.bold,
+                            ))
                   ]))
         ]));
   }

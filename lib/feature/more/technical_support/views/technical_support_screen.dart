@@ -2,6 +2,8 @@ import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/more/index.dart';
 
 class TechnicalSupportScreen extends StatefulWidget {
+  const TechnicalSupportScreen({super.key});
+
   @override
   State<TechnicalSupportScreen> createState() => _TechnicalSupportScreenState();
 }
@@ -17,7 +19,7 @@ class _TechnicalSupportScreenState extends State<TechnicalSupportScreen> {
 
           ///Frequently asked questions tab //////////////////////////////
           CustomSupportContainerWidget(
-              widget: Image.asset('assets/images/question.png', height: 80),
+              widget: Image.asset(AppAssets.question, height: 80.h),
               text: AppLocalizations.of(context)!.frequently_asked_questions,
               onTap: () {
                 Navigator.pushNamed(context, Routes.frequentlyAskedQuestionsRoute);
@@ -25,7 +27,7 @@ class _TechnicalSupportScreenState extends State<TechnicalSupportScreen> {
 
           ///Complaints tab //////////////////////////////
           CustomSupportContainerWidget(
-              widget: Image.asset('assets/images/bad-feedback.png', height: 80),
+              widget: Image.asset(AppAssets.badFeedback, height: 80.h),
               text: AppLocalizations.of(context)!.complaints,
               onTap: () {
                 Navigator.pushNamed(context, Routes.complaintScreenRoute);
@@ -33,7 +35,7 @@ class _TechnicalSupportScreenState extends State<TechnicalSupportScreen> {
 
           ///User Guide tab //////////////////////////////
           CustomSupportContainerWidget(
-              widget: Image.asset('assets/images/manual-book.png', height: 80),
+              widget: Image.asset(AppAssets.userGuide, height: 80.h),
               text: AppLocalizations.of(context)!.user_guide,
               onTap: () {
                 Navigator.pushNamed(context, Routes.userGuideRoute);

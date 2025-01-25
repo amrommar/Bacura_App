@@ -7,13 +7,20 @@ class AvatarWidget extends StatelessWidget {
   final String userName; // Current user name
   final String imagePath;
 
-  const AvatarWidget({super.key, this.imageFile, required this.onEditImage, required this.onEditName, required this.userName, required this.imagePath});
+  const AvatarWidget({
+    super.key,
+    this.imageFile,
+    required this.onEditImage,
+    required this.onEditName,
+    required this.userName,
+    required this.imagePath,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Column(children: [
       Container(
-        height: 80,
+        height: 80.h,
         width: double.infinity,
         color: ColorManager.primaryBlueColor,
       ),
@@ -58,7 +65,7 @@ class AvatarWidget extends StatelessWidget {
                                 color: Colors.white,
                               )))))
             ]),
-            const SizedBox(height: 10),
+            SizedBox(height: 10.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,

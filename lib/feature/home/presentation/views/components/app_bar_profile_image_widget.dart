@@ -16,7 +16,7 @@ class AppBarProfileImageWidget extends StatelessWidget {
                   radius: 23.w,
                   backgroundColor: ColorManager.whiteColor,
                   child: Image.asset(
-                    'assets/images/Ellipse 1.png',
+                    AppAssets.avatar,
                   )))
         ]));
   }

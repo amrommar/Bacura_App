@@ -1,6 +1,10 @@
 import 'package:bacura_app/core/utils/index.dart';
 
 class AdsWidget extends StatelessWidget {
+  String imagePath;
+
+  AdsWidget({required this.imagePath});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -8,8 +12,8 @@ class AdsWidget extends StatelessWidget {
       child: Container(
           width: double.infinity,
           decoration: BoxDecoration(
-              image: const DecorationImage(
-                image: AssetImage('assets/images/baner1.jpg'),
+              image: DecorationImage(
+                image: AssetImage(imagePath),
                 fit: BoxFit.cover,
               ),
               borderRadius: BorderRadius.circular(8))),
