@@ -1,22 +1,26 @@
+import 'package:bacura_app/core/utils/app_sizes.dart';
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:flutter/material.dart';
 
 class AdsWidget extends StatelessWidget {
-  String imagePath;
+  final String imagePath;
 
-  AdsWidget({required this.imagePath});
+  const AdsWidget({super.key, required this.imagePath});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5),
-      child: Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(imagePath),
-                fit: BoxFit.cover,
-              ),
-              borderRadius: BorderRadius.circular(8))),
+      padding: EdgeInsets.symmetric(horizontal: AppSizes.pw6),
+      child: SizedBox(
+        width: double.infinity,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(AppSizes.br12),
+          child: Image.network(
+            imagePath,
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
     );
   }
 }

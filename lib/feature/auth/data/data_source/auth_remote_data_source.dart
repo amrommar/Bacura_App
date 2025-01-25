@@ -8,9 +8,7 @@ import 'package:bacura_app/feature/auth/index.dart';
 
 abstract class BaseAuthRemoteDataSource {
   Future<void> login(LoginParameter loginParameter);
-
   Future<VerifyDataEntity> verify({required VerifyParameter verifyParameter});
-
   Future<void> completeProfileData(CompleteParameter completeParameter);
 }
 
