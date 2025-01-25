@@ -13,10 +13,10 @@ class _HomeScreenState extends State<HomeScreen> {
   int currentIndex = 0;
 
   List<Widget> Tabs = [
-    const HomeTab(),
-    const RequestsTab(),
-    const OffersTab(),
-    const MoreTab(),
+    const HomeTabScreen(),
+    const RequestsTabScreen(),
+    const OffersTabScreen(),
+    const MoreTabScreen(),
   ];
 
   var formKey = GlobalKey<FormState>();

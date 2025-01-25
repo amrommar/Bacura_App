@@ -1,5 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/home/presentation/views/components/rare_service_widget.dart';
+import 'package:bacura_app/feature/home/presentation/widgets/rare_service_widget.dart';
 
 class RareServiceComponent extends StatelessWidget {
   const RareServiceComponent({

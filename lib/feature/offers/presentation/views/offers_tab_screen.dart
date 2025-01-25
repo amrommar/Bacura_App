@@ -1,14 +1,14 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/offers/index.dart';
 
-class OffersTab extends StatefulWidget {
-  const OffersTab({super.key});
+class OffersTabScreen extends StatefulWidget {
+  const OffersTabScreen({super.key});
 
   @override
-  State<OffersTab> createState() => _OffersTabState();
+  State<OffersTabScreen> createState() => _OffersTabScreenState();
 }
 
-class _OffersTabState extends State<OffersTab> {
+class _OffersTabScreenState extends State<OffersTabScreen> {
   /////////////////////////////////////              From Back-End          ////////////////
 
   @override
@@ -20,9 +20,7 @@ class _OffersTabState extends State<OffersTab> {
 
           const OfferFilterWidget(),
 
-          Padding(
-              padding: const EdgeInsets.symmetric(horizontal: AppPadding.p6),
-              child: Divider(color: ColorManager.lightBlueColor)),
+          Padding(padding: const EdgeInsets.symmetric(horizontal: AppPadding.p6), child: Divider(color: ColorManager.lightBlueColor)),
 
           /// Offer List section ///////////////////////////////////////////////////////
           Expanded(

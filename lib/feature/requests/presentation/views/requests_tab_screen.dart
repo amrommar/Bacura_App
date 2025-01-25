@@ -1,14 +1,14 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/requests/index.dart';
 
-class RequestsTab extends StatefulWidget {
-  const RequestsTab({super.key});
+class RequestsTabScreen extends StatefulWidget {
+  const RequestsTabScreen({super.key});
 
   @override
-  State<RequestsTab> createState() => _RequestsTabState();
+  State<RequestsTabScreen> createState() => _RequestsTabScreenState();
 }
 
-class _RequestsTabState extends State<RequestsTab> {
+class _RequestsTabScreenState extends State<RequestsTabScreen> {
   List<Color> colors = [
     ColorManager.yellowColor,
     ColorManager.primaryBlueColor,

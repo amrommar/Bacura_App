@@ -1,16 +1,16 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/more/index.dart';
 
-class MoreTab extends StatefulWidget {
-  const MoreTab({super.key});
+class MoreTabScreen extends StatefulWidget {
+  const MoreTabScreen({super.key});
 
   @override
-  State<MoreTab> createState() => _MoreTabState();
+  State<MoreTabScreen> createState() => _MoreTabScreenState();
 }
 
-class _MoreTabState extends State<MoreTab> {
+class _MoreTabScreenState extends State<MoreTabScreen> {
   void _showRatingDialog() {
-    double _rating = 0.0; // Temporary variable to store rating value
+    double rating = 0.0; // Temporary variable to store rating value
 
     showDialog(
       context: context,
@@ -35,7 +35,7 @@ class _MoreTabState extends State<MoreTab> {
                   color: Colors.amber,
                 ),
                 onRatingUpdate: (rating) {
-                  _rating = rating; // Update rating value
+                  rating = rating; // Update rating value
                 },
               ),
               SizedBox(height: 10.h),
