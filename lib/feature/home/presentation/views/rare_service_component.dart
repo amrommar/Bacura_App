@@ -8,24 +8,33 @@ class RareServiceComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Column(
       children: [
-        /////////////////       Cinema Section     ////////////////////////////
-        RareServiceWidget(
-          onTap: () {
-            Navigator.pushNamed(context, Routes.cinemaDetailsRoute);
-          },
-          imagePath: 'assets/images/cinemaWhite.png',
-          serviceTitle: 'السينما المنزلية',
-        ),
-        /////////////////    Consultation Section    ////////////////////////////
-        RareServiceWidget(
-          imagePath: 'assets/images/consultationWhite.png',
-          serviceTitle: 'الاستشارات',
-          onTap: () {
-            Navigator.pushNamed(context, Routes.consultationScreenRoute);
-          },
+        Text(AppLocalizations.of(context)!.services_for_you,
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  color: ColorManager.darkBlueColor,
+                  fontWeight: FontWeight.bold,
+                )),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            /////////////////       Cinema Section     ////////////////////////////
+            RareServiceWidget(
+              onTap: () {
+                Navigator.pushNamed(context, Routes.cinemaDetailsRoute);
+              },
+              imagePath: 'assets/images/cinemaWhite.png',
+              serviceTitle: 'السينما المنزلية',
+            ),
+            /////////////////    Consultation Section    ////////////////////////////
+            RareServiceWidget(
+              imagePath: 'assets/images/consultationWhite.png',
+              serviceTitle: 'الاستشارات',
+              onTap: () {
+                Navigator.pushNamed(context, Routes.consultationScreenRoute);
+              },
+            ),
+          ],
         ),
       ],
     );

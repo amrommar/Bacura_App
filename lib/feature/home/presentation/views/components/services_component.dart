@@ -57,16 +57,10 @@ class ServicesComponent extends StatelessWidget {
                         ))),
             GridView.builder(
                 physics: const NeverScrollableScrollPhysics(),
-                // Disable scrolling inside GridView
                 shrinkWrap: true,
-                // Let it take only necessary height
                 itemCount: 6,
-                // Replace with your departments list length
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3, // Number of items per row
-                    crossAxisSpacing: 0, // Horizontal space between items
-                    mainAxisSpacing: 5, // Vertical space between items
-                    childAspectRatio: 0.89),
+                gridDelegate:
+                    const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, crossAxisSpacing: 0, mainAxisSpacing: 5, childAspectRatio: 0.89),
                 itemBuilder: (context, index) {
                   return InkWell(
                       onTap: () {
@@ -75,7 +69,7 @@ class ServicesComponent extends StatelessWidget {
                       child: ServiceCardWidget(
                         departmentTitle: imagesTitle[index],
                         imagePath: imagesPaths[index],
-                      )); // Widget for each apartment card
+                      ));
                 }),
           ],
         ));

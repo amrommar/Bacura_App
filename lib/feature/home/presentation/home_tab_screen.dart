@@ -14,12 +14,7 @@ class HomeTabScreen extends StatelessWidget {
           AdsBannerSliderComponent(),
           ServicesComponent(),
           const SizedBox(height: 10),
-          Text(AppLocalizations.of(context)!.services_for_you,
-              style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    color: ColorManager.darkBlueColor,
-                    fontWeight: FontWeight.bold,
-                  )),
-          const RareServiceComponent()
+          const RareServiceComponent(),
         ],
       ),
     );
