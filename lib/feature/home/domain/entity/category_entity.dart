@@ -7,8 +7,8 @@ class CategoryEntity extends Equatable {
   final String? image;
   final int? serviceIds;
   final int? action;
-  final List<ServicesEntity>? services;
-  const CategoryEntity({this.id, this.name, this.image, this.serviceIds, this.action, this.services});
+  final List<ServicesEntity> services;
+  const CategoryEntity({this.id, this.name, this.image, this.serviceIds, this.action, required this.services});
 
   @override
   List<Object?> get props => [id, name, image, serviceIds, action, services];

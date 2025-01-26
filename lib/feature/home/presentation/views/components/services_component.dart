@@ -3,44 +3,10 @@ import 'package:bacura_app/feature/home/index.dart';
 import 'package:bacura_app/feature/home/presentation/controller/home_provider.dart';
 
 class ServicesComponent extends StatelessWidget {
-  ServicesComponent({super.key});
-
-  List<String> imagesPaths = [
-    AppAssets.cameraIcon,
-    AppAssets.smartHomeIcon,
-    AppAssets.accessControlIcon,
-    AppAssets.soundSystemsIcon,
-    AppAssets.savePowerIcon,
-    AppAssets.networkIcon,
-    AppAssets.gameRepairIcon,
-    AppAssets.pcRepairIcon,
-    AppAssets.phoneRepairIcon
-  ];
-  List<String> imageTitle = [
-    AppStrings.security_and_monitoring,
-    AppStrings.smartSystems,
-    AppStrings.accessControl,
-    AppStrings.soundSystems,
-    AppStrings.saveEnergy,
-    AppStrings.networksCommunications,
-    AppStrings.gameMaintenance,
-    AppStrings.computerMaintenance,
-    AppStrings.phoneMaintenance
-  ];
+  const ServicesComponent({super.key});
 
   @override
   Widget build(BuildContext context) {
-    List<String> imagesTitle = [
-      AppLocalizations.of(context)!.surveillance_cameras,
-      AppLocalizations.of(context)!.smart_systems,
-      AppLocalizations.of(context)!.access_control,
-      AppLocalizations.of(context)!.sound_systems,
-      AppLocalizations.of(context)!.save_energy,
-      AppLocalizations.of(context)!.internet_communications_networks,
-      AppStrings.gameMaintenance,
-      AppStrings.computerMaintenance,
-      AppStrings.phoneMaintenance
-    ];
     return Consumer<HomeProvider>(
       builder: (context, provider, child) => Container(
           padding: EdgeInsets.all(AppSizes.ph4),
@@ -70,7 +36,7 @@ class ServicesComponent extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return InkWell(
                         onTap: () {
-                          Navigator.pushNamed(context, Routes.serviceTypeRoute, arguments: provider.categoryEntity[index].id);
+                          provider.goToServiceScreen(context, provider.categoryEntity[index]);
                         },
                         child: ServiceCardWidget(
                           departmentTitle: provider.categoryEntity[index].name!,

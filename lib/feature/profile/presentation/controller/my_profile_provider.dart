@@ -74,7 +74,7 @@ class MyProfileProvider with ChangeNotifier {
       phone: myProfileEntity.phone == completePhoneNumber ? null : completePhoneNumber,
       gender: myProfileEntity.gender == selectedGender ? null : selectedGender,
       location: myProfileEntity.location == selectedCity ? null : selectedCity,
-      image: myProfileEntity.image == selectedImage?.path ? null : selectedImage?.path,
+      image: myProfileEntity.image == selectedImage?.path ? null : selectedImage?.path.replaceFirst('/', ''),
     ));
     _getMyProfile();
   }

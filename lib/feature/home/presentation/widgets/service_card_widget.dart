@@ -1,24 +1,15 @@
 import 'package:bacura_app/core/utils/index.dart';
 
 class ServiceCardWidget extends StatelessWidget {
-  String imagePath;
-  String departmentTitle;
+  final String imagePath;
+  final String departmentTitle;
 
-  ServiceCardWidget({super.key, required this.imagePath, required this.departmentTitle});
+  const ServiceCardWidget({super.key, required this.imagePath, required this.departmentTitle});
 
   @override
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-      Card(
-          color: ColorManager.whiteColor,
-          child: Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: AppSizes.pw20,
-                vertical: AppSizes.ph20,
-              ),
-              height: AppSizes.ph100,
-              width: AppSizes.pw100,
-              child: SvgPicture.asset(imagePath))),
+      Card(color: ColorManager.whiteColor, child: SizedBox(height: AppSizes.ph100, width: AppSizes.pw100, child: Image.network(imagePath, fit: BoxFit.cover))),
       SizedBox(
           width: AppSizes.pw90,
           child: Text(

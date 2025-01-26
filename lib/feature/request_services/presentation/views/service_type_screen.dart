@@ -1,16 +1,13 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/home/presentation/controller/home_provider.dart';
 import 'package:bacura_app/feature/request_services/index.dart';
+import 'package:bacura_app/feature/home/domain/entity/Category_entity.dart';
 
-class ServiceTypeScreen extends StatefulWidget {
-  const ServiceTypeScreen({super.key});
+class ServiceTypeScreen extends StatelessWidget {
+  final CategoryEntity categoryEntity;
+  const ServiceTypeScreen({super.key, required this.categoryEntity});
 
-  @override
-  State<ServiceTypeScreen> createState() => _ServiceTypeScreenState();
-}
-
-class _ServiceTypeScreenState extends State<ServiceTypeScreen> {
-  String? selectedService; // Track the currently selected service
-
+  // Track the currently selected service
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,69 +16,53 @@ class _ServiceTypeScreenState extends State<ServiceTypeScreen> {
         elevation: 0,
       ),
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            /// Service image ////////////////////////////////////
-            Image.asset('assets/images/Rectangle 78.png', height: 240.h),
+        child: ChangeNotifierProvider(
+          create: (context) => HomeProvider(),
+          child: Consumer<HomeProvider>(
+            builder: (context, provider, child) => Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                /// Service image ////////////////////////////////////
+                Image.asset('assets/images/png/Rectangle 78.png', height: 240.h),
 
-            /// Available Services Section ////////////////////////////////////
-            Padding(
-              padding: EdgeInsets.only(right: 16.w, top: 16.h, left: 16.w),
-              child: Text(
-                AppLocalizations.of(context)!.available_services,
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyLarge!
-                    .copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold),
-              ),
-            ),
+                /// Available Services Section ////////////////////////////////////
+                Padding(
+                  padding: EdgeInsets.only(right: 16.w, top: 16.h, left: 16.w),
+                  child: Text(
+                    AppLocalizations.of(context)!.available_services,
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold),
+                  ),
+                ),
 
-            /// Service Containers ////////////////////////////////////
-            ServiceTypeWidget(
-              text: 'تركيب وبرمجة',
-              isSelected: selectedService == 'تركيب وبرمجة',
-              onSelect: () {
-                setState(() {
-                  selectedService = 'تركيب وبرمجة';
-                });
-              },
-            ),
-            ServiceTypeWidget(
-              text: 'صيانة',
-              isSelected: selectedService == 'صيانة',
-              onSelect: () {
-                setState(() {
-                  selectedService = 'صيانة';
-                });
-              },
-            ),
-            ServiceTypeWidget(
-              text: 'توريد',
-              isSelected: selectedService == 'توريد',
-              onSelect: () {
-                setState(() {
-                  selectedService = 'توريد';
-                });
-              },
-            ),
+                /// Service Containers ////////////////////////////////////
 
-            SizedBox(height: 100.h),
+                Column(
+                    children: List.generate(
+                        categoryEntity.services.length,
+                        (index) => ServiceTypeWidget(
+                              text: categoryEntity.services[index].name!,
+                              isSelected: provider.selectedService == categoryEntity.services[index].name!,
+                              onSelect: () {
+                                provider.selectedService = categoryEntity.services[index].name!;
+                              },
+                            ))),
 
-            /// Next Button ////////////////////////////////////
-            NextButton(
-              isEnabled: selectedService != null, // Enable only if a service is selected
-              onPressed: selectedService == null
-                  ? null // Disable if no service is selected
-                  : () {
-                      Navigator.pushNamed(context, Routes.serviceDetailsRoute); // Navigate to next screen
-                    },
+                SizedBox(height: 100.h),
+
+                /// Next Button ////////////////////////////////////
+                NextButton(
+                  isEnabled: provider.selectedService != null,
+                  onPressed: provider.selectedService == null
+                      ? null
+                      : () {
+                          Navigator.pushNamed(context, Routes.serviceDetailsRoute);
+                        },
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
   }
 }
-
-/// container have circle icon and text ////////////////////////////////////

@@ -71,8 +71,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => Cards_Management_Screen());
       case Routes.offerDetailsRoute:
         return MaterialPageRoute(builder: (_) => const OfferDetailsScreen());
-      case Routes.serviceTypeRoute:
-        return MaterialPageRoute(builder: (_) => const ServiceTypeScreen());
+      // case Routes.serviceTypeRoute:
+      //   return MaterialPageRoute(builder: (_) => const ServiceTypeScreen());
       case Routes.serviceDetailsRoute:
         return MaterialPageRoute(builder: (_) => ServiceDetailsScreen());
       case Routes.privacyPolicyRoute:
@@ -82,11 +82,11 @@ class RouteGenerator {
       case Routes.suggestionsRoute:
         return MaterialPageRoute(builder: (_) => const SuggestionsScreen());
       case Routes.notificationsRoute:
-        return MaterialPageRoute(builder: (_) => NotificationsScreen());
+        return MaterialPageRoute(builder: (_) => const NotificationsScreen());
       case Routes.customerServiceRoute:
         return MaterialPageRoute(builder: (_) => const CustomerServiceScreen());
       case Routes.technicalSupportRoute:
-        return MaterialPageRoute(builder: (_) => TechnicalSupportScreen());
+        return MaterialPageRoute(builder: (_) => const TechnicalSupportScreen());
       case Routes.complaintScreenRoute:
         return MaterialPageRoute(builder: (_) => ComplaintScreen());
       case Routes.frequentlyAskedQuestionsRoute:
@@ -96,7 +96,7 @@ class RouteGenerator {
       case Routes.lastOperationsRoute:
         return MaterialPageRoute(builder: (_) => LastOperationsScreen());
       case Routes.invoiceDetailsRoute:
-        return MaterialPageRoute(builder: (_) => InvoiceDetailsScreen());
+        return MaterialPageRoute(builder: (_) => const InvoiceDetailsScreen());
       case Routes.consultationScreenRoute:
         return MaterialPageRoute(builder: (_) => ConsultationScreen());
       case Routes.spHomeScreenRoute:
