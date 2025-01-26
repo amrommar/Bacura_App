@@ -25,12 +25,12 @@ class RareServiceComponent extends StatelessWidget {
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const CinemaDetailsScreen()));
                 },
-                imagePath: 'assets/images/cinemaWhite.png',
+                imagePath: 'assets/images/png/cinemaWhite.png',
                 serviceTitle: 'السينما المنزلية',
               ),
               /////////////////    Consultation Section    ////////////////////////////
               RareServiceWidget(
-                imagePath: 'assets/images/consultationWhite.png',
+                imagePath: 'assets/images/png/consultationWhite.png',
                 serviceTitle: 'الاستشارات',
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const ConsultationScreen()));

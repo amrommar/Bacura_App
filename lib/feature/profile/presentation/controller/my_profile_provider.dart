@@ -14,6 +14,7 @@ import 'package:bacura_app/feature/profile/presentation/views/components/edit_na
 import 'package:bacura_app/feature/profile/presentation/views/components/edit_phone_number_bottom_sheet.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
+import 'package:path_provider/path_provider.dart';
 
 class MyProfileProvider with ChangeNotifier {
   MyProfileEntity myProfileEntity = const MyProfileEntity(
@@ -25,15 +26,16 @@ class MyProfileProvider with ChangeNotifier {
   );
   bool isLoading = true;
   String? completePhoneNumber;
-  File? selectedImage;
+
   String? selectedGender;
   String? selectedCity;
+  bool isImagePickerOpen = false;
+  String? imagePath;
 
   final BuildContext context;
 
   final List<String> genderOptions = ['ذكر', 'أنثي'];
   final List<String> cityOptions = ['الرياض', 'جده', 'مكة', 'الدمام'];
-  final ImagePicker _picker = ImagePicker();
   final TextEditingController nameController = TextEditingController();
   TextEditingController phoneNumController = TextEditingController();
   TextEditingController emailController = TextEditingController();
@@ -68,47 +70,47 @@ class MyProfileProvider with ChangeNotifier {
   }
 
   Future<void> updateMyProfile() async {
+    isLoading = true;
+    notifyListeners();
     await sl<UpdateProfileUseCase>().call(UpdateProfileParameters(
       name: myProfileEntity.name == nameController.text ? null : nameController.text,
       email: myProfileEntity.email == emailController.text ? null : emailController.text,
       phone: myProfileEntity.phone == completePhoneNumber ? null : completePhoneNumber,
       gender: myProfileEntity.gender == selectedGender ? null : selectedGender,
       location: myProfileEntity.location == selectedCity ? null : selectedCity,
-      image: myProfileEntity.image == selectedImage?.path ? null : selectedImage?.path.replaceFirst('/', ''),
+      image: imagePath,
     ));
+    isLoading = false;
     _getMyProfile();
+    notifyListeners();
   }
 
   Future<void> pickImage(BuildContext context) async {
-    showModalBottomSheet(
+    isImagePickerOpen = true;
+    final ImagePicker picker = ImagePicker();
+
+    showDialog(
       context: context,
-      builder: (context) {
-        return Container(
-          padding: const EdgeInsets.all(16),
-          child: Wrap(
+      builder: (BuildContext dialogContext) {
+        return AlertDialog(
+          title: const Text('اختر مصدر الصورة'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
               ListTile(
-                leading: const Icon(Icons.camera_alt),
-                title: Text(AppLocalizations.of(context)!.take_picture),
+                leading: const Icon(Icons.camera),
+                title: const Text('الكاميرا'),
                 onTap: () async {
-                  Navigator.pop(context);
-                  final pickedFile = await _picker.pickImage(source: ImageSource.camera);
-                  if (pickedFile != null) {
-                    selectedImage = File(pickedFile.path);
-                    updateMyProfile();
-                  }
+                  Navigator.of(dialogContext).pop();
+                  await _pickImageFromSource(ImageSource.camera, picker);
                 },
               ),
               ListTile(
-                leading: const Icon(Icons.photo),
-                title: Text(AppLocalizations.of(context)!.choose_from_gallery),
+                leading: const Icon(Icons.photo_library),
+                title: const Text('المعرض'),
                 onTap: () async {
-                  Navigator.pop(context);
-                  final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
-                  if (pickedFile != null) {
-                    selectedImage = File(pickedFile.path);
-                    updateMyProfile();
-                  }
+                  Navigator.of(dialogContext).pop();
+                  await _pickImageFromSource(ImageSource.gallery, picker);
                 },
               ),
             ],
@@ -116,6 +118,22 @@ class MyProfileProvider with ChangeNotifier {
         );
       },
     );
+  }
+
+  Future<void> _pickImageFromSource(ImageSource source, ImagePicker picker) async {
+    final XFile? pickedFile = await picker.pickImage(source: source);
+    if (pickedFile != null) {
+      final Uint8List imageBytes = await convertXFileToUint8List(pickedFile);
+      File? imageFile = await convertUnit8ListToFile(imageInUnit8List: imageBytes);
+
+      imagePath = imageFile.path.replaceFirst('/', '');
+      await sl<UpdateProfileUseCase>().call(UpdateProfileParameters(
+        image: imagePath,
+      ));
+    }
+    isImagePickerOpen = false;
+    notifyListeners();
+    _getMyProfile();
   }
 
   Future<void> openNameBottomSheet() async {
@@ -226,4 +244,16 @@ class MyProfileProvider with ChangeNotifier {
       return 'mobileNumberIsNotCorrect';
     }
   }
+}
+
+Future<Uint8List> convertXFileToUint8List(XFile file) async {
+  Uint8List bytes = await file.readAsBytes();
+  return bytes;
+}
+
+Future<File> convertUnit8ListToFile({required Uint8List imageInUnit8List}) async {
+  final tempDir = await getTemporaryDirectory();
+  File file = await File('${tempDir.path}/${DateTime.now()}.png').create();
+  file.writeAsBytesSync(imageInUnit8List);
+  return file;
 }
