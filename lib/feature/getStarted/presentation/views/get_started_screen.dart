@@ -13,7 +13,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
   Widget build(BuildContext context) {
     return Stack(children: [
       //   background Image
-      Image.asset(AppAssets.background2Image),
+      Image.asset(AppAssets.background2Image, width: double.infinity, height: double.infinity, fit: BoxFit.fill),
       Scaffold(
         backgroundColor: Colors.transparent,
         body: Container(
@@ -21,11 +21,12 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
             child: SingleChildScrollView(
                 child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
               //language change icon ________________________________________________
-              const ChangeLanguageIconWidget(),
-              SizedBox(height: AppSizes.ph40),
+              // const ChangeLanguageIconWidget(),
+              SizedBox(height: AppSizes.ph80),
               //Bacura logo container _________________________________________
               const BacuraLogoWidget(),
-              SizedBox(height: AppSizes.ph80),
+
+              SizedBox(height: AppSizes.ph60),
               //welcome message ____________________________________
               Text(
                 AppStrings.welcomeToBacuraApp,

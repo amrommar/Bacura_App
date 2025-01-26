@@ -12,7 +12,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
-      Image.asset(AppAssets.background2Image),
+      Image.asset(AppAssets.background2Image, width: double.infinity, height: double.infinity, fit: BoxFit.fill),
       ChangeNotifierProvider(
         create: (context) => AuthProvider(),
         child: Scaffold(

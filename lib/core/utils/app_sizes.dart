@@ -24,6 +24,7 @@ class AppSizes {
   static final double sp28 = getFontSize(28).sp;
   static final double sp32 = getFontSize(32).sp;
   static final double sp34 = getFontSize(34).sp;
+  static final double sp36 = getFontSize(36).sp;
   static final double sp40 = getFontSize(40).sp;
   static final double sp50 = getFontSize(50).sp;
 
@@ -214,6 +215,7 @@ class AppSizes {
   static final double pw338 = 338.w;
   static final double pw396 = 396.w;
   static final double pw400 = 400.w;
+  static final double pw800 = 800.w;
   static final double pw430 = 430.w;
   static final double pw140 = 140.0.w;
 
