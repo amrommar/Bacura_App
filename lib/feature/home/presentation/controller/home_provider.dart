@@ -47,4 +47,9 @@ class HomeProvider with ChangeNotifier {
                   categoryEntity: category,
                 )));
   }
+
+  onSelectService(String service) {
+    selectedService = service;
+    notifyListeners();
+  }
 }

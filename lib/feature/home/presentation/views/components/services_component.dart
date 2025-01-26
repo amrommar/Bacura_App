@@ -36,7 +36,10 @@ class ServicesComponent extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return InkWell(
                         onTap: () {
-                          provider.goToServiceScreen(context, provider.categoryEntity[index]);
+                          provider.goToServiceScreen(
+                            context,
+                            provider.categoryEntity[index],
+                          );
                         },
                         child: ServiceCardWidget(
                           departmentTitle: provider.categoryEntity[index].name!,

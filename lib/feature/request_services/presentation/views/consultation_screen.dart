@@ -2,6 +2,8 @@ import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/request_services/index.dart';
 
 class ConsultationScreen extends StatefulWidget {
+  const ConsultationScreen({super.key});
+
   @override
   State<ConsultationScreen> createState() => _ConsultationScreenState();
 }
@@ -56,7 +58,7 @@ class _ConsultationScreenState extends State<ConsultationScreen> {
     showModalBottomSheet(
         context: context,
         builder: (context) {
-          return RequestSentBottomSheet();
+          return const RequestSentBottomSheet();
         });
   }
 }

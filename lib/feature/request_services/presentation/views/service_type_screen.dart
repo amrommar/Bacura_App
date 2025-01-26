@@ -37,15 +37,17 @@ class ServiceTypeScreen extends StatelessWidget {
                 /// Service Containers ////////////////////////////////////
 
                 Column(
-                    children: List.generate(
-                        categoryEntity.services.length,
-                        (index) => ServiceTypeWidget(
-                              text: categoryEntity.services[index].name!,
-                              isSelected: provider.selectedService == categoryEntity.services[index].name!,
-                              onSelect: () {
-                                provider.selectedService = categoryEntity.services[index].name!;
-                              },
-                            ))),
+                  children: List.generate(
+                    categoryEntity.services.length,
+                    (index) => ServiceTypeWidget(
+                      text: categoryEntity.services[index].name!,
+                      isSelected: provider.selectedService == categoryEntity.services[index].name,
+                      onSelect: () {
+                        provider.onSelectService(categoryEntity.services[index].name!);
+                      },
+                    ),
+                  ),
+                ),
 
                 SizedBox(height: 100.h),
 

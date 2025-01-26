@@ -97,8 +97,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => LastOperationsScreen());
       case Routes.invoiceDetailsRoute:
         return MaterialPageRoute(builder: (_) => const InvoiceDetailsScreen());
-      case Routes.consultationScreenRoute:
-        return MaterialPageRoute(builder: (_) => ConsultationScreen());
+      // case Routes.consultationScreenRoute:
+      //   return MaterialPageRoute(builder: (_) => ConsultationScreen());
       case Routes.spHomeScreenRoute:
         return MaterialPageRoute(builder: (_) => SpHomeScreen());
       case Routes.spRequestDetailsRoute:
@@ -121,8 +121,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const RegisterInstitutionScreen());
       case Routes.aboutUsRoute:
         return MaterialPageRoute(builder: (_) => const AboutUsScreen());
-      case Routes.cinemaDetailsRoute:
-        return MaterialPageRoute(builder: (_) => const CinemaDetailsScreen());
+      // case Routes.cinemaDetailsRoute:
+      //   return MaterialPageRoute(builder: (_) => const CinemaDetailsScreen());
 
       default:
         return unDefinedRoute();
