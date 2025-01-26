@@ -28,7 +28,7 @@ class ServiceTypeWidget extends StatelessWidget {
               offset: const Offset(0, 3),
             ),
           ],
-          borderRadius: BorderRadius.circular(AppSize.s12),
+          borderRadius: BorderRadius.circular(AppSizes.br12),
           color: ColorManager.whiteColor,
         ),
         child: Row(

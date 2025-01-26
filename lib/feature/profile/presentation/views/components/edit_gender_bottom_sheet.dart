@@ -11,8 +11,8 @@ class EditGenderBottomSheet extends StatelessWidget {
     return Consumer<MyProfileProvider>(
       builder: (context, provider, child) => SingleChildScrollView(
         child: Container(
-            height: 250.h,
-            padding: const EdgeInsets.all(20),
+            height: AppSizes.ph250,
+            padding: EdgeInsets.all(AppSizes.ph20),
             child: Column(children: [
               CustomDropDownField(
                 selectedOption: provider.myProfileEntity.gender!,
@@ -25,7 +25,7 @@ class EditGenderBottomSheet extends StatelessWidget {
                   provider.selectedGender = newValue;
                 },
               ),
-              SizedBox(height: 20.h),
+              SizedBox(height: AppSizes.ph20),
               CustomSmallElevatedButton(
                   text: AppLocalizations.of(context)!.save,
                   onPressed: () {

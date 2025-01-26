@@ -9,27 +9,27 @@ class ChangeLanguageRowWidget extends StatelessWidget {
     return Container(
         decoration: BoxDecoration(
           color: ColorManager.lightWhiteColor,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(AppSizes.br8),
         ),
-        margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-        padding: const EdgeInsets.all(12),
+        margin: EdgeInsets.symmetric(horizontal: AppSizes.pw8, vertical: AppSizes.ph3),
+        padding: EdgeInsets.all(AppSizes.ph12),
         child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
           Icon(
             Icons.language,
             color: ColorManager.midBlueColor,
-            size: 23,
+            size: AppSizes.ph24,
           ),
           Expanded(
               child: Padding(
-            padding: const EdgeInsets.only(right: 4, left: 4, top: 3),
+            padding: EdgeInsets.only(right: AppSizes.pw4, left: AppSizes.pw4, top: AppSizes.ph3),
             child: Text(AppLocalizations.of(context)!.app_Language,
                 style: Theme.of(context).textTheme.displayMedium!.copyWith(
                       color: ColorManager.blackColor,
                     )),
           )),
           Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: AppPadding.p4,
+              padding: EdgeInsets.symmetric(
+                horizontal: AppSizes.pw4,
               ),
               child: InkWell(
                   onTap: () {

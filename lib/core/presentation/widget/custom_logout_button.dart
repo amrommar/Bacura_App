@@ -28,23 +28,26 @@ class CustomLogoutButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.all(AppPadding.p16),
+        padding: EdgeInsets.all(AppSizes.ph16),
         child: ElevatedButton(
             style: ElevatedButton.styleFrom(),
             onPressed: () {
               showCustomDialog(context);
             },
-            child: Row(crossAxisAlignment: CrossAxisAlignment.center, mainAxisAlignment: MainAxisAlignment.center, children: [
-              Text(
-                AppLocalizations.of(context)!.logout,
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              SizedBox(width: 10.w),
-              Icon(
-                Icons.login_outlined,
-                color: ColorManager.whiteColor,
-                size: 25,
-              )
-            ])));
+            child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.logout,
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  SizedBox(width: AppSizes.pw10),
+                  Icon(
+                    Icons.login_outlined,
+                    color: ColorManager.whiteColor,
+                    size: AppSizes.ph25,
+                  )
+                ])));
   }
 }

@@ -18,14 +18,14 @@ class CompletedRequestsWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Icon(Icons.request_page_outlined, color: ColorManager.midBlueColor),
-                  SizedBox(width: 10.w),
+                  SizedBox(width: AppSizes.pw10),
                   Text('الطلبات المنجزة',
                       style: Theme.of(context).textTheme.titleMedium!.copyWith(
                             color: ColorManager.darkBlueColor,
                           ))
                 ],
               ),
-              SizedBox(width: 10.w),
+              SizedBox(width: AppSizes.pw10),
               Text('24',
                   style: Theme.of(context).textTheme.titleMedium!.copyWith(
                         color: ColorManager.blackColor,

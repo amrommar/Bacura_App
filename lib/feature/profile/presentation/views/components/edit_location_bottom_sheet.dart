@@ -14,7 +14,10 @@ class EditLocationBottomSheet extends StatelessWidget {
     return SingleChildScrollView(
       child: Consumer<MyProfileProvider>(builder: (context, provider, child) {
         return Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          padding: EdgeInsets.symmetric(
+            horizontal: AppSizes.pw20,
+            vertical: AppSizes.ph30,
+          ),
           child: Column(
             children: [
               CustomDropDownField(
@@ -28,7 +31,7 @@ class EditLocationBottomSheet extends StatelessWidget {
                   provider.selectedCity = newValue;
                 },
               ),
-              SizedBox(height: 40.h),
+              SizedBox(height: AppSizes.ph40),
               CustomSmallElevatedButton(
                   text: AppLocalizations.of(context)!.save,
                   onPressed: () {

@@ -6,10 +6,10 @@ class ServiceDetailsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(15),
+      padding: EdgeInsets.all(AppSizes.ph15),
       decoration: BoxDecoration(
         color: ColorManager.soLightWhiteColor,
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(AppSizes.br8),
       ),
       child: ListView.separated(
         shrinkWrap: true,

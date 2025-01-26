@@ -2,6 +2,8 @@ import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/profile/index.dart';
 
 class InvoiceDetailsScreen extends StatefulWidget {
+  const InvoiceDetailsScreen({super.key});
+
   @override
   State<InvoiceDetailsScreen> createState() => _InvoiceDetailsScreenState();
 }
@@ -15,9 +17,12 @@ class _InvoiceDetailsScreenState extends State<InvoiceDetailsScreen> {
           AppLocalizations.of(context)!.invoice,
         )),
         body: Container(
-            decoration: BoxDecoration(color: ColorManager.lightBlueColor, borderRadius: BorderRadius.circular(10)),
-            margin: const EdgeInsets.all(12),
-            padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
+            decoration: BoxDecoration(
+              color: ColorManager.lightBlueColor,
+              borderRadius: BorderRadius.circular(AppSizes.br10),
+            ),
+            margin: EdgeInsets.all(AppSizes.ph12),
+            padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph12),
             child: ListView(children: [
               ////  Request Number  section/////////////////////////////////////////////
               Text('#3333452',
@@ -25,21 +30,23 @@ class _InvoiceDetailsScreenState extends State<InvoiceDetailsScreen> {
                       .textTheme
                       .titleMedium!
                       .copyWith(color: ColorManager.primaryBlueColor, fontWeight: FontWeight.bold)),
-              SizedBox(height: 10.h),
+              SizedBox(height: AppSizes.ph10),
               ////  Request Number and Time and Date section/////////////////////////////////////////////
               const InvoiceTimeDateWidget(),
               Divider(color: ColorManager.whiteColor),
 
               const ServiceProviderNameWidget(),
               Divider(color: ColorManager.whiteColor),
-              Text(AppLocalizations.of(context)!.service_descript,
-                  style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor)),
-              SizedBox(height: 10.h),
+              Text(
+                AppLocalizations.of(context)!.service_descript,
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor),
+              ),
+              SizedBox(height: AppSizes.ph10),
               const ServiceDetailsList(),
               Divider(color: ColorManager.whiteColor),
               ////  money and payment method section/////////////////////////////////////////////
               const TotalPriceWidget(),
-              SizedBox(height: 20.h),
+              SizedBox(height: AppSizes.ph20),
 
               ///  Location section/////////////////////////////////////////////
               RequestDetailsIconTextsRow(
@@ -70,7 +77,7 @@ class _InvoiceDetailsScreenState extends State<InvoiceDetailsScreen> {
                 icon: Icons.verified_user,
                 iconColor: ColorManager.midBlueColor,
               ),
-              SizedBox(height: 60.h),
+              SizedBox(height: AppSizes.ph60),
               const DownloadInvoiceWidget()
             ])));
   }

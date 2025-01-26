@@ -17,23 +17,23 @@ class CustomSupportContainerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 160.h,
+        height: AppSizes.ph160,
         width: double.infinity,
         decoration: BoxDecoration(
           color: ColorManager.lightWhiteColor,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(AppSizes.br12),
         ),
-        margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
-        padding: const EdgeInsets.all(12),
+        margin: EdgeInsets.symmetric(horizontal: AppSizes.pw8, vertical: AppSizes.ph5),
+        padding: EdgeInsets.all(AppSizes.ph12),
         child: InkWell(
             onTap: () {
               onTap();
             },
             child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
               widget,
-              const SizedBox(height: 5),
+              SizedBox(height: AppSizes.ph5),
               Padding(
-                padding: const EdgeInsets.only(right: 4, left: 4, top: 3),
+                padding: EdgeInsets.only(right: AppSizes.pw4, left: AppSizes.pw4, top: AppSizes.ph3),
                 child: Text(text,
                     style: Theme.of(context).textTheme.displayMedium!.copyWith(
                           color: ColorManager.blackColor,

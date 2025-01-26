@@ -16,7 +16,7 @@ class EditPhoneNumberBottomSheet extends StatelessWidget {
     return Consumer<MyProfileProvider>(
       builder: (context, provider, child) => SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.all(20),
+          padding: EdgeInsets.all(AppSizes.ph20),
           child: Form(
             key: formKey,
             child: Column(
@@ -30,7 +30,7 @@ class EditPhoneNumberBottomSheet extends StatelessWidget {
                     provider.completePhoneNumber = phone.completeNumber;
                   },
                 ),
-                SizedBox(height: 40.h),
+                SizedBox(height: AppSizes.ph40),
                 CustomSmallElevatedButton(
                   text: AppLocalizations.of(context)!.save,
                   onPressed: () {

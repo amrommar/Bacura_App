@@ -44,12 +44,12 @@ class _FAQScreenState extends State<FAQScreen> {
             InkWell(
               onTap: () => Navigator.pushNamed(context, Routes.customerServiceRoute),
               child: Container(
-                margin: const EdgeInsets.only(top: 16, right: 50, left: 50),
+                margin: EdgeInsets.only(top: AppSizes.ph16, right: AppSizes.pw50, left: AppSizes.pw50),
                 decoration: BoxDecoration(
                   color: ColorManager.soLightGreyColor,
-                  borderRadius: BorderRadius.circular(12),
+                  borderRadius: BorderRadius.circular(AppSizes.br12),
                 ),
-                padding: const EdgeInsets.all(12),
+                padding: EdgeInsets.all(AppSizes.br12),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -60,17 +60,17 @@ class _FAQScreenState extends State<FAQScreen> {
                             color: ColorManager.primaryBlueColor,
                           ),
                     ),
-                    const SizedBox(width: 5),
+                    SizedBox(width: AppSizes.pw5),
                     Icon(
                       Icons.headset_mic_outlined,
                       color: ColorManager.primaryBlueColor,
-                      size: 25,
+                      size: AppSizes.ph25,
                     )
                   ],
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: AppSizes.ph20),
           ],
         ),
       ),

@@ -27,9 +27,9 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                       mainAxisSize: MainAxisSize.min,
                       children: List.generate(
                         9,
-                        (index) => const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: CustomLoadingShimmer(height: 60, width: double.infinity),
+                        (index) => Padding(
+                          padding: EdgeInsets.all(AppSizes.ph8),
+                          child: CustomLoadingShimmer(height: AppSizes.ph60, width: double.infinity),
                         ),
                       ),
                     ),
@@ -58,7 +58,7 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                                 provider.openEditPhoneBottomSheet();
                               },
                             ),
-                            Divider(color: ColorManager.lightBlueColor, height: 20),
+                            Divider(color: ColorManager.lightBlueColor, height: AppSizes.ph20),
                             ProfileDetailsWidget(
                               icon: Icons.mail_outline_outlined,
                               text: AppLocalizations.of(context)!.email,
@@ -67,7 +67,7 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                                 provider.openEmailBottomSheet();
                               },
                             ),
-                            Divider(color: ColorManager.lightBlueColor, height: 20),
+                            Divider(color: ColorManager.lightBlueColor, height: AppSizes.ph20),
                             ProfileDetailsWidget(
                                 onTap: () {
                                   provider.openGenderBottomSheet();
@@ -75,7 +75,7 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                                 icon: Icons.transgender_outlined,
                                 text: AppLocalizations.of(context)!.gender,
                                 value: profileEntity.gender!),
-                            Divider(color: ColorManager.lightBlueColor, height: 20),
+                            Divider(color: ColorManager.lightBlueColor, height: AppSizes.ph20),
                             ProfileDetailsWidget(
                                 onTap: () {
                                   provider.openCityBottomSheet();
@@ -87,7 +87,7 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                         ),
                       ),
 
-                      SizedBox(height: 80.h),
+                      SizedBox(height: AppSizes.ph80),
 
                       // Logout Button
                       const CustomLogoutButton(),

@@ -19,16 +19,16 @@ class RequestsCalenderWidget extends StatelessWidget {
                   Icons.calendar_month_outlined,
                   color: ColorManager.midBlueColor,
                 ),
-                SizedBox(width: 10.w),
+                SizedBox(width: AppSizes.ph10),
                 Text('التقويم',
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           color: ColorManager.darkBlueColor,
                         ))
               ]),
-              SizedBox(width: 10.w),
+              SizedBox(width: AppSizes.pw10),
               Icon(
                 Icons.navigate_next_rounded,
-                size: 28,
+                size: AppSizes.ph28,
                 color: ColorManager.darkBlueColor,
               )
             ])));

@@ -8,7 +8,13 @@ class CustomLoadingShimmer extends StatelessWidget {
   final double width;
   final double height;
 
-  const CustomLoadingShimmer({super.key, this.borderRadius, required this.width, required this.height, this.color});
+  const CustomLoadingShimmer({
+    super.key,
+    this.borderRadius,
+    required this.width,
+    required this.height,
+    this.color,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +24,10 @@ class CustomLoadingShimmer extends StatelessWidget {
       child: Container(
         height: height,
         width: width,
-        decoration: BoxDecoration(color: color ?? ColorManager.greyColor, borderRadius: borderRadius ?? BorderRadius.circular(AppSizes.br8)),
+        decoration: BoxDecoration(
+          color: color ?? ColorManager.greyColor,
+          borderRadius: borderRadius ?? BorderRadius.circular(AppSizes.br8),
+        ),
       ),
     );
   }

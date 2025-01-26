@@ -6,8 +6,8 @@ class WriteMessageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
-        height: 60,
+        padding: EdgeInsets.symmetric(horizontal: AppSizes.pw8, vertical: AppSizes.ph10),
+        height: AppSizes.ph60,
         color: ColorManager.midWhiteColor,
         child: Row(children: [
           IconButton(
@@ -22,9 +22,9 @@ class WriteMessageWidget extends StatelessWidget {
                       enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: ColorManager.midWhiteColor,
-                            width: AppSize.s1,
+                            width: AppSizes.pw1,
                           ),
-                          borderRadius: BorderRadius.circular(AppSize.s8)),
+                          borderRadius: BorderRadius.circular(AppSizes.br8)),
                       hintText: AppStrings.typeMessageHere))),
           IconButton(
               icon: Icon(

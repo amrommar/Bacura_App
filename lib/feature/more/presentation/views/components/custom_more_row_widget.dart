@@ -19,10 +19,10 @@ class CustomMoreRowWidget extends StatelessWidget {
     return Container(
         decoration: BoxDecoration(
           color: ColorManager.lightWhiteColor,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(AppSizes.br8),
         ),
-        margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-        padding: const EdgeInsets.all(12),
+        margin: EdgeInsets.symmetric(horizontal: AppSizes.pw8, vertical: AppSizes.ph3),
+        padding: EdgeInsets.all(AppSizes.br12),
         child: InkWell(
             onTap: () {
               onTap();
@@ -31,7 +31,7 @@ class CustomMoreRowWidget extends StatelessWidget {
               widget,
               Expanded(
                   child: Padding(
-                padding: const EdgeInsets.only(right: 4, left: 4, top: 3),
+                padding: EdgeInsets.only(right: AppSizes.pw4, left: AppSizes.pw4, top: AppSizes.ph3),
                 child: Text(text,
                     style: Theme.of(context).textTheme.displayMedium!.copyWith(
                           color: ColorManager.blackColor,
@@ -39,7 +39,7 @@ class CustomMoreRowWidget extends StatelessWidget {
               )),
               Icon(
                 icon,
-                size: 20,
+                size: AppSizes.ph20,
                 color: ColorManager.primaryBlueColor,
               )
             ])));

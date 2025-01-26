@@ -7,7 +7,7 @@ class BacuraLogoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-        width: 280.h,
+        width: AppSizes.pw280,
         child: SvgPicture.asset(AppAssets.bacuraLogo),
       ),
     );

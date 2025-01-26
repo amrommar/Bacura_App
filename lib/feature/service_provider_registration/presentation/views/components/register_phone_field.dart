@@ -46,13 +46,13 @@ class RegisterPhoneField extends StatelessWidget {
         focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(
               color: ColorManager.primaryBlueColor,
-              width: AppSize.s1,
+              width: AppSizes.pw1,
             ),
             borderRadius: BorderRadius.circular(12)),
         enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
               color: ColorManager.midWhiteColor,
-              width: AppSize.s1,
+              width: AppSizes.pw1,
             ),
             borderRadius: BorderRadius.circular(12)),
         hintText: hintText,

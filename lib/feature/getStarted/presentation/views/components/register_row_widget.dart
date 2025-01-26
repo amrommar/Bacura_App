@@ -12,7 +12,7 @@ class RegisterRowWidget extends StatelessWidget {
               color: ColorManager.blackColor,
             ),
       ),
-      SizedBox(width: 5.w),
+      SizedBox(width: AppSizes.pw5),
       InkWell(
         onTap: () {
           Navigator.pushNamed(context, Routes.completeProfileRoute);

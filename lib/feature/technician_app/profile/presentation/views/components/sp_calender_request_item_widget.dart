@@ -8,7 +8,7 @@ class SpCalenderRequestItemWidget extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: ColorManager.primaryBlueColor,
-        borderRadius: BorderRadius.circular(AppSize.s16),
+        borderRadius: BorderRadius.circular(AppSizes.br16),
       ),
       margin: EdgeInsets.only(right: 35.w, top: 12.h, left: 35.w, bottom: 12.h),
       padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.w),

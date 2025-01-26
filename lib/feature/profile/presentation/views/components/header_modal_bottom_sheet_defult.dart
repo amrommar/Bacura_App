@@ -21,9 +21,12 @@ class HeaderModalBottomSheetDefault extends StatelessWidget {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: CustomSvgImage.icons(path: AppAssets.closeSquare, color: Theme.of(context).iconTheme.color)),
+                icon: CustomSvgImage.icons(
+                  path: AppAssets.closeSquare,
+                  color: Theme.of(context).iconTheme.color,
+                )),
             Container(
-              width: AppSizes.pW58,
+              width: AppSizes.pw5,
               height: AppSizes.ph3,
               color: Theme.of(context).iconTheme.color,
             ),

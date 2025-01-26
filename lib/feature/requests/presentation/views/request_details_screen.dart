@@ -20,7 +20,7 @@ class _RequestDetailsScreenState extends State<RequestDetailsScreen> {
         body: Container(
             decoration: BoxDecoration(
                 color: ColorManager.whiteColor,
-                borderRadius: BorderRadius.circular(AppSize.s12),
+                borderRadius: BorderRadius.circular(AppSizes.br12),
                 boxShadow: [
                   BoxShadow(
                     color: ColorManager.midWhiteColor,

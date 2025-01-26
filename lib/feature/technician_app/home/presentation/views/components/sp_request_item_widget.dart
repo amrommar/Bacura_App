@@ -10,7 +10,7 @@ class SPRequestitemWidget extends StatelessWidget {
       decoration: BoxDecoration(
           color: ColorManager.whiteColor,
           borderRadius: BorderRadius.circular(
-            AppSize.s8,
+            AppSizes.br8,
           ),
           boxShadow: [
             BoxShadow(

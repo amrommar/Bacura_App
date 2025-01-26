@@ -14,7 +14,7 @@ class _SpRequestDetailsScreenState extends State<SpRequestDetailsScreen> {
       body: Container(
           decoration: BoxDecoration(
               color: ColorManager.whiteColor,
-              borderRadius: BorderRadius.circular(AppSize.s12),
+              borderRadius: BorderRadius.circular(AppSizes.br12),
               boxShadow: [
                 BoxShadow(
                   color: ColorManager.midWhiteColor,
@@ -78,7 +78,7 @@ class _SpRequestDetailsScreenState extends State<SpRequestDetailsScreen> {
                     style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(
-                      AppSize.s8,
+                      AppSizes.br8,
                     ))),
                     onPressed: () {
                       Navigator.pushNamed(context, Routes.requestImplementRoute);

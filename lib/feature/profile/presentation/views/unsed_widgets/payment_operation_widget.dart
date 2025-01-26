@@ -14,23 +14,35 @@ class _PaymentOperationWidgetState extends State<PaymentOperationWidget> {
     return Container(
         decoration: BoxDecoration(
             color: ColorManager.midBlueColor,
-            borderRadius: BorderRadius.circular(AppSize.s8),
+            borderRadius: BorderRadius.circular(AppSizes.br8),
             boxShadow: [
-              BoxShadow(color: ColorManager.midWhiteColor, spreadRadius: 2, blurRadius: 4, offset: const Offset(0, 3))
+              BoxShadow(
+                color: ColorManager.midWhiteColor,
+                spreadRadius: 2,
+                blurRadius: 4,
+                offset: const Offset(0, 3),
+              )
             ]),
-        margin: EdgeInsets.only(right: 12.w, top: 12.h, left: 12.w),
-        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
-        height: 170.h,
+        margin: EdgeInsets.only(
+          right: AppSizes.pw12,
+          top: AppSizes.ph12,
+          left: AppSizes.pw12,
+        ),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppSizes.pw12,
+          vertical: AppSizes.ph12,
+        ),
+        height: AppSizes.ph170,
         child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ////  Request Number and Time and Date section/////////////////////////////////////////////
               const PaymentOperationRow(),
-              SizedBox(height: 10.h),
+              SizedBox(height: AppSizes.ph10),
               ////service type section/////////////////////////////////////////////
               SizedBox(
-                width: 400.w,
+                width: AppSizes.pw400,
                 child: Text('كاميرا IP خارجية 8 ميجابكسل 80 متر - هيكفيجن كاميرا IP خارجية 8 ميجابكسل 80 متر - هيكفيجن',
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
@@ -38,7 +50,7 @@ class _PaymentOperationWidgetState extends State<PaymentOperationWidget> {
                           color: ColorManager.lightBlueColor,
                         )),
               ),
-              SizedBox(height: 10.h),
+              SizedBox(height: AppSizes.ph10),
               ////  money and payment method section/////////////////////////////////////////////
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                 Text('1000 ريال',
@@ -48,13 +60,17 @@ class _PaymentOperationWidgetState extends State<PaymentOperationWidget> {
                         .copyWith(color: ColorManager.whiteColor, fontWeight: FontWeight.bold)),
                 Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Padding(
-                    padding: const EdgeInsets.all(2.0),
+                    padding: EdgeInsets.all(AppSizes.ph2),
                     child: Text('بطاقة إئتمان',
                         style: Theme.of(context).textTheme.displayMedium!.copyWith(
                               color: ColorManager.whiteColor,
                             )),
                   ),
-                  Icon(Icons.monetization_on_outlined, color: ColorManager.lightBlueColor, size: 20)
+                  Icon(
+                    Icons.monetization_on_outlined,
+                    color: ColorManager.lightBlueColor,
+                    size: AppSizes.ph20,
+                  )
                 ])
               ])
             ]));

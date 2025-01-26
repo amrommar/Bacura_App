@@ -50,7 +50,7 @@ class _CustomFloatingActionButtonState extends State<CustomFloatingActionButton>
             child: Icon(
               Icons.headset_mic_outlined,
               color: ColorManager.whiteColor,
-              size: 40,
+              size: AppSizes.ph40,
             ),
           ),
         ),

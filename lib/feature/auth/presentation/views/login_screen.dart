@@ -19,29 +19,29 @@ class _LoginScreenState extends State<LoginScreen> {
             appBar: AppBar(
               iconTheme: IconThemeData(
                 color: ColorManager.primaryBlueColor,
-                size: 30.h,
+                size: AppSizes.ph30,
               ),
               backgroundColor: Colors.transparent,
               elevation: 0,
               centerTitle: true,
-              toolbarHeight: 50.h,
+              toolbarHeight: AppSizes.ph50,
               shadowColor: Colors.transparent,
             ),
             backgroundColor: ColorManager.transparent,
             body: Consumer<AuthProvider>(builder: (context, provider, child) {
               return SingleChildScrollView(
                   child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 29.w, vertical: 65.h),
+                      padding: EdgeInsets.symmetric(horizontal: AppSizes.pw29, vertical: AppSizes.ph70),
                       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                         // logo container
                         const BacuraLogoWidget(),
-                        SizedBox(height: 50.h),
+                        SizedBox(height: AppSizes.ph50),
                         // page title
                         Text(AppLocalizations.of(context)!.login, style: Theme.of(context).textTheme.displayLarge),
                         Divider(color: ColorManager.lightBlueColor),
                         // form for Name And Mobile Number
                         Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: EdgeInsets.all(AppSizes.ph8),
                             child: Column(children: [
                               // Mobile Number Field
                               CustomPhoneField(
@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 controller: provider.mobileNumberController,
                               )
                             ])),
-                        SizedBox(height: 20.h),
+                        SizedBox(height: AppSizes.ph20),
                         Center(
                             child: ElevatedButton(
                                 onPressed: () {
@@ -60,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   AppLocalizations.of(context)!.login,
                                   style: Theme.of(context).textTheme.titleMedium,
                                 ))),
-                        SizedBox(height: 20.h)
+                        SizedBox(height: AppSizes.ph20)
                       ])));
             })),
       )

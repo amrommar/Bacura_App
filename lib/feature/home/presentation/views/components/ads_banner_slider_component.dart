@@ -1,9 +1,6 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/home/index.dart';
 import 'package:bacura_app/feature/home/presentation/controller/home_provider.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class AdsBannerSliderComponent extends StatefulWidget {
   const AdsBannerSliderComponent({super.key});
@@ -21,7 +18,7 @@ class _AdsBannerSliderComponentState extends State<AdsBannerSliderComponent> {
       builder: (context, provider, child) => Column(
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 15.h),
+            padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph15),
             child: CarouselSlider(
               items: List.generate(
                 provider.bannerEntity.length,
@@ -35,7 +32,7 @@ class _AdsBannerSliderComponentState extends State<AdsBannerSliderComponent> {
                 ),
               ),
               options: CarouselOptions(
-                height: 165.h,
+                height: AppSizes.ph165,
                 enlargeCenterPage: false,
                 autoPlay: true,
                 aspectRatio: 16 / 9,
@@ -56,11 +53,11 @@ class _AdsBannerSliderComponentState extends State<AdsBannerSliderComponent> {
             children: List.generate(
               provider.bannerEntity.length,
               (index) => Container(
-                width: 8.0,
-                height: 8.0,
-                margin: const EdgeInsets.symmetric(
-                  vertical: 10.0,
-                  horizontal: 4.0,
+                width: AppSizes.pw8,
+                height: AppSizes.ph8,
+                margin: EdgeInsets.symmetric(
+                  vertical: AppSizes.ph10,
+                  horizontal: AppSizes.pw4,
                 ),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,

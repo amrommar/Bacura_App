@@ -46,7 +46,7 @@ class _ComplaintScreenState extends State<ComplaintScreen> {
     return Scaffold(
       appBar: AppBar(title: Text(AppLocalizations.of(context)!.complaints)),
       body: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 30.0, horizontal: 16),
+          padding: EdgeInsets.symmetric(vertical: AppSizes.ph30, horizontal: AppSizes.pw16),
           child: Form(
               key: formKey,
               child: SingleChildScrollView(
@@ -56,7 +56,7 @@ class _ComplaintScreenState extends State<ComplaintScreen> {
                   options: options,
                   fieldName: AppLocalizations.of(context)!.complaint_type,
                 ),
-                SizedBox(height: 20.h),
+                SizedBox(height: AppSizes.ph20),
                 CustomQuestionTextFormField(
                   fieldName: AppLocalizations.of(context)!.your_complaint,
                   hintText: AppLocalizations.of(context)!.enter_your_complaint,
@@ -69,7 +69,7 @@ class _ComplaintScreenState extends State<ComplaintScreen> {
                     return null;
                   },
                 ),
-                SizedBox(height: 60.h),
+                SizedBox(height: AppSizes.ph60),
                 Center(
                     child: CustomSmallElevatedButton(
                   text: AppLocalizations.of(context)!.send_complaint,

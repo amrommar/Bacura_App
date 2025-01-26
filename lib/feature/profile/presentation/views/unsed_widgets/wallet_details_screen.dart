@@ -28,11 +28,11 @@ class _WalletDetailsScreenState extends State<WalletDetailsScreen> {
                     left: 0.w,
                     right: 0.w,
                     child: Column(children: [
-                      const CircleAvatar(
-                        radius: 50,
+                      CircleAvatar(
+                        radius: AppSizes.br50,
                         backgroundImage: AssetImage('assets/images/Ellipse 1.png'),
                       ),
-                      SizedBox(height: 8.h),
+                      SizedBox(height: AppSizes.ph8),
 
                       //// User name ///////////////////////////////////
 
@@ -43,17 +43,17 @@ class _WalletDetailsScreenState extends State<WalletDetailsScreen> {
                               .copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold))
                     ]))
               ]),
-          SizedBox(height: 100.h),
+          SizedBox(height: AppSizes.ph100),
 
           /// Container of Wallet Balance_______________________________
 
           Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+              padding: EdgeInsets.symmetric(horizontal: AppSizes.pw16, vertical: AppSizes.ph16),
               child: Stack(alignment: Alignment.topRight, children: [
                 ////  if the background image will or not //////////////////////////
                 SvgPicture.asset('assets/images/walletCard_background.svg'),
                 Container(
-                    margin: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+                    margin: EdgeInsets.symmetric(horizontal: AppSizes.pw20, vertical: AppSizes.ph20),
                     child: Column(children: [
                       Text(
                         AppLocalizations.of(context)!.walletBalance,
@@ -61,7 +61,7 @@ class _WalletDetailsScreenState extends State<WalletDetailsScreen> {
                               color: ColorManager.lightGreyColor,
                             ),
                       ),
-                      SizedBox(height: 10.h),
+                      SizedBox(height: AppSizes.ph10),
                       Text(
                         '1000 ريال',
                         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
@@ -83,7 +83,7 @@ class _WalletDetailsScreenState extends State<WalletDetailsScreen> {
                 child: CustomShadowWidget(
                     childWidget: Icon(
                   Icons.add_circle_outline_outlined,
-                  size: 35,
+                  size: AppSizes.ph35,
                   color: ColorManager.primaryBlueColor,
                 )),
               ),
@@ -99,8 +99,9 @@ class _WalletDetailsScreenState extends State<WalletDetailsScreen> {
                     Navigator.pushNamed(context, Routes.lastOperationsRoute);
                   },
                   child: CustomShadowWidget(
-                      childWidget:
-                          Icon(Icons.arrow_circle_down_outlined, size: 35, color: ColorManager.primaryBlueColor))),
+                    childWidget: Icon(Icons.arrow_circle_down_outlined,
+                        size: AppSizes.ph35, color: ColorManager.primaryBlueColor),
+                  )),
               Text(
                 AppLocalizations.of(context)!.deposits,
                 style: Theme.of(context).textTheme.titleSmall,
@@ -115,7 +116,7 @@ class _WalletDetailsScreenState extends State<WalletDetailsScreen> {
                   child: CustomShadowWidget(
                       childWidget: Icon(
                     Icons.monetization_on_outlined,
-                    size: 35,
+                    size: AppSizes.ph35,
                     color: ColorManager.primaryBlueColor,
                   ))),
               Text(
@@ -124,10 +125,10 @@ class _WalletDetailsScreenState extends State<WalletDetailsScreen> {
               )
             ])
           ]),
-          SizedBox(height: 50.h),
+          SizedBox(height: AppSizes.ph50),
           //// last operations Section //////////////////////////////
           Padding(
-              padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 16.w),
+              padding: EdgeInsets.symmetric(vertical: AppSizes.ph16, horizontal: AppSizes.pw16),
               child: Column(children: [
                 Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                   Text(
@@ -147,13 +148,13 @@ class _WalletDetailsScreenState extends State<WalletDetailsScreen> {
                       ))
                 ]),
                 Container(
-                  margin: const EdgeInsets.symmetric(vertical: AppMargin.m8),
-                  height: 50.h,
+                  margin: EdgeInsets.symmetric(vertical: AppSizes.ph8),
+                  height: AppSizes.ph50,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Image.asset('assets/images/Ellipse 1.png'),
-                      SizedBox(width: 16.w),
+                      SizedBox(width: AppSizes.pw16),
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -165,7 +166,9 @@ class _WalletDetailsScreenState extends State<WalletDetailsScreen> {
                             ),
                             Text(
                               AppLocalizations.of(context)!.deposit,
-                              style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.greyColor),
+                              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                                    color: ColorManager.greyColor,
+                                  ),
                             ),
                           ],
                         ),
@@ -175,8 +178,8 @@ class _WalletDetailsScreenState extends State<WalletDetailsScreen> {
                   ),
                 ),
                 Container(
-                    margin: EdgeInsets.symmetric(vertical: 8.h),
-                    height: 50.h,
+                    margin: EdgeInsets.symmetric(vertical: AppSizes.ph8),
+                    height: AppSizes.ph50,
                     child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                       Image.asset('assets/images/Ellipse 1.png'),
                       SizedBox(width: 16.w),

@@ -22,29 +22,29 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
           appBar: AppBar(
               iconTheme: IconThemeData(
                 color: ColorManager.primaryBlueColor,
-                size: 30.h,
+                size: AppSizes.ph30,
               ),
               backgroundColor: ColorManager.transparent,
               elevation: 0,
               centerTitle: true,
-              toolbarHeight: 40.h),
+              toolbarHeight: AppSizes.ph40),
           backgroundColor: ColorManager.transparent,
           body: SingleChildScrollView(
               child: ChangeNotifierProvider(
             create: (context) => CompleteProfileProvider(),
             child: Consumer<CompleteProfileProvider>(
               builder: (context, provider, child) => Container(
-                  padding: EdgeInsets.symmetric(horizontal: 29.w),
+                  padding: EdgeInsets.symmetric(horizontal: AppSizes.pw30),
                   child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                     const BacuraLogoWidget(),
-                    const SizedBox(height: 20),
+                    SizedBox(height: AppSizes.ph20),
                     Text(
                       AppLocalizations.of(context)!.create_an_account,
                       style: Theme.of(context).textTheme.displayLarge,
                     ),
                     Divider(color: ColorManager.lightBlueColor),
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      padding: EdgeInsets.symmetric(horizontal: AppSizes.pw8),
                       child: Form(
                         key: formKey,
                         child: Column(
@@ -60,8 +60,8 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                                   }
                                   return null;
                                 },
-                                keyboardType: TextInputType.text),
-                            SizedBox(height: 10.h),
+                                keyBoardType: TextInputType.text),
+                            SizedBox(height: AppSizes.ph10),
                             CustomTextFormField(
                                 fieldName: AppLocalizations.of(context)!.email,
                                 controller: provider.emailController,
@@ -79,8 +79,8 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                                   }
                                   return null;
                                 },
-                                keyboardType: TextInputType.text),
-                            SizedBox(height: 10.h),
+                                keyBoardType: TextInputType.text),
+                            SizedBox(height: AppSizes.ph10),
                             CustomDropDownField(
                               selectedOption: AppStrings.riyad,
                               options: const [
@@ -110,12 +110,12 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                                 provider.selectedGender = newValue!;
                               },
                             ),
-                            SizedBox(height: 10.h),
+                            SizedBox(height: AppSizes.ph10),
                           ],
                         ),
                       ),
                     ),
-                    SizedBox(height: 20.h),
+                    SizedBox(height: AppSizes.ph20),
                     Center(
                         child: ElevatedButton(
                             onPressed: () async {
@@ -133,7 +133,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                             },
                             child: Text(AppLocalizations.of(context)!.register,
                                 style: Theme.of(context).textTheme.titleMedium))),
-                    SizedBox(height: 18.h),
+                    SizedBox(height: AppSizes.ph18),
                   ])),
             ),
           )))

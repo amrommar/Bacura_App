@@ -15,34 +15,34 @@ class OffersCardWidget extends StatelessWidget {
               offset: const Offset(0, 2),
             )
           ],
-          borderRadius: BorderRadius.circular(AppSize.s12),
+          borderRadius: BorderRadius.circular(AppSizes.br12),
           color: ColorManager.whiteColor,
         ),
         child:
             Column(crossAxisAlignment: CrossAxisAlignment.end, mainAxisAlignment: MainAxisAlignment.start, children: [
           //Image section ________________________________
           Container(
-              height: 124.h, // Image height
-              width: 230.w, // Image width
+              height: AppSizes.ph125, // Image height
+              width: AppSizes.pw230, // Image width
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(AppSize.s6),
+                  borderRadius: BorderRadius.circular(AppSizes.ph6),
                   image: const DecorationImage(
                     ///////////////    from Back-End     /////////////////////
                     image: AssetImage(AppAssets.offer1), // Example image
                     fit: BoxFit.cover,
                   ))),
-          SizedBox(height: 8.h),
+          SizedBox(height: AppSizes.ph8),
           // Spacing between image and text
           Container(
-              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-              width: 230.w,
-              height: 45.h,
+              padding: EdgeInsets.symmetric(horizontal: AppSizes.pw4, vertical: AppSizes.ph2),
+              width: AppSizes.pw230,
+              height: AppSizes.ph45,
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                        width: 175.w,
+                        width: AppSizes.pw175,
                         child: Text('تركيب كاميرات المراقبة',
                             maxLines: 2, // Set max number of lines to display
                             overflow: TextOverflow.ellipsis,
@@ -54,19 +54,21 @@ class OffersCardWidget extends StatelessWidget {
                           style: Theme.of(context).textTheme.titleSmall!.copyWith(
                                 color: ColorManager.blackColor,
                               )),
-                      SizedBox(width: 3.w),
-                      Icon(Icons.star, color: ColorManager.yellowColor, size: 16)
+                      SizedBox(width: AppSizes.pw3),
+                      Icon(Icons.star, color: ColorManager.yellowColor, size: AppSizes.ph16)
                     ])
                   ])),
           const Spacer(),
           Container(
-              padding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 8.w),
+              padding: EdgeInsets.symmetric(vertical: AppSizes.ph4, horizontal: AppSizes.pw8),
               ///// from Back-End ////////////////////////
-              child: Text('1000 ريال',
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleSmall!
-                      .copyWith(fontWeight: FontWeight.bold, fontSize: 15, color: ColorManager.darkRedColor)))
+              child: Text(
+                '1000 ريال',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleSmall!
+                    .copyWith(fontWeight: FontWeight.bold, fontSize: AppSizes.ph15, color: ColorManager.darkRedColor),
+              ))
         ]));
   }
 }

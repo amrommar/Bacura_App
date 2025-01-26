@@ -9,8 +9,8 @@ class CustomShadowRowWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.symmetric(vertical: 6.h),
-        margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
+        padding: EdgeInsets.symmetric(vertical: AppSizes.ph6),
+        margin: EdgeInsets.symmetric(horizontal: AppSizes.pw16, vertical: AppSizes.ph6),
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -20,7 +20,7 @@ class CustomShadowRowWidget extends StatelessWidget {
                 blurRadius: 4, // Blur radius
                 offset: Offset(0, 3))
           ],
-          borderRadius: BorderRadius.circular(AppSize.s12),
+          borderRadius: BorderRadius.circular(AppSizes.br12),
           color: ColorManager.whiteColor,
         ),
         child: Row(
@@ -28,15 +28,15 @@ class CustomShadowRowWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12),
+                padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12),
                 child: widget,
               ),
               Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(AppSizes.ph8),
                   child: Icon(
                     icon,
                     color: ColorManager.midBlueColor,
-                    size: 30,
+                    size: AppSizes.ph30,
                   ))
             ]));
   }

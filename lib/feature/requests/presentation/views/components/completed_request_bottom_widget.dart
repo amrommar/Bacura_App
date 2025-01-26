@@ -11,7 +11,7 @@ class CompletedRequestBottomWidget extends StatelessWidget {
               maximumSize: const Size(170, 50),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(
-                AppSize.s30,
+                AppSizes.br30,
               ))),
           onPressed: () {},
           child: Text(AppLocalizations.of(context)!.re_request,

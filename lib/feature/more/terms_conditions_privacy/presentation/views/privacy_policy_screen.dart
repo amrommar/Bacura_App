@@ -19,8 +19,8 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
                   ))),
       body: SingleChildScrollView(
         child: Container(
-          margin: const EdgeInsets.all(8),
-          padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 20.h),
+          margin: EdgeInsets.all(AppSizes.ph8),
+          padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph20),
           decoration: BoxDecoration(boxShadow: [
             BoxShadow(
               color: ColorManager.lightBlueColor,
@@ -28,30 +28,30 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
               blurRadius: 4,
               offset: const Offset(0, 3),
             )
-          ], borderRadius: BorderRadius.circular(12), color: ColorManager.whiteColor),
+          ], borderRadius: BorderRadius.circular(AppSizes.br12), color: ColorManager.whiteColor),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //// from Back-End /////////////////////////////////////////////////
               const PrivacyPolicyIntro(),
-              Divider(color: ColorManager.whiteColor, thickness: 1),
+              Divider(color: ColorManager.whiteColor, thickness: AppSizes.ph1),
 
               ///// 1. Collection information /////////////////////////////////////////////////////////
               TitleWidget(title: AppLocalizations.of(context)!.privacy_collection_of_information),
-              Divider(color: ColorManager.lightBlueColor, thickness: 1),
+              Divider(color: ColorManager.lightBlueColor, thickness: AppSizes.ph1),
               ContentWidget(content: AppLocalizations.of(context)!.privacy_collection_of_information_content),
 
               Divider(color: ColorManager.whiteColor),
               ////2. Protection of Information: /////////////////////////////////////////////////////
               TitleWidget(title: AppLocalizations.of(context)!.privacy_information_protection),
 
-              Divider(color: ColorManager.lightBlueColor, thickness: 1),
+              Divider(color: ColorManager.lightBlueColor, thickness: AppSizes.ph1),
               ContentWidget(content: AppLocalizations.of(context)!.privacy_information_protection_content),
 
               Divider(color: ColorManager.whiteColor),
               ////3. Sharing Information: /////////////////////////////////////////////////////////
               TitleWidget(title: AppLocalizations.of(context)!.privacy_sharing_information),
-              Divider(color: ColorManager.lightBlueColor, thickness: 1),
+              Divider(color: ColorManager.lightBlueColor, thickness: AppSizes.ph1),
               ContentWidget(content: AppLocalizations.of(context)!.privacy_sharing_information_content),
 
               Divider(color: ColorManager.whiteColor),

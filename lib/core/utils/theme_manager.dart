@@ -25,11 +25,14 @@ ThemeData getAppTheme() {
     appBarTheme: AppBarTheme(
       iconTheme: IconThemeData(color: ColorManager.whiteColor),
       color: ColorManager.primaryBlueColor,
-      elevation: AppSize.s4,
+      elevation: AppSizes.e4,
       centerTitle: true,
-      toolbarHeight: 65.h,
+      toolbarHeight: AppSizes.ph65,
       shadowColor: ColorManager.lightBlueColor,
-      titleTextStyle: getMediumStyle(fontSize: 20, color: ColorManager.whiteColor),
+      titleTextStyle: getMediumStyle(
+        fontSize: AppSizes.sp20,
+        color: ColorManager.whiteColor,
+      ),
     ),
     // ------------------------------------------------- Button Theme
     buttonTheme: ButtonThemeData(
@@ -42,11 +45,11 @@ ThemeData getAppTheme() {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         alignment: Alignment.center,
-        minimumSize: Size(170.w, 50.h),
-        padding: const EdgeInsets.symmetric(vertical: AppPadding.p10, horizontal: AppPadding.p25),
-        textStyle: getMediumStyle(fontSize: 24, color: ColorManager.whiteColor),
+        minimumSize: Size(AppSizes.pw170, AppSizes.ph50),
+        padding: EdgeInsets.symmetric(vertical: AppSizes.ph10, horizontal: AppSizes.pw25),
+        textStyle: getMediumStyle(fontSize: AppSizes.sp24, color: ColorManager.whiteColor),
         backgroundColor: ColorManager.primaryBlueColor,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSize.s8)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSizes.br8)),
       ),
     ),
 
@@ -63,19 +66,22 @@ ThemeData getAppTheme() {
 
     //input decoration theme (Text Form Field)
     inputDecorationTheme: InputDecorationTheme(
-        contentPadding: const EdgeInsets.symmetric(vertical: AppPadding.p8, horizontal: AppPadding.p16),
-        hintStyle: getRegularStyle(fontSize: AppSize.s20, color: ColorManager.greyColor),
-        labelStyle: getRegularStyle(fontSize: AppSize.s20, color: ColorManager.greyColor),
-        errorStyle: getRegularStyle(fontSize: AppSize.s20, color: ColorManager.redColor),
+        contentPadding: EdgeInsets.symmetric(vertical: AppSizes.ph8, horizontal: AppSizes.pw16),
+        hintStyle: getRegularStyle(fontSize: AppSizes.sp20, color: ColorManager.greyColor),
+        labelStyle: getRegularStyle(fontSize: AppSizes.sp20, color: ColorManager.greyColor),
+        errorStyle: getRegularStyle(fontSize: AppSizes.sp20, color: ColorManager.redColor),
         // ------------------enabledBorder--------------------------------------------------
-        enabledBorder:
-            OutlineInputBorder(borderSide: BorderSide(color: ColorManager.darkBlueColor, width: AppSize.s2), borderRadius: BorderRadius.circular(AppSize.s8)),
+        enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: ColorManager.darkBlueColor, width: AppSizes.ph1),
+            borderRadius: BorderRadius.circular(AppSizes.br8)),
         //----------------------------------------------focused Border-
         focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: ColorManager.primaryBlueColor, width: AppSize.s1), borderRadius: BorderRadius.circular(AppSize.s8)),
+            borderSide: BorderSide(color: ColorManager.primaryBlueColor, width: AppSizes.ph1),
+            borderRadius: BorderRadius.circular(AppSizes.br8)),
         //----------------------------------------------ErrorBorder
-        errorBorder:
-            OutlineInputBorder(borderSide: BorderSide(color: ColorManager.redColor, width: AppSize.s1), borderRadius: BorderRadius.circular(AppSize.s8))),
+        errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: ColorManager.redColor, width: AppSizes.ph1),
+            borderRadius: BorderRadius.circular(AppSizes.br8))),
 
     //CardView Theme
 

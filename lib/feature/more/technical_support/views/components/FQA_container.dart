@@ -9,10 +9,10 @@ class FQAContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 16, right: 12, left: 12),
+      margin: EdgeInsets.only(top: AppSizes.ph16, right: AppSizes.pw12, left: AppSizes.pw12),
       decoration: BoxDecoration(
           color: ColorManager.lightWhiteColor,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(AppSizes.br12),
           border: Border.all(color: ColorManager.primaryBlueColor),
           boxShadow: [
             BoxShadow(
@@ -22,7 +22,7 @@ class FQAContainer extends StatelessWidget {
               offset: const Offset(0, 1), // changes position of shadow
             ),
           ]),
-      padding: const EdgeInsets.all(8),
+      padding: EdgeInsets.all(AppSizes.br8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -41,8 +41,8 @@ class FQAContainer extends StatelessWidget {
               ),
             ],
           ),
-          Divider(color: ColorManager.whiteColor, height: 5.h),
-          SizedBox(height: 5.h),
+          Divider(color: ColorManager.whiteColor, height: AppSizes.ph5),
+          SizedBox(height: AppSizes.ph5),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -50,7 +50,7 @@ class FQAContainer extends StatelessWidget {
                 Icons.question_answer_outlined,
                 color: ColorManager.midBlueColor,
               ),
-              SizedBox(width: 5.w),
+              SizedBox(width: AppSizes.pw5),
               Expanded(
                 child: Text(answer,
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.greyColor)),

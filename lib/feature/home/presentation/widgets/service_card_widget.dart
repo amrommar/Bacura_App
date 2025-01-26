@@ -13,14 +13,14 @@ class ServiceCardWidget extends StatelessWidget {
           color: ColorManager.whiteColor,
           child: Container(
               padding: EdgeInsets.symmetric(
-                horizontal: 20.w,
-                vertical: 20.h,
+                horizontal: AppSizes.pw20,
+                vertical: AppSizes.ph20,
               ),
-              height: 100.h,
-              width: 100.w,
+              height: AppSizes.ph100,
+              width: AppSizes.pw100,
               child: SvgPicture.asset(imagePath))),
       SizedBox(
-          width: 90.w,
+          width: AppSizes.pw90,
           child: Text(
             departmentTitle,
             textAlign: TextAlign.center,

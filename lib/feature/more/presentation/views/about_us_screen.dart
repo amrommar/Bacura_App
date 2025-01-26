@@ -10,11 +10,11 @@ class AboutUsScreen extends StatelessWidget {
         title: const Text(AppStrings.aboutUs),
       ),
       body: Container(
-        padding: const EdgeInsets.all(12),
-        margin: const EdgeInsets.all(8),
+        padding: EdgeInsets.all(AppSizes.ph12),
+        margin: EdgeInsets.all(AppSizes.ph8),
         decoration: BoxDecoration(
           color: ColorManager.midWhiteColor,
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(AppSizes.ph12),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,7 +32,7 @@ class AboutUsScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor),
               textAlign: TextAlign.justify,
             ),
-            SizedBox(height: 25.h),
+            SizedBox(height: AppSizes.ph25),
             Row(
               children: [
                 Text(

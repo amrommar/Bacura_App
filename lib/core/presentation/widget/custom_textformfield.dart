@@ -5,7 +5,7 @@ class CustomTextFormField extends StatelessWidget {
   String hintText;
   Widget? suffixIcon;
   bool isObscures;
-  var keyboardType;
+  var keyBoardType;
   String? Function(String?)? validator;
   TextEditingController controller;
 
@@ -17,7 +17,7 @@ class CustomTextFormField extends StatelessWidget {
     this.isObscures = false,
     this.validator,
     required this.controller,
-    this.keyboardType = TextInputType.text,
+    this.keyBoardType = TextInputType.text,
   });
 
   @override
@@ -37,7 +37,7 @@ class CustomTextFormField extends StatelessWidget {
               ),
           validator: validator,
           controller: controller,
-          keyboardType: keyboardType,
+          keyboardType: keyBoardType,
           obscureText: isObscures,
           decoration: InputDecoration(
               hintText: hintText,

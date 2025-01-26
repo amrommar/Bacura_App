@@ -13,7 +13,7 @@ class ChangeNumberWidget extends StatelessWidget {
         '${mobileNumber.substring(7, 9)}******${mobileNumber.substring(0, 2)} 966+',
         style: Theme.of(context).textTheme.displayMedium,
       ),
-      SizedBox(width: 20.w),
+      SizedBox(width: AppSizes.pw10),
       InkWell(
         onTap: () {
           Navigator.pop(context);

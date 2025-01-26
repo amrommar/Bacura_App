@@ -21,7 +21,7 @@ class CustomSmallElevatedButton extends StatelessWidget {
             backgroundColor: backgroundColor,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(
-              AppSize.s30,
+              AppSizes.br30,
             ))),
         onPressed: () {
           onPressed();

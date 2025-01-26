@@ -17,17 +17,17 @@ class _OfferDetailsScreenState extends State<OfferDetailsScreen> {
         ),
         body: SingleChildScrollView(
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          SizedBox(height: 10.h),
+          SizedBox(height: AppSizes.ph10),
           ////    From Back-End     ///////////////////////////////////////////////////////
           ///offer Image Section ///////////////////////////////////////////////////////
           Image.asset(AppAssets.cameraOffer),
 
           /// offer Title Section ///////////////////////////////////////////////////////
           Container(
-              margin: const EdgeInsets.only(
-                top: AppMargin.m8,
-                right: AppMargin.m8,
-                left: AppMargin.m8,
+              margin: EdgeInsets.only(
+                top: AppSizes.ph8,
+                right: AppSizes.pw8,
+                left: AppSizes.pw8,
               ),
               child: Text('4 كاميرات IP ذكية خارجية (6 ميجابكسل)',
                   style: Theme.of(context)
@@ -37,12 +37,12 @@ class _OfferDetailsScreenState extends State<OfferDetailsScreen> {
 
           ///Details about offer Section ///////////////////////////////////////////////////////
           Container(
-              margin: EdgeInsets.only(top: 4.h, right: 6.w, left: 6.w),
-              padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
+              margin: EdgeInsets.only(top: AppSizes.ph4, right: AppSizes.pw6, left: AppSizes.pw6),
+              padding: EdgeInsets.symmetric(vertical: AppSizes.ph8, horizontal: AppSizes.pw12),
               decoration: BoxDecoration(
                   color: ColorManager.midWhiteColor,
                   borderRadius: BorderRadius.circular(
-                    AppSize.s4,
+                    AppSizes.br4,
                   )),
               child: const ReadMoreText(
                 text:
@@ -58,8 +58,8 @@ class _OfferDetailsScreenState extends State<OfferDetailsScreen> {
 فتحة العدسة: مقاس العدسة الثابتة 2.8 ملم
 إمكانية الاتصال بالموبايل عن طريق جهاز التسجيل''',
               )),
-          SizedBox(height: 10.h),
-          SizedBox(height: 50.h),
+          SizedBox(height: AppSizes.ph10),
+          SizedBox(height: AppSizes.ph50),
 
           /// Add To Cart Elevated Button//////////////////////////////////////////
           Center(child: CustomSmallElevatedButton(text: AppLocalizations.of(context)!.request, onPressed: () {}))
@@ -92,15 +92,20 @@ class _ReadMoreTextState extends State<ReadMoreText> {
       RichText(
           text: TextSpan(
               text: displayText,
-              style: Theme.of(context).textTheme.titleSmall!.copyWith(color: Colors.black, fontSize: 14, height: 1.15),
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    color: Colors.black,
+                    fontSize: AppSizes.sp14,
+                    height: 1.15,
+                  ),
               children: [
             if (!isExpanded && widget.text.length > truncateLength)
               TextSpan(
                   text: AppLocalizations.of(context)!.read_more,
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleSmall!
-                      .copyWith(color: ColorManager.primaryBlueColor, fontSize: 14, fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                        color: ColorManager.primaryBlueColor,
+                        fontSize: AppSizes.sp14,
+                        fontWeight: FontWeight.bold,
+                      ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
                       setState(() {
@@ -110,10 +115,11 @@ class _ReadMoreTextState extends State<ReadMoreText> {
             if (isExpanded)
               TextSpan(
                   text: AppLocalizations.of(context)!.read_less,
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleSmall!
-                      .copyWith(color: ColorManager.primaryBlueColor, fontSize: 14, fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                        color: ColorManager.primaryBlueColor,
+                        fontSize: AppSizes.sp14,
+                        fontWeight: FontWeight.bold,
+                      ),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
                       setState(() {

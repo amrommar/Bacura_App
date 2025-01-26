@@ -20,11 +20,11 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Text(
+              Text(
                 AppStrings.howWouldYouRateOurApp,
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(fontSize: AppSizes.sp16),
               ),
-              SizedBox(height: 20.h),
+              SizedBox(height: AppSizes.ph20),
               RatingBar.builder(
                 initialRating: 0,
                 minRating: 1,
@@ -38,7 +38,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
                   rating = rating; // Update rating value
                 },
               ),
-              SizedBox(height: 10.h),
+              SizedBox(height: AppSizes.ph10),
               const TextField(
                 decoration: InputDecoration(
                   hintText: AppStrings.tellUsMoreAboutYourExperience,
@@ -78,7 +78,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
         child: Column(children: [
-      SizedBox(height: 10.h),
+      SizedBox(height: AppSizes.ph10),
 
       ///cardsManagement tab //////////////////////////////
       // Custom_More_row(
@@ -92,7 +92,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
       ///who_are_we tab //////////////////////////////
       CustomMoreRowWidget(
         widget: CircleAvatar(
-            radius: 14.w,
+            radius: AppSizes.br14,
             backgroundColor: ColorManager.whiteColor,
             ///////////////    from Back-End     /////////////////////
             child: Image.asset(AppAssets.bacuraImage) // Adjust the radius to make sure it fits
@@ -154,18 +154,18 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
 
       ///app_Language tab //////////////////////////////
       const ChangeLanguageRowWidget(),
-      SizedBox(height: 20.h),
+      SizedBox(height: AppSizes.ph20),
 
       /// Bacura store Link /////////////////////////////////////////////////////////////
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const BacuraStoreWidget(),
-          SizedBox(width: 20.w),
+          SizedBox(width: AppSizes.ph20),
           const ShareAppWidget(),
         ],
       ),
-      SizedBox(height: 50.h),
+      SizedBox(height: AppSizes.ph50),
 
       /// social Media Links /////////////////////////////////////////////////////////////
       Row(mainAxisAlignment: MainAxisAlignment.center, children: [

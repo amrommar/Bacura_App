@@ -10,7 +10,7 @@ class ConsultationNoteWidget extends StatelessWidget {
         '*',
         style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorManager.greyColor),
       ),
-      SizedBox(width: 10.w),
+      SizedBox(width: AppSizes.pw10),
       Expanded(
         child: Text('سيتم الرد على استشارتك خلال ثلاثة أيام.',
             style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.greyColor)),

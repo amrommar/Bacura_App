@@ -23,8 +23,8 @@ class _CustomerServiceScreenState extends State<CustomerServiceScreen> {
           Expanded(
               child: ListView(
                   padding: EdgeInsets.symmetric(
-                    horizontal: 16.w,
-                    vertical: 24.h,
+                    horizontal: AppSizes.pw16,
+                    vertical: AppSizes.ph24,
                   ),
                   children: [
                 CustomerServiceMessageWidget(

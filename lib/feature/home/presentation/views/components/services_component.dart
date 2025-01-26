@@ -41,7 +41,7 @@ class ServicesComponent extends StatelessWidget {
       AppStrings.phoneMaintenance
     ];
     return Container(
-        padding: const EdgeInsets.all(4),
+        padding: EdgeInsets.all(AppSizes.ph4),
         decoration: BoxDecoration(
           color: ColorManager.midWhiteColor,
         ),
@@ -49,7 +49,7 @@ class ServicesComponent extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-                padding: const EdgeInsets.only(right: 16, left: 16, top: 6),
+                padding: EdgeInsets.only(right: AppSizes.pw16, left: AppSizes.pw16, top: AppSizes.ph6),
                 child: Text(AppLocalizations.of(context)!.services,
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           color: ColorManager.blackColor,
@@ -59,8 +59,12 @@ class ServicesComponent extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: 6,
-                gridDelegate:
-                    const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, crossAxisSpacing: 0, mainAxisSpacing: 5, childAspectRatio: 0.89),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 0,
+                  mainAxisSpacing: 5,
+                  childAspectRatio: 0.89,
+                ),
                 itemBuilder: (context, index) {
                   return InkWell(
                       onTap: () {

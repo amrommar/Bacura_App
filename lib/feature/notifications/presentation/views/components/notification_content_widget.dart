@@ -6,8 +6,8 @@ class NotificationContentWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 320.w,
-        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 4.w),
+        width: AppSizes.pw320,
+        padding: EdgeInsets.symmetric(vertical: AppSizes.ph8, horizontal: AppSizes.pw4),
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,

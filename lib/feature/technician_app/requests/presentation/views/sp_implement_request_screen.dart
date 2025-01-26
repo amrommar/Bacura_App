@@ -25,7 +25,7 @@ class _SpImplementRequestScreenState extends State<SpImplementRequestScreen> {
           height: 850.h,
           decoration: BoxDecoration(
             color: ColorManager.whiteColor,
-            borderRadius: BorderRadius.circular(AppSize.s12),
+            borderRadius: BorderRadius.circular(AppSizes.br12),
             boxShadow: [
               BoxShadow(
                 color: ColorManager.midWhiteColor,
@@ -115,7 +115,7 @@ class _SpImplementRequestScreenState extends State<SpImplementRequestScreen> {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(AppSize.s8),
+                        borderRadius: BorderRadius.circular(AppSizes.br8),
                       ),
                     ),
                     onPressed: () {

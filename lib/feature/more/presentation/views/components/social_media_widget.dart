@@ -17,8 +17,8 @@ class SocialMediaWidget extends StatelessWidget {
       },
       child: Image.asset(
         imagePath,
-        height: 45,
-        width: 45,
+        height: AppSizes.ph45,
+        width: AppSizes.pw45,
       ),
     );
   }

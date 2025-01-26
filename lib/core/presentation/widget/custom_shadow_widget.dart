@@ -8,8 +8,8 @@ class CustomShadowWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
-        margin: const EdgeInsets.all(AppMargin.m12),
+        padding: EdgeInsets.symmetric(horizontal: AppSizes.pw16, vertical: AppSizes.ph16),
+        margin: EdgeInsets.all(AppSizes.ph12),
         decoration: BoxDecoration(boxShadow: [
           BoxShadow(
               color: ColorManager.lightBlueColor,
@@ -17,7 +17,7 @@ class CustomShadowWidget extends StatelessWidget {
               blurRadius: 4,
               offset: const Offset(0, 3) // Offset in the x and y directions
               )
-        ], borderRadius: BorderRadius.circular(AppSize.s12), color: ColorManager.whiteColor),
+        ], borderRadius: BorderRadius.circular(AppSizes.br12), color: ColorManager.whiteColor),
         child: childWidget);
   }
 }

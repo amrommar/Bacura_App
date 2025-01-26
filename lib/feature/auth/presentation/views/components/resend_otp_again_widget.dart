@@ -12,7 +12,7 @@ class ResendOtpAgainWidget extends StatelessWidget {
           AppLocalizations.of(context)!.sendOTPAgain,
           style: Theme.of(context).textTheme.bodyMedium,
         ),
-        SizedBox(width: 20.w),
+        SizedBox(width: AppSizes.pw20),
         Text(
           '60',
 

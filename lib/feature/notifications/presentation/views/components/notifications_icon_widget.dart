@@ -6,7 +6,7 @@ class NotificationsIconWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-        icon: Icon(Icons.notifications, size: 30.h),
+        icon: Icon(Icons.notifications, size: AppSizes.ph30),
         onPressed: () {
           Navigator.pushNamed(context, Routes.notificationsRoute);
         });

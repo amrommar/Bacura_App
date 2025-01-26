@@ -14,7 +14,7 @@ class RequestDetailsWidget extends StatelessWidget {
       decoration: BoxDecoration(
           color: backgroundColor,
           borderRadius: BorderRadius.circular(
-            AppSize.s12,
+            AppSizes.br12,
           ),
           boxShadow: [
             BoxShadow(

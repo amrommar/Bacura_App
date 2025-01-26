@@ -17,7 +17,7 @@ class NextButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           maximumSize: Size(170.w, 70),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppSize.s8),
+            borderRadius: BorderRadius.circular(AppSizes.br8),
           ),
           backgroundColor: isEnabled
               ? ColorManager.primaryBlueColor

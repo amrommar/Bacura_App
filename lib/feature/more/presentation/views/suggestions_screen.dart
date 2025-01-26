@@ -22,7 +22,7 @@ class _SuggestionsScreenState extends State<SuggestionsScreen> {
         title: Text(AppLocalizations.of(context)!.suggestions),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
+        padding: EdgeInsets.symmetric(vertical: AppSizes.ph8, horizontal: AppSizes.pw16),
         child: Form(
           key: formKey,
           child: SingleChildScrollView(
@@ -77,11 +77,11 @@ class _SuggestionsScreenState extends State<SuggestionsScreen> {
                     return null;
                   },
                 ),
-                SizedBox(height: 70.h),
+                SizedBox(height: AppSizes.ph70),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        maximumSize: Size(170.w, 50.h),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSize.s8))),
+                        maximumSize: Size(AppSizes.pw170, AppSizes.ph50),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSizes.br8))),
                     onPressed: () {
                       // Validate the form before proceeding
                       if (formKey.currentState?.validate() == true &&

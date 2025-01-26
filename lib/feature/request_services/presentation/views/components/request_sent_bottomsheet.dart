@@ -11,8 +11,8 @@ class _RequestSentBottomSheetState extends State<RequestSentBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: ColorManager.whiteColor, borderRadius: BorderRadius.circular(AppSize.s20)),
-      padding: const EdgeInsets.all(AppPadding.p16),
+      decoration: BoxDecoration(color: ColorManager.whiteColor, borderRadius: BorderRadius.circular(AppSizes.br20)),
+      padding: EdgeInsets.all(AppSizes.ph16),
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,

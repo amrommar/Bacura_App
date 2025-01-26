@@ -19,7 +19,7 @@ class RequestDetailsIconTextsRow extends StatelessWidget {
     return Container(
         decoration: BoxDecoration(
           color: ColorManager.soLightWhiteColor,
-          borderRadius: BorderRadius.circular(AppSize.s8),
+          borderRadius: BorderRadius.circular(AppSizes.br8),
         ),
         margin: EdgeInsets.only(top: 4.h),
         padding: EdgeInsets.symmetric(horizontal: 8.w),

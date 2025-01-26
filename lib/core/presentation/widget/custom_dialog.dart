@@ -26,7 +26,7 @@ class CustomDialog extends AlertDialog {
   }) : super(
           contentPadding: contentPadding,
           backgroundColor: backgroundColor ?? Theme.of(context).colorScheme.surface,
-          elevation: 1,
+          elevation: AppSizes.e1,
           insetPadding: insetPadding ?? EdgeInsets.symmetric(horizontal: AppSizes.pw12),
           content: child ??
               Column(
@@ -39,7 +39,10 @@ class CustomDialog extends AlertDialog {
                   if (title != null)
                     Text(
                       title,
-                      style: Theme.of(context).textTheme.titleSmall!.copyWith(fontSize: AppSizes.sp20, height: 1.2),
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleSmall!
+                          .copyWith(fontSize: AppSizes.sp20, height: AppSizes.ph1_2),
                     ),
                   SizedBox(
                     height: AppSizes.ph25,

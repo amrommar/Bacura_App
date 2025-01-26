@@ -19,7 +19,13 @@ class CustomModalBottomSheet {
     return await showMaterialModalBottomSheet(
       context: context,
       isDismissible: isDismissible,
-      shape: shape ?? RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(AppSizes.br4), topRight: Radius.circular(AppSizes.br4))),
+      shape: shape ??
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(AppSizes.br4),
+              topRight: Radius.circular(AppSizes.br4),
+            ),
+          ),
       duration: const Duration(milliseconds: 200),
       expand: expand,
       enableDrag: enableDrag,

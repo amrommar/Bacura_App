@@ -6,7 +6,8 @@ class CustomDropDownField extends StatefulWidget {
   final String fieldName;
   final Function(String?)? onChanged;
 
-  const CustomDropDownField({super.key, required this.selectedOption, required this.options, required this.fieldName, this.onChanged});
+  const CustomDropDownField(
+      {super.key, required this.selectedOption, required this.options, required this.fieldName, this.onChanged});
 
   @override
   State<CustomDropDownField> createState() => _CustomDropDownFieldState();
@@ -16,7 +17,7 @@ class _CustomDropDownFieldState extends State<CustomDropDownField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.symmetric(vertical: 6.h),
+        padding: EdgeInsets.symmetric(vertical: AppSizes.ph6),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(
             widget.fieldName,
@@ -31,9 +32,9 @@ class _CustomDropDownFieldState extends State<CustomDropDownField> {
                   enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: ColorManager.lightGreyColor,
-                        width: AppSize.s1,
+                        width: AppSizes.pw1,
                       ),
-                      borderRadius: BorderRadius.circular(AppSize.s8)),
+                      borderRadius: BorderRadius.circular(AppSizes.br8)),
                 ),
                 dropdownColor: ColorManager.whiteColor,
                 iconEnabledColor: ColorManager.primaryBlueColor,
@@ -44,7 +45,9 @@ class _CustomDropDownFieldState extends State<CustomDropDownField> {
                     value: option,
                     child: Text(
                       option,
-                      style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor), // Text style for dropdown items
+                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                            color: ColorManager.darkBlueColor,
+                          ), // Text style for dropdown items
                     ),
                   );
                 }).toList(),

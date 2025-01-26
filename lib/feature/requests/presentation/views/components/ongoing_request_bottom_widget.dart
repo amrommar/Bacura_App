@@ -13,7 +13,7 @@ class OnGoingRequestBottomWidget extends StatelessWidget {
             style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(
-              AppSize.s30,
+              AppSizes.br30,
             ))),
             onPressed: () {
               onPressed();

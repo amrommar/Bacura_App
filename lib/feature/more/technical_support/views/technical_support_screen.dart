@@ -15,11 +15,11 @@ class _TechnicalSupportScreenState extends State<TechnicalSupportScreen> {
         appBar: AppBar(title: Text(AppLocalizations.of(context)!.technical_support)),
         body: SingleChildScrollView(
             child: Column(children: [
-          SizedBox(height: 10.h),
+          SizedBox(height: AppSizes.ph10),
 
           ///Frequently asked questions tab //////////////////////////////
           CustomSupportContainerWidget(
-              widget: Image.asset(AppAssets.question, height: 80.h),
+              widget: Image.asset(AppAssets.question, height: AppSizes.ph80),
               text: AppLocalizations.of(context)!.frequently_asked_questions,
               onTap: () {
                 Navigator.pushNamed(context, Routes.frequentlyAskedQuestionsRoute);
@@ -27,7 +27,7 @@ class _TechnicalSupportScreenState extends State<TechnicalSupportScreen> {
 
           ///Complaints tab //////////////////////////////
           CustomSupportContainerWidget(
-              widget: Image.asset(AppAssets.badFeedback, height: 80.h),
+              widget: Image.asset(AppAssets.badFeedback, height: AppSizes.ph80),
               text: AppLocalizations.of(context)!.complaints,
               onTap: () {
                 Navigator.pushNamed(context, Routes.complaintScreenRoute);
@@ -35,12 +35,12 @@ class _TechnicalSupportScreenState extends State<TechnicalSupportScreen> {
 
           ///User Guide tab //////////////////////////////
           CustomSupportContainerWidget(
-              widget: Image.asset(AppAssets.userGuide, height: 80.h),
+              widget: Image.asset(AppAssets.userGuide, height: AppSizes.ph80),
               text: AppLocalizations.of(context)!.user_guide,
               onTap: () {
                 Navigator.pushNamed(context, Routes.userGuideRoute);
               }),
-          SizedBox(height: 70.h),
+          SizedBox(height: AppSizes.ph70),
           const BacuraLogoWidget()
         ])));
   }

@@ -16,11 +16,14 @@ class _OffersTabScreenState extends State<OffersTabScreen> {
     return Container(
         color: ColorManager.whiteColor,
         child: Column(children: [
-          SizedBox(height: 5.h),
+          SizedBox(height: AppSizes.ph5),
 
           const OfferFilterWidget(),
 
-          Padding(padding: const EdgeInsets.symmetric(horizontal: AppPadding.p6), child: Divider(color: ColorManager.lightBlueColor)),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: AppSizes.pw6),
+            child: Divider(color: ColorManager.lightBlueColor),
+          ),
 
           /// Offer List section ///////////////////////////////////////////////////////
           Expanded(

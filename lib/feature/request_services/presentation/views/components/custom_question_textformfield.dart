@@ -11,6 +11,7 @@ class CustomQuestionTextFormField extends StatefulWidget {
   TextEditingController controller;
 
   CustomQuestionTextFormField({
+    super.key,
     required this.fieldName,
     this.maxLines = 1,
     required this.hintText,
@@ -29,7 +30,7 @@ class _CustomQuestionTextFormFieldState extends State<CustomQuestionTextFormFiel
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 6),
+      padding: EdgeInsets.symmetric(vertical: AppSizes.ph6),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -49,10 +50,10 @@ class _CustomQuestionTextFormFieldState extends State<CustomQuestionTextFormFiel
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: ColorManager.lightGreyColor,
-                      width: AppSize.s1,
+                      width: AppSizes.pw1,
                     ),
-                    borderRadius: BorderRadius.circular(AppSize.s8)),
-                contentPadding: EdgeInsets.only(left: 8.w, right: 8.w, top: 8.h),
+                    borderRadius: BorderRadius.circular(AppSizes.br8)),
+                contentPadding: EdgeInsets.only(left: AppSizes.pw8, right: AppSizes.pw8, top: AppSizes.ph8),
                 hintText: widget.hintText,
                 hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.greyColor)),
           )

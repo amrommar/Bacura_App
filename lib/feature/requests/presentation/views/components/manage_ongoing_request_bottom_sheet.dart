@@ -15,7 +15,7 @@ class _ManageOnGoingRequestBottomSheetState extends State<ManageOnGoingRequestBo
         height: 200.h,
         decoration: BoxDecoration(
           color: ColorManager.whiteColor,
-          borderRadius: BorderRadius.circular(AppSize.s20),
+          borderRadius: BorderRadius.circular(AppSizes.br20),
         ),
         padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
         child: SingleChildScrollView(

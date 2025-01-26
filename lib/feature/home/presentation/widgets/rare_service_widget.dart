@@ -17,10 +17,10 @@ class RareServiceWidget extends StatelessWidget {
     return GestureDetector(
       onTap: onTap, // Add functionality when tapping the container
       child: SizedBox(
-        height: 155.h,
-        width: 200.w,
+        height: AppSizes.ph156,
+        width: AppSizes.ph200,
         child: Container(
-          padding: const EdgeInsets.all(4),
+          padding: EdgeInsets.all(AppSizes.ph4),
           width: double.infinity,
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -39,18 +39,18 @@ class RareServiceWidget extends StatelessWidget {
                 offset: const Offset(0, 3), // Offset in the x and y directions
               ),
             ],
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(AppSizes.br12),
           ),
-          margin: EdgeInsets.all(8.h),
+          margin: EdgeInsets.all(AppSizes.ph8),
           child: Column(
             children: [
               Image.asset(
                 imagePath,
-                height: 95.h,
-                width: 120.h,
+                height: AppSizes.ph95,
+                width: AppSizes.pw120,
                 fit: BoxFit.cover,
               ),
-              SizedBox(height: 5.h),
+              SizedBox(height: AppSizes.ph5),
               Text(
                 serviceTitle,
                 textAlign: TextAlign.center,

@@ -19,25 +19,25 @@ class _VerifyBottomSheetState extends State<VerifyBottomSheet> {
       create: (context) => AuthProvider(),
       child: Consumer<AuthProvider>(
         builder: (context, provider, child) => Container(
-            height: 500.h,
+            height: AppSizes.ph500,
             decoration: BoxDecoration(
               color: ColorManager.whiteColor,
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(AppSizes.br30),
             ),
-            padding: EdgeInsets.symmetric(vertical: 30.h, horizontal: 30.w),
+            padding: EdgeInsets.symmetric(vertical: AppSizes.ph30, horizontal: AppSizes.pw30),
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text(
                 AppLocalizations.of(context)!.oTPNumber,
                 style: Theme.of(context).textTheme.displayLarge,
               ),
               Divider(color: ColorManager.lightBlueColor),
-              SizedBox(height: 10.h),
+              SizedBox(height: AppSizes.ph10),
               Text(AppLocalizations.of(context)!.oTPNumberSent,
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(
                         color: ColorManager.greyColor,
                       )),
               ChangeNumberWidget(mobileNumber: widget.mobileNumber),
-              SizedBox(height: 30.h),
+              SizedBox(height: AppSizes.ph30),
               Form(
                 key: formKey,
                 child: CustomPinCodeTextField(
@@ -46,7 +46,7 @@ class _VerifyBottomSheetState extends State<VerifyBottomSheet> {
                   },
                 ),
               ),
-              SizedBox(height: 70.h),
+              SizedBox(height: AppSizes.ph70),
               Center(
                   child: Column(children: [
                 VerifyButtonWidget(
@@ -57,7 +57,7 @@ class _VerifyBottomSheetState extends State<VerifyBottomSheet> {
                     );
                   },
                 ),
-                SizedBox(height: 20.h),
+                SizedBox(height: AppSizes.ph20),
                 const ResendOtpAgainWidget()
               ]))
             ])),

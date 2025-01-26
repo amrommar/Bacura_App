@@ -10,11 +10,11 @@ class DownloadInvoiceWidget extends StatelessWidget {
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
                 color: ColorManager.primaryBlueColor,
               )),
-      SizedBox(width: 10.w),
+      SizedBox(width: AppSizes.ph10),
       Icon(
         Icons.download_outlined,
         color: ColorManager.darkBlueColor,
-        size: 25,
+        size: AppSizes.ph25,
       ),
     ]);
   }

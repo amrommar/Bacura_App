@@ -27,9 +27,11 @@ class _AddCard_BottomSheetState extends State<AddCard_BottomSheet> {
         child: Form(
           key: formKey,
           child: Container(
-              decoration:
-                  BoxDecoration(color: ColorManager.whiteColor, borderRadius: BorderRadius.circular(AppSize.s20)),
-              padding: EdgeInsets.all(AppPadding.p16),
+              decoration: BoxDecoration(
+                color: ColorManager.whiteColor,
+                borderRadius: BorderRadius.circular(AppSizes.br20),
+              ),
+              padding: EdgeInsets.all(AppSizes.ph16),
               child: SingleChildScrollView(
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,7 +66,7 @@ class _AddCard_BottomSheetState extends State<AddCard_BottomSheet> {
                                   }
                                   return null;
                                 })),
-                        SizedBox(width: 8.w),
+                        SizedBox(width: AppSizes.pw8),
                         // Add space between the fields
                         Expanded(
                             child: CardCustom_TxtField(
@@ -92,15 +94,15 @@ class _AddCard_BottomSheetState extends State<AddCard_BottomSheet> {
                             return null;
                           }),
 
-                      SizedBox(height: 30.h),
+                      SizedBox(height: AppSizes.ph30),
 
                       /// Add To Cart Elevated Button
                       Center(
                           child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                  maximumSize: Size(220.w, 50.h),
+                                  maximumSize: Size(AppSizes.pw220, AppSizes.ph50),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(AppSize.s30),
+                                    borderRadius: BorderRadius.circular(AppSizes.br30),
                                   )),
                               onPressed: () {
                                 if (formKey.currentState!.validate()) {
@@ -141,7 +143,7 @@ class CardCustom_TxtField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 8.0),
+      padding: EdgeInsets.only(top: AppSizes.ph8),
       child: TextFormField(
         controller: controller,
         validator: validator,
@@ -153,13 +155,17 @@ class CardCustom_TxtField extends StatelessWidget {
           fillColor: ColorManager.soLightGreyColor,
           hintText: hintText,
           hintStyle: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.greyColor),
-          contentPadding: EdgeInsets.symmetric(vertical: AppPadding.p4, horizontal: AppPadding.p12),
+          contentPadding: EdgeInsets.symmetric(vertical: AppSizes.ph4, horizontal: AppSizes.pw12),
           border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.0), borderSide: BorderSide(color: Colors.white)),
+            borderRadius: BorderRadius.circular(AppSizes.br10),
+            borderSide: const BorderSide(color: Colors.white),
+          ),
           enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10.0), borderSide: BorderSide(color: ColorManager.whiteColor)),
+            borderRadius: BorderRadius.circular(AppSizes.br10),
+            borderSide: BorderSide(color: ColorManager.whiteColor),
+          ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0),
+            borderRadius: BorderRadius.circular(AppSizes.br10),
             borderSide: BorderSide(color: ColorManager.whiteColor),
           ),
         ),

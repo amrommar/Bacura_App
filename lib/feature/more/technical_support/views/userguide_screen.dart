@@ -16,24 +16,24 @@ class _UserGuideScreenState extends State<UserGuideScreen> {
         title: Text(AppLocalizations.of(context)!.user_guide),
       ),
       body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.w),
+          padding: EdgeInsets.symmetric(horizontal: AppSizes.pw16, vertical: AppSizes.ph12),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const BacuraLogoWidget(),
-                SizedBox(height: 10.h),
+                SizedBox(height: AppSizes.ph10),
                 Container(
-                  padding: const EdgeInsets.all(8),
+                  padding: EdgeInsets.all(AppSizes.ph8),
                   decoration: BoxDecoration(
                     color: ColorManager.lightWhiteColor,
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(AppSizes.br12),
                   ),
                   child: Column(
                     children: [
-                      SizedBox(height: 10.h),
+                      SizedBox(height: AppSizes.ph10),
                       UserGuideTitle(title: 'مرحبًا بك في تطبيق باكورة التقنيات!'),
-                      SizedBox(height: 10.h),
+                      SizedBox(height: AppSizes.ph10),
                       UserGuideContent(
                         content:
                             '''يسرّنا انضمامك إلى تطبيق باكورة التقنيات، الحل المتكامل لتلبية جميع احتياجاتك من الخدمات التقنية والذكية والأمنية. من خلال تطبيقنا، يمكنك بسهولة طلب خدمات تركيب كاميرات المراقبة، الأنظمة الذكية، وأنظمة التحكم في الدخول، مع ضمان تنفيذ احترافي وجودة عالية.
@@ -42,18 +42,18 @@ class _UserGuideScreenState extends State<UserGuideScreen> {
                     ],
                   ),
                 ),
-                Divider(color: ColorManager.lightBlueColor, thickness: 2),
+                Divider(color: ColorManager.lightBlueColor, thickness: AppSizes.ph2),
                 Container(
-                    padding: const EdgeInsets.all(8),
+                    padding: EdgeInsets.all(AppSizes.br8),
                     decoration: BoxDecoration(
                       color: ColorManager.lightWhiteColor,
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(AppSizes.br12),
                     ),
                     child: Column(
                       children: [
-                        SizedBox(height: 10.h),
+                        SizedBox(height: AppSizes.ph10),
                         UserGuideTitle(title: 'ابدأ رحلتك معنا بسهولة'),
-                        SizedBox(height: 10.h),
+                        SizedBox(height: AppSizes.ph10),
                         UserGuideContent(
                           content:
                               '''لتسجيل الدخول إلى تطبيق باكورة التقنيات والاستفادة من خدماتنا المتنوعة، كل ما عليك فعله هو إدخال رقم جوالك، وستصلك رسالة نصية تحتوي على رمز تحقق. قم بإدخال الرمز في الحقل المخصص ليتم تسجيل دخولك مباشرة وبكل سهولة.
@@ -62,19 +62,19 @@ class _UserGuideScreenState extends State<UserGuideScreen> {
                         ),
                       ],
                     )),
-                Divider(color: ColorManager.lightBlueColor, thickness: 2),
+                Divider(color: ColorManager.lightBlueColor, thickness: AppSizes.ph2),
                 Container(
-                    padding: const EdgeInsets.all(8),
+                    padding: EdgeInsets.all(AppSizes.ph8),
                     decoration: BoxDecoration(
                       color: ColorManager.lightWhiteColor,
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(AppSizes.br12),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 10.h),
+                        SizedBox(height: AppSizes.ph10),
                         Center(child: UserGuideTitle(title: 'طريقة طلب الخدمة بسهولة')),
-                        SizedBox(height: 10.h),
+                        SizedBox(height: AppSizes.ph10),
                         UserGuideContent(
                             content:
                                 '''للحصول على خدمات باكورة التقنيات بكل سهولة واحترافية، يمكنك اتباع الخطوات التالية:'''),
@@ -139,18 +139,18 @@ class _UserGuideScreenState extends State<UserGuideScreen> {
                         UserGuideContent(content: '''باكورة التقنيات تجعل طلب خدماتك التقنية أسهل وأكثر راحة!'''),
                       ],
                     )),
-                Divider(color: ColorManager.lightBlueColor, thickness: 2),
+                Divider(color: ColorManager.lightBlueColor, thickness: AppSizes.ph2),
                 Container(
-                    padding: const EdgeInsets.all(8),
+                    padding: EdgeInsets.all(AppSizes.ph8),
                     decoration: BoxDecoration(
                       color: ColorManager.lightWhiteColor,
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(AppSizes.br12),
                     ),
                     child: Column(
                       children: [
-                        SizedBox(height: 10.h),
+                        SizedBox(height: AppSizes.ph10),
                         UserGuideTitle(title: 'متابعة حالة الطلب بسهولة'),
-                        SizedBox(height: 10.h),
+                        SizedBox(height: AppSizes.ph10),
                         UserGuideContent(
                             content:
                                 '''      يمكنك متابعة حالة طلبك بكل سهولة من خلال شاشة الطلبات داخل التطبيق، حيث يتم تحديث حالة الطلب بشكل مستمر لتبقى على اطلاع بكل جديد. كما تصلك إشعارات فورية حول أي تحديثات تتعلق بطلبك عبر قسم الإشعارات لضمان تجربة سلسة واحترافية.
@@ -158,19 +158,19 @@ class _UserGuideScreenState extends State<UserGuideScreen> {
                   ابقَ دائمًا على تواصل مع فريقنا وتابع خطوات تنفيذ طلبك بكل مرونة وشفافية!'''),
                       ],
                     )),
-                Divider(color: ColorManager.lightBlueColor, thickness: 2),
+                Divider(color: ColorManager.lightBlueColor, thickness: AppSizes.ph2),
                 Container(
-                    padding: const EdgeInsets.all(8),
+                    padding: EdgeInsets.all(AppSizes.ph8),
                     decoration: BoxDecoration(
                       color: ColorManager.lightWhiteColor,
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(AppSizes.br12),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 10.h),
+                        SizedBox(height: AppSizes.ph10),
                         Center(child: UserGuideTitle(title: 'التواصل مع الدعم الفني')),
-                        SizedBox(height: 10.h),
+                        SizedBox(height: AppSizes.ph10),
                         UserGuideContent(content: '''
                   لضمان حصولك على أفضل تجربة ودعم متكامل، يوفر تطبيق باكورة التقنيات عدة طرق للتواصل مع فريق الدعم الفني بكل سهولة ومرونة:'''),
                         UserGuideSmallList(content: '- تقديم الشكاوى:'),
@@ -187,24 +187,24 @@ class _UserGuideScreenState extends State<UserGuideScreen> {
                   نحن دائمًا هنا لخدمتك وتقديم الحلول التي تناسب احتياجاتك بكل احترافية.'''),
                       ],
                     )),
-                Divider(color: ColorManager.lightBlueColor, thickness: 2),
+                Divider(color: ColorManager.lightBlueColor, thickness: AppSizes.ph2),
                 Container(
-                    padding: const EdgeInsets.all(8),
+                    padding: EdgeInsets.all(AppSizes.ph8),
                     decoration: BoxDecoration(
                       color: ColorManager.lightWhiteColor,
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(AppSizes.br12),
                     ),
                     child: Column(
                       children: [
-                        SizedBox(height: 10.h),
+                        SizedBox(height: AppSizes.ph10),
                         UserGuideTitle(title: 'إدارة حسابك الشخصي'),
-                        SizedBox(height: 10.h),
+                        SizedBox(height: AppSizes.ph10),
                         UserGuideContent(content: '''
                               تحكّم بحسابك بسهولة من خلال شاشة الصفحة الشخصية في تطبيق باكورة التقنيات، حيث يمكنك:
                               تعديل بياناتك الشخصية بسرعة عبر الضغط على المعلومات التي ترغب بتحديثها ثم حفظ التغييرات.'''),
                       ],
                     )),
-                SizedBox(height: 10.h),
+                SizedBox(height: AppSizes.ph10),
               ],
             ),
           )),

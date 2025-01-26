@@ -20,7 +20,7 @@ class AvatarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: [
       Container(
-        height: 80.h,
+        height: AppSizes.ph80,
         width: double.infinity,
         color: ColorManager.primaryBlueColor,
       ),
@@ -43,7 +43,7 @@ class AvatarWidget extends StatelessWidget {
                   ],
                 ),
                 child: CircleAvatar(
-                  radius: 50,
+                  radius: AppSizes.br50,
                   child: Image.network(imagePath),
                 ),
               ),
@@ -58,14 +58,14 @@ class AvatarWidget extends StatelessWidget {
                           },
                           child: CircleAvatar(
                               backgroundColor: ColorManager.primaryBlueColor,
-                              radius: 12,
-                              child: const Icon(
+                              radius: AppSizes.br12,
+                              child: Icon(
                                 Icons.camera_alt_outlined,
-                                size: 16,
+                                size: AppSizes.ph16,
                                 color: Colors.white,
                               )))))
             ]),
-            SizedBox(height: 10.h),
+            SizedBox(height: AppSizes.ph10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,9 +75,9 @@ class AvatarWidget extends StatelessWidget {
                     child: Icon(
                       Icons.drive_file_rename_outline,
                       color: ColorManager.primaryBlueColor,
-                      size: 22,
+                      size: AppSizes.ph22,
                     )),
-                const SizedBox(width: 5),
+                SizedBox(width: AppSizes.pw5),
                 Text(
                   userName,
                   style: Theme.of(context).textTheme.titleMedium!.copyWith(

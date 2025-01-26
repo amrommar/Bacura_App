@@ -6,18 +6,18 @@ class CustomDepositWidget extends StatelessWidget {
     return Container(
         decoration: BoxDecoration(
             color: ColorManager.lightBlueColor,
-            borderRadius: BorderRadius.circular(AppSize.s8),
+            borderRadius: BorderRadius.circular(AppSizes.br8),
             boxShadow: [
               BoxShadow(
                   color: ColorManager.midWhiteColor,
                   spreadRadius: 2,
                   blurRadius: 4,
-                  offset: Offset(0, 3) // Offset in the x and y directions
+                  offset: const Offset(0, 3) // Offset in the x and y directions
                   )
             ]),
-        margin: EdgeInsets.only(right: 12.w, top: 12.h, left: 12.w),
-        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
-        height: 100.h,
+        margin: EdgeInsets.only(right: AppSizes.pw12, top: AppSizes.ph12, left: AppSizes.pw12),
+        padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph12),
+        height: AppSizes.ph100,
         child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,9 +31,9 @@ class CustomDepositWidget extends StatelessWidget {
                     Icon(
                       Icons.calendar_month_outlined,
                       color: ColorManager.darkBlueColor,
-                      size: 20,
+                      size: AppSizes.ph20,
                     ),
-                    SizedBox(width: 5.w),
+                    SizedBox(width: AppSizes.pw5),
                     Text('9/10/2024',
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                               color: ColorManager.primaryBlueColor,
@@ -44,16 +44,16 @@ class CustomDepositWidget extends StatelessWidget {
                   Icon(
                     Icons.access_time_outlined,
                     color: ColorManager.darkBlueColor,
-                    size: 20,
+                    size: AppSizes.ph20,
                   ),
-                  SizedBox(width: 2.w),
+                  SizedBox(width: AppSizes.pw2),
                   Text('10:35 ص',
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: ColorManager.primaryBlueColor,
                           ))
                 ])
               ]),
-              SizedBox(height: 10.h),
+              SizedBox(height: AppSizes.ph10),
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                 Text('1000 ريال',
                     style: Theme.of(context)
@@ -62,7 +62,7 @@ class CustomDepositWidget extends StatelessWidget {
                         .copyWith(color: ColorManager.primaryBlueColor, fontWeight: FontWeight.bold)),
                 Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Padding(
-                    padding: EdgeInsets.all(2.0),
+                    padding: EdgeInsets.all(AppSizes.ph2),
                     child: Text('بطاقة ائتمانية',
                         style: Theme.of(context).textTheme.displayMedium!.copyWith(
                               color: ColorManager.primaryBlueColor,
@@ -71,7 +71,7 @@ class CustomDepositWidget extends StatelessWidget {
                   Icon(
                     Icons.monetization_on_outlined,
                     color: ColorManager.darkBlueColor,
-                    size: 20,
+                    size: AppSizes.ph20,
                   )
                 ])
               ])

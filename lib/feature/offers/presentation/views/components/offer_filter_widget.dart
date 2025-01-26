@@ -30,7 +30,7 @@ class _RequestsFilterState extends State<OfferFilterWidget> {
         builder: (ctx) {
           return MultiSelectDialog(
             checkColor: ColorManager.whiteColor,
-            height: 380.h,
+            height: AppSizes.ph380,
             backgroundColor: ColorManager.lightBlueColor,
             title: Text(AppLocalizations.of(context)!.select_category),
             itemsTextStyle: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.greyColor),
@@ -48,8 +48,8 @@ class _RequestsFilterState extends State<OfferFilterWidget> {
     }
 
     return Container(
-      height: 50.h,
-      padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 4.h),
+      height: AppSizes.ph50,
+      padding: EdgeInsets.symmetric(horizontal: AppSizes.pw4, vertical: AppSizes.ph4),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [

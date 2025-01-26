@@ -1,7 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/core/utils/utils.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class AppSizes {
@@ -45,7 +43,9 @@ class AppSizes {
   static final double ph0_7 = 0.7.h;
   static final double ph0_9 = 0.6.h;
   static final double ph1 = 1.h;
+  static final double ph1_2 = 1.2.h;
   static final double ph2 = 2.h;
+  static final double ph2_5 = 2.5.h;
   static final double ph3 = 3.0.h;
   static final double ph4 = 4.0.h;
   static final double ph5 = 5.h;
@@ -108,7 +108,11 @@ class AppSizes {
   static final double ph134 = 134.h;
   static final double ph145 = 145.h;
   static final double ph149 = 149.h;
+  static final double ph156 = 156.h;
+  static final double ph160 = 160.h;
   static final double ph169 = 169.h;
+  static final double ph170 = 170.h;
+  static final double ph165 = 165.h;
   static final double ph183 = 183.h;
   static final double ph186 = 186.h;
   static final double ph164 = 164.h;
@@ -134,35 +138,14 @@ class AppSizes {
   static final double ph330 = 330.h;
   static final double ph345 = 345.h;
   static final double ph376 = 376.h;
+  static final double ph380 = 380.h;
   static final double ph390 = 390.h;
   static final double ph384 = 384.h;
   static final double ph397 = 397.h;
   static final double ph420 = 420.h;
   static final double ph450 = 450.h;
   static final double ph355 = 355.h;
-
-  /// Padding Size Width
-  static final double pW1 = 1.0.w;
-  static final double pW2 = 2.0.w;
-  static final double pW3 = 3.0.w;
-  static final double pW6 = 6.0.w;
-  static final double pW8 = 8.0.w;
-  static final double pW12 = 12.0.w;
-  static final double pW14 = 14.0.w;
-  static final double pW16 = 16.0.w;
-  static final double pW18 = 18.0.w;
-  static final double pW24 = 24.0.w;
-  static final double pw25 = 25.0.w;
-  static final double pw26 = 26.0.w;
-  static final double pW32 = 32.0.w;
-  static final double pW36 = 36.0.w;
-  static final double pW39 = 39.0.w;
-  static final double pW40 = 40.0.w;
-  static final double pW48 = 48.0.w;
-  static final double pW58 = 58.0.w;
-  static final double pW51 = 51.0.w;
-  static final double pW60 = 60.0.w;
-  static final double pW75 = 75.0.w;
+  static final double ph500 = 500.h;
 
   ///Width
   static final double pw0_2 = 0.2.w;
@@ -185,21 +168,27 @@ class AppSizes {
   static final double pw20 = 20.0.w;
   static final double pw22 = 22.0.w;
   static final double pw24 = 24.0.w;
+  static final double pw25 = 25.0.w;
   static final double pw28 = 28.0.w;
+  static final double pw29 = 29.0.w;
+  static final double pw30 = 30.0.w;
   static final double pw32 = 32.0.w;
   static final double pw36 = 36.0.w;
   static final double pw40 = 40.0.w;
+  static final double pw45 = 45.0.w;
   static final double pw46 = 46.w;
   static final double pw47 = 47.w;
   static final double pw50 = 50.w;
   static final double pw55 = 55.w;
   static final double pw62 = 62.w;
   static final double pw66 = 66.w;
+  static final double pw69 = 69.w;
   static final double pw71 = 71.w;
   static final double pw75 = 75.0.w;
   static final double pw80 = 80.w;
   static final double pw82 = 82.w;
   static final double pw85 = 85.w;
+  static final double pw90 = 90.w;
   static final double pw92 = 92.w;
   static final double pw100 = 100.w;
   static final double pw115 = 115.w;
@@ -209,15 +198,23 @@ class AppSizes {
   static final double pw168 = 168.w;
   static final double pw169 = 169.w;
   static final double pw170 = 170.w;
+  static final double pw175 = 175.w;
   static final double pw179 = 179.w;
   static final double pw180 = 180.w;
   static final double pw181 = 181.w;
   static final double pw190 = 190.w;
   static final double pw210 = 210.w;
+  static final double pw220 = 220.w;
+  static final double pw230 = 230.w;
+  static final double pw240 = 240.w;
   static final double pw223 = 223.w;
   static final double pw250 = 250.w;
+  static final double pw280 = 280.w;
+  static final double pw320 = 320.w;
   static final double pw338 = 338.w;
   static final double pw396 = 396.w;
+  static final double pw400 = 400.w;
+  static final double pw430 = 430.w;
   static final double pw140 = 140.0.w;
 
   /// Border Radius
@@ -225,8 +222,10 @@ class AppSizes {
   static final double br6 = 6.r;
   static final double br8 = 8.r;
   static final double br10 = 10.r;
-  static final double br13 = 11.r;
+  static final double br13 = 13.r;
+  static final double br15 = 15.r;
   static final double br12 = 12.r;
+  static final double br14 = 14.r;
   static final double br16 = 16.r;
   static final double br18 = 18.r;
   static final double br20 = 20.r;
@@ -241,6 +240,6 @@ class AppSizes {
 
   /// Elevation Sizes
   static const double e1 = 2;
-  static const double e2 = 4;
-  static const double e3 = 6;
+  static const double e4 = 4;
+  static const double e6 = 6;
 }

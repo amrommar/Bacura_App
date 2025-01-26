@@ -17,33 +17,33 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
       Scaffold(
         backgroundColor: Colors.transparent,
         body: Container(
-            padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 70.h),
+            padding: EdgeInsets.symmetric(horizontal: AppSizes.pw25, vertical: AppSizes.ph70),
             child: SingleChildScrollView(
                 child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
               //language change icon ________________________________________________
               const ChangeLanguageIconWidget(),
-              SizedBox(height: 40.h),
+              SizedBox(height: AppSizes.ph40),
               //Bacura logo container _________________________________________
               const BacuraLogoWidget(),
-              SizedBox(height: 80.h),
+              SizedBox(height: AppSizes.ph80),
               //welcome message ____________________________________
               Text(
                 AppStrings.welcomeToBacuraApp,
                 style: Theme.of(context).textTheme.displayLarge,
               ),
-              SizedBox(height: 10.h),
+              SizedBox(height: AppSizes.ph10),
               Text(
                 textAlign: TextAlign.center,
                 AppStrings.you_can_browse_the_application_without_registering,
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
-              SizedBox(height: 80.h),
+              SizedBox(height: AppSizes.ph80),
               //As A Visitor button______________________________
               const ContinueAsVisitorButton(),
-              SizedBox(height: 26.h),
+              SizedBox(height: AppSizes.ph26),
               //Login button______________________________
               const LoginButton(),
-              SizedBox(height: 18.h),
+              SizedBox(height: AppSizes.ph18),
               // //Register button______________________________
               // const RegisterRowWidget(),
             ]))),

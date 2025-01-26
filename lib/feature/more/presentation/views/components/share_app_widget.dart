@@ -6,23 +6,23 @@ class ShareAppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        constraints: const BoxConstraints(maxHeight: 75, minWidth: 140),
-        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+        constraints: BoxConstraints(maxHeight: AppSizes.ph75, minWidth: AppSizes.pw140),
+        padding: EdgeInsets.symmetric(horizontal: AppSizes.pw5, vertical: AppSizes.ph5),
         decoration: BoxDecoration(
           border: Border.all(color: ColorManager.midBlueColor),
           color: ColorManager.lightWhiteColor,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(AppSizes.br8),
         ),
-        margin: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
+        margin: EdgeInsets.symmetric(horizontal: AppSizes.pw6, vertical: AppSizes.ph3),
         child: InkWell(
             onTap: () {},
             child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
               Icon(
                 Icons.share_outlined,
-                size: 35,
+                size: AppSizes.ph35,
                 color: ColorManager.midBlueColor,
               ),
-              const SizedBox(height: 5),
+              SizedBox(height: AppSizes.ph5),
               Text(AppLocalizations.of(context)!.share_app,
                   style: Theme.of(context).textTheme.displayMedium!.copyWith(
                         color: ColorManager.darkBlueColor,

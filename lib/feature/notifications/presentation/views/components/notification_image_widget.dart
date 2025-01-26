@@ -6,16 +6,20 @@ class NotificationImageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(30), boxShadow: [
-          BoxShadow(
-              color: ColorManager.midWhiteColor,
-              spreadRadius: 2,
-              blurRadius: 4,
-              offset: const Offset(0, 3) // Offset in the x and y directions
-              )
-        ]),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(
+              AppSizes.br30,
+            ),
+            boxShadow: [
+              BoxShadow(
+                  color: ColorManager.midWhiteColor,
+                  spreadRadius: 2,
+                  blurRadius: 4,
+                  offset: const Offset(0, 3) // Offset in the x and y directions
+                  )
+            ]),
         child: CircleAvatar(
-            radius: 30.w,
+            radius: AppSizes.br30,
             backgroundColor: ColorManager.whiteColor,
             ///////////////    from Back-End     /////////////////////
             child: Image.asset('assets/images/bakura (1) 1.png') // Adjust the radius to make sure it fits

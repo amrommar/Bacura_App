@@ -23,8 +23,12 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget> {
   @override
   Widget build(BuildContext context) {
     return Row(children: [
-      Icon(widget.icon, color: ColorManager.primaryBlueColor, size: 30),
-      SizedBox(width: 15.w),
+      Icon(
+        widget.icon,
+        color: ColorManager.primaryBlueColor,
+        size: AppSizes.ph30,
+      ),
+      SizedBox(width: AppSizes.pw16),
       Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Text(widget.text,
             style: Theme.of(context)

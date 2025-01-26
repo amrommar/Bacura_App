@@ -1,3 +1,4 @@
+import 'package:bacura_app/core/utils/app_sizes.dart';
 import 'package:bacura_app/core/utils/index.dart';
 
 class CustomPhoneField extends StatelessWidget {
@@ -26,7 +27,7 @@ class CustomPhoneField extends StatelessWidget {
             style: Theme.of(context).textTheme.titleMedium!.copyWith(
                   color: ColorManager.darkBlueColor,
                 )),
-        SizedBox(height: 10.h),
+        SizedBox(height: AppSizes.ph10),
         IntlPhoneField(
           textAlign: TextAlign.start,
           initialCountryCode: 'SA',

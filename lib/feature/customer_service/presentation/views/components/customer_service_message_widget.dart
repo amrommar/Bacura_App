@@ -22,13 +22,13 @@ class CustomerServiceMessageWidget extends StatelessWidget {
             Icons.headset_mic_outlined,
             color: ColorManager.primaryBlueColor,
           )),
-      const SizedBox(width: 8),
+      SizedBox(width: AppSizes.pw8),
       Container(
-          margin: const EdgeInsets.only(bottom: 10),
-          padding: const EdgeInsets.all(12),
+          margin: EdgeInsets.only(bottom: AppSizes.ph10),
+          padding: EdgeInsets.all(AppSizes.ph12),
           decoration: BoxDecoration(
             color: Colors.grey.shade100,
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(AppSizes.br16),
           ),
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text(
@@ -38,11 +38,11 @@ class CustomerServiceMessageWidget extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 5),
+            SizedBox(height: AppSizes.ph5),
             Text(message),
             Text(
               time,
-              style: const TextStyle(fontSize: 12, color: Colors.grey),
+              style: TextStyle(fontSize: AppSizes.sp12, color: Colors.grey),
             )
           ]))
     ]);

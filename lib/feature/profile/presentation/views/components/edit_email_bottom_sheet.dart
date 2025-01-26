@@ -15,7 +15,7 @@ class EditEmailBottomSheet extends StatelessWidget {
     return SingleChildScrollView(
       child: Consumer<MyProfileProvider>(
         builder: (context, provider, child) => Container(
-            padding: const EdgeInsets.all(20),
+            padding: EdgeInsets.all(AppSizes.ph20),
             child: Column(children: [
               Form(
                 key: formKey,
@@ -27,7 +27,8 @@ class EditEmailBottomSheet extends StatelessWidget {
                     if (text == null || text.trim().isEmpty) {
                       return AppLocalizations.of(context)!.enter_your_email;
                     }
-                    final bool emailValid = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(text);
+                    final bool emailValid =
+                        RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(text);
                     if (!emailValid) {
                       return AppLocalizations.of(context)!.please_enter_valid_email;
                     }
@@ -35,7 +36,7 @@ class EditEmailBottomSheet extends StatelessWidget {
                   },
                 ),
               ),
-              SizedBox(height: 40.h),
+              SizedBox(height: AppSizes.ph40),
               CustomSmallElevatedButton(
                   text: AppLocalizations.of(context)!.save,
                   onPressed: () {
