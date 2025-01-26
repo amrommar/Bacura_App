@@ -4,6 +4,8 @@ import 'package:bacura_app/feature/home/data/data_source/home_data_source.dart';
 import 'package:bacura_app/feature/home/data/repository/home_repository.dart';
 import 'package:bacura_app/feature/home/domain/repository/base_home_repository.dart';
 import 'package:bacura_app/feature/home/domain/use_case/get_banner_use_case.dart';
+import 'package:bacura_app/feature/home/domain/use_case/get_category_use_case.dart';
+import 'package:bacura_app/feature/home/domain/use_case/on_banner_clicked_use_case.dart';
 import 'package:bacura_app/feature/profile/data/data_source/profile_data_source.dart';
 import 'package:bacura_app/feature/profile/data/repository/profile_repository.dart';
 import 'package:bacura_app/feature/profile/domain/repository/base_profile_repository.dart';
@@ -55,5 +57,7 @@ class DependencyInjectionServices {
 
     ///Use Cases
     sl.registerLazySingleton<GetBannerUseCase>(() => GetBannerUseCase(baseHomeRepository: sl()));
+    sl.registerLazySingleton<OnBannerClickedUseCase>(() => OnBannerClickedUseCase(baseHomeRepository: sl()));
+    sl.registerLazySingleton<GetCategoryUseCase>(() => GetCategoryUseCase(baseHomeRepository: sl()));
   }
 }

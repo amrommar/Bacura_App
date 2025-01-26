@@ -36,7 +36,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
           ),
           elevation: 0,
-          leading: const AppBarProfileImageWidget(),
+          leading: AppBarProfileImageWidget(
+            imagePath: profileProvider.myProfileEntity.image ?? '',
+          ),
           actions: const [NotificationsIconWidget()]),
       floatingActionButton: const CustomFloatingActionButton(),
       bottomNavigationBar: CustomBottomNavigationBar(

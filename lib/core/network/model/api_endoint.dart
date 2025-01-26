@@ -5,4 +5,5 @@ class ApiEndPoint {
   static const String getMyProfilePath = "users/my-profile";
   static const String updateMyProfilePath = "users/my-profile";
   static const String bannerPath = "banners";
+  static const String categoriesPath = "categories";
 }

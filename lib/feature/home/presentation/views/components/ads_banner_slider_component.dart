@@ -25,8 +25,13 @@ class _AdsBannerSliderComponentState extends State<AdsBannerSliderComponent> {
             child: CarouselSlider(
               items: List.generate(
                 provider.bannerEntity.length,
-                (index) => AdsWidget(
-                  imagePath: provider.bannerEntity[index].image,
+                (index) => InkWell(
+                  onTap: () {
+                    provider.onBannerClicked(id: provider.bannerEntity[index].id);
+                  },
+                  child: AdsWidget(
+                    imagePath: provider.bannerEntity[index].image,
+                  ),
                 ),
               ),
               options: CarouselOptions(

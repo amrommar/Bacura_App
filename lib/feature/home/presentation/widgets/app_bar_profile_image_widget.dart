@@ -1,7 +1,8 @@
 import 'package:bacura_app/core/utils/index.dart';
 
 class AppBarProfileImageWidget extends StatelessWidget {
-  const AppBarProfileImageWidget({super.key});
+  final String imagePath;
+  const AppBarProfileImageWidget({super.key, required this.imagePath});
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +16,8 @@ class AppBarProfileImageWidget extends StatelessWidget {
               child: CircleAvatar(
                   radius: 23.w,
                   backgroundColor: ColorManager.whiteColor,
-                  child: Image.asset(
-                    AppAssets.avatar,
+                  child: Image.network(
+                    imagePath,
                   )))
         ]));
   }
