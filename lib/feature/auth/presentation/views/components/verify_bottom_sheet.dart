@@ -19,6 +19,7 @@ class _VerifyBottomSheetState extends State<VerifyBottomSheet> {
       create: (context) => AuthProvider(),
       child: Consumer<AuthProvider>(
         builder: (context, provider, child) => Container(
+            width: AppSizes.pw800,
             height: AppSizes.ph500,
             decoration: BoxDecoration(
               color: ColorManager.whiteColor,

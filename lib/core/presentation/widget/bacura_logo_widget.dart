@@ -8,7 +8,12 @@ class BacuraLogoWidget extends StatelessWidget {
     return Center(
       child: SizedBox(
         width: AppSizes.pw280,
-        child: SvgPicture.asset(AppAssets.bacuraLogo),
+        child: SvgPicture.asset(
+          AppAssets.bacuraLogo,
+          height: AppSizes.ph200,
+          width: AppSizes.pw280,
+          fit: BoxFit.contain,
+        ),
       ),
     );
   }

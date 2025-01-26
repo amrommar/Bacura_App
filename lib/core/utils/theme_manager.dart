@@ -55,13 +55,13 @@ ThemeData getAppTheme() {
 
     /// ----------------------------------------------------------TextTheme
     textTheme: TextTheme(
-      titleMedium: getMediumStyle(fontSize: FontSize.s20, color: ColorManager.whiteColor),
-      titleSmall: getMediumStyle(fontSize: FontSize.s14, color: ColorManager.primaryBlueColor),
-      displayLarge: getMediumStyle(fontSize: FontSize.s32, color: ColorManager.primaryBlueColor),
-      displayMedium: getMediumStyle(fontSize: FontSize.s18, color: ColorManager.blackColor),
-      headlineLarge: getBoldStyle(fontSize: FontSize.s36, color: ColorManager.primaryBlueColor),
-      bodyMedium: getMediumStyle(fontSize: FontSize.s16, color: ColorManager.primaryBlueColor),
-      bodyLarge: getMediumStyle(fontSize: FontSize.s24, color: ColorManager.primaryBlueColor),
+      titleMedium: getMediumStyle(fontSize: AppSizes.sp20, color: ColorManager.whiteColor),
+      titleSmall: getMediumStyle(fontSize: AppSizes.sp14, color: ColorManager.primaryBlueColor),
+      displayLarge: getMediumStyle(fontSize: AppSizes.sp32, color: ColorManager.primaryBlueColor),
+      displayMedium: getMediumStyle(fontSize: AppSizes.sp18, color: ColorManager.blackColor),
+      headlineLarge: getBoldStyle(fontSize: AppSizes.sp36, color: ColorManager.primaryBlueColor),
+      bodyMedium: getMediumStyle(fontSize: AppSizes.sp16, color: ColorManager.primaryBlueColor),
+      bodyLarge: getMediumStyle(fontSize: AppSizes.sp24, color: ColorManager.primaryBlueColor),
     ),
 
     //input decoration theme (Text Form Field)

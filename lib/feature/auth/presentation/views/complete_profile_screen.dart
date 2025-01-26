@@ -17,7 +17,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
     const FlutterSecureStorage secureStorage = FlutterSecureStorage();
 
     return Stack(children: [
-      Image.asset(AppAssets.background2Image),
+      Image.asset(AppAssets.background2Image, width: double.infinity, height: double.infinity, fit: BoxFit.fill),
       Scaffold(
           appBar: AppBar(
               iconTheme: IconThemeData(
