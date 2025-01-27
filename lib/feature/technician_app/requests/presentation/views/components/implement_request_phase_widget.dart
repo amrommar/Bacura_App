@@ -46,14 +46,14 @@ class ImplementRequestPhaseSectionState extends State<ImplementRequestPhaseSecti
               color: isCompleted ? ColorManager.midBlueColor : ColorManager.lightGreyColor,
             ),
             if (!widget.isLast) ...[
-              const SizedBox(height: 4.0),
+              SizedBox(height: AppSizes.ph4),
               SizedBox(
-                height: 40.0,
-                width: 2.0,
+                height: AppSizes.ph40,
+                width: AppSizes.pw2,
                 child: CustomPaint(
                   painter: DashPainter(
-                    dashHeight: 4.0,
-                    dashSpace: 4.0,
+                    dashHeight: AppSizes.ph4,
+                    dashSpace: AppSizes.ph4,
                     color: isCompleted ? ColorManager.primaryBlueColor : ColorManager.lightGreyColor,
                   ),
                 ),

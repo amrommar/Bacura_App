@@ -36,6 +36,7 @@ class AppSizes {
   }
 
   ///Height
+
   static final double ph0_1 = 0.1.h;
   static final double ph0_5 = 0.5.h;
   static final double ph0_3 = 0.3.h;
@@ -109,6 +110,7 @@ class AppSizes {
   static final double ph134 = 134.h;
   static final double ph145 = 145.h;
   static final double ph149 = 149.h;
+  static final double ph150 = 150.h;
   static final double ph156 = 156.h;
   static final double ph160 = 160.h;
   static final double ph169 = 169.h;
@@ -124,6 +126,7 @@ class AppSizes {
   static final double ph208 = 208.h;
   static final double ph220 = 220.h;
   static final double ph230 = 230.h;
+  static final double ph240 = 240.h;
   static final double ph248 = 248.h;
   static final double ph250 = 250.0.h;
   static final double ph255 = 255.h;
@@ -146,7 +149,11 @@ class AppSizes {
   static final double ph420 = 420.h;
   static final double ph450 = 450.h;
   static final double ph355 = 355.h;
+  static final double ph365 = 365.h;
   static final double ph500 = 500.h;
+  static final double ph600 = 600.h;
+  static final double ph800 = 800.h;
+  static final double ph850 = 850.h;
 
   ///Width
   static final double pw0_2 = 0.2.w;
@@ -205,6 +212,7 @@ class AppSizes {
   static final double pw181 = 181.w;
   static final double pw190 = 190.w;
   static final double pw210 = 210.w;
+  static final double pw200 = 200.w;
   static final double pw220 = 220.w;
   static final double pw230 = 230.w;
   static final double pw240 = 240.w;
@@ -213,6 +221,7 @@ class AppSizes {
   static final double pw280 = 280.w;
   static final double pw320 = 320.w;
   static final double pw338 = 338.w;
+  static final double pw345 = 345.w;
   static final double pw396 = 396.w;
   static final double pw400 = 400.w;
   static final double pw800 = 800.w;

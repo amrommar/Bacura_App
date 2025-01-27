@@ -16,19 +16,19 @@ class RareServiceComponent extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 )),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             /////////////////       Cinema Section     ////////////////////////////
             RareServiceWidget(
               onTap: () {
                 Navigator.pushNamed(context, Routes.cinemaDetailsRoute);
               },
-              imagePath: 'assets/images/cinemaWhite.png',
+              imagePath: 'assets/images/png/cinemaWhite.png',
               serviceTitle: 'السينما المنزلية',
             ),
             /////////////////    Consultation Section    ////////////////////////////
             RareServiceWidget(
-              imagePath: 'assets/images/consultationWhite.png',
+              imagePath: 'assets/images/png/consultationWhite.png',
               serviceTitle: 'الاستشارات',
               onTap: () {
                 Navigator.pushNamed(context, Routes.consultationScreenRoute);

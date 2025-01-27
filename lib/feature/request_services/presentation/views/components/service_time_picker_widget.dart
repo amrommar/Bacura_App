@@ -16,7 +16,7 @@ class ServiceTimePickerWidget extends StatelessWidget {
         barrierColor: Colors.black12,
         //Barrier Color when pop up show
         minuteInterval: 1,
-        padding: const EdgeInsets.fromLTRB(12, 10, 12, 10),
+        padding: EdgeInsets.fromLTRB(AppSizes.pw12, AppSizes.ph10, AppSizes.pw12, AppSizes.ph10),
         cancelText: AppLocalizations.of(context)!.cancel,
         confirmText: AppLocalizations.of(context)!.ok,
         pressType: PressType.singlePress,

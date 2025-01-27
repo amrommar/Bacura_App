@@ -25,7 +25,7 @@ class _ServiceDetailsScreenState extends State<ServiceDetailsScreen> {
           AppLocalizations.of(context)!.service_details,
         )),
         body: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 16),
+            padding: EdgeInsets.symmetric(vertical: AppSizes.ph18, horizontal: AppSizes.pw16),
             child: Form(
                 key: formKey,
                 child: SingleChildScrollView(
@@ -39,11 +39,16 @@ class _ServiceDetailsScreenState extends State<ServiceDetailsScreen> {
                   const ServiceTimePickerWidget(),
                   ////////////////////     Set Time Section     /////////////////////////////////////////
 
-                  SizedBox(height: 10.h),
+                  SizedBox(height: AppSizes.ph10),
                   CustomDropDownField(
-                    selectedOption: '9 ص - 1 م',
+                    selectedOption: selectedOption,
                     options: options,
                     fieldName: AppLocalizations.of(context)!.set_time,
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        selectedOption = newValue!;
+                      });
+                    },
                   ),
                   //// Set location Section ///////////////////////////////////////
                   CustomQuestionTextFormField(
@@ -63,7 +68,7 @@ class _ServiceDetailsScreenState extends State<ServiceDetailsScreen> {
                           child: Icon(
                             Icons.location_on_outlined,
                             color: ColorManager.midBlueColor,
-                            size: 27,
+                            size: AppSizes.ph28,
                           ))),
                   //// Write Service Description Section ///////////////////////////////////////
                   CustomQuestionTextFormField(
@@ -77,7 +82,7 @@ class _ServiceDetailsScreenState extends State<ServiceDetailsScreen> {
                         }
                         return null;
                       }),
-                  SizedBox(height: 100.h),
+                  SizedBox(height: AppSizes.ph100),
                   Center(
                       child: CustomSmallElevatedButton(
                           text: AppLocalizations.of(context)!.send_request,
@@ -93,7 +98,7 @@ class _ServiceDetailsScreenState extends State<ServiceDetailsScreen> {
     showModalBottomSheet(
         context: context,
         builder: (context) {
-          return RequestSentBottomSheet();
+          return const RequestSentBottomSheet();
         });
   }
 

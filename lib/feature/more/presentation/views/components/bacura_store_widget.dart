@@ -6,7 +6,7 @@ class BacuraStoreWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        constraints: BoxConstraints(maxHeight: AppSizes.ph75, minWidth: AppSizes.pw140),
+        constraints: BoxConstraints(maxHeight: AppSizes.ph80, minWidth: AppSizes.pw140),
         padding: EdgeInsets.symmetric(horizontal: AppSizes.pw5, vertical: AppSizes.ph5),
         decoration: BoxDecoration(
           border: Border.all(color: ColorManager.midBlueColor),

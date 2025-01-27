@@ -12,12 +12,12 @@ class _ManageOnGoingRequestBottomSheetState extends State<ManageOnGoingRequestBo
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 200.h,
+        height: AppSizes.ph200,
         decoration: BoxDecoration(
           color: ColorManager.whiteColor,
           borderRadius: BorderRadius.circular(AppSizes.br20),
         ),
-        padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
+        padding: EdgeInsets.symmetric(horizontal: AppSizes.pw30, vertical: AppSizes.ph30),
         child: SingleChildScrollView(
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,7 +50,7 @@ class _ManageOnGoingRequestBottomSheetState extends State<ManageOnGoingRequestBo
                       child: Icon(
                         Icons.arrow_circle_down_outlined,
                         color: ColorManager.greyColor,
-                        size: 30,
+                        size: AppSizes.ph30,
                       )))
             ])));
   }

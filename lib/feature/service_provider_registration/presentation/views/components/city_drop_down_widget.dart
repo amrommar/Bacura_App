@@ -20,7 +20,7 @@ class _CityDropDownWidgetState extends State<CityDropDownWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.symmetric(vertical: 6.h),
+        padding: EdgeInsets.symmetric(vertical: AppSizes.ph6),
         child: SingleChildScrollView(
             child: DropdownButtonFormField<String>(
                 value: widget.selectedOption,
@@ -29,7 +29,7 @@ class _CityDropDownWidgetState extends State<CityDropDownWidget> {
                     ),
                 // Text style for selected option
                 decoration: InputDecoration(
-                  hintText: 'City',
+                  hintText: 'المدينة',
                   filled: true,
                   fillColor: ColorManager.lightWhiteColor,
                   focusedBorder: OutlineInputBorder(
@@ -37,13 +37,13 @@ class _CityDropDownWidgetState extends State<CityDropDownWidget> {
                         color: ColorManager.primaryBlueColor,
                         width: AppSizes.pw1,
                       ),
-                      borderRadius: BorderRadius.circular(12)),
+                      borderRadius: BorderRadius.circular(AppSizes.br12)),
                   enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: ColorManager.midWhiteColor,
                         width: AppSizes.pw1,
                       ),
-                      borderRadius: BorderRadius.circular(12)),
+                      borderRadius: BorderRadius.circular(AppSizes.br12)),
                 ),
                 dropdownColor: ColorManager.whiteColor,
                 iconEnabledColor: ColorManager.primaryBlueColor,

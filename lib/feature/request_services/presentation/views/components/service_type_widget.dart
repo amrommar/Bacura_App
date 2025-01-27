@@ -17,8 +17,8 @@ class ServiceTypeWidget extends StatelessWidget {
     return GestureDetector(
       onTap: onSelect,
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
-        margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
+        padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph6),
+        margin: EdgeInsets.symmetric(horizontal: AppSizes.pw16, vertical: AppSizes.ph6),
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -37,10 +37,11 @@ class ServiceTypeWidget extends StatelessWidget {
             Icon(
               isSelected ? Icons.circle : Icons.circle_outlined,
               color: isSelected ? ColorManager.primaryBlueColor : ColorManager.blackColor,
+              size: AppSizes.ph30,
             ),
             Container(
-              padding: EdgeInsets.only(top: 6.h, right: 8.w, left: 8.w),
-              width: 345.w,
+              padding: EdgeInsets.only(top: AppSizes.ph6, right: AppSizes.pw8, left: AppSizes.pw8),
+              width: AppSizes.pw338,
               child: Text(
                 text,
                 overflow: TextOverflow.ellipsis,

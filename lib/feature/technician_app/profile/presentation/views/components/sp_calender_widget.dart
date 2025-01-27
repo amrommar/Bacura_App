@@ -14,13 +14,15 @@ class _SpCalenderWidgetState extends State<SpCalenderWidget> {
 
     return Container(
         color: ColorManager.whiteColor,
-        height: 365.h,
-        padding: EdgeInsets.only(bottom: 12.h),
+        height: AppSizes.ph365,
+        padding: EdgeInsets.only(bottom: AppSizes.ph12),
         child: Calendar(
             isExpandable: true,
             bottomBarColor: ColorManager.midWhiteColor,
-            bottomBarTextStyle:
-                Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.primaryBlueColor, fontSize: 18),
+            bottomBarTextStyle: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  color: ColorManager.primaryBlueColor,
+                  fontSize: AppSizes.sp18,
+                ),
             bottomBarArrowColor: ColorManager.primaryBlueColor,
             initialDate: DateTime.now(),
             defaultOutOfMonthDayColor: ColorManager.greyColor,
@@ -40,7 +42,11 @@ class _SpCalenderWidgetState extends State<SpCalenderWidget> {
             isExpanded: true,
             expandableDateFormat: 'EEEE, dd. MMMM yyyy',
             datePickerType: DatePickerType.year,
-            dayOfWeekStyle: TextStyle(color: ColorManager.primaryBlueColor, fontWeight: FontWeight.bold, fontSize: 15),
+            dayOfWeekStyle: TextStyle(
+              color: ColorManager.primaryBlueColor,
+              fontWeight: FontWeight.bold,
+              fontSize: AppSizes.sp15,
+            ),
             onMonthChanged: (DateTime date) {
               setState(() {
                 // Update state or handle actions when the month changes

@@ -40,7 +40,9 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                         onEditImage: () async {
                           await provider.pickImage(context);
                         },
-                        imagePath: profileEntity.image ?? 'assets/images/png/Ellipse 1.png',
+                        imagePath:
+                            // profileEntity.image ??
+                            AppAssets.bacuraImage,
                         userName: provider.myProfileEntity.name!,
                         onEditName: () {
                           provider.openNameBottomSheet();

@@ -11,11 +11,11 @@ class CancelledRequestBottomWidget extends StatelessWidget {
                 color: ColorManager.darkRedColor,
                 fontWeight: FontWeight.w500,
               )),
-      SizedBox(height: 10.h),
+      SizedBox(height: AppSizes.ph10),
       Icon(
         Icons.cancel,
         color: ColorManager.darkRedColor,
-        size: 50,
+        size: AppSizes.ph50,
       )
     ]);
   }

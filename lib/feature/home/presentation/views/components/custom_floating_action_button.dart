@@ -20,7 +20,7 @@ class _CustomFloatingActionButtonState extends State<CustomFloatingActionButton>
       AnimatedPositioned(
         duration: const Duration(milliseconds: 500),
         curve: Curves.easeInOut,
-        bottom: 5.h,
+        bottom: AppSizes.ph5,
         // Adjust position based on text direction
         left: isRTL
             ? (isFocused
@@ -33,24 +33,33 @@ class _CustomFloatingActionButtonState extends State<CustomFloatingActionButton>
         child: AnimatedOpacity(
           opacity: isFocused ? 1.0 : 0.6,
           duration: const Duration(milliseconds: 500),
-          child: FloatingActionButton(
-            onPressed: () {
-              setState(() {
-                if (!isFocused) {
-                  // First click focuses the button
-                  isFocused = true;
-                  hasClickedOnce = true;
-                } else if (hasClickedOnce) {
-                  // Second click navigates to the route
-                  Navigator.pushNamed(context, Routes.customerServiceRoute);
-                }
-              });
-            },
-            backgroundColor: ColorManager.primaryBlueColor,
-            child: Icon(
-              Icons.headset_mic_outlined,
-              color: ColorManager.whiteColor,
-              size: AppSizes.ph40,
+          child: Container(
+            height: AppSizes.ph60,
+            width: AppSizes.pw62,
+            padding: EdgeInsets.all(AppSizes.ph10),
+            decoration: BoxDecoration(
+              color: ColorManager.primaryBlueColor,
+              shape: BoxShape.circle,
+            ),
+            child: FloatingActionButton(
+              onPressed: () {
+                setState(() {
+                  if (!isFocused) {
+                    // First click focuses the button
+                    isFocused = true;
+                    hasClickedOnce = true;
+                  } else if (hasClickedOnce) {
+                    // Second click navigates to the route
+                    Navigator.pushNamed(context, Routes.customerServiceRoute);
+                  }
+                });
+              },
+              backgroundColor: ColorManager.transparent,
+              child: Icon(
+                Icons.headset_mic_outlined,
+                color: ColorManager.whiteColor,
+                size: AppSizes.ph40,
+              ),
             ),
           ),
         ),

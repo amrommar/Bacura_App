@@ -9,7 +9,7 @@ class SpAvatarWidget extends StatelessWidget {
         clipBehavior: Clip.none,
         // This allows the profile image to overflow out of the container
         children: [
-          Container(height: 60.h, color: ColorManager.primaryBlueColor),
+          Container(height: AppSizes.ph60, color: ColorManager.primaryBlueColor),
           Positioned(
               top: 0.h,
               left: 0.w,
@@ -17,8 +17,8 @@ class SpAvatarWidget extends StatelessWidget {
               child: Column(children: [
                 Stack(children: [
                   // Profile picture
-                  const CircleAvatar(
-                      radius: 50,
+                  CircleAvatar(
+                      radius: AppSizes.br50,
                       backgroundImage: AssetImage(
                         'assets/images/png/Ellipse 1.png',
                       )),
@@ -29,17 +29,29 @@ class SpAvatarWidget extends StatelessWidget {
                       right: 5.w,
                       child: CircleAvatar(
                         backgroundColor: ColorManager.primaryBlueColor,
-                        radius: 12,
-                        child: Icon(Icons.camera_alt_outlined, size: 15, color: ColorManager.whiteColor),
+                        radius: AppSizes.br12,
+                        child: Icon(
+                          Icons.camera_alt_outlined,
+                          size: AppSizes.ph15,
+                          color: ColorManager.whiteColor,
+                        ),
                       ))
                 ]),
-                const SizedBox(height: 8),
+                SizedBox(height: AppSizes.ph8),
                 // User name
                 Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Text('محمد صلاح', style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold)),
-                  const SizedBox(width: 5),
+                  Text('محمد صلاح',
+                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                            color: ColorManager.darkBlueColor,
+                            fontWeight: FontWeight.bold,
+                          )),
+                  SizedBox(width: AppSizes.pw5),
                   //////////////////////// Want method to edit the Name /////////////////////
-                  Icon(Icons.drive_file_rename_outline, color: ColorManager.primaryBlueColor, size: 25),
+                  Icon(
+                    Icons.drive_file_rename_outline,
+                    color: ColorManager.primaryBlueColor,
+                    size: AppSizes.ph25,
+                  ),
                 ])
               ]))
         ]);

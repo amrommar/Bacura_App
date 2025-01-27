@@ -24,9 +24,9 @@ class RequestDetailsWidget extends StatelessWidget {
               offset: Offset(0, 3), // Offset in the x and y directions
             )
           ]),
-      margin: EdgeInsets.only(right: 18.w, top: 18.h, left: 18.w),
-      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.w),
-      height: 180.h,
+      margin: EdgeInsets.only(right: AppSizes.pw18, top: AppSizes.ph18, left: AppSizes.pw18),
+      padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph12),
+      height: AppSizes.ph180,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,7 +37,7 @@ class RequestDetailsWidget extends StatelessWidget {
           ////service type section/////////////////////////////////////////////
 
           SizedBox(
-            width: 400.w,
+            width: AppSizes.pw400,
             child: Text('كاميرا IP خارجية 8MP 80m - هيكفيجن Hikvision',
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,

@@ -20,7 +20,7 @@ class _SpProfileDetailsScreenState extends State<SpProfileDetailsScreen> {
             child: Column(children: [
           /// Avatar Section (profile image/ icons) ___________________________________________________________________
           const SpAvatarWidget(),
-          SizedBox(height: 100.h),
+          SizedBox(height: AppSizes.ph100),
 
           /// Details Section (number / email / gender / city) ___________________________________________________________________
           CustomShadowWidget(
@@ -30,19 +30,19 @@ class _SpProfileDetailsScreenState extends State<SpProfileDetailsScreen> {
               text: AppLocalizations.of(context)!.mobileNumber,
               value: '966535685692+',
             ),
-            Divider(color: ColorManager.lightBlueColor, height: 20),
+            Divider(color: ColorManager.lightBlueColor, height: AppSizes.ph20),
             SpProfileRowDetails(
               icon: Icons.mail_outline_outlined,
               text: AppLocalizations.of(context)!.email,
               value: 'amr1522@gmail.com',
             ),
-            Divider(color: ColorManager.lightBlueColor, height: 20),
+            Divider(color: ColorManager.lightBlueColor, height: AppSizes.ph20),
             SpProfileRowDetails(
               icon: Icons.transgender_outlined,
               text: AppLocalizations.of(context)!.gender,
               value: 'ذكر',
             ),
-            Divider(color: ColorManager.lightBlueColor, height: 20),
+            Divider(color: ColorManager.lightBlueColor, height: AppSizes.ph20),
             SpProfileRowDetails(
               icon: Icons.location_on_outlined,
               text: AppLocalizations.of(context)!.city,
@@ -57,7 +57,7 @@ class _SpProfileDetailsScreenState extends State<SpProfileDetailsScreen> {
 
           const CompletedRequestsWidget(),
 
-          SizedBox(height: 35.h),
+          SizedBox(height: AppSizes.ph35),
 
           ////         Logout Button      //////////////////////////////////////////////
           const CustomLogoutButton(),

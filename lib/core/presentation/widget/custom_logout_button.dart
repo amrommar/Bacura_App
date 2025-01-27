@@ -8,7 +8,7 @@ class CustomLogoutButton extends StatelessWidget {
       context: context,
       builder: (context) => CustomAlertDialog(
         title: 'تأكيد',
-        imagePath: 'assets/images/log-out.png',
+        imagePath: 'assets/images/png/log-out.png',
         content: const Text('تأكيد تسجيل الخروج'),
         onCancel: () {
           Navigator.of(context).pop();

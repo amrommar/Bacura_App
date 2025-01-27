@@ -16,16 +16,37 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
       ),
       body: ListView.separated(
           itemBuilder: (context, index) {
-            return Container(
-                height: AppSizes.ph80,
-                padding: EdgeInsets.symmetric(horizontal: AppSizes.pw10),
-                child: Row(children: [
-                  const NotificationImageWidget(),
-                  Padding(
-                      padding: EdgeInsets.symmetric(vertical: AppSizes.ph15),
-                      child: VerticalDivider(color: ColorManager.soLightGreyColor)),
-                  const NotificationContentWidget()
-                ]));
+            return Column(
+              children: [
+                Container(
+                    color: ColorManager.whiteColor,
+                    height: AppSizes.ph80,
+                    padding: EdgeInsets.symmetric(horizontal: AppSizes.pw10),
+                    child: Row(children: [
+                      const NotificationImageWidget(),
+                      Padding(
+                          padding: EdgeInsets.symmetric(vertical: AppSizes.ph15),
+                          child: VerticalDivider(color: ColorManager.soLightGreyColor)),
+                      NotificationContentWidget()
+                    ])),
+                Container(
+                    color: ColorManager.lightBlueColor,
+                    height: AppSizes.ph80,
+                    padding: EdgeInsets.symmetric(horizontal: AppSizes.pw10),
+                    child: Row(children: [
+                      const NotificationImageWidget(),
+                      Padding(
+                          padding: EdgeInsets.symmetric(vertical: AppSizes.ph15),
+                          child: VerticalDivider(color: ColorManager.soLightGreyColor)),
+                      NotificationContentWidget(
+                        title: 'لقد تم استلام طلبك',
+                        description:
+                            '''طلبك تحت المعالجة الآن، وفرقنا تعمل عليه بكل اهتمام. بإمكانك متابعة حالة الطلب من خلال صفحة الطلبات.
+شكرًا لثقتك بنا، ونسعد بخدمتك دائمًا!''',
+                      )
+                    ])),
+              ],
+            );
           },
           separatorBuilder: (context, index) => Container(
                 width: AppSizes.pw430,

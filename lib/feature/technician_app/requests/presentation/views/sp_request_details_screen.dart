@@ -23,8 +23,8 @@ class _SpRequestDetailsScreenState extends State<SpRequestDetailsScreen> {
                   offset: const Offset(0, 3),
                 )
               ]),
-          margin: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
-          padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
+          margin: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph12),
+          padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph12),
           height: 800.h,
           child: SingleChildScrollView(
               child: Column(
@@ -38,9 +38,9 @@ class _SpRequestDetailsScreenState extends State<SpRequestDetailsScreen> {
                 ////Time and Date section/////////////////////////////////////////////
                 const RequestTimeDateWidget(),
                 const Divider(),
-                SizedBox(height: 10.h),
+                SizedBox(height: AppSizes.ph10),
                 const CustomerNameWidget(),
-                SizedBox(height: 5.h),
+                SizedBox(height: AppSizes.ph5),
 
                 /// Request Details section/////////////////////////////////////////////
                 const CustomerRequestDetailsWidget(),
@@ -56,7 +56,7 @@ class _SpRequestDetailsScreenState extends State<SpRequestDetailsScreen> {
                 const Divider(),
 
                 ///  location section/////////////////////////////////////////////
-                Image.asset('assets/images/map.png', height: 160),
+                Image.asset('assets/images/map.png', height: AppSizes.ph160),
 
                 ///  Payment status section/////////////////////////////////////////////
                 RequestDetailsIconTextsRow(

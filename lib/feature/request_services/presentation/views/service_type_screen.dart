@@ -13,6 +13,7 @@ class _ServiceTypeScreenState extends State<ServiceTypeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)?.settings.arguments as int?;
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.service_type),
@@ -23,11 +24,46 @@ class _ServiceTypeScreenState extends State<ServiceTypeScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             /// Service image ////////////////////////////////////
-            Image.asset('assets/images/Rectangle 78.png', height: 240.h),
+            if (args == 4)
+              Image.asset(
+                'assets/images/cameraa.jpg',
+                height: AppSizes.ph240,
+                fit: BoxFit.fill,
+              )
+            else if (args == 5)
+              Image.asset(
+                'assets/images/smart.jpg',
+                height: AppSizes.ph240,
+                fit: BoxFit.fill,
+              )
+            else if (args == 6)
+              Image.asset(
+                'assets/images/access.jpg',
+                height: AppSizes.ph240,
+                fit: BoxFit.fill,
+              )
+            else if (args == 7)
+              Image.asset(
+                'assets/images/sound.jpg',
+                height: AppSizes.ph240,
+                fit: BoxFit.fill,
+              )
+            else if (args == 10)
+              Image.asset(
+                'assets/images/savepower.jpg',
+                height: AppSizes.ph240,
+                fit: BoxFit.fill,
+              )
+            else
+              Image.asset(
+                'assets/images/central.jpg',
+                height: AppSizes.ph240,
+                fit: BoxFit.fill,
+              ),
 
             /// Available Services Section ////////////////////////////////////
             Padding(
-              padding: EdgeInsets.only(right: 16.w, top: 16.h, left: 16.w),
+              padding: EdgeInsets.only(right: AppSizes.pw16, top: AppSizes.ph16, left: AppSizes.ph16),
               child: Text(
                 AppLocalizations.of(context)!.available_services,
                 style: Theme.of(context)
@@ -66,7 +102,7 @@ class _ServiceTypeScreenState extends State<ServiceTypeScreen> {
               },
             ),
 
-            SizedBox(height: 100.h),
+            SizedBox(height: AppSizes.ph100),
 
             /// Next Button ////////////////////////////////////
             NextButton(

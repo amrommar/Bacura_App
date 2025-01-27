@@ -15,12 +15,12 @@ class CustomRegistrationTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 5),
+      padding: EdgeInsets.symmetric(vertical: AppSizes.ph5),
       child: TextFormField(
           controller: controller,
           validator: validator,
           decoration: InputDecoration(
-            contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+            contentPadding: EdgeInsets.symmetric(horizontal: AppSizes.pw12),
             filled: true,
             fillColor: ColorManager.lightWhiteColor,
             focusedBorder: OutlineInputBorder(
@@ -28,13 +28,13 @@ class CustomRegistrationTextField extends StatelessWidget {
                   color: ColorManager.primaryBlueColor,
                   width: AppSizes.pw1,
                 ),
-                borderRadius: BorderRadius.circular(12)),
+                borderRadius: BorderRadius.circular(AppSizes.br12)),
             enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
                   color: ColorManager.midWhiteColor,
                   width: AppSizes.pw1,
                 ),
-                borderRadius: BorderRadius.circular(12)),
+                borderRadius: BorderRadius.circular(AppSizes.br12)),
             hintText: hintText,
           )),
     );

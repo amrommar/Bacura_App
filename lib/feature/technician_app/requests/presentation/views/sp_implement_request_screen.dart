@@ -22,7 +22,7 @@ class _SpImplementRequestScreenState extends State<SpImplementRequestScreen> {
       appBar: AppBar(title: const Text('تنفيذ الطلب')),
       body: Scaffold(
         body: Container(
-          height: 850.h,
+          height: AppSizes.ph850,
           decoration: BoxDecoration(
             color: ColorManager.whiteColor,
             borderRadius: BorderRadius.circular(AppSizes.br12),
@@ -35,8 +35,8 @@ class _SpImplementRequestScreenState extends State<SpImplementRequestScreen> {
               )
             ],
           ),
-          margin: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
-          padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
+          margin: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph12),
+          padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph12),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -46,7 +46,7 @@ class _SpImplementRequestScreenState extends State<SpImplementRequestScreen> {
                 const Divider(),
                 const RequestTimeDateWidget(),
                 const Divider(),
-                SizedBox(height: 10.h),
+                SizedBox(height: AppSizes.ph10),
                 Row(
                   children: [
                     Text(
@@ -64,13 +64,13 @@ class _SpImplementRequestScreenState extends State<SpImplementRequestScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: 20.h),
+                SizedBox(height: AppSizes.ph20),
                 Container(
                   decoration: BoxDecoration(
                     color: ColorManager.soLightWhiteColor,
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(AppSizes.br8),
                   ),
-                  padding: const EdgeInsets.all(16),
+                  padding: EdgeInsets.all(AppSizes.ph16),
                   child: Column(
                     children: [
                       ImplementRequestPhaseSection(
@@ -97,7 +97,7 @@ class _SpImplementRequestScreenState extends State<SpImplementRequestScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: 30.h),
+                SizedBox(height: AppSizes.ph30),
                 buttonText == 'الوصول للعميل'
                     ? InkWell(
                         onTap: () => _makePhoneCall('0536885692'),
@@ -109,8 +109,8 @@ class _SpImplementRequestScreenState extends State<SpImplementRequestScreen> {
                           icon: Icons.call_outlined,
                         ),
                       )
-                    : SizedBox(height: 50.h),
-                SizedBox(height: 50.h),
+                    : SizedBox(height: AppSizes.ph50),
+                SizedBox(height: AppSizes.ph50),
                 Center(
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(

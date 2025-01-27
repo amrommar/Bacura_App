@@ -8,7 +8,7 @@ class CompletedRequestBottomWidget extends StatelessWidget {
     return Column(children: [
       ElevatedButton(
           style: ElevatedButton.styleFrom(
-              maximumSize: const Size(170, 50),
+              maximumSize: Size(AppSizes.pw170, AppSizes.ph50),
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(
                 AppSizes.br30,
@@ -19,7 +19,7 @@ class CompletedRequestBottomWidget extends StatelessWidget {
                     color: ColorManager.whiteColor,
                     fontWeight: FontWeight.bold,
                   ))),
-      SizedBox(height: 20.h),
+      SizedBox(height: AppSizes.ph20),
       InkWell(
           ///////////////////////////        to go to the receipt file        /////////////////////////////////////
           onTap: () async {

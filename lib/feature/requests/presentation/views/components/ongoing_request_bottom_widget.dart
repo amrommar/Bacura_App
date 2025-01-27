@@ -8,7 +8,7 @@ class OnGoingRequestBottomWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.symmetric(horizontal: 35.w, vertical: 15.h),
+        margin: EdgeInsets.symmetric(horizontal: AppSizes.pw36, vertical: AppSizes.ph15),
         child: ElevatedButton(
             style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(

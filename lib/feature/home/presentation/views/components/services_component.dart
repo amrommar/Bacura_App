@@ -30,17 +30,18 @@ class ServicesComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> imagesTitle = [
-      AppLocalizations.of(context)!.surveillance_cameras,
-      AppLocalizations.of(context)!.smart_systems,
-      AppLocalizations.of(context)!.access_control,
-      AppLocalizations.of(context)!.sound_systems,
-      AppLocalizations.of(context)!.save_energy,
-      AppLocalizations.of(context)!.internet_communications_networks,
-      AppStrings.gameMaintenance,
-      AppStrings.computerMaintenance,
-      AppStrings.phoneMaintenance
-    ];
+    // List<String> imagesTitle = [
+    //   AppLocalizations.of(context)!.surveillance_cameras,
+    //   AppLocalizations.of(context)!.smart_systems,
+    //   AppLocalizations.of(context)!.access_control,
+    //   AppLocalizations.of(context)!.sound_systems,
+    //   AppLocalizations.of(context)!.save_energy,
+    //   AppLocalizations.of(context)!.internet_communications_networks,
+    //   AppStrings.gameMaintenance,
+    //   AppStrings.computerMaintenance,
+    //   AppStrings.phoneMaintenance
+    // ];
+
     return Consumer<HomeProvider>(
       builder: (context, provider, child) => Container(
           padding: EdgeInsets.all(AppSizes.ph4),
@@ -51,7 +52,11 @@ class ServicesComponent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                  padding: EdgeInsets.only(right: AppSizes.pw16, left: AppSizes.pw16, top: AppSizes.ph6),
+                  padding: EdgeInsets.only(
+                    right: AppSizes.pw16,
+                    left: AppSizes.pw16,
+                    top: AppSizes.ph6,
+                  ),
                   child: Text(AppLocalizations.of(context)!.services,
                       style: Theme.of(context).textTheme.titleMedium!.copyWith(
                             color: ColorManager.blackColor,
@@ -61,20 +66,26 @@ class ServicesComponent extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: provider.categoryEntity.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     crossAxisSpacing: 0,
-                    mainAxisSpacing: 5,
-                    childAspectRatio: 0.89,
+                    mainAxisSpacing: AppSizes.ph5,
+                    childAspectRatio: AppSizes.ph0_7,
                   ),
                   itemBuilder: (context, index) {
                     return InkWell(
                         onTap: () {
-                          Navigator.pushNamed(context, Routes.serviceTypeRoute, arguments: provider.categoryEntity[index].id);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ServiceTypeScreen(),
+                              settings: RouteSettings(arguments: provider.categoryEntity[index].id),
+                            ),
+                          );
                         },
                         child: ServiceCardWidget(
                           departmentTitle: provider.categoryEntity[index].name!,
-                          imagePath: provider.categoryEntity[index].image!,
+                          imagePath: imagesPaths[index],
                         ));
                   }),
             ],

@@ -4,7 +4,11 @@ class ServiceCardWidget extends StatelessWidget {
   String imagePath;
   String departmentTitle;
 
-  ServiceCardWidget({super.key, required this.imagePath, required this.departmentTitle});
+  ServiceCardWidget({
+    super.key,
+    required this.imagePath,
+    required this.departmentTitle,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -27,7 +27,7 @@ class _RequestsTabScreenState extends State<RequestsTabScreen> {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      SizedBox(height: 5.h),
+      SizedBox(height: AppSizes.ph5),
 
       /// filtering section ///////////////////////////////////////////////////////
       const RequestsFilterWidget(),

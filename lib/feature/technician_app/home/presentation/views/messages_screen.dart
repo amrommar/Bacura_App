@@ -23,7 +23,7 @@ class _MessagesScreenState extends State<MessagesScreen> {
                       backgroundColor: ColorManager.whiteColor,
                       ///////////////    from Back-End     /////////////////////
                       child: Image.asset('assets/images/Ellipse 1.png')),
-                  const NotificationContentWidget(),
+                  NotificationContentWidget(),
                   CircleAvatar(
                     radius: 12,
                     backgroundColor: ColorManager.midBlueColor,

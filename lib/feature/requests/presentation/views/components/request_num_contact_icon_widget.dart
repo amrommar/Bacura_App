@@ -1,8 +1,4 @@
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:bacura_app/core/utils/routes_manager.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class RequestNumContactIconWidget extends StatelessWidget {
   Color requestColor;
@@ -26,10 +22,10 @@ class RequestNumContactIconWidget extends StatelessWidget {
             },
             child: SvgPicture.asset(
               'assets/images/contact_icon.svg',
-              height: 20.h,
+              height: AppSizes.ph20,
             )),
-        SizedBox(width: 10.w),
-        Icon(Icons.circle, color: requestColor, size: 15)
+        SizedBox(width: AppSizes.pw10),
+        Icon(Icons.circle, color: requestColor, size: AppSizes.ph15)
       ])
     ]);
   }

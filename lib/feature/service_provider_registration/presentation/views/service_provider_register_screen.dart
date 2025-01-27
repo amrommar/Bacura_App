@@ -11,7 +11,7 @@ class ServiceProviderRegisterScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(children: [
-          const SizedBox(height: 20),
+          SizedBox(height: AppSizes.ph20),
           ServiceProviderRegisterContainer(
               iconData: Icons.account_circle,
               title: AppLocalizations.of(context)!.register_as_technician,
@@ -20,7 +20,7 @@ class ServiceProviderRegisterScreen extends StatelessWidget {
               onTap: () {
                 Navigator.pushNamed(context, Routes.registerTechnicianRoute);
               }),
-          const SizedBox(height: 20),
+          SizedBox(height: AppSizes.ph20),
           ServiceProviderRegisterContainer(
               iconData: FontAwesomeIcons.building,
               title: AppLocalizations.of(context)!.register_as_partner,

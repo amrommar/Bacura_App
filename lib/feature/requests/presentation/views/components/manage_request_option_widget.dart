@@ -29,7 +29,7 @@ class ManageRequestOptionWidget extends StatelessWidget {
                       ))),
           Icon(
             icon,
-            size: 30,
+            size: AppSizes.ph30,
             color: iconColor,
           )
         ]));

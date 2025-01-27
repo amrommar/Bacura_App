@@ -15,7 +15,7 @@ class NextButton extends StatelessWidget {
     return Center(
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          maximumSize: Size(170.w, 70),
+          maximumSize: Size(AppSizes.pw170, AppSizes.ph70),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppSizes.br8),
           ),
@@ -35,8 +35,8 @@ class NextButton extends StatelessWidget {
                   .titleMedium!
                   .copyWith(color: ColorManager.whiteColor, fontWeight: FontWeight.bold),
             ),
-            SizedBox(width: 10.w),
-            Icon(Icons.arrow_circle_right_outlined, color: ColorManager.whiteColor),
+            SizedBox(width: AppSizes.pw10),
+            Icon(Icons.arrow_circle_right_outlined, color: ColorManager.whiteColor, size: AppSizes.ph30),
           ],
         ),
       ),

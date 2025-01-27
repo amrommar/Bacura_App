@@ -1,7 +1,4 @@
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class RequestTotalPriceWidget extends StatelessWidget {
   const RequestTotalPriceWidget({super.key});
@@ -10,9 +7,9 @@ class RequestTotalPriceWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         padding: EdgeInsets.only(
-          left: 8.w,
-          right: 8.w,
-          top: 8.h,
+          left: AppSizes.pw8,
+          right: AppSizes.pw8,
+          top: AppSizes.ph8,
         ),
         height: 40.h,
         child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [

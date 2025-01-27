@@ -21,26 +21,26 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         /// home
         SalomonBottomBarItem(
           title: Text(AppLocalizations.of(context)!.home),
-          icon: Icon(Icons.home_filled, color: ColorManager.whiteColor),
+          icon: Icon(Icons.home_filled, color: ColorManager.whiteColor, size: AppSizes.ph30),
           selectedColor: ColorManager.whiteColor,
         ),
 
         /// requests
         SalomonBottomBarItem(
             title: Text(AppLocalizations.of(context)!.requests),
-            icon: Icon(Icons.request_page_outlined, color: ColorManager.whiteColor),
+            icon: Icon(Icons.request_page_outlined, color: ColorManager.whiteColor, size: AppSizes.ph30),
             selectedColor: ColorManager.whiteColor),
 
         /// offers
         SalomonBottomBarItem(
             title: Text(AppLocalizations.of(context)!.offers),
-            icon: Icon(Icons.local_offer_outlined, color: ColorManager.whiteColor),
+            icon: Icon(Icons.local_offer_outlined, color: ColorManager.whiteColor, size: AppSizes.ph30),
             selectedColor: ColorManager.whiteColor),
 
         /// More
         SalomonBottomBarItem(
             title: Text(AppLocalizations.of(context)!.more),
-            icon: Icon(Icons.more_horiz, color: ColorManager.whiteColor),
+            icon: Icon(Icons.more_horiz, color: ColorManager.whiteColor, size: AppSizes.ph30),
             selectedColor: ColorManager.whiteColor),
       ],
     );

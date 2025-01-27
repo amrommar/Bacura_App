@@ -19,7 +19,7 @@ class _ConsultationScreenState extends State<ConsultationScreen> {
         body: Form(
             key: formKey,
             child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+                padding: EdgeInsets.symmetric(horizontal: AppSizes.pw16, vertical: AppSizes.ph8),
                 child: ListView(children: [
                   /// drop down to choose type of consultation
                   ConsultationDropDownField(),
@@ -36,11 +36,11 @@ class _ConsultationScreenState extends State<ConsultationScreen> {
                         }
                         return null;
                       }),
-                  SizedBox(height: 10.h),
+                  SizedBox(height: AppSizes.ph10),
 
                   /// note of the consultation response
                   const ConsultationNoteWidget(),
-                  SizedBox(height: 100.h),
+                  SizedBox(height: AppSizes.ph100),
                   Center(
                       child: CustomSmallElevatedButton(
                           text: AppLocalizations.of(context)!.send,
@@ -56,7 +56,7 @@ class _ConsultationScreenState extends State<ConsultationScreen> {
     showModalBottomSheet(
         context: context,
         builder: (context) {
-          return RequestSentBottomSheet();
+          return const RequestSentBottomSheet();
         });
   }
 }

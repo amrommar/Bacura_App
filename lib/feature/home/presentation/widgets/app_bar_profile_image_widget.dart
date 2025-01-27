@@ -17,7 +17,7 @@ class AppBarProfileImageWidget extends StatelessWidget {
               child: CircleAvatar(
                   radius: AppSizes.br24,
                   backgroundColor: ColorManager.whiteColor,
-                  child: Image.network(
+                  child: Image.asset(
                     imagePath,
                   )))
         ]));
