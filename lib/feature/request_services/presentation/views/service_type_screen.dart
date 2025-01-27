@@ -1,10 +1,11 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/home/domain/entity/Category_entity.dart';
 import 'package:bacura_app/feature/home/presentation/controller/home_provider.dart';
 import 'package:bacura_app/feature/request_services/index.dart';
-import 'package:bacura_app/feature/home/domain/entity/Category_entity.dart';
 
 class ServiceTypeScreen extends StatelessWidget {
   final CategoryEntity categoryEntity;
+
   const ServiceTypeScreen({super.key, required this.categoryEntity});
 
   @override
@@ -23,40 +24,38 @@ class ServiceTypeScreen extends StatelessWidget {
               children: [
                 // Image Section
                 if (categoryEntity.id == 4)
-                  Image.asset(
-                    'assets/images/cameraa.jpg',
-                    height: AppSizes.ph240,
-                    fit: BoxFit.fill,
+                  Container(
+                    width: double.infinity,
+                    child: Image.asset(
+                      'assets/images/camree.jpg',
+                      width: double.infinity,
+                    ),
                   )
                 else if (categoryEntity.id == 5)
                   Image.asset(
-                    'assets/images/smart.jpg',
-                    height: AppSizes.ph240,
-                    fit: BoxFit.fill,
+                    'assets/images/smart1.jpg',
+                    width: double.infinity,
                   )
                 else if (categoryEntity.id == 6)
                   Image.asset(
-                    'assets/images/access.jpg',
-                    height: AppSizes.ph240,
-                    fit: BoxFit.fill,
+                    'assets/images/accesss.jpg',
+                    width: double.infinity,
                   )
                 else if (categoryEntity.id == 7)
                   Image.asset(
-                    'assets/images/sound.jpg',
-                    height: AppSizes.ph240,
-                    fit: BoxFit.fill,
+                    'assets/images/sound1.jpg',
+                    width: double.infinity,
                   )
                 else if (categoryEntity.id == 10)
                   Image.asset(
-                    'assets/images/savepower.jpg',
-                    height: AppSizes.ph240,
-                    fit: BoxFit.fill,
+                    'assets/images/saveenrgy.jpg',
+                    width: double.infinity,
                   )
                 else
                   Image.asset(
-                    'assets/images/central.jpg',
+                    'assets/images/central1.jpg',
                     height: AppSizes.ph240,
-                    fit: BoxFit.fill,
+                    width: double.infinity,
                   ),
 
                 // Available Services Section
@@ -64,7 +63,10 @@ class ServiceTypeScreen extends StatelessWidget {
                   padding: EdgeInsets.only(right: AppSizes.pw16, top: AppSizes.ph16, left: AppSizes.ph16),
                   child: Text(
                     AppLocalizations.of(context)!.available_services,
-                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold),
                   ),
                 ),
 

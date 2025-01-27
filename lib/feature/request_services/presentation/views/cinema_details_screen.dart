@@ -51,7 +51,7 @@ class _CinemaDetailsScreenState extends State<CinemaDetailsScreen> {
                         borderRadius: BorderRadius.circular(AppSizes.br12),
                       ),
                       child: Text(
-                        "لا تقطع المسافات للترفيه... دع السينما تأتي إليك!",
+                        "لا تقطع المسافات للترفية... دع السينما تأتي إليك!",
                         style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                               color: ColorManager.whiteColor,
                               fontWeight: FontWeight.bold,

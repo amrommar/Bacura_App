@@ -19,13 +19,14 @@ class _VerifyBottomSheetState extends State<VerifyBottomSheet> {
       create: (context) => AuthProvider(),
       child: Consumer<AuthProvider>(
         builder: (context, provider, child) => Container(
-            width: AppSizes.pw800,
-            height: AppSizes.ph500,
             decoration: BoxDecoration(
               color: ColorManager.whiteColor,
               borderRadius: BorderRadius.circular(AppSizes.br30),
             ),
-            padding: EdgeInsets.symmetric(vertical: AppSizes.ph30, horizontal: AppSizes.pw30),
+            padding: EdgeInsets.symmetric(
+              vertical: AppSizes.ph30,
+              horizontal: AppSizes.pw30,
+            ),
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text(
                 AppLocalizations.of(context)!.oTPNumber,
@@ -38,7 +39,6 @@ class _VerifyBottomSheetState extends State<VerifyBottomSheet> {
                         color: ColorManager.greyColor,
                       )),
               ChangeNumberWidget(mobileNumber: widget.mobileNumber),
-              SizedBox(height: AppSizes.ph30),
               Form(
                 key: formKey,
                 child: CustomPinCodeTextField(
@@ -47,7 +47,6 @@ class _VerifyBottomSheetState extends State<VerifyBottomSheet> {
                   },
                 ),
               ),
-              SizedBox(height: AppSizes.ph70),
               Center(
                   child: Column(children: [
                 VerifyButtonWidget(
@@ -58,7 +57,6 @@ class _VerifyBottomSheetState extends State<VerifyBottomSheet> {
                     );
                   },
                 ),
-                SizedBox(height: AppSizes.ph20),
                 const ResendOtpAgainWidget()
               ]))
             ])),

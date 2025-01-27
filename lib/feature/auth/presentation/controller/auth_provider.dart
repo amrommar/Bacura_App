@@ -90,7 +90,8 @@ class AuthProvider with ChangeNotifier {
         ),
       ));
     } else {
-      sl<LoginUseCase>().call(LoginParameter(phone: mobileNumberController.text, countryCode: AppConstants.countryCode));
+      sl<LoginUseCase>()
+          .call(LoginParameter(phone: mobileNumberController.text, countryCode: AppConstants.countryCode));
       showVerifyBottomSheet(context);
     }
   }
