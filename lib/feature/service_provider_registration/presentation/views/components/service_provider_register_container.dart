@@ -22,7 +22,7 @@ class ServiceProviderRegisterContainer extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          margin: const EdgeInsets.symmetric(horizontal: 8),
+          margin: EdgeInsets.symmetric(horizontal: AppSizes.pw8),
           color: ColorManager.whiteColor,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,9 +30,9 @@ class ServiceProviderRegisterContainer extends StatelessWidget {
               Icon(
                 iconData,
                 color: ColorManager.lightGreyColor,
-                size: 30,
+                size: AppSizes.ph30,
               ),
-              const SizedBox(width: 5),
+              SizedBox(width: AppSizes.pw5),
               Text(title,
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         color: ColorManager.blackColor,
@@ -41,10 +41,10 @@ class ServiceProviderRegisterContainer extends StatelessWidget {
           ),
         ),
         Container(
-          padding: const EdgeInsets.all(16),
-          margin: const EdgeInsets.symmetric(horizontal: 8),
+          padding: EdgeInsets.all(AppSizes.ph16),
+          margin: EdgeInsets.symmetric(horizontal: AppSizes.pw8),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(AppSizes.br8),
             color: ColorManager.midWhiteColor,
           ),
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -52,12 +52,12 @@ class ServiceProviderRegisterContainer extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       color: ColorManager.primaryBlueColor,
                     )),
-            const SizedBox(height: 10),
+            SizedBox(height: AppSizes.ph10),
             Text(note,
                 style: Theme.of(context).textTheme.titleSmall!.copyWith(
                       color: ColorManager.greyColor,
                     )),
-            const SizedBox(height: 26),
+            SizedBox(height: AppSizes.ph26),
             Center(
                 child: ElevatedButton(
                     onPressed: () {
@@ -67,7 +67,7 @@ class ServiceProviderRegisterContainer extends StatelessWidget {
                       AppLocalizations.of(context)!.register_now,
                       style: Theme.of(context).textTheme.titleMedium,
                     ))),
-            const SizedBox(height: 10),
+            SizedBox(height: AppSizes.ph10),
           ]),
         ),
       ],

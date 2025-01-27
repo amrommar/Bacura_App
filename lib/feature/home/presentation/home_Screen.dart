@@ -30,16 +30,23 @@ class _HomeScreenState extends State<HomeScreen> {
           titleSpacing: 5,
           centerTitle: false,
           title: Text(
-            'هلا,${profileProvider.myProfileEntity.name!}',
+            'هلا، ${profileProvider.myProfileEntity.name!}',
             style: Theme.of(context).textTheme.titleMedium!.copyWith(
                   color: ColorManager.whiteColor,
                 ),
           ),
           elevation: 0,
-          leading: AppBarProfileImageWidget(
-            imagePath: profileProvider.myProfileEntity.image ?? '',
+          leading: const AppBarProfileImageWidget(
+            imagePath:
+                // profileProvider.myProfileEntity.image ??
+                AppAssets.bacuraImage,
           ),
-          actions: const [NotificationsIconWidget()]),
+          actions: [
+            const NotificationsIconWidget(),
+            SizedBox(
+              width: AppSizes.pw5,
+            ),
+          ]),
       floatingActionButton: const CustomFloatingActionButton(),
       bottomNavigationBar: CustomBottomNavigationBar(
         onTap: (index) {

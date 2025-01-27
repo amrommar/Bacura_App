@@ -53,7 +53,8 @@ class _CustomQuestionTextFormFieldState extends State<CustomQuestionTextFormFiel
                       width: AppSizes.pw1,
                     ),
                     borderRadius: BorderRadius.circular(AppSizes.br8)),
-                contentPadding: EdgeInsets.only(left: AppSizes.pw8, right: AppSizes.pw8, top: AppSizes.ph8),
+                contentPadding:
+                    EdgeInsets.only(left: AppSizes.pw8, right: AppSizes.pw8, top: AppSizes.ph10, bottom: AppSizes.ph10),
                 hintText: widget.hintText,
                 hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.greyColor)),
           )

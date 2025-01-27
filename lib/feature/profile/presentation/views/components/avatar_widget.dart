@@ -44,7 +44,7 @@ class AvatarWidget extends StatelessWidget {
                 ),
                 child: CircleAvatar(
                   radius: AppSizes.br50,
-                  child: Image.network(imagePath),
+                  child: Image.asset(imagePath),
                 ),
               ),
               Positioned(
@@ -78,13 +78,11 @@ class AvatarWidget extends StatelessWidget {
                       size: AppSizes.ph22,
                     )),
                 SizedBox(width: AppSizes.pw5),
-                Text(
-                  userName,
-                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                        color: ColorManager.darkBlueColor,
-                        fontWeight: FontWeight.bold,
-                      ),
-                ),
+                Text(userName,
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                          color: ColorManager.darkBlueColor,
+                          fontWeight: FontWeight.bold,
+                        ))
               ],
             )
           ]))

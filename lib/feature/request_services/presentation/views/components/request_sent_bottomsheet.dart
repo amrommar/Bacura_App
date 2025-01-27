@@ -11,7 +11,10 @@ class _RequestSentBottomSheetState extends State<RequestSentBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: ColorManager.whiteColor, borderRadius: BorderRadius.circular(AppSizes.br20)),
+      decoration: BoxDecoration(
+        color: ColorManager.whiteColor,
+        borderRadius: BorderRadius.circular(AppSizes.br20),
+      ),
       padding: EdgeInsets.all(AppSizes.ph16),
       child: SingleChildScrollView(
         child: Column(
@@ -20,12 +23,12 @@ class _RequestSentBottomSheetState extends State<RequestSentBottomSheet> {
           children: [
             /// from Back End ///////////////////////
             Image.asset(
-              'assets/images/request.png',
-              height: 150,
-              width: 150,
+              'assets/images/png/request.png',
+              height: AppSizes.ph150,
+              width: AppSizes.pw150,
             ),
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(AppSizes.ph16),
               child: Text(
                 /// from BAckEnd /////////////////
                 'لقد أرسلنا الطلب، وسيقوم مزود الخدمة بالتواصل معك.',

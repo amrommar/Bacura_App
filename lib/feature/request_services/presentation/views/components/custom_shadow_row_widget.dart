@@ -18,7 +18,7 @@ class CustomShadowRowWidget extends StatelessWidget {
                 // Shadow color with opacity
                 spreadRadius: 2, // Spread radius
                 blurRadius: 4, // Blur radius
-                offset: Offset(0, 3))
+                offset: const Offset(0, 3))
           ],
           borderRadius: BorderRadius.circular(AppSizes.br12),
           color: ColorManager.whiteColor,

@@ -9,7 +9,7 @@ class SpRequestImplTimeWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Container(
-          width: 150.w,
+          width: AppSizes.pw150,
           child: Text('وقت التنفيذ: ',
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
@@ -22,9 +22,9 @@ class SpRequestImplTimeWidget extends StatelessWidget {
           Icon(
             Icons.calendar_month_outlined,
             color: ColorManager.primaryBlueColor,
-            size: 20,
+            size: AppSizes.ph20,
           ),
-          SizedBox(width: 5.w),
+          SizedBox(width: AppSizes.pw5),
           Text('9/10/2024',
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color: ColorManager.greyColor,
@@ -34,9 +34,9 @@ class SpRequestImplTimeWidget extends StatelessWidget {
           Icon(
             Icons.access_time_outlined,
             color: ColorManager.primaryBlueColor,
-            size: 20,
+            size: AppSizes.ph20,
           ),
-          SizedBox(width: 5.w),
+          SizedBox(width: AppSizes.ph5),
           Text('10:35 ص',
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color: ColorManager.greyColor,

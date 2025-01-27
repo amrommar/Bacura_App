@@ -26,7 +26,7 @@ class _RequestsFilterWidgetState extends State<RequestsFilterWidget> {
           builder: (ctx) {
             return MultiSelectDialog(
                 checkColor: ColorManager.whiteColor,
-                height: 240.h,
+                height: AppSizes.ph240,
                 backgroundColor: ColorManager.lightBlueColor,
                 title: Text(AppLocalizations.of(context)!.select_category),
                 itemsTextStyle: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.greyColor),

@@ -21,9 +21,9 @@ class RequestDetailsIconTextsRow extends StatelessWidget {
           color: ColorManager.soLightWhiteColor,
           borderRadius: BorderRadius.circular(AppSizes.br8),
         ),
-        margin: EdgeInsets.only(top: 4.h),
-        padding: EdgeInsets.symmetric(horizontal: 8.w),
-        height: 40.h,
+        margin: EdgeInsets.only(top: AppSizes.ph4),
+        padding: EdgeInsets.symmetric(horizontal: AppSizes.ph8),
+        height: AppSizes.ph40,
         child: Row(children: [
           Text(title,
               style: Theme.of(context)
@@ -38,7 +38,7 @@ class RequestDetailsIconTextsRow extends StatelessWidget {
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                           color: ColorManager.primaryBlueColor,
                         ))),
-            Icon(icon, size: 20, color: iconColor)
+            Icon(icon, size: AppSizes.ph20, color: iconColor)
           ]))
         ]));
   }

@@ -23,7 +23,7 @@ ThemeData getAppTheme() {
     ),
     //---------------------------------------------------AppBar Theme
     appBarTheme: AppBarTheme(
-      iconTheme: IconThemeData(color: ColorManager.whiteColor),
+      iconTheme: IconThemeData(color: ColorManager.whiteColor, size: AppSizes.ph30),
       color: ColorManager.primaryBlueColor,
       elevation: AppSizes.e4,
       centerTitle: true,

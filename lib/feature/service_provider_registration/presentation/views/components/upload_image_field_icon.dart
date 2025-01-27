@@ -37,17 +37,17 @@ class _UploadImageFieldIconState extends State<UploadImageFieldIcon> {
         // Attach Button
         // Display label or "selected" message
         Container(
-          height: 50,
+          height: AppSizes.ph50,
           alignment: provider.appLanguage == 'en' ? Alignment.centerLeft : Alignment.centerRight,
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: EdgeInsets.symmetric(horizontal: AppSizes.pw16),
           decoration: BoxDecoration(
             color: ColorManager.lightWhiteColor,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(AppSizes.br12),
           ),
           child: Text(
             _imageFile != null ? 'Image uploaded' : widget.label,
             style: TextStyle(
-              fontSize: 18,
+              fontSize: AppSizes.ph18,
               fontWeight: FontWeight.normal,
               color: _imageFile != null ? ColorManager.greenColor : ColorManager.greyColor,
             ),
@@ -56,13 +56,14 @@ class _UploadImageFieldIconState extends State<UploadImageFieldIcon> {
         Container(
             decoration: BoxDecoration(
               color: ColorManager.primaryBlueColor,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(AppSizes.br12),
             ),
             child: IconButton(
                 onPressed: () => _pickImage(false),
                 icon: Icon(
                   Icons.attach_file,
                   color: ColorManager.whiteColor,
+                  size: AppSizes.ph30,
                 ))),
         // ElevatedButton(
         //   onPressed: () => _pickImage(false),

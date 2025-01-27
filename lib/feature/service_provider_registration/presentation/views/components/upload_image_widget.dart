@@ -37,17 +37,17 @@ class _UploadImageWidgetState extends State<UploadImageWidget> {
         // Attach Button
         // Display label or "selected" message
         Container(
-          height: 50,
+          height: AppSizes.ph50,
           alignment: provider.appLanguage == 'en' ? Alignment.centerLeft : Alignment.centerRight,
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: EdgeInsets.symmetric(horizontal: AppSizes.pw16),
           decoration: BoxDecoration(
             color: ColorManager.lightWhiteColor,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(AppSizes.br12),
           ),
           child: Text(
             _imageFile != null ? AppLocalizations.of(context)!.image_uploaded : widget.label,
             style: TextStyle(
-              fontSize: 18,
+              fontSize: AppSizes.sp18,
               fontWeight: FontWeight.normal,
               color: _imageFile != null ? ColorManager.greenColor : ColorManager.greyColor,
             ),
@@ -57,14 +57,14 @@ class _UploadImageWidgetState extends State<UploadImageWidget> {
           onPressed: () => _pickImage(false),
           style: ElevatedButton.styleFrom(
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(AppSizes.br12),
             ),
             backgroundColor: ColorManager.primaryBlueColor,
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+            padding: EdgeInsets.symmetric(horizontal: AppSizes.pw24, vertical: AppSizes.ph12),
           ),
           child: Text(
             AppLocalizations.of(context)!.attach,
-            style: const TextStyle(fontSize: 16, color: Colors.white),
+            style: TextStyle(fontSize: AppSizes.ph16, color: Colors.white),
           ),
         ),
       ],

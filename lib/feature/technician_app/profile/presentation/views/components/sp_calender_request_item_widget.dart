@@ -10,9 +10,9 @@ class SpCalenderRequestItemWidget extends StatelessWidget {
         color: ColorManager.primaryBlueColor,
         borderRadius: BorderRadius.circular(AppSizes.br16),
       ),
-      margin: EdgeInsets.only(right: 35.w, top: 12.h, left: 35.w, bottom: 12.h),
-      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.w),
-      height: 100.h,
+      margin: EdgeInsets.only(right: AppSizes.pw36, top: AppSizes.ph12, left: AppSizes.pw36, bottom: AppSizes.ph12),
+      padding: EdgeInsets.symmetric(horizontal: AppSizes.pw10, vertical: AppSizes.ph10),
+      height: AppSizes.ph100,
       child: Column(
         children: [
           IntrinsicHeight(
@@ -20,11 +20,11 @@ class SpCalenderRequestItemWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: EdgeInsets.all(6.0),
-                child: SvgPicture.asset('assets/images/cameraicon.svg', height: 28),
+                padding: EdgeInsets.all(AppSizes.ph6),
+                child: SvgPicture.asset('assets/images/cameraicon.svg', height: AppSizes.ph28),
               ),
               VerticalDivider(color: ColorManager.lightBlueColor, thickness: 0.5),
-              SizedBox(width: 5.w),
+              SizedBox(width: AppSizes.pw5),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -38,17 +38,17 @@ class SpCalenderRequestItemWidget extends StatelessWidget {
               )
             ],
           )),
-          SizedBox(height: 5.h),
+          SizedBox(height: AppSizes.ph5),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              SizedBox(width: 20.w),
-              Icon(Icons.location_on, color: ColorManager.lightBlueColor, size: 22),
-              SizedBox(width: 5.h),
+              SizedBox(width: AppSizes.ph20),
+              Icon(Icons.location_on, color: ColorManager.lightBlueColor, size: AppSizes.ph22),
+              SizedBox(width: AppSizes.ph5),
               Text('حي االنرجس',
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.lightBlueColor)),
-              SizedBox(width: 10.w),
+              SizedBox(width: AppSizes.ph10),
             ],
           )
         ],

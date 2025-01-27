@@ -27,7 +27,7 @@ class _CinemaDetailsScreenState extends State<CinemaDetailsScreen> {
           AppLocalizations.of(context)!.service_details,
         )),
         body: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 18.0, horizontal: 16),
+          padding: EdgeInsets.symmetric(vertical: AppSizes.ph18, horizontal: AppSizes.pw16),
           child: Form(
             key: formKey,
             child: SingleChildScrollView(
@@ -37,7 +37,7 @@ class _CinemaDetailsScreenState extends State<CinemaDetailsScreen> {
                   children: [
                     ////////////////////     Styled Introductory Title Section     /////////////////////////////////////////
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 16),
+                      padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph16),
                       width: double.infinity,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -48,19 +48,19 @@ class _CinemaDetailsScreenState extends State<CinemaDetailsScreen> {
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                         ),
-                        borderRadius: BorderRadius.circular(12.0),
+                        borderRadius: BorderRadius.circular(AppSizes.br12),
                       ),
                       child: Text(
                         "لا تقطع المسافات للترفيه... دع السينما تأتي إليك!",
                         style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                               color: ColorManager.whiteColor,
                               fontWeight: FontWeight.bold,
-                              fontSize: 20.sp,
+                              fontSize: AppSizes.sp20,
                             ),
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    SizedBox(height: 20.h),
+                    SizedBox(height: AppSizes.ph20),
 
                     ////////////////////     Set date Section     /////////////////////////////////////////
                     Text(
@@ -71,7 +71,7 @@ class _CinemaDetailsScreenState extends State<CinemaDetailsScreen> {
                     ),
                     const ServiceTimePickerWidget(),
                     ////////////////////     Set Time Section     /////////////////////////
-                    SizedBox(height: 10.h),
+                    SizedBox(height: AppSizes.ph10),
                     CustomDropDownField(
                       selectedOption: '9 ص - 1 م',
                       options: options,
@@ -96,7 +96,7 @@ class _CinemaDetailsScreenState extends State<CinemaDetailsScreen> {
                         child: Icon(
                           Icons.location_on_outlined,
                           color: ColorManager.midBlueColor,
-                          size: 27,
+                          size: AppSizes.ph28,
                         ),
                       ),
                     ),
@@ -113,7 +113,7 @@ class _CinemaDetailsScreenState extends State<CinemaDetailsScreen> {
                         return null;
                       },
                     ),
-                    SizedBox(height: 100.h),
+                    SizedBox(height: AppSizes.ph100),
                     Center(
                       child: CustomSmallElevatedButton(
                         text: AppLocalizations.of(context)!.send_request,

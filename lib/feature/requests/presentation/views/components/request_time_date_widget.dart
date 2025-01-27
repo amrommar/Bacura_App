@@ -1,6 +1,4 @@
-import 'package:bacura_app/core/utils/color_manager.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:bacura_app/core/utils/index.dart';
 
 class RequestTimeDateWidget extends StatelessWidget {
   const RequestTimeDateWidget({super.key});
@@ -12,9 +10,9 @@ class RequestTimeDateWidget extends StatelessWidget {
         Icon(
           Icons.calendar_month_outlined,
           color: ColorManager.primaryBlueColor,
-          size: 20,
+          size: AppSizes.ph20,
         ),
-        SizedBox(width: 5.w),
+        SizedBox(width: AppSizes.ph5),
         Text('9/10/2024',
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   color: ColorManager.greyColor,
@@ -24,9 +22,9 @@ class RequestTimeDateWidget extends StatelessWidget {
         Icon(
           Icons.access_time_outlined,
           color: ColorManager.primaryBlueColor,
-          size: 20,
+          size: AppSizes.ph20,
         ),
-        SizedBox(width: 2.w),
+        SizedBox(width: AppSizes.pw2),
         Text('10:35 ص',
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   color: ColorManager.greyColor,

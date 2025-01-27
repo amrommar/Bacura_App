@@ -17,9 +17,9 @@ class SpCompletedRequestTimeNumRow extends StatelessWidget {
         Icon(
           Icons.calendar_month_outlined,
           color: ColorManager.primaryBlueColor,
-          size: 20,
+          size: AppSizes.ph20,
         ),
-        SizedBox(width: 5.w),
+        SizedBox(width: AppSizes.ph5),
         Text('9/10/2024',
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   color: ColorManager.greyColor,
@@ -29,9 +29,9 @@ class SpCompletedRequestTimeNumRow extends StatelessWidget {
         Icon(
           Icons.access_time_outlined,
           color: ColorManager.primaryBlueColor,
-          size: 20,
+          size: AppSizes.ph20,
         ),
-        SizedBox(width: 2.w),
+        SizedBox(width: AppSizes.pw2),
         Text('10:35 ص',
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   color: ColorManager.greyColor,

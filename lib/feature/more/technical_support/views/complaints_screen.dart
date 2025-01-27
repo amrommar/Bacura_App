@@ -12,6 +12,7 @@ class _ComplaintScreenState extends State<ComplaintScreen> {
   var locationController = TextEditingController();
   var descriptionController = TextEditingController();
   var formKey = GlobalKey<FormState>();
+  String selectedCity = 'مقد الخدمة';
 
   @override
   Widget build(BuildContext context) {
@@ -55,6 +56,11 @@ class _ComplaintScreenState extends State<ComplaintScreen> {
                   selectedOption: AppLocalizations.of(context)!.service_provider,
                   options: options,
                   fieldName: AppLocalizations.of(context)!.complaint_type,
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      selectedCity = newValue!;
+                    });
+                  },
                 ),
                 SizedBox(height: AppSizes.ph20),
                 CustomQuestionTextFormField(

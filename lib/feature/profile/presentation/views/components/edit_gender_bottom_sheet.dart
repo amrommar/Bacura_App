@@ -16,13 +16,13 @@ class EditGenderBottomSheet extends StatelessWidget {
             child: Column(children: [
               CustomDropDownField(
                 selectedOption: provider.myProfileEntity.gender!,
-                options: const ['male', 'female'],
+                options: const ['ذكر', 'أنثي'],
                 fieldName: AppLocalizations.of(context)!.gender,
                 onChanged: (String? newValue) {
                   if (newValue == null) {
                     return;
                   }
-                  provider.selectedGender = newValue;
+                  newValue == 'ذكر' ? provider.selectedGender = 'male' : provider.selectedGender = 'female';
                 },
               ),
               SizedBox(height: AppSizes.ph20),

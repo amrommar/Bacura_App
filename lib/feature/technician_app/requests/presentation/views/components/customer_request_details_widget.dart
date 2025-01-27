@@ -6,11 +6,11 @@ class CustomerRequestDetailsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(15),
-      margin: const EdgeInsets.symmetric(vertical: 12),
+      padding: EdgeInsets.all(AppSizes.ph15),
+      margin: EdgeInsets.symmetric(vertical: AppSizes.ph12),
       decoration: BoxDecoration(
         color: ColorManager.lightBlueColor,
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(AppSizes.br8),
       ),
       child: ListView.separated(
         shrinkWrap: true,

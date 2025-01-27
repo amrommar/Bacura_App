@@ -36,22 +36,18 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                   )
                 : Column(
                     children: [
-                      provider.isImagePickerOpen
-                          ? const Center(
-                              child: Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: CircularProgressIndicator(),
-                            ))
-                          : AvatarWidget(
-                              onEditImage: () async {
-                                await provider.pickImage(context);
-                              },
-                              imagePath: profileEntity.image ?? 'https://cdn-icons-png.flaticon.com/512/9203/9203764.png',
-                              userName: provider.myProfileEntity.name!,
-                              onEditName: () {
-                                provider.openNameBottomSheet();
-                              },
-                            ),
+                      AvatarWidget(
+                        onEditImage: () async {
+                          await provider.pickImage(context);
+                        },
+                        imagePath:
+                            // profileEntity.image ??
+                            AppAssets.bacuraImage,
+                        userName: provider.myProfileEntity.name!,
+                        onEditName: () {
+                          provider.openNameBottomSheet();
+                        },
+                      ),
 
                       CustomShadowWidget(
                         childWidget: Column(

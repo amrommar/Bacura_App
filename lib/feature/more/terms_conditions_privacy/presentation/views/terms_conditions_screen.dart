@@ -15,9 +15,6 @@ class _TermsConditionsScreenState extends State<TermsConditionsScreen> {
       appBar: AppBar(
           title: Text(
         AppLocalizations.of(context)!.terms_and_conditions,
-        style: Theme.of(context).textTheme.titleLarge!.copyWith(
-              color: ColorManager.whiteColor,
-            ),
       )),
       body: SingleChildScrollView(
         child: Container(

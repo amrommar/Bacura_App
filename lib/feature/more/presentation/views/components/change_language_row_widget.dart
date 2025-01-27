@@ -33,9 +33,10 @@ class ChangeLanguageRowWidget extends StatelessWidget {
               ),
               child: InkWell(
                   onTap: () {
-                    provider.changeLanguage();
+                    // provider.changeLanguage();
                   },
-                  child: Text(AppLocalizations.of(context)!.arabic,
+                  child: Text('العربية',
+                      // AppLocalizations.of(context)!.arabic,
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: ColorManager.primaryBlueColor,
                             fontWeight: FontWeight.bold,

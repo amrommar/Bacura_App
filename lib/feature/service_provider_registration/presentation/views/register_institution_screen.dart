@@ -20,7 +20,7 @@ class _RegisterInstitutionScreenState extends State<RegisterInstitutionScreen> {
       context: context,
       builder: (context) => CustomAlertDialog(
         title: 'تأكيد',
-        imagePath: 'assets/images/personal-information.png',
+        imagePath: 'assets/images/png/personal-information.png',
         content: const Text('تسجيل البيانات بنجاح '),
         onCancel: () {
           Navigator.of(context).pop();
@@ -62,13 +62,13 @@ class _RegisterInstitutionScreenState extends State<RegisterInstitutionScreen> {
         title: Text(AppLocalizations.of(context)!.register_institution),
       ),
       body: Container(
-        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
+        padding: EdgeInsets.symmetric(vertical: AppSizes.ph8, horizontal: AppSizes.pw24),
         child: SingleChildScrollView(
           child: Form(
             key: _formKey, // Attach form key
             child: Column(
               children: [
-                const SizedBox(height: 10),
+                SizedBox(height: AppSizes.ph10),
                 Text(
                   AppLocalizations.of(context)!.register_as_partner,
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
@@ -76,7 +76,7 @@ class _RegisterInstitutionScreenState extends State<RegisterInstitutionScreen> {
                         fontWeight: FontWeight.bold,
                       ),
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: AppSizes.ph10),
                 CustomRegistrationTextField(
                   hintText: AppLocalizations.of(context)!.responsible_name,
                   controller: _responsibleNameController,
@@ -100,12 +100,12 @@ class _RegisterInstitutionScreenState extends State<RegisterInstitutionScreen> {
                     return null;
                   },
                 ),
-                const SizedBox(height: 5),
+                SizedBox(height: AppSizes.ph5),
                 RegisterPhoneField(
                   hintText: AppLocalizations.of(context)!.mobileNumber,
                   controller: _phoneController,
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: AppSizes.ph10),
                 CityDropDownWidget(
                   selectedOption: _selectedCity,
                   options: const ['Riyad', 'Jedda'],
@@ -115,11 +115,11 @@ class _RegisterInstitutionScreenState extends State<RegisterInstitutionScreen> {
                     });
                   },
                 ),
-                const SizedBox(height: 6),
+                SizedBox(height: AppSizes.ph6),
                 UploadImageFieldIcon(
                   label: AppLocalizations.of(context)!.commercial_registration_image,
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: AppSizes.ph10),
                 TermsConditionsCheck(
                   value: _termsAccepted,
                   onChanged: (value) {
@@ -128,7 +128,7 @@ class _RegisterInstitutionScreenState extends State<RegisterInstitutionScreen> {
                     });
                   },
                 ),
-                const SizedBox(height: 100),
+                SizedBox(height: AppSizes.ph100),
                 Center(
                   child: ElevatedButton(
                     onPressed: _submitForm,

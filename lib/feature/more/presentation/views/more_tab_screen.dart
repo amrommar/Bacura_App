@@ -154,18 +154,17 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
 
       ///app_Language tab //////////////////////////////
       const ChangeLanguageRowWidget(),
-      SizedBox(height: AppSizes.ph20),
+      SizedBox(height: AppSizes.ph40),
 
       /// Bacura store Link /////////////////////////////////////////////////////////////
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+      const Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          const BacuraStoreWidget(),
-          SizedBox(width: AppSizes.ph20),
-          const ShareAppWidget(),
+          BacuraStoreWidget(),
+          ShareAppWidget(),
         ],
       ),
-      SizedBox(height: AppSizes.ph50),
+      SizedBox(height: AppSizes.ph60),
 
       /// social Media Links /////////////////////////////////////////////////////////////
       Row(mainAxisAlignment: MainAxisAlignment.center, children: [

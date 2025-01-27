@@ -29,9 +29,9 @@ class _RequestDetailsScreenState extends State<RequestDetailsScreen> {
                     offset: const Offset(0, 3),
                   )
                 ]),
-            margin: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
-            padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
-            height: 800.h,
+            margin: EdgeInsets.symmetric(horizontal: AppSizes.ph12, vertical: AppSizes.ph12),
+            padding: EdgeInsets.symmetric(horizontal: AppSizes.ph12, vertical: AppSizes.ph12),
+            height: AppSizes.ph800,
             child: SingleChildScrollView(
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -79,9 +79,9 @@ class _RequestDetailsScreenState extends State<RequestDetailsScreen> {
                       icon: Icons.verified_user,
                       iconColor: ColorManager.midBlueColor),
                   const Divider(),
-                  SizedBox(height: 50.h),
+                  SizedBox(height: AppSizes.ph50),
                   manageRequestButtons(ColorManager.yellowColor),
-                  SizedBox(height: 20.h),
+                  SizedBox(height: AppSizes.ph20),
                 ]))));
   }
 

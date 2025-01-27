@@ -21,7 +21,7 @@ class _SpCompletedRequestContainerState extends State<SpCompletedRequestContaine
           ////Time and Date section/////////////////////////////////////////////
           const SpCompletedRequestTimeNumRow(),
           const Divider(),
-          SizedBox(height: 10.h),
+          SizedBox(height: AppSizes.ph10),
 
           const CustomerNameWidget(),
         ],

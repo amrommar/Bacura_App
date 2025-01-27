@@ -1,16 +1,28 @@
 import 'package:bacura_app/core/utils/index.dart';
 
-class ConsultationDropDownField extends StatelessWidget {
+class ConsultationDropDownField extends StatefulWidget {
   ConsultationDropDownField({super.key});
 
-  final List<String> options = ['استشارة 1', 'استشارة 2', 'استشارة 3'];
+  @override
+  State<ConsultationDropDownField> createState() => _ConsultationDropDownFieldState();
+}
+
+class _ConsultationDropDownFieldState extends State<ConsultationDropDownField> {
+  final List<String> options = ['استشارة تقنية', 'استشارة فنية', 'استشارة مالية', 'استشارة إدارية'];
+
+  String selectedOption = 'استشارة تقنية';
 
   @override
   Widget build(BuildContext context) {
     return CustomDropDownField(
-      selectedOption: 'استشارة 1',
+      selectedOption: selectedOption,
       options: options,
       fieldName: AppLocalizations.of(context)!.consultation_type,
+      onChanged: (String? newValue) {
+        setState(() {
+          selectedOption = newValue!;
+        });
+      },
     );
   }
 }

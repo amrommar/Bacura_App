@@ -25,21 +25,21 @@ class _SpHomeScreenState extends State<SpHomeScreen> {
                 Navigator.pushNamed(context, Routes.spPersonalDetailsRoute);
               },
               child: Row(children: [
-                SizedBox(width: 8.w),
+                SizedBox(width: AppSizes.pw8),
                 Flexible(
                     child: CircleAvatar(
-                        radius: 23.w,
+                        radius: AppSizes.br24,
                         backgroundColor: ColorManager.whiteColor,
                         child: Image.asset('assets/images/Ellipse 1.png')))
               ])),
           actions: [
             IconButton(
-                icon: Icon(Icons.email_outlined, size: 30.h),
+                icon: Icon(Icons.email_outlined, size: AppSizes.ph30),
                 onPressed: () {
                   Navigator.pushNamed(context, Routes.messagesRoute);
                 }),
             IconButton(
-                icon: Icon(Icons.notifications, size: 30.h),
+                icon: Icon(Icons.notifications, size: AppSizes.ph30),
                 onPressed: () {
                   Navigator.pushNamed(context, Routes.notificationsRoute);
                 }),
@@ -50,7 +50,7 @@ class _SpHomeScreenState extends State<SpHomeScreen> {
             child: ListView.builder(
                 itemCount: 12,
                 itemBuilder: (context, index) {
-                  return InkWell(onTap: () {}, child: SPRequestitemWidget());
+                  return InkWell(onTap: () {}, child: SPRequestItemWidget());
                 }))
       ]),
     );

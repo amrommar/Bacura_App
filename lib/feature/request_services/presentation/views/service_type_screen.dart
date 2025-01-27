@@ -7,7 +7,6 @@ class ServiceTypeScreen extends StatelessWidget {
   final CategoryEntity categoryEntity;
   const ServiceTypeScreen({super.key, required this.categoryEntity});
 
-  // Track the currently selected service
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,20 +21,54 @@ class ServiceTypeScreen extends StatelessWidget {
             builder: (context, provider, child) => Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                /// Service image ////////////////////////////////////
-                Image.asset('assets/images/png/Rectangle 78.png', height: 240.h),
+                // Image Section
+                if (categoryEntity.id == 4)
+                  Image.asset(
+                    'assets/images/cameraa.jpg',
+                    height: AppSizes.ph240,
+                    fit: BoxFit.fill,
+                  )
+                else if (categoryEntity.id == 5)
+                  Image.asset(
+                    'assets/images/smart.jpg',
+                    height: AppSizes.ph240,
+                    fit: BoxFit.fill,
+                  )
+                else if (categoryEntity.id == 6)
+                  Image.asset(
+                    'assets/images/access.jpg',
+                    height: AppSizes.ph240,
+                    fit: BoxFit.fill,
+                  )
+                else if (categoryEntity.id == 7)
+                  Image.asset(
+                    'assets/images/sound.jpg',
+                    height: AppSizes.ph240,
+                    fit: BoxFit.fill,
+                  )
+                else if (categoryEntity.id == 10)
+                  Image.asset(
+                    'assets/images/savepower.jpg',
+                    height: AppSizes.ph240,
+                    fit: BoxFit.fill,
+                  )
+                else
+                  Image.asset(
+                    'assets/images/central.jpg',
+                    height: AppSizes.ph240,
+                    fit: BoxFit.fill,
+                  ),
 
-                /// Available Services Section ////////////////////////////////////
+                // Available Services Section
                 Padding(
-                  padding: EdgeInsets.only(right: 16.w, top: 16.h, left: 16.w),
+                  padding: EdgeInsets.only(right: AppSizes.pw16, top: AppSizes.ph16, left: AppSizes.ph16),
                   child: Text(
                     AppLocalizations.of(context)!.available_services,
                     style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold),
                   ),
                 ),
 
-                /// Service Containers ////////////////////////////////////
-
+                // Service Containers
                 Column(
                   children: List.generate(
                     categoryEntity.services.length,
@@ -49,9 +82,9 @@ class ServiceTypeScreen extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 100.h),
+                SizedBox(height: AppSizes.ph100),
 
-                /// Next Button ////////////////////////////////////
+                // Next Button
                 NextButton(
                   isEnabled: provider.selectedService != null,
                   onPressed: provider.selectedService == null

@@ -1,8 +1,8 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/technician_app/index.dart';
 
-class SPRequestitemWidget extends StatelessWidget {
-  const SPRequestitemWidget({super.key});
+class SPRequestItemWidget extends StatelessWidget {
+  const SPRequestItemWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +20,9 @@ class SPRequestitemWidget extends StatelessWidget {
               offset: const Offset(0, 3), // Offset in the x and y directions
             )
           ]),
-      margin: EdgeInsets.only(right: 10.w, top: 24.h, left: 10.w),
-      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.w),
-      height: 160.h,
+      margin: EdgeInsets.only(right: AppSizes.pw10, top: AppSizes.ph24, left: AppSizes.pw10),
+      padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph8),
+      height: AppSizes.ph160,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,

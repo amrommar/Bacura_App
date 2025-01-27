@@ -20,7 +20,7 @@ class _RegisterTechnicianScreenState extends State<RegisterTechnicianScreen> {
       context: context,
       builder: (context) => CustomAlertDialog(
         title: 'تأكيد',
-        imagePath: 'assets/images/personal-information.png',
+        imagePath: 'assets/images/png/personal-information.png',
         content: const Text('تسجيل البيانات بنجاح '),
         onCancel: () {
           Navigator.of(context).pop();
@@ -60,13 +60,13 @@ class _RegisterTechnicianScreenState extends State<RegisterTechnicianScreen> {
         title: Text(AppLocalizations.of(context)!.register_technician),
       ),
       body: Container(
-        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 24),
+        padding: EdgeInsets.symmetric(vertical: AppSizes.ph8, horizontal: AppSizes.pw24),
         child: SingleChildScrollView(
           child: Form(
             key: _formKey,
             child: Column(
               children: [
-                const SizedBox(height: 10),
+                SizedBox(height: AppSizes.ph10),
                 Text(
                   AppLocalizations.of(context)!.register_as_technician,
                   style: Theme.of(context).textTheme.bodyLarge!.copyWith(
@@ -74,7 +74,7 @@ class _RegisterTechnicianScreenState extends State<RegisterTechnicianScreen> {
                         fontWeight: FontWeight.bold,
                       ),
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: AppSizes.ph10),
                 CustomRegistrationTextField(
                   hintText: AppLocalizations.of(context)!.technician_name,
                   controller: _nameController,
@@ -98,12 +98,12 @@ class _RegisterTechnicianScreenState extends State<RegisterTechnicianScreen> {
                     return null;
                   },
                 ),
-                const SizedBox(height: 5),
+                SizedBox(height: AppSizes.ph5),
                 RegisterPhoneField(
                   hintText: AppLocalizations.of(context)!.mobileNumber,
                   controller: _phoneController,
                 ),
-                const SizedBox(height: 10),
+                SizedBox(height: AppSizes.ph10),
                 CityDropDownWidget(
                   selectedOption: _selectedCity,
                   options: const ['Riyad', 'Jedda'],
@@ -113,11 +113,11 @@ class _RegisterTechnicianScreenState extends State<RegisterTechnicianScreen> {
                     });
                   },
                 ),
-                const SizedBox(height: 6),
+                SizedBox(height: AppSizes.ph6),
                 UploadImageWidget(label: AppLocalizations.of(context)!.identity_image),
-                const SizedBox(height: 10),
+                SizedBox(height: AppSizes.ph10),
                 UploadImageWidget(label: AppLocalizations.of(context)!.personal_image),
-                const SizedBox(height: 10),
+                SizedBox(height: AppSizes.ph10),
                 TermsConditionsCheck(
                   value: _termsAccepted,
                   onChanged: (value) {
@@ -126,7 +126,7 @@ class _RegisterTechnicianScreenState extends State<RegisterTechnicianScreen> {
                     });
                   },
                 ),
-                const SizedBox(height: 60),
+                SizedBox(height: AppSizes.ph60),
                 Center(
                   child: ElevatedButton(
                     onPressed: _submitForm,

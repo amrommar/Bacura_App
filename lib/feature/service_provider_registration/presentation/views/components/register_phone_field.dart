@@ -40,7 +40,7 @@ class RegisterPhoneField extends StatelessWidget {
           ),
       controller: controller,
       decoration: InputDecoration(
-        contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+        contentPadding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph8),
         filled: true,
         fillColor: ColorManager.lightWhiteColor,
         focusedBorder: OutlineInputBorder(
@@ -48,13 +48,13 @@ class RegisterPhoneField extends StatelessWidget {
               color: ColorManager.primaryBlueColor,
               width: AppSizes.pw1,
             ),
-            borderRadius: BorderRadius.circular(12)),
+            borderRadius: BorderRadius.circular(AppSizes.br12)),
         enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
               color: ColorManager.midWhiteColor,
               width: AppSizes.pw1,
             ),
-            borderRadius: BorderRadius.circular(12)),
+            borderRadius: BorderRadius.circular(AppSizes.br12)),
         hintText: hintText,
       ),
     );

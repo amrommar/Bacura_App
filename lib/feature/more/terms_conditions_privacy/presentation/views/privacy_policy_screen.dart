@@ -12,11 +12,7 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: Text(AppLocalizations.of(context)!.privacy_policy,
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    color: ColorManager.whiteColor,
-                  ))),
+      appBar: AppBar(title: Text(AppLocalizations.of(context)!.privacy_policy)),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.all(AppSizes.ph8),

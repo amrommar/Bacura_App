@@ -17,7 +17,11 @@ class ServicesComponent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                  padding: EdgeInsets.only(right: AppSizes.pw16, left: AppSizes.pw16, top: AppSizes.ph6),
+                  padding: EdgeInsets.only(
+                    right: AppSizes.pw16,
+                    left: AppSizes.pw16,
+                    top: AppSizes.ph6,
+                  ),
                   child: Text(AppLocalizations.of(context)!.services,
                       style: Theme.of(context).textTheme.titleMedium!.copyWith(
                             color: ColorManager.blackColor,
@@ -27,11 +31,11 @@ class ServicesComponent extends StatelessWidget {
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: provider.categoryEntity.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     crossAxisSpacing: 0,
-                    mainAxisSpacing: 5,
-                    childAspectRatio: 0.89,
+                    mainAxisSpacing: AppSizes.ph5,
+                    childAspectRatio: AppSizes.ph0_7,
                   ),
                   itemBuilder: (context, index) {
                     return InkWell(

@@ -18,7 +18,7 @@ class RareServiceComponent extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   )),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               /////////////////       Cinema Section     ////////////////////////////
               RareServiceWidget(

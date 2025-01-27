@@ -24,9 +24,9 @@ class _SpProfileRowDetailsState extends State<SpProfileRowDetails> {
       Icon(
         widget.icon,
         color: ColorManager.primaryBlueColor,
-        size: 30,
+        size: AppSizes.ph30,
       ),
-      SizedBox(width: 30.w),
+      SizedBox(width: AppSizes.pw30),
       Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Text(widget.text,
             style: Theme.of(context).textTheme.titleSmall!.copyWith(

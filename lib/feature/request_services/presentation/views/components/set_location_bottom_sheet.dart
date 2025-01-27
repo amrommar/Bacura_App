@@ -15,14 +15,14 @@ class _SetLocationBottomSheetState extends State<SetLocationBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 600.h,
+      height: AppSizes.ph600,
       width: double.infinity,
       color: Colors.white,
       child: OpenStreetMapSearchAndPick(
           buttonColor: ColorManager.primaryBlueColor,
           buttonText: AppLocalizations.of(context)!.set_current_location,
           locationPinIconColor: ColorManager.darkRedColor,
-          buttonWidth: 200.w,
+          buttonWidth: AppSizes.pw200,
           locationPinTextStyle: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.primaryBlueColor),
           onPicked: (pickedData) {
             try {
