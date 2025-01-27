@@ -30,7 +30,7 @@ class MyProfileProvider with ChangeNotifier {
   String? selectedGender;
   String? selectedCity;
   bool isImagePickerOpen = false;
-  String? imagePath;
+  File? imagePath;
 
   final BuildContext context;
 
@@ -124,9 +124,8 @@ class MyProfileProvider with ChangeNotifier {
     final XFile? pickedFile = await picker.pickImage(source: source);
     if (pickedFile != null) {
       final Uint8List imageBytes = await convertXFileToUint8List(pickedFile);
-      File? imageFile = await convertUnit8ListToFile(imageInUnit8List: imageBytes);
+      imagePath = await convertUnit8ListToFile(imageInUnit8List: imageBytes);
 
-      imagePath = imageFile.path.replaceFirst('/', '');
       await sl<UpdateProfileUseCase>().call(UpdateProfileParameters(
         image: imagePath,
       ));
