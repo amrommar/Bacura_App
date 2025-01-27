@@ -8,7 +8,7 @@ class CustomPinCodeTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(4.h),
+      padding: EdgeInsets.all(6.h),
       child: PinCodeTextField(
           textStyle: Theme.of(context).textTheme.displayLarge!.copyWith(
                 color: ColorManager.primaryBlueColor,
@@ -35,9 +35,9 @@ class CustomPinCodeTextField extends StatelessWidget {
               disabledBorderWidth: 1.5,
               inactiveBorderWidth: 1.5,
               errorBorderWidth: 1.5,
-              selectedBorderWidth: 2,
-              fieldHeight: AppSizes.ph30,
-              fieldWidth: AppSizes.pw30,
+              selectedBorderWidth: 1,
+              fieldHeight: AppSizes.ph50,
+              fieldWidth: AppSizes.pw50,
               activeFillColor: ColorManager.lightRedColor,
               inactiveFillColor: Colors.yellow,
               selectedFillColor: Colors.green),

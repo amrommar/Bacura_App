@@ -57,7 +57,7 @@ class AuthProvider with ChangeNotifier {
         customShowCustomDialog(
             context: context,
             title: 'تم تسجيل الدخول بنجاح',
-            imagePath: 'assets/images/bad-feedback.png',
+            imagePath: 'assets/images/png/bad-feedback.png',
             content: 'تم تسجيل الدخول بنجاح',
             isOk: true,
             isCancel: false,
@@ -90,9 +90,13 @@ class AuthProvider with ChangeNotifier {
         ),
       ));
     } else {
-      sl<LoginUseCase>()
-          .call(LoginParameter(phone: mobileNumberController.text, countryCode: AppConstants.countryCode));
-      showVerifyBottomSheet(context);
+      sl<LoginUseCase>().call(LoginParameter(phone: mobileNumberController.text, countryCode: AppConstants.countryCode));
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => VerifyBottomSheet(
+                    mobileNumber: mobileNumberController.text,
+                  )));
     }
   }
 

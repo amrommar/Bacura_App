@@ -15,10 +15,11 @@ class _VerifyBottomSheetState extends State<VerifyBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => AuthProvider(),
-      child: Consumer<AuthProvider>(
-        builder: (context, provider, child) => Container(
+    return Scaffold(
+      body: ChangeNotifierProvider(
+        create: (context) => AuthProvider(),
+        child: Consumer<AuthProvider>(
+          builder: (context, provider, child) => Container(
             decoration: BoxDecoration(
               color: ColorManager.whiteColor,
               borderRadius: BorderRadius.circular(AppSizes.br30),
@@ -27,28 +28,31 @@ class _VerifyBottomSheetState extends State<VerifyBottomSheet> {
               vertical: AppSizes.ph30,
               horizontal: AppSizes.pw30,
             ),
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text(
-                AppLocalizations.of(context)!.oTPNumber,
-                style: Theme.of(context).textTheme.displayLarge,
-              ),
-              Divider(color: ColorManager.lightBlueColor),
-              SizedBox(height: AppSizes.ph10),
-              Text(AppLocalizations.of(context)!.oTPNumberSent,
-                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                        color: ColorManager.greyColor,
-                      )),
-              ChangeNumberWidget(mobileNumber: widget.mobileNumber),
-              Form(
-                key: formKey,
-                child: CustomPinCodeTextField(
-                  onChanged: (value) {
-                    provider.pinCode = value;
-                  },
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Spacer(),
+                Text(
+                  AppLocalizations.of(context)!.oTPNumber,
+                  style: Theme.of(context).textTheme.displayLarge,
                 ),
-              ),
-              Center(
-                  child: Column(children: [
+                Divider(color: ColorManager.lightBlueColor),
+                SizedBox(height: AppSizes.ph10),
+                Text(AppLocalizations.of(context)!.oTPNumberSent,
+                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                          color: ColorManager.greyColor,
+                        )),
+                ChangeNumberWidget(mobileNumber: widget.mobileNumber),
+                Form(
+                  key: formKey,
+                  child: CustomPinCodeTextField(
+                    onChanged: (value) {
+                      provider.pinCode = value;
+                    },
+                  ),
+                ),
+                const Spacer(),
                 VerifyButtonWidget(
                   onPressed: () {
                     provider.validatePin(
@@ -57,9 +61,11 @@ class _VerifyBottomSheetState extends State<VerifyBottomSheet> {
                     );
                   },
                 ),
-                const ResendOtpAgainWidget()
-              ]))
-            ])),
+                const ResendOtpAgainWidget(),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
