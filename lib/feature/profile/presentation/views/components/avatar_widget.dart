@@ -44,7 +44,7 @@ class AvatarWidget extends StatelessWidget {
                 ),
                 child: CircleAvatar(
                   radius: AppSizes.br50,
-                  child: Image.network(imagePath),
+                  child: Image.asset(imagePath),
                 ),
               ),
               Positioned(
