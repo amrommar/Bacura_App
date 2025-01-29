@@ -67,7 +67,7 @@ class AppStrings {
   static const String jeddah = 'Jeddah'; //
   static const String male = 'male'; //
   static const String female = 'female'; //
-  static const String typeMessageHere = 'Type message here'; //
+  static const String typeMessageHere = 'اكتب رسالتك هنا'; //
   static const String welcomeToBacuraApp = 'أهلا بك في تطبيق باكورة'; //
   static const String cinema = 'السينما المنزلية'; //
   static const String consultation = 'الاستشارات'; //

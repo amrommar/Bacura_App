@@ -11,7 +11,7 @@ class WriteMessageWidget extends StatelessWidget {
         color: ColorManager.midWhiteColor,
         child: Row(children: [
           IconButton(
-            icon: const Icon(Icons.attachment, color: Colors.grey),
+            icon: Icon(Icons.attachment, color: Colors.grey, size: AppSizes.ph22),
             onPressed: () {},
           ),
           Expanded(
@@ -30,6 +30,7 @@ class WriteMessageWidget extends StatelessWidget {
               icon: Icon(
                 Icons.send,
                 color: ColorManager.primaryBlueColor,
+                size: AppSizes.ph22,
               ),
               onPressed: () {})
         ]));

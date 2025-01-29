@@ -8,13 +8,13 @@ class ServicesComponent extends StatelessWidget {
   List<String> imagesPaths = [
     AppAssets.cameraIcon,
     AppAssets.smartHomeIcon,
-    AppAssets.accessControlIcon,
     AppAssets.soundSystemsIcon,
     AppAssets.savePowerIcon,
     AppAssets.networkIcon,
-    AppAssets.gameRepairIcon,
-    AppAssets.pcRepairIcon,
-    AppAssets.phoneRepairIcon
+    'assets/images/svg/pc.svg',
+    'assets/images/svg/phone.svg',
+    'assets/images/svg/accessories.svg',
+    AppAssets.gameRepairIcon
   ];
 
   @override
@@ -47,7 +47,7 @@ class ServicesComponent extends StatelessWidget {
                     crossAxisCount: 3,
                     crossAxisSpacing: 0,
                     mainAxisSpacing: AppSizes.ph5,
-                    childAspectRatio: AppSizes.ph0_7,
+                    childAspectRatio: 0.9,
                   ),
                   itemBuilder: (context, index) {
                     return InkWell(

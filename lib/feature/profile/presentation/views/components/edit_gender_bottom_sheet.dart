@@ -15,7 +15,7 @@ class EditGenderBottomSheet extends StatelessWidget {
             padding: EdgeInsets.all(AppSizes.ph20),
             child: Column(children: [
               CustomDropDownField(
-                selectedOption: provider.myProfileEntity.gender!,
+                selectedOption: provider.myProfileEntity.gender! == 'male' ? 'ذكر' : 'أنثي',
                 options: const ['ذكر', 'أنثي'],
                 fieldName: AppLocalizations.of(context)!.gender,
                 onChanged: (String? newValue) {

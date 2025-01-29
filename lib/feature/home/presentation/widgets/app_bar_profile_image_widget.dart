@@ -9,7 +9,7 @@ class AppBarProfileImageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
         onTap: () {
-          Navigator.pushNamed(context, Routes.personalDetailsRoute);
+          Navigator.pushNamed(context, Routes.profileDetailsRoute);
         },
         child: Row(children: [
           SizedBox(width: AppSizes.pw8),

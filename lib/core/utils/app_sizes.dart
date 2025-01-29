@@ -43,7 +43,8 @@ class AppSizes {
   static final double ph0_8 = 0.8.h;
   static final double ph1_5 = 1.5.h;
   static final double ph0_7 = 0.7.h;
-  static final double ph0_9 = 0.6.h;
+  static final double ph0_75 = 0.75.h;
+  static final double ph0_9 = 0.9.h;
   static final double ph1 = 1.h;
   static final double ph1_2 = 1.2.h;
   static final double ph2 = 2.h;

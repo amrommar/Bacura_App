@@ -3,7 +3,7 @@ import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/auth/domain/entities/verify_data_entity.dart';
 import 'package:bacura_app/feature/auth/domain/usecases/verify_usecase.dart';
 import 'package:bacura_app/feature/auth/index.dart';
-import 'package:bacura_app/feature/auth/presentation/views/components/verify_bottom_sheet.dart';
+import 'package:bacura_app/feature/auth/presentation/views/components/verify_screen.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class AuthProvider with ChangeNotifier {
@@ -57,7 +57,7 @@ class AuthProvider with ChangeNotifier {
         customShowCustomDialog(
             context: context,
             title: 'تم تسجيل الدخول بنجاح',
-            imagePath: 'assets/images/png/bad-feedback.png',
+            imagePath: 'assets/images/png/checked.png',
             content: 'تم تسجيل الدخول بنجاح',
             isOk: true,
             isCancel: false,
@@ -90,23 +90,24 @@ class AuthProvider with ChangeNotifier {
         ),
       ));
     } else {
-      sl<LoginUseCase>().call(LoginParameter(phone: mobileNumberController.text, countryCode: AppConstants.countryCode));
+      sl<LoginUseCase>()
+          .call(LoginParameter(phone: mobileNumberController.text, countryCode: AppConstants.countryCode));
       Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => VerifyBottomSheet(
+              builder: (context) => VerifyScreen(
                     mobileNumber: mobileNumberController.text,
                   )));
     }
   }
 
-  void showVerifyBottomSheet(BuildContext context) {
-    showModalBottomSheet(
-        context: context,
-        builder: (context) {
-          return VerifyBottomSheet(
-            mobileNumber: mobileNumberController.text,
-          );
-        });
-  }
+// void showVerifyBottomSheet(BuildContext context) {
+//   showModalBottomSheet(
+//       context: context,
+//       builder: (context) {
+//         return VerifyBottomSheet(
+//           mobileNumber: mobileNumberController.text,
+//         );
+//       });
+// }
 }

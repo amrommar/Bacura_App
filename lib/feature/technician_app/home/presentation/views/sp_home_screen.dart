@@ -22,7 +22,7 @@ class _SpHomeScreenState extends State<SpHomeScreen> {
           elevation: 0,
           leading: InkWell(
               onTap: () {
-                Navigator.pushNamed(context, Routes.spPersonalDetailsRoute);
+                Navigator.pushNamed(context, Routes.spProfileDetailsRoute);
               },
               child: Row(children: [
                 SizedBox(width: AppSizes.pw8),

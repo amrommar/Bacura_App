@@ -38,7 +38,7 @@ class ServiceTypeScreen extends StatelessWidget {
                   )
                 else if (categoryEntity.id == 6)
                   Image.asset(
-                    'assets/images/accesss.jpg',
+                    'assets/images/sound1.jpg',
                     width: double.infinity,
                   )
                 else if (categoryEntity.id == 7)

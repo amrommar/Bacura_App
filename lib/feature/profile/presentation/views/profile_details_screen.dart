@@ -76,7 +76,7 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                                 },
                                 icon: Icons.transgender_outlined,
                                 text: AppLocalizations.of(context)!.gender,
-                                value: profileEntity.gender!),
+                                value: profileEntity.gender! == 'male' ? 'ذكر' : 'أنثي'),
                             Divider(color: ColorManager.lightBlueColor, height: AppSizes.ph20),
                             ProfileDetailsWidget(
                                 onTap: () {

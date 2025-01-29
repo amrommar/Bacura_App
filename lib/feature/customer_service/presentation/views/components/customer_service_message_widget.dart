@@ -16,11 +16,12 @@ class CustomerServiceMessageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
       CircleAvatar(
-          radius: 16,
+          radius: AppSizes.ph16,
           backgroundColor: Colors.grey.shade200,
           child: Icon(
             Icons.headset_mic_outlined,
             color: ColorManager.primaryBlueColor,
+            size: AppSizes.ph20,
           )),
       SizedBox(width: AppSizes.pw8),
       Container(

@@ -9,7 +9,7 @@ class Routes {
   static const String verifyOTPRoute = '/verifyOTP';
   static const String loginRoute = '/login';
   static const String homeRoute = '/homeScreen';
-  static const String personalDetailsRoute = '/personalDetails';
+  static const String profileDetailsRoute = '/personalDetails';
   static const String walletDetailsRoute = '/walletDetails';
   static const String requestDetailsRoute = '/requestDetails';
   static const String cardsManagementRoute = '/cardsManagement';
@@ -31,7 +31,7 @@ class Routes {
   static const String spHomeScreenRoute = '/spHomeScreen';
   static const String spRequestDetailsRoute = '/spRequestDetails';
   static const String requestImplementRoute = '/requestImplement';
-  static const String spPersonalDetailsRoute = '/spPersonalDetails';
+  static const String spProfileDetailsRoute = '/spPersonalDetails';
   static const String spCompletedRequestsRoute = '/spCompletedRequests';
   static const String calenderRoute = '/calender';
   static const String messagesRoute = '/messages';
@@ -61,7 +61,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       case Routes.homeRoute:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
-      case Routes.personalDetailsRoute:
+      case Routes.profileDetailsRoute:
         return MaterialPageRoute(builder: (_) => const ProfileDetailsScreen());
       case Routes.walletDetailsRoute:
         return MaterialPageRoute(builder: (_) => const WalletDetailsScreen());
@@ -105,7 +105,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => SpRequestDetailsScreen());
       case Routes.requestImplementRoute:
         return MaterialPageRoute(builder: (_) => const SpImplementRequestScreen());
-      case Routes.spPersonalDetailsRoute:
+      case Routes.spProfileDetailsRoute:
         return MaterialPageRoute(builder: (_) => const SpProfileDetailsScreen());
       case Routes.spCompletedRequestsRoute:
         return MaterialPageRoute(builder: (_) => SpCompletedrequestsScreen());
