@@ -38,11 +38,9 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                     children: [
                       AvatarWidget(
                         onEditImage: () async {
-                          await provider.pickImage(context);
+                          await provider.pickProfilePicture();
                         },
-                        imagePath:
-                            // profileEntity.image ??
-                            AppAssets.bacuraImage,
+                        imagePath: provider.myProfileEntity.image ?? 'https://cdn-icons-png.flaticon.com/512/9203/9203764.png',
                         userName: provider.myProfileEntity.name!,
                         onEditName: () {
                           provider.openNameBottomSheet();

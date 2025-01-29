@@ -77,7 +77,7 @@ class MyProfileProvider with ChangeNotifier {
       phone: myProfileEntity.phone == completePhoneNumber ? null : completePhoneNumber,
       gender: myProfileEntity.gender == selectedGender ? null : selectedGender,
       location: myProfileEntity.location == selectedCity ? null : selectedCity,
-      image: imagePath,
+      // file: imagePath,
     ));
     isLoading = false;
     _getMyProfile();
@@ -122,16 +122,36 @@ class MyProfileProvider with ChangeNotifier {
   Future<void> _pickImageFromSource(ImageSource source, ImagePicker picker) async {
     final XFile? pickedFile = await picker.pickImage(source: source);
     if (pickedFile != null) {
+      // final Uint8List imageBytes = await convertXFileToUint8List(pickedFile);
       final Uint8List imageBytes = await convertXFileToUint8List(pickedFile);
-      imagePath = await convertUnit8ListToFile(imageInUnit8List: imageBytes);
-
-      await sl<UpdateProfileUseCase>().call(UpdateProfileParameters(
-        image: imagePath,
-      ));
+      final File imageFile = (await convertUnit8ListToFile(imageInUnit8List: imageBytes));
+      print(' imagePath $imagePath');
+      await sl<UpdateProfileUseCase>().call(const UpdateProfileParameters(
+          // file: imageFile,
+          ));
     }
     isImagePickerOpen = false;
     notifyListeners();
     _getMyProfile();
+  }
+
+  Future<void> pickProfilePicture() async {
+    if (isImagePickerOpen) return;
+    final ImagePicker picker = ImagePicker();
+    isImagePickerOpen = true;
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+    isImagePickerOpen = false;
+    if (image != null) {
+      isLoading = true;
+      notifyListeners();
+      final Uint8List imageBytes = await convertXFileToUint8List(image);
+      final File imageFile = (await convertUnit8ListToFile(imageInUnit8List: imageBytes));
+      await sl<UpdateProfileUseCase>().call(UpdateProfileParameters(
+        file: imageFile.path,
+      ));
+    }
+    isLoading = false;
+    notifyListeners();
   }
 
   Future<void> openNameBottomSheet() async {
@@ -242,6 +262,21 @@ class MyProfileProvider with ChangeNotifier {
       return 'mobileNumberIsNotCorrect';
     }
   }
+}
+
+// Future<Uint8List> convertXFileToUint8List(XFile file) async {
+//   Uint8List bytes = await file.readAsBytes();
+//   return bytes;
+// }
+
+Future<File> convertXFileToFile({required XFile imageXFile}) async {
+  final tempDir = await getTemporaryDirectory();
+  final filePath = '${tempDir.path}/${DateTime.now().millisecondsSinceEpoch}.png';
+
+  File file = File(filePath);
+  await file.writeAsBytes(await imageXFile.readAsBytes());
+
+  return file;
 }
 
 Future<Uint8List> convertXFileToUint8List(XFile file) async {

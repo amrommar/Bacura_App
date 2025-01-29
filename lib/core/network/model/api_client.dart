@@ -121,12 +121,8 @@ class ApiClient {
         );
       }
     } catch (error) {
-      if (lastErrorRecorded != null && lastErrorRecorded!.message == error.toString() && DateTime.now().difference(lastErrorRecorded!.time).inSeconds < 5) {
-        throw Exception(NetworkConstants.repetitiveException);
-      } else {
-        lastErrorRecorded = LastApiErrorRecorded(time: DateTime.now(), message: error.toString());
-        throw Exception(error.toString());
-      }
+      print("❌ API Error: $error");
+      throw Exception(error);
     }
   }
 }

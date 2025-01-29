@@ -21,18 +21,18 @@ class UpdateProfileParameters extends Equatable {
   final String? phone;
   final String? gender;
   final String? name;
-  final File? image;
+  final String? file;
   final String? countryCode;
   final String? location;
 
-  const UpdateProfileParameters({this.email, this.phone, this.gender, this.name, this.image, this.countryCode, this.location});
+  const UpdateProfileParameters({this.email, this.phone, this.gender, this.name, this.file, this.countryCode, this.location});
 
   Map<String, dynamic> toMap() => {
         'email': email,
         'phone': phone,
         'gender': gender,
         'name': name,
-        'image': image,
+        'file': file,
         'country_code': countryCode,
         'location': location,
       }..removeWhere(
@@ -45,7 +45,7 @@ class UpdateProfileParameters extends Equatable {
         phone,
         gender,
         name,
-        image,
+        file,
         countryCode,
         location,
       ];

@@ -58,7 +58,7 @@ export 'package:bacura_app/feature/onboarding/presentation/views/onboarding_two_
 export 'package:bacura_app/feature/profile/presentation/views/components/completed_requests_widget.dart';
 export 'package:bacura_app/feature/profile/presentation/views/components/request_details_price_widget.dart';
 export 'package:bacura_app/feature/profile/presentation/views/components/requests_calender_widget.dart';
-export 'package:bacura_app/feature/profile/presentation/views/profile_details_screen.dart';
+export 'package:bacura_app/feature/profile/presentation/views/my_profile_screen.dart';
 export 'package:bacura_app/feature/profile/presentation/views/unsed_widgets/Invoice_details_screen.dart';
 export 'package:bacura_app/feature/profile/presentation/views/unsed_widgets/last_operations_Screen.dart';
 export 'package:bacura_app/feature/profile/presentation/views/unsed_widgets/wallet_details_screen.dart';
