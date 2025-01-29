@@ -24,7 +24,7 @@ class ServiceTypeScreen extends StatelessWidget {
               children: [
                 // Image Section
                 if (categoryEntity.id == 4)
-                  Container(
+                  SizedBox(
                     width: double.infinity,
                     child: Image.asset(
                       'assets/images/camree.jpg',
@@ -63,10 +63,7 @@ class ServiceTypeScreen extends StatelessWidget {
                   padding: EdgeInsets.only(right: AppSizes.pw16, top: AppSizes.ph16, left: AppSizes.ph16),
                   child: Text(
                     AppLocalizations.of(context)!.available_services,
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyLarge!
-                        .copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold),
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold),
                   ),
                 ),
 
@@ -92,7 +89,7 @@ class ServiceTypeScreen extends StatelessWidget {
                   onPressed: provider.selectedService == null
                       ? null
                       : () {
-                          Navigator.pushNamed(context, Routes.serviceDetailsRoute);
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => ServiceDetailsScreen()));
                         },
                 ),
               ],

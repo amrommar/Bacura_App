@@ -21,7 +21,7 @@ class UpdateProfileParameters extends Equatable {
   final String? phone;
   final String? gender;
   final String? name;
-  final String? image;
+  final File? image;
   final String? countryCode;
   final String? location;
 
