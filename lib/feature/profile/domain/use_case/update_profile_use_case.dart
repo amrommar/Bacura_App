@@ -32,7 +32,7 @@ class UpdateProfileParameters extends Equatable {
         'phone': phone,
         'gender': gender,
         'name': name,
-        'image': image,
+        'file': image,
         'country_code': countryCode,
         'location': location,
       }..removeWhere(

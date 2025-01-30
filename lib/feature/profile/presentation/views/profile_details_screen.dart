@@ -38,7 +38,7 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                     children: [
                       AvatarWidget(
                         onEditImage: () async {
-                          await provider.pickImage(context);
+                          await provider.pickProfilePicture();
                         },
                         imagePath:
                             // profileEntity.image ??

@@ -101,7 +101,7 @@ class MyProfileProvider with ChangeNotifier {
                 title: const Text('الكاميرا'),
                 onTap: () async {
                   Navigator.of(dialogContext).pop();
-                  await _pickImageFromSource(ImageSource.camera, picker);
+                  // await _pickImageFromSource(ImageSource.camera, picker);
                 },
               ),
               ListTile(
@@ -109,7 +109,7 @@ class MyProfileProvider with ChangeNotifier {
                 title: const Text('المعرض'),
                 onTap: () async {
                   Navigator.of(dialogContext).pop();
-                  await _pickImageFromSource(ImageSource.gallery, picker);
+                  // await _pickImageFromSource(ImageSource.gallery, picker);
                 },
               ),
             ],
@@ -119,19 +119,31 @@ class MyProfileProvider with ChangeNotifier {
     );
   }
 
-  Future<void> _pickImageFromSource(ImageSource source, ImagePicker picker) async {
-    final XFile? pickedFile = await picker.pickImage(source: source);
-    if (pickedFile != null) {
-      final Uint8List imageBytes = await convertXFileToUint8List(pickedFile);
-      imagePath = await convertUnit8ListToFile(imageInUnit8List: imageBytes);
+  Future<void> pickProfilePicture() async {
+    if (isImagePickerOpen) return;
+    final ImagePicker picker = ImagePicker();
+    isImagePickerOpen = true;
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
 
-      await sl<UpdateProfileUseCase>().call(UpdateProfileParameters(
-        image: imagePath,
-      ));
-    }
     isImagePickerOpen = false;
+    if (image != null) {
+      isLoading = true;
+      notifyListeners();
+      final Uint8List imageBytes = await convertXFileToUint8List(image);
+      final File imageFile = (await convertUnit8ListToFile(imageInUnit8List: imageBytes));
+      var result = await sl<UpdateProfileUseCase>().call(UpdateProfileParameters(
+        image: imageFile,
+      ));
+      result.fold((l) async {
+        await DialogWidget.showCustomDialog(context: Get.context!, message: l.message);
+      }, (r) async {
+        print('sssssssssssssssssssssssssssssssssssssssssssssssssssssss');
+        isLoading = false;
+        notifyListeners();
+      });
+    }
+    isLoading = false;
     notifyListeners();
-    _getMyProfile();
   }
 
   Future<void> openNameBottomSheet() async {
