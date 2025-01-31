@@ -33,7 +33,7 @@ export 'package:bacura_app/feature/auth/presentation/views/components/custom_pin
 export 'package:bacura_app/feature/auth/presentation/views/login_screen.dart';
 export 'package:bacura_app/feature/customer_service/presentation/views/customer_service_screen.dart';
 export 'package:bacura_app/feature/getStarted/presentation/views/get_started_screen.dart';
-export 'package:bacura_app/feature/home/presentation/home_Screen.dart';
+export 'package:bacura_app/feature/home/presentation/home_screen.dart';
 export 'package:bacura_app/feature/home/presentation/home_tab_screen.dart';
 export 'package:bacura_app/feature/home/presentation/views/components/custom_small_elevated_button.dart';
 export 'package:bacura_app/feature/more/presentation/views/about_us_screen.dart';

@@ -4,6 +4,7 @@ import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/profile/domain/repository/base_profile_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
+import 'package:dio/dio.dart' as dio;
 
 class UpdateProfileUseCase extends BaseUseCases<void, UpdateProfileParameters> {
   final BaseProfileRepository baseProfileRepository;
@@ -26,18 +27,21 @@ class UpdateProfileParameters extends Equatable {
   final String? location;
 
   const UpdateProfileParameters({this.email, this.phone, this.gender, this.name, this.image, this.countryCode, this.location});
-
-  Map<String, dynamic> toMap() => {
-        'email': email,
-        'phone': phone,
-        'gender': gender,
-        'name': name,
-        'file': image,
-        'country_code': countryCode,
-        'location': location,
-      }..removeWhere(
-          (key, value) => value == null || value.toString().isEmpty,
-        );
+  Map<String, dynamic> toMap() {
+    return {
+      'email': email,
+      'phone': phone,
+      'gender': gender,
+      'name': name,
+      'file': dio.MultipartFile.fromFile(
+        image!.path,
+      ),
+      'country_code': countryCode,
+      'location': location,
+    }..removeWhere(
+        (key, value) => value == null || value.toString().isEmpty,
+      );
+  }
 
   @override
   List<Object?> get props => [

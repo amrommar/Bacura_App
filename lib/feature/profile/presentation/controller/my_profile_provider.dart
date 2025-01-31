@@ -59,9 +59,7 @@ class MyProfileProvider with ChangeNotifier {
 
   Future<void> _getMyProfile() async {
     var result = await sl<MyProfileUseCase>().call();
-    result.fold((l) async {
-      await DialogWidget.showCustomDialog(context: Get.context!, message: l.message);
-    }, (r) async {
+    result.fold((l) async {}, (r) async {
       myProfileEntity = r;
       isLoading = false;
       notifyListeners();
@@ -131,18 +129,12 @@ class MyProfileProvider with ChangeNotifier {
       notifyListeners();
       final Uint8List imageBytes = await convertXFileToUint8List(image);
       final File imageFile = (await convertUnit8ListToFile(imageInUnit8List: imageBytes));
-      var result = await sl<UpdateProfileUseCase>().call(UpdateProfileParameters(
+      await sl<UpdateProfileUseCase>().call(UpdateProfileParameters(
         image: imageFile,
       ));
-      result.fold((l) async {
-        await DialogWidget.showCustomDialog(context: Get.context!, message: l.message);
-      }, (r) async {
-        print('sssssssssssssssssssssssssssssssssssssssssssssssssssssss');
-        isLoading = false;
-        notifyListeners();
-      });
     }
     isLoading = false;
+    _getMyProfile();
     notifyListeners();
   }
 
