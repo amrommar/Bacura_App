@@ -1,5 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/requests/index.dart';
+import 'package:bacura_app/feature/my_requests/index.dart';
 
 class RequestsTabScreen extends StatefulWidget {
   const RequestsTabScreen({super.key});

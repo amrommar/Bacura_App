@@ -7,4 +7,5 @@ class ApiEndPoint {
   static const String bannerPath = "banners";
   static const String categoriesPath = "categories";
   static const String ordersPath = "orders";
+  static const String getMyOrdersPath = "orders/mine";
 }

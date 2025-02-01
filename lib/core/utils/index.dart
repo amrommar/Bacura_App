@@ -68,10 +68,10 @@ export 'package:bacura_app/feature/request_services/presentation/components/cust
 export 'package:bacura_app/feature/request_services/presentation/consultation_screen.dart';
 export 'package:bacura_app/feature/request_services/presentation/service_details_screen.dart';
 export 'package:bacura_app/feature/request_services/presentation/service_type_screen.dart';
-export 'package:bacura_app/feature/requests/presentation/views/components/request_details_icon_texts_row.dart';
-export 'package:bacura_app/feature/requests/presentation/views/components/request_time_date_widget.dart';
-export 'package:bacura_app/feature/requests/presentation/views/request_details_screen.dart';
-export 'package:bacura_app/feature/requests/presentation/views/requests_tab_screen.dart';
+export 'package:bacura_app/feature/my_requests/presentation/views/components/request_details_icon_texts_row.dart';
+export 'package:bacura_app/feature/my_requests/presentation/views/components/request_time_date_widget.dart';
+export 'package:bacura_app/feature/my_requests/presentation/views/request_details_screen.dart';
+export 'package:bacura_app/feature/my_requests/presentation/views/requests_tab_screen.dart';
 export 'package:bacura_app/feature/service_provider_registration/presentation/views/components/city_drop_down_widget.dart';
 export 'package:bacura_app/feature/service_provider_registration/presentation/views/components/custom_registration_text_field.dart';
 export 'package:bacura_app/feature/service_provider_registration/presentation/views/components/register_phone_field.dart';

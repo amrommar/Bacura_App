@@ -6,6 +6,10 @@ import 'package:bacura_app/feature/home/domain/repository/base_home_repository.d
 import 'package:bacura_app/feature/home/domain/use_case/get_banner_use_case.dart';
 import 'package:bacura_app/feature/home/domain/use_case/get_category_use_case.dart';
 import 'package:bacura_app/feature/home/domain/use_case/on_banner_clicked_use_case.dart';
+import 'package:bacura_app/feature/my_requests/data/data_source/my_request_data_source.dart';
+import 'package:bacura_app/feature/my_requests/data/repository/my_request_repository.dart';
+import 'package:bacura_app/feature/my_requests/domin/repository/base_my_request_repository.dart';
+import 'package:bacura_app/feature/my_requests/domin/use_case/get_my_requests_use_case.dart';
 import 'package:bacura_app/feature/profile/data/data_source/profile_data_source.dart';
 import 'package:bacura_app/feature/profile/data/repository/profile_repository.dart';
 import 'package:bacura_app/feature/profile/domain/repository/base_profile_repository.dart';
@@ -75,5 +79,16 @@ class DependencyInjectionServices {
 
     ///Use Cases
     sl.registerLazySingleton<RequestServicesUseCase>(() => RequestServicesUseCase(baseRequestServiceRepository: sl()));
+  }
+
+  _initializeMyRequestService() {
+    // Repository
+    sl.registerLazySingleton<BaseMyRequestRepository>(() => MyRequestRepository(baseRequestDataSource: sl()));
+
+    ///Data Sources
+    sl.registerLazySingleton<BaseRequestDataSource>(() => MyRequestDataSource());
+
+    ///Use Cases
+    sl.registerLazySingleton<GetMyRequestsUseCase>(() => GetMyRequestsUseCase(baseRequestRepository: sl()));
   }
 }
