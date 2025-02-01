@@ -69,28 +69,37 @@ class ServiceTypeScreen extends StatelessWidget {
 
                 // Service Containers
                 Column(
-                  children: List.generate(
-                    categoryEntity.services.length,
-                    (index) => ServiceTypeWidget(
-                      text: categoryEntity.services[index].name!,
-                      isSelected: provider.selectedService == categoryEntity.services[index].name,
-                      onSelect: () {
-                        provider.onSelectService(categoryEntity.services[index].name!);
-                      },
+                  children: [
+                    Column(
+                      children: List.generate(
+                        categoryEntity.services.length,
+                        (index) => ServiceTypeWidget(
+                          text: categoryEntity.services[index].name!,
+                          isSelected: provider.selectedService == categoryEntity.services[index].id,
+                          onSelect: () {
+                            provider.onSelectService(categoryEntity.services[index].id!);
+                          },
+                        ),
+                      ),
                     ),
-                  ),
-                ),
+                    SizedBox(height: AppSizes.ph100),
 
-                SizedBox(height: AppSizes.ph100),
-
-                // Next Button
-                NextButton(
-                  isEnabled: provider.selectedService != null,
-                  onPressed: provider.selectedService == null
-                      ? null
-                      : () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => const ServiceDetailsScreen()));
-                        },
+                    // Next Button
+                    NextButton(
+                      isEnabled: provider.selectedService != null,
+                      onPressed: provider.selectedService == null
+                          ? null
+                          : () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ServiceDetailsScreen(
+                                            categoryId: categoryEntity.id!,
+                                            serviceId: categoryEntity.services[provider.selectedService!].id!,
+                                          )));
+                            },
+                    ),
+                  ],
                 ),
               ],
             ),
