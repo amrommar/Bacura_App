@@ -91,7 +91,7 @@ class _CinemaDetailsScreenState extends State<CinemaDetailsScreen> {
                       },
                       suffixIcon: InkWell(
                         onTap: () {
-                          showLocationBottomSheet(locationController);
+                          // showLocationBottomSheet(locationController,);
                         },
                         child: Icon(
                           Icons.location_on_outlined,
@@ -136,17 +136,15 @@ class _CinemaDetailsScreenState extends State<CinemaDetailsScreen> {
     showModalBottomSheet(
         context: context,
         builder: (context) {
-          return RequestSentBottomSheet();
+          return const RequestSentBottomSheet();
         });
   }
 
-  void showLocationBottomSheet(TextEditingController locationController) {
+  void showLocationBottomSheet(TextEditingController locationController, double latitude, double longitude) {
     showModalBottomSheet(
         context: context,
         builder: (context) {
-          return SetLocationBottomSheet(
-            locationController: locationController,
-          );
+          return const SetLocationBottomSheet();
         });
   }
 }

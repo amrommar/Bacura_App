@@ -43,7 +43,7 @@ class _RequestSentBottomSheetState extends State<RequestSentBottomSheet> {
             CustomSmallElevatedButton(
                 text: AppLocalizations.of(context)!.ok,
                 onPressed: () {
-                  Navigator.pushNamed(context, Routes.homeRoute);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
                 }),
           ],
         ),

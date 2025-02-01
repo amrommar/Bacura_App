@@ -1,5 +1,6 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
+import 'package:bacura_app/feature/request_services/presentation/controller/request_services_provider.dart';
 
 void main() async {
   await ServiceInitializer().initializeSettings();
@@ -13,6 +14,7 @@ void main() async {
         providers: [
           ChangeNotifierProvider(create: (context) => LanguageProvider()),
           ChangeNotifierProvider(create: (context) => MyProfileProvider(context)),
+          ChangeNotifierProvider(create: (context) => RequestServicesProvider()),
         ],
         child: const MyApp(),
       ),

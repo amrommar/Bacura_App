@@ -89,7 +89,7 @@ class ServiceTypeScreen extends StatelessWidget {
                   onPressed: provider.selectedService == null
                       ? null
                       : () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => ServiceDetailsScreen()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => const ServiceDetailsScreen()));
                         },
                 ),
               ],

@@ -1,16 +1,16 @@
 import 'package:bacura_app/core/utils/index.dart';
 
 class CustomQuestionTextFormField extends StatefulWidget {
-  String fieldName;
-  String hintText;
-  Widget? suffixIcon;
-  bool isObsucre;
-  int maxLines;
-  var keyBoardType;
-  String? Function(String?)? validator;
-  TextEditingController controller;
+  final String fieldName;
+  final String hintText;
+  final Widget? suffixIcon;
+  final bool isObsucre;
+  final int maxLines;
+  final TextInputType keyBoardType;
+  final String? Function(String?)? validator;
+  final TextEditingController controller;
 
-  CustomQuestionTextFormField({
+  const CustomQuestionTextFormField({
     super.key,
     required this.fieldName,
     this.maxLines = 1,
@@ -53,8 +53,7 @@ class _CustomQuestionTextFormFieldState extends State<CustomQuestionTextFormFiel
                       width: AppSizes.pw1,
                     ),
                     borderRadius: BorderRadius.circular(AppSizes.br8)),
-                contentPadding:
-                    EdgeInsets.only(left: AppSizes.pw8, right: AppSizes.pw8, top: AppSizes.ph10, bottom: AppSizes.ph10),
+                contentPadding: EdgeInsets.only(left: AppSizes.pw8, right: AppSizes.pw8, top: AppSizes.ph10, bottom: AppSizes.ph10),
                 hintText: widget.hintText,
                 hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.greyColor)),
           )

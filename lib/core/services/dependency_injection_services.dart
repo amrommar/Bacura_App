@@ -12,6 +12,10 @@ import 'package:bacura_app/feature/profile/domain/repository/base_profile_reposi
 import 'package:bacura_app/feature/auth/domain/usecases/complete_profile_use_case.dart';
 import 'package:bacura_app/feature/profile/domain/use_case/my_profile_use_case.dart';
 import 'package:bacura_app/feature/profile/domain/use_case/update_profile_use_case.dart';
+import 'package:bacura_app/feature/request_services/data/data_source/request_service_data_source.dart';
+import 'package:bacura_app/feature/request_services/data/repository/request_service_repository.dart';
+import 'package:bacura_app/feature/request_services/domin/repository/base_request_service_repository.dart';
+import 'package:bacura_app/feature/request_services/domin/use_case/request_services_use_case.dart';
 import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;
@@ -21,6 +25,7 @@ class DependencyInjectionServices {
     _initializeAuthUser();
     _initializeProfileUser();
     _initializeHomeUser();
+    _initializeRequestService();
   }
 
   _initializeAuthUser() {
@@ -59,5 +64,16 @@ class DependencyInjectionServices {
     sl.registerLazySingleton<GetBannerUseCase>(() => GetBannerUseCase(baseHomeRepository: sl()));
     sl.registerLazySingleton<OnBannerClickedUseCase>(() => OnBannerClickedUseCase(baseHomeRepository: sl()));
     sl.registerLazySingleton<GetCategoryUseCase>(() => GetCategoryUseCase(baseHomeRepository: sl()));
+  }
+
+  _initializeRequestService() {
+    // Repository
+    sl.registerLazySingleton<BaseRequestServiceRepository>(() => RequestServiceRepository(baseRequestServiceDataSource: sl()));
+
+    ///Data Sources
+    sl.registerLazySingleton<BaseRequestServiceDataSource>(() => RequestServiceDataSource());
+
+    ///Use Cases
+    sl.registerLazySingleton<RequestServicesUseCase>(() => RequestServicesUseCase(baseRequestServiceRepository: sl()));
   }
 }
