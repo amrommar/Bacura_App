@@ -8,7 +8,7 @@ class MyRequestDataEntity extends Equatable {
   final String? location;
   final double? longitude;
   final double? latitude;
-  final String? description;
+  final String description;
   final int? serviceId;
   final String? service;
   final int? categoryId;
@@ -21,7 +21,7 @@ class MyRequestDataEntity extends Equatable {
     this.location,
     this.longitude,
     this.latitude,
-    this.description,
+    required this.description,
     this.serviceId,
     this.service,
     this.categoryId,

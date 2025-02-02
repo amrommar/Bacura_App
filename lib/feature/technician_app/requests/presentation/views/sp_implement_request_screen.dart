@@ -44,7 +44,7 @@ class _SpImplementRequestScreenState extends State<SpImplementRequestScreen> {
               children: [
                 const SpRequestNumRow(),
                 const Divider(),
-                const RequestTimeDateWidget(),
+                const RequestTimeDateWidget(date: '10/10/2023', time: '10:00 AM'),
                 const Divider(),
                 SizedBox(height: AppSizes.ph10),
                 Row(

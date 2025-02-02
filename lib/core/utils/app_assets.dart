@@ -15,6 +15,7 @@ class AppAssets {
   static const String smartHomeIcon = '$imageSvgPath/smarthome_icon.svg';
   static const String soundSystemsIcon = '$imageSvgPath/soundSystems_icon.svg';
   static const String closeSquare = '$imageSvgPath/close_square.svg';
+  static const String contactIcon = '$imageSvgPath/contact_icon.svg';
 
   //png
   static const String ad1Image = '$imagePngPath/ad12.png';
@@ -45,8 +46,7 @@ class AppAssets {
   static const String banner3 = '$imagePath/baner3.jpg';
 
   /// URL
-  static const String bacuraStoreURL =
-      'https://bacuratec.com/ar/?srsltid=AfmBOoqrtsKPaKM2iJCb48kq_YBiJCFatS1WpeifJQls7AO7HS4cgqNU';
+  static const String bacuraStoreURL = 'https://bacuratec.com/ar/?srsltid=AfmBOoqrtsKPaKM2iJCb48kq_YBiJCFatS1WpeifJQls7AO7HS4cgqNU';
   static const String bacuraWebsiteURl = 'https://bacuratec.sa/';
   static const String bacuraFacebookURL = 'https://www.facebook.com/bacuratec';
   static const String bacuraSnapURL = 'https://www.snapchat.com/add/bacura_tec';

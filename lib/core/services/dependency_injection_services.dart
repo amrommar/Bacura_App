@@ -30,6 +30,7 @@ class DependencyInjectionServices {
     _initializeProfileUser();
     _initializeHomeUser();
     _initializeRequestService();
+    _initializeMyRequestService();
   }
 
   _initializeAuthUser() {

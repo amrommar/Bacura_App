@@ -18,9 +18,8 @@ class _RequestsFilterWidgetState extends State<RequestsFilterWidget> {
       AppLocalizations.of(context)!.canceled,
       AppLocalizations.of(context)!.pending,
     ];
-    final List<MultiSelectItem<String>> _filterItems =
-        requestsTypes.map((filter) => MultiSelectItem<String>(filter, filter)).toList();
-    void _showMultiSelect() async {
+    final List<MultiSelectItem<String>> filterItems = requestsTypes.map((filter) => MultiSelectItem<String>(filter, filter)).toList();
+    void showMultiSelect() async {
       await showDialog(
           context: context,
           builder: (ctx) {
@@ -31,7 +30,7 @@ class _RequestsFilterWidgetState extends State<RequestsFilterWidget> {
                 title: Text(AppLocalizations.of(context)!.select_category),
                 itemsTextStyle: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.greyColor),
                 selectedColor: ColorManager.primaryBlueColor,
-                items: _filterItems,
+                items: filterItems,
                 initialValue: selectedFilters,
                 // Initial selected filters
                 onConfirm: (List<String> selectedValues) {
@@ -49,7 +48,7 @@ class _RequestsFilterWidgetState extends State<RequestsFilterWidget> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Filter_Icon(onTap: () {
-            return _showMultiSelect();
+            return showMultiSelect();
           }),
 
           /// Filter types section

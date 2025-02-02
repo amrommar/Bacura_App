@@ -1,5 +1,8 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/my_requests/index.dart';
+import 'package:bacura_app/feature/my_requests/presentation/controller/my_requests_provider.dart';
+import 'package:bacura_app/feature/my_requests/utils.dart';
+import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 
 class RequestsTabScreen extends StatefulWidget {
   const RequestsTabScreen({super.key});
@@ -9,46 +12,49 @@ class RequestsTabScreen extends StatefulWidget {
 }
 
 class _RequestsTabScreenState extends State<RequestsTabScreen> {
-  List<Color> colors = [
-    ColorManager.yellowColor,
-    ColorManager.primaryBlueColor,
-    ColorManager.greenColor,
-    ColorManager.redColor,
-    ColorManager.yellowColor,
-    ColorManager.primaryBlueColor,
-    ColorManager.greenColor,
-    ColorManager.redColor,
-    ColorManager.yellowColor,
-    ColorManager.primaryBlueColor,
-    ColorManager.greenColor,
-    ColorManager.redColor
-  ];
-
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      SizedBox(height: AppSizes.ph5),
-
-      /// filtering section ///////////////////////////////////////////////////////
-      const RequestsFilterWidget(),
-      Divider(color: ColorManager.lightBlueColor),
-
-      /// Requests section ///////////////////////////////////////////////////////
-
-      Expanded(
-          child: ListView.builder(
-              itemCount: 12,
-              itemBuilder: (context, index) {
-                return InkWell(
-                    onTap: () {
-                      Navigator.pushNamed(context, Routes.requestDetailsRoute);
-                    },
-                    child: RequestDetailsWidget(
-                      backgroundColor: requestColor(colors[index]),
-                      requestColor: colors[index],
-                    ));
-              }))
-    ]);
+    return ChangeNotifierProvider(
+      create: (context) => MyRequestsProvider(),
+      child: Consumer<MyRequestsProvider>(
+        builder: (context, provider, child) => Column(
+          children: [
+            SizedBox(height: AppSizes.ph5),
+            const RequestsFilterWidget(),
+            Divider(color: ColorManager.lightBlueColor),
+            provider.isLoadingMyRequests
+                ? _buildShimmerContainer()
+                : Expanded(
+                    child: LazyLoadScrollView(
+                      onEndOfPage: () => provider.loadMoreMyRequests(),
+                      child: ListView.builder(
+                        itemCount: provider.myRequestEntity.myRequestDataEntity.length,
+                        itemBuilder: (context, index) {
+                          return InkWell(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => const RequestDetailsScreen()));
+                            },
+                            child: RequestItemComponent(
+                              backgroundColor: requestColor(statusColors[provider.myRequestEntity.myRequestDataEntity[index].status]!),
+                              requestColor: statusColors[provider.myRequestEntity.myRequestDataEntity[index].status]!,
+                              index: index,
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+            SizedBox(height: AppSizes.ph25),
+            provider.isLoadingMore
+                ? const Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Center(child: CircularProgressIndicator()),
+                  )
+                : const SizedBox.shrink(),
+          ],
+        ),
+      ),
+    );
   }
 
   Color requestColor(Color currentColor) {
@@ -63,4 +69,25 @@ class _RequestsTabScreenState extends State<RequestsTabScreen> {
     }
     return ColorManager.whiteColor;
   }
+}
+
+Widget _buildShimmerContainer() {
+  return Container(
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(AppSizes.br12),
+    ),
+    margin: EdgeInsets.only(right: AppSizes.pw18, top: AppSizes.ph18, left: AppSizes.pw18),
+    padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph12),
+    height: AppSizes.ph180,
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(height: 20, width: 100, color: Colors.white),
+        Container(height: 16, width: AppSizes.pw400, color: Colors.white),
+        Container(height: 16, width: 80, color: Colors.white),
+      ],
+    ),
+  );
 }

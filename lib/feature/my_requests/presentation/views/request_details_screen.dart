@@ -31,42 +31,27 @@ class _RequestDetailsScreenState extends State<RequestDetailsScreen> {
             height: AppSizes.ph800,
             child: SingleChildScrollView(
                 child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.center, children: [
-              ////  Request Number and Icons for Contact section/////////////////////////////////////////////
-              RequestNumContactIconWidget(requestColor: ColorManager.yellowColor),
+              RequestNumContactIconWidget(requestColor: ColorManager.yellowColor, requestNumber: '123456789'),
               const Divider(),
-              ////Time and Date section/////////////////////////////////////////////
-              const RequestTimeDateWidget(),
-
-              /// Request Details section/////////////////////////////////////////////
-              ///
+              const RequestTimeDateWidget(date: '10/10/2023', time: '10:00 AM'),
               const RequestComponentsList(),
-
-              /// Total Money section/////////////////////////////////////////////
               const RequestTotalPriceWidget(),
               const Divider(),
-
-              ///  location section/////////////////////////////////////////////
               RequestDetailsIconTextsRow(
                 title: AppLocalizations.of(context)!.location,
                 description: ' الرياض حي العارض شارع أسماء بنت مالك',
                 icon: Icons.location_on,
               ),
-
-              /// Payment Method section/////////////////////////////////////////////
               RequestDetailsIconTextsRow(
                   title: AppLocalizations.of(context)!.payment_method,
                   description: 'بطاقة إئتمانية',
                   icon: Icons.credit_card,
                   iconColor: ColorManager.greyColor),
-
-              ///  Payment status section/////////////////////////////////////////////
               RequestDetailsIconTextsRow(
                   title: AppLocalizations.of(context)!.payment_status,
                   description: 'تم الدفع',
                   icon: Icons.check_circle,
                   iconColor: ColorManager.darkGreenColor),
-
-              ///  Warranty status section/////////////////////////////////////////////
               RequestDetailsIconTextsRow(
                   title: AppLocalizations.of(context)!.warranty_status, description: 'ساري', icon: Icons.verified_user, iconColor: ColorManager.midBlueColor),
               const Divider(),

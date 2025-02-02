@@ -1,19 +1,17 @@
 import 'package:bacura_app/core/utils/index.dart';
 
 class RequestNumContactIconWidget extends StatelessWidget {
-  Color requestColor;
+  final Color requestColor;
+  final String requestNumber;
 
-  RequestNumContactIconWidget({super.key, required this.requestColor});
+  const RequestNumContactIconWidget({super.key, required this.requestColor, required this.requestNumber});
 
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
       Text(
-        '#3333452',
-        style: Theme.of(context)
-            .textTheme
-            .titleMedium!
-            .copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold),
+        '#$requestNumber',
+        style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold),
       ),
       Row(children: [
         InkWell(
@@ -21,7 +19,7 @@ class RequestNumContactIconWidget extends StatelessWidget {
               Navigator.pushNamed(context, Routes.customerServiceRoute);
             },
             child: SvgPicture.asset(
-              'assets/images/contact_icon.svg',
+              AppAssets.contactIcon,
               height: AppSizes.ph20,
             )),
         SizedBox(width: AppSizes.pw10),
