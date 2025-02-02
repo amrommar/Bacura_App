@@ -8,7 +8,7 @@ import 'package:bacura_app/feature/home/domain/use_case/on_banner_clicked_use_ca
 class HomeProvider with ChangeNotifier {
   late List<BannerEntity> bannerEntity;
   late List<CategoryEntity> categoryEntity;
-  int? selectedService;
+  int? selectedServiceIndex;
   bool isSliderLoading = true;
   bool isCategoryLoading = true;
 
@@ -48,8 +48,8 @@ class HomeProvider with ChangeNotifier {
                 )));
   }
 
-  onSelectService(int service) {
-    selectedService = service;
+  void onSelectService(int index) {
+    selectedServiceIndex = index;
     notifyListeners();
   }
 }

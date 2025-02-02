@@ -75,19 +75,17 @@ class ServiceTypeScreen extends StatelessWidget {
                         categoryEntity.services.length,
                         (index) => ServiceTypeWidget(
                           text: categoryEntity.services[index].name!,
-                          isSelected: provider.selectedService == categoryEntity.services[index].id,
+                          isSelected: provider.selectedServiceIndex == index,
                           onSelect: () {
-                            provider.onSelectService(categoryEntity.services[index].id!);
+                            provider.onSelectService(index);
                           },
                         ),
                       ),
                     ),
                     SizedBox(height: AppSizes.ph100),
-
-                    // Next Button
                     NextButton(
-                      isEnabled: provider.selectedService != null,
-                      onPressed: provider.selectedService == null
+                      isEnabled: provider.selectedServiceIndex != null,
+                      onPressed: provider.selectedServiceIndex == null
                           ? null
                           : () {
                               Navigator.push(
@@ -95,7 +93,7 @@ class ServiceTypeScreen extends StatelessWidget {
                                   MaterialPageRoute(
                                       builder: (context) => ServiceDetailsScreen(
                                             categoryId: categoryEntity.id!,
-                                            serviceId: categoryEntity.services[provider.selectedService!].id!,
+                                            serviceId: categoryEntity.services[provider.selectedServiceIndex!].id!,
                                           )));
                             },
                     ),
