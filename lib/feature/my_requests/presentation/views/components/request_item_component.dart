@@ -30,7 +30,7 @@ class RequestItemComponent extends StatelessWidget {
   }
 
   Widget _buildRequestContainer(MyRequestsProvider provider, BuildContext context) {
-    var requestEntity = provider.myRequestEntity.myRequestDataEntity[index];
+    var requestEntity = provider.filteredRequests[index];
     String communicationDate = DateParser.dateFormatterWithoutTime(requestEntity.communicationDate);
     String communicationTime = DateParser.dateFormatterOnlyTime(requestEntity.communicationTime);
     return Container(

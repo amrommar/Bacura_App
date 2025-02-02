@@ -1,4 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/my_requests/domin/entity/my_request_data_entity.dart';
 import 'package:bacura_app/feature/my_requests/domin/entity/my_request_entity.dart';
 import 'package:bacura_app/feature/my_requests/domin/use_case/get_my_requests_use_case.dart';
 
@@ -8,6 +9,8 @@ class MyRequestsProvider with ChangeNotifier {
   bool isFinishedPaging = false;
   bool isLoadingMyRequests = true;
   int pageNumber = 1;
+  List<String> _selectedFilters = [];
+  List<String> get selectedFilters => _selectedFilters;
 
   MyRequestsProvider() {
     init();
@@ -43,11 +46,26 @@ class MyRequestsProvider with ChangeNotifier {
   }
 
   loadMoreMyRequests() async {
+    if (isFinishedPaging) return;
     pageNumber++;
     isLoadingMore = true;
     notifyListeners();
     await getMyRequests(isLoadingMore: true);
     isLoadingMore = false;
     notifyListeners();
+  }
+
+  void setSelectedFilters(List<String> filters) {
+    _selectedFilters = filters;
+    notifyListeners();
+  }
+
+  List<MyRequestDataEntity> get filteredRequests {
+    if (_selectedFilters.isEmpty) {
+      return myRequestEntity.myRequestDataEntity;
+    }
+    return myRequestEntity.myRequestDataEntity.where((request) {
+      return _selectedFilters.contains(request.status);
+    }).toList();
   }
 }

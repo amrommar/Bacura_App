@@ -28,7 +28,7 @@ class _RequestsTabScreenState extends State<RequestsTabScreen> {
                     child: LazyLoadScrollView(
                       onEndOfPage: () => provider.loadMoreMyRequests(),
                       child: ListView.builder(
-                        itemCount: provider.myRequestEntity.myRequestDataEntity.length,
+                        itemCount: provider.filteredRequests.length,
                         itemBuilder: (context, index) {
                           return InkWell(
                             onTap: () {
