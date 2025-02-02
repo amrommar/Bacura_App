@@ -3,6 +3,7 @@ import 'package:bacura_app/feature/my_requests/index.dart';
 import 'package:bacura_app/feature/my_requests/presentation/controller/my_requests_provider.dart';
 import 'package:bacura_app/feature/my_requests/utils.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
+import 'package:shimmer/shimmer.dart';
 
 class RequestsTabScreen extends StatefulWidget {
   const RequestsTabScreen({super.key});
@@ -23,7 +24,7 @@ class _RequestsTabScreenState extends State<RequestsTabScreen> {
             const RequestsFilterWidget(),
             Divider(color: ColorManager.lightBlueColor),
             provider.isLoadingMyRequests
-                ? _buildShimmerContainer()
+                ? Column(children: [_buildShimmerContainer(), _buildShimmerContainer(), _buildShimmerContainer()])
                 : Expanded(
                     child: LazyLoadScrollView(
                       onEndOfPage: () => provider.loadMoreMyRequests(),
@@ -72,22 +73,26 @@ class _RequestsTabScreenState extends State<RequestsTabScreen> {
 }
 
 Widget _buildShimmerContainer() {
-  return Container(
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(AppSizes.br12),
-    ),
-    margin: EdgeInsets.only(right: AppSizes.pw18, top: AppSizes.ph18, left: AppSizes.pw18),
-    padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph12),
-    height: AppSizes.ph180,
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Container(height: 20, width: 100, color: Colors.white),
-        Container(height: 16, width: AppSizes.pw400, color: Colors.white),
-        Container(height: 16, width: 80, color: Colors.white),
-      ],
+  return Shimmer.fromColors(
+    baseColor: Colors.grey[300]!,
+    highlightColor: Colors.grey[100]!,
+    child: Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(AppSizes.br12),
+      ),
+      margin: EdgeInsets.only(right: AppSizes.pw18, top: AppSizes.ph18, left: AppSizes.pw18),
+      padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph12),
+      height: AppSizes.ph180,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(height: 20, width: 100, color: Colors.white),
+          Container(height: 16, width: AppSizes.pw400, color: Colors.white),
+          Container(height: 16, width: 80, color: Colors.white),
+        ],
+      ),
     ),
   );
 }
