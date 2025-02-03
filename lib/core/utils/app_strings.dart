@@ -78,4 +78,6 @@ class AppStrings {
   static const String thankYouForYourFeedback = 'Thank you for your feedback!';
   static const String confirm = 'تأكيد';
   static const String yourComplaintSentSuccessfully = 'تم إرسال شكواك بنجاح';
+  static const String yourSuggestionSentSuccessfully = 'تم ارسال اقتراحك بنجاحك';
+  static const String yourSuggestionSentSuccessfullyMsg = 'يهمنا إهتمامك ونشكرك علي اقتراحك سيتم مراجعة اقتراحك';
 }

@@ -1,14 +1,10 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/core/validation/validation.dart';
 import 'package:bacura_app/feature/more/presentation/controller/suggestions_provider.dart';
 
-class SuggestionsScreen extends StatefulWidget {
+class SuggestionsScreen extends StatelessWidget {
   const SuggestionsScreen({super.key});
 
-  @override
-  State<SuggestionsScreen> createState() => _SuggestionsScreenState();
-}
-
-class _SuggestionsScreenState extends State<SuggestionsScreen> {
   @override
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
@@ -46,10 +42,8 @@ class _SuggestionsScreenState extends State<SuggestionsScreen> {
                           if (text == null || text.trim().isEmpty) {
                             return AppLocalizations.of(context)!.please_enter_your_email;
                           }
-                          final bool emailValid =
-                              RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                  .hasMatch(text);
-                          if (!emailValid) {
+
+                          if (!Validation.checkEmail(email: text)) {
                             return AppLocalizations.of(context)!.please_enter_valid_email;
                           }
                           return null;

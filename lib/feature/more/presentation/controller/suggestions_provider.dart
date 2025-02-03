@@ -18,9 +18,9 @@ class SuggestionsProvider extends ChangeNotifier {
     ));
     customShowCustomDialog(
         context: context,
-        title: 'تم ارسال اقتراحك بنجاحك',
-        imagePath: 'assets/images/png/checked.png',
-        content: 'يهمنا إهتمامك ونشكرك علي اقتراحك سيتم مراجعة اقتراحك',
+        title: AppStrings.yourSuggestionSentSuccessfully,
+        imagePath: AppAssets.checkedIcon,
+        content: AppStrings.yourSuggestionSentSuccessfullyMsg,
         isOk: true,
         isCancel: false,
         onCancel: () {},
