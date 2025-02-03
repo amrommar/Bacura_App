@@ -1,4 +1,3 @@
-import 'package:bacura_app/feature/auth/domain/usecases/verify_usecase.dart';
 import 'package:bacura_app/feature/auth/index.dart';
 import 'package:bacura_app/feature/home/data/data_source/home_data_source.dart';
 import 'package:bacura_app/feature/home/data/repository/home_repository.dart';
@@ -6,6 +5,10 @@ import 'package:bacura_app/feature/home/domain/repository/base_home_repository.d
 import 'package:bacura_app/feature/home/domain/use_case/get_banner_use_case.dart';
 import 'package:bacura_app/feature/home/domain/use_case/get_category_use_case.dart';
 import 'package:bacura_app/feature/home/domain/use_case/on_banner_clicked_use_case.dart';
+import 'package:bacura_app/feature/more/data/data_source/more_remote_data_source.dart';
+import 'package:bacura_app/feature/more/data/repositories/more_repository.dart';
+import 'package:bacura_app/feature/more/domain/repositories/base_more_repository.dart';
+import 'package:bacura_app/feature/more/domain/usecases/suggetions_use_case.dart';
 import 'package:bacura_app/feature/my_requests/data/data_source/my_request_data_source.dart';
 import 'package:bacura_app/feature/my_requests/data/repository/my_request_repository.dart';
 import 'package:bacura_app/feature/my_requests/domin/repository/base_my_request_repository.dart';
@@ -13,7 +16,6 @@ import 'package:bacura_app/feature/my_requests/domin/use_case/get_my_requests_us
 import 'package:bacura_app/feature/profile/data/data_source/profile_data_source.dart';
 import 'package:bacura_app/feature/profile/data/repository/profile_repository.dart';
 import 'package:bacura_app/feature/profile/domain/repository/base_profile_repository.dart';
-import 'package:bacura_app/feature/auth/domain/usecases/complete_profile_use_case.dart';
 import 'package:bacura_app/feature/profile/domain/use_case/my_profile_use_case.dart';
 import 'package:bacura_app/feature/profile/domain/use_case/update_profile_use_case.dart';
 import 'package:bacura_app/feature/request_services/data/data_source/request_service_data_source.dart';
@@ -31,6 +33,7 @@ class DependencyInjectionServices {
     _initializeHomeUser();
     _initializeRequestService();
     _initializeMyRequestService();
+    _initializeMoreApp();
   }
 
   _initializeAuthUser() {
@@ -73,7 +76,8 @@ class DependencyInjectionServices {
 
   _initializeRequestService() {
     // Repository
-    sl.registerLazySingleton<BaseRequestServiceRepository>(() => RequestServiceRepository(baseRequestServiceDataSource: sl()));
+    sl.registerLazySingleton<BaseRequestServiceRepository>(
+        () => RequestServiceRepository(baseRequestServiceDataSource: sl()));
 
     ///Data Sources
     sl.registerLazySingleton<BaseRequestServiceDataSource>(() => RequestServiceDataSource());
@@ -91,5 +95,16 @@ class DependencyInjectionServices {
 
     ///Use Cases
     sl.registerLazySingleton<GetMyRequestsUseCase>(() => GetMyRequestsUseCase(baseRequestRepository: sl()));
+  }
+
+  _initializeMoreApp() {
+    // Repository
+    sl.registerLazySingleton<BaseMoreRepository>(() => MoreRepository(baseMoreRemoteDataSource: sl()));
+
+    ///Data Sources
+    sl.registerLazySingleton<BaseMoreRemoteDataSource>(() => MoreRemoteDataSource());
+
+    ///Use Cases
+    sl.registerLazySingleton<SuggestionsUseCase>(() => SuggestionsUseCase(baseMoreRepository: sl()));
   }
 }
