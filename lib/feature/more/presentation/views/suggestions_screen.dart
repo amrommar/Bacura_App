@@ -9,11 +9,9 @@ class SuggestionsScreen extends StatefulWidget {
 }
 
 class _SuggestionsScreenState extends State<SuggestionsScreen> {
-  var formKey = GlobalKey<FormState>();
-  String? completePhoneNumber;
-
   @override
   Widget build(BuildContext context) {
+    final formKey = GlobalKey<FormState>();
     return ChangeNotifierProvider(
       create: (BuildContext context) => SuggestionsProvider(),
       child: Scaffold(
@@ -62,9 +60,7 @@ class _SuggestionsScreenState extends State<SuggestionsScreen> {
                         hintText: AppLocalizations.of(context)!.enterYourMobileNumber,
                         controller: provider.mobileNumberController,
                         onChanged: (phone) {
-                          setState(() {
-                            completePhoneNumber = phone.completeNumber;
-                          });
+                          provider.onChangePhoneNumber(phone.completeNumber);
                         },
                       ),
                       CustomQuestionTextFormField(
@@ -86,9 +82,9 @@ class _SuggestionsScreenState extends State<SuggestionsScreen> {
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSizes.br8))),
                           onPressed: () {
                             if (formKey.currentState?.validate() == true &&
-                                (completePhoneNumber != null &&
-                                    completePhoneNumber!.isNotEmpty &&
-                                    completePhoneNumber!.length > 8)) {
+                                (provider.completePhoneNumber != null &&
+                                    provider.completePhoneNumber!.isNotEmpty &&
+                                    provider.completePhoneNumber!.length > 8)) {
                               provider.sendSuggestions(context);
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(SnackBar(

@@ -7,6 +7,7 @@ class SuggestionsProvider extends ChangeNotifier {
   var emailController = TextEditingController();
   var mobileNumberController = TextEditingController();
   var suggestionsController = TextEditingController();
+  String? completePhoneNumber;
 
   void sendSuggestions(BuildContext context) {
     sl<SuggestionsUseCase>().call(SuggestionsParameter(
@@ -19,12 +20,17 @@ class SuggestionsProvider extends ChangeNotifier {
         context: context,
         title: 'تم ارسال اقتراحك بنجاحك',
         imagePath: 'assets/images/png/checked.png',
-        content: 'يهمنا إهتمامك ونشكرك علي اقتراحك',
+        content: 'يهمنا إهتمامك ونشكرك علي اقتراحك سيتم مراجعة اقتراحك',
         isOk: true,
         isCancel: false,
         onCancel: () {},
         onOk: () async {
           Navigator.pushNamed(context, Routes.homeRoute);
         });
+  }
+
+  onChangePhoneNumber(String value) {
+    completePhoneNumber = value;
+    notifyListeners();
   }
 }
