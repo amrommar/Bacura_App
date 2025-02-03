@@ -71,8 +71,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => Cards_Management_Screen());
       case Routes.offerDetailsRoute:
         return MaterialPageRoute(builder: (_) => const OfferDetailsScreen());
-      // case Routes.serviceTypeRoute:
-      //   return MaterialPageRoute(builder: (_) => const ServiceTypeScreen());
+      case Routes.serviceTypeRoute:
+        return MaterialPageRoute(builder: (_) => const ServiceTypeScreen());
       case Routes.serviceDetailsRoute:
         return MaterialPageRoute(builder: (_) => const ServiceDetailsScreen());
       case Routes.privacyPolicyRoute:
@@ -102,7 +102,7 @@ class RouteGenerator {
       case Routes.spHomeScreenRoute:
         return MaterialPageRoute(builder: (_) => SpHomeScreen());
       case Routes.spRequestDetailsRoute:
-        return MaterialPageRoute(builder: (_) => SpRequestDetailsScreen());
+        return MaterialPageRoute(builder: (_) => const SpRequestDetailsScreen());
       case Routes.requestImplementRoute:
         return MaterialPageRoute(builder: (_) => const SpImplementRequestScreen());
       case Routes.spProfileDetailsRoute:

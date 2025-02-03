@@ -4,9 +4,9 @@ import 'package:bacura_app/feature/home/presentation/controller/home_provider.da
 import 'package:bacura_app/feature/request_services/index.dart';
 
 class ServiceTypeScreen extends StatelessWidget {
-  final CategoryEntity categoryEntity;
+  final CategoryEntity? categoryEntity;
 
-  const ServiceTypeScreen({super.key, required this.categoryEntity});
+  const ServiceTypeScreen({super.key, this.categoryEntity});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class ServiceTypeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Image Section
-                if (categoryEntity.id == 4)
+                if (categoryEntity!.id == 4)
                   SizedBox(
                     width: double.infinity,
                     child: Image.asset(
@@ -31,22 +31,22 @@ class ServiceTypeScreen extends StatelessWidget {
                       width: double.infinity,
                     ),
                   )
-                else if (categoryEntity.id == 5)
+                else if (categoryEntity!.id == 5)
                   Image.asset(
                     'assets/images/smart1.jpg',
                     width: double.infinity,
                   )
-                else if (categoryEntity.id == 6)
+                else if (categoryEntity!.id == 6)
                   Image.asset(
                     'assets/images/sound1.jpg',
                     width: double.infinity,
                   )
-                else if (categoryEntity.id == 7)
+                else if (categoryEntity!.id == 7)
                   Image.asset(
                     'assets/images/sound1.jpg',
                     width: double.infinity,
                   )
-                else if (categoryEntity.id == 10)
+                else if (categoryEntity!.id == 10)
                   Image.asset(
                     'assets/images/saveenrgy.jpg',
                     width: double.infinity,
@@ -63,7 +63,10 @@ class ServiceTypeScreen extends StatelessWidget {
                   padding: EdgeInsets.only(right: AppSizes.pw16, top: AppSizes.ph16, left: AppSizes.ph16),
                   child: Text(
                     AppLocalizations.of(context)!.available_services,
-                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold),
                   ),
                 ),
 
@@ -72,9 +75,9 @@ class ServiceTypeScreen extends StatelessWidget {
                   children: [
                     Column(
                       children: List.generate(
-                        categoryEntity.services.length,
+                        categoryEntity!.services.length,
                         (index) => ServiceTypeWidget(
-                          text: categoryEntity.services[index].name!,
+                          text: categoryEntity!.services[index].name!,
                           isSelected: provider.selectedServiceIndex == index,
                           onSelect: () {
                             provider.onSelectService(index);
@@ -92,8 +95,8 @@ class ServiceTypeScreen extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => ServiceDetailsScreen(
-                                            categoryId: categoryEntity.id!,
-                                            serviceId: categoryEntity.services[provider.selectedServiceIndex!].id!,
+                                            categoryId: categoryEntity!.id!,
+                                            serviceId: categoryEntity!.services[provider.selectedServiceIndex!].id!,
                                           )));
                             },
                     ),
