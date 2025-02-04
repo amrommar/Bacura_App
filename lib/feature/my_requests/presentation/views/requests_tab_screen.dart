@@ -1,3 +1,4 @@
+import 'package:bacura_app/core/presentation/widget/shimmer.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/my_requests/index.dart';
 import 'package:bacura_app/feature/my_requests/presentation/controller/my_requests_provider.dart';
@@ -18,14 +19,14 @@ class _RequestsTabScreenState extends State<RequestsTabScreen> {
     return ChangeNotifierProvider(
       create: (context) => MyRequestsProvider(),
       child: Consumer<MyRequestsProvider>(
-        builder: (context, provider, child) => Column(
-          children: [
-            SizedBox(height: AppSizes.ph5),
-            const RequestsFilterWidget(),
-            Divider(color: ColorManager.lightBlueColor),
-            provider.isLoadingMyRequests
-                ? Column(children: [_buildShimmerContainer(), _buildShimmerContainer(), _buildShimmerContainer()])
-                : Expanded(
+        builder: (context, provider, child) => provider.isLoadingMyRequests
+            ? buildShimmerContainer()
+            : Column(
+                children: [
+                  SizedBox(height: AppSizes.ph5),
+                  const RequestsFilterWidget(),
+                  Divider(color: ColorManager.lightBlueColor),
+                  Expanded(
                     child: LazyLoadScrollView(
                       onEndOfPage: () => provider.loadMoreMyRequests(),
                       child: ListView.builder(
@@ -33,10 +34,12 @@ class _RequestsTabScreenState extends State<RequestsTabScreen> {
                         itemBuilder: (context, index) {
                           return InkWell(
                             onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => const RequestDetailsScreen()));
+                              Navigator.push(
+                                  context, MaterialPageRoute(builder: (context) => const RequestDetailsScreen()));
                             },
                             child: RequestItemComponent(
-                              backgroundColor: requestColor(statusColors[provider.myRequestEntity.myRequestDataEntity[index].status]!),
+                              backgroundColor: requestColor(
+                                  statusColors[provider.myRequestEntity.myRequestDataEntity[index].status]!),
                               requestColor: statusColors[provider.myRequestEntity.myRequestDataEntity[index].status]!,
                               index: index,
                             ),
@@ -45,15 +48,15 @@ class _RequestsTabScreenState extends State<RequestsTabScreen> {
                       ),
                     ),
                   ),
-            SizedBox(height: AppSizes.ph25),
-            provider.isLoadingMore
-                ? const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Center(child: CircularProgressIndicator()),
-                  )
-                : const SizedBox.shrink(),
-          ],
-        ),
+                  SizedBox(height: AppSizes.ph25),
+                  provider.isLoadingMore
+                      ? const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Center(child: CircularProgressIndicator()),
+                        )
+                      : const SizedBox.shrink(),
+                ],
+              ),
       ),
     );
   }
@@ -70,29 +73,4 @@ class _RequestsTabScreenState extends State<RequestsTabScreen> {
     }
     return ColorManager.whiteColor;
   }
-}
-
-Widget _buildShimmerContainer() {
-  return Shimmer.fromColors(
-    baseColor: Colors.grey[300]!,
-    highlightColor: Colors.grey[100]!,
-    child: Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(AppSizes.br12),
-      ),
-      margin: EdgeInsets.only(right: AppSizes.pw18, top: AppSizes.ph18, left: AppSizes.pw18),
-      padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph12),
-      height: AppSizes.ph180,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(height: 20, width: 100, color: Colors.white),
-          Container(height: 16, width: AppSizes.pw400, color: Colors.white),
-          Container(height: 16, width: 80, color: Colors.white),
-        ],
-      ),
-    ),
-  );
 }

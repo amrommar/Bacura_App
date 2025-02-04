@@ -9,4 +9,5 @@ class ApiEndPoint {
   static const String ordersPath = "orders";
   static const String getMyOrdersPath = "orders/mine";
   static const String postSuggestions = "suggestions";
+  static const String offersPath = "offers";
 }

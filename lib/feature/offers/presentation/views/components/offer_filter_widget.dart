@@ -61,12 +61,9 @@ class _RequestsFilterState extends State<OfferFilterWidget> {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                // Selected Filters
                 ...selectedFilters.map((selected) {
                   return SelectedFilterWidgets(text: selected);
                 }),
-
-                // Unselected Filters
                 ...filterTitles.where((filter) => !selectedFilters.contains(filter)).map((unselected) {
                   return UnSelected_Filter_Container(text: unselected);
                 }),

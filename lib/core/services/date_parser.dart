@@ -49,7 +49,8 @@ class DateParser {
     return DateFormat(format, locale ?? 'ar').format(dateTime);
   }
 
-  static String formatUtc(String utc, {String format = 'hh:mm a'}) => dateFormatter(convertUTCStringToLocalTime(utc)!, format: format);
+  static String formatUtc(String utc, {String format = 'hh:mm a'}) =>
+      dateFormatter(convertUTCStringToLocalTime(utc)!, format: format);
 
   static String dateFormatterWithoutTime(dynamic dateTime) {
     if (dateTime is! String && dateTime is! DateTime && dateTime != null) {
