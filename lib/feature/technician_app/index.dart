@@ -10,4 +10,4 @@ export 'package:bacura_app/feature/technician_app/profile/presentation/views/com
 export 'package:bacura_app/feature/technician_app/orders/presentation/views/components/customer_name_widget.dart';
 export 'package:bacura_app/feature/technician_app/orders/presentation/views/components/customer_request_details_widget.dart';
 export 'package:bacura_app/feature/technician_app/orders/presentation/views/components/dashed_line_pointer.dart';
-export 'package:bacura_app/feature/technician_app/orders/presentation/views/components/implement_request_phase_widget.dart';
+export 'package:bacura_app/feature/technician_app/orders/presentation/views/components/implement_order_phase_widget.dart';

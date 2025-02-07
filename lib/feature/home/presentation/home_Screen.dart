@@ -14,7 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> Tabs = [
     const HomeTabScreen(),
-    const ordersTabScreen(),
+    const OrdersTabScreen(),
     const OffersTabScreen(),
     const MoreTabScreen(),
   ];

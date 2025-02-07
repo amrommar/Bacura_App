@@ -1,0 +1,72 @@
+import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/my_orders/domin/entity/my_order_data_entity.dart';
+import 'package:bacura_app/feature/my_orders/domin/entity/my_order_entity.dart';
+import 'package:bacura_app/feature/my_orders/domin/use_case/get_my_orders_use_case.dart';
+
+class MyOrderProvider with ChangeNotifier {
+  late MyOrderEntity myOrderEntity;
+  bool isLoadingMore = false;
+  bool isFinishedPaging = false;
+  bool isLoadingMyOrders = true;
+  int pageNumber = 1;
+  List<String> _selectedFilters = [];
+
+  List<String> get selectedFilters => _selectedFilters;
+
+  MyOrderProvider() {
+    init();
+  }
+
+  init() async {
+    await getMyOrders();
+  }
+
+  Future<void> getMyOrders({bool isLoadingMore = false}) async {
+    this.isLoadingMore = isLoadingMore;
+    notifyListeners();
+    (await sl<GetMyOrdersUseCase>()(
+      MyOrdersParameters(page: pageNumber, limit: AppConstants.defaultPageSize),
+    ))
+        .fold((l) async {
+      //! handle in error
+    }, (r) {
+      if (r.myOrderDataEntity.isEmpty) {
+        isFinishedPaging = true;
+        isLoadingMyOrders = false;
+        notifyListeners();
+      } else if (isLoadingMore) {
+        myOrderEntity.myOrderDataEntity.addAll(r.myOrderDataEntity);
+        this.isLoadingMore = false;
+        notifyListeners();
+      } else {
+        myOrderEntity = r;
+        isLoadingMyOrders = false;
+        notifyListeners();
+      }
+    });
+  }
+
+  loadMoreMyOrders() async {
+    if (isFinishedPaging) return;
+    pageNumber++;
+    isLoadingMore = true;
+    notifyListeners();
+    await getMyOrders(isLoadingMore: true);
+    isLoadingMore = false;
+    notifyListeners();
+  }
+
+  void setSelectedFilters(List<String> filters) {
+    _selectedFilters = filters;
+    notifyListeners();
+  }
+
+  List<MyOrderDataEntity> get filteredOrders {
+    if (_selectedFilters.isEmpty) {
+      return myOrderEntity.myOrderDataEntity;
+    }
+    return myOrderEntity.myOrderDataEntity.where((request) {
+      return _selectedFilters.contains(request.status);
+    }).toList();
+  }
+}

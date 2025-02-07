@@ -9,23 +9,23 @@ import 'package:bacura_app/feature/more/data/data_source/more_remote_data_source
 import 'package:bacura_app/feature/more/data/repositories/more_repository.dart';
 import 'package:bacura_app/feature/more/domain/repositories/base_more_repository.dart';
 import 'package:bacura_app/feature/more/domain/usecases/suggetions_use_case.dart';
-import 'package:bacura_app/feature/my_orders/data/data_source/my_request_data_source.dart';
-import 'package:bacura_app/feature/my_orders/data/repository/my_request_repository.dart';
-import 'package:bacura_app/feature/my_orders/domin/repository/base_my_request_repository.dart';
+import 'package:bacura_app/feature/my_orders/data/data_source/my_order_data_source.dart';
+import 'package:bacura_app/feature/my_orders/data/repository/my_order_repository.dart';
+import 'package:bacura_app/feature/my_orders/domin/repository/base_my_order_repository.dart';
 import 'package:bacura_app/feature/my_orders/domin/use_case/get_my_orders_use_case.dart';
 import 'package:bacura_app/feature/offers/data/data_source/offers_data_source.dart';
 import 'package:bacura_app/feature/offers/data/repository/offers_repository.dart';
 import 'package:bacura_app/feature/offers/domin/repository/base_offers_repository.dart';
-import 'package:bacura_app/feature/offers/domin/use_case/get_my_orders_use_case.dart';
+import 'package:bacura_app/feature/offers/domin/use_case/get_my_requests_use_case.dart';
+import 'package:bacura_app/feature/order_services/data/data_source/order_service_data_source.dart';
+import 'package:bacura_app/feature/order_services/data/repository/order_service_repository.dart';
+import 'package:bacura_app/feature/order_services/domin/repository/base_order_service_repository.dart';
+import 'package:bacura_app/feature/order_services/domin/use_case/order_services_use_case.dart';
 import 'package:bacura_app/feature/profile/data/data_source/profile_data_source.dart';
 import 'package:bacura_app/feature/profile/data/repository/profile_repository.dart';
 import 'package:bacura_app/feature/profile/domain/repository/base_profile_repository.dart';
 import 'package:bacura_app/feature/profile/domain/use_case/my_profile_use_case.dart';
 import 'package:bacura_app/feature/profile/domain/use_case/update_profile_use_case.dart';
-import 'package:bacura_app/feature/request_services/data/data_source/request_service_data_source.dart';
-import 'package:bacura_app/feature/request_services/data/repository/request_service_repository.dart';
-import 'package:bacura_app/feature/request_services/domin/repository/base_request_service_repository.dart';
-import 'package:bacura_app/feature/request_services/domin/use_case/request_services_use_case.dart';
 import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;
@@ -81,25 +81,25 @@ class DependencyInjectionServices {
 
   _initializeorderservice() {
     // Repository
-    sl.registerLazySingleton<BaseorderserviceRepository>(
-        () => orderserviceRepository(baseorderserviceDataSource: sl()));
+    sl.registerLazySingleton<BaseOrderServiceRepository>(
+        () => OrderServiceRepository(baseOrderServiceDataSource: sl()));
 
     ///Data Sources
-    sl.registerLazySingleton<BaseorderserviceDataSource>(() => orderserviceDataSource());
+    sl.registerLazySingleton<BaseOrderServiceDataSource>(() => OrderServiceDataSource());
 
     ///Use Cases
-    sl.registerLazySingleton<orderservicesUseCase>(() => orderservicesUseCase(baseorderserviceRepository: sl()));
+    sl.registerLazySingleton<OrderServicesUseCase>(() => OrderServicesUseCase(baseOrderServiceRepository: sl()));
   }
 
   _initializeMyorderservice() {
     // Repository
-    sl.registerLazySingleton<BaseMyRequestRepository>(() => MyRequestRepository(baseRequestDataSource: sl()));
+    sl.registerLazySingleton<BaseMyOrderRepository>(() => MyOrderRepository(baseOrderDataSource: sl()));
 
     ///Data Sources
-    sl.registerLazySingleton<BaseRequestDataSource>(() => MyRequestDataSource());
+    sl.registerLazySingleton<BaseOrderDataSource>(() => MyOrderDataSource());
 
     ///Use Cases
-    sl.registerLazySingleton<GetMyordersUseCase>(() => GetMyordersUseCase(baseRequestRepository: sl()));
+    sl.registerLazySingleton<GetMyOrdersUseCase>(() => GetMyOrdersUseCase(baseOrderRepository: sl()));
   }
 
   _initializeMoreApp() {

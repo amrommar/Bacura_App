@@ -1,4 +1,7 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/technician_app/orders/presentation/views/sp_implement_order_screen.dart';
+import 'package:bacura_app/feature/technician_app/orders/presentation/views/sp_order_details_screen.dart';
+import 'package:bacura_app/feature/technician_app/profile/presentation/views/sp_completed_orders_screen.dart';
 
 class Routes {
   static const String onBoardingOneRoute = '/onBoardingOne';
@@ -66,7 +69,7 @@ class RouteGenerator {
       case Routes.walletDetailsRoute:
         return MaterialPageRoute(builder: (_) => const WalletDetailsScreen());
       case Routes.requestDetailsRoute:
-        return MaterialPageRoute(builder: (_) => const RequestDetailsScreen());
+        return MaterialPageRoute(builder: (_) => const OrderDetailsScreen());
       case Routes.cardsManagementRoute:
         return MaterialPageRoute(builder: (_) => Cards_Management_Screen());
       case Routes.offerDetailsRoute:
@@ -102,13 +105,13 @@ class RouteGenerator {
       case Routes.spHomeScreenRoute:
         return MaterialPageRoute(builder: (_) => SpHomeScreen());
       case Routes.spRequestDetailsRoute:
-        return MaterialPageRoute(builder: (_) => const SpRequestDetailsScreen());
+        return MaterialPageRoute(builder: (_) => const SpOrderDetailsScreen());
       case Routes.requestImplementRoute:
-        return MaterialPageRoute(builder: (_) => const SpImplementorderscreen());
+        return MaterialPageRoute(builder: (_) => const SpImplementOrderScreen());
       case Routes.spProfileDetailsRoute:
         return MaterialPageRoute(builder: (_) => const SpProfileDetailsScreen());
       case Routes.spCompletedordersRoute:
-        return MaterialPageRoute(builder: (_) => SpCompletedordersScreen());
+        return MaterialPageRoute(builder: (_) => SpCompletedOrdersScreen());
       case Routes.calenderRoute:
         return MaterialPageRoute(builder: (_) => CalenderScreen());
       case Routes.messagesRoute:

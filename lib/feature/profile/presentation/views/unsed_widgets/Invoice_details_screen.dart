@@ -1,5 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/my_requests/presentation/views/widget/request_details_icon_texts_row.dart';
+import 'package:bacura_app/feature/my_orders/presentation/views/widget/order_details_icon_texts_row.dart';
 import 'package:bacura_app/feature/profile/index.dart';
 
 class InvoiceDetailsScreen extends StatefulWidget {
@@ -50,21 +50,21 @@ class _InvoiceDetailsScreenState extends State<InvoiceDetailsScreen> {
               SizedBox(height: AppSizes.ph20),
 
               ///  Location section/////////////////////////////////////////////
-              RequestDetailsIconTextsRow(
+              OrderDetailsIconTextsRow(
                 title: AppLocalizations.of(context)!.location,
                 description: ' الرياض حي العارض شارع أسماء بنت مالك',
                 icon: Icons.location_on,
               ),
 
               ///  Payment Method section/////////////////////////////////////////////
-              RequestDetailsIconTextsRow(
+              OrderDetailsIconTextsRow(
                 title: AppLocalizations.of(context)!.payment_method,
                 description: 'بطاقة إئتمان',
                 icon: Icons.monetization_on_outlined,
                 iconColor: ColorManager.greyColor,
               ),
               //  Payment status section/////////////////////////////////////////////
-              RequestDetailsIconTextsRow(
+              OrderDetailsIconTextsRow(
                 title: AppLocalizations.of(context)!.payment_status,
                 description: 'تم الدفع',
                 icon: Icons.check_circle,
@@ -72,7 +72,7 @@ class _InvoiceDetailsScreenState extends State<InvoiceDetailsScreen> {
               ),
 
               ///  Warranty status section/////////////////////////////////////////////
-              RequestDetailsIconTextsRow(
+              OrderDetailsIconTextsRow(
                 title: AppLocalizations.of(context)!.warranty_status,
                 description: 'ساري',
                 icon: Icons.verified_user,
