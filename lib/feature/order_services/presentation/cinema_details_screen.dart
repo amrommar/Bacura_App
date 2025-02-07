@@ -9,18 +9,18 @@ class CinemaDetailsScreen extends StatefulWidget {
 }
 
 class _CinemaDetailsScreenState extends State<CinemaDetailsScreen> {
-  var cameraTypeController = TextEditingController();
-  var camerasNumberController = TextEditingController();
-  var propertyTypeController = TextEditingController();
-  var locationController = TextEditingController();
-  var descriptionController = TextEditingController();
-  var formKey = GlobalKey<FormState>();
+  TextEditingController cameraTypeController = TextEditingController();
+  TextEditingController camerasNumberController = TextEditingController();
+  TextEditingController propertyTypeController = TextEditingController();
+  TextEditingController locationController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
 
   String selectedOption = '9 ص - 1 م';
   final List<String> options = ['9 ص - 1 م', '1 م - 6 م'];
 
   @override
   Widget build(BuildContext context) {
+    final formKey = GlobalKey<FormState>();
     return Scaffold(
         appBar: AppBar(
             title: Text(

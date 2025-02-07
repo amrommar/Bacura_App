@@ -14,7 +14,7 @@ void main() async {
         providers: [
           ChangeNotifierProvider(create: (context) => LanguageProvider()),
           ChangeNotifierProvider(create: (context) => MyProfileProvider(context)),
-          ChangeNotifierProvider(create: (context) => orderServicesProvider()),
+          ChangeNotifierProvider(create: (context) => OrderServicesProvider()),
         ],
         child: const MyApp(),
       ),

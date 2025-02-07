@@ -1,6 +1,7 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/home/presentation/controller/home_provider.dart';
 import 'package:bacura_app/feature/home/presentation/widgets/rare_service_widget.dart';
+import 'package:dartz/dartz.dart';
 
 class RareServiceComponent extends StatelessWidget {
   const RareServiceComponent({
@@ -9,37 +10,46 @@ class RareServiceComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<HomeProvider>(
-      builder: (context, provider, child) => Column(
+    return Consumer<HomeProvider>(builder: (context, provider, child) {
+      final consultationCategories = provider.categoryEntity
+          .where((category) => category.type == "consultation" || category.type == "cinema")
+          .toList();
+      return Column(
         children: [
           Text(AppLocalizations.of(context)!.services_for_you,
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     color: ColorManager.darkBlueColor,
                     fontWeight: FontWeight.bold,
                   )),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              /////////////////       Cinema Section     ////////////////////////////
-              RareServiceWidget(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const CinemaDetailsScreen()));
-                },
-                imagePath: 'assets/images/png/cinemaWhite.png',
-                serviceTitle: 'السينما المنزلية',
-              ),
-              /////////////////    Consultation Section    ////////////////////////////
-              RareServiceWidget(
-                imagePath: 'assets/images/png/consultationWhite.png',
-                serviceTitle: 'الاستشارات',
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ConsultationScreen()));
-                },
-              ),
-            ],
+          Container(
+            padding: EdgeInsets.only(right: AppSizes.ph12),
+            height: AppSizes.ph156,
+            child: Row(
+              children: [
+                Expanded(
+                  child: ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    shrinkWrap: false,
+                    itemCount: consultationCategories.length,
+                    itemBuilder: (context, index) => RareServiceWidget(
+                      onTap: () {
+                        consultationCategories[index].type == "consultation"
+                            ? Navigator.push(
+                                context, MaterialPageRoute(builder: (context) => const ConsultationScreen()))
+                            : Navigator.push(
+                                context, MaterialPageRoute(builder: (context) => const CinemaDetailsScreen()));
+                      },
+                      imagePath: consultationCategories[index].image ?? '',
+                      serviceTitle: consultationCategories[index].name ?? '',
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
-      ),
-    );
+      );
+    });
   }
 }

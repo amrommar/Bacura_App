@@ -17,7 +17,7 @@ class HomeTabScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               provider.isSliderLoading ? const SliderShimmerWidget() : const AdsBannerSliderComponent(),
-              provider.isCategoryLoading ? const CategoryShimmerWidget() : CategoryComponent(),
+              provider.isCategoryLoading ? const CategoryShimmerWidget() : const CategoryComponent(),
               SizedBox(height: AppSizes.ph10),
               const RareServiceComponent(),
             ],

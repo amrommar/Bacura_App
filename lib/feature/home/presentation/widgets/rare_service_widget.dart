@@ -44,7 +44,7 @@ class RareServiceWidget extends StatelessWidget {
           margin: EdgeInsets.all(AppSizes.ph8),
           child: Column(
             children: [
-              Image.asset(
+              Image.network(
                 imagePath,
                 height: AppSizes.ph95,
                 width: AppSizes.pw120,

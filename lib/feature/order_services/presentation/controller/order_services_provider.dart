@@ -4,7 +4,7 @@ import 'package:bacura_app/feature/order_services/presentation/components/reques
 import 'package:bacura_app/feature/order_services/presentation/components/set_location_bottom_sheet.dart';
 import 'package:intl/intl.dart';
 
-class orderServicesProvider extends ChangeNotifier {
+class OrderServicesProvider extends ChangeNotifier {
   TextEditingController locationController = TextEditingController();
   double latitude = 0.0;
   double longitude = 0.0;
@@ -14,7 +14,7 @@ class orderServicesProvider extends ChangeNotifier {
   String formattedDate = DateFormat('dd/MM/yyyy').format(DateTime.now());
   final List<String> options = ['9 ص - 1 م', '1 م - 6 م'];
 
-  orderServicesProvider();
+  OrderServicesProvider();
 
   dynamic onTimeChanged(String value) {
     selectedOption = value;
@@ -23,22 +23,23 @@ class orderServicesProvider extends ChangeNotifier {
 
   void onDateChanged(DateTime value) {
     selectedDate = value;
-    formattedDate = DateFormat('dd/MM/yyyy').format(selectedDate);
+    formattedDate = DateFormat('dd-MM-yyyy').format(selectedDate);
+    print('Formatted Date: $formattedDate'); // Check output
     notifyListeners();
   }
 
   void sendOrderRequest(int? serviceId, int? categoryId) async {
-    // sl<orderservicesUseCase>().call(orderservicesParams(
-    //   location: locationController.text,
-    //   date: formattedDate,
-    //! handle from back end
-    //   time: selectedOption,
-    //   description: descriptionController.text,
-    //   serviceId: serviceId,
-    //   categoryId: categoryId,
-    //   longitude: longitude,
-    //   latitude: latitude,
-    // ));
+    sl<OrderServicesUseCase>().call(OrderServicesParams(
+      location: locationController.text,
+      date: formattedDate,
+      // ! handle from back end
+      time: selectedOption,
+      description: descriptionController.text,
+      serviceId: serviceId!,
+      categoryId: categoryId!,
+      longitude: longitude,
+      latitude: latitude,
+    ));
     print('locationController: ${locationController.text}');
     print('descriptionController: ${descriptionController.text}');
     print('selectedOption: $selectedOption');

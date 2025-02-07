@@ -22,7 +22,7 @@ class _ServiceDetailsScreenState extends State<ServiceDetailsScreen> {
             title: Text(
           AppLocalizations.of(context)!.service_details,
         )),
-        body: Consumer<orderServicesProvider>(
+        body: Consumer<OrderServicesProvider>(
           builder: (context, provider, child) => Padding(
             padding: EdgeInsets.symmetric(vertical: AppSizes.ph18, horizontal: AppSizes.pw16),
             child: Form(

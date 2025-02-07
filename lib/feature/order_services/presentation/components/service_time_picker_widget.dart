@@ -7,24 +7,21 @@ class ServiceTimePickerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<orderServicesProvider>(
+    return Consumer<OrderServicesProvider>(
       builder: (context, provider, child) => SizedBox(
         width: double.infinity,
         child: TimePickerSpinnerPopUp(
           mode: CupertinoDatePickerMode.date,
-          initTime: DateTime.now(),
+          initTime: provider.selectedDate,
           minTime: DateTime.now().subtract(const Duration(seconds: 1)),
           maxTime: DateTime.now().add(const Duration(days: 10)),
           barrierColor: Colors.black12,
-
           minuteInterval: 1,
           padding: EdgeInsets.fromLTRB(AppSizes.pw12, AppSizes.ph10, AppSizes.pw12, AppSizes.ph10),
           cancelText: AppLocalizations.of(context)!.cancel,
           confirmText: AppLocalizations.of(context)!.ok,
           pressType: PressType.singlePress,
-          timeFormat: 'dd/MM/yyyy',
-          // Customize your time widget
-          // timeWidgetBuilder: (dateTime) {},
+          timeFormat: 'dd-MM-yyyy',
           onChange: (DateTime dateTime) {
             provider.onDateChanged(dateTime);
           },
