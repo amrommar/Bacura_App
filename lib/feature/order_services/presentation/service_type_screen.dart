@@ -2,7 +2,7 @@ import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/home/domain/entity/Category_entity.dart';
 import 'package:bacura_app/feature/home/presentation/controller/home_provider.dart';
 import 'package:bacura_app/feature/order_services/index.dart';
-import 'package:bacura_app/feature/order_services/presentation/service_details_screen.dart';
+import 'package:bacura_app/feature/order_services/presentation/service_order_screen.dart';
 
 class ServiceTypeScreen extends StatelessWidget {
   final CategoryEntity? categoryEntity;
@@ -59,7 +59,7 @@ class ServiceTypeScreen extends StatelessWidget {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => ServiceDetailsScreen(
+                                            builder: (context) => ServiceOrderScreen(
                                                   categoryId: categoryEntity!.id!,
                                                   serviceId:
                                                       categoryEntity!.services[provider.selectedServiceIndex!].id!,

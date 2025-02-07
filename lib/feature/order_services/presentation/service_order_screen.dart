@@ -2,21 +2,15 @@ import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/order_services/index.dart';
 import 'package:bacura_app/feature/order_services/presentation/controller/order_services_provider.dart';
 
-class ServiceDetailsScreen extends StatefulWidget {
+class ServiceOrderScreen extends StatelessWidget {
   final int? serviceId;
   final int? categoryId;
 
-  const ServiceDetailsScreen({super.key, this.serviceId, this.categoryId});
-
-  @override
-  State<ServiceDetailsScreen> createState() => _ServiceDetailsScreenState();
-}
-
-class _ServiceDetailsScreenState extends State<ServiceDetailsScreen> {
-  var formKey = GlobalKey<FormState>();
+  const ServiceOrderScreen({super.key, this.serviceId, this.categoryId});
 
   @override
   Widget build(BuildContext context) {
+    final formKey = GlobalKey<FormState>();
     return Scaffold(
         appBar: AppBar(
             title: Text(
@@ -36,7 +30,11 @@ class _ServiceDetailsScreenState extends State<ServiceDetailsScreen> {
                           style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                 color: ColorManager.blackColor,
                               )),
-                      const ServiceTimePickerWidget(),
+                      ServiceTimePickerWidget(
+                          initTime: provider.selectedDate,
+                          onChange: (DateTime dateTime) {
+                            provider.onDateChanged(dateTime);
+                          }),
 
                       SizedBox(height: AppSizes.ph10),
                       CustomDropDownField(
@@ -87,7 +85,7 @@ class _ServiceDetailsScreenState extends State<ServiceDetailsScreen> {
                           text: AppLocalizations.of(context)!.send_request,
                           onPressed: () {
                             if (formKey.currentState?.validate() == true) {
-                              provider.sendOrderRequest(widget.serviceId, widget.categoryId);
+                              provider.sendOrderRequest(serviceId, categoryId);
                               // showordersentBottomSheet();
                             }
                           },

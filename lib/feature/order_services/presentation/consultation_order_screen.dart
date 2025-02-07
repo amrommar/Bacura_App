@@ -1,14 +1,14 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/order_services/index.dart';
 
-class ConsultationScreen extends StatefulWidget {
-  const ConsultationScreen({super.key});
+class ConsultationOrderScreen extends StatefulWidget {
+  const ConsultationOrderScreen({super.key});
 
   @override
-  State<ConsultationScreen> createState() => _ConsultationScreenState();
+  State<ConsultationOrderScreen> createState() => _ConsultationOrderScreenState();
 }
 
-class _ConsultationScreenState extends State<ConsultationScreen> {
+class _ConsultationOrderScreenState extends State<ConsultationOrderScreen> {
   var descriptionController = TextEditingController();
   var formKey = GlobalKey<FormState>();
 
@@ -58,7 +58,7 @@ class _ConsultationScreenState extends State<ConsultationScreen> {
     showModalBottomSheet(
         context: context,
         builder: (context) {
-          return const ordersentBottomSheet();
+          return const orderSentBottomSheet();
         });
   }
 }

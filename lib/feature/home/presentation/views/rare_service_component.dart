@@ -36,9 +36,13 @@ class RareServiceComponent extends StatelessWidget {
                       onTap: () {
                         consultationCategories[index].type == "consultation"
                             ? Navigator.push(
-                                context, MaterialPageRoute(builder: (context) => const ConsultationScreen()))
+                                context, MaterialPageRoute(builder: (context) => const ConsultationOrderScreen()))
                             : Navigator.push(
-                                context, MaterialPageRoute(builder: (context) => const CinemaDetailsScreen()));
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => CinemaOrderScreen(
+                                          categoryId: consultationCategories[index].id!,
+                                        )));
                       },
                       imagePath: consultationCategories[index].image ?? '',
                       serviceTitle: consultationCategories[index].name ?? '',

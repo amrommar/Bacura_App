@@ -17,7 +17,7 @@ class OrderServicesParams {
   final String location;
   final String date;
   final String time;
-  final int serviceId;
+  final int? serviceId;
   final int categoryId;
   final String description;
   final double? longitude;
@@ -27,7 +27,7 @@ class OrderServicesParams {
     required this.location,
     required this.date,
     required this.time,
-    required this.serviceId,
+    this.serviceId,
     required this.categoryId,
     required this.description,
     this.longitude,

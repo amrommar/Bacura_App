@@ -2,8 +2,15 @@ import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/order_services/presentation/controller/order_services_provider.dart';
 
 class SetLocationBottomSheet extends StatelessWidget {
-  const SetLocationBottomSheet({
+  final TextEditingController locationController;
+  double latitude;
+  double longitude;
+
+  SetLocationBottomSheet({
     super.key,
+    required this.locationController,
+    required this.latitude,
+    required this.longitude,
   });
 
   @override
@@ -21,13 +28,11 @@ class SetLocationBottomSheet extends StatelessWidget {
           locationPinTextStyle: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.primaryBlueColor),
           onPicked: (pickedData) {
             try {
-              provider.locationController.text = pickedData.addressName;
-              provider.latitude = pickedData.latLong.latitude;
-              provider.longitude = pickedData.latLong.longitude;
-              print('location: ${provider.locationController.text}');
-              print('latitude: ${provider.latitude}');
-              print('longitude: ${provider.longitude}');
-              Navigator.pop(context);
+              Navigator.pop(context, {
+                'latitude': pickedData.latLong.latitude,
+                'longitude': pickedData.latLong.longitude,
+                'address': pickedData.addressName,
+              });
             } catch (e) {
               print('Error: $e');
             }

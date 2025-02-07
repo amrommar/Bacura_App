@@ -4,17 +4,15 @@ import 'package:bacura_app/feature/order_services/presentation/components/reques
 import 'package:bacura_app/feature/order_services/presentation/components/set_location_bottom_sheet.dart';
 import 'package:intl/intl.dart';
 
-class OrderServicesProvider extends ChangeNotifier {
+class CinemaOrderProvider with ChangeNotifier {
   TextEditingController locationController = TextEditingController();
   double latitude = 0.0;
   double longitude = 0.0;
   TextEditingController descriptionController = TextEditingController();
   String selectedOption = '9 ص - 1 م';
   DateTime selectedDate = DateTime.now();
-  String formattedDate = DateFormat('dd/MM/yyyy').format(DateTime.now());
+  String formattedDate = DateFormat('dd-MM-yyyy').format(DateTime.now());
   final List<String> options = ['9 ص - 1 م', '1 م - 6 م'];
-
-  OrderServicesProvider();
 
   dynamic onTimeChanged(String value) {
     selectedOption = value;
@@ -24,18 +22,18 @@ class OrderServicesProvider extends ChangeNotifier {
   void onDateChanged(DateTime value) {
     selectedDate = value;
     formattedDate = DateFormat('dd-MM-yyyy').format(selectedDate);
-    print('Formatted Date: $formattedDate'); // Check output
+
     notifyListeners();
   }
 
-  void sendOrderRequest(int? serviceId, int? categoryId) async {
+  void sendOrderRequest({int? serviceId, int? categoryId}) async {
     sl<OrderServicesUseCase>().call(OrderServicesParams(
       location: locationController.text,
       date: formattedDate,
       // ! handle from back end
       time: selectedOption,
       description: descriptionController.text,
-      serviceId: serviceId!,
+
       categoryId: categoryId!,
       longitude: longitude,
       latitude: latitude,
@@ -62,7 +60,7 @@ class OrderServicesProvider extends ChangeNotifier {
     }
   }
 
-  void showordersentBottomSheet({required BuildContext context}) {
+  void showOrderSentBottomSheet({required BuildContext context}) {
     showModalBottomSheet(
         context: context,
         builder: (context) {

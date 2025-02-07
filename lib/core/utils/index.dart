@@ -59,11 +59,11 @@ export 'package:bacura_app/feature/offers/presentation/views/offers_tab_screen.d
 export 'package:bacura_app/feature/onboarding/presentation/views/onboarding_one_screen.dart';
 export 'package:bacura_app/feature/onboarding/presentation/views/onboarding_three_screen.dart';
 export 'package:bacura_app/feature/onboarding/presentation/views/onboarding_two_screen.dart';
-export 'package:bacura_app/feature/order_services/presentation/cinema_details_screen.dart';
+export 'package:bacura_app/feature/order_services/presentation/cinema_order_screen.dart';
 export 'package:bacura_app/feature/order_services/presentation/components/custom_drop_down_field.dart';
 export 'package:bacura_app/feature/order_services/presentation/components/custom_question_textformfield.dart';
-export 'package:bacura_app/feature/order_services/presentation/consultation_screen.dart';
-export 'package:bacura_app/feature/order_services/presentation/service_details_screen.dart';
+export 'package:bacura_app/feature/order_services/presentation/consultation_order_screen.dart';
+export 'package:bacura_app/feature/order_services/presentation/service_order_screen.dart';
 export 'package:bacura_app/feature/order_services/presentation/service_type_screen.dart';
 export 'package:bacura_app/feature/profile/presentation/views/components/request_details_price_widget.dart';
 export 'package:bacura_app/feature/profile/presentation/views/profile_details_screen.dart';
