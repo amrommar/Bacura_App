@@ -8,6 +8,7 @@ class OrderServiceRepository extends BaseOrderServiceRepository {
   BaseOrderServiceDataSource baseOrderServiceDataSource;
 
   OrderServiceRepository({required this.baseOrderServiceDataSource});
+
   @override
   Future<Either<Failure, void>> orderService({required OrderServicesParams orderServicesParams}) async {
     try {

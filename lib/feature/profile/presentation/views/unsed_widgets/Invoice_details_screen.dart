@@ -1,5 +1,4 @@
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/my_orders/presentation/views/widget/order_details_icon_texts_row.dart';
 import 'package:bacura_app/feature/profile/index.dart';
 
 class InvoiceDetailsScreen extends StatefulWidget {

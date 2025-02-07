@@ -6,6 +6,7 @@ class OrderServicesUseCase extends BaseUseCases<void, OrderServicesParams> {
   BaseOrderServiceRepository baseOrderServiceRepository;
 
   OrderServicesUseCase({required this.baseOrderServiceRepository});
+
   @override
   Future<Either<Failure, void>> call(parameters) async {
     return await baseOrderServiceRepository.orderService(orderServicesParams: parameters);
@@ -32,6 +33,7 @@ class OrderServicesParams {
     this.longitude,
     this.latitude,
   });
+
   Map<String, dynamic> toMap() {
     return {
       'location': location,

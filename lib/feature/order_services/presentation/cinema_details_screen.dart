@@ -1,7 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/order_services/index.dart';
-import 'package:bacura_app/feature/order_services/presentation/components/custom_drop_down_field.dart';
-import 'package:bacura_app/feature/order_services/presentation/components/custom_question_textformfield.dart';
 
 class CinemaDetailsScreen extends StatefulWidget {
   const CinemaDetailsScreen({super.key});

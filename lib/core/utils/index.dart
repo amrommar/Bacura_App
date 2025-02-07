@@ -59,18 +59,17 @@ export 'package:bacura_app/feature/offers/presentation/views/offers_tab_screen.d
 export 'package:bacura_app/feature/onboarding/presentation/views/onboarding_one_screen.dart';
 export 'package:bacura_app/feature/onboarding/presentation/views/onboarding_three_screen.dart';
 export 'package:bacura_app/feature/onboarding/presentation/views/onboarding_two_screen.dart';
-
-export 'package:bacura_app/feature/profile/presentation/views/components/request_details_price_widget.dart';
-export 'package:bacura_app/feature/profile/presentation/views/profile_details_screen.dart';
-export 'package:bacura_app/feature/profile/presentation/views/unsed_widgets/Invoice_details_screen.dart';
-export 'package:bacura_app/feature/profile/presentation/views/unsed_widgets/last_operations_Screen.dart';
-export 'package:bacura_app/feature/profile/presentation/views/unsed_widgets/wallet_details_screen.dart';
 export 'package:bacura_app/feature/order_services/presentation/cinema_details_screen.dart';
 export 'package:bacura_app/feature/order_services/presentation/components/custom_drop_down_field.dart';
 export 'package:bacura_app/feature/order_services/presentation/components/custom_question_textformfield.dart';
 export 'package:bacura_app/feature/order_services/presentation/consultation_screen.dart';
 export 'package:bacura_app/feature/order_services/presentation/service_details_screen.dart';
 export 'package:bacura_app/feature/order_services/presentation/service_type_screen.dart';
+export 'package:bacura_app/feature/profile/presentation/views/components/request_details_price_widget.dart';
+export 'package:bacura_app/feature/profile/presentation/views/profile_details_screen.dart';
+export 'package:bacura_app/feature/profile/presentation/views/unsed_widgets/Invoice_details_screen.dart';
+export 'package:bacura_app/feature/profile/presentation/views/unsed_widgets/last_operations_Screen.dart';
+export 'package:bacura_app/feature/profile/presentation/views/unsed_widgets/wallet_details_screen.dart';
 export 'package:bacura_app/feature/service_provider_registration/presentation/views/components/city_drop_down_widget.dart';
 export 'package:bacura_app/feature/service_provider_registration/presentation/views/components/custom_registration_text_field.dart';
 export 'package:bacura_app/feature/service_provider_registration/presentation/views/components/register_phone_field.dart';

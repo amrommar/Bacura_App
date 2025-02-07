@@ -1,12 +1,11 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/order_services/index.dart';
-import 'package:bacura_app/feature/order_services/presentation/components/custom_drop_down_field.dart';
-import 'package:bacura_app/feature/order_services/presentation/components/custom_question_textformfield.dart';
 import 'package:bacura_app/feature/order_services/presentation/controller/order_services_provider.dart';
 
 class ServiceDetailsScreen extends StatefulWidget {
   final int? serviceId;
   final int? categoryId;
+
   const ServiceDetailsScreen({super.key, this.serviceId, this.categoryId});
 
   @override

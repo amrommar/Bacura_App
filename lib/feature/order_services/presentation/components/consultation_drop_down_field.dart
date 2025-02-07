@@ -1,5 +1,4 @@
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/order_services/presentation/components/custom_drop_down_field.dart';
 
 class ConsultationDropDownField extends StatefulWidget {
   ConsultationDropDownField({super.key});

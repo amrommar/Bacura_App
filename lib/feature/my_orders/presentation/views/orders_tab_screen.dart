@@ -2,11 +2,9 @@ import 'package:bacura_app/core/presentation/widget/shimmer.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/my_orders/presentation/controller/my_order_provider.dart';
 import 'package:bacura_app/feature/my_orders/presentation/views/components/order_item_component.dart';
-import 'package:bacura_app/feature/my_orders/presentation/views/order_details_screen.dart';
 import 'package:bacura_app/feature/my_orders/presentation/views/widget/order_filter_widget.dart';
 import 'package:bacura_app/feature/my_orders/utils.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
-import 'package:shimmer/shimmer.dart';
 
 class OrdersTabScreen extends StatefulWidget {
   const OrdersTabScreen({super.key});
@@ -40,8 +38,8 @@ class _OrdersTabScreenState extends State<OrdersTabScreen> {
                                   context, MaterialPageRoute(builder: (context) => const OrderDetailsScreen()));
                             },
                             child: OrderItemComponent(
-                              backgroundColor: requestColor(
-                                  statusColors[provider.myOrderEntity.myOrderDataEntity[index].status]!),
+                              backgroundColor:
+                                  requestColor(statusColors[provider.myOrderEntity.myOrderDataEntity[index].status]!),
                               requestColor: statusColors[provider.myOrderEntity.myOrderDataEntity[index].status]!,
                               index: index,
                             ),
