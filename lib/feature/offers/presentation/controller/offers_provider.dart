@@ -78,6 +78,11 @@ class OffersProvider with ChangeNotifier {
 
     Duration difference = targetDate.difference(DateTime.now());
 
-    return "باقي ${NumberParser.translateNumber(difference.inDays.toString())} يوم";
+    int remainingDays = difference.inDays;
+    if (difference.inSeconds > 0) {
+      remainingDays += 1;
+    }
+
+    return "باقي ${NumberParser.translateNumber(remainingDays.toString())} يوم";
   }
 }

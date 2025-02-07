@@ -18,27 +18,30 @@ class CustomOfferContainerWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           SizedBox(
-              height: AppSizes.ph111,
-              width: AppSizes.pw150,
-              child: ClipRRect(
-                  borderRadius: BorderRadius.circular(AppSizes.br8),
-                  child: Image.network(
-                    imagePath,
-                    fit: BoxFit.cover,
-                  ))),
+            height: AppSizes.ph111,
+            width: AppSizes.pw150,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(AppSizes.br8),
+              child: Image.network(
+                imagePath,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
           Padding(
             padding: EdgeInsets.all(AppSizes.ph6),
             child: Column(
               children: [
                 SizedBox(
-                    width: AppSizes.pw150,
-                    child: Text(name,
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleSmall!
-                            .copyWith(color: ColorManager.blackColor, fontSize: AppSizes.sp14),
-                        maxLines: 4,
-                        overflow: TextOverflow.ellipsis))
+                  width: AppSizes.pw150,
+                  child: Text(name,
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleSmall!
+                          .copyWith(color: ColorManager.blackColor, fontSize: AppSizes.sp14),
+                      maxLines: 4,
+                      overflow: TextOverflow.ellipsis),
+                ),
               ],
             ),
           ),
@@ -48,12 +51,13 @@ class CustomOfferContainerWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                ///////////////    from Back-End     /////////////////////
-                Text(expireDate,
-                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                          color: ColorManager.darkRedColor,
-                          fontSize: AppSizes.sp12,
-                        )),
+                Text(
+                  expireDate,
+                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                        color: ColorManager.darkRedColor,
+                        fontSize: AppSizes.sp12,
+                      ),
+                ),
                 Text(
                   cost,
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(
