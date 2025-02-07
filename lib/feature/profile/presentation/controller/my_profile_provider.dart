@@ -29,7 +29,8 @@ class MyProfileProvider with ChangeNotifier {
   String? selectedGender;
   String? selectedCity;
   bool isImagePickerOpen = false;
-  File? imagePath;
+
+  File? imageFile;
 
   final BuildContext context;
 
@@ -75,7 +76,6 @@ class MyProfileProvider with ChangeNotifier {
       phone: myProfileEntity.phone == completePhoneNumber ? null : completePhoneNumber,
       gender: myProfileEntity.gender == selectedGender ? null : selectedGender,
       location: myProfileEntity.location == selectedCity ? null : selectedCity,
-      image: imagePath,
     ));
     isLoading = false;
     _getMyProfile();
@@ -128,14 +128,18 @@ class MyProfileProvider with ChangeNotifier {
       isLoading = true;
       notifyListeners();
       final Uint8List imageBytes = await convertXFileToUint8List(image);
-      final File imageFile = (await convertUnit8ListToFile(imageInUnit8List: imageBytes));
+      imageFile = (await convertUnit8ListToFile(imageInUnit8List: imageBytes));
       await sl<UpdateProfileUseCase>().call(UpdateProfileParameters(
         image: imageFile,
       ));
+      isLoading = false;
+      _getMyProfile();
+      notifyListeners();
+    } else {
+      print('ssss');
+      isLoading = false;
+      notifyListeners();
     }
-    isLoading = false;
-    _getMyProfile();
-    notifyListeners();
   }
 
   Future<void> openNameBottomSheet() async {

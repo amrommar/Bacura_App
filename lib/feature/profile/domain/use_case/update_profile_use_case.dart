@@ -26,7 +26,8 @@ class UpdateProfileParameters extends Equatable {
   final String? countryCode;
   final String? location;
 
-  const UpdateProfileParameters({this.email, this.phone, this.gender, this.name, this.image, this.countryCode, this.location});
+  const UpdateProfileParameters(
+      {this.email, this.phone, this.gender, this.name, this.image, this.countryCode, this.location});
   Map<String, dynamic> toMap() {
     return {
       'email': email,
@@ -34,7 +35,7 @@ class UpdateProfileParameters extends Equatable {
       'gender': gender,
       'name': name,
       'file': dio.MultipartFile.fromFile(
-        image!.path,
+        image?.path ?? '',
       ),
       'country_code': countryCode,
       'location': location,

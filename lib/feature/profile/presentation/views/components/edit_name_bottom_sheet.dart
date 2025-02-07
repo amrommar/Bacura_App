@@ -35,7 +35,6 @@ class EditNameBottomSheet extends StatelessWidget {
                   text: AppLocalizations.of(context)!.save,
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
-                      print('name: ${provider.nameController.text}');
                       provider.updateMyProfile();
 
                       Navigator.pop(context);
