@@ -2,17 +2,17 @@ import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/request_services/domin/repository/base_request_service_repository.dart';
 import 'package:dartz/dartz.dart';
 
-class RequestServicesUseCase extends BaseUseCases<void, RequestServicesParams> {
-  BaseRequestServiceRepository baseRequestServiceRepository;
+class orderservicesUseCase extends BaseUseCases<void, orderservicesParams> {
+  BaseorderserviceRepository baseorderserviceRepository;
 
-  RequestServicesUseCase({required this.baseRequestServiceRepository});
+  orderservicesUseCase({required this.baseorderserviceRepository});
   @override
   Future<Either<Failure, void>> call(parameters) async {
-    return await baseRequestServiceRepository.requestService(requestServicesParams: parameters);
+    return await baseorderserviceRepository.orderservice(orderservicesParams: parameters);
   }
 }
 
-class RequestServicesParams {
+class orderservicesParams {
   final String location;
   final String date;
   final String time;
@@ -22,7 +22,7 @@ class RequestServicesParams {
   final double? longitude;
   final double? latitude;
 
-  const RequestServicesParams({
+  const orderservicesParams({
     required this.location,
     required this.date,
     required this.time,

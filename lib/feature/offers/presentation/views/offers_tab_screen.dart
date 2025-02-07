@@ -29,7 +29,7 @@ class OffersTabScreen extends StatelessWidget {
                       child: LazyLoadScrollView(
                         onEndOfPage: () => provider.loadMoreOffers(),
                         child: ListView.builder(
-                          itemCount: provider.filteredRequests.length,
+                          itemCount: provider.filteredorders.length,
                           itemBuilder: (context, index) {
                             return InkWell(
                                 onTap: () {

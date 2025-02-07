@@ -7,7 +7,7 @@ class ServiceTimePickerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<RequestServicesProvider>(
+    return Consumer<orderservicesProvider>(
       builder: (context, provider, child) => SizedBox(
         width: double.infinity,
         child: TimePickerSpinnerPopUp(

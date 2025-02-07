@@ -21,7 +21,7 @@ class _ServiceDetailsScreenState extends State<ServiceDetailsScreen> {
             title: Text(
           AppLocalizations.of(context)!.service_details,
         )),
-        body: Consumer<RequestServicesProvider>(
+        body: Consumer<orderservicesProvider>(
           builder: (context, provider, child) => Padding(
             padding: EdgeInsets.symmetric(vertical: AppSizes.ph18, horizontal: AppSizes.pw16),
             child: Form(
@@ -87,7 +87,7 @@ class _ServiceDetailsScreenState extends State<ServiceDetailsScreen> {
                           onPressed: () {
                             if (formKey.currentState?.validate() == true) {
                               provider.sendOrderRequest(widget.serviceId, widget.categoryId);
-                              // showRequestSentBottomSheet();
+                              // showordersentBottomSheet();
                             }
                           },
                         ),

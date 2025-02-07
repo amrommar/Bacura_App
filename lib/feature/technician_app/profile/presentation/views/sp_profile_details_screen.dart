@@ -1,4 +1,6 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/profile/presentation/views/components/completed_requests_widget.dart';
+import 'package:bacura_app/feature/profile/presentation/views/components/requests_calender_widget.dart';
 import 'package:bacura_app/feature/technician_app/index.dart';
 
 class SpProfileDetailsScreen extends StatefulWidget {
@@ -51,11 +53,11 @@ class _SpProfileDetailsScreenState extends State<SpProfileDetailsScreen> {
           ])),
 
           /// Calender Section ___________________________________________________________________
-          const RequestsCalenderWidget(),
+          const ordersCalenderWidget(),
 
-          /// Completed Requests Section ___________________________________________________________________
+          /// Completed orders Section ___________________________________________________________________
 
-          const CompletedRequestsWidget(),
+          const CompletedordersWidget(),
 
           SizedBox(height: AppSizes.ph35),
 

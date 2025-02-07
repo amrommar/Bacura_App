@@ -1,7 +1,7 @@
 import 'package:bacura_app/core/utils/index.dart';
 
-class RequestsCalenderWidget extends StatelessWidget {
-  const RequestsCalenderWidget({super.key});
+class ordersCalenderWidget extends StatelessWidget {
+  const ordersCalenderWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

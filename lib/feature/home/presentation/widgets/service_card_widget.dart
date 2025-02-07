@@ -14,15 +14,17 @@ class ServiceCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
       Card(
-          color: ColorManager.whiteColor,
-          child: Container(
-              padding: EdgeInsets.symmetric(
-                horizontal: AppSizes.pw20,
-                vertical: AppSizes.ph20,
-              ),
-              height: AppSizes.ph100,
-              width: AppSizes.pw100,
-              child: SvgPicture.asset(imagePath))),
+        color: ColorManager.whiteColor,
+        child: Container(
+          padding: EdgeInsets.symmetric(
+            horizontal: AppSizes.pw20,
+            vertical: AppSizes.ph20,
+          ),
+          height: AppSizes.ph100,
+          width: AppSizes.pw100,
+          child: SvgPicture.network(imagePath),
+        ),
+      ),
       SizedBox(
           width: AppSizes.pw90,
           child: Text(

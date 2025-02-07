@@ -1,21 +1,21 @@
 import 'package:bacura_app/core/network/model/api_client.dart';
 import 'package:bacura_app/core/network/model/api_endoint.dart';
-import 'package:bacura_app/feature/my_requests/data/model/my_request_model.dart';
-import 'package:bacura_app/feature/my_requests/domin/entity/my_request_entity.dart';
-import 'package:bacura_app/feature/my_requests/domin/use_case/get_my_requests_use_case.dart';
+import 'package:bacura_app/feature/my_orders/data/model/my_request_model.dart';
+import 'package:bacura_app/feature/my_orders/domin/entity/my_request_entity.dart';
+import 'package:bacura_app/feature/my_orders/domin/use_case/get_my_orders_use_case.dart';
 
 abstract class BaseRequestDataSource {
-  Future<MyRequestEntity> getRequest({required MyRequestsParameters myRequestsParameters});
+  Future<MyRequestEntity> getRequest({required MyordersParameters myordersParameters});
 }
 
 class MyRequestDataSource extends BaseRequestDataSource {
   @override
-  Future<MyRequestEntity> getRequest({required MyRequestsParameters myRequestsParameters}) async {
+  Future<MyRequestEntity> getRequest({required MyordersParameters myordersParameters}) async {
     try {
       final response = await ApiClient().apiCall(
         requestType: RequestType.GET,
         url: ApiEndPoint.ordersPath,
-        queryParameters: myRequestsParameters.toMap(),
+        queryParameters: myordersParameters.toMap(),
       );
 
       if (response != null) {

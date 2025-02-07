@@ -1,37 +1,37 @@
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/my_requests/domin/entity/my_request_data_entity.dart';
-import 'package:bacura_app/feature/my_requests/domin/entity/my_request_entity.dart';
-import 'package:bacura_app/feature/my_requests/domin/use_case/get_my_requests_use_case.dart';
+import 'package:bacura_app/feature/my_orders/domin/entity/my_request_data_entity.dart';
+import 'package:bacura_app/feature/my_orders/domin/entity/my_request_entity.dart';
+import 'package:bacura_app/feature/my_orders/domin/use_case/get_my_orders_use_case.dart';
 
-class MyRequestsProvider with ChangeNotifier {
+class MyordersProvider with ChangeNotifier {
   late MyRequestEntity myRequestEntity;
   bool isLoadingMore = false;
   bool isFinishedPaging = false;
-  bool isLoadingMyRequests = true;
+  bool isLoadingMyorders = true;
   int pageNumber = 1;
   List<String> _selectedFilters = [];
   List<String> get selectedFilters => _selectedFilters;
 
-  MyRequestsProvider() {
+  MyordersProvider() {
     init();
   }
 
   init() async {
-    await getMyRequests();
+    await getMyorders();
   }
 
-  Future<void> getMyRequests({bool isLoadingMore = false}) async {
+  Future<void> getMyorders({bool isLoadingMore = false}) async {
     this.isLoadingMore = isLoadingMore;
     notifyListeners();
-    (await sl<GetMyRequestsUseCase>()(
-      MyRequestsParameters(page: pageNumber, limit: AppConstants.defaultPageSize),
+    (await sl<GetMyordersUseCase>()(
+      MyordersParameters(page: pageNumber, limit: AppConstants.defaultPageSize),
     ))
         .fold((l) async {
       //! handle in error
     }, (r) {
       if (r.myRequestDataEntity.isEmpty) {
         isFinishedPaging = true;
-        isLoadingMyRequests = false;
+        isLoadingMyorders = false;
         notifyListeners();
       } else if (isLoadingMore) {
         myRequestEntity.myRequestDataEntity.addAll(r.myRequestDataEntity);
@@ -39,18 +39,18 @@ class MyRequestsProvider with ChangeNotifier {
         notifyListeners();
       } else {
         myRequestEntity = r;
-        isLoadingMyRequests = false;
+        isLoadingMyorders = false;
         notifyListeners();
       }
     });
   }
 
-  loadMoreMyRequests() async {
+  loadMoreMyorders() async {
     if (isFinishedPaging) return;
     pageNumber++;
     isLoadingMore = true;
     notifyListeners();
-    await getMyRequests(isLoadingMore: true);
+    await getMyorders(isLoadingMore: true);
     isLoadingMore = false;
     notifyListeners();
   }
@@ -60,7 +60,7 @@ class MyRequestsProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  List<MyRequestDataEntity> get filteredRequests {
+  List<MyRequestDataEntity> get filteredorders {
     if (_selectedFilters.isEmpty) {
       return myRequestEntity.myRequestDataEntity;
     }

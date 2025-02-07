@@ -1,13 +1,13 @@
 import 'package:bacura_app/core/utils/index.dart';
 
-class CompletedRequestsWidget extends StatelessWidget {
-  const CompletedRequestsWidget({super.key});
+class CompletedordersWidget extends StatelessWidget {
+  const CompletedordersWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
         onTap: () {
-          Navigator.pushNamed(context, Routes.spCompletedRequestsRoute);
+          Navigator.pushNamed(context, Routes.spCompletedordersRoute);
         },
         child: CustomShadowWidget(
             childWidget: Row(

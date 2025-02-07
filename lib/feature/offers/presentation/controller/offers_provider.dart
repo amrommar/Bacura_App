@@ -63,7 +63,7 @@ class OffersProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  List<OffersDataEntity> get filteredRequests {
+  List<OffersDataEntity> get filteredorders {
     if (_selectedFilters.isEmpty) {
       return offersEntity.offersDataEntity;
     }

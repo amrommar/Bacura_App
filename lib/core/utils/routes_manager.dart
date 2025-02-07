@@ -32,7 +32,7 @@ class Routes {
   static const String spRequestDetailsRoute = '/spRequestDetails';
   static const String requestImplementRoute = '/requestImplement';
   static const String spProfileDetailsRoute = '/spPersonalDetails';
-  static const String spCompletedRequestsRoute = '/spCompletedRequests';
+  static const String spCompletedordersRoute = '/spCompletedorders';
   static const String calenderRoute = '/calender';
   static const String messagesRoute = '/messages';
   static const String serviceProviderRegisterRoute = '/serviceProviderRegister';
@@ -104,11 +104,11 @@ class RouteGenerator {
       case Routes.spRequestDetailsRoute:
         return MaterialPageRoute(builder: (_) => const SpRequestDetailsScreen());
       case Routes.requestImplementRoute:
-        return MaterialPageRoute(builder: (_) => const SpImplementRequestScreen());
+        return MaterialPageRoute(builder: (_) => const SpImplementorderscreen());
       case Routes.spProfileDetailsRoute:
         return MaterialPageRoute(builder: (_) => const SpProfileDetailsScreen());
-      case Routes.spCompletedRequestsRoute:
-        return MaterialPageRoute(builder: (_) => SpCompletedrequestsScreen());
+      case Routes.spCompletedordersRoute:
+        return MaterialPageRoute(builder: (_) => SpCompletedordersScreen());
       case Routes.calenderRoute:
         return MaterialPageRoute(builder: (_) => CalenderScreen());
       case Routes.messagesRoute:

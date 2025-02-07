@@ -25,9 +25,9 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           selectedColor: ColorManager.whiteColor,
         ),
 
-        /// requests
+        /// orders
         SalomonBottomBarItem(
-            title: Text(AppLocalizations.of(context)!.requests),
+            title: Text(AppLocalizations.of(context)!.orders),
             icon: Icon(Icons.request_page_outlined, color: ColorManager.whiteColor, size: AppSizes.ph30),
             selectedColor: ColorManager.whiteColor),
 

@@ -1,10 +1,11 @@
 import 'package:bacura_app/core/services/date_parser.dart';
+import 'package:bacura_app/feature/my_requests/presentation/controller/my_requests_provider.dart';
+import 'package:bacura_app/feature/my_requests/presentation/views/widget/request_num_contact_icon_widget.dart';
+import 'package:bacura_app/feature/my_requests/presentation/views/widget/request_time_date_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/my_requests/index.dart';
-import 'package:bacura_app/feature/my_requests/presentation/controller/my_requests_provider.dart';
 
 class RequestItemComponent extends StatelessWidget {
   final Color backgroundColor;
@@ -22,15 +23,15 @@ class RequestItemComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<MyRequestsProvider>(
+    return Consumer<MyordersProvider>(
       builder: (context, provider, child) {
         return _buildRequestContainer(provider, context);
       },
     );
   }
 
-  Widget _buildRequestContainer(MyRequestsProvider provider, BuildContext context) {
-    var requestEntity = provider.filteredRequests[index];
+  Widget _buildRequestContainer(MyordersProvider provider, BuildContext context) {
+    var requestEntity = provider.filteredorders[index];
     String communicationDate = DateParser.dateFormatterWithoutTime(requestEntity.communicationDate);
     String communicationTime = DateParser.dateFormatterOnlyTime(requestEntity.communicationTime);
     return Container(

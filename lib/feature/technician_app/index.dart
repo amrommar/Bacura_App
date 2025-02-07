@@ -7,7 +7,7 @@ export 'package:bacura_app/feature/technician_app/profile/presentation/views/com
 export 'package:bacura_app/feature/technician_app/profile/presentation/views/components/sp_completed_request_container.dart';
 export 'package:bacura_app/feature/technician_app/profile/presentation/views/components/sp_completed_request_time_num_row.dart';
 export 'package:bacura_app/feature/technician_app/profile/presentation/views/components/sp_pesonal_row_details.dart';
-export 'package:bacura_app/feature/technician_app/requests/presentation/views/components/customer_name_widget.dart';
-export 'package:bacura_app/feature/technician_app/requests/presentation/views/components/customer_request_details_widget.dart';
-export 'package:bacura_app/feature/technician_app/requests/presentation/views/components/dashed_line_pointer.dart';
-export 'package:bacura_app/feature/technician_app/requests/presentation/views/components/implement_request_phase_widget.dart';
+export 'package:bacura_app/feature/technician_app/orders/presentation/views/components/customer_name_widget.dart';
+export 'package:bacura_app/feature/technician_app/orders/presentation/views/components/customer_request_details_widget.dart';
+export 'package:bacura_app/feature/technician_app/orders/presentation/views/components/dashed_line_pointer.dart';
+export 'package:bacura_app/feature/technician_app/orders/presentation/views/components/implement_request_phase_widget.dart';

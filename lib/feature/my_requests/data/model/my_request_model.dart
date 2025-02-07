@@ -1,5 +1,5 @@
-import 'package:bacura_app/feature/my_requests/data/model/my_request_data_model.dart';
-import 'package:bacura_app/feature/my_requests/domin/entity/my_request_entity.dart';
+import 'package:bacura_app/feature/my_orders/data/model/my_request_data_model.dart';
+import 'package:bacura_app/feature/my_orders/domin/entity/my_request_entity.dart';
 
 class MyRequestModel extends MyRequestEntity {
   const MyRequestModel({
@@ -13,7 +13,8 @@ class MyRequestModel extends MyRequestEntity {
   });
 
   factory MyRequestModel.fromJson(Map<String, dynamic> json) => MyRequestModel(
-        myRequestDataEntity: (json["data"] as List<dynamic>?)?.map((item) => MyRequestDataModel.fromJson(item)).toList() ?? [],
+        myRequestDataEntity:
+            (json["data"] as List<dynamic>?)?.map((item) => MyRequestDataModel.fromJson(item)).toList() ?? [],
         limit: json["limit"] ?? 0,
         page: json["page"] ?? 0,
         totalRecords: json["total_records"] ?? 0,

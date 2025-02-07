@@ -1,4 +1,4 @@
-import 'package:bacura_app/feature/my_requests/domin/entity/my_request_data_entity.dart';
+import 'package:bacura_app/feature/my_orders/domin/entity/my_request_data_entity.dart';
 
 class MyRequestDataModel extends MyRequestDataEntity {
   const MyRequestDataModel({

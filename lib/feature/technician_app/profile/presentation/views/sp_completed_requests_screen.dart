@@ -1,7 +1,7 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/technician_app/index.dart';
 
-class SpCompletedrequestsScreen extends StatelessWidget {
+class SpCompletedordersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

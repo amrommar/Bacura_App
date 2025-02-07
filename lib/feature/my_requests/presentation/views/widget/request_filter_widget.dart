@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:bacura_app/core/utils/index.dart';
 
-class RequestsFilterWidget extends StatelessWidget {
-  const RequestsFilterWidget({super.key});
+class ordersFilterWidget extends StatelessWidget {
+  const ordersFilterWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final myRequestsProvider = Provider.of<MyRequestsProvider>(context);
+    final myordersProvider = Provider.of<MyordersProvider>(context);
 
-    final List<MultiSelectItem<String>> filterItems = requestsTypes.map((filter) {
+    final List<MultiSelectItem<String>> filterItems = ordersTypes.map((filter) {
       String translatedFilter = '';
       switch (filter) {
         case 'pending':
@@ -44,9 +44,9 @@ class RequestsFilterWidget extends StatelessWidget {
             itemsTextStyle: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.greyColor),
             selectedColor: ColorManager.primaryBlueColor,
             items: filterItems,
-            initialValue: myRequestsProvider.selectedFilters,
+            initialValue: myordersProvider.selectedFilters,
             onConfirm: (List<String> selectedValues) {
-              myRequestsProvider.setSelectedFilters(selectedValues);
+              myordersProvider.setSelectedFilters(selectedValues);
             },
           );
         },
@@ -64,10 +64,10 @@ class RequestsFilterWidget extends StatelessWidget {
               child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              ...myRequestsProvider.selectedFilters.map((selected) {
+              ...myordersProvider.selectedFilters.map((selected) {
                 return SelectedFilterWidgets(text: translateFilter(selected, context));
               }),
-              ...requestsTypes.where((type) => !myRequestsProvider.selectedFilters.contains(type)).map((unselected) {
+              ...ordersTypes.where((type) => !myordersProvider.selectedFilters.contains(type)).map((unselected) {
                 return UnSelected_Filter_Container(text: translateFilter(unselected, context));
               }),
             ],

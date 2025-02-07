@@ -6,7 +6,7 @@ Map<String, Color> statusColors = {
   "completed": ColorManager.greenColor,
   "canceled": ColorManager.redColor,
 };
-List<String> requestsTypes = [
+List<String> ordersTypes = [
   'pending', // سيتم عرضه بالعربي
   'ongoing',
   'completed',

@@ -4,10 +4,10 @@ class OfferFilterWidget extends StatefulWidget {
   const OfferFilterWidget({super.key});
 
   @override
-  State<OfferFilterWidget> createState() => _RequestsFilterState();
+  State<OfferFilterWidget> createState() => _ordersFilterState();
 }
 
-class _RequestsFilterState extends State<OfferFilterWidget> {
+class _ordersFilterState extends State<OfferFilterWidget> {
   List<String> selectedFilters = [];
 
   @override

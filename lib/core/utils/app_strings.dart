@@ -23,7 +23,7 @@ class AppStrings {
   static const String invalidMobileNumber = 'Invalid Mobile Number'; // ' رقم الهاتف غير صحيح';
   static const String home = 'Home'; //'الرئيسية';
   static const String offers = 'Offers'; // 'العروض';
-  static const String requests = 'Requests'; // 'طلباتي';
+  static const String orders = 'orders'; // 'طلباتي';
   static const String more = 'More'; // 'المزيد';
   static const String cart = 'Cart'; // 'السلة';
   static const String oTPNumber = 'OTP Number'; // 'رمز التحقق';

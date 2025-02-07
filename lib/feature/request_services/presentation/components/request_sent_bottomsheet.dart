@@ -1,13 +1,13 @@
 import 'package:bacura_app/core/utils/index.dart';
 
-class RequestSentBottomSheet extends StatefulWidget {
-  const RequestSentBottomSheet({super.key});
+class ordersentBottomSheet extends StatefulWidget {
+  const ordersentBottomSheet({super.key});
 
   @override
-  State<RequestSentBottomSheet> createState() => _RequestSentBottomSheetState();
+  State<ordersentBottomSheet> createState() => _ordersentBottomSheetState();
 }
 
-class _RequestSentBottomSheetState extends State<RequestSentBottomSheet> {
+class _ordersentBottomSheetState extends State<ordersentBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(

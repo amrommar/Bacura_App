@@ -4,7 +4,7 @@ import 'package:bacura_app/feature/request_services/presentation/components/requ
 import 'package:bacura_app/feature/request_services/presentation/components/set_location_bottom_sheet.dart';
 import 'package:intl/intl.dart';
 
-class RequestServicesProvider extends ChangeNotifier {
+class orderservicesProvider extends ChangeNotifier {
   TextEditingController locationController = TextEditingController();
   double latitude = 0.0;
   double longitude = 0.0;
@@ -14,7 +14,7 @@ class RequestServicesProvider extends ChangeNotifier {
   String formattedDate = DateFormat('dd/MM/yyyy').format(DateTime.now());
   final List<String> options = ['9 ص - 1 م', '1 م - 6 م'];
 
-  RequestServicesProvider();
+  orderservicesProvider();
 
   dynamic onTimeChanged(String value) {
     selectedOption = value;
@@ -28,7 +28,7 @@ class RequestServicesProvider extends ChangeNotifier {
   }
 
   void sendOrderRequest(int? serviceId, int? categoryId) async {
-    // sl<RequestServicesUseCase>().call(RequestServicesParams(
+    // sl<orderservicesUseCase>().call(orderservicesParams(
     //   location: locationController.text,
     //   date: formattedDate,
     //! handle from back end
@@ -57,11 +57,11 @@ class RequestServicesProvider extends ChangeNotifier {
         });
   }
 
-  void showRequestSentBottomSheet({required BuildContext context}) {
+  void showordersentBottomSheet({required BuildContext context}) {
     showModalBottomSheet(
         context: context,
         builder: (context) {
-          return const RequestSentBottomSheet();
+          return const ordersentBottomSheet();
         });
   }
 }

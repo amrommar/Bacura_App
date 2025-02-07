@@ -48,17 +48,17 @@ class _ConsultationScreenState extends State<ConsultationScreen> {
                           text: AppLocalizations.of(context)!.send,
                           onPressed: () {
                             if (formKey.currentState?.validate() == true) {
-                              showRequestSentBottomSheet();
+                              showordersentBottomSheet();
                             }
                           }))
                 ]))));
   }
 
-  void showRequestSentBottomSheet() {
+  void showordersentBottomSheet() {
     showModalBottomSheet(
         context: context,
         builder: (context) {
-          return const RequestSentBottomSheet();
+          return const ordersentBottomSheet();
         });
   }
 }

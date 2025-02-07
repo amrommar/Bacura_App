@@ -119,7 +119,7 @@ class _CinemaDetailsScreenState extends State<CinemaDetailsScreen> {
                         text: AppLocalizations.of(context)!.send_request,
                         onPressed: () {
                           if (formKey.currentState?.validate() == true) {
-                            showRequestSentBottomSheet();
+                            showordersentBottomSheet();
                           }
                         },
                       ),
@@ -132,11 +132,11 @@ class _CinemaDetailsScreenState extends State<CinemaDetailsScreen> {
         ));
   }
 
-  void showRequestSentBottomSheet() {
+  void showordersentBottomSheet() {
     showModalBottomSheet(
         context: context,
         builder: (context) {
-          return const RequestSentBottomSheet();
+          return const ordersentBottomSheet();
         });
   }
 

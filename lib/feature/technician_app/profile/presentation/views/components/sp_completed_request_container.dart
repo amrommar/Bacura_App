@@ -1,5 +1,6 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/technician_app/index.dart';
+import 'package:bacura_app/feature/technician_app/requests/presentation/views/components/customer_name_widget.dart';
 
 class SpCompletedRequestContainer extends StatefulWidget {
   const SpCompletedRequestContainer({super.key});

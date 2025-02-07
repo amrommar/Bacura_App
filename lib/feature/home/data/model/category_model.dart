@@ -10,6 +10,8 @@ class CategoryModel extends CategoryEntity {
     required super.serviceIds,
     required super.action,
     required super.services,
+    required super.type,
+    required super.cover,
   });
 
   factory CategoryModel.fromJson(Map<String, dynamic> json) {
@@ -26,6 +28,8 @@ class CategoryModel extends CategoryEntity {
                 (e) => ServicesModel.fromJson(e),
               ),
             ),
+      type: json['type'],
+      cover: json['cover'],
     );
   }
 }

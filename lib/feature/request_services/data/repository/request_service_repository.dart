@@ -4,14 +4,14 @@ import 'package:bacura_app/feature/request_services/domin/repository/base_reques
 import 'package:bacura_app/feature/request_services/domin/use_case/request_services_use_case.dart';
 import 'package:dartz/dartz.dart';
 
-class RequestServiceRepository extends BaseRequestServiceRepository {
-  BaseRequestServiceDataSource baseRequestServiceDataSource;
+class orderserviceRepository extends BaseorderserviceRepository {
+  BaseorderserviceDataSource baseorderserviceDataSource;
 
-  RequestServiceRepository({required this.baseRequestServiceDataSource});
+  orderserviceRepository({required this.baseorderserviceDataSource});
   @override
-  Future<Either<Failure, void>> requestService({required RequestServicesParams requestServicesParams}) async {
+  Future<Either<Failure, void>> orderservice({required orderservicesParams orderservicesParams}) async {
     try {
-      return Right(await baseRequestServiceDataSource.requestService(requestServicesParams: requestServicesParams));
+      return Right(await baseorderserviceDataSource.orderservice(orderservicesParams: orderservicesParams));
     } on Failure catch (ex) {
       return Left(ServerFailure(code: ex.code, message: ex.message));
     }

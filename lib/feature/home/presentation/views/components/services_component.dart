@@ -2,20 +2,20 @@ import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/home/index.dart';
 import 'package:bacura_app/feature/home/presentation/controller/home_provider.dart';
 
-class ServicesComponent extends StatelessWidget {
-  ServicesComponent({super.key});
+class CategoryComponent extends StatelessWidget {
+  CategoryComponent({super.key});
 
-  List<String> imagesPaths = [
-    AppAssets.cameraIcon,
-    AppAssets.smartHomeIcon,
-    AppAssets.soundSystemsIcon,
-    AppAssets.savePowerIcon,
-    AppAssets.networkIcon,
-    'assets/images/svg/pc.svg',
-    'assets/images/svg/phone.svg',
-    'assets/images/svg/accessories.svg',
-    AppAssets.gameRepairIcon
-  ];
+  // List<String> imagesPaths = [
+  //   AppAssets.cameraIcon,
+  //   AppAssets.smartHomeIcon,
+  //   AppAssets.soundSystemsIcon,
+  //   AppAssets.savePowerIcon,
+  //   AppAssets.networkIcon,
+  //   'assets/images/svg/pc.svg',
+  //   'assets/images/svg/phone.svg',
+  //   'assets/images/svg/accessories.svg',
+  //   AppAssets.gameRepairIcon
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +59,7 @@ class ServicesComponent extends StatelessWidget {
                         },
                         child: ServiceCardWidget(
                           departmentTitle: provider.categoryEntity[index].name!,
-                          imagePath: imagesPaths[index],
+                          imagePath: provider.categoryEntity[index].image!,
                         ));
                   }),
             ],

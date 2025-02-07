@@ -1,36 +1,39 @@
 import 'package:bacura_app/core/presentation/widget/shimmer.dart';
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/my_requests/index.dart';
+
 import 'package:bacura_app/feature/my_requests/presentation/controller/my_requests_provider.dart';
+import 'package:bacura_app/feature/my_requests/presentation/views/components/request_item_component.dart';
+import 'package:bacura_app/feature/my_requests/presentation/views/request_details_screen.dart';
+import 'package:bacura_app/feature/my_requests/presentation/views/widget/request_filter_widget.dart';
 import 'package:bacura_app/feature/my_requests/utils.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:shimmer/shimmer.dart';
 
-class RequestsTabScreen extends StatefulWidget {
-  const RequestsTabScreen({super.key});
+class ordersTabScreen extends StatefulWidget {
+  const ordersTabScreen({super.key});
 
   @override
-  State<RequestsTabScreen> createState() => _RequestsTabScreenState();
+  State<ordersTabScreen> createState() => _ordersTabScreenState();
 }
 
-class _RequestsTabScreenState extends State<RequestsTabScreen> {
+class _ordersTabScreenState extends State<ordersTabScreen> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => MyRequestsProvider(),
-      child: Consumer<MyRequestsProvider>(
-        builder: (context, provider, child) => provider.isLoadingMyRequests
+      create: (context) => MyordersProvider(),
+      child: Consumer<MyordersProvider>(
+        builder: (context, provider, child) => provider.isLoadingMyorders
             ? buildShimmerContainer()
             : Column(
                 children: [
                   SizedBox(height: AppSizes.ph5),
-                  const RequestsFilterWidget(),
+                  const ordersFilterWidget(),
                   Divider(color: ColorManager.lightBlueColor),
                   Expanded(
                     child: LazyLoadScrollView(
-                      onEndOfPage: () => provider.loadMoreMyRequests(),
+                      onEndOfPage: () => provider.loadMoreMyorders(),
                       child: ListView.builder(
-                        itemCount: provider.filteredRequests.length,
+                        itemCount: provider.filteredorders.length,
                         itemBuilder: (context, index) {
                           return InkWell(
                             onTap: () {

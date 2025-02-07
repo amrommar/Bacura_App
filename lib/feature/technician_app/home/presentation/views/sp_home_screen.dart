@@ -45,7 +45,7 @@ class _SpHomeScreenState extends State<SpHomeScreen> {
                 }),
           ]),
       body: Column(children: [
-        /// Requests section ///////////////////////////////////////////////////////
+        /// orders section ///////////////////////////////////////////////////////
         Expanded(
             child: ListView.builder(
                 itemCount: 12,

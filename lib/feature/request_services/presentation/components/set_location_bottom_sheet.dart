@@ -8,7 +8,7 @@ class SetLocationBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<RequestServicesProvider>(
+    return Consumer<orderservicesProvider>(
       builder: (context, provider, child) => Container(
         height: AppSizes.ph600,
         width: double.infinity,
