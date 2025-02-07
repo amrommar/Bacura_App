@@ -1,10 +1,10 @@
 import 'package:bacura_app/core/utils/index.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
-  CustomBottomNavigationBar({super.key, required this.onTap, required this.currentIndex});
+  const CustomBottomNavigationBar({super.key, required this.onTap, required this.currentIndex});
 
-  Function(dynamic) onTap;
-  int currentIndex;
+  final Function(dynamic) onTap;
+  final int currentIndex;
 
   @override
   State<CustomBottomNavigationBar> createState() => _CustomBottomNavigationBarState();
@@ -27,7 +27,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
 
         /// orders
         SalomonBottomBarItem(
-            title: Text(AppLocalizations.of(context)!.requests),
+            title: Text(AppLocalizations.of(context)!.orders),
             icon: Icon(Icons.request_page_outlined, color: ColorManager.whiteColor, size: AppSizes.ph30),
             selectedColor: ColorManager.whiteColor),
 
