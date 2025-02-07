@@ -19,7 +19,7 @@ class HomeTabScreen extends StatelessWidget {
               provider.isSliderLoading ? const SliderShimmerWidget() : const AdsBannerSliderComponent(),
               provider.isCategoryLoading ? const CategoryShimmerWidget() : const CategoryComponent(),
               SizedBox(height: AppSizes.ph10),
-              const RareServiceComponent(),
+              provider.isCategoryLoading ? const SliderShimmerWidget() : const RareServiceComponent(),
             ],
           ),
         ),
