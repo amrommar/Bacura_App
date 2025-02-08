@@ -1,4 +1,5 @@
 import 'package:bacura_app/core/presentation/widget/shimmer.dart';
+import 'package:bacura_app/core/services/date_parser.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/my_orders/presentation/controller/my_order_provider.dart';
 import 'package:bacura_app/feature/my_orders/presentation/views/components/order_item_component.dart';
@@ -18,8 +19,8 @@ class _OrdersTabScreenState extends State<OrdersTabScreen> {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => MyOrderProvider(),
-      child: Consumer<MyOrderProvider>(
-        builder: (context, provider, child) => provider.isLoadingMyOrders
+      child: Consumer<MyOrderProvider>(builder: (context, provider, child) {
+        return provider.isLoadingMyOrders
             ? buildShimmerContainer()
             : Column(
                 children: [
@@ -32,10 +33,23 @@ class _OrdersTabScreenState extends State<OrdersTabScreen> {
                       child: ListView.builder(
                         itemCount: provider.filteredOrders.length,
                         itemBuilder: (context, index) {
+                          var requestEntity = provider.filteredOrders[index];
+                          String timeOnly = DateParser.dateFormatterOnlyTime(requestEntity.createdAt);
+
                           return InkWell(
                             onTap: () {
                               Navigator.push(
-                                  context, MaterialPageRoute(builder: (context) => const OrderDetailsScreen()));
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => OrderDetailsScreen(
+                                            date: provider.dateCreateOrder(index),
+                                            time: timeOnly,
+                                            orderId: requestEntity.id.toString(),
+                                            requestColor: statusColors[requestEntity.status]!,
+                                            location: requestEntity.location,
+                                            expiresAt: requestEntity.expiresAt!.split("T")[0],
+                                            total: requestEntity.total,
+                                          )));
                             },
                             child: OrderItemComponent(
                               backgroundColor: requestColor(statusColors[provider.filteredOrders[index].status]!),
@@ -55,8 +69,8 @@ class _OrdersTabScreenState extends State<OrdersTabScreen> {
                         )
                       : const SizedBox.shrink(),
                 ],
-              ),
-      ),
+              );
+      }),
     );
   }
 }

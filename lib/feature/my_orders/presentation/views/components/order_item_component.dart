@@ -1,7 +1,9 @@
 import 'package:bacura_app/core/services/date_parser.dart';
+import 'package:bacura_app/core/services/number_parser.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/my_orders/presentation/controller/my_order_provider.dart';
 import 'package:bacura_app/feature/my_orders/presentation/views/widget/order_num_contact_icon_widget.dart';
+import 'package:intl/intl.dart';
 
 class OrderItemComponent extends StatelessWidget {
   final Color backgroundColor;
@@ -28,8 +30,8 @@ class OrderItemComponent extends StatelessWidget {
 
   Widget _buildRequestContainer(MyOrderProvider provider, BuildContext context) {
     var requestEntity = provider.filteredOrders[index];
-    String fullDateTime = requestEntity.createdAt!;
-    String dateOnly = fullDateTime.split("T")[0];
+    int number = requestEntity.total ?? 0;
+    String formattedNumber = NumberFormat('#,###').format(number);
     String timeOnly = DateParser.dateFormatterOnlyTime(requestEntity.createdAt);
 
     return Container(
@@ -67,14 +69,15 @@ class OrderItemComponent extends StatelessWidget {
                   ),
             ),
           ),
-          OrderTimeDateWidget(date: dateOnly, time: timeOnly),
-          Text(
-            '1000 ريال',
-            style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                  color: ColorManager.darkBlueColor,
-                  fontWeight: FontWeight.bold,
-                ),
-          ),
+          OrderTimeDateWidget(date: provider.dateCreateOrder(index), time: timeOnly),
+          if (requestEntity.total! > 0)
+            Text(
+              '${NumberParser.translateNumber((formattedNumber).toString())} ريال',
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                    color: ColorManager.darkBlueColor,
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
         ],
       ),
     );

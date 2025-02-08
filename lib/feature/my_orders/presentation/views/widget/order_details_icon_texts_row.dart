@@ -1,12 +1,12 @@
 import 'package:bacura_app/core/utils/index.dart';
 
 class OrderDetailsIconTextsRow extends StatelessWidget {
-  String title;
-  String description;
-  IconData? icon;
-  Color iconColor;
+  final String title;
+  final String description;
+  final IconData? icon;
+  final Color iconColor;
 
-  OrderDetailsIconTextsRow({
+  const OrderDetailsIconTextsRow({
     super.key,
     required this.title,
     required this.description,

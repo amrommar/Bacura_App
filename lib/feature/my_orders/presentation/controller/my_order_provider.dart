@@ -69,4 +69,11 @@ class MyOrderProvider with ChangeNotifier {
       return _selectedFilters.contains(request.status);
     }).toList();
   }
+
+  String dateCreateOrder(int index) {
+    var requestEntity = filteredOrders[index];
+    String fullDateTime = requestEntity.createdAt!;
+    String dateOnly = fullDateTime.split("T")[0];
+    return dateOnly;
+  }
 }
