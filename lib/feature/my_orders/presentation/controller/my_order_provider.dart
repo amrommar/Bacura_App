@@ -1,7 +1,9 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/my_orders/domin/entity/items_for_order_entity.dart';
 import 'package:bacura_app/feature/my_orders/domin/entity/my_order_data_entity.dart';
 import 'package:bacura_app/feature/my_orders/domin/entity/my_order_entity.dart';
 import 'package:bacura_app/feature/my_orders/domin/use_case/get_my_orders_use_case.dart';
+import 'package:bacura_app/feature/my_orders/domin/use_case/items_for_order_use_case.dart';
 
 class MyOrderProvider with ChangeNotifier {
   late MyOrderEntity myOrderEntity;
@@ -18,10 +20,10 @@ class MyOrderProvider with ChangeNotifier {
   }
 
   init() async {
-    await getMyOrders();
+    await _getMyOrders();
   }
 
-  Future<void> getMyOrders({bool isLoadingMore = false}) async {
+  Future<void> _getMyOrders({bool isLoadingMore = false}) async {
     this.isLoadingMore = isLoadingMore;
     notifyListeners();
     (await sl<GetMyOrdersUseCase>()(
@@ -51,7 +53,7 @@ class MyOrderProvider with ChangeNotifier {
     pageNumber++;
     isLoadingMore = true;
     notifyListeners();
-    await getMyOrders(isLoadingMore: true);
+    await _getMyOrders(isLoadingMore: true);
     isLoadingMore = false;
     notifyListeners();
   }

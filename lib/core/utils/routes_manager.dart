@@ -69,7 +69,10 @@ class RouteGenerator {
       case Routes.walletDetailsRoute:
         return MaterialPageRoute(builder: (_) => const WalletDetailsScreen());
       case Routes.requestDetailsRoute:
-        return MaterialPageRoute(builder: (_) => const OrderDetailsScreen());
+        return MaterialPageRoute(
+            builder: (_) => const OrderDetailsScreen(
+                  id: 0,
+                ));
       case Routes.cardsManagementRoute:
         return MaterialPageRoute(builder: (_) => Cards_Management_Screen());
       case Routes.offerDetailsRoute:

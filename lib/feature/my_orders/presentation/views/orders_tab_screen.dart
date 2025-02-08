@@ -7,14 +7,9 @@ import 'package:bacura_app/feature/my_orders/presentation/views/widget/order_fil
 import 'package:bacura_app/feature/my_orders/utils.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 
-class OrdersTabScreen extends StatefulWidget {
+class OrdersTabScreen extends StatelessWidget {
   const OrdersTabScreen({super.key});
 
-  @override
-  State<OrdersTabScreen> createState() => _OrdersTabScreenState();
-}
-
-class _OrdersTabScreenState extends State<OrdersTabScreen> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -44,11 +39,13 @@ class _OrdersTabScreenState extends State<OrdersTabScreen> {
                                       builder: (context) => OrderDetailsScreen(
                                             date: provider.dateCreateOrder(index),
                                             time: timeOnly,
-                                            orderId: requestEntity.id.toString(),
+                                            orderId: requestEntity.id!,
                                             requestColor: statusColors[requestEntity.status]!,
                                             location: requestEntity.location,
                                             expiresAt: requestEntity.expiresAt!.split("T")[0],
                                             total: requestEntity.total,
+                                            id: requestEntity.id!,
+                                            description: requestEntity.description,
                                           )));
                             },
                             child: OrderItemComponent(

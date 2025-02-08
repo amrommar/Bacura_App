@@ -4,13 +4,13 @@ import 'package:bacura_app/feature/my_orders/domin/repository/base_my_order_repo
 import 'package:dartz/dartz.dart';
 
 class GetMyOrdersUseCase extends BaseUseCases<MyOrderEntity, MyOrdersParameters> {
-  BaseMyOrderRepository baseOrderRepository;
+  BaseMyOrderRepository baseMyOrderRepository;
 
-  GetMyOrdersUseCase({required this.baseOrderRepository});
+  GetMyOrdersUseCase({required this.baseMyOrderRepository});
 
   @override
   Future<Either<Failure, MyOrderEntity>> call(parameters) async {
-    return await baseOrderRepository.getOrder(myOrdersParameters: parameters);
+    return await baseMyOrderRepository.getOrder(myOrdersParameters: parameters);
   }
 }
 

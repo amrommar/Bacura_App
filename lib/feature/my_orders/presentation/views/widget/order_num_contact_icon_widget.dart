@@ -2,15 +2,15 @@ import 'package:bacura_app/core/utils/index.dart';
 
 class OrderNumContactIconWidget extends StatelessWidget {
   final Color requestColor;
-  final String requestNumber;
+  final int orderId;
 
-  const OrderNumContactIconWidget({super.key, required this.requestColor, required this.requestNumber});
+  const OrderNumContactIconWidget({super.key, required this.requestColor, required this.orderId});
 
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
       Text(
-        '#$requestNumber',
+        '#${orderId.toString()}',
         style: Theme.of(context)
             .textTheme
             .titleMedium!

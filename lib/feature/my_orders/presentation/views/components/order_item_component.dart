@@ -56,7 +56,7 @@ class OrderItemComponent extends StatelessWidget {
         children: [
           OrderNumContactIconWidget(
             requestColor: requestColor,
-            requestNumber: requestEntity.id.toString(),
+            orderId: requestEntity.id!,
           ),
           SizedBox(
             width: AppSizes.pw400,

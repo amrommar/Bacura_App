@@ -53,7 +53,7 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                             ProfileDetailsWidget(
                               icon: Icons.phone_outlined,
                               text: AppLocalizations.of(context)!.mobileNumber,
-                              value: '${profileEntity.phone}',
+                              value: '${profileEntity.countryCode} ${profileEntity.phone}',
                               onTap: () {
                                 provider.openEditPhoneBottomSheet();
                               },

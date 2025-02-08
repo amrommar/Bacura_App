@@ -1,5 +1,6 @@
 import 'package:bacura_app/core/error/failaure.dart';
 import 'package:bacura_app/feature/my_orders/data/data_source/my_order_data_source.dart';
+import 'package:bacura_app/feature/my_orders/domin/entity/items_for_order_entity.dart';
 import 'package:bacura_app/feature/my_orders/domin/entity/my_order_entity.dart';
 import 'package:bacura_app/feature/my_orders/domin/repository/base_my_order_repository.dart';
 import 'package:bacura_app/feature/my_orders/domin/use_case/get_my_orders_use_case.dart';
@@ -14,6 +15,15 @@ class MyOrderRepository extends BaseMyOrderRepository {
   Future<Either<Failure, MyOrderEntity>> getOrder({required MyOrdersParameters myOrdersParameters}) async {
     try {
       return Right(await baseOrderDataSource.getOrder(myOrdersParameters: myOrdersParameters));
+    } on Failure catch (ex) {
+      return Left(ServerFailure(code: ex.code, message: ex.message));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<ItemsForOrderEntity>>> getItems({required int id}) async {
+    try {
+      return Right(await baseOrderDataSource.getItems(id: id));
     } on Failure catch (ex) {
       return Left(ServerFailure(code: ex.code, message: ex.message));
     }

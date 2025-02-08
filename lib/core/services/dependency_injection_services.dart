@@ -13,6 +13,7 @@ import 'package:bacura_app/feature/my_orders/data/data_source/my_order_data_sour
 import 'package:bacura_app/feature/my_orders/data/repository/my_order_repository.dart';
 import 'package:bacura_app/feature/my_orders/domin/repository/base_my_order_repository.dart';
 import 'package:bacura_app/feature/my_orders/domin/use_case/get_my_orders_use_case.dart';
+import 'package:bacura_app/feature/my_orders/domin/use_case/items_for_order_use_case.dart';
 import 'package:bacura_app/feature/offers/data/data_source/offers_data_source.dart';
 import 'package:bacura_app/feature/offers/data/repository/offers_repository.dart';
 import 'package:bacura_app/feature/offers/domin/repository/base_offers_repository.dart';
@@ -99,7 +100,8 @@ class DependencyInjectionServices {
     sl.registerLazySingleton<BaseOrderDataSource>(() => MyOrderDataSource());
 
     ///Use Cases
-    sl.registerLazySingleton<GetMyOrdersUseCase>(() => GetMyOrdersUseCase(baseOrderRepository: sl()));
+    sl.registerLazySingleton<GetMyOrdersUseCase>(() => GetMyOrdersUseCase(baseMyOrderRepository: sl()));
+    sl.registerLazySingleton<ItemsForOrderUseCase>(() => ItemsForOrderUseCase(baseMyOrderRepository: sl()));
   }
 
   _initializeMoreApp() {

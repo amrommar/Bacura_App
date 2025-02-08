@@ -35,10 +35,13 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget> {
                 .textTheme
                 .titleSmall!
                 .copyWith(color: ColorManager.blackColor, fontWeight: FontWeight.w600)),
-        Text(widget.value,
-            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                  color: ColorManager.greyColor,
-                ))
+        Text(
+          widget.value,
+          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                color: ColorManager.greyColor,
+              ),
+          textDirection: TextDirection.ltr,
+        ),
       ]),
       const Spacer(),
       InkWell(
