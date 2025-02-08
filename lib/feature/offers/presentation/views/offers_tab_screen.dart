@@ -20,11 +20,11 @@ class OffersTabScreen extends StatelessWidget {
               : Column(
                   children: [
                     SizedBox(height: AppSizes.ph5),
-                    const OfferFilterWidget(),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: AppSizes.pw6),
-                      child: Divider(color: ColorManager.lightBlueColor),
-                    ),
+                    // const OfferFilterWidget(),
+                    // Padding(
+                    //   padding: EdgeInsets.symmetric(horizontal: AppSizes.pw6),
+                    //   child: Divider(color: ColorManager.lightBlueColor),
+                    // ),
                     Expanded(
                       child: LazyLoadScrollView(
                         onEndOfPage: () => provider.loadMoreOffers(),
@@ -36,7 +36,11 @@ class OffersTabScreen extends StatelessWidget {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => const OfferDetailsScreen(),
+                                      builder: (context) => OfferDetailsScreen(
+                                        name: provider.offersEntity.offersDataEntity[index].name!,
+                                        description: provider.offersEntity.offersDataEntity[index].description!,
+                                        imageUrl: provider.offersEntity.offersDataEntity[index].image!,
+                                      ),
                                     ),
                                   );
                                 },

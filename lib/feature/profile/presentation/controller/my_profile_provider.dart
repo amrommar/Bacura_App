@@ -1,4 +1,3 @@
-import 'package:bacura_app/core/presentation/widget/custom_dialog_services.dart';
 import 'package:bacura_app/core/presentation/widget/custom_modal_bottom_sheet.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/auth/presentation/views/components/verify_screen.dart';
@@ -12,7 +11,6 @@ import 'package:bacura_app/feature/profile/presentation/views/components/edit_lo
 import 'package:bacura_app/feature/profile/presentation/views/components/edit_name_bottom_sheet.dart';
 import 'package:bacura_app/feature/profile/presentation/views/components/edit_phone_number_bottom_sheet.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
 
 class MyProfileProvider with ChangeNotifier {

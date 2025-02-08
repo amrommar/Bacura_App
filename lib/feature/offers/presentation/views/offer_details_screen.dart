@@ -1,7 +1,10 @@
 import 'package:bacura_app/core/utils/index.dart';
 
 class OfferDetailsScreen extends StatefulWidget {
-  const OfferDetailsScreen({super.key});
+  final String name;
+  final String description;
+  final String imageUrl;
+  const OfferDetailsScreen({super.key, required this.name, required this.description, required this.imageUrl});
 
   @override
   State<OfferDetailsScreen> createState() => _OfferDetailsScreenState();
@@ -18,45 +21,30 @@ class _OfferDetailsScreenState extends State<OfferDetailsScreen> {
         body: SingleChildScrollView(
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           SizedBox(height: AppSizes.ph10),
-          ////    From Back-End     ///////////////////////////////////////////////////////
-          ///offer Image Section ///////////////////////////////////////////////////////
-          Image.asset(AppAssets.cameraOffer),
+          Image.network(widget.imageUrl),
 
-          /// offer Title Section ///////////////////////////////////////////////////////
           Container(
               margin: EdgeInsets.only(
                 top: AppSizes.ph8,
                 right: AppSizes.pw8,
                 left: AppSizes.pw8,
               ),
-              child: Text('4 كاميرات IP ذكية خارجية (6 ميجابكسل)',
+              child: Text(widget.name,
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium!
                       .copyWith(color: ColorManager.blackColor, fontWeight: FontWeight.bold))),
 
-          ///Details about offer Section ///////////////////////////////////////////////////////
           Container(
-              margin: EdgeInsets.only(top: AppSizes.ph4, right: AppSizes.pw6, left: AppSizes.pw6),
-              padding: EdgeInsets.symmetric(vertical: AppSizes.ph8, horizontal: AppSizes.pw12),
+              margin: EdgeInsets.symmetric(vertical: AppSizes.ph8, horizontal: AppSizes.pw8),
+              padding: EdgeInsets.symmetric(vertical: AppSizes.ph12, horizontal: AppSizes.pw12),
               decoration: BoxDecoration(
                   color: ColorManager.midWhiteColor,
                   borderRadius: BorderRadius.circular(
                     AppSizes.br4,
                   )),
-              child: const ReadMoreText(
-                text:
-                    '''احصل على باقة 4 كاميرات IP خارجية بدقة 8MP مع الملحقات بسعر تنافسي وشحن مجاني وخصم على رسوم التركيب. يمكنك الدفع بالتقسيط أو الدفع عند الاستلام. يوجد ضمان لمدة عامين على المنتجات وسنة على تركيب كاميرات المراقبة. يمكنك طلب واحدة مخصصة لاحتياجاتك. تواصل معنا الآن واستفد من عروض كاميرات المراقبة بأسعار الجملة. سوف تحصل على: حزمة كاملة تتكون من:
-4 كاميرات IP خارجية بدقة 8 ميجابكسل 4K (الموديل: DS-2CD2T83G2-2I)
-جهاز تسجيل NVR مزود بـ (8 قنوات) (موديل: DS-7608NI-K2/8P)
-قرص صلب للتخزين سعة 2 تيرابايت من نوع WD
-80 مترا من كابل الشبكة CAT6 - 3M
-
-المواصفات والمميزات:
-الدقة: 8 ميجابكسل
-نطاق الرؤية: يصل إلى 60 مترًا
-فتحة العدسة: مقاس العدسة الثابتة 2.8 ملم
-إمكانية الاتصال بالموبايل عن طريق جهاز التسجيل''',
+              child: ReadMoreText(
+                text: widget.description,
               )),
           SizedBox(height: AppSizes.ph10),
           SizedBox(height: AppSizes.ph50),
