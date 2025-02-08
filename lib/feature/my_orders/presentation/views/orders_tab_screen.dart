@@ -38,9 +38,8 @@ class _OrdersTabScreenState extends State<OrdersTabScreen> {
                                   context, MaterialPageRoute(builder: (context) => const OrderDetailsScreen()));
                             },
                             child: OrderItemComponent(
-                              backgroundColor:
-                                  requestColor(statusColors[provider.myOrderEntity.myOrderDataEntity[index].status]!),
-                              requestColor: statusColors[provider.myOrderEntity.myOrderDataEntity[index].status]!,
+                              backgroundColor: requestColor(statusColors[provider.filteredOrders[index].status]!),
+                              requestColor: statusColors[provider.filteredOrders[index].status]!,
                               index: index,
                             ),
                           );

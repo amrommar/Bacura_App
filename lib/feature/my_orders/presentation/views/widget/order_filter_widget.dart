@@ -9,7 +9,7 @@ class ordersFilterWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final myordersProvider = Provider.of<MyOrderProvider>(context);
+    final myOrdersProvider = Provider.of<MyOrderProvider>(context);
 
     final List<MultiSelectItem<String>> filterItems = ordersTypes.map((filter) {
       String translatedFilter = '';
@@ -17,14 +17,17 @@ class ordersFilterWidget extends StatelessWidget {
         case 'pending':
           translatedFilter = AppLocalizations.of(context)!.pending;
           break;
-        case 'ongoing':
+        case 'approved':
           translatedFilter = AppLocalizations.of(context)!.on_going;
           break;
         case 'completed':
           translatedFilter = AppLocalizations.of(context)!.completed;
           break;
-        case 'canceled':
+        case 'declined':
           translatedFilter = AppLocalizations.of(context)!.canceled;
+          break;
+        case 'confirmed':
+          translatedFilter = 'معتمدة';
           break;
         default:
           translatedFilter = filter;
@@ -44,9 +47,9 @@ class ordersFilterWidget extends StatelessWidget {
             itemsTextStyle: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.greyColor),
             selectedColor: ColorManager.primaryBlueColor,
             items: filterItems,
-            initialValue: myordersProvider.selectedFilters,
+            initialValue: myOrdersProvider.selectedFilters,
             onConfirm: (List<String> selectedValues) {
-              myordersProvider.setSelectedFilters(selectedValues);
+              myOrdersProvider.setSelectedFilters(selectedValues);
             },
           );
         },
@@ -64,10 +67,10 @@ class ordersFilterWidget extends StatelessWidget {
               child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              ...myordersProvider.selectedFilters.map((selected) {
+              ...myOrdersProvider.selectedFilters.map((selected) {
                 return SelectedFilterWidgets(text: translateFilter(selected, context));
               }),
-              ...ordersTypes.where((type) => !myordersProvider.selectedFilters.contains(type)).map((unselected) {
+              ...ordersTypes.where((type) => !myOrdersProvider.selectedFilters.contains(type)).map((unselected) {
                 return UnSelected_Filter_Container(text: translateFilter(unselected, context));
               }),
             ],
