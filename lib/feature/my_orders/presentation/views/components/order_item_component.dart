@@ -28,8 +28,10 @@ class OrderItemComponent extends StatelessWidget {
 
   Widget _buildRequestContainer(MyOrderProvider provider, BuildContext context) {
     var requestEntity = provider.filteredOrders[index];
-    String communicationDate = DateParser.dateFormatterWithoutTime(requestEntity.communicationDate);
-    String communicationTime = DateParser.dateFormatterOnlyTime(requestEntity.communicationTime);
+    String fullDateTime = requestEntity.createdAt!;
+    String dateOnly = fullDateTime.split("T")[0];
+    String timeOnly = DateParser.dateFormatterOnlyTime(requestEntity.createdAt);
+
     return Container(
       decoration: BoxDecoration(
         color: backgroundColor,
@@ -65,7 +67,7 @@ class OrderItemComponent extends StatelessWidget {
                   ),
             ),
           ),
-          OrderTimeDateWidget(date: communicationDate, time: communicationTime),
+          OrderTimeDateWidget(date: dateOnly, time: timeOnly),
           Text(
             '1000 ريال',
             style: Theme.of(context).textTheme.titleMedium!.copyWith(

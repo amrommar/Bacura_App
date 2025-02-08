@@ -2,6 +2,7 @@ import 'package:bacura_app/core/utils/index.dart';
 
 class MyOrderDataEntity extends Equatable {
   final int? id;
+  final int? total;
   final String? status;
   final String? communicationDate;
   final String? communicationTime;
@@ -12,8 +13,11 @@ class MyOrderDataEntity extends Equatable {
   final int? serviceId;
   final String? service;
   final int? categoryId;
+  final String? createdAt;
 
   const MyOrderDataEntity({
+    this.total,
+    this.createdAt,
     this.id,
     this.status,
     this.communicationDate,
@@ -28,8 +32,7 @@ class MyOrderDataEntity extends Equatable {
   });
 
   @override
-  List<Object?> get props =>
-      [
+  List<Object?> get props => [
         id,
         status,
         communicationDate,
@@ -40,6 +43,9 @@ class MyOrderDataEntity extends Equatable {
         description,
         serviceId,
         service,
-        categoryId
+        categoryId,
+        createdAt,
+        total,
+
       ];
 }

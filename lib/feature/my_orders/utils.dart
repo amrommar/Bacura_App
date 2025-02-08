@@ -26,3 +26,15 @@ String translateFilter(String filter, BuildContext context) {
       return filter;
   }
 }
+ Color requestColor(Color currentColor) {
+    if (currentColor == ColorManager.yellowColor) {
+      return ColorManager.lightYellowColor;
+    } else if (currentColor == ColorManager.primaryBlueColor) {
+      return ColorManager.lightBlueColor;
+    } else if (currentColor == ColorManager.greenColor) {
+      return ColorManager.lightGreenColor;
+    } else if (currentColor == ColorManager.redColor) {
+      return ColorManager.lightRedColor;
+    }
+    return ColorManager.whiteColor;
+  }

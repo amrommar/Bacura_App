@@ -13,6 +13,8 @@ class MyOrderDataModel extends MyOrderDataEntity {
     required super.serviceId,
     required super.service,
     required super.categoryId,
+    required super.total,
+    required super.createdAt,
   });
 
   factory MyOrderDataModel.fromJson(Map<String, dynamic> json) => MyOrderDataModel(
@@ -27,5 +29,7 @@ class MyOrderDataModel extends MyOrderDataEntity {
         serviceId: json["service_id"] ?? 0,
         service: json["service"],
         categoryId: json["category_id"] ?? 0,
+        total: json["total"] ?? 0,
+        createdAt: json["created_at"] ?? "",
       );
 }

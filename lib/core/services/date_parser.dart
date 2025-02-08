@@ -58,7 +58,7 @@ class DateParser {
     }
     DateTime? parsedDate = (dateTime is String) ? DateTime.tryParse(dateTime) : dateTime;
     if (parsedDate == null) throw "Date isn't in a valid format to be parsed";
-    return DateFormat('dd/MM/yyyy').format(parsedDate);
+    return DateFormat('dd-MM-yyyy').format(parsedDate);
   }
 
   static String dateFormatterOnlyTime(dynamic dateTime) {
@@ -69,7 +69,7 @@ class DateParser {
     DateTime? parsedDate;
 
     if (dateTime is String) {
-      parsedDate = DateFormat("HH:mm:ss").parse(dateTime);
+      parsedDate = DateTime.tryParse(dateTime);
     } else {
       parsedDate = dateTime;
     }
