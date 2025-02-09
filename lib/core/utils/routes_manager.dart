@@ -85,7 +85,7 @@ class RouteGenerator {
       case Routes.serviceTypeRoute:
         return MaterialPageRoute(builder: (_) => const ServiceTypeScreen());
       case Routes.serviceDetailsRoute:
-        return MaterialPageRoute(builder: (_) => const ServiceOrderScreen());
+        return MaterialPageRoute(builder: (_) => const OrderRequestScreen());
       case Routes.privacyPolicyRoute:
         return MaterialPageRoute(builder: (_) => const PrivacyPolicyScreen());
       case Routes.termsAndConditionsRoute:

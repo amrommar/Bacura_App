@@ -2,11 +2,11 @@ import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/order_services/index.dart';
 import 'package:bacura_app/feature/order_services/presentation/controller/order_services_provider.dart';
 
-class ServiceOrderScreen extends StatelessWidget {
+class OrderRequestScreen extends StatelessWidget {
   final int? serviceId;
   final int? categoryId;
 
-  const ServiceOrderScreen({super.key, this.serviceId, this.categoryId});
+  const OrderRequestScreen({super.key, this.serviceId, this.categoryId});
 
   @override
   Widget build(BuildContext context) {

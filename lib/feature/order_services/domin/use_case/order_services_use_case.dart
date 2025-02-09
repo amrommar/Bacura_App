@@ -14,22 +14,22 @@ class OrderServicesUseCase extends BaseUseCases<void, OrderServicesParams> {
 }
 
 class OrderServicesParams {
-  final String location;
-  final String date;
-  final String time;
+  final String? location;
+  final String? date;
+  final String? time;
   final int? serviceId;
-  final int categoryId;
-  final String description;
+  final int? categoryId;
+  final String? description;
   final double? longitude;
   final double? latitude;
 
   const OrderServicesParams({
-    required this.location,
-    required this.date,
-    required this.time,
+    this.location,
+    this.date,
+    this.time,
     this.serviceId,
-    required this.categoryId,
-    required this.description,
+    this.categoryId,
+    this.description,
     this.longitude,
     this.latitude,
   });

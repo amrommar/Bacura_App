@@ -1,15 +1,11 @@
-import 'package:bacura_app/core/presentation/widget/shimmer.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/notifications/presentation/controller/notifications_provider.dart';
+import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
+import 'package:shimmer/shimmer.dart';
 
-class NotificationsScreen extends StatefulWidget {
+class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({super.key});
 
-  @override
-  State<NotificationsScreen> createState() => _NotificationsScreenState();
-}
-
-class _NotificationsScreenState extends State<NotificationsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,56 +15,108 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
       body: ChangeNotifierProvider(
         create: (context) => NotificationsProvider(),
         child: Consumer<NotificationsProvider>(
-          builder: (context, provider, child) => Container(
-            color: ColorManager.whiteColor,
-            child: provider.isLoadingNotifications
-                ? buildShimmerContainer()
-                : ListView.separated(
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          Container(
+          builder: (context, provider, child) => provider.isLoadingNotifications
+              ? buildNotificationsShimmerContainer()
+              : Column(
+                  children: [
+                    LazyLoadScrollView(
+                      onEndOfPage: () {
+                        provider.loadMoreNotifications();
+                      },
+                      child: Expanded(
+                        child: ListView.separated(
+                          separatorBuilder: (context, index) => Container(
+                            width: AppSizes.pw430,
+                            color: ColorManager.lightBlueColor,
+                            height: AppSizes.ph1,
+                          ),
+                          itemCount: provider.notificationsEntity.notificationsDataEntity.length,
+                          itemBuilder: (context, index) {
+                            return Container(
                               color: ColorManager.whiteColor,
                               height: AppSizes.ph80,
                               padding: EdgeInsets.symmetric(horizontal: AppSizes.pw10),
-                              child: Row(children: [
-                                const NotificationImageWidget(),
-                                Padding(
+                              child: Row(
+                                children: [
+                                  const NotificationImageWidget(),
+                                  Padding(
                                     padding: EdgeInsets.symmetric(vertical: AppSizes.ph15),
-                                    child: VerticalDivider(color: ColorManager.soLightGreyColor)),
-                                Container(
+                                    child: VerticalDivider(color: ColorManager.soLightGreyColor),
+                                  ),
+                                  Container(
                                     width: AppSizes.pw320,
                                     padding: EdgeInsets.symmetric(vertical: AppSizes.ph8, horizontal: AppSizes.pw4),
                                     child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          ///////////////    from Back-End     /////////////////////
-                                          Text(provider.notificationsEntity.notificationsDataEntity[index].title!,
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .titleMedium!
-                                                  .copyWith(color: ColorManager.darkBlueColor)),
-                                          Text(provider.notificationsEntity.notificationsDataEntity[index].body!,
-                                              overflow: TextOverflow.ellipsis,
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .titleSmall!
-                                                  .copyWith(color: ColorManager.greyColor))
-                                        ]))
-                              ])),
-                        ],
-                      );
-                    },
-                    separatorBuilder: (context, index) => Container(
-                          width: AppSizes.pw430,
-                          color: ColorManager.lightBlueColor,
-                          height: AppSizes.ph1,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          provider.notificationsEntity.notificationsDataEntity[index].title!,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .titleMedium!
+                                              .copyWith(color: ColorManager.darkBlueColor),
+                                        ),
+                                        Text(
+                                          provider.notificationsEntity.notificationsDataEntity[index].body!,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .titleSmall!
+                                              .copyWith(color: ColorManager.greyColor),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
                         ),
-                    itemCount: provider.notificationsEntity.totalRecords!),
-          ),
+                      ),
+                    ),
+                    provider.isLoadingMore
+                        ? Padding(
+                            padding: EdgeInsets.all(AppSizes.ph10),
+                            child: const Center(child: CircularProgressIndicator()),
+                          )
+                        : const SizedBox.shrink(),
+                  ],
+                ),
         ),
       ),
     );
   }
+}
+
+Widget buildNotificationsShimmerContainer() {
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: ListView.builder(
+      scrollDirection: Axis.vertical,
+      itemCount: 10,
+      itemBuilder: (context, index) {
+        return Shimmer.fromColors(
+          baseColor: Colors.grey[300]!,
+          highlightColor: Colors.grey[100]!,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(AppSizes.br12),
+            ),
+            margin: EdgeInsets.only(right: AppSizes.pw18, top: AppSizes.ph18, left: AppSizes.pw18),
+            padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph12),
+            height: AppSizes.ph80,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(height: 16, width: AppSizes.pw400, color: Colors.white),
+              ],
+            ),
+          ),
+        );
+      },
+    ),
+  );
 }
