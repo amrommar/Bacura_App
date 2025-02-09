@@ -20,4 +20,13 @@ class NotificationsRepository extends BaseNotificationsRepository {
       return Left(ServerFailure(code: ex.code, message: ex.message));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> readNotification({required int notificationId}) async {
+    try {
+      return Right(await baseNotificationsDataSource.readNotification(notificationId: notificationId));
+    } on Failure catch (ex) {
+      return Left(ServerFailure(code: ex.code, message: ex.message));
+    }
+  }
 }

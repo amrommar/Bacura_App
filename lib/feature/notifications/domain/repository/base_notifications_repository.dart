@@ -6,4 +6,6 @@ import 'package:dartz/dartz.dart';
 abstract class BaseNotificationsRepository {
   Future<Either<Failure, NotificationsEntity>> getNotifications(
       {required NotificationsParameters notificationsParameters});
+
+  Future<Either<Failure, void>> readNotification({required int notificationId});
 }

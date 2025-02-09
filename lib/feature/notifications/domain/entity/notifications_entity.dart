@@ -20,6 +20,27 @@ class NotificationsEntity extends Equatable {
     required this.previousPageLink,
   });
 
+  NotificationsEntity copyWith({
+    List<NotificationsDataEntity>? notificationsDataEntity,
+    int? limit,
+    int? page,
+    int? totalRecords,
+    int? totalPages,
+    String? nextPageLink,
+    String? previousPageLink,
+  }) {
+    return NotificationsEntity(
+      notificationsDataEntity: notificationsDataEntity ?? this.notificationsDataEntity,
+      limit: limit ?? this.limit,
+      page: page ?? this.page,
+      totalRecords: totalRecords ?? this.totalRecords,
+      totalPages: totalPages ?? this.totalPages,
+      nextPageLink: nextPageLink ?? this.nextPageLink,
+      previousPageLink: previousPageLink ?? this.previousPageLink,
+    );
+  }
+
   @override
-  List<Object?> get props => [limit, page, totalRecords, totalPages, nextPageLink, previousPageLink];
+  List<Object?> get props =>
+      [notificationsDataEntity, limit, page, totalRecords, totalPages, nextPageLink, previousPageLink];
 }

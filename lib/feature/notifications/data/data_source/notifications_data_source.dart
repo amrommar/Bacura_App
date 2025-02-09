@@ -6,6 +6,7 @@ import 'package:bacura_app/feature/notifications/domain/use_case/get_my_notifica
 
 abstract class BaseNotificationsDataSource {
   Future<NotificationsEntity> getNotifications({required NotificationsParameters notificationsParameters});
+  Future<void> readNotification({required int notificationId});
 }
 
 class NotificationsDataSource extends BaseNotificationsDataSource {
@@ -32,5 +33,13 @@ class NotificationsDataSource extends BaseNotificationsDataSource {
     } catch (e) {
       throw Exception("Error fetching data: $e");
     }
+  }
+
+  @override
+  Future<void> readNotification({required int notificationId}) async {
+    await ApiClient().apiCall(
+      requestType: RequestType.GET,
+      url: 'notifications/$notificationId/read',
+    );
   }
 }

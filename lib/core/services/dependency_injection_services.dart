@@ -18,6 +18,7 @@ import 'package:bacura_app/feature/notifications/data/data_source/notifications_
 import 'package:bacura_app/feature/notifications/data/repository/notifications_repository.dart';
 import 'package:bacura_app/feature/notifications/domain/repository/base_notifications_repository.dart';
 import 'package:bacura_app/feature/notifications/domain/use_case/get_my_notifications_use_case.dart';
+import 'package:bacura_app/feature/notifications/domain/use_case/read_notification_use_case.dart';
 import 'package:bacura_app/feature/offers/data/data_source/offers_data_source.dart';
 import 'package:bacura_app/feature/offers/data/repository/offers_repository.dart';
 import 'package:bacura_app/feature/offers/domain/repository/base_offers_repository.dart';
@@ -141,5 +142,6 @@ class DependencyInjectionServices {
 
     ///Use Cases
     sl.registerLazySingleton<GetNotificationsUseCase>(() => GetNotificationsUseCase(baseNotificationsRepository: sl()));
+    sl.registerLazySingleton<ReadNotificationUseCase>(() => ReadNotificationUseCase(baseNotificationsRepository: sl()));
   }
 }

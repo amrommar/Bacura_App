@@ -1,5 +1,6 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/notifications/presentation/controller/notifications_provider.dart';
+import 'package:bacura_app/feature/notifications/presentation/views/components/notification_item_component.dart';
 import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -32,43 +33,18 @@ class NotificationsScreen extends StatelessWidget {
                           ),
                           itemCount: provider.notificationsEntity.notificationsDataEntity.length,
                           itemBuilder: (context, index) {
-                            return Container(
-                              color: ColorManager.whiteColor,
-                              height: AppSizes.ph80,
-                              padding: EdgeInsets.symmetric(horizontal: AppSizes.pw10),
-                              child: Row(
-                                children: [
-                                  const NotificationImageWidget(),
-                                  Padding(
-                                    padding: EdgeInsets.symmetric(vertical: AppSizes.ph15),
-                                    child: VerticalDivider(color: ColorManager.soLightGreyColor),
-                                  ),
-                                  Container(
-                                    width: AppSizes.pw320,
-                                    padding: EdgeInsets.symmetric(vertical: AppSizes.ph8, horizontal: AppSizes.pw4),
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          provider.notificationsEntity.notificationsDataEntity[index].title!,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .titleMedium!
-                                              .copyWith(color: ColorManager.darkBlueColor),
-                                        ),
-                                        Text(
-                                          provider.notificationsEntity.notificationsDataEntity[index].body!,
-                                          overflow: TextOverflow.ellipsis,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .titleSmall!
-                                              .copyWith(color: ColorManager.greyColor),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
+                            return InkWell(
+                              onTap: () {
+                                provider.readNotification(
+                                    notificationId: provider.notificationsEntity.notificationsDataEntity[index].id!);
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(vertical: AppSizes.pw4),
+                                child: NotificationItemComponent(
+                                  title: provider.notificationsEntity.notificationsDataEntity[index].title!,
+                                  body: provider.notificationsEntity.notificationsDataEntity[index].body!,
+                                  isRead: provider.notificationsEntity.notificationsDataEntity[index].isRead!,
+                                ),
                               ),
                             );
                           },
