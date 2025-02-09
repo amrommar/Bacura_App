@@ -1,16 +1,17 @@
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/offers/domin/entity/offers_data_entity.dart';
+import 'package:bacura_app/feature/notifications/domain/entity/notifications_data_entity.dart';
 
-class OffersEntity extends Equatable {
-  final List<OffersDataEntity> offersDataEntity;
+class NotificationsEntity extends Equatable {
+  final List<NotificationsDataEntity> notificationsDataEntity;
   final int? limit;
   final int? page;
   final int? totalRecords;
   final int? totalPages;
   final String? nextPageLink;
   final String? previousPageLink;
-  const OffersEntity({
-    required this.offersDataEntity,
+
+  const NotificationsEntity({
+    required this.notificationsDataEntity,
     required this.limit,
     required this.page,
     required this.totalRecords,

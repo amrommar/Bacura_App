@@ -47,8 +47,8 @@ class EditPhoneNumberBottomSheet extends StatelessWidget {
                             style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkRedColor),
                           )));
                     } else {
+                      provider.updateMyProfile();
                       Navigator.pop(context);
-                      provider.showVerifyBottomSheet(context);
                     }
                   },
                 ),

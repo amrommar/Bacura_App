@@ -14,10 +14,14 @@ import 'package:bacura_app/feature/my_orders/data/repository/my_order_repository
 import 'package:bacura_app/feature/my_orders/domin/repository/base_my_order_repository.dart';
 import 'package:bacura_app/feature/my_orders/domin/use_case/get_my_orders_use_case.dart';
 import 'package:bacura_app/feature/my_orders/domin/use_case/items_for_order_use_case.dart';
+import 'package:bacura_app/feature/notifications/data/data_source/notifications_data_source.dart';
+import 'package:bacura_app/feature/notifications/data/repository/notifications_repository.dart';
+import 'package:bacura_app/feature/notifications/domain/repository/base_notifications_repository.dart';
+import 'package:bacura_app/feature/notifications/domain/use_case/get_my_notifications_use_case.dart';
 import 'package:bacura_app/feature/offers/data/data_source/offers_data_source.dart';
 import 'package:bacura_app/feature/offers/data/repository/offers_repository.dart';
-import 'package:bacura_app/feature/offers/domin/repository/base_offers_repository.dart';
-import 'package:bacura_app/feature/offers/domin/use_case/get_my_requests_use_case.dart';
+import 'package:bacura_app/feature/offers/domain/repository/base_offers_repository.dart';
+import 'package:bacura_app/feature/offers/domain/use_case/get_my_offers_use_case.dart';
 import 'package:bacura_app/feature/order_services/data/data_source/order_service_data_source.dart';
 import 'package:bacura_app/feature/order_services/data/repository/order_service_repository.dart';
 import 'package:bacura_app/feature/order_services/domin/repository/base_order_service_repository.dart';
@@ -36,10 +40,11 @@ class DependencyInjectionServices {
     _initializeAuthUser();
     _initializeProfileUser();
     _initializeHomeUser();
-    _initializeorderservice();
-    _initializeMyorderservice();
+    _initializeOrderService();
+    _initializeMyOrderService();
     _initializeMoreApp();
     _initializeOffers();
+    _initializeNotifications();
   }
 
   _initializeAuthUser() {
@@ -80,7 +85,7 @@ class DependencyInjectionServices {
     sl.registerLazySingleton<GetCategoryUseCase>(() => GetCategoryUseCase(baseHomeRepository: sl()));
   }
 
-  _initializeorderservice() {
+  _initializeOrderService() {
     // Repository
     sl.registerLazySingleton<BaseOrderServiceRepository>(
         () => OrderServiceRepository(baseOrderServiceDataSource: sl()));
@@ -92,7 +97,7 @@ class DependencyInjectionServices {
     sl.registerLazySingleton<OrderServicesUseCase>(() => OrderServicesUseCase(baseOrderServiceRepository: sl()));
   }
 
-  _initializeMyorderservice() {
+  _initializeMyOrderService() {
     // Repository
     sl.registerLazySingleton<BaseMyOrderRepository>(() => MyOrderRepository(baseOrderDataSource: sl()));
 
@@ -117,12 +122,24 @@ class DependencyInjectionServices {
 
   _initializeOffers() {
     // Repository
-    sl.registerLazySingleton<BaseOffersRepository>(() => OffersRepository(baseRequestDataSource: sl()));
+    sl.registerLazySingleton<BaseOffersRepository>(() => OffersRepository(baseoffersDataSource: sl()));
 
     ///Data Sources
     sl.registerLazySingleton<BaseOffersDataSource>(() => OffersDataSource());
 
     ///Use Cases
     sl.registerLazySingleton<GetOffersUseCase>(() => GetOffersUseCase(baseOffersRepository: sl()));
+  }
+
+  _initializeNotifications() {
+    // Repository
+    sl.registerLazySingleton<BaseNotificationsRepository>(
+        () => NotificationsRepository(baseNotificationsDataSource: sl()));
+
+    ///Data Sources
+    sl.registerLazySingleton<BaseNotificationsDataSource>(() => NotificationsDataSource());
+
+    ///Use Cases
+    sl.registerLazySingleton<GetNotificationsUseCase>(() => GetNotificationsUseCase(baseNotificationsRepository: sl()));
   }
 }

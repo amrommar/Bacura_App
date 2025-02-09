@@ -1,10 +1,9 @@
 import 'package:bacura_app/core/services/date_parser.dart';
 import 'package:bacura_app/core/services/number_parser.dart';
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/offers/domin/entity/offers_data_entity.dart';
-import 'package:bacura_app/feature/offers/domin/entity/offers_entity.dart';
-import 'package:bacura_app/feature/offers/domin/use_case/get_my_requests_use_case.dart';
-import 'package:intl/intl.dart';
+import 'package:bacura_app/feature/offers/domain/entity/offers_data_entity.dart';
+import 'package:bacura_app/feature/offers/domain/entity/offers_entity.dart';
+import 'package:bacura_app/feature/offers/domain/use_case/get_my_offers_use_case.dart';
 
 class OffersProvider with ChangeNotifier {
   late OffersEntity offersEntity;
@@ -13,6 +12,7 @@ class OffersProvider with ChangeNotifier {
   bool isLoadingOffers = true;
   int pageNumber = 1;
   List<int> _selectedFilters = [];
+
   List<int> get selectedFilters => _selectedFilters;
 
   OffersProvider() {

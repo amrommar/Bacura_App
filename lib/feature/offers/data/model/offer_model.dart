@@ -1,5 +1,5 @@
 import 'package:bacura_app/feature/offers/data/model/offers_data_model.dart';
-import 'package:bacura_app/feature/offers/domin/entity/offers_entity.dart';
+import 'package:bacura_app/feature/offers/domain/entity/offers_entity.dart';
 
 class MyOffersModel extends OffersEntity {
   const MyOffersModel({

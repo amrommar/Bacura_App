@@ -1,8 +1,7 @@
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/offers/domin/entity/offers_entity.dart';
-import 'package:bacura_app/feature/offers/domin/repository/base_offers_repository.dart';
+import 'package:bacura_app/feature/offers/domain/entity/offers_entity.dart';
+import 'package:bacura_app/feature/offers/domain/repository/base_offers_repository.dart';
 import 'package:dartz/dartz.dart';
-import 'package:equatable/equatable.dart';
 
 class GetOffersUseCase extends BaseUseCases<OffersEntity, OffersParameters> {
   final BaseOffersRepository baseOffersRepository;

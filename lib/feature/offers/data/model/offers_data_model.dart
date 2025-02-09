@@ -1,4 +1,4 @@
-import 'package:bacura_app/feature/offers/domin/entity/offers_data_entity.dart';
+import 'package:bacura_app/feature/offers/domain/entity/offers_data_entity.dart';
 
 class OffersDataModel extends OffersDataEntity {
   const OffersDataModel({
@@ -14,6 +14,7 @@ class OffersDataModel extends OffersDataEntity {
     required super.image,
     required super.usageCount,
   });
+
   factory OffersDataModel.fromJson(Map<String, dynamic> json) => OffersDataModel(
         id: json["id"] ?? 0,
         description: json["description"] ?? "",
