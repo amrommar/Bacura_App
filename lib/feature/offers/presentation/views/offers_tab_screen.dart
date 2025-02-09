@@ -46,10 +46,11 @@ class OffersTabScreen extends StatelessWidget {
                                 },
                                 child: CustomOfferContainerWidget(
                                   imagePath: provider.offersEntity.offersDataEntity[index].image!,
-                                  name: provider.offersEntity.offersDataEntity[index].name!,
+                                  title: provider.offersEntity.offersDataEntity[index].name!,
                                   cost:
                                       ' ${NumberParser.translateNumber((provider.offersEntity.offersDataEntity[index].total!).toString())} ريال',
                                   expireDate: provider.getRemainingDays(index),
+                                  content: provider.offersEntity.offersDataEntity[index].description!,
                                 ));
                           },
                         ),
@@ -57,9 +58,12 @@ class OffersTabScreen extends StatelessWidget {
                     ),
                     SizedBox(height: AppSizes.ph25),
                     provider.isLoadingMore
-                        ? const Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Center(child: CircularProgressIndicator()),
+                        ? Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Center(
+                                child: CircularProgressIndicator(
+                              color: ColorManager.primaryBlueColor,
+                            )),
                           )
                         : const SizedBox.shrink(),
                   ],

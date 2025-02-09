@@ -1,9 +1,15 @@
 import 'package:bacura_app/core/utils/index.dart';
 
 class CustomOfferContainerWidget extends StatelessWidget {
-  final String imagePath, name, cost, expireDate;
+  final String imagePath, title, cost, expireDate, content;
+
   const CustomOfferContainerWidget(
-      {super.key, required this.imagePath, required this.name, required this.cost, required this.expireDate});
+      {super.key,
+      required this.imagePath,
+      required this.title,
+      required this.cost,
+      required this.expireDate,
+      required this.content});
 
   @override
   Widget build(BuildContext context) {
@@ -28,25 +34,30 @@ class CustomOfferContainerWidget extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
-            padding: EdgeInsets.all(AppSizes.ph6),
+          Container(
+            width: AppSizes.pw170,
+            padding: EdgeInsets.symmetric(horizontal: AppSizes.pw6, vertical: AppSizes.ph12),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  width: AppSizes.pw150,
-                  child: Text(name,
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleSmall!
-                          .copyWith(color: ColorManager.blackColor, fontSize: AppSizes.sp14),
-                      maxLines: 4,
-                      overflow: TextOverflow.ellipsis),
-                ),
+                Text(title,
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleSmall!
+                        .copyWith(color: ColorManager.blackColor, fontSize: AppSizes.sp14),
+                    overflow: TextOverflow.ellipsis),
+                Text(content,
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleSmall!
+                        .copyWith(color: ColorManager.greyColor, fontSize: AppSizes.sp12),
+                    maxLines: 4,
+                    overflow: TextOverflow.ellipsis),
               ],
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(AppSizes.ph6),
+            padding: EdgeInsets.symmetric(horizontal: AppSizes.pw6, vertical: AppSizes.ph12),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
