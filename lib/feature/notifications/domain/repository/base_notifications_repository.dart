@@ -8,4 +8,5 @@ abstract class BaseNotificationsRepository {
       {required NotificationsParameters notificationsParameters});
 
   Future<Either<Failure, void>> readNotification({required int notificationId});
+  Future<Either<Failure, int>> unreadNotification();
 }
