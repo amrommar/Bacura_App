@@ -13,6 +13,7 @@ class NotificationsIconWidget extends StatelessWidget {
 
     return IconButton(
       icon: badges.Badge(
+        showBadge: coreProvider.notificationCount > 0,
         badgeContent: Text(
           NumberParser.translateNumber(coreProvider.notificationCount.toString()),
           style: TextStyle(color: Colors.white, fontSize: AppSizes.sp12),
