@@ -33,6 +33,7 @@ class AvatarWidget extends StatelessWidget {
                   shape: BoxShape.circle,
                   border: Border.all(
                     color: ColorManager.lightBlueColor,
+                    width: AppSizes.pw3,
                   ),
                   boxShadow: [
                     BoxShadow(
@@ -44,7 +45,7 @@ class AvatarWidget extends StatelessWidget {
                 ),
                 child: CircleAvatar(
                   radius: AppSizes.br50,
-                  child: Image.network(imagePath),
+                  backgroundImage: NetworkImage(imagePath),
                 ),
               ),
               Positioned(

@@ -8,6 +8,7 @@ import 'package:bacura_app/feature/home/domain/use_case/on_banner_clicked_use_ca
 import 'package:bacura_app/feature/more/data/data_source/more_remote_data_source.dart';
 import 'package:bacura_app/feature/more/data/repositories/more_repository.dart';
 import 'package:bacura_app/feature/more/domain/repositories/base_more_repository.dart';
+import 'package:bacura_app/feature/more/domain/usecases/complaints_use_case.dart';
 import 'package:bacura_app/feature/more/domain/usecases/suggetions_use_case.dart';
 import 'package:bacura_app/feature/my_orders/data/data_source/my_order_data_source.dart';
 import 'package:bacura_app/feature/my_orders/data/repository/my_order_repository.dart';
@@ -119,6 +120,7 @@ class DependencyInjectionServices {
 
     ///Use Cases
     sl.registerLazySingleton<SuggestionsUseCase>(() => SuggestionsUseCase(baseMoreRepository: sl()));
+    sl.registerLazySingleton<ComplaintsUseCase>(() => ComplaintsUseCase(baseMoreRepository: sl()));
   }
 
   _initializeOffers() {

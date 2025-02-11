@@ -11,7 +11,7 @@ class OrderServicesProvider extends ChangeNotifier {
   TextEditingController descriptionController = TextEditingController();
   String selectedOption = '9 ص - 1 م';
   DateTime selectedDate = DateTime.now();
-  String formattedDate = DateFormat('dd/MM/yyyy').format(DateTime.now());
+  String formattedDate = DateFormat('yyyy/MM/dd').format(DateTime.now());
   final List<String> options = ['9 ص - 1 م', '1 م - 6 م'];
 
   OrderServicesProvider();
@@ -62,7 +62,7 @@ class OrderServicesProvider extends ChangeNotifier {
     }
   }
 
-  void showordersentBottomSheet({required BuildContext context}) {
+  void showOrderSentBottomSheet({required BuildContext context}) {
     showModalBottomSheet(
         context: context,
         builder: (context) {

@@ -1,4 +1,4 @@
-import 'package:bacura_app/core/utils/dialig_function.dart';
+import 'package:bacura_app/core/utils/dialog_function.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/more/domain/usecases/suggetions_use_case.dart';
 

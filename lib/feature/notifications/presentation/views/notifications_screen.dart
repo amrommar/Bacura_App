@@ -54,7 +54,10 @@ class NotificationsScreen extends StatelessWidget {
                     provider.isLoadingMore
                         ? Padding(
                             padding: EdgeInsets.all(AppSizes.ph10),
-                            child: const Center(child: CircularProgressIndicator()),
+                            child: Center(
+                                child: CircularProgressIndicator(
+                              color: ColorManager.lightBlueColor,
+                            )),
                           )
                         : const SizedBox.shrink(),
                   ],

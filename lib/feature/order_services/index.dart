@@ -1,4 +1,3 @@
-export 'package:bacura_app/feature/order_services/presentation/components/consultation_drop_down_field.dart';
 export 'package:bacura_app/feature/order_services/presentation/components/consultation_note_widget.dart';
 export 'package:bacura_app/feature/order_services/presentation/components/custom_shadow_row_widget.dart';
 export 'package:bacura_app/feature/order_services/presentation/components/next_button.dart';

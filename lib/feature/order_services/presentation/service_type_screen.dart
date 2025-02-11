@@ -1,8 +1,8 @@
+import 'package:bacura_app/core/presentation/widget/custom_loading_shimmer.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/home/domain/entity/Category_entity.dart';
 import 'package:bacura_app/feature/home/presentation/controller/home_provider.dart';
 import 'package:bacura_app/feature/order_services/index.dart';
-import 'package:bacura_app/feature/order_services/presentation/order_request_screen.dart';
 
 class ServiceTypeScreen extends StatelessWidget {
   final CategoryEntity? categoryEntity;
@@ -73,6 +73,23 @@ class ServiceTypeScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class ServiceCoverShimmerWidget extends StatelessWidget {
+  const ServiceCoverShimmerWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(AppSizes.ph8),
+      child: Column(children: [
+        CustomLoadingShimmer(width: double.infinity, height: AppSizes.ph200),
+        SizedBox(height: AppSizes.ph10),
+      ]),
     );
   }
 }
