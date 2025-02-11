@@ -22,7 +22,7 @@ class ServiceTimePickerWidget extends StatelessWidget {
         cancelText: AppLocalizations.of(context)!.cancel,
         confirmText: AppLocalizations.of(context)!.ok,
         pressType: PressType.singlePress,
-        timeFormat: 'dd-MM-yyyy',
+        timeFormat: 'yyyy-MM-dd',
         onChange: onChange,
       ),
     );

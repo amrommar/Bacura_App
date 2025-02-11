@@ -17,57 +17,59 @@ class OffersTabScreen extends StatelessWidget {
           color: ColorManager.whiteColor,
           child: provider.isLoadingOffers
               ? buildShimmerContainer()
-              : Column(
-                  children: [
-                    SizedBox(height: AppSizes.ph5),
-                    // const OfferFilterWidget(),
-                    // Padding(
-                    //   padding: EdgeInsets.symmetric(horizontal: AppSizes.pw6),
-                    //   child: Divider(color: ColorManager.lightBlueColor),
-                    // ),
-                    Expanded(
-                      child: LazyLoadScrollView(
-                        onEndOfPage: () => provider.loadMoreOffers(),
-                        child: ListView.builder(
-                          itemCount: provider.filteredorders.length,
-                          itemBuilder: (context, index) {
-                            return InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => OfferDetailsScreen(
-                                        name: provider.offersEntity.offersDataEntity[index].name!,
-                                        description: provider.offersEntity.offersDataEntity[index].description!,
-                                        imageUrl: provider.offersEntity.offersDataEntity[index].image!,
-                                      ),
-                                    ),
-                                  );
-                                },
-                                child: CustomOfferContainerWidget(
-                                  imagePath: provider.offersEntity.offersDataEntity[index].image!,
-                                  title: provider.offersEntity.offersDataEntity[index].name!,
-                                  cost:
-                                      ' ${NumberParser.translateNumber((provider.offersEntity.offersDataEntity[index].total!).toString())} ريال',
-                                  expireDate: provider.getRemainingDays(index),
-                                  content: provider.offersEntity.offersDataEntity[index].description!,
-                                ));
-                          },
+              : provider.offersEntity.totalRecords == 0
+                  ? const Center(child: Text('لا يوجد عروض'))
+                  : Column(
+                      children: [
+                        SizedBox(height: AppSizes.ph5),
+                        // const OfferFilterWidget(),
+                        // Padding(
+                        //   padding: EdgeInsets.symmetric(horizontal: AppSizes.pw6),
+                        //   child: Divider(color: ColorManager.lightBlueColor),
+                        // ),
+                        Expanded(
+                          child: LazyLoadScrollView(
+                            onEndOfPage: () => provider.loadMoreOffers(),
+                            child: ListView.builder(
+                              itemCount: provider.filteredorders.length,
+                              itemBuilder: (context, index) {
+                                return InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => OfferDetailsScreen(
+                                            name: provider.offersEntity.offersDataEntity[index].name!,
+                                            description: provider.offersEntity.offersDataEntity[index].description!,
+                                            imageUrl: provider.offersEntity.offersDataEntity[index].image!,
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                    child: CustomOfferContainerWidget(
+                                      imagePath: provider.offersEntity.offersDataEntity[index].image!,
+                                      title: provider.offersEntity.offersDataEntity[index].name!,
+                                      cost:
+                                          ' ${NumberParser.translateNumber((provider.offersEntity.offersDataEntity[index].total!).toString())} ريال',
+                                      expireDate: provider.getRemainingDays(index),
+                                      content: provider.offersEntity.offersDataEntity[index].description!,
+                                    ));
+                              },
+                            ),
+                          ),
                         ),
-                      ),
+                        SizedBox(height: AppSizes.ph25),
+                        provider.isLoadingMore
+                            ? Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Center(
+                                    child: CircularProgressIndicator(
+                                  color: ColorManager.primaryBlueColor,
+                                )),
+                              )
+                            : const SizedBox.shrink(),
+                      ],
                     ),
-                    SizedBox(height: AppSizes.ph25),
-                    provider.isLoadingMore
-                        ? Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Center(
-                                child: CircularProgressIndicator(
-                              color: ColorManager.primaryBlueColor,
-                            )),
-                          )
-                        : const SizedBox.shrink(),
-                  ],
-                ),
         ),
       ),
     );

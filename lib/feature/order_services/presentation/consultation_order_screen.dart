@@ -4,9 +4,9 @@ import 'package:bacura_app/feature/order_services/index.dart';
 import 'package:bacura_app/feature/order_services/presentation/controller/consultation_request_provider.dart';
 
 class ConsultationOrderScreen extends StatelessWidget {
-  CategoryEntity categoryEntity;
+  final CategoryEntity categoryEntity;
 
-  ConsultationOrderScreen({super.key, required this.categoryEntity});
+  const ConsultationOrderScreen({super.key, required this.categoryEntity});
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +35,8 @@ class ConsultationOrderScreen extends StatelessWidget {
                           fieldName: AppLocalizations.of(context)!.consultation_type,
                           onChanged: (String? newValue) {
                             provider.selectedOption = newValue!;
+                            provider.selectedServiceIndex =
+                                categoryEntity.services.indexWhere((element) => element.name == newValue);
                           },
                         ),
 
@@ -60,7 +62,8 @@ class ConsultationOrderScreen extends StatelessWidget {
                                 text: AppLocalizations.of(context)!.send,
                                 onPressed: () {
                                   if (formKey.currentState?.validate() == true) {
-                                    provider.sendOrderRequest(categoryId: categoryEntity.id);
+                                    provider.sendOrderRequest(
+                                        serviceId: categoryEntity.services[provider.selectedServiceIndex].id);
                                   }
                                 }))
                       ])));

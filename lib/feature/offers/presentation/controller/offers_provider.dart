@@ -33,6 +33,7 @@ class OffersProvider with ChangeNotifier {
       //! handle in error
     }, (r) {
       if (r.offersDataEntity.isEmpty) {
+        offersEntity = r;
         isFinishedPaging = true;
         isLoadingOffers = false;
         notifyListeners();

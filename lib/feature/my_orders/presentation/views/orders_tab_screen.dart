@@ -17,56 +17,58 @@ class OrdersTabScreen extends StatelessWidget {
       child: Consumer<MyOrderProvider>(builder: (context, provider, child) {
         return provider.isLoadingMyOrders
             ? buildShimmerContainer()
-            : Column(
-                children: [
-                  SizedBox(height: AppSizes.ph5),
-                  const ordersFilterWidget(),
-                  Divider(color: ColorManager.lightBlueColor),
-                  Expanded(
-                    child: LazyLoadScrollView(
-                      onEndOfPage: () => provider.loadMoreMyOrders(),
-                      child: ListView.builder(
-                        itemCount: provider.filteredOrders.length,
-                        itemBuilder: (context, index) {
-                          var requestEntity = provider.filteredOrders[index];
-                          String timeOnly = DateParser.dateFormatterOnlyTime(requestEntity.createdAt);
+            : provider.myOrderEntity.myOrderDataEntity.isEmpty
+                ? const Center(child: Text('لا يوجد طلبات'))
+                : Column(
+                    children: [
+                      SizedBox(height: AppSizes.ph5),
+                      const ordersFilterWidget(),
+                      Divider(color: ColorManager.lightBlueColor),
+                      Expanded(
+                        child: LazyLoadScrollView(
+                          onEndOfPage: () => provider.loadMoreMyOrders(),
+                          child: ListView.builder(
+                            itemCount: provider.filteredOrders.length,
+                            itemBuilder: (context, index) {
+                              var requestEntity = provider.filteredOrders[index];
+                              String timeOnly = DateParser.dateFormatterOnlyTime(requestEntity.createdAt);
 
-                          return InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => OrderDetailsScreen(
-                                            date: provider.dateCreateOrder(index),
-                                            time: timeOnly,
-                                            orderId: requestEntity.id!,
-                                            requestColor: statusColors[requestEntity.status]!,
-                                            location: requestEntity.location,
-                                            expiresAt: requestEntity.expiresAt!.split("T")[0],
-                                            total: requestEntity.total,
-                                            id: requestEntity.id!,
-                                            description: requestEntity.description,
-                                          )));
+                              return InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => OrderDetailsScreen(
+                                                date: provider.dateCreateOrder(index),
+                                                time: timeOnly,
+                                                orderId: requestEntity.id!,
+                                                requestColor: statusColors[requestEntity.status]!,
+                                                location: requestEntity.location,
+                                                expiresAt: requestEntity.expiresAt!.split("T")[0],
+                                                total: requestEntity.total,
+                                                id: requestEntity.id!,
+                                                description: requestEntity.description,
+                                              )));
+                                },
+                                child: OrderItemComponent(
+                                  backgroundColor: requestColor(statusColors[provider.filteredOrders[index].status]!),
+                                  requestColor: statusColors[provider.filteredOrders[index].status]!,
+                                  index: index,
+                                ),
+                              );
                             },
-                            child: OrderItemComponent(
-                              backgroundColor: requestColor(statusColors[provider.filteredOrders[index].status]!),
-                              requestColor: statusColors[provider.filteredOrders[index].status]!,
-                              index: index,
-                            ),
-                          );
-                        },
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  SizedBox(height: AppSizes.ph25),
-                  provider.isLoadingMore
-                      ? const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Center(child: CircularProgressIndicator()),
-                        )
-                      : const SizedBox.shrink(),
-                ],
-              );
+                      SizedBox(height: AppSizes.ph25),
+                      provider.isLoadingMore
+                          ? const Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Center(child: CircularProgressIndicator()),
+                            )
+                          : const SizedBox.shrink(),
+                    ],
+                  );
       }),
     );
   }

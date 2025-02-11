@@ -11,7 +11,7 @@ class OrderServicesProvider extends ChangeNotifier {
   TextEditingController descriptionController = TextEditingController();
   String selectedOption = '9 ص - 1 م';
   DateTime selectedDate = DateTime.now();
-  String formattedDate = DateFormat('yyyy/MM/dd').format(DateTime.now());
+  String formattedDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
   final List<String> options = ['9 ص - 1 م', '1 م - 6 م'];
 
   OrderServicesProvider();
@@ -23,8 +23,8 @@ class OrderServicesProvider extends ChangeNotifier {
 
   void onDateChanged(DateTime value) {
     selectedDate = value;
-    formattedDate = DateFormat('dd-MM-yyyy').format(selectedDate);
-    print('Formatted Date: $formattedDate'); // Check output
+    formattedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
+
     notifyListeners();
   }
 

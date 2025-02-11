@@ -1,9 +1,7 @@
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/my_orders/domin/entity/items_for_order_entity.dart';
 import 'package:bacura_app/feature/my_orders/domin/entity/my_order_data_entity.dart';
 import 'package:bacura_app/feature/my_orders/domin/entity/my_order_entity.dart';
 import 'package:bacura_app/feature/my_orders/domin/use_case/get_my_orders_use_case.dart';
-import 'package:bacura_app/feature/my_orders/domin/use_case/items_for_order_use_case.dart';
 
 class MyOrderProvider with ChangeNotifier {
   late MyOrderEntity myOrderEntity;
@@ -33,6 +31,7 @@ class MyOrderProvider with ChangeNotifier {
       //! handle in error
     }, (r) {
       if (r.myOrderDataEntity.isEmpty) {
+        myOrderEntity = r;
         isFinishedPaging = true;
         isLoadingMyOrders = false;
         notifyListeners();

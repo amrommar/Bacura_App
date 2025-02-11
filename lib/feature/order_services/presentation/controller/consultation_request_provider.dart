@@ -5,10 +5,14 @@ import 'package:bacura_app/feature/order_services/presentation/components/reques
 class ConsultationRequestProvider extends ChangeNotifier {
   String selectedOption = 'استشارة تقنية';
   var descriptionController = TextEditingController();
+  int selectedServiceIndex = 0;
 
-  void sendOrderRequest({int? serviceId, int? categoryId}) async {
+  ConsultationRequestProvider();
+
+  void sendOrderRequest({int? serviceId, int? index}) async {
     sl<OrderServicesUseCase>().call(OrderServicesParams(
       description: descriptionController.text,
+      serviceId: serviceId!,
     ));
   }
 
