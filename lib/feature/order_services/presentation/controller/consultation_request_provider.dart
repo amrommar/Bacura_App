@@ -9,10 +9,11 @@ class ConsultationRequestProvider extends ChangeNotifier {
 
   ConsultationRequestProvider();
 
-  void sendOrderRequest({int? serviceId, int? index}) async {
+  void sendOrderRequest({int? serviceId, required int categoryId}) async {
     sl<OrderServicesUseCase>().call(OrderServicesParams(
       description: descriptionController.text,
-      serviceId: serviceId!,
+      serviceId: serviceId,
+      categoryId: categoryId,
     ));
   }
 

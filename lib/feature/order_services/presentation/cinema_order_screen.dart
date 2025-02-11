@@ -4,6 +4,7 @@ import 'package:bacura_app/feature/order_services/presentation/controller/cinema
 
 class CinemaOrderScreen extends StatelessWidget {
   final int categoryId;
+
   const CinemaOrderScreen({super.key, required this.categoryId});
 
   @override

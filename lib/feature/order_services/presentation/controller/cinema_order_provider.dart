@@ -11,7 +11,7 @@ class CinemaOrderProvider with ChangeNotifier {
   TextEditingController descriptionController = TextEditingController();
   String selectedOption = '9 ص - 1 م';
   DateTime selectedDate = DateTime.now();
-  String formattedDate = DateFormat('dd-MM-yyyy').format(DateTime.now());
+  String formattedDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
   final List<String> options = ['9 ص - 1 م', '1 م - 6 م'];
 
   dynamic onTimeChanged(String value) {
@@ -21,20 +21,18 @@ class CinemaOrderProvider with ChangeNotifier {
 
   void onDateChanged(DateTime value) {
     selectedDate = value;
-    formattedDate = DateFormat('dd-MM-yyyy').format(selectedDate);
+    formattedDate = DateFormat('yyyy-MM-dd').format(selectedDate);
 
     notifyListeners();
   }
 
-  void sendOrderRequest({int? serviceId, int? categoryId}) async {
+  void sendOrderRequest({required int categoryId}) async {
     sl<OrderServicesUseCase>().call(OrderServicesParams(
       location: locationController.text,
       date: formattedDate,
-      // ! handle from back end
       time: selectedOption,
       description: descriptionController.text,
-
-      categoryId: categoryId!,
+      categoryId: categoryId,
       longitude: longitude,
       latitude: latitude,
     ));
