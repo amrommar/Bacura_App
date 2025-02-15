@@ -13,4 +13,5 @@ class ApiEndPoint {
   static const String postComplaints = "complains";
   static const String offersPath = "offers";
   static const String unViewed = "notifications/un-viewed";
+  static const String chats = "chats";
 }
