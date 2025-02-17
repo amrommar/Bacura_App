@@ -1,6 +1,8 @@
+import 'package:bacura_app/core/utils/dialog_function.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/home/presentation/controller/home_provider.dart';
 import 'package:bacura_app/feature/home/presentation/widgets/rare_service_widget.dart';
+import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
 
 class RareServiceComponent extends StatelessWidget {
   const RareServiceComponent({
@@ -10,6 +12,7 @@ class RareServiceComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<HomeProvider>(builder: (context, provider, child) {
+      final profileProvider = Provider.of<MyProfileProvider>(context, listen: false);
       final rareCategories = provider.categoryEntity
           .where((category) => category.type == "consultation" || category.type == "cinema")
           .toList();
@@ -33,19 +36,34 @@ class RareServiceComponent extends StatelessWidget {
                     itemCount: rareCategories.length,
                     itemBuilder: (context, index) => RareServiceWidget(
                       onTap: () {
-                        rareCategories[index].type == "consultation"
-                            ? Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ConsultationOrderScreen(
-                                          categoryEntity: rareCategories[index],
-                                        )))
-                            : Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => CinemaOrderScreen(
-                                          categoryId: rareCategories[index].id!,
-                                        )));
+                        profileProvider.token == null
+                            ? customShowCustomDialog(
+                                context: context,
+                                title: 'تسجيل الدخول',
+                                imagePath: 'assets/images/png/bad-feedback.png',
+                                content: 'الرجاء تسجيل الدخول اولاً',
+                                isOk: true,
+                                isCancel: true,
+                                onCancel: () {
+                                  Navigator.pop(context);
+                                },
+                                onOk: () {
+                                  Navigator.pushNamed(context, Routes.loginRoute);
+                                },
+                              )
+                            : rareCategories[index].type == "consultation"
+                                ? Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ConsultationOrderScreen(
+                                              categoryEntity: rareCategories[index],
+                                            )))
+                                : Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => CinemaOrderScreen(
+                                              categoryId: rareCategories[index].id!,
+                                            )));
                       },
                       imagePath: rareCategories[index].image ?? '',
                       serviceTitle: rareCategories[index].name ?? '',

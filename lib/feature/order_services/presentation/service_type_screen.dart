@@ -1,8 +1,10 @@
 import 'package:bacura_app/core/presentation/widget/custom_loading_shimmer.dart';
+import 'package:bacura_app/core/utils/dialog_function.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/home/domain/entity/Category_entity.dart';
 import 'package:bacura_app/feature/home/presentation/controller/home_provider.dart';
 import 'package:bacura_app/feature/order_services/index.dart';
+import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
 
 class ServiceTypeScreen extends StatelessWidget {
   final CategoryEntity? categoryEntity;
@@ -11,6 +13,7 @@ class ServiceTypeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final profileProvider = Provider.of<MyProfileProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.service_type),
@@ -56,14 +59,29 @@ class ServiceTypeScreen extends StatelessWidget {
                             onPressed: provider.selectedServiceIndex == null
                                 ? null
                                 : () {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => OrderRequestScreen(
-                                                  categoryId: categoryEntity!.id!,
-                                                  serviceId:
-                                                      categoryEntity!.services[provider.selectedServiceIndex!].id!,
-                                                )));
+                                    profileProvider.token == null
+                                        ? customShowCustomDialog(
+                                            context: context,
+                                            title: 'تسجيل الدخول',
+                                            imagePath: 'assets/images/png/bad-feedback.png',
+                                            content: 'الرجاء تسجيل الدخول اولاً',
+                                            isOk: true,
+                                            isCancel: true,
+                                            onCancel: () {
+                                              Navigator.pop(context);
+                                            },
+                                            onOk: () {
+                                              Navigator.pushNamed(context, Routes.loginRoute);
+                                            },
+                                          )
+                                        : Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => OrderRequestScreen(
+                                                      categoryId: categoryEntity!.id!,
+                                                      serviceId:
+                                                          categoryEntity!.services[provider.selectedServiceIndex!].id!,
+                                                    )));
                                   },
                           ),
                         ],
