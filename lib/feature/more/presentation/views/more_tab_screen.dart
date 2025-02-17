@@ -1,5 +1,7 @@
+import 'package:bacura_app/core/utils/dialog_function.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/more/index.dart';
+import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
 
 class MoreTabScreen extends StatefulWidget {
   const MoreTabScreen({super.key});
@@ -76,6 +78,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final profileProvider = Provider.of<MyProfileProvider>(context, listen: false);
     return SingleChildScrollView(
         child: Column(children: [
       SizedBox(height: AppSizes.ph10),
@@ -140,7 +143,22 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
           widget: Icon(Icons.lightbulb, color: ColorManager.yellowColor),
           text: AppLocalizations.of(context)!.suggestions,
           onTap: () {
-            Navigator.pushNamed(context, Routes.suggestionsRoute);
+            profileProvider.token == null
+                ? customShowCustomDialog(
+                    context: context,
+                    title: 'تسجيل الدخول',
+                    imagePath: 'assets/images/png/bad-feedback.png',
+                    content: 'الرجاء تسجيل الدخول اولاً',
+                    isOk: true,
+                    isCancel: true,
+                    onCancel: () {
+                      Navigator.pop(context);
+                    },
+                    onOk: () {
+                      Navigator.pushNamed(context, Routes.loginRoute);
+                    },
+                  )
+                : Navigator.pushNamed(context, Routes.suggestionsRoute);
           }),
 
       ///appRating tab //////////////////////////////
