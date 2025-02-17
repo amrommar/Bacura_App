@@ -49,7 +49,7 @@ class AuthProvider with ChangeNotifier {
         verifyDataEntity = r;
 
         if (verifyDataEntity?.token != null) {
-          secureStorage.write(key: 'token', value: verifyDataEntity?.token);
+          secureStorage.write(key: AppStrings.token, value: verifyDataEntity?.token);
         }
 
         customShowCustomDialog(

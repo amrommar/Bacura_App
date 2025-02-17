@@ -1,19 +1,17 @@
 import 'package:bacura_app/core/utils/index.dart';
 
 class AvatarWidget extends StatelessWidget {
-  final File? imageFile;
   final VoidCallback onEditImage;
-  final VoidCallback onEditName; // Callback to edit name
-  final String userName; // Current user name
-  final String imagePath;
+  final VoidCallback onEditName;
+  final String userName;
+  final String? imagePath;
 
   const AvatarWidget({
     super.key,
-    this.imageFile,
     required this.onEditImage,
     required this.onEditName,
     required this.userName,
-    required this.imagePath,
+    this.imagePath,
   });
 
   @override
@@ -43,9 +41,14 @@ class AvatarWidget extends StatelessWidget {
                     ),
                   ],
                 ),
-                child: CircleAvatar(
-                  radius: AppSizes.br50,
-                  backgroundImage: NetworkImage(imagePath),
+                child: SizedBox(
+                  height: AppSizes.ph80,
+                  width: AppSizes.ph80,
+                  child: Image.network(
+                    imagePath ??
+                        'https://cdn3d.iconscout.com/3d/premium/thumb/profile-3d-icon-download-in-png-blend-fbx-gltf-file-formats--user-about-me-member-interface-pack-icons-4996977.png?f=webp',
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               Positioned(

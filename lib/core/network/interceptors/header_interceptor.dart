@@ -6,11 +6,13 @@ class HeaderInterceptor extends Interceptor {
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) async {
-    String? accessToken = await _secureStorage.read(key: 'token');
+    String? accessToken = await _secureStorage.read(key: AppStrings.token);
 
     if (accessToken != null) {
       options.headers.addAll({
-        NetworkConstants.contentTypeKey: options.headers.containsKey("isMultiPartFile") ? NetworkConstants.multipartValue : NetworkConstants.jsonTypeValue,
+        NetworkConstants.contentTypeKey: options.headers.containsKey("isMultiPartFile")
+            ? NetworkConstants.multipartValue
+            : NetworkConstants.jsonTypeValue,
         NetworkConstants.authorizationKey: 'Bearer $accessToken',
       });
     }

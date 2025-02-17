@@ -13,8 +13,8 @@ void main() async {
     runApp(
       MultiProvider(
         providers: [
+          ChangeNotifierProvider(create: (context) => MyProfileProvider(context)..init()),
           ChangeNotifierProvider(create: (context) => LanguageProvider()),
-          ChangeNotifierProvider(create: (context) => MyProfileProvider(context)),
           ChangeNotifierProvider(create: (context) => OrderServicesProvider()),
           ChangeNotifierProvider(create: (context) => CoreProvider()),
         ],

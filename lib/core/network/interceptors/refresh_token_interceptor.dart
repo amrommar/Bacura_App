@@ -16,7 +16,7 @@
 //             'refresh_token': refreshToken,
 //           });
 //           final newAccessToken = response.data['access_token'];
-//           await _secureStorage.write(key: 'token', value: newAccessToken);
+//           await _secureStorage.write(key:  AppStrings.token, value: newAccessToken);
 
 //           // Retry the original request
 //           err.requestOptions.headers['Authorization'] = 'Bearer $newAccessToken';

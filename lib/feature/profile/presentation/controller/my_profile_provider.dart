@@ -11,6 +11,7 @@ import 'package:bacura_app/feature/profile/presentation/views/components/edit_lo
 import 'package:bacura_app/feature/profile/presentation/views/components/edit_name_bottom_sheet.dart';
 import 'package:bacura_app/feature/profile/presentation/views/components/edit_phone_number_bottom_sheet.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:path_provider/path_provider.dart';
 
 class MyProfileProvider with ChangeNotifier {
@@ -31,6 +32,9 @@ class MyProfileProvider with ChangeNotifier {
   File? imageFile;
 
   final BuildContext context;
+  final FlutterSecureStorage secureStorage = const FlutterSecureStorage();
+  String? _token;
+  String? get token => _token;
 
   final List<String> genderOptions = ['ذكر', 'أنثي'];
   final List<String> cityOptions = ['الرياض', 'جده', 'مكة', 'الدمام'];
@@ -47,6 +51,7 @@ class MyProfileProvider with ChangeNotifier {
 
   init() async {
     await _getMyProfile();
+    await loadToken();
   }
 
   getTextFieldHeight() {
@@ -54,6 +59,34 @@ class MyProfileProvider with ChangeNotifier {
       textFieldHeight = countryPickerWidgetKey.currentContext?.size?.height ?? AppSizes.ph45;
       notifyListeners();
     });
+  }
+
+  Future<void> loadToken() async {
+    _token = await secureStorage.read(key: AppStrings.token);
+    notifyListeners();
+  }
+
+  Future<void> setToken(String? newToken) async {
+    if (newToken == null) {
+      await secureStorage.delete(key: AppStrings.token);
+    } else {
+      await secureStorage.write(key: AppStrings.token, value: newToken);
+    }
+    _token = newToken;
+    notifyListeners();
+  }
+
+  Future<void> logout() async {
+    await secureStorage.delete(key: AppStrings.token);
+    _token = null;
+    Provider.of<MyProfileProvider>(context, listen: false).clearData();
+    notifyListeners();
+  }
+
+  void clearData() {
+    _token = null;
+    myProfileEntity = const MyProfileEntity();
+    notifyListeners();
   }
 
   Future<void> _getMyProfile() async {

@@ -80,4 +80,5 @@ class AppStrings {
   static const String yourComplaintSentSuccessfully = 'تم إرسال شكواك بنجاح';
   static const String yourSuggestionSentSuccessfully = 'تم ارسال اقتراحك بنجاحك';
   static const String yourSuggestionSentSuccessfullyMsg = 'يهمنا إهتمامك ونشكرك علي اقتراحك سيتم مراجعة اقتراحك';
+  static const String token = 'token';
 }

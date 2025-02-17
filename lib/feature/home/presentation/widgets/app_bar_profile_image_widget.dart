@@ -1,5 +1,7 @@
 import 'package:bacura_app/core/providers/core_provider.dart';
+import 'package:bacura_app/core/utils/dialog_function.dart';
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
 
 class AppBarProfileImageWidget extends StatelessWidget {
   final String imagePath;
@@ -8,9 +10,26 @@ class AppBarProfileImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final profileProvider = Provider.of<MyProfileProvider>(context);
+
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, Routes.profileDetailsRoute);
+        profileProvider.token == null
+            ? customShowCustomDialog(
+                context: context,
+                title: 'تسجيل الدخول',
+                imagePath: 'assets/images/png/bad-feedback.png',
+                content: 'الرجاء تسجيل الدخول اولاً',
+                isOk: true,
+                isCancel: true,
+                onCancel: () {
+                  Navigator.pop(context);
+                },
+                onOk: () {
+                  Navigator.pushNamed(context, Routes.loginRoute);
+                },
+              )
+            : Navigator.pushNamed(context, Routes.profileDetailsRoute);
       },
       child: Row(
         children: [

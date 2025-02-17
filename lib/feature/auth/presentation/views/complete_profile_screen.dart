@@ -119,7 +119,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                     Center(
                         child: ElevatedButton(
                             onPressed: () async {
-                              String? accessToken = await secureStorage.read(key: 'token');
+                              String? accessToken = await secureStorage.read(key: AppStrings.token);
 
                               // Validate the form before proceeding
                               if (formKey.currentState?.validate() == true) {

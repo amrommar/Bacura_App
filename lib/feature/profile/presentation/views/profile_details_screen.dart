@@ -40,7 +40,7 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                         onEditImage: () async {
                           await provider.pickProfilePicture();
                         },
-                        imagePath: profileEntity.image ?? '',
+                        imagePath: profileEntity.image,
                         userName: provider.myProfileEntity.name!,
                         onEditName: () {
                           provider.openNameBottomSheet();
