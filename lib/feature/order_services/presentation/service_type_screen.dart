@@ -18,7 +18,7 @@ class ServiceTypeScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: ChangeNotifierProvider(
-          create: (context) => HomeProvider(),
+          create: (context) => HomeProvider(context),
           child: Consumer<HomeProvider>(
             builder: (context, provider, child) => provider.isCategoryLoading
                 ? const CategoryShimmerWidget()

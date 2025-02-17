@@ -21,11 +21,9 @@ class _HomeScreenState extends State<HomeScreen> {
     const MoreTabScreen(),
   ];
 
-  var formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
-    final profileProvider = Provider.of<MyProfileProvider>(context);
+    final profileProvider = Provider.of<MyProfileProvider>(context, listen: false);
     profileProvider.loadToken();
 
     return Scaffold(
@@ -33,14 +31,19 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
           titleSpacing: 5,
           centerTitle: false,
-          title: profileProvider.token == null
-              ? null
-              : Text(
-                  'هلا، ${profileProvider.myProfileEntity.name!}',
-                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                        color: ColorManager.whiteColor,
-                      ),
-                ),
+          title: Consumer<MyProfileProvider>(
+            builder: (context, profileProvider, child) {
+              if (profileProvider.token == null) {
+                return const SizedBox.shrink();
+              }
+              return Text(
+                'هلا، ${profileProvider.myProfileEntity.name ?? 'مستخدم'}',
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      color: ColorManager.whiteColor,
+                    ),
+              );
+            },
+          ),
           elevation: 0,
           leading: const AppBarProfileImageWidget(
             imagePath:

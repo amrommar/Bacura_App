@@ -11,7 +11,7 @@ class HomeTabScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: ChangeNotifierProvider(
-        create: (context) => HomeProvider(),
+        create: (context) => HomeProvider(context),
         child: Consumer<HomeProvider>(
           builder: (context, provider, child) => Column(
             crossAxisAlignment: CrossAxisAlignment.center,

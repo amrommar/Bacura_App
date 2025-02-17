@@ -29,7 +29,7 @@ class AppBarProfileImageWidget extends StatelessWidget {
                   Navigator.pushNamed(context, Routes.loginRoute);
                 },
               )
-            : Navigator.pushNamed(context, Routes.profileDetailsRoute);
+            : Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileDetailsScreen()));
       },
       child: Row(
         children: [

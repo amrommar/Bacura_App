@@ -4,6 +4,7 @@ import 'package:bacura_app/feature/home/domain/entity/banner_entity.dart';
 import 'package:bacura_app/feature/home/domain/use_case/get_banner_use_case.dart';
 import 'package:bacura_app/feature/home/domain/use_case/get_category_use_case.dart';
 import 'package:bacura_app/feature/home/domain/use_case/on_banner_clicked_use_case.dart';
+import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
 
 class HomeProvider with ChangeNotifier {
   late List<BannerEntity> bannerEntity;
@@ -12,9 +13,10 @@ class HomeProvider with ChangeNotifier {
   bool isSliderLoading = true;
   bool isCategoryLoading = true;
 
-  HomeProvider() {
+  HomeProvider(context) {
     _getBanner();
     _getCategories();
+    Provider.of<MyProfileProvider>(context, listen: false).init();
   }
 
   Future<void> _getBanner() async {
