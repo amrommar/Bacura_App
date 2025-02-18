@@ -1,7 +1,5 @@
-import 'dart:developer';
-
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/my_orders/domin/entity/services_entity.dart';
+import 'package:bacura_app/feature/my_orders/domain/entity/services_order_entity.dart';
 
 class MyOrderDataEntity extends Equatable {
   final int? id;

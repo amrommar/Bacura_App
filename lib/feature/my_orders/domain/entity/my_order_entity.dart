@@ -1,5 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/my_orders/domin/entity/my_order_data_entity.dart';
+import 'package:bacura_app/feature/my_orders/domain/entity/my_order_data_entity.dart';
 
 class MyOrderEntity extends Equatable {
   final List<MyOrderDataEntity> myOrderDataEntity;

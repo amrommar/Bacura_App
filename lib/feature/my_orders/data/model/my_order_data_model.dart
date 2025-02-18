@@ -1,5 +1,5 @@
-import 'package:bacura_app/feature/my_orders/data/model/services_model.dart';
-import 'package:bacura_app/feature/my_orders/domin/entity/my_order_data_entity.dart';
+import 'package:bacura_app/feature/my_orders/data/model/services_order_model.dart';
+import 'package:bacura_app/feature/my_orders/domain/entity/my_order_data_entity.dart';
 
 class MyOrderDataModel extends MyOrderDataEntity {
   const MyOrderDataModel({
@@ -12,7 +12,7 @@ class MyOrderDataModel extends MyOrderDataEntity {
     required super.latitude,
     required super.description,
     required super.serviceId,
-    required super.service,
+    super.service,
     required super.categoryId,
     required super.total,
     required super.createdAt,

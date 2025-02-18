@@ -16,9 +16,9 @@ import 'package:bacura_app/feature/more/domain/usecases/complaints_use_case.dart
 import 'package:bacura_app/feature/more/domain/usecases/suggetions_use_case.dart';
 import 'package:bacura_app/feature/my_orders/data/data_source/my_order_data_source.dart';
 import 'package:bacura_app/feature/my_orders/data/repository/my_order_repository.dart';
-import 'package:bacura_app/feature/my_orders/domin/repository/base_my_order_repository.dart';
-import 'package:bacura_app/feature/my_orders/domin/use_case/get_my_orders_use_case.dart';
-import 'package:bacura_app/feature/my_orders/domin/use_case/items_for_order_use_case.dart';
+import 'package:bacura_app/feature/my_orders/domain/repository/base_my_order_repository.dart';
+import 'package:bacura_app/feature/my_orders/domain/use_case/get_my_orders_use_case.dart';
+import 'package:bacura_app/feature/my_orders/domain/use_case/items_for_order_use_case.dart';
 import 'package:bacura_app/feature/notifications/data/data_source/notifications_data_source.dart';
 import 'package:bacura_app/feature/notifications/data/repository/notifications_repository.dart';
 import 'package:bacura_app/feature/notifications/domain/repository/base_notifications_repository.dart';

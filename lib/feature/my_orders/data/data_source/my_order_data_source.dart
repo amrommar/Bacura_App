@@ -3,9 +3,9 @@ import 'package:bacura_app/core/network/model/api_endoint.dart';
 import 'package:bacura_app/core/network/model/api_response.dart';
 import 'package:bacura_app/feature/my_orders/data/model/items_for_order_model.dart';
 import 'package:bacura_app/feature/my_orders/data/model/my_order_model.dart';
-import 'package:bacura_app/feature/my_orders/domin/entity/items_for_order_entity.dart';
-import 'package:bacura_app/feature/my_orders/domin/entity/my_order_entity.dart';
-import 'package:bacura_app/feature/my_orders/domin/use_case/get_my_orders_use_case.dart';
+import 'package:bacura_app/feature/my_orders/domain/entity/items_for_order_entity.dart';
+import 'package:bacura_app/feature/my_orders/domain/entity/my_order_entity.dart';
+import 'package:bacura_app/feature/my_orders/domain/use_case/get_my_orders_use_case.dart';
 
 abstract class BaseOrderDataSource {
   Future<MyOrderEntity> getOrder({required MyOrdersParameters myOrdersParameters});

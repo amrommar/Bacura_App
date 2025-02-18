@@ -1,5 +1,5 @@
 import 'package:bacura_app/feature/my_orders/data/model/my_order_data_model.dart';
-import 'package:bacura_app/feature/my_orders/domin/entity/my_order_entity.dart';
+import 'package:bacura_app/feature/my_orders/domain/entity/my_order_entity.dart';
 
 class MyOrderModel extends MyOrderEntity {
   const MyOrderModel({

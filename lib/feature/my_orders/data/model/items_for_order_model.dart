@@ -1,4 +1,4 @@
-import 'package:bacura_app/feature/my_orders/domin/entity/items_for_order_entity.dart';
+import 'package:bacura_app/feature/my_orders/domain/entity/items_for_order_entity.dart';
 
 class ItemsForOrderModel extends ItemsForOrderEntity {
   const ItemsForOrderModel({

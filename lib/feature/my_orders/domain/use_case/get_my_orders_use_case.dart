@@ -1,6 +1,6 @@
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/my_orders/domin/entity/my_order_entity.dart';
-import 'package:bacura_app/feature/my_orders/domin/repository/base_my_order_repository.dart';
+import 'package:bacura_app/feature/my_orders/domain/entity/my_order_entity.dart';
+import 'package:bacura_app/feature/my_orders/domain/repository/base_my_order_repository.dart';
 import 'package:dartz/dartz.dart';
 
 class GetMyOrdersUseCase extends BaseUseCases<MyOrderEntity, MyOrdersParameters> {
