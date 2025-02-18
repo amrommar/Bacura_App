@@ -28,7 +28,7 @@ class OrderServicesProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void sendOrderRequest(int? serviceId, int? categoryId) async {
+  void sendOrderRequest(int? serviceId, int? categoryId, {required BuildContext context}) async {
     sl<OrderServicesUseCase>().call(OrderServicesParams(
       location: locationController.text,
       date: formattedDate,
@@ -40,6 +40,8 @@ class OrderServicesProvider extends ChangeNotifier {
       longitude: longitude,
       latitude: latitude,
     ));
+
+    showOrderSentBottomSheet(context: context);
   }
 
   void showLocationBottomSheet({required BuildContext context}) async {

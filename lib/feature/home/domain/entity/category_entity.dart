@@ -1,5 +1,6 @@
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/home/domain/entity/services_entity.dart';
+
+import 'services_home_entity.dart';
 
 class CategoryEntity extends Equatable {
   final int? id;
@@ -10,7 +11,7 @@ class CategoryEntity extends Equatable {
   final String? type;
   final int? action;
 
-  final List<ServicesEntity> services;
+  final List<ServicesHomeEntity> services;
   const CategoryEntity(
       {this.cover, this.type, this.id, this.name, this.image, this.serviceIds, this.action, required this.services});
 

@@ -1,3 +1,4 @@
+import 'package:bacura_app/feature/my_orders/data/model/services_model.dart';
 import 'package:bacura_app/feature/my_orders/domin/entity/my_order_data_entity.dart';
 
 class MyOrderDataModel extends MyOrderDataEntity {
@@ -28,7 +29,7 @@ class MyOrderDataModel extends MyOrderDataEntity {
         latitude: (json["latitude"] as num?)?.toDouble() ?? 0.0,
         description: json["description"] ?? "",
         serviceId: json["service_id"] ?? 0,
-        service: json["service"],
+        service: ServicesOrderModel.fromJson(json["service"]),
         categoryId: json["category_id"] ?? 0,
         total: json["total"] ?? 0,
         createdAt: json["created_at"] ?? "",

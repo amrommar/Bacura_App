@@ -85,8 +85,7 @@ class OrderRequestScreen extends StatelessWidget {
                           text: AppLocalizations.of(context)!.send_request,
                           onPressed: () {
                             if (formKey.currentState?.validate() == true) {
-                              provider.sendOrderRequest(serviceId, categoryId);
-                              // showordersentBottomSheet();
+                              provider.sendOrderRequest(serviceId, categoryId, context: context);
                             }
                           },
                         ),

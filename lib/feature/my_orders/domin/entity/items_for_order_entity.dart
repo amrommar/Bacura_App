@@ -1,8 +1,9 @@
 import 'package:bacura_app/core/utils/index.dart';
 
 class ItemsForOrderEntity extends Equatable {
-  final String? name;
   final int? id;
+
+  final String? name;
   final int? price;
   final int? quantity;
   final String? image;

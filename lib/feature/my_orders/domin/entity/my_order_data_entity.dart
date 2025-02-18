@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/my_orders/domin/entity/services_entity.dart';
 
 class MyOrderDataEntity extends Equatable {
   final int? id;
@@ -11,7 +14,7 @@ class MyOrderDataEntity extends Equatable {
   final double? latitude;
   final String description;
   final int? serviceId;
-  final String? service;
+  final ServicesOrderEntity? service;
   final int? categoryId;
   final String? createdAt;
   final String? expiresAt;

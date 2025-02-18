@@ -1,6 +1,6 @@
-import 'package:bacura_app/feature/home/data/model/services_model.dart';
+import 'package:bacura_app/feature/home/data/model/services_home_model.dart';
 import 'package:bacura_app/feature/home/domain/entity/Category_entity.dart';
-import 'package:bacura_app/feature/home/domain/entity/services_entity.dart';
+import 'package:bacura_app/feature/home/domain/entity/services_home_entity.dart';
 
 class CategoryModel extends CategoryEntity {
   const CategoryModel({
@@ -23,9 +23,9 @@ class CategoryModel extends CategoryEntity {
       action: json['action'],
       services: json['services'] == null
           ? []
-          : List<ServicesEntity>.from(
+          : List<ServicesHomeEntity>.from(
               json['services'].map(
-                (e) => ServicesModel.fromJson(e),
+                (e) => ServicesHomeModel.fromJson(e),
               ),
             ),
       type: json['type'],
