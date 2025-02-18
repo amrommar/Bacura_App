@@ -1,3 +1,4 @@
+import 'package:bacura_app/feature/my_orders/data/model/services_order_model.dart';
 import 'package:bacura_app/feature/offers/domain/entity/offers_data_entity.dart';
 
 class OffersDataModel extends OffersDataEntity {
@@ -19,7 +20,7 @@ class OffersDataModel extends OffersDataEntity {
         id: json["id"] ?? 0,
         description: json["description"] ?? "",
         serviceId: json["service_id"] ?? 0,
-        service: json["service"],
+        service: ServicesOrderModel.fromJson(json['service']),
         categoryId: json["category_id"] ?? 0,
         name: json["name"] ?? "",
         total: json["total"] ?? 0,
