@@ -31,19 +31,16 @@ class MyOrderProvider with ChangeNotifier {
       //! handle in error
     }, (r) {
       if (r.myOrderDataEntity.isEmpty) {
-        myOrderEntity = r;
         isFinishedPaging = true;
-        isLoadingMyOrders = false;
-        notifyListeners();
       } else if (isLoadingMore) {
         myOrderEntity.myOrderDataEntity.addAll(r.myOrderDataEntity);
-        this.isLoadingMore = false;
-        notifyListeners();
       } else {
         myOrderEntity = r;
-        isLoadingMyOrders = false;
-        notifyListeners();
       }
+
+      isLoadingMore = false;
+      isLoadingMyOrders = false;
+      notifyListeners();
     });
   }
 
