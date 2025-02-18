@@ -18,50 +18,53 @@ class NotificationsScreen extends StatelessWidget {
         child: Consumer<NotificationsProvider>(
           builder: (context, provider, child) => provider.isLoadingNotifications
               ? buildNotificationsShimmerContainer()
-              : Column(
-                  children: [
-                    LazyLoadScrollView(
-                      onEndOfPage: () {
-                        provider.loadMoreNotifications();
-                      },
-                      child: Expanded(
-                        child: ListView.separated(
-                          separatorBuilder: (context, index) => Container(
-                            width: AppSizes.pw430,
-                            color: ColorManager.lightBlueColor,
-                            height: AppSizes.ph1,
-                          ),
-                          itemCount: provider.notificationsEntity.notificationsDataEntity.length,
-                          itemBuilder: (context, index) {
-                            return InkWell(
-                              onTap: () {
-                                provider.readNotification(
-                                    notificationId: provider.notificationsEntity.notificationsDataEntity[index].id!);
-                              },
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(vertical: AppSizes.pw4),
-                                child: NotificationItemComponent(
-                                  title: provider.notificationsEntity.notificationsDataEntity[index].title!,
-                                  body: provider.notificationsEntity.notificationsDataEntity[index].body!,
-                                  isRead: provider.notificationsEntity.notificationsDataEntity[index].isRead!,
-                                ),
-                              ),
-                            );
+              : provider.notificationsEntity.notificationsDataEntity.isEmpty
+                  ? const Center(child: Text('لا يوجد اشعارات'))
+                  : Column(
+                      children: [
+                        LazyLoadScrollView(
+                          onEndOfPage: () {
+                            provider.loadMoreNotifications();
                           },
+                          child: Expanded(
+                            child: ListView.separated(
+                              separatorBuilder: (context, index) => Container(
+                                width: AppSizes.pw430,
+                                color: ColorManager.lightBlueColor,
+                                height: AppSizes.ph1,
+                              ),
+                              itemCount: provider.notificationsEntity.notificationsDataEntity.length,
+                              itemBuilder: (context, index) {
+                                return InkWell(
+                                  onTap: () {
+                                    provider.readNotification(
+                                        notificationId:
+                                            provider.notificationsEntity.notificationsDataEntity[index].id!);
+                                  },
+                                  child: Padding(
+                                    padding: EdgeInsets.symmetric(vertical: AppSizes.pw4),
+                                    child: NotificationItemComponent(
+                                      title: provider.notificationsEntity.notificationsDataEntity[index].title!,
+                                      body: provider.notificationsEntity.notificationsDataEntity[index].body!,
+                                      isRead: provider.notificationsEntity.notificationsDataEntity[index].isRead!,
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
                         ),
-                      ),
+                        provider.isLoadingMore
+                            ? Padding(
+                                padding: EdgeInsets.all(AppSizes.ph10),
+                                child: Center(
+                                    child: CircularProgressIndicator(
+                                  color: ColorManager.lightBlueColor,
+                                )),
+                              )
+                            : const SizedBox.shrink(),
+                      ],
                     ),
-                    provider.isLoadingMore
-                        ? Padding(
-                            padding: EdgeInsets.all(AppSizes.ph10),
-                            child: Center(
-                                child: CircularProgressIndicator(
-                              color: ColorManager.lightBlueColor,
-                            )),
-                          )
-                        : const SizedBox.shrink(),
-                  ],
-                ),
         ),
       ),
     );

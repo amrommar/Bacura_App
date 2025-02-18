@@ -8,7 +8,6 @@ class ApiEndPoint {
   static const String categoriesPath = "categories";
   static const String ordersPath = "orders";
   static const String notificationsPath = "notifications";
-
   static const String postSuggestions = "suggestions";
   static const String postComplaints = "complains";
   static const String offersPath = "offers";

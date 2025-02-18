@@ -29,6 +29,7 @@ class NotificationsProvider with ChangeNotifier {
       //! handle in error
     }, (r) {
       if (r.notificationsDataEntity.isEmpty) {
+        notificationsEntity = r;
         isFinishedPaging = true;
         isLoadingNotifications = false;
         notifyListeners();
