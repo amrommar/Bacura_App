@@ -30,7 +30,7 @@ class ConsultationOrderScreen extends StatelessWidget {
                       child: ListView(children: [
                         /// drop down to choose type of consultation
                         CustomDropDownField(
-                          selectedOption: provider.selectedOption,
+                          selectedOption: categoryEntity.services[provider.selectedServiceIndex].name ?? '',
                           options: categoryEntity.services.map((service) => service.name ?? '').toList(),
                           fieldName: AppLocalizations.of(context)!.consultation_type,
                           onChanged: (String? newValue) {
