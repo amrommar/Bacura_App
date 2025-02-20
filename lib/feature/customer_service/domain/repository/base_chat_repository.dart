@@ -6,5 +6,5 @@ import 'package:dartz/dartz.dart';
 abstract class BaseChatRepository {
   Future<Either<Failure, ChatEntity>> getMyChats();
   Future<Either<Failure, void>> sendMessage({required String content, required int id});
-  Future<Either<Failure, MyMessageChatEntity>> getMessagesChat({required int id});
+  Future<Either<Failure, List<MyMessageChatEntity>>> getMessagesChat({required int id});
 }

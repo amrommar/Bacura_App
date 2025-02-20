@@ -3,11 +3,11 @@ import 'package:bacura_app/feature/customer_service/domain/entity/my_message_cha
 import 'package:bacura_app/feature/customer_service/domain/repository/base_chat_repository.dart';
 import 'package:dartz/dartz.dart';
 
-class GetMessageChatUseCase extends BaseUseCases<MyMessageChatEntity, int> {
+class GetMessageChatUseCase extends BaseUseCases<List<MyMessageChatEntity>, int> {
   BaseChatRepository baseChatRepository;
   GetMessageChatUseCase({required this.baseChatRepository});
   @override
-  Future<Either<Failure, MyMessageChatEntity>> call(parameters) {
+  Future<Either<Failure, List<MyMessageChatEntity>>> call(parameters) {
     return baseChatRepository.getMessagesChat(id: parameters);
   }
 }

@@ -19,7 +19,7 @@ class ChatRepository extends BaseChatRepository {
   }
 
   @override
-  Future<Either<Failure, MyMessageChatEntity>> getMessagesChat({required int id}) {
+  Future<Either<Failure, List<MyMessageChatEntity>>> getMessagesChat({required int id}) {
     // TODO: implement getMessagesChat
     throw UnimplementedError();
   }

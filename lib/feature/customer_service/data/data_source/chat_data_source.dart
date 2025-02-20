@@ -8,7 +8,7 @@ import 'package:bacura_app/feature/customer_service/domain/entity/my_message_cha
 
 abstract class BaseChatDataSource {
   Future<ChatEntity> getMyChats();
-  Future<MyMessageChatEntity> getMessagesChat({required int id});
+  Future<List<MyMessageChatEntity>> getMessagesChat({required int id});
   Future<void> sendMessage({required String content, required int id});
 }
 
@@ -22,11 +22,20 @@ class ChatsDataSource extends BaseChatDataSource {
   }
 
   @override
-  Future<MyMessageChatEntity> getMessagesChat({required int id}) async {
-    var response = await ApiClient().apiCall(requestType: RequestType.GET, url: 'chats/$id/messages');
-    return APIResponse<MyMessageChatEntity>.fromJson(response?.data, (data) {
-      return MyMessageChatModel.fromJson(data);
-    }).data!;
+  Future<List<MyMessageChatEntity>> getMessagesChat({required int id}) async {
+    var response = await ApiClient().apiCall(
+      requestType: RequestType.GET,
+      url: 'chats/$id/messages',
+    );
+
+    if (response?.data is Map<String, dynamic>) {
+      var data = response?.data['data'];
+      if (data is List) {
+        return data.map((e) => MyMessageChatModel.fromJson(e)).toList();
+      }
+    }
+
+    throw Exception("Unexpected response structure: ${response?.data}");
   }
 
   @override

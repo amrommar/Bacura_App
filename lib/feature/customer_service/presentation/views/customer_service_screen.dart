@@ -1,14 +1,9 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/customer_service/index.dart';
 
-class CustomerServiceScreen extends StatefulWidget {
+class CustomerServiceScreen extends StatelessWidget {
   const CustomerServiceScreen({super.key});
 
-  @override
-  State<CustomerServiceScreen> createState() => _CustomerServiceScreenState();
-}
-
-class _CustomerServiceScreenState extends State<CustomerServiceScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
