@@ -2,7 +2,9 @@ import 'package:bacura_app/feature/auth/index.dart';
 import 'package:bacura_app/feature/customer_service/data/data_source/chat_data_source.dart';
 import 'package:bacura_app/feature/customer_service/data/repository/chat_repository.dart';
 import 'package:bacura_app/feature/customer_service/domain/repository/base_chat_repository.dart';
+import 'package:bacura_app/feature/customer_service/domain/use_case/get_message_chat_use_case.dart';
 import 'package:bacura_app/feature/customer_service/domain/use_case/get_my_chat_use_case.dart';
+import 'package:bacura_app/feature/customer_service/domain/use_case/send_message_use_case.dart';
 import 'package:bacura_app/feature/home/data/data_source/home_data_source.dart';
 import 'package:bacura_app/feature/home/data/repository/home_repository.dart';
 import 'package:bacura_app/feature/home/domain/repository/base_home_repository.dart';
@@ -163,6 +165,8 @@ class DependencyInjectionServices {
     sl.registerLazySingleton<BaseChatDataSource>(() => ChatsDataSource());
 
     ///Use Cases
+    sl.registerLazySingleton<GetMessageChatUseCase>(() => GetMessageChatUseCase(baseChatRepository: sl()));
     sl.registerLazySingleton<GetMyChatUseCase>(() => GetMyChatUseCase(baseChatRepository: sl()));
+    sl.registerLazySingleton<SendMessageUseCase>(() => SendMessageUseCase(baseChatRepository: sl()));
   }
 }
