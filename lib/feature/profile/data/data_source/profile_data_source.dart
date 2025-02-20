@@ -1,9 +1,4 @@
-import 'package:bacura_app/core/network/model/api_client.dart';
-import 'package:bacura_app/core/network/model/api_endoint.dart';
-import 'package:bacura_app/core/network/model/api_response.dart';
-import 'package:bacura_app/feature/profile/data/model/my_profile_model.dart';
-import 'package:bacura_app/feature/profile/domain/entity/my_profile_entity.dart';
-import 'package:bacura_app/feature/profile/domain/use_case/update_profile_use_case.dart';
+import 'package:bacura_app/feature/profile/index.dart';
 
 abstract class BaseProfileDataSource {
   Future<MyProfileEntity> getMyProfile();

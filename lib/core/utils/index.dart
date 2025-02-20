@@ -3,7 +3,7 @@ export 'dart:io';
 
 export 'package:bacura_app/core/error/failaure.dart';
 export 'package:bacura_app/core/network/model/api_client.dart';
-export 'package:bacura_app/core/network/model/api_endoint.dart';
+export 'package:bacura_app/core/network/model/api_endpoint.dart';
 export 'package:bacura_app/core/network/model/error_message.dart';
 export 'package:bacura_app/core/network/model/last_api_error_recorded.dart';
 export 'package:bacura_app/core/network/model/network_constants.dart';

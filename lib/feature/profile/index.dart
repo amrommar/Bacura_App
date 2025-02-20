@@ -7,3 +7,9 @@ export 'package:bacura_app/feature/profile/presentation/views/unsed_widgets/down
 export 'package:bacura_app/feature/profile/presentation/views/unsed_widgets/invoice_time_date_widget.dart';
 export 'package:bacura_app/feature/profile/presentation/views/unsed_widgets/payment_operation_row.dart';
 export 'package:bacura_app/feature/profile/presentation/views/unsed_widgets/payment_operation_widget.dart';
+export 'package:bacura_app/core/network/model/api_client.dart';
+export 'package:bacura_app/core/network/model/api_endpoint.dart';
+export 'package:bacura_app/core/network/model/api_response.dart';
+export 'package:bacura_app/feature/profile/data/model/my_profile_model.dart';
+export 'package:bacura_app/feature/profile/domain/entity/my_profile_entity.dart';
+export 'package:bacura_app/feature/profile/domain/use_case/update_profile_use_case.dart';

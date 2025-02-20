@@ -1,5 +1,5 @@
 import 'package:bacura_app/core/network/model/api_client.dart';
-import 'package:bacura_app/core/network/model/api_endoint.dart';
+import 'package:bacura_app/core/network/model/api_endpoint.dart';
 import 'package:bacura_app/core/network/model/api_response.dart';
 import 'package:bacura_app/feature/my_orders/data/model/items_for_order_model.dart';
 import 'package:bacura_app/feature/my_orders/data/model/my_order_model.dart';
