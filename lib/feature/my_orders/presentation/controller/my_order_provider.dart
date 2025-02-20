@@ -31,6 +31,7 @@ class MyOrderProvider with ChangeNotifier {
       //! handle in error
     }, (r) {
       if (r.myOrderDataEntity.isEmpty) {
+        myOrderEntity = r;
         isFinishedPaging = true;
       } else if (isLoadingMore) {
         myOrderEntity.myOrderDataEntity.addAll(r.myOrderDataEntity);

@@ -62,9 +62,12 @@ class OrdersTabScreen extends StatelessWidget {
                       ),
                       SizedBox(height: AppSizes.ph25),
                       provider.isLoadingMore
-                          ? const Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Center(child: CircularProgressIndicator()),
+                          ? Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Center(
+                                  child: CircularProgressIndicator(
+                                color: ColorManager.primaryBlueColor,
+                              )),
                             )
                           : const SizedBox.shrink(),
                     ],

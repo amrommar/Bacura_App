@@ -63,7 +63,7 @@ class OrderItemComponent extends StatelessWidget {
             child: Text(
               requestEntity.description,
               overflow: TextOverflow.ellipsis,
-              maxLines: 1,
+              maxLines: 2,
               style: Theme.of(context).textTheme.displayMedium!.copyWith(
                     color: ColorManager.blackColor,
                   ),
