@@ -6,7 +6,7 @@ class ChatModel extends ChatEntity {
     required super.id,
     required super.supportNewMessageCount,
     required super.userEntity,
-    required super.messages,
+    // required super.messages,
     required super.userNewMessageCount,
   });
 
@@ -15,7 +15,7 @@ class ChatModel extends ChatEntity {
       id: json['id'],
       supportNewMessageCount: json['support_new_message_count'],
       userEntity: UserModel.fromJson(json['user']),
-      messages: json['messages'],
+      // messages: (json['messages'] as List<dynamic>?)?.map((e) => MessageModel.fromJson(e)).toList() ?? [],
       userNewMessageCount: json['user_new_message_count'],
     );
   }

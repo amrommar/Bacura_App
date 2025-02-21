@@ -19,14 +19,20 @@ class ChatRepository extends BaseChatRepository {
   }
 
   @override
-  Future<Either<Failure, List<MyMessageChatEntity>>> getMessagesChat({required int id}) {
-    // TODO: implement getMessagesChat
-    throw UnimplementedError();
+  Future<Either<Failure, List<MyMessageChatEntity>>> getMessagesChat({required int id}) async {
+    try {
+      return Right(await baseChatsDataSource.getMessagesChat(id: id));
+    } on Failure catch (ex) {
+      return Left(ServerFailure(code: ex.code, message: ex.message));
+    }
   }
 
   @override
-  Future<Either<Failure, void>> sendMessage({required String content, required int id}) {
-    // TODO: implement sendMessage
-    throw UnimplementedError();
+  Future<Either<Failure, void>> sendMessage({required String content, required int id}) async {
+    try {
+      return Right(await baseChatsDataSource.sendMessage(content: content, id: id));
+    } on Failure catch (ex) {
+      return Left(ServerFailure(code: ex.code, message: ex.message));
+    }
   }
 }

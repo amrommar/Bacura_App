@@ -50,7 +50,7 @@ class _CustomFloatingActionButtonState extends State<CustomFloatingActionButton>
                     hasClickedOnce = true;
                   } else if (hasClickedOnce) {
                     // Second click navigates to the route
-                    Navigator.pushNamed(context, Routes.customerServiceRoute);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const CustomerServiceScreen()));
                   }
                 });
               },

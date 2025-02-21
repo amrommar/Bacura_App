@@ -6,11 +6,10 @@ class ChatEntity extends Equatable {
   final int? supportNewMessageCount;
   final int? userNewMessageCount;
   final UserEntity? userEntity;
-  final List<String>? messages;
+  // final List<String>? messages;
 
-  const ChatEntity(
-      {required this.id, this.supportNewMessageCount, this.userNewMessageCount, this.userEntity, this.messages});
+  const ChatEntity({required this.id, this.supportNewMessageCount, this.userNewMessageCount, this.userEntity});
 
   @override
-  List<Object?> get props => [id, supportNewMessageCount, userNewMessageCount, userEntity, messages];
+  List<Object?> get props => [id, supportNewMessageCount, userNewMessageCount, userEntity];
 }

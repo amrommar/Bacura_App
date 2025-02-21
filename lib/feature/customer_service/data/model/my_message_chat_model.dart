@@ -10,7 +10,7 @@ class MyMessageChatModel extends MyMessageChatEntity {
     required super.createdAt,
     required super.attachment,
     required super.isSender,
-    required super.userEntity,
+    super.userEntity,
   });
   factory MyMessageChatModel.fromJson(Map<String, dynamic> json) {
     return MyMessageChatModel(
@@ -21,7 +21,7 @@ class MyMessageChatModel extends MyMessageChatEntity {
       createdAt: json['createdAt'],
       attachment: json['attachment'],
       isSender: json['isSender'],
-      userEntity: UserModel.fromJson(json['user']),
+      userEntity: json['user'] == null ? null : UserModel.fromJson(json['user']),
     );
   }
 }

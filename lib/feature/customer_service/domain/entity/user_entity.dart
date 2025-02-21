@@ -3,14 +3,14 @@ import 'package:bacura_app/core/utils/index.dart';
 class UserEntity extends Equatable {
   final int id;
   final String? email;
-  final int? password;
+  final String? password;
   final int? roleId;
-  final int? phone;
+  final String? phone;
   final String? name;
   final String? gender;
   final String? location;
   final String? image;
-  final int? countryCode;
+  final String? countryCode;
   final bool? isActive;
   final String? createdAt;
   const UserEntity(
