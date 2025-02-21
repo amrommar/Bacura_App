@@ -25,6 +25,7 @@ class CustomerServiceScreen extends StatelessWidget {
               children: [
                 Expanded(
                   child: ListView.builder(
+                    controller: provider.scrollController,
                     padding: EdgeInsets.symmetric(
                       horizontal: AppSizes.pw16,
                       vertical: AppSizes.ph24,

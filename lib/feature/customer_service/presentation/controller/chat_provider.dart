@@ -11,6 +11,7 @@ class ChatProvider with ChangeNotifier {
   bool isLoading = true;
   String content = '';
   TextEditingController messageController = TextEditingController();
+  ScrollController scrollController = ScrollController();
 
   ChatProvider() {
     init();
@@ -19,6 +20,7 @@ class ChatProvider with ChangeNotifier {
   init() async {
     await _getMine();
     await _getChatMessages();
+    scrollToBottom();
   }
 
   Future<void> _getMine() async {
@@ -36,6 +38,7 @@ class ChatProvider with ChangeNotifier {
       myMessageChatEntity = r;
       isLoading = false;
       notifyListeners();
+      scrollToBottom();
     });
   }
 
@@ -45,6 +48,19 @@ class ChatProvider with ChangeNotifier {
       await _getChatMessages();
       messageController.clear();
       notifyListeners();
+      scrollToBottom();
+    });
+  }
+
+  void scrollToBottom() {
+    Future.delayed(const Duration(milliseconds: 300), () {
+      if (scrollController.hasClients) {
+        scrollController.animateTo(
+          scrollController.position.maxScrollExtent,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+        );
+      }
     });
   }
 
