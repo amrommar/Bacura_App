@@ -10,6 +10,7 @@ class ChatProvider with ChangeNotifier {
   ChatEntity? getMessagesChat;
   bool isLoading = true;
   String content = '';
+  TextEditingController messageController = TextEditingController();
 
   ChatProvider() {
     init();
@@ -38,10 +39,19 @@ class ChatProvider with ChangeNotifier {
     });
   }
 
-  Future<void> sendMessage() async {
+  Future<void> sendMessage({required String content}) async {
     var result = await sl<SendMessageUseCase>().call(SendMessageParams(id: getMessagesChat!.id, content: content));
     result.fold((l) async {}, (r) async {
+      await _getChatMessages();
+      messageController.clear();
       notifyListeners();
     });
+  }
+
+  String dateCreateOrder(int index) {
+    MyMessageChatEntity requestEntity = myMessageChatEntity[index];
+    String fullDateTime = requestEntity.createdAt!;
+    String dateOnly = fullDateTime.split("T")[0];
+    return dateOnly;
   }
 }

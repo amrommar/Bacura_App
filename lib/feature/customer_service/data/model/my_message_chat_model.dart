@@ -15,12 +15,12 @@ class MyMessageChatModel extends MyMessageChatEntity {
   factory MyMessageChatModel.fromJson(Map<String, dynamic> json) {
     return MyMessageChatModel(
       id: json['id'],
-      chatId: json['chatId'],
+      chatId: json['chat_id'],
       content: json['content'],
-      createdBy: json['createdBy'],
-      createdAt: json['createdAt'],
+      createdBy: json['created_by'],
+      createdAt: json['created_at'],
       attachment: json['attachment'],
-      isSender: json['isSender'],
+      isSender: json['is_sender'],
       userEntity: json['user'] == null ? null : UserModel.fromJson(json['user']),
     );
   }

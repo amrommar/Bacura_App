@@ -40,6 +40,7 @@ class ChatsDataSource extends BaseChatDataSource {
 
   @override
   Future<void> sendMessage({required String content, required int id}) async {
-    await ApiClient().apiCall(requestType: RequestType.POST, url: 'chats/$id/messages', body: content);
+    await ApiClient().apiCall(
+        requestType: RequestType.POST, url: 'chats/$id/messages', body: {"content": content}, isMultiPart: true);
   }
 }

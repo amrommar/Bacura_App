@@ -1,10 +1,10 @@
 import 'package:bacura_app/core/utils/index.dart';
 
 class UserMessageWidget extends StatelessWidget {
-  String message;
-  String time;
+  final String message;
+  final String time;
 
-  UserMessageWidget({super.key, required this.message, required this.time});
+  const UserMessageWidget({super.key, required this.message, required this.time});
 
   @override
   Widget build(BuildContext context) {

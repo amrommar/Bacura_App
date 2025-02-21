@@ -20,5 +20,6 @@ class SendMessageParams {
   final int id;
   final String content;
 
-  SendMessageParams({required this.id, required this.content});
+  const SendMessageParams({required this.id, required this.content});
+  Map<String, dynamic> toJson() => {'content': content};
 }
