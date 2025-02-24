@@ -4,9 +4,16 @@ import 'package:bacura_app/feature/notifications/domain/use_case/get_unread_noti
 class CoreProvider with ChangeNotifier {
   int notificationCount = 0;
 
-  getNotificationCount() async {
-    var res = await sl<GetUnreadNotificationsUseCase>().call().then((value) {});
+  CoreProvider() {
+    getNotificationCount();
+  }
 
-    res.fold((l) => null, (r) => notificationCount = r);
+  getNotificationCount() async {
+    var res = await sl<GetUnreadNotificationsUseCase>().call();
+
+    res.fold((l) => null, (r) {
+      notificationCount = r;
+      notifyListeners();
+    });
   }
 }

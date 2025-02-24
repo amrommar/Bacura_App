@@ -50,6 +50,15 @@ class NotificationsDataSource extends BaseNotificationsDataSource {
       requestType: RequestType.GET,
       url: ApiEndPoint.unViewed,
     );
-    return response!.data;
+
+    // استخراج الـ data من response
+    var responseData = response!.data;
+
+    // التأكد من أن responseData ليس null وأنه يحتوي على "data"
+    if (responseData != null && responseData is Map<String, dynamic> && responseData.containsKey('data')) {
+      return responseData['data'] as int;
+    } else {
+      throw Exception("Invalid response format: $responseData");
+    }
   }
 }
