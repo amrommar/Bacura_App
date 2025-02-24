@@ -39,9 +39,8 @@ class OffersTabScreen extends StatelessWidget {
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) => OfferDetailsScreen(
-                                            name: provider.offersEntity.offersDataEntity[index].name!,
-                                            description: provider.offersEntity.offersDataEntity[index].description!,
-                                            imageUrl: provider.offersEntity.offersDataEntity[index].image!,
+                                            index: index,
+                                            id: provider.offersEntity.offersDataEntity[index].id!,
                                           ),
                                         ),
                                       );

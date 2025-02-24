@@ -10,8 +10,6 @@ class AdsBannerSliderComponent extends StatefulWidget {
 }
 
 class _AdsBannerSliderComponentState extends State<AdsBannerSliderComponent> {
-  int _currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Consumer<HomeProvider>(
@@ -25,6 +23,8 @@ class _AdsBannerSliderComponentState extends State<AdsBannerSliderComponent> {
                 (index) => InkWell(
                   onTap: () {
                     provider.onBannerClicked(id: provider.bannerEntity[index].id);
+                    provider.navigateOnBannerClicked(
+                        id: provider.bannerEntity[index].offerId ?? 0, context: context, index: index);
                   },
                   child: AdsWidget(
                     imagePath: provider.bannerEntity[index].image,
@@ -42,7 +42,7 @@ class _AdsBannerSliderComponentState extends State<AdsBannerSliderComponent> {
                 viewportFraction: 0.95,
                 onPageChanged: (index, reason) {
                   setState(() {
-                    _currentIndex = index;
+                    provider.currentIndex = index;
                   });
                 },
               ),
@@ -61,7 +61,7 @@ class _AdsBannerSliderComponentState extends State<AdsBannerSliderComponent> {
                 ),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: _currentIndex == index ? Colors.blue : Colors.grey.withOpacity(0.4),
+                  color: provider.currentIndex == index ? Colors.blue : Colors.grey.withOpacity(0.4),
                 ),
               ),
             ),

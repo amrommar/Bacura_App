@@ -78,9 +78,8 @@ class RouteGenerator {
       case Routes.offerDetailsRoute:
         return MaterialPageRoute(
             builder: (_) => const OfferDetailsScreen(
-                  name: '',
-                  description: '',
-                  imageUrl: '',
+                  index: 0,
+                  id: 0,
                 ));
       case Routes.serviceTypeRoute:
         return MaterialPageRoute(builder: (_) => const ServiceTypeScreen());

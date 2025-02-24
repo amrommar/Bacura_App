@@ -12,6 +12,7 @@ class HomeProvider with ChangeNotifier {
   int? selectedServiceIndex;
   bool isSliderLoading = true;
   bool isCategoryLoading = true;
+  int currentIndex = 0;
 
   HomeProvider(context) {
     _getBanner();
@@ -30,6 +31,17 @@ class HomeProvider with ChangeNotifier {
 
   Future<void> onBannerClicked({required int id}) async {
     await sl<OnBannerClickedUseCase>().call(id);
+  }
+
+  void navigateOnBannerClicked({required int id, required BuildContext context, required int index}) {
+    if (id == 0) return;
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => OfferDetailsScreen(
+                  id: id,
+                  index: index,
+                )));
   }
 
   Future<void> _getCategories() async {
