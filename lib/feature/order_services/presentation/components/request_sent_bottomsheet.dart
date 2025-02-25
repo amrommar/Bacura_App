@@ -1,13 +1,15 @@
 import 'package:bacura_app/core/utils/index.dart';
 
-class orderSentBottomSheet extends StatefulWidget {
-  const orderSentBottomSheet({super.key});
+class OrderSentBottomSheet extends StatefulWidget {
+  final String title;
+  final String image;
+  const OrderSentBottomSheet({super.key, required this.title, required this.image});
 
   @override
-  State<orderSentBottomSheet> createState() => _orderSentBottomSheetState();
+  State<OrderSentBottomSheet> createState() => _OrderSentBottomSheetState();
 }
 
-class _orderSentBottomSheetState extends State<orderSentBottomSheet> {
+class _OrderSentBottomSheetState extends State<OrderSentBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,7 +25,7 @@ class _orderSentBottomSheetState extends State<orderSentBottomSheet> {
           children: [
             /// from Back End ///////////////////////
             Image.asset(
-              'assets/images/png/request.png',
+              imagePath,
               height: AppSizes.ph150,
               width: AppSizes.pw150,
             ),
@@ -31,7 +33,7 @@ class _orderSentBottomSheetState extends State<orderSentBottomSheet> {
               padding: EdgeInsets.all(AppSizes.ph16),
               child: Text(
                 /// from BAckEnd /////////////////
-                'لقد أرسلنا الطلب، وسيقوم مزود الخدمة بالتواصل معك.',
+                widget.title,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(
                       color: ColorManager.greyColor,

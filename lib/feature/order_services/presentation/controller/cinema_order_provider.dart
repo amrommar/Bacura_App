@@ -26,16 +26,28 @@ class CinemaOrderProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void sendOrderRequest({required int categoryId}) async {
-    sl<OrderServicesUseCase>().call(OrderServicesParams(
+  void sendOrderRequest({required int categoryId, required BuildContext context}) async {
+    var result = await sl<OrderServicesUseCase>().call(OrderServicesParams(
       location: locationController.text,
       date: formattedDate,
       time: selectedOption,
       description: descriptionController.text,
+      serviceId: 16,
       categoryId: categoryId,
       longitude: longitude,
       latitude: latitude,
     ));
+    result.fold((l) async {
+      showOrderSentBottomSheet(
+          context: context,
+          message: 'لقد حدث خطاء، يرجى المحاولة لاحقا',
+          imgPath: 'assets/images/png/bad-feedback.png');
+    }, (r) async {
+      showOrderSentBottomSheet(
+          context: context,
+          message: 'لقد أرسلنا الطلب، وسيقوم مزود الخدمة بالتواصل معك.',
+          imgPath: 'assets/images/png/request.png');
+    });
   }
 
   void showLocationBottomSheet({required BuildContext context}) async {
@@ -58,11 +70,14 @@ class CinemaOrderProvider with ChangeNotifier {
     }
   }
 
-  void showOrderSentBottomSheet({required BuildContext context}) {
+  void showOrderSentBottomSheet({required BuildContext context, required String message, required String imgPath}) {
     showModalBottomSheet(
         context: context,
         builder: (context) {
-          return const orderSentBottomSheet();
+          return OrderSentBottomSheet(
+            image: imagePath,
+            title: message,
+          );
         });
   }
 }

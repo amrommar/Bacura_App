@@ -16,7 +16,6 @@ class AppAssets {
   static const String soundSystemsIcon = '$imageSvgPath/soundSystems_icon.svg';
   static const String closeSquare = '$imageSvgPath/close_square.svg';
   static const String contactIcon = '$imageSvgPath/contact_icon.svg';
-
   //png
   static const String ad1Image = '$imagePngPath/ad12.png';
   static const String offer1 = '$imagePngPath/offer1.png';
@@ -35,6 +34,7 @@ class AppAssets {
   static const String linkedInLogo = '$imagePngPath/linkin iconn.png';
   static const String instagramLogo = '$imagePngPath/instagram.png';
   static const String badFeedback = '$imagePngPath/bad-feedback.png';
+  static const String request = '$imagePngPath/request.png';
   static const String question = '$imagePngPath/question.png';
   static const String userGuide = '$imagePngPath/manual-book.png';
   static const String cameraOffer = '$imagePngPath/camera_offer.png';

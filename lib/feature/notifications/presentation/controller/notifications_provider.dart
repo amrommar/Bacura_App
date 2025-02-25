@@ -22,26 +22,31 @@ class NotificationsProvider with ChangeNotifier {
   Future<void> getNotifications({bool isLoadingMore = false}) async {
     this.isLoadingMore = isLoadingMore;
     notifyListeners();
-    (await sl<GetNotificationsUseCase>()(
+
+    final result = await sl<GetNotificationsUseCase>()(
       NotificationsParameters(page: pageNumber, limit: AppConstants.defaultPageSize),
-    ))
-        .fold((l) async {
+    );
+
+    result.fold((l) async {
       //! handle in error
     }, (r) {
       if (r.notificationsDataEntity.isEmpty) {
-        notificationsEntity = r;
         isFinishedPaging = true;
-        isLoadingNotifications = false;
-        notifyListeners();
-      } else if (isLoadingMore) {
-        notificationsEntity.notificationsDataEntity.addAll(r.notificationsDataEntity);
-        this.isLoadingMore = false;
-        notifyListeners();
       } else {
-        notificationsEntity = r;
-        isLoadingNotifications = false;
-        notifyListeners();
+        if (isLoadingMore) {
+          notificationsEntity = notificationsEntity.copyWith(
+            notificationsDataEntity: [
+              ...notificationsEntity.notificationsDataEntity,
+              ...r.notificationsDataEntity,
+            ],
+          );
+        } else {
+          notificationsEntity = r;
+        }
       }
+      isLoadingNotifications = false;
+      this.isLoadingMore = false;
+      notifyListeners();
     });
   }
 

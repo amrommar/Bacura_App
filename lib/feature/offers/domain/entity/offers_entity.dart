@@ -20,6 +20,26 @@ class OffersEntity extends Equatable {
     required this.previousPageLink,
   });
 
+  OffersEntity copyWith({
+    List<OffersDataEntity>? offersDataEntity,
+    int? limit,
+    int? page,
+    int? totalRecords,
+    int? totalPages,
+    String? nextPageLink,
+    String? previousPageLink,
+  }) {
+    return OffersEntity(
+      offersDataEntity: offersDataEntity ?? this.offersDataEntity,
+      limit: limit ?? this.limit,
+      page: page ?? this.page,
+      totalRecords: totalRecords ?? this.totalRecords,
+      totalPages: totalPages ?? this.totalPages,
+      nextPageLink: nextPageLink ?? this.nextPageLink,
+      previousPageLink: previousPageLink ?? this.previousPageLink,
+    );
+  }
+
   @override
   List<Object?> get props => [limit, page, totalRecords, totalPages, nextPageLink, previousPageLink];
 }

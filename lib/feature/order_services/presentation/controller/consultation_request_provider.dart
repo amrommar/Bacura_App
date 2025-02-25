@@ -9,19 +9,33 @@ class ConsultationRequestProvider extends ChangeNotifier {
 
   ConsultationRequestProvider();
 
-  void sendOrderRequest({int? serviceId, required int categoryId}) async {
-    sl<OrderServicesUseCase>().call(OrderServicesParams(
+  void sendOrderRequest({int? serviceId, required int categoryId, required BuildContext context}) async {
+    var result = await sl<OrderServicesUseCase>().call(OrderServicesParams(
       description: descriptionController.text,
       serviceId: serviceId,
       categoryId: categoryId,
     ));
+    result.fold((l) async {
+      showOrderSentBottomSheet(
+          context: context,
+          title: 'لقد حدث خطاء، يرجى المحاولة لاحقا',
+          imagePath: 'assets/images/png/bad-feedback.png');
+    }, (r) async {
+      showOrderSentBottomSheet(
+          context: context,
+          title: 'لقد أرسلنا الطلب، وسيقوم مزود الخدمة بالتواصل معك.',
+          imagePath: 'assets/images/png/request.png');
+    });
   }
 
-  void showOrderSentBottomSheet({required BuildContext context}) {
+  void showOrderSentBottomSheet({required BuildContext context, required String imagePath, required String title}) {
     showModalBottomSheet(
         context: context,
         builder: (context) {
-          return const orderSentBottomSheet();
+          return OrderSentBottomSheet(
+            image: imagePath,
+            title: title,
+          );
         });
   }
 }

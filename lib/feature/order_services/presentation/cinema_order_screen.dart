@@ -115,8 +115,7 @@ class CinemaOrderScreen extends StatelessWidget {
                             text: AppLocalizations.of(context)!.send_request,
                             onPressed: () {
                               if (formKey.currentState?.validate() == true) {
-                                provider.sendOrderRequest(categoryId: categoryId);
-                                provider.showOrderSentBottomSheet(context: context);
+                                provider.sendOrderRequest(categoryId: categoryId, context: context);
                               }
                             },
                           ),

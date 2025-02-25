@@ -26,26 +26,31 @@ class OffersProvider with ChangeNotifier {
   Future<void> getOffers({bool isLoadingMore = false}) async {
     this.isLoadingMore = isLoadingMore;
     notifyListeners();
-    (await sl<GetOffersUseCase>()(
+
+    final result = await sl<GetOffersUseCase>()(
       OffersParameters(page: pageNumber, limit: AppConstants.defaultPageSize),
-    ))
-        .fold((l) async {
+    );
+
+    result.fold((l) async {
       //! handle in error
     }, (r) {
       if (r.offersDataEntity.isEmpty) {
-        offersEntity = r;
         isFinishedPaging = true;
-        isLoadingOffers = false;
-        notifyListeners();
-      } else if (isLoadingMore) {
-        offersEntity.offersDataEntity.addAll(r.offersDataEntity);
-        this.isLoadingMore = false;
-        notifyListeners();
       } else {
-        offersEntity = r;
-        isLoadingOffers = false;
-        notifyListeners();
+        if (isLoadingMore) {
+          offersEntity = offersEntity.copyWith(
+            offersDataEntity: [
+              ...offersEntity.offersDataEntity,
+              ...r.offersDataEntity,
+            ],
+          );
+        } else {
+          offersEntity = r;
+        }
       }
+      isLoadingOffers = false;
+      this.isLoadingMore = false;
+      notifyListeners();
     });
   }
 

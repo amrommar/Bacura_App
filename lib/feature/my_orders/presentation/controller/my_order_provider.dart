@@ -24,19 +24,27 @@ class MyOrderProvider with ChangeNotifier {
   Future<void> _getMyOrders({bool isLoadingMore = false}) async {
     this.isLoadingMore = isLoadingMore;
     notifyListeners();
-    (await sl<GetMyOrdersUseCase>()(
+
+    final result = await sl<GetMyOrdersUseCase>()(
       MyOrdersParameters(page: pageNumber, limit: AppConstants.defaultPageSize),
-    ))
-        .fold((l) async {
+    );
+
+    result.fold((l) async {
       //! handle in error
     }, (r) {
       if (r.myOrderDataEntity.isEmpty) {
-        myOrderEntity = r;
         isFinishedPaging = true;
-      } else if (isLoadingMore) {
-        myOrderEntity.myOrderDataEntity.addAll(r.myOrderDataEntity);
       } else {
-        myOrderEntity = r;
+        if (isLoadingMore) {
+          myOrderEntity = myOrderEntity.copyWith(
+            myOrderDataEntity: [
+              ...myOrderEntity.myOrderDataEntity,
+              ...r.myOrderDataEntity,
+            ],
+          );
+        } else {
+          myOrderEntity = r;
+        }
       }
 
       isLoadingMore = false;

@@ -29,7 +29,7 @@ class OrderServicesProvider extends ChangeNotifier {
   }
 
   void sendOrderRequest(int? serviceId, int? categoryId, {required BuildContext context}) async {
-    sl<OrderServicesUseCase>().call(OrderServicesParams(
+    var res = await sl<OrderServicesUseCase>().call(OrderServicesParams(
       location: locationController.text,
       date: formattedDate,
       // ! handle from back end
@@ -41,7 +41,17 @@ class OrderServicesProvider extends ChangeNotifier {
       latitude: latitude,
     ));
 
-    showOrderSentBottomSheet(context: context);
+    res.fold((l) {
+      showOrderSentBottomSheet(
+          context: context,
+          message: 'لقد حدث خطاء، يرجى المحاولة لاحقا',
+          imgPath: 'assets/images/png/bad-feedback.png');
+    }, (r) {
+      showOrderSentBottomSheet(
+          context: context,
+          message: 'لقد أرسلنا الطلب، وسيقوم مزود الخدمة بالتواصل معك.',
+          imgPath: 'assets/images/png/request.png');
+    });
   }
 
   void showLocationBottomSheet({required BuildContext context}) async {
@@ -64,11 +74,14 @@ class OrderServicesProvider extends ChangeNotifier {
     }
   }
 
-  void showOrderSentBottomSheet({required BuildContext context}) {
+  void showOrderSentBottomSheet({required BuildContext context, required String message, required String imgPath}) {
     showModalBottomSheet(
         context: context,
         builder: (context) {
-          return const orderSentBottomSheet();
+          return OrderSentBottomSheet(
+            image: imgPath,
+            title: message,
+          );
         });
   }
 }

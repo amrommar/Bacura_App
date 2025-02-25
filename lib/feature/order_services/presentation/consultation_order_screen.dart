@@ -63,6 +63,7 @@ class ConsultationOrderScreen extends StatelessWidget {
                                 onPressed: () {
                                   if (formKey.currentState?.validate() == true) {
                                     provider.sendOrderRequest(
+                                        context: context,
                                         serviceId: categoryEntity.services[provider.selectedServiceIndex].id,
                                         categoryId: categoryEntity.id!);
                                   }
