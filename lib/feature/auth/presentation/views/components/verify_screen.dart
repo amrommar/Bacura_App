@@ -1,10 +1,11 @@
+import 'dart:async';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/auth/index.dart';
 
 class VerifyScreen extends StatefulWidget {
   final String mobileNumber;
 
-  VerifyScreen({super.key, required this.mobileNumber});
+  const VerifyScreen({super.key, required this.mobileNumber});
 
   @override
   State<VerifyScreen> createState() => _VerifyScreenState();
@@ -12,6 +13,38 @@ class VerifyScreen extends StatefulWidget {
 
 class _VerifyScreenState extends State<VerifyScreen> {
   var formKey = GlobalKey<FormState>();
+  int _counter = 60;
+  bool _canResend = false;
+  Timer? _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _startTimer();
+  }
+
+  void _startTimer() {
+    _canResend = false;
+    _counter = 60;
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (_counter > 0) {
+        setState(() {
+          _counter--;
+        });
+      } else {
+        setState(() {
+          _canResend = true;
+        });
+        _timer?.cancel();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +100,34 @@ class _VerifyScreenState extends State<VerifyScreen> {
                         },
                       ),
                       SizedBox(height: AppSizes.ph20),
-                      const ResendOtpAgainWidget()
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          InkWell(
+                            onTap: _canResend
+                                ? () {
+                                    provider.verifyOtp(
+                                        countryCode: AppConstants.countryCode, mobileNumber: widget.mobileNumber);
+                                    _startTimer();
+                                  }
+                                : null,
+                            child: Text(
+                              AppLocalizations.of(context)!.sendOTPAgain,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium!
+                                  .copyWith(color: _canResend ? Colors.blue : Colors.grey),
+                            ),
+                          ),
+                          SizedBox(width: AppSizes.pw20),
+                          Text(
+                            "$_counter",
+                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                  color: ColorManager.greyColor,
+                                ),
+                          )
+                        ],
+                      )
                     ]))
                   ])),
             ),

@@ -11,5 +11,4 @@ export 'package:bacura_app/feature/auth/domain/usecases/verify_usecase.dart';
 export 'package:bacura_app/feature/auth/presentation/controller/auth_provider.dart';
 export 'package:bacura_app/feature/auth/presentation/views/complete_profile_screen.dart';
 export 'package:bacura_app/feature/auth/presentation/views/components/change_number_widget.dart';
-export 'package:bacura_app/feature/auth/presentation/views/components/resend_otp_again_widget.dart';
 export 'package:bacura_app/feature/auth/presentation/views/components/verify_button_widget.dart';

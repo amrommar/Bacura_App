@@ -88,8 +88,7 @@ class AuthProvider with ChangeNotifier {
         ),
       ));
     } else {
-      sl<LoginUseCase>()
-          .call(LoginParameter(phone: mobileNumberController.text, countryCode: AppConstants.countryCode));
+      verifyOtp(countryCode: AppConstants.countryCode, mobileNumber: mobileNumberController.text);
       Navigator.push(
           context,
           MaterialPageRoute(
@@ -99,6 +98,9 @@ class AuthProvider with ChangeNotifier {
     }
   }
 
+  void verifyOtp({required String mobileNumber, required String countryCode}) {
+    sl<LoginUseCase>().call(LoginParameter(phone: mobileNumber, countryCode: AppConstants.countryCode));
+  }
 // void showVerifyBottomSheet(BuildContext context) {
 //   showModalBottomSheet(
 //       context: context,
