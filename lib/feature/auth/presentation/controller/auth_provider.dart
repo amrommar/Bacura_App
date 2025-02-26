@@ -61,7 +61,7 @@ class AuthProvider with ChangeNotifier {
             isCancel: false,
             onCancel: () {},
             onOk: () async {
-              if (verifyDataEntity?.role == 'Admin') {
+              if (verifyDataEntity?.role == 'Service Provider') {
                 Navigator.pushNamed(context, Routes.spHomeScreenRoute);
               } else {
                 if (verifyDataEntity?.isCompleted == true) {
