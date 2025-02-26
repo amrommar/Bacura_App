@@ -12,7 +12,7 @@ class _ManageOnGoingOrderBottomSheetState extends State<ManageOnGoingOrderBottom
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: AppSizes.ph200,
+        height: AppSizes.ph150,
         decoration: BoxDecoration(
           color: ColorManager.whiteColor,
           borderRadius: BorderRadius.circular(AppSizes.br20),
@@ -33,13 +33,6 @@ class _ManageOnGoingOrderBottomSheetState extends State<ManageOnGoingOrderBottom
 
               /// Close the order Button ///////////////////////////////////////
               /// this is to make the order completed ////////////////////////////////
-              ManageOrderOptionWidget(
-                onTap: () {},
-                text: AppLocalizations.of(context)!.close_the_order,
-                icon: Icons.lock,
-                iconColor: ColorManager.primaryBlueColor,
-              ),
-              const Divider(),
 
               /// navigate PoP Button ///////////////////////////////////////
               Center(

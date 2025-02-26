@@ -47,6 +47,8 @@ class CinemaOrderProvider with ChangeNotifier {
           context: context,
           message: 'لقد أرسلنا الطلب، وسيقوم مزود الخدمة بالتواصل معك.',
           imgPath: 'assets/images/png/request.png');
+      descriptionController.clear();
+      locationController.clear();
     });
   }
 

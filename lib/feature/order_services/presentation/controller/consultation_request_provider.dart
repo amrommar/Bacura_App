@@ -25,6 +25,7 @@ class ConsultationRequestProvider extends ChangeNotifier {
           context: context,
           title: 'لقد أرسلنا الطلب، وسيقوم مزود الخدمة بالتواصل معك.',
           imagePath: 'assets/images/png/request.png');
+      descriptionController.clear();
     });
   }
 

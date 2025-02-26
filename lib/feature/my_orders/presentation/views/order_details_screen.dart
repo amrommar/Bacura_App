@@ -19,6 +19,8 @@ class OrderDetailsScreen extends StatelessWidget {
   final int? total;
   final int id;
 
+  final String? status;
+
   const OrderDetailsScreen(
       {super.key,
       this.orderId,
@@ -29,7 +31,8 @@ class OrderDetailsScreen extends StatelessWidget {
       this.expiresAt,
       this.total,
       this.description,
-      required this.id});
+      required this.id,
+      this.status});
 
   @override
   Widget build(BuildContext context) {
@@ -174,7 +177,7 @@ class OrderDetailsScreen extends StatelessWidget {
                       iconColor: ColorManager.midBlueColor),
                   const Divider(),
                   SizedBox(height: AppSizes.ph50),
-                  manageRequestButtons(requestColor!, context: context),
+                  manageRequestButtons(status!, context: context),
                   SizedBox(height: AppSizes.ph20),
                 ],
               ),
@@ -185,21 +188,22 @@ class OrderDetailsScreen extends StatelessWidget {
     );
   }
 
-  Widget manageRequestButtons(Color requestColor, {required BuildContext context}) {
-    if (requestColor == ColorManager.yellowColor) {
-      //////////           Request Management Elevated Button              //////////////////////////////////////////
+  Widget manageRequestButtons(String requestStatus, {required BuildContext context}) {
+    //TODO: change this AMR
+    if (requestStatus == 'pending') {
       return OnGoingOrderBottomWidget(onPressed: () {
         showManageRequestBottomSheet(context);
       });
-    } else if (requestColor == ColorManager.primaryBlueColor) {
-      //////////           Request Pending icon and text             //////////////////////////////////////////
-    } else if (requestColor == ColorManager.redColor) {
-      //////////           Request Cancelled icon and text             //////////////////////////////////////////
+    } else if (requestStatus == 'cancelled') {
       return const CancelledOrderBottomWidget();
-    } else if (requestColor == ColorManager.greenColor) {
-      //////////          Completed Request button and text             //////////////////////////////////////////
+    } else if (requestStatus == 'approved') {
+      return const CompletedOrderBottomWidget();
+    } else if (requestStatus == 'confirmed') {
+      return const CompletedOrderBottomWidget();
+    } else if (requestStatus == 'completed') {
       return const CompletedOrderBottomWidget();
     }
+
     return Container();
   }
 

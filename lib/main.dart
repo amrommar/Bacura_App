@@ -1,5 +1,5 @@
-import 'package:bacura_app/core/providers/core_provider.dart';
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/home/presentation/controller/home_provider.dart';
 import 'package:bacura_app/feature/order_services/presentation/controller/order_services_provider.dart';
 import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
 
@@ -14,9 +14,9 @@ void main() async {
       MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (context) => MyProfileProvider(context)),
+          ChangeNotifierProvider(create: (context) => HomeProvider(context)),
           ChangeNotifierProvider(create: (context) => LanguageProvider()),
           ChangeNotifierProvider(create: (context) => OrderServicesProvider()),
-          ChangeNotifierProvider(create: (context) => CoreProvider()),
         ],
         child: const MyApp(),
       ),
@@ -45,7 +45,7 @@ class _MyAppState extends State<MyApp> {
         supportedLocales: AppLocalizations.supportedLocales,
         debugShowCheckedModeBanner: false,
         onGenerateRoute: RouteGenerator.getRoute,
-        initialRoute: Routes.spHomeScreenRoute,
+        initialRoute: Routes.homeRoute,
         theme: getAppTheme(),
       ),
     );

@@ -6,9 +6,9 @@ import 'package:intl/intl.dart';
 
 class OrderServicesProvider extends ChangeNotifier {
   TextEditingController locationController = TextEditingController();
+  TextEditingController descriptionController = TextEditingController();
   double latitude = 0.0;
   double longitude = 0.0;
-  TextEditingController descriptionController = TextEditingController();
   String selectedOption = '9 ص - 1 م';
   DateTime selectedDate = DateTime.now();
   String formattedDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
@@ -51,6 +51,8 @@ class OrderServicesProvider extends ChangeNotifier {
           context: context,
           message: 'لقد أرسلنا الطلب، وسيقوم مزود الخدمة بالتواصل معك.',
           imgPath: 'assets/images/png/request.png');
+      locationController.clear();
+      descriptionController.clear();
     });
   }
 

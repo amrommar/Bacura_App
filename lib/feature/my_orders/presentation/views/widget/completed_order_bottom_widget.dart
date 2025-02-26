@@ -6,19 +6,6 @@ class CompletedOrderBottomWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      ElevatedButton(
-          style: ElevatedButton.styleFrom(
-              maximumSize: Size(AppSizes.pw170, AppSizes.ph50),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(
-                AppSizes.br30,
-              ))),
-          onPressed: () {},
-          child: Text(AppLocalizations.of(context)!.re_request,
-              style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    color: ColorManager.whiteColor,
-                    fontWeight: FontWeight.bold,
-                  ))),
       SizedBox(height: AppSizes.ph20),
       InkWell(
           ///////////////////////////        to go to the receipt file        /////////////////////////////////////

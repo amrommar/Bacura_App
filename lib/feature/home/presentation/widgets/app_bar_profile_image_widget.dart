@@ -1,4 +1,3 @@
-import 'package:bacura_app/core/providers/core_provider.dart';
 import 'package:bacura_app/core/utils/dialog_function.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
