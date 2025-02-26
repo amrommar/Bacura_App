@@ -68,7 +68,7 @@ class _CustomFloatingActionButtonState extends State<CustomFloatingActionButton>
                             },
                           )
                         : Navigator.push(
-                            context, MaterialPageRoute(builder: (context) => const ProfileDetailsScreen()));
+                            context, MaterialPageRoute(builder: (context) => const CustomerServiceScreen()));
 
                     // Second click navigates to the route
                   }

@@ -5,7 +5,6 @@ import 'package:bacura_app/feature/my_orders/presentation/views/widget/cancelled
 import 'package:bacura_app/feature/my_orders/presentation/views/widget/completed_order_bottom_widget.dart';
 import 'package:bacura_app/feature/my_orders/presentation/views/widget/manage_ongoing_order_bottom_sheet.dart';
 import 'package:bacura_app/feature/my_orders/presentation/views/widget/ongoing_order_bottom_widget.dart';
-
 import 'package:bacura_app/feature/my_orders/presentation/views/widget/order_num_contact_icon_widget.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -75,7 +74,7 @@ class OrderDetailsScreen extends StatelessWidget {
                                 children: [
                                   Text(description ?? ''),
                                   SizedBox(height: AppSizes.ph10),
-                                  const Text('في انتظار عرض السعر '),
+                                  const Text('جاري تجهيز عرض السعر '),
                                 ],
                               )),
                             )
@@ -153,9 +152,21 @@ class OrderDetailsScreen extends StatelessWidget {
                       iconColor: ColorManager.greyColor),
                   OrderDetailsIconTextsRow(
                       title: AppLocalizations.of(context)!.payment_status,
-                      description: 'تم الدفع',
-                      icon: Icons.check_circle,
-                      iconColor: ColorManager.darkGreenColor),
+                      description: requestColor == ColorManager.primaryBlueColor
+                          ? 'لم يتم الدفع'
+                          : requestColor == ColorManager.yellowColor
+                              ? 'لم يتم الدفع'
+                              : requestColor == ColorManager.redColor
+                                  ? 'لم يتم الدفع'
+                                  : 'تم الدفع',
+                      icon: requestColor == ColorManager.primaryBlueColor
+                          ? Icons.cancel
+                          : requestColor == ColorManager.yellowColor
+                              ? Icons.cancel
+                              : requestColor == ColorManager.redColor
+                                  ? Icons.cancel
+                                  : Icons.check_circle,
+                      iconColor: requestColor!),
                   OrderDetailsIconTextsRow(
                       title: AppLocalizations.of(context)!.warranty_status,
                       description: expiresAt ?? '',
@@ -163,7 +174,7 @@ class OrderDetailsScreen extends StatelessWidget {
                       iconColor: ColorManager.midBlueColor),
                   const Divider(),
                   SizedBox(height: AppSizes.ph50),
-                  manageRequestButtons(ColorManager.yellowColor, context: context),
+                  manageRequestButtons(requestColor!, context: context),
                   SizedBox(height: AppSizes.ph20),
                 ],
               ),
@@ -180,6 +191,8 @@ class OrderDetailsScreen extends StatelessWidget {
       return OnGoingOrderBottomWidget(onPressed: () {
         showManageRequestBottomSheet(context);
       });
+    } else if (requestColor == ColorManager.primaryBlueColor) {
+      //////////           Request Pending icon and text             //////////////////////////////////////////
     } else if (requestColor == ColorManager.redColor) {
       //////////           Request Cancelled icon and text             //////////////////////////////////////////
       return const CancelledOrderBottomWidget();
@@ -217,7 +230,8 @@ class ItemsShimmerWidget extends StatelessWidget {
         child: ListView.separated(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
-          itemCount: 5, // عدد العناصر
+          itemCount: 5,
+          // عدد العناصر
           separatorBuilder: (context, index) => SizedBox(height: 10.h),
           itemBuilder: (BuildContext context, int index) {
             return Column(
