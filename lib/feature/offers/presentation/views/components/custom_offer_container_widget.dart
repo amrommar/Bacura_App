@@ -46,13 +46,15 @@ class CustomOfferContainerWidget extends StatelessWidget {
                         .titleSmall!
                         .copyWith(color: ColorManager.blackColor, fontSize: AppSizes.sp14),
                     overflow: TextOverflow.ellipsis),
-                Text(content,
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleSmall!
-                        .copyWith(color: ColorManager.greyColor, fontSize: AppSizes.sp12),
-                    maxLines: 4,
-                    overflow: TextOverflow.ellipsis),
+                Expanded(
+                  child: Text(content,
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleSmall!
+                          .copyWith(color: ColorManager.greyColor, fontSize: AppSizes.sp12),
+                      maxLines: 4,
+                      overflow: TextOverflow.ellipsis),
+                ),
               ],
             ),
           ),

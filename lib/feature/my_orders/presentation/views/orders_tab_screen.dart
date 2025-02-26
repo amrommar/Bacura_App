@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:bacura_app/core/presentation/widget/shimmer.dart';
 import 'package:bacura_app/core/services/date_parser.dart';
 import 'package:bacura_app/core/utils/index.dart';
@@ -5,7 +7,6 @@ import 'package:bacura_app/feature/my_orders/presentation/controller/my_order_pr
 import 'package:bacura_app/feature/my_orders/presentation/views/components/order_item_component.dart';
 import 'package:bacura_app/feature/my_orders/presentation/views/widget/order_filter_widget.dart';
 import 'package:bacura_app/feature/my_orders/utils.dart';
-import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 
 class OrdersTabScreen extends StatelessWidget {
   const OrdersTabScreen({super.key});
@@ -25,39 +26,51 @@ class OrdersTabScreen extends StatelessWidget {
                       const ordersFilterWidget(),
                       Divider(color: ColorManager.lightBlueColor),
                       Expanded(
-                        child: LazyLoadScrollView(
-                          onEndOfPage: () => provider.loadMoreMyOrders(),
-                          child: ListView.builder(
-                            itemCount: provider.filteredOrders.length,
-                            itemBuilder: (context, index) {
-                              var requestEntity = provider.filteredOrders[index];
-                              String timeOnly = DateParser.dateFormatterOnlyTime(requestEntity.createdAt);
-
-                              return InkWell(
-                                onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => OrderDetailsScreen(
-                                                date: provider.dateCreateOrder(index),
-                                                time: timeOnly,
-                                                orderId: requestEntity.id!,
-                                                requestColor: statusColors[requestEntity.status]!,
-                                                location: requestEntity.location,
-                                                expiresAt: requestEntity.expiresAt!.split("T")[0],
-                                                total: requestEntity.total,
-                                                id: requestEntity.id!,
-                                                description: requestEntity.description,
-                                                status: requestEntity.status,
-                                              )));
-                                },
-                                child: OrderItemComponent(
-                                  backgroundColor: requestColor(statusColors[provider.filteredOrders[index].status]!),
-                                  requestColor: statusColors[provider.filteredOrders[index].status]!,
-                                  index: index,
-                                ),
-                              );
+                        child: RefreshIndicator(
+                          onRefresh: () async {
+                            await provider.init();
+                          },
+                          child: NotificationListener<ScrollNotification>(
+                            onNotification: (ScrollNotification scrollInfo) {
+                              if (scrollInfo.metrics.pixels >= scrollInfo.metrics.maxScrollExtent - 100 &&
+                                  !provider.isLoadingMore) {
+                                provider.loadMoreMyOrders();
+                              }
+                              return false;
                             },
+                            child: ListView.builder(
+                              physics: const AlwaysScrollableScrollPhysics(),
+                              itemCount: provider.filteredOrders.length,
+                              itemBuilder: (context, index) {
+                                var requestEntity = provider.filteredOrders[index];
+                                String timeOnly = DateParser.dateFormatterOnlyTime(requestEntity.createdAt);
+
+                                return InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => OrderDetailsScreen(
+                                                  date: provider.dateCreateOrder(index),
+                                                  time: timeOnly,
+                                                  orderId: requestEntity.id!,
+                                                  requestColor: statusColors[requestEntity.status]!,
+                                                  location: requestEntity.location,
+                                                  expiresAt: requestEntity.expiresAt!.split("T")[0],
+                                                  total: requestEntity.total,
+                                                  id: requestEntity.id!,
+                                                  description: requestEntity.description,
+                                                  status: requestEntity.status,
+                                                )));
+                                  },
+                                  child: OrderItemComponent(
+                                    backgroundColor: requestColor(statusColors[provider.filteredOrders[index].status]!),
+                                    requestColor: statusColors[provider.filteredOrders[index].status]!,
+                                    index: index,
+                                  ),
+                                );
+                              },
+                            ),
                           ),
                         ),
                       ),

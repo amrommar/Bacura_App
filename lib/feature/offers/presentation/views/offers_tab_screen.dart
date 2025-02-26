@@ -1,12 +1,41 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:bacura_app/core/presentation/widget/shimmer.dart';
 import 'package:bacura_app/core/services/number_parser.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/offers/index.dart';
 import 'package:bacura_app/feature/offers/presentation/controller/offers_provider.dart';
-import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 
-class OffersTabScreen extends StatelessWidget {
+class OffersTabScreen extends StatefulWidget {
   const OffersTabScreen({super.key});
+
+  @override
+  _OffersTabScreenState createState() => _OffersTabScreenState();
+}
+
+class _OffersTabScreenState extends State<OffersTabScreen> {
+  late ScrollController _scrollController;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+    _scrollController.addListener(_onScroll);
+  }
+
+  void _onScroll() {
+    final provider = context.read<OffersProvider>();
+    if (_scrollController.position.pixels >= _scrollController.position.maxScrollExtent - 100 &&
+        !provider.isLoadingMore) {
+      provider.loadMoreOffers();
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,37 +51,37 @@ class OffersTabScreen extends StatelessWidget {
                   : Column(
                       children: [
                         SizedBox(height: AppSizes.ph5),
-                        // const OfferFilterWidget(),
-                        // Padding(
-                        //   padding: EdgeInsets.symmetric(horizontal: AppSizes.pw6),
-                        //   child: Divider(color: ColorManager.lightBlueColor),
-                        // ),
                         Expanded(
-                          child: LazyLoadScrollView(
-                            onEndOfPage: () => provider.loadMoreOffers(),
+                          child: RefreshIndicator(
+                            onRefresh: () async {
+                              await provider.getOffers();
+                            },
                             child: ListView.builder(
+                              controller: _scrollController,
+                              physics: const AlwaysScrollableScrollPhysics(),
                               itemCount: provider.filteredorders.length,
                               itemBuilder: (context, index) {
                                 return InkWell(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => OfferDetailsScreen(
-                                            index: index,
-                                            id: provider.offersEntity.offersDataEntity[index].id!,
-                                          ),
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => OfferDetailsScreen(
+                                          index: index,
+                                          id: provider.offersEntity.offersDataEntity[index].id!,
                                         ),
-                                      );
-                                    },
-                                    child: CustomOfferContainerWidget(
-                                      imagePath: provider.offersEntity.offersDataEntity[index].image!,
-                                      title: provider.offersEntity.offersDataEntity[index].name!,
-                                      cost:
-                                          ' ${NumberParser.translateNumber((provider.offersEntity.offersDataEntity[index].total!).toString())} ريال',
-                                      expireDate: provider.getRemainingDays(index),
-                                      content: provider.offersEntity.offersDataEntity[index].description!,
-                                    ));
+                                      ),
+                                    );
+                                  },
+                                  child: CustomOfferContainerWidget(
+                                    imagePath: provider.offersEntity.offersDataEntity[index].image!,
+                                    title: provider.offersEntity.offersDataEntity[index].name!,
+                                    cost:
+                                        ' ${NumberParser.translateNumber((provider.offersEntity.offersDataEntity[index].total!).toString())} ريال',
+                                    expireDate: provider.getRemainingDays(index),
+                                    content: provider.offersEntity.offersDataEntity[index].description!,
+                                  ),
+                                );
                               },
                             ),
                           ),
