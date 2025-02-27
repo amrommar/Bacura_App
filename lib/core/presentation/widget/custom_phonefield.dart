@@ -1,4 +1,3 @@
-import 'package:bacura_app/core/utils/app_sizes.dart';
 import 'package:bacura_app/core/utils/index.dart';
 
 class CustomPhoneField extends StatelessWidget {

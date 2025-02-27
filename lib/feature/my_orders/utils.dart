@@ -2,7 +2,7 @@ import 'package:bacura_app/core/utils/index.dart';
 
 Map<String, Color> statusColors = {
   "pending": ColorManager.primaryBlueColor,
-  "approved": ColorManager.yellowColor,
+  "approved": ColorManager.orangeColor,
   "confirmed": ColorManager.yellowColor,
   "completed": ColorManager.greenColor,
   "declined": ColorManager.redColor,
@@ -39,6 +39,8 @@ Color requestColor(Color currentColor) {
     return ColorManager.lightBlueColor;
   } else if (currentColor == ColorManager.greenColor) {
     return ColorManager.lightGreenColor;
+  } else if (currentColor == ColorManager.orangeColor) {
+    return ColorManager.lightOrangeColor;
   } else if (currentColor == ColorManager.redColor) {
     return ColorManager.lightRedColor;
   }

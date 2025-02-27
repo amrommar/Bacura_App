@@ -77,7 +77,11 @@ class OrderDetailsScreen extends StatelessWidget {
                                 children: [
                                   Text(description ?? ''),
                                   SizedBox(height: AppSizes.ph10),
-                                  const Text('جاري تجهيز عرض السعر '),
+                                  Text(status == 'pending'
+                                      ? 'جاري تجهيز عرض السعر '
+                                      : status == 'declined'
+                                          ? 'لقد تم إلغاء طلبك'
+                                          : ''),
                                 ],
                               )),
                             )
@@ -155,18 +159,20 @@ class OrderDetailsScreen extends StatelessWidget {
                       iconColor: ColorManager.greyColor),
                   OrderDetailsIconTextsRow(
                       title: AppLocalizations.of(context)!.payment_status,
-                      description: requestColor == ColorManager.primaryBlueColor
+                      description: status == 'pending'
                           ? 'لم يتم الدفع'
-                          : requestColor == ColorManager.yellowColor
+                          : status == 'declined'
                               ? 'لم يتم الدفع'
-                              : requestColor == ColorManager.redColor
+                              : status == 'approved'
                                   ? 'لم يتم الدفع'
-                                  : 'تم الدفع',
-                      icon: requestColor == ColorManager.primaryBlueColor
+                                  : status == 'confirmed'
+                                      ? 'تم الدفع'
+                                      : 'تم الدفع',
+                      icon: status == 'pending'
                           ? Icons.cancel
-                          : requestColor == ColorManager.yellowColor
+                          : status == 'approved'
                               ? Icons.cancel
-                              : requestColor == ColorManager.redColor
+                              : status == 'declined'
                                   ? Icons.cancel
                                   : Icons.check_circle,
                       iconColor: requestColor!),
@@ -174,7 +180,7 @@ class OrderDetailsScreen extends StatelessWidget {
                       title: AppLocalizations.of(context)!.warranty_status,
                       description: expiresAt ?? '',
                       icon: Icons.verified_user,
-                      iconColor: ColorManager.midBlueColor),
+                      iconColor: requestColor!),
                   const Divider(),
                   SizedBox(height: AppSizes.ph50),
                   manageRequestButtons(status!, context: context),
@@ -194,10 +200,12 @@ class OrderDetailsScreen extends StatelessWidget {
       return OnGoingOrderBottomWidget(onPressed: () {
         showManageRequestBottomSheet(context);
       });
-    } else if (requestStatus == 'cancelled') {
+    } else if (requestStatus == 'declined') {
       return const CancelledOrderBottomWidget();
     } else if (requestStatus == 'approved') {
-      return const CompletedOrderBottomWidget();
+      return OnGoingOrderBottomWidget(onPressed: () {
+        showManageRequestBottomSheet(context);
+      });
     } else if (requestStatus == 'confirmed') {
       return const CompletedOrderBottomWidget();
     } else if (requestStatus == 'completed') {

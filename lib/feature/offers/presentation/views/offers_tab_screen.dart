@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:bacura_app/core/presentation/widget/shimmer.dart';
 import 'package:bacura_app/core/services/number_parser.dart';
 import 'package:bacura_app/core/utils/index.dart';
@@ -53,6 +51,8 @@ class _OffersTabScreenState extends State<OffersTabScreen> {
                         SizedBox(height: AppSizes.ph5),
                         Expanded(
                           child: RefreshIndicator(
+                            color: ColorManager.primaryBlueColor,
+                            backgroundColor: ColorManager.whiteColor,
                             onRefresh: () async {
                               await provider.getOffers();
                             },
