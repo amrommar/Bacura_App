@@ -1,59 +1,59 @@
 import 'package:bacura_app/core/utils/index.dart';
 
 class SpAvatarWidget extends StatelessWidget {
-  const SpAvatarWidget({super.key});
+  final String userName;
+  final String? imagePath;
+
+  const SpAvatarWidget({
+    super.key,
+    required this.userName,
+    this.imagePath,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-        clipBehavior: Clip.none,
-        // This allows the profile image to overflow out of the container
-        children: [
-          Container(height: AppSizes.ph60, color: ColorManager.primaryBlueColor),
-          Positioned(
-              top: 0.h,
-              left: 0.w,
-              right: 0.w,
-              child: Column(children: [
-                Stack(children: [
-                  // Profile picture
-                  CircleAvatar(
-                      radius: AppSizes.br50,
-                      backgroundImage: AssetImage(
-                        'assets/images/png/Ellipse 1.png',
-                      )),
-                  // Edit icon on top of the profile picture
-                  Positioned(
-                      ///////////////////////   want method to edit image /////////////////////////////////
-                      bottom: 4.h,
-                      right: 5.w,
-                      child: CircleAvatar(
-                        backgroundColor: ColorManager.primaryBlueColor,
-                        radius: AppSizes.br12,
-                        child: Icon(
-                          Icons.camera_alt_outlined,
-                          size: AppSizes.ph15,
-                          color: ColorManager.whiteColor,
-                        ),
-                      ))
-                ]),
-                SizedBox(height: AppSizes.ph8),
-                // User name
-                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Text('محمد صلاح',
-                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                            color: ColorManager.darkBlueColor,
-                            fontWeight: FontWeight.bold,
-                          )),
-                  SizedBox(width: AppSizes.pw5),
-                  //////////////////////// Want method to edit the Name /////////////////////
-                  Icon(
-                    Icons.drive_file_rename_outline,
-                    color: ColorManager.primaryBlueColor,
-                    size: AppSizes.ph25,
+    return Column(children: [
+      Container(
+        height: AppSizes.ph80,
+        width: double.infinity,
+        color: ColorManager.primaryBlueColor,
+      ),
+      Transform.translate(
+          offset: const Offset(0, -50),
+          child: Column(children: [
+            Stack(alignment: Alignment.center, children: [
+              Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: ColorManager.lightBlueColor,
+                    width: AppSizes.pw3,
                   ),
-                ])
-              ]))
-        ]);
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 8,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: SizedBox(
+                  height: AppSizes.ph80,
+                  width: AppSizes.ph80,
+                  child: Image.asset(
+                    'assets/images/png/bakura (1) 1.png',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ]),
+            SizedBox(height: AppSizes.ph10),
+            Text(userName,
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      color: ColorManager.darkBlueColor,
+                      fontWeight: FontWeight.bold,
+                    ))
+          ]))
+    ]);
   }
 }
