@@ -5,7 +5,15 @@ import 'package:bacura_app/feature/notifications/domain/use_case/get_my_notifica
 import 'package:bacura_app/feature/notifications/domain/use_case/read_notification_use_case.dart';
 
 class NotificationsProvider with ChangeNotifier {
-  late NotificationsEntity notificationsEntity;
+  NotificationsEntity notificationsEntity = const NotificationsEntity(
+    notificationsDataEntity: [],
+    limit: 10,
+    page: 1,
+    totalRecords: 0,
+    totalPages: 0,
+    nextPageLink: null,
+    previousPageLink: null,
+  );
   bool isLoadingMore = false;
   bool isFinishedPaging = false;
   bool isLoadingNotifications = true;

@@ -6,7 +6,15 @@ import 'package:bacura_app/feature/offers/domain/entity/offers_entity.dart';
 import 'package:bacura_app/feature/offers/domain/use_case/get_my_offers_use_case.dart';
 
 class OffersProvider with ChangeNotifier {
-  late OffersEntity offersEntity;
+  OffersEntity offersEntity = const OffersEntity(
+    offersDataEntity: [],
+    limit: 10,
+    page: 1,
+    totalRecords: 0,
+    totalPages: 0,
+    nextPageLink: null,
+    previousPageLink: null,
+  );
   bool isLoadingMore = false;
   bool isFinishedPaging = false;
   bool isLoadingOffers = true;

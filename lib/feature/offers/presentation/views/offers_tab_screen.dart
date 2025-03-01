@@ -45,7 +45,7 @@ class _OffersTabScreenState extends State<OffersTabScreen> {
           child: provider.isLoadingOffers
               ? buildShimmerContainer()
               : provider.offersEntity.totalRecords == 0
-                  ? const Center(child: Text('لا يوجد عروض'))
+                  ? Center(child: SvgPicture.asset('assets/images/svg/empty_offers.svg'))
                   : Column(
                       children: [
                         SizedBox(height: AppSizes.ph5),

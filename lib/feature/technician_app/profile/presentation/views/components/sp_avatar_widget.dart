@@ -41,7 +41,7 @@ class SpAvatarWidget extends StatelessWidget {
                   height: AppSizes.ph80,
                   width: AppSizes.ph80,
                   child: Image.asset(
-                    'assets/images/png/bakura (1) 1.png',
+                    AppAssets.bacuraImage,
                     fit: BoxFit.cover,
                   ),
                 ),

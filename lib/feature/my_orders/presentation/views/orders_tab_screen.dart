@@ -17,7 +17,7 @@ class OrdersTabScreen extends StatelessWidget {
         return provider.isLoadingMyOrders
             ? buildShimmerContainer()
             : provider.myOrderEntity.myOrderDataEntity.isEmpty
-                ? const Center(child: Text('لا يوجد طلبات'))
+                ? Center(child: SvgPicture.asset('assets/images/svg/empty_orders.svg'))
                 : Column(
                     children: [
                       SizedBox(height: AppSizes.ph5),

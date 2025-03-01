@@ -4,7 +4,15 @@ import 'package:bacura_app/feature/my_orders/domain/entity/my_order_entity.dart'
 import 'package:bacura_app/feature/my_orders/domain/use_case/get_my_orders_use_case.dart';
 
 class MyOrderProvider with ChangeNotifier {
-  late MyOrderEntity myOrderEntity;
+  MyOrderEntity myOrderEntity = const MyOrderEntity(
+    myOrderDataEntity: [],
+    limit: 10,
+    page: 1,
+    totalRecords: 0,
+    totalPages: 0,
+    nextPageLink: null,
+    previousPageLink: null,
+  );
   bool isLoadingMore = false;
   bool isFinishedPaging = false;
   bool isLoadingMyOrders = true;
