@@ -1,50 +1,120 @@
+import 'package:bacura_app/core/services/date_parser.dart';
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/technician_app/index.dart';
+import 'package:bacura_app/feature/technician_app/home/controller/sp_orders_provider.dart';
+import 'package:bacura_app/feature/technician_app/orders/presentation/views/sp_order_details_screen.dart';
 
 class SPRequestItemWidget extends StatelessWidget {
-  const SPRequestItemWidget({super.key});
+  final int index;
+  const SPRequestItemWidget({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          color: ColorManager.whiteColor,
-          borderRadius: BorderRadius.circular(
-            AppSizes.br8,
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: ColorManager.soLightGreyColor,
-              spreadRadius: 2,
-              blurRadius: 4,
-              offset: const Offset(0, 3), // Offset in the x and y directions
+    return Consumer<SpOrdersProvider>(
+      builder: (context, provider, child) => Container(
+        decoration: BoxDecoration(
+            color: ColorManager.whiteColor,
+            borderRadius: BorderRadius.circular(
+              AppSizes.br8,
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: ColorManager.soLightGreyColor,
+                spreadRadius: 2,
+                blurRadius: 4,
+                offset: const Offset(0, 3),
+              )
+            ]),
+        margin: EdgeInsets.only(right: AppSizes.pw10, top: AppSizes.ph24, left: AppSizes.pw10),
+        padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph8),
+        height: AppSizes.ph160,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'الطلب رقم: ',
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                        color: ColorManager.darkBlueColor,
+                      ),
+                ),
+                Text(
+                  provider.myOrderEntity.myOrderDataEntity[index].id.toString(),
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                        color: ColorManager.darkBlueColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  width: AppSizes.pw150,
+                  child: Text(
+                    'وقت التنفيذ: ',
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                          color: ColorManager.blackColor,
+                        ),
+                  ),
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(
+                      Icons.calendar_month_outlined,
+                      color: ColorManager.primaryBlueColor,
+                      size: AppSizes.ph20,
+                    ),
+                    SizedBox(width: AppSizes.pw5),
+                    Text(
+                      provider.dateCreateOrder(index),
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            color: ColorManager.greyColor,
+                          ),
+                    ),
+                  ],
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(
+                      Icons.access_time_outlined,
+                      color: ColorManager.primaryBlueColor,
+                      size: AppSizes.ph20,
+                    ),
+                    SizedBox(width: AppSizes.ph5),
+                    Text(
+                      DateParser.dateFormatterOnlyTime(provider.dateCreateOrder(index)),
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            color: ColorManager.greyColor,
+                          ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SpOrderDetailsScreen(),
+                  ),
+                );
+              },
+              child: Text('تفاصيل الطلب',
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        color: ColorManager.whiteColor,
+                      )),
             )
-          ]),
-      margin: EdgeInsets.only(right: AppSizes.pw10, top: AppSizes.ph24, left: AppSizes.pw10),
-      padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph8),
-      height: AppSizes.ph160,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          ////  Request Number  section/////////////////////////////////////////////
-
-          const SpRequestNumRow(),
-          ////service Time section/////////////////////////////////////////////
-
-          const SpRequestImplTimeWidget(),
-
-          //// request details button /////////////////////////////////////////////
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pushNamed(context, Routes.spRequestDetailsRoute);
-            },
-            child: Text('تفاصيل الطلب',
-                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                      color: ColorManager.whiteColor,
-                    )),
-          )
-        ],
+          ],
+        ),
       ),
     );
   }

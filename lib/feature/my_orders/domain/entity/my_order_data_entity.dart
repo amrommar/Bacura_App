@@ -15,6 +15,7 @@ class MyOrderDataEntity extends Equatable {
   final ServicesOrderEntity? service;
   final int? categoryId;
   final String? createdAt;
+  final String? installationDate;
   final String? expiresAt;
 
   const MyOrderDataEntity({
@@ -32,6 +33,7 @@ class MyOrderDataEntity extends Equatable {
     this.service,
     this.categoryId,
     this.expiresAt,
+    this.installationDate,
   });
 
   @override
@@ -50,5 +52,6 @@ class MyOrderDataEntity extends Equatable {
         createdAt,
         total,
         expiresAt,
+        installationDate,
       ];
 }

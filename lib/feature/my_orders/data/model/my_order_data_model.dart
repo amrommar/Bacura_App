@@ -17,6 +17,7 @@ class MyOrderDataModel extends MyOrderDataEntity {
     required super.total,
     required super.createdAt,
     required super.expiresAt,
+    super.installationDate,
   });
 
   factory MyOrderDataModel.fromJson(Map<String, dynamic> json) => MyOrderDataModel(
@@ -34,5 +35,6 @@ class MyOrderDataModel extends MyOrderDataEntity {
         total: json["total"] ?? 0,
         createdAt: json["created_at"] ?? "",
         expiresAt: json["warranty_expiration_date"] ?? "",
+        installationDate: json["installation_date"] ?? "",
       );
 }

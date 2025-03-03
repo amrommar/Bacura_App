@@ -1,16 +1,17 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/technician_app/home/controller/sp_orders_provider.dart';
 import 'package:bacura_app/feature/technician_app/index.dart';
 
-class SpHomeScreen extends StatefulWidget {
+class SpOrdersScreen extends StatefulWidget {
+  const SpOrdersScreen({super.key});
+
   @override
-  State<SpHomeScreen> createState() => _SpHomeScreenState();
+  State<SpOrdersScreen> createState() => _SpOrdersScreenState();
 }
 
-class _SpHomeScreenState extends State<SpHomeScreen> {
+class _SpOrdersScreenState extends State<SpOrdersScreen> {
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<LanguageProvider>(context);
-
     return Scaffold(
       appBar: AppBar(
           titleSpacing: 5,
@@ -34,25 +35,34 @@ class _SpHomeScreenState extends State<SpHomeScreen> {
               ])),
           actions: [
             IconButton(
-                icon: Icon(Icons.email_outlined, size: AppSizes.ph30),
-                onPressed: () {
-                  Navigator.pushNamed(context, Routes.messagesRoute);
-                }),
-            IconButton(
                 icon: Icon(Icons.notifications, size: AppSizes.ph30),
                 onPressed: () {
                   Navigator.pushNamed(context, Routes.notificationsRoute);
                 }),
           ]),
-      body: Column(children: [
-        /// orders section ///////////////////////////////////////////////////////
-        Expanded(
-            child: ListView.builder(
-                itemCount: 12,
-                itemBuilder: (context, index) {
-                  return InkWell(onTap: () {}, child: SPRequestItemWidget());
-                }))
-      ]),
+      body: ChangeNotifierProvider(
+        create: (context) => SpOrdersProvider(),
+        child: Consumer<SpOrdersProvider>(
+          builder: (context, provider, child) => Column(
+            children: [
+              /// orders section ///////////////////////////////////////////////////////
+              Expanded(
+                child: RefreshIndicator(
+                  onRefresh: () => provider.onRefresh(),
+                  child: ListView.builder(
+                    itemCount: provider.myOrderEntity.myOrderDataEntity.length,
+                    itemBuilder: (context, index) {
+                      return SPRequestItemWidget(
+                        index: index,
+                      );
+                    },
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

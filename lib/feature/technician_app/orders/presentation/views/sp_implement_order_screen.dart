@@ -42,7 +42,21 @@ class _SpImplementOrderScreenState extends State<SpImplementOrderScreen> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SpRequestNumRow(),
+                Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                  Text(
+                    'الطلب رقم: ',
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                          color: ColorManager.darkBlueColor,
+                        ),
+                  ),
+                  Text(
+                    '#3333452',
+                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                          color: ColorManager.darkBlueColor,
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                ]),
                 const Divider(),
                 const OrderTimeDateWidget(date: '10/10/2023', time: '10:00 AM'),
                 const Divider(),
