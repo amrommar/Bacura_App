@@ -1,25 +1,64 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/invoice/api/pdf_api.dart';
+import 'package:bacura_app/feature/invoice/api/pdf_invoice_api.dart';
+import 'package:bacura_app/feature/invoice/model/customer.dart';
+import 'package:bacura_app/feature/invoice/model/invoice.dart';
+import 'package:bacura_app/feature/invoice/model/supplier.dart';
+import 'package:bacura_app/feature/invoice/widget/button_widget.dart';
 
 class CompletedOrderBottomWidget extends StatelessWidget {
-  const CompletedOrderBottomWidget({super.key});
+  final List<Map<String, dynamic>> invoiceData;
+  final String mobileNumber;
+  final String name;
+  final String address;
+
+  CompletedOrderBottomWidget({
+    super.key,
+    required this.invoiceData,
+    required this.mobileNumber,
+    required this.name,
+    required this.address,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      SizedBox(height: AppSizes.ph20),
-      InkWell(
-          ///////////////////////////        to go to the receipt file        /////////////////////////////////////
-          onTap: () async {
-            final Uri url = Uri.parse('https://printo.in/designs/t/bill-receipt-a5-billbook');
-            if (!await launchUrl(url)) {
-              throw Exception('Could not launch $url');
-            }
-          },
-          child: Text(AppLocalizations.of(context)!.invoice,
-              style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    color: ColorManager.darkBlueColor,
-                    fontWeight: FontWeight.w500,
-                  )))
-    ]);
+    return ButtonWidget(
+      text: 'تحميل الفاتورة',
+      onClicked: () async {
+        final date = DateTime.now();
+        final List<InvoiceItem> items = invoiceData.map((item) {
+          return InvoiceItem(
+            description: item['description'],
+            date: item['date'] ?? DateTime.now(),
+            quantity: item['quantity'],
+            vat: item['vat'],
+            unitPrice: item['unitPrice'],
+          );
+        }).toList();
+
+        final invoice = Invoice(
+          supplier: const Supplier(
+            name: 'Bacura Tec',
+            address: 'Al-Narjis, Anas Bin Malik Street',
+            paymentInfo: 'https://paypal.me/sarahfieldzz',
+          ),
+          customer: Customer(
+            mobileNumber: mobileNumber,
+            name: name,
+            address: address,
+          ),
+          info: InvoiceInfo(
+            date: date,
+            description: 'My description...',
+            number: '${DateTime.now().year}',
+          ),
+          items: items,
+        );
+
+        final pdfFile = await PdfInvoiceApi.generate(invoice);
+
+        PdfApi.openFile(pdfFile);
+      },
+    );
   }
 }

@@ -207,9 +207,35 @@ class OrderDetailsScreen extends StatelessWidget {
         showManageRequestBottomSheet(context);
       });
     } else if (requestStatus == 'confirmed') {
-      return const CompletedOrderBottomWidget();
+      return CompletedOrderBottomWidget(
+        invoiceData: [
+          {
+            'description': 'test',
+            'date': DateTime.now(),
+            'quantity': 1,
+            'vat': 0.15,
+            'unitPrice': 1.0,
+          },
+        ],
+        mobileNumber: "",
+        name: '',
+        address: '',
+      );
     } else if (requestStatus == 'completed') {
-      return const CompletedOrderBottomWidget();
+      return CompletedOrderBottomWidget(
+        invoiceData: [
+          {
+            'description': 'test',
+            'date': DateTime.now(),
+            'quantity': 1,
+            'vat': 0.15,
+            'unitPrice': 1.0,
+          },
+        ],
+        mobileNumber: "",
+        name: '',
+        address: '',
+      );
     }
 
     return Container();
