@@ -1,7 +1,10 @@
+import 'package:bacura_app/core/presentation/widget/custom_loading_shimmer.dart';
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
 import 'package:bacura_app/feature/profile/presentation/views/components/completed_requests_widget.dart';
 import 'package:bacura_app/feature/profile/presentation/views/components/requests_calender_widget.dart';
 import 'package:bacura_app/feature/technician_app/index.dart';
+import 'package:bacura_app/feature/technician_app/profile/presentation/views/components/sp_profile_details_widget.dart';
 
 class SpProfileDetailsScreen extends StatefulWidget {
   const SpProfileDetailsScreen({super.key});
@@ -18,51 +21,71 @@ class _SpProfileDetailsScreenState extends State<SpProfileDetailsScreen> {
     return Scaffold(
         backgroundColor: ColorManager.whiteColor,
         appBar: AppBar(elevation: 0),
-        body: SingleChildScrollView(
-            child: Column(children: [
-          /// Avatar Section (profile image/ icons) ___________________________________________________________________
-          const SpAvatarWidget(),
-          SizedBox(height: AppSizes.ph100),
+        body: ChangeNotifierProvider(
+          create: (context) => MyProfileProvider(context),
+          child: SingleChildScrollView(
+            child: Consumer<MyProfileProvider>(builder: (context, provider, child) {
+              var profileEntity = provider.myProfileEntity;
+              return provider.isLoading
+                  ? Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: List.generate(
+                          9,
+                          (index) => Padding(
+                            padding: EdgeInsets.all(AppSizes.ph8),
+                            child: CustomLoadingShimmer(height: AppSizes.ph60, width: double.infinity),
+                          ),
+                        ),
+                      ),
+                    )
+                  : Column(
+                      children: [
+                        SpAvatarWidget(
+                          userName: provider.myProfileEntity.name!,
+                        ),
 
-          /// Details Section (number / email / gender / city) ___________________________________________________________________
-          CustomShadowWidget(
-              childWidget: Column(children: [
-            SpProfileRowDetails(
-              icon: Icons.phone_outlined,
-              text: AppLocalizations.of(context)!.mobileNumber,
-              value: '966535685692+',
-            ),
-            Divider(color: ColorManager.lightBlueColor, height: AppSizes.ph20),
-            SpProfileRowDetails(
-              icon: Icons.mail_outline_outlined,
-              text: AppLocalizations.of(context)!.email,
-              value: 'amr1522@gmail.com',
-            ),
-            Divider(color: ColorManager.lightBlueColor, height: AppSizes.ph20),
-            SpProfileRowDetails(
-              icon: Icons.transgender_outlined,
-              text: AppLocalizations.of(context)!.gender,
-              value: 'ذكر',
-            ),
-            Divider(color: ColorManager.lightBlueColor, height: AppSizes.ph20),
-            SpProfileRowDetails(
-              icon: Icons.location_on_outlined,
-              text: AppLocalizations.of(context)!.city,
-              value: 'الرياض',
-            ),
-          ])),
+                        CustomShadowWidget(
+                          childWidget: Column(
+                            children: [
+                              SpProfileDetailsWidget(
+                                icon: Icons.phone_outlined,
+                                text: AppLocalizations.of(context)!.mobileNumber,
+                                value: '${profileEntity.phone}',
+                              ),
+                              Divider(color: ColorManager.lightBlueColor, height: AppSizes.ph20),
+                              SpProfileDetailsWidget(
+                                icon: Icons.mail_outline_outlined,
+                                text: AppLocalizations.of(context)!.email,
+                                value: profileEntity.email!,
+                              ),
+                              Divider(color: ColorManager.lightBlueColor, height: AppSizes.ph20),
+                              SpProfileDetailsWidget(
+                                  icon: Icons.transgender_outlined,
+                                  text: AppLocalizations.of(context)!.gender,
+                                  value: profileEntity.gender! == 'male' ? 'ذكر' : 'أنثي'),
+                              Divider(color: ColorManager.lightBlueColor, height: AppSizes.ph20),
+                              SpProfileDetailsWidget(
+                                  icon: Icons.location_on_outlined,
+                                  text: AppLocalizations.of(context)!.city,
+                                  value: profileEntity.location!),
+                            ],
+                          ),
+                        ),
+                        const ordersCalenderWidget(),
 
-          /// Calender Section ___________________________________________________________________
-          const ordersCalenderWidget(),
+                        /// Completed orders Section ___________________________________________________________________
 
-          /// Completed orders Section ___________________________________________________________________
+                        const CompletedordersWidget(),
 
-          const CompletedordersWidget(),
+                        SizedBox(height: AppSizes.ph35),
 
-          SizedBox(height: AppSizes.ph35),
-
-          ////         Logout Button      //////////////////////////////////////////////
-          const CustomLogoutButton(),
-        ])));
+                        ////         Logout Button      //////////////////////////////////////////////
+                        const CustomLogoutButton(),
+                      ],
+                    );
+            }),
+          ),
+        ));
   }
 }
