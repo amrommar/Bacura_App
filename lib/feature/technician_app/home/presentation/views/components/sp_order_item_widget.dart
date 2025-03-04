@@ -1,11 +1,12 @@
 import 'package:bacura_app/core/services/date_parser.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/technician_app/home/controller/sp_orders_provider.dart';
-import 'package:bacura_app/feature/technician_app/orders/presentation/views/sp_order_details_screen.dart';
 
-class SPRequestItemWidget extends StatelessWidget {
+class SPOrderItemWidget extends StatelessWidget {
   final int index;
-  const SPRequestItemWidget({super.key, required this.index});
+  Function() onPressed;
+
+  SPOrderItemWidget({super.key, required this.index, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -101,12 +102,7 @@ class SPRequestItemWidget extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SpOrderDetailsScreen(),
-                  ),
-                );
+                onPressed();
               },
               child: Text('تفاصيل الطلب',
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(

@@ -23,7 +23,17 @@ class _SpCompletedRequestContainerState extends State<SpCompletedRequestContaine
           const Divider(),
           SizedBox(height: AppSizes.ph10),
 
-          const CustomerNameWidget(),
+          Row(children: [
+            Text('اسم العميل: ',
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      color: ColorManager.darkBlueColor,
+                    )),
+            Text("clientName",
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      color: ColorManager.primaryBlueColor,
+                      fontWeight: FontWeight.bold,
+                    ))
+          ]),
         ],
       )),
     );

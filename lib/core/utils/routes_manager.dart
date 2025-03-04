@@ -1,6 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/technician_app/orders/presentation/views/sp_implement_order_screen.dart';
-import 'package:bacura_app/feature/technician_app/orders/presentation/views/sp_order_details_screen.dart';
 import 'package:bacura_app/feature/technician_app/profile/presentation/views/sp_completed_orders_screen.dart';
 
 class Routes {
@@ -111,8 +110,6 @@ class RouteGenerator {
       //   return MaterialPageRoute(builder: (_) => ConsultationScreen());
       case Routes.spHomeScreenRoute:
         return MaterialPageRoute(builder: (_) => const SpOrdersScreen());
-      case Routes.spRequestDetailsRoute:
-        return MaterialPageRoute(builder: (_) => const SpOrderDetailsScreen());
       case Routes.requestImplementRoute:
         return MaterialPageRoute(builder: (_) => const SpImplementOrderScreen());
       case Routes.spProfileDetailsRoute:
