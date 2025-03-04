@@ -1,6 +1,8 @@
 import 'package:bacura_app/core/presentation/widget/custom_loading_shimmer.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
+import 'package:bacura_app/feature/profile/presentation/views/components/completed_requests_widget.dart';
+import 'package:bacura_app/feature/profile/presentation/views/components/requests_calender_widget.dart';
 import 'package:bacura_app/feature/technician_app/profile/presentation/views/components/sp_avatar_widget.dart';
 import 'package:bacura_app/feature/technician_app/profile/presentation/views/components/sp_profile_details_widget.dart';
 
@@ -72,7 +74,14 @@ class _SpProfileDetailsScreenState extends State<SpProfileDetailsScreen> {
                         ),
                       ),
 
-                      SizedBox(height: AppSizes.ph80),
+                      /// Calender Section ___________________________________________________________________
+                      const ordersCalenderWidget(),
+
+                      /// Completed orders Section ___________________________________________________________________
+
+                      const CompletedordersWidget(),
+
+                      SizedBox(height: AppSizes.ph30),
 
                       // Logout Button
                       const CustomLogoutButton(),
