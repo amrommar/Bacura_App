@@ -82,32 +82,56 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                                 keyBoardType: TextInputType.text),
                             SizedBox(height: AppSizes.ph10),
                             CustomDropDownField(
-                              selectedOption: AppStrings.riyad,
+                              selectedOption: 'الرياض',
                               options: const [
-                                AppStrings.jeddah,
-                                AppStrings.riyad,
+                                'الرياض',
+                                'جده',
+                                'الدمام',
+                                'الخبر',
+                                'مكة',
+                                'المدينة',
                               ],
                               fieldName: AppLocalizations.of(context)!.city,
                               onChanged: (String? newValue) {
                                 if (newValue == null) {
-                                  //!add snakbar to add city
+                                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                    duration: const Duration(seconds: 1),
+                                    backgroundColor: ColorManager.midWhiteColor,
+                                    content: Text(
+                                      'Please select a city',
+                                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                            color: ColorManager.darkRedColor,
+                                          ),
+                                    ),
+                                  ));
                                 }
+
                                 provider.selectedLocation = newValue!;
                               },
                             ),
                             CustomDropDownField(
-                              selectedOption: AppStrings.male,
+                              selectedOption: 'ذكر',
                               options: const [
-                                AppStrings.male,
-                                AppStrings.female,
+                                'ذكر',
+                                'أنثي',
                               ],
                               fieldName: AppLocalizations.of(context)!.gender,
                               onChanged: (String? newValue) {
                                 if (newValue == null) {
-                                  //!add snakbar to add gender
+                                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                    duration: const Duration(seconds: 1),
+                                    backgroundColor: ColorManager.midWhiteColor,
+                                    content: Text(
+                                      'Please select a gender',
+                                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                            color: ColorManager.darkRedColor,
+                                          ),
+                                    ),
+                                  ));
                                 }
-
-                                provider.selectedGender = newValue!;
+                                newValue == 'ذكر'
+                                    ? provider.selectedGender = 'male'
+                                    : provider.selectedGender = 'female';
                               },
                             ),
                             SizedBox(height: AppSizes.ph10),

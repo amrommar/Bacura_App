@@ -1,6 +1,6 @@
 import 'package:bacura_app/core/presentation/widget/custom_modal_bottom_sheet.dart';
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/auth/presentation/views/components/verify_screen.dart';
+import 'package:bacura_app/feature/auth/presentation/views/verify_screen.dart';
 import 'package:bacura_app/feature/profile/domain/entity/my_profile_entity.dart';
 import 'package:bacura_app/feature/profile/domain/use_case/my_profile_use_case.dart';
 import 'package:bacura_app/feature/profile/domain/use_case/update_profile_use_case.dart';
@@ -34,6 +34,7 @@ class MyProfileProvider with ChangeNotifier {
   final BuildContext context;
   final FlutterSecureStorage secureStorage = const FlutterSecureStorage();
   String? _token;
+
   String? get token => _token;
 
   final List<String> genderOptions = ['ذكر', 'أنثي'];

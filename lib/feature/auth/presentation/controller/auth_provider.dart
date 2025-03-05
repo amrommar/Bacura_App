@@ -1,7 +1,7 @@
 import 'package:bacura_app/core/utils/dialog_function.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/auth/index.dart';
-import 'package:bacura_app/feature/auth/presentation/views/components/verify_screen.dart';
+import 'package:bacura_app/feature/auth/presentation/views/verify_screen.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class AuthProvider with ChangeNotifier {
