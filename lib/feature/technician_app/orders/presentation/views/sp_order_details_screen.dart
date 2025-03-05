@@ -126,7 +126,17 @@ class SpOrderDetailsScreen extends StatelessWidget {
                       const Divider(),
 
                       ///  location section/////////////////////////////////////////////
-                      Image.asset(AppAssets.mapImage, height: AppSizes.ph160),
+                      InkWell(
+                        onTap: () {
+                          _openGoogleMaps(latitude: latitude!, longitude: longitude!); // Example coordinates
+                        },
+                        child: Image.asset(
+                          'assets/images/map2.jpeg',
+                          height: AppSizes.ph200,
+                          fit: BoxFit.fitWidth,
+                          width: double.infinity,
+                        ),
+                      ),
 
                       ///  Payment status section/////////////////////////////////////////////
 
@@ -172,4 +182,14 @@ Future<void> _makePhoneCall(String phoneNumber) async {
     path: phoneNumber,
   );
   await launchUrl(launchUri);
+}
+
+Future<void> _openGoogleMaps({required double latitude, required double longitude}) async {
+  final Uri googleMapsWebUri = Uri.parse("https://www.google.com/maps/search/?api=1&query=$latitude,$longitude");
+
+  if (await canLaunchUrl(googleMapsWebUri)) {
+    await launchUrl(googleMapsWebUri, mode: LaunchMode.externalApplication);
+  } else {
+    print("Could not open Google Maps.");
+  }
 }

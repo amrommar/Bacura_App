@@ -40,13 +40,13 @@ class AppAssets {
   static const String userGuide = '$imagePngPath/manual-book.png';
   static const String cameraOffer = '$imagePngPath/camera_offer.png';
   static const String checkedIcon = '$imagePngPath/checked.png';
-  static const String mapImage = '$imagePngPath/map.png';
 
   /// jpg
   static const String background2Image = '$imagePath/background2.jpg';
   static const String banner = '$imagePath/baner1.jpg';
   static const String banner2 = '$imagePath/baner2.jpg';
   static const String banner3 = '$imagePath/baner3.jpg';
+  static const String map = '$imagePath/map.jpeg';
 
   /// URL
   static const String bacuraStoreURL =
