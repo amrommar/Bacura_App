@@ -53,7 +53,7 @@ class ServiceTypeScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(height: AppSizes.ph100),
+                          SizedBox(height: AppSizes.ph60),
                           NextButton(
                             isEnabled: provider.selectedServiceIndex != null,
                             onPressed: provider.selectedServiceIndex == null

@@ -20,7 +20,9 @@ class ColorManager {
   static Color lightWhiteColor = const Color(0xffeef4fb);
   static Color greenColor = const Color(0xff0CCD08);
   static Color darkGreenColor = const Color(0xff0FA958);
-  static Color lightGreenColor = const Color(0xffDAF5D9);
+  static Color lightGreenColor = const Color(0xffc0f3be);
+  static Color orangeColor = Color(0xFFF57C00);
+  static Color lightOrangeColor = Color(0xFFFFE0B2);
   static Color lightRedColor = const Color(0xffF9E0E0);
   static Color lightYellowColor = const Color(0xffFEFBE0);
   static Color transparent = Colors.transparent;

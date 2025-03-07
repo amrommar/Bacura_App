@@ -1,8 +1,6 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/my_orders/presentation/controller/my_order_provider.dart';
 import 'package:bacura_app/feature/my_orders/utils.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class ordersFilterWidget extends StatelessWidget {
   const ordersFilterWidget({super.key});

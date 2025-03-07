@@ -2,10 +2,12 @@ import 'package:bacura_app/core/utils/index.dart';
 
 class SpAvatarWidget extends StatelessWidget {
   final String userName;
+  final String? imagePath;
 
   const SpAvatarWidget({
     super.key,
     required this.userName,
+    this.imagePath,
   });
 
   @override
@@ -19,30 +21,32 @@ class SpAvatarWidget extends StatelessWidget {
       Transform.translate(
           offset: const Offset(0, -50),
           child: Column(children: [
-            Container(
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: ColorManager.lightBlueColor,
-                  width: AppSizes.pw3,
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    blurRadius: 8,
-                    offset: const Offset(0, 4),
+            Stack(alignment: Alignment.center, children: [
+              Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: ColorManager.lightBlueColor,
+                    width: AppSizes.pw3,
                   ),
-                ],
-              ),
-              child: SizedBox(
-                height: AppSizes.ph80,
-                width: AppSizes.ph80,
-                child: Image.asset(
-                  AppAssets.bacuraImage,
-                  fit: BoxFit.cover,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 8,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: SizedBox(
+                  height: AppSizes.ph80,
+                  width: AppSizes.ph80,
+                  child: Image.asset(
+                    'assets/images/png/bakura (1) 1.png',
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-            ),
+            ]),
             SizedBox(height: AppSizes.ph10),
             Text(userName,
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(
