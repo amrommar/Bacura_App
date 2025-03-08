@@ -54,44 +54,46 @@ class _SpOrdersScreenState extends State<SpOrdersScreen> {
       body: ChangeNotifierProvider(
         create: (context) => SpOrdersProvider(),
         child: Consumer<SpOrdersProvider>(
-          builder: (context, provider, child) => Column(
-            children: [
-              /// orders section ///////////////////////////////////////////////////////
-              Expanded(
-                child: RefreshIndicator(
-                  onRefresh: () => provider.onRefresh(),
-                  child: ListView.builder(
-                    itemCount: provider.myOrderEntity.myOrderDataEntity.length,
-                    itemBuilder: (context, index) {
-                      var orderEntity = provider.myOrderEntity.myOrderDataEntity[index];
-                      String timeOnly = DateParser.dateFormatterOnlyTime(orderEntity.installationDate);
-                      var installationDate = orderEntity.installationDate!.split("T")[0];
-                      return SPOrderItemWidget(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => SpOrderDetailsScreen(
-                                id: orderEntity.id!,
-                                time: timeOnly,
-                                clientName: 'orderEntity.clientName',
-                                date: installationDate,
-                                latitude: orderEntity.latitude,
-                                longitude: orderEntity.longitude,
-                                orderId: orderEntity.id,
-                                serviceName: 'orderEntity.serviceName',
-                              ),
-                            ),
-                          );
-                        },
-                        index: index,
-                      );
-                    },
-                  ),
+          builder: (context, provider, child) => provider.isLoadingMyOrders
+              ? const Center(child: CircularProgressIndicator())
+              : Column(
+                  children: [
+                    /// orders section ///////////////////////////////////////////////////////
+                    Expanded(
+                      child: RefreshIndicator(
+                        onRefresh: () => provider.onRefresh(),
+                        child: ListView.builder(
+                          itemCount: provider.myOrderEntity.myOrderDataEntity.length,
+                          itemBuilder: (context, index) {
+                            var orderEntity = provider.myOrderEntity.myOrderDataEntity[index];
+                            String timeOnly = DateParser.dateFormatterOnlyTime(orderEntity.installationDate);
+                            var installationDate = orderEntity.installationDate!.split("T")[0];
+                            return SPOrderItemWidget(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => SpOrderDetailsScreen(
+                                      id: orderEntity.id!,
+                                      time: timeOnly,
+                                      clientName: 'orderEntity.clientName',
+                                      date: installationDate,
+                                      latitude: orderEntity.latitude,
+                                      longitude: orderEntity.longitude,
+                                      orderId: orderEntity.id,
+                                      serviceName: 'orderEntity.serviceName',
+                                    ),
+                                  ),
+                                );
+                              },
+                              index: index,
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
-          ),
         ),
       ),
     );

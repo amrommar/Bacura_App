@@ -51,6 +51,8 @@ class MyOrderDataSource extends BaseOrderDataSource {
         if (data is List) {
           return data.map((e) => ItemsForOrderModel.fromJson(e)).toList();
         }
+      } else if (response?.data == null) {
+        return [];
       }
     } catch (e) {
       print("Error fetching items: $e");

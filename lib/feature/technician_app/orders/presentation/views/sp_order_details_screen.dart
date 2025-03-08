@@ -33,142 +33,145 @@ class SpOrderDetailsScreen extends StatelessWidget {
         create: (context) => SpOrderDetailsProvider(id: orderId!),
         child: Consumer<SpOrderDetailsProvider>(
           builder: (context, provider, child) {
-            return Container(
-                decoration: BoxDecoration(
-                    color: ColorManager.whiteColor,
-                    borderRadius: BorderRadius.circular(AppSizes.br12),
-                    boxShadow: [
-                      BoxShadow(
-                        color: ColorManager.midWhiteColor,
-                        spreadRadius: 2,
-                        blurRadius: 4,
-                        offset: const Offset(0, 3),
-                      )
-                    ]),
-                margin: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph12),
-                padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph12),
-                height: 800.h,
-                child: SingleChildScrollView(
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                      ////  Request Number  section/////////////////////////////////////////////
+            return provider.isItemsLoading
+                ? const Center(child: CircularProgressIndicator())
+                : Container(
+                    decoration: BoxDecoration(
+                        color: ColorManager.whiteColor,
+                        borderRadius: BorderRadius.circular(AppSizes.br12),
+                        boxShadow: [
+                          BoxShadow(
+                            color: ColorManager.midWhiteColor,
+                            spreadRadius: 2,
+                            blurRadius: 4,
+                            offset: const Offset(0, 3),
+                          )
+                        ]),
+                    margin: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph12),
+                    padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph12),
+                    height: 800.h,
+                    child: SingleChildScrollView(
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                          ////  Request Number  section/////////////////////////////////////////////
 
-                      Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                        Text(
-                          'الطلب رقم: ',
-                          style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                                color: ColorManager.darkBlueColor,
-                              ),
-                        ),
-                        Text(
-                          '$orderId',
-                          style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                                color: ColorManager.darkBlueColor,
-                                fontWeight: FontWeight.bold,
-                              ),
-                        ),
-                      ]),
-                      const Divider(),
-                      ////Time and Date section/////////////////////////////////////////////
-                      OrderTimeDateWidget(date: date ?? '10/10/2010', time: time ?? '10:10'),
-                      const Divider(),
-                      SizedBox(height: AppSizes.ph10),
-                      Row(children: [
-                        Text('اسم العميل: ',
-                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                  color: ColorManager.darkBlueColor,
-                                )),
-                        Text(clientName ?? 'عميل',
-                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                  color: ColorManager.primaryBlueColor,
-                                  fontWeight: FontWeight.bold,
-                                ))
-                      ]),
-                      SizedBox(height: AppSizes.ph5),
-
-                      /// Request Details section/////////////////////////////////////////////
-                      Container(
-                        padding: EdgeInsets.all(AppSizes.ph15),
-                        margin: EdgeInsets.symmetric(vertical: AppSizes.ph12),
-                        decoration: BoxDecoration(
-                          color: ColorManager.lightBlueColor,
-                          borderRadius: BorderRadius.circular(AppSizes.br8),
-                        ),
-                        child: ListView.separated(
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemBuilder: (BuildContext context, int index) {
-                            return Expanded(
-                                child: Text(provider.itemsForOrderEntity[index]?.name ?? '',
-                                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                                          color: ColorManager.blackColor,
-                                        )));
-                          },
-                          separatorBuilder: (BuildContext context, int index) {
-                            return Divider(
-                              color: ColorManager.whiteColor,
-                            );
-                          },
-                          itemCount: provider.itemsForOrderEntity.length,
-                        ),
-                      ),
-
-                      SizedBox(height: 0.h),
-
-                      /// Total Money section/////////////////////////////////////////////
-                      Text(serviceName ?? 'اسم الخدمة',
-                          style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                                color: ColorManager.primaryBlueColor,
-                                fontWeight: FontWeight.bold,
-                              )),
-                      const Divider(),
-
-                      ///  location section/////////////////////////////////////////////
-                      InkWell(
-                        onTap: () {
-                          _openGoogleMaps(latitude: latitude!, longitude: longitude!); // Example coordinates
-                        },
-                        child: Image.asset(
-                          'assets/images/map2.jpeg',
-                          height: AppSizes.ph200,
-                          fit: BoxFit.fitWidth,
-                          width: double.infinity,
-                        ),
-                      ),
-
-                      ///  Payment status section/////////////////////////////////////////////
-
-                      const Divider(),
-                      SizedBox(height: AppSizes.ph30),
-                      InkWell(
-                        onTap: () => _makePhoneCall('554568719'),
-                        child: CustomShadowRowWidget(
-                          widget: Text('الاتصال بالعميل ',
+                          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                            Text(
+                              'الطلب رقم: ',
                               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                     color: ColorManager.darkBlueColor,
-                                  )),
-                          icon: Icons.call_outlined,
-                        ),
-                      ),
-
-                      SizedBox(height: AppSizes.ph30),
-
-                      ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(
-                            AppSizes.br8,
-                          ))),
-                          onPressed: () {
-                            Navigator.pushNamed(context, Routes.requestImplementRoute);
-                          },
-                          child: Text('التحرك للعميل',
+                                  ),
+                            ),
+                            Text(
+                              '$orderId',
                               style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                    color: ColorManager.darkBlueColor,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                          ]),
+                          const Divider(),
+                          ////Time and Date section/////////////////////////////////////////////
+                          OrderTimeDateWidget(date: date ?? '10/10/2010', time: time ?? '10:10'),
+                          const Divider(),
+                          SizedBox(height: AppSizes.ph10),
+                          Row(children: [
+                            Text('اسم العميل: ',
+                                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                      color: ColorManager.darkBlueColor,
+                                    )),
+                            Text(clientName ?? 'عميل',
+                                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                      color: ColorManager.primaryBlueColor,
+                                      fontWeight: FontWeight.bold,
+                                    ))
+                          ]),
+                          SizedBox(height: AppSizes.ph5),
+
+                          /// Request Details section/////////////////////////////////////////////
+                          if (provider.itemsForOrderEntity.isNotEmpty)
+                            Container(
+                              padding: EdgeInsets.all(AppSizes.ph15),
+                              margin: EdgeInsets.symmetric(vertical: AppSizes.ph12),
+                              decoration: BoxDecoration(
+                                color: ColorManager.lightBlueColor,
+                                borderRadius: BorderRadius.circular(AppSizes.br8),
+                              ),
+                              child: ListView.separated(
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
+                                itemBuilder: (BuildContext context, int index) {
+                                  return Expanded(
+                                      child: Text(provider.itemsForOrderEntity[index]?.name ?? '',
+                                          style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                                                color: ColorManager.blackColor,
+                                              )));
+                                },
+                                separatorBuilder: (BuildContext context, int index) {
+                                  return Divider(
                                     color: ColorManager.whiteColor,
-                                  ))),
-                    ])));
+                                  );
+                                },
+                                itemCount: provider.itemsForOrderEntity.length,
+                              ),
+                            ),
+
+                          SizedBox(height: 0.h),
+
+                          /// Total Money section/////////////////////////////////////////////
+                          Text(serviceName ?? 'اسم الخدمة',
+                              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                    color: ColorManager.primaryBlueColor,
+                                    fontWeight: FontWeight.bold,
+                                  )),
+                          const Divider(),
+
+                          ///  location section/////////////////////////////////////////////
+                          InkWell(
+                            onTap: () {
+                              _openGoogleMaps(latitude: latitude!, longitude: longitude!); // Example coordinates
+                            },
+                            child: Image.asset(
+                              'assets/images/map2.jpeg',
+                              height: AppSizes.ph200,
+                              fit: BoxFit.fitWidth,
+                              width: double.infinity,
+                            ),
+                          ),
+
+                          ///  Payment status section/////////////////////////////////////////////
+
+                          const Divider(),
+                          SizedBox(height: AppSizes.ph30),
+                          InkWell(
+                            onTap: () => _makePhoneCall('554568719'),
+                            child: CustomShadowRowWidget(
+                              widget: Text('الاتصال بالعميل ',
+                                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                        color: ColorManager.darkBlueColor,
+                                      )),
+                              icon: Icons.call_outlined,
+                            ),
+                          ),
+
+                          SizedBox(height: AppSizes.ph30),
+
+                          ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(
+                                AppSizes.br8,
+                              ))),
+                              onPressed: () {
+                                Navigator.pushNamed(context, Routes.requestImplementRoute);
+                              },
+                              child: Text('التحرك للعميل',
+                                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                        color: ColorManager.whiteColor,
+                                      ))),
+                        ])));
           },
         ),
       ),
