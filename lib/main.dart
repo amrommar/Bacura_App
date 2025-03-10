@@ -2,8 +2,11 @@ import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/home/presentation/controller/home_provider.dart';
 import 'package:bacura_app/feature/order_services/presentation/controller/order_services_provider.dart';
 import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() async {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await ServiceInitializer().initializeSettings();
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
@@ -22,6 +25,7 @@ void main() async {
       ),
     );
   });
+  FlutterNativeSplash.remove();
 }
 
 class MyApp extends StatefulWidget {
@@ -45,7 +49,7 @@ class _MyAppState extends State<MyApp> {
         supportedLocales: AppLocalizations.supportedLocales,
         debugShowCheckedModeBanner: false,
         onGenerateRoute: RouteGenerator.getRoute,
-        initialRoute: Routes.spHomeScreenRoute,
+        initialRoute: Routes.getStartedRoute,
         theme: getAppTheme(),
       ),
     );
