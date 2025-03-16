@@ -118,8 +118,6 @@ class SpOrderDetailsScreen extends StatelessWidget {
                               ),
                             ),
 
-                          SizedBox(height: 0.h),
-
                           /// Total Money section/////////////////////////////////////////////
                           Text(serviceName ?? 'اسم الخدمة',
                               style: Theme.of(context).textTheme.titleMedium!.copyWith(
