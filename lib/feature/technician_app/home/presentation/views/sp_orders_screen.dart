@@ -3,7 +3,7 @@ import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
 import 'package:bacura_app/feature/technician_app/home/controller/sp_orders_provider.dart';
 import 'package:bacura_app/feature/technician_app/home/presentation/views/components/sp_notifications_icon_widget.dart';
-import 'package:bacura_app/feature/technician_app/index.dart';
+import 'package:bacura_app/feature/technician_app/profile/presentation/screen/index.dart';
 import 'package:bacura_app/feature/technician_app/orders/presentation/views/sp_order_details_screen.dart';
 
 class SpOrdersScreen extends StatefulWidget {
@@ -62,36 +62,56 @@ class _SpOrdersScreenState extends State<SpOrdersScreen> {
                     Expanded(
                       child: RefreshIndicator(
                         onRefresh: () => provider.onRefresh(),
-                        child: ListView.builder(
-                          itemCount: provider.myOrderEntity.myOrderDataEntity.length,
-                          itemBuilder: (context, index) {
-                            var orderEntity = provider.myOrderEntity.myOrderDataEntity[index];
-                            String timeOnly = DateParser.dateFormatterOnlyTime(orderEntity.installationDate);
-                            var installationDate = orderEntity.installationDate!.split("T")[0];
-                            return SPOrderItemWidget(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => SpOrderDetailsScreen(
-                                      id: orderEntity.id!,
-                                      time: timeOnly,
-                                      clientName: 'orderEntity.clientName',
-                                      date: installationDate,
-                                      latitude: orderEntity.latitude,
-                                      longitude: orderEntity.longitude,
-                                      orderId: orderEntity.id,
-                                      serviceName: 'orderEntity.serviceName',
-                                    ),
-                                  ),
-                                );
-                              },
-                              index: index,
-                            );
+                        child: NotificationListener<ScrollNotification>(
+                          onNotification: (ScrollNotification scrollInfo) {
+                            if (scrollInfo.metrics.pixels >= scrollInfo.metrics.maxScrollExtent - 100 &&
+                                !provider.isLoadingMore) {
+                              provider.loadMoreMyOrders();
+                            }
+                            return false;
                           },
+                          child: ListView.builder(
+                            itemCount: provider.myOrderEntity.myOrderDataEntity.length,
+                            itemBuilder: (context, index) {
+                              var orderEntity = provider.myOrderEntity.myOrderDataEntity[index];
+                              String timeOnly = DateParser.dateFormatterOnlyTime(orderEntity.installationDate);
+                              var installationDate = orderEntity.installationDate!.split("T")[0];
+                              return SPOrderItemWidget(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => SpOrderDetailsScreen(
+                                        id: orderEntity.id!,
+                                        time: timeOnly,
+                                        clientName: orderEntity.user!.name,
+                                        date: installationDate,
+                                        latitude: orderEntity.latitude,
+                                        longitude: orderEntity.longitude,
+                                        orderId: orderEntity.id,
+                                        serviceName: orderEntity.service!.name,
+                                        phoneNumber: orderEntity.user!.phone!,
+                                      ),
+                                    ),
+                                  );
+                                },
+                                index: index,
+                              );
+                            },
+                          ),
                         ),
                       ),
                     ),
+                    SizedBox(height: AppSizes.ph25),
+                    provider.isLoadingMore
+                        ? Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Center(
+                                child: CircularProgressIndicator(
+                              color: ColorManager.primaryBlueColor,
+                            )),
+                          )
+                        : const SizedBox.shrink(),
                   ],
                 ),
         ),

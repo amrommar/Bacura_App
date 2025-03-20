@@ -1,6 +1,6 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/order_services/index.dart';
-import 'package:bacura_app/feature/technician_app/index.dart';
+import 'package:bacura_app/feature/technician_app/profile/presentation/screen/index.dart';
 
 class SpImplementOrderScreen extends StatefulWidget {
   const SpImplementOrderScreen({super.key});

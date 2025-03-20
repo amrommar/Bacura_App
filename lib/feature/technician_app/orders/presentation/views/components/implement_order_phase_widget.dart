@@ -1,5 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/technician_app/index.dart';
+import 'package:bacura_app/feature/technician_app/profile/presentation/screen/index.dart';
 import 'package:bacura_app/feature/technician_app/orders/presentation/views/components/dashed_line_pointer.dart';
 
 class ImplementOrderPhaseSection extends StatefulWidget {

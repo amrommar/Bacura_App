@@ -12,6 +12,7 @@ class SpOrderDetailsScreen extends StatelessWidget {
   final double? latitude;
   final String? mobileNumber;
   final int id;
+  final String phoneNumber;
 
   const SpOrderDetailsScreen(
       {super.key,
@@ -23,6 +24,7 @@ class SpOrderDetailsScreen extends StatelessWidget {
       this.longitude,
       this.latitude,
       this.mobileNumber,
+      required this.phoneNumber,
       required this.id});
 
   @override
@@ -37,57 +39,65 @@ class SpOrderDetailsScreen extends StatelessWidget {
                 ? const Center(child: CircularProgressIndicator())
                 : Container(
                     decoration: BoxDecoration(
-                        color: ColorManager.whiteColor,
-                        borderRadius: BorderRadius.circular(AppSizes.br12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: ColorManager.midWhiteColor,
-                            spreadRadius: 2,
-                            blurRadius: 4,
-                            offset: const Offset(0, 3),
-                          )
-                        ]),
+                      color: ColorManager.whiteColor,
+                      borderRadius: BorderRadius.circular(AppSizes.br12),
+                      boxShadow: [
+                        BoxShadow(
+                          color: ColorManager.midWhiteColor,
+                          spreadRadius: 2,
+                          blurRadius: 4,
+                          offset: const Offset(0, 3),
+                        )
+                      ],
+                    ),
                     margin: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph12),
                     padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph12),
                     height: 800.h,
                     child: SingleChildScrollView(
-                        child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
                           ////  Request Number  section/////////////////////////////////////////////
 
-                          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                            Text(
-                              'الطلب رقم: ',
-                              style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                                    color: ColorManager.darkBlueColor,
-                                  ),
-                            ),
-                            Text(
-                              '$orderId',
-                              style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                                    color: ColorManager.darkBlueColor,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                            ),
-                          ]),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'الطلب رقم: ',
+                                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                      color: ColorManager.darkBlueColor,
+                                    ),
+                              ),
+                              Text(
+                                '$orderId',
+                                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                      color: ColorManager.darkBlueColor,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              ),
+                            ],
+                          ),
                           const Divider(),
                           ////Time and Date section/////////////////////////////////////////////
                           OrderTimeDateWidget(date: date ?? '10/10/2010', time: time ?? '10:10'),
                           const Divider(),
                           SizedBox(height: AppSizes.ph10),
-                          Row(children: [
-                            Text('اسم العميل: ',
-                                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                      color: ColorManager.darkBlueColor,
-                                    )),
-                            Text(clientName ?? 'عميل',
+                          Row(
+                            children: [
+                              Text('اسم العميل: ',
+                                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                        color: ColorManager.darkBlueColor,
+                                      )),
+                              Text(
+                                clientName ?? 'عميل',
                                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                                       color: ColorManager.primaryBlueColor,
                                       fontWeight: FontWeight.bold,
-                                    ))
-                          ]),
+                                    ),
+                              ),
+                            ],
+                          ),
                           SizedBox(height: AppSizes.ph5),
 
                           /// Request Details section/////////////////////////////////////////////
@@ -103,7 +113,7 @@ class SpOrderDetailsScreen extends StatelessWidget {
                                 shrinkWrap: true,
                                 physics: const NeverScrollableScrollPhysics(),
                                 itemBuilder: (BuildContext context, int index) {
-                                  return Expanded(
+                                  return SizedBox(
                                       child: Text(provider.itemsForOrderEntity[index]?.name ?? '',
                                           style: Theme.of(context).textTheme.titleSmall!.copyWith(
                                                 color: ColorManager.blackColor,
@@ -144,9 +154,9 @@ class SpOrderDetailsScreen extends StatelessWidget {
                           const Divider(),
                           SizedBox(height: AppSizes.ph30),
                           InkWell(
-                            onTap: () => _makePhoneCall('554568719'),
+                            onTap: () => _makePhoneCall(phoneNumber),
                             child: CustomShadowRowWidget(
-                              widget: Text('الاتصال بالعميل ',
+                              widget: Text('الاتصال بالعميل',
                                   style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                         color: ColorManager.darkBlueColor,
                                       )),
@@ -157,19 +167,27 @@ class SpOrderDetailsScreen extends StatelessWidget {
                           SizedBox(height: AppSizes.ph30),
 
                           ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(
-                                AppSizes.br8,
-                              ))),
-                              onPressed: () {
-                                Navigator.pushNamed(context, Routes.requestImplementRoute);
-                              },
-                              child: Text('التحرك للعميل',
-                                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                                        color: ColorManager.whiteColor,
-                                      ))),
-                        ])));
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(
+                                  AppSizes.br8,
+                                ),
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.pushNamed(context, Routes.requestImplementRoute);
+                            },
+                            child: Text(
+                              'التحرك للعميل',
+                              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                    color: ColorManager.whiteColor,
+                                  ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
           },
         ),
       ),

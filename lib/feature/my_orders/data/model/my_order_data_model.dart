@@ -1,3 +1,5 @@
+import 'package:bacura_app/feature/customer_service/data/model/user_model.dart';
+import 'package:bacura_app/feature/customer_service/domain/entity/user_entity.dart';
 import 'package:bacura_app/feature/my_orders/data/model/services_order_model.dart';
 import 'package:bacura_app/feature/my_orders/domain/entity/my_order_data_entity.dart';
 
@@ -18,6 +20,7 @@ class MyOrderDataModel extends MyOrderDataEntity {
     required super.createdAt,
     required super.expiresAt,
     super.installationDate,
+    super.user,
   });
 
   factory MyOrderDataModel.fromJson(Map<String, dynamic> json) => MyOrderDataModel(
@@ -36,5 +39,6 @@ class MyOrderDataModel extends MyOrderDataEntity {
         createdAt: json["created_at"] ?? "",
         expiresAt: json["warranty_expiration_date"] ?? "",
         installationDate: json["installation_date"] ?? "",
+        user: json["user"] != null ? UserModel.fromJson(json["user"]) : null,
       );
 }

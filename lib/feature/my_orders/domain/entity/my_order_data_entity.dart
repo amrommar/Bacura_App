@@ -1,4 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/customer_service/domain/entity/user_entity.dart';
 import 'package:bacura_app/feature/my_orders/domain/entity/services_order_entity.dart';
 
 class MyOrderDataEntity extends Equatable {
@@ -15,12 +16,14 @@ class MyOrderDataEntity extends Equatable {
   final ServicesOrderEntity? service;
   final int? categoryId;
   final String? createdAt;
-  final String? installationDate;
   final String? expiresAt;
+  final UserEntity? user;
+  final String? installationDate;
 
   const MyOrderDataEntity({
     this.total,
     this.createdAt,
+    this.user,
     this.id,
     this.status,
     this.communicationDate,
@@ -53,5 +56,6 @@ class MyOrderDataEntity extends Equatable {
         total,
         expiresAt,
         installationDate,
+        user,
       ];
 }

@@ -41,6 +41,10 @@ import 'package:bacura_app/feature/profile/data/repository/profile_repository.da
 import 'package:bacura_app/feature/profile/domain/repository/base_profile_repository.dart';
 import 'package:bacura_app/feature/profile/domain/use_case/my_profile_use_case.dart';
 import 'package:bacura_app/feature/profile/domain/use_case/update_profile_use_case.dart';
+import 'package:bacura_app/feature/technician_app/profile/data/data_source/complete_order_data_source.dart';
+import 'package:bacura_app/feature/technician_app/profile/data/repositroy/complete_order_repository.dart';
+import 'package:bacura_app/feature/technician_app/profile/domain/repository/base_completed_orders_repository.dart';
+import 'package:bacura_app/feature/technician_app/profile/domain/use_case/completed_orders_use_case.dart';
 import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;
@@ -56,6 +60,7 @@ class DependencyInjectionServices {
     _initializeOffers();
     _initializeNotifications();
     _initializeChats();
+    _initializeCompletedOrders();
   }
 
   _initializeAuthUser() {
@@ -170,5 +175,18 @@ class DependencyInjectionServices {
     sl.registerLazySingleton<GetMessageChatUseCase>(() => GetMessageChatUseCase(baseChatRepository: sl()));
     sl.registerLazySingleton<GetMyChatUseCase>(() => GetMyChatUseCase(baseChatRepository: sl()));
     sl.registerLazySingleton<SendMessageUseCase>(() => SendMessageUseCase(baseChatRepository: sl()));
+  }
+
+  _initializeCompletedOrders() {
+    // Repository
+    sl.registerLazySingleton<BaseCompletedOrdersRepository>(
+        () => CompleteOrderRepository(baseCompletedOrderDataSource: sl()));
+
+    ///Data Sources
+    sl.registerLazySingleton<BaseCompletedOrderDataSource>(() => CompletedOrderDataSource());
+
+    ///Use Cases
+    sl.registerLazySingleton<GetCompletedOrdersUseCase>(
+        () => GetCompletedOrdersUseCase(baseCompletedOrdersRepository: sl()));
   }
 }
