@@ -42,7 +42,7 @@ class SPOrderItemWidget extends StatelessWidget {
                       ),
                 ),
                 Text(
-                  provider.myOrderEntity.myOrderDataEntity[index].id.toString(),
+                  '#${provider.myOrderEntity.myOrderDataEntity[index].id.toString()}',
                   style: Theme.of(context).textTheme.titleMedium!.copyWith(
                         color: ColorManager.darkBlueColor,
                         fontWeight: FontWeight.bold,

@@ -1,6 +1,7 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/order_services/presentation/components/custom_shadow_row_widget.dart';
 import 'package:bacura_app/feature/technician_app/orders/controller/sp_order_details_provider.dart';
+import 'package:bacura_app/feature/technician_app/orders/presentation/views/sp_implement_order_screen.dart';
 
 class SpOrderDetailsScreen extends StatelessWidget {
   final int? orderId;
@@ -70,7 +71,7 @@ class SpOrderDetailsScreen extends StatelessWidget {
                                     ),
                               ),
                               Text(
-                                '$orderId',
+                                '#$orderId',
                                 style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                       color: ColorManager.darkBlueColor,
                                       fontWeight: FontWeight.bold,
@@ -175,10 +176,20 @@ class SpOrderDetailsScreen extends StatelessWidget {
                               ),
                             ),
                             onPressed: () {
-                              Navigator.pushNamed(context, Routes.requestImplementRoute);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SpImplementOrderScreen(
+                                    time: time,
+                                    clientName: clientName,
+                                    date: date,
+                                    orderId: orderId,
+                                  ),
+                                ),
+                              );
                             },
                             child: Text(
-                              'التحرك للعميل',
+                              'الوصول للعميل',
                               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                     color: ColorManager.whiteColor,
                                   ),
