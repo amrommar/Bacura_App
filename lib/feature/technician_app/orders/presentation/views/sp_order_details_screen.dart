@@ -14,10 +14,12 @@ class SpOrderDetailsScreen extends StatelessWidget {
   final String? mobileNumber;
   final int id;
   final String phoneNumber;
+  final String? status;
 
   const SpOrderDetailsScreen(
       {super.key,
       this.orderId,
+      this.status,
       this.date,
       this.time,
       this.clientName,
@@ -154,47 +156,51 @@ class SpOrderDetailsScreen extends StatelessWidget {
 
                           const Divider(),
                           SizedBox(height: AppSizes.ph30),
-                          InkWell(
-                            onTap: () => _makePhoneCall(phoneNumber),
-                            child: CustomShadowRowWidget(
-                              widget: Text('الاتصال بالعميل',
-                                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                                        color: ColorManager.darkBlueColor,
-                                      )),
-                              icon: Icons.call_outlined,
-                            ),
-                          ),
-
-                          SizedBox(height: AppSizes.ph30),
-
-                          ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(
-                                  AppSizes.br8,
-                                ),
-                              ),
-                            ),
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => SpImplementOrderScreen(
-                                    time: time,
-                                    clientName: clientName,
-                                    date: date,
-                                    orderId: orderId,
-                                  ),
-                                ),
-                              );
-                            },
-                            child: Text(
-                              'الوصول للعميل',
-                              style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                                    color: ColorManager.whiteColor,
-                                  ),
-                            ),
-                          ),
+                          status != "completed"
+                              ? Column(
+                                  children: [
+                                    InkWell(
+                                      onTap: () => _makePhoneCall(phoneNumber),
+                                      child: CustomShadowRowWidget(
+                                        widget: Text('الاتصال بالعميل',
+                                            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                                  color: ColorManager.darkBlueColor,
+                                                )),
+                                        icon: Icons.call_outlined,
+                                      ),
+                                    ),
+                                    SizedBox(height: AppSizes.ph30),
+                                    ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            AppSizes.br8,
+                                          ),
+                                        ),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => SpImplementOrderScreen(
+                                              time: time,
+                                              clientName: clientName,
+                                              date: date,
+                                              orderId: orderId,
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                      child: Text(
+                                        'الوصول للعميل',
+                                        style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                              color: ColorManager.whiteColor,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              : Container(),
                         ],
                       ),
                     ),

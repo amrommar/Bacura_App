@@ -14,8 +14,6 @@ class SpProfileDetailsScreen extends StatefulWidget {
 }
 
 class _SpProfileDetailsScreenState extends State<SpProfileDetailsScreen> {
-  String? completePhoneNumber;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

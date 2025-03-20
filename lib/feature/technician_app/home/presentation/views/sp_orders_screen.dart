@@ -3,8 +3,8 @@ import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
 import 'package:bacura_app/feature/technician_app/home/controller/sp_orders_provider.dart';
 import 'package:bacura_app/feature/technician_app/home/presentation/views/components/sp_notifications_icon_widget.dart';
-import 'package:bacura_app/feature/technician_app/profile/presentation/screen/index.dart';
 import 'package:bacura_app/feature/technician_app/orders/presentation/views/sp_order_details_screen.dart';
+import 'package:bacura_app/feature/technician_app/profile/presentation/screen/index.dart';
 
 class SpOrdersScreen extends StatefulWidget {
   const SpOrdersScreen({super.key});
@@ -91,6 +91,7 @@ class _SpOrdersScreenState extends State<SpOrdersScreen> {
                                         orderId: orderEntity.id,
                                         serviceName: orderEntity.service!.name,
                                         phoneNumber: orderEntity.user!.phone!,
+                                        status: orderEntity.status,
                                       ),
                                     ),
                                   );
