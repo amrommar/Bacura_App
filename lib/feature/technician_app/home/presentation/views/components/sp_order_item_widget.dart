@@ -4,7 +4,7 @@ import 'package:bacura_app/feature/technician_app/home/controller/sp_orders_prov
 
 class SPOrderItemWidget extends StatelessWidget {
   final int index;
-  Function() onPressed;
+  final void Function() onPressed;
 
   SPOrderItemWidget({super.key, required this.index, required this.onPressed});
 
