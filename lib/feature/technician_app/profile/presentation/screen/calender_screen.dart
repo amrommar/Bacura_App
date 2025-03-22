@@ -18,27 +18,33 @@ class _CalenderScreenState extends State<CalenderScreen> {
       body: ChangeNotifierProvider<CalenderOrdersProvider>(
         create: (context) => CalenderOrdersProvider(),
         child: Consumer<CalenderOrdersProvider>(
-          builder: (context, provider, child) => provider.isLoadingMyOrders
-              ? const Center(child: Center(child: CircularProgressIndicator()))
-              : Column(
-                  children: [
-                    Expanded(child: SpCalenderWidget()),
-                    Expanded(
-                      child: Container(
-                        color: ColorManager.midWhiteColor,
-                        child: ListView.builder(
-                          itemCount: 12,
-                          itemBuilder: (context, index) {
-                            return InkWell(
-                              onTap: () {},
-                              child: SpCalenderRequestItemComponent(),
-                            );
-                          },
+          builder: (context, provider, child) => Column(
+            children: [
+              Expanded(
+                child: SpCalenderWidget(),
+              ),
+              provider.orders.length == 0
+                  ? Expanded(child: Text('لا يوجد طلبات'))
+                  : provider.isLoadingMyOrders
+                      ? const Center(child: Center(child: CircularProgressIndicator()))
+                      : Expanded(
+                          child: Container(
+                            color: ColorManager.midWhiteColor,
+                            child: ListView.builder(
+                              itemCount: provider.orders.length,
+                              itemBuilder: (context, index) {
+                                return InkWell(
+                                  onTap: () {},
+                                  child: SpCalenderRequestItemComponent(
+                                    index: index,
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                  ],
-                ),
+            ],
+          ),
         ),
       ),
     );

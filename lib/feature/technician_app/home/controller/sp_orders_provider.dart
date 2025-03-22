@@ -31,18 +31,20 @@ class SpOrdersProvider extends ChangeNotifier {
     );
 
     result.fold((l) async {}, (r) {
-      if (r.myOrderDataEntity.isEmpty) {
+      final filteredOrders = r.myOrderDataEntity.where((order) => order.status != "completed").toList();
+
+      if (filteredOrders.isEmpty) {
         isFinishedPaging = true;
       } else {
         if (isLoadingMore) {
           myOrderEntity = myOrderEntity.copyWith(
             myOrderDataEntity: [
               ...myOrderEntity.myOrderDataEntity,
-              ...r.myOrderDataEntity,
+              ...filteredOrders,
             ],
           );
         } else {
-          myOrderEntity = r;
+          myOrderEntity = myOrderEntity.copyWith(myOrderDataEntity: filteredOrders);
         }
       }
 
