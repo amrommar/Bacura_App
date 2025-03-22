@@ -45,7 +45,7 @@ class _MyAppState extends State<MyApp> {
         supportedLocales: AppLocalizations.supportedLocales,
         debugShowCheckedModeBanner: false,
         onGenerateRoute: RouteGenerator.getRoute,
-        initialRoute: Routes.getStartedRoute,
+        initialRoute: Routes.spHomeScreenRoute,
         theme: getAppTheme(),
       ),
     );
