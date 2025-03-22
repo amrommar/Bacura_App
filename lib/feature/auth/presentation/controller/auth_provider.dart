@@ -19,12 +19,13 @@ class AuthProvider with ChangeNotifier {
         backgroundColor: Colors.red,
       ));
     } else if (pinCode.length != 4) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text('الرجاء ادخال رمز التحقيق'),
-        backgroundColor: Colors.red,
-      ));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('الرجاء ادخال رمز التحقيق'),
+          backgroundColor: Colors.red,
+        ),
+      );
     } else {
-      // check phone number
       var result = await sl<VerifyOTPUseCase>().call(
         VerifyParameter(
           phone: mobileNumber,

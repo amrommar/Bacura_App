@@ -3,7 +3,15 @@ import 'package:bacura_app/feature/my_orders/domain/entity/my_order_entity.dart'
 import 'package:bacura_app/feature/my_orders/domain/use_case/get_my_orders_use_case.dart';
 
 class SpOrdersProvider extends ChangeNotifier {
-  late MyOrderEntity myOrderEntity;
+  late MyOrderEntity myOrderEntity = MyOrderEntity(
+    myOrderDataEntity: [],
+    limit: 0,
+    page: 0,
+    totalRecords: 0,
+    totalPages: 0,
+    nextPageLink: "",
+    previousPageLink: "",
+  );
   bool isLoadingMore = false;
   bool isFinishedPaging = false;
   bool isLoadingMyOrders = true;
@@ -30,26 +38,29 @@ class SpOrdersProvider extends ChangeNotifier {
       MyOrdersParameters(page: pageNumber, limit: AppConstants.defaultPageSize),
     );
 
-    result.fold((l) async {}, (r) {
+    result.fold((l) async {
+      isLoadingMyOrders = false;
+      notifyListeners();
+    }, (r) {
       final filteredOrders = r.myOrderDataEntity.where((order) => order.status != "completed").toList();
 
-      if (filteredOrders.isEmpty) {
-        isFinishedPaging = true;
+      if (isLoadingMore) {
+        myOrderEntity = myOrderEntity.copyWith(
+          myOrderDataEntity: [
+            ...myOrderEntity.myOrderDataEntity,
+            ...filteredOrders,
+          ],
+        );
       } else {
-        if (isLoadingMore) {
-          myOrderEntity = myOrderEntity.copyWith(
-            myOrderDataEntity: [
-              ...myOrderEntity.myOrderDataEntity,
-              ...filteredOrders,
-            ],
-          );
-        } else {
-          myOrderEntity = myOrderEntity.copyWith(myOrderDataEntity: filteredOrders);
-        }
+        myOrderEntity = myOrderEntity.copyWith(
+          myOrderDataEntity: filteredOrders,
+        );
       }
 
+      // يجب إيقاف التحميل حتى لو لم تكن هناك بيانات
       isLoadingMore = false;
       isLoadingMyOrders = false;
+      isFinishedPaging = filteredOrders.isEmpty; // تحديد إذا كان التحميل انتهى
       notifyListeners();
     });
   }
