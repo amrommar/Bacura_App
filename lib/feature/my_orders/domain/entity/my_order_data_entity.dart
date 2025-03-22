@@ -19,9 +19,13 @@ class MyOrderDataEntity extends Equatable {
   final String? expiresAt;
   final UserEntity? user;
   final String? installationDate;
+  final int? serviceProviderId;
+  final bool? isAssignmentAccepted;
 
   const MyOrderDataEntity({
     this.total,
+    this.serviceProviderId,
+    this.isAssignmentAccepted,
     this.createdAt,
     this.user,
     this.id,
@@ -57,5 +61,7 @@ class MyOrderDataEntity extends Equatable {
         expiresAt,
         installationDate,
         user,
+        serviceProviderId,
+        isAssignmentAccepted,
       ];
 }

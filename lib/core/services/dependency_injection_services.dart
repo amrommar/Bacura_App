@@ -45,6 +45,7 @@ import 'package:bacura_app/feature/technician_app/profile/data/data_source/compl
 import 'package:bacura_app/feature/technician_app/profile/data/repositroy/complete_order_repository.dart';
 import 'package:bacura_app/feature/technician_app/profile/domain/repository/base_completed_orders_repository.dart';
 import 'package:bacura_app/feature/technician_app/profile/domain/use_case/completed_orders_use_case.dart';
+import 'package:bacura_app/feature/technician_app/profile/domain/use_case/get_orders_calender_use_case.dart';
 import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;
@@ -188,5 +189,7 @@ class DependencyInjectionServices {
     ///Use Cases
     sl.registerLazySingleton<GetCompletedOrdersUseCase>(
         () => GetCompletedOrdersUseCase(baseCompletedOrdersRepository: sl()));
+    sl.registerLazySingleton<GetOrdersCalenderUseCase>(
+        () => GetOrdersCalenderUseCase(baseCompletedOrdersRepository: sl()));
   }
 }

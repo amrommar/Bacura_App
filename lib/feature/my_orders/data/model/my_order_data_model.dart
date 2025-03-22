@@ -21,6 +21,8 @@ class MyOrderDataModel extends MyOrderDataEntity {
     required super.expiresAt,
     super.installationDate,
     super.user,
+    super.serviceProviderId,
+    super.isAssignmentAccepted,
   });
 
   factory MyOrderDataModel.fromJson(Map<String, dynamic> json) => MyOrderDataModel(
@@ -40,5 +42,7 @@ class MyOrderDataModel extends MyOrderDataEntity {
         expiresAt: json["warranty_expiration_date"] ?? "",
         installationDate: json["installation_date"] ?? "",
         user: json["user"] != null ? UserModel.fromJson(json["user"]) : null,
+        serviceProviderId: json["service_provider_id"] ?? 0,
+        isAssignmentAccepted: json["is_assignment_accepted"] ?? false,
       );
 }

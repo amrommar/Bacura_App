@@ -31,10 +31,19 @@ class CompleteOrdersWidget extends StatelessWidget {
                   ],
                 ),
                 SizedBox(width: AppSizes.pw10),
-                Text(provider.myOrderEntity.myOrderDataEntity.length.toString(),
-                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                          color: ColorManager.blackColor,
-                        ))
+                provider.isLoadingMyOrders
+                    ? SizedBox(
+                        height: AppSizes.ph20,
+                        width: AppSizes.pw20,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          color: ColorManager.midBlueColor,
+                        ),
+                      )
+                    : Text(provider.myOrderEntity.myOrderDataEntity.length.toString(),
+                        style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                              color: ColorManager.blackColor,
+                            ))
               ],
             ),
           ),

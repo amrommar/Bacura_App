@@ -1,7 +1,8 @@
+import 'package:bacura_app/core/presentation/images/custom_svg_image.dart';
 import 'package:bacura_app/core/utils/index.dart';
 
-class SpCalenderRequestItemWidget extends StatelessWidget {
-  const SpCalenderRequestItemWidget({super.key});
+class SpCalenderRequestItemComponent extends StatelessWidget {
+  const SpCalenderRequestItemComponent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,28 +17,33 @@ class SpCalenderRequestItemWidget extends StatelessWidget {
       child: Column(
         children: [
           IntrinsicHeight(
-              child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Padding(
-                padding: EdgeInsets.all(AppSizes.ph6),
-                child: SvgPicture.asset('assets/images/cameraicon.svg', height: AppSizes.ph28),
-              ),
-              VerticalDivider(color: ColorManager.lightBlueColor, thickness: 0.5),
-              SizedBox(width: AppSizes.pw5),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text('تركيب وبرمجة',
-                      style: Theme.of(context).textTheme.displayMedium!.copyWith(color: ColorManager.whiteColor)),
-                  SizedBox(height: 3.h),
-                  Text('08:00 - 09:30',
-                      style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.whiteColor)),
-                ],
-              )
-            ],
-          )),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(AppSizes.ph6),
+                  child: CustomSvgImage.square(
+                    size: AppSizes.ph40,
+                    path: 'assets/images/svg/cameraicon.svg',
+                    color: ColorManager.whiteColor,
+                  ),
+                ),
+                VerticalDivider(color: ColorManager.lightBlueColor, thickness: 0.5),
+                SizedBox(width: AppSizes.pw5),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('تركيب وبرمجة',
+                        style: Theme.of(context).textTheme.displayMedium!.copyWith(color: ColorManager.whiteColor)),
+                    SizedBox(height: 3.h),
+                    Text('08:00 - 09:30',
+                        style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.whiteColor)),
+                  ],
+                )
+              ],
+            ),
+          ),
           SizedBox(height: AppSizes.ph5),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -50,7 +56,7 @@ class SpCalenderRequestItemWidget extends StatelessWidget {
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.lightBlueColor)),
               SizedBox(width: AppSizes.ph10),
             ],
-          )
+          ),
         ],
       ),
     );

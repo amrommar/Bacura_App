@@ -23,7 +23,6 @@ class MyCompletedOrdersParameters extends Equatable {
   Map<String, dynamic> toMap() => {
         "page": page,
         "limit": limit,
-        "status": "completed",
       };
 
   @override
