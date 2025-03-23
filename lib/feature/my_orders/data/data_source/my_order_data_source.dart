@@ -26,7 +26,14 @@ class MyOrderDataSource extends BaseOrderDataSource {
         final data = response.data;
 
         if (data is Map<String, dynamic>) {
-          return MyOrderModel.fromJson(data);
+          MyOrderEntity myOrderEntity = MyOrderModel.fromJson(data);
+
+          myOrderEntity = myOrderEntity.copyWith(
+            myOrderDataEntity: myOrderEntity.myOrderDataEntity
+              ..sort((a, b) => DateTime.parse(b.installationDate!).compareTo(DateTime.parse(a.installationDate!))),
+          );
+
+          return myOrderEntity;
         } else {
           throw Exception("Invalid API response format: Expected Map<String, dynamic>");
         }

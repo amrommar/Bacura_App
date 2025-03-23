@@ -45,4 +45,11 @@ class MyOrderDataModel extends MyOrderDataEntity {
         serviceProviderId: json["service_provider_id"] ?? 0,
         isAssignmentAccepted: json["is_assignment_accepted"] ?? false,
       );
+  static List<MyOrderDataModel> fromJsonList(List<dynamic> jsonList) {
+    List<MyOrderDataModel> orders = jsonList.map((json) => MyOrderDataModel.fromJson(json)).toList();
+
+    orders.sort((a, b) => DateTime.parse(b.installationDate!).compareTo(DateTime.parse(a.installationDate!)));
+
+    return orders;
+  }
 }
