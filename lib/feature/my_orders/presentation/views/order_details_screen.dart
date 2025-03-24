@@ -283,7 +283,7 @@ class ItemsShimmerWidget extends StatelessWidget {
                         color: ColorManager.whiteColor,
                       ),
                     ),
-                    SizedBox(width: 10.w), // إضافة مسافة بين العناصر
+                    SizedBox(width: 10.w),
                     Container(
                       height: 20.h,
                       width: 20.w,

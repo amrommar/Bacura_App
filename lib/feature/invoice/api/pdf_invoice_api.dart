@@ -123,7 +123,7 @@ class PdfInvoiceApi {
       ];
     }).toList();
 
-    return Table.fromTextArray(
+    return TableHelper.fromTextArray(
       headers: headers,
       data: data,
       border: null,

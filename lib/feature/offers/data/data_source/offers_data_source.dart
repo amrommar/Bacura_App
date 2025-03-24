@@ -9,6 +9,7 @@ import 'package:bacura_app/feature/offers/domain/use_case/get_my_offers_use_case
 abstract class BaseOffersDataSource {
   Future<OffersEntity> getOffers({required OffersParameters offersParameters});
   Future<List<ItemsOfferEntity>> getItems({required int id});
+  Future<void> orderOffer({required int id});
 }
 
 class OffersDataSource extends BaseOffersDataSource {
@@ -56,5 +57,13 @@ class OffersDataSource extends BaseOffersDataSource {
     }
 
     return [];
+  }
+
+  @override
+  Future<void> orderOffer({required int id}) async {
+    await ApiClient().apiCall(
+      requestType: RequestType.POST,
+      url: 'orders/from-offer/$id',
+    );
   }
 }

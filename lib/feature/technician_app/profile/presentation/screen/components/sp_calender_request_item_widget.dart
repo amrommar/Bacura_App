@@ -1,5 +1,6 @@
 import 'package:bacura_app/core/presentation/images/custom_svg_image.dart';
 import 'package:bacura_app/core/services/date_parser.dart';
+import 'package:bacura_app/core/services/number_parser.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/technician_app/profile/presentation/controller/calender_orders_provider.dart';
 
@@ -41,30 +42,42 @@ class SpCalenderRequestItemComponent extends StatelessWidget {
                       Text(provider.orders[index].service!.name,
                           style: Theme.of(context).textTheme.displayMedium!.copyWith(color: ColorManager.whiteColor)),
                       SizedBox(height: 3.h),
-                      Text(DateParser.dateFormatterOnlyTime(provider.orders[index].installationDate!),
-                          style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.whiteColor)),
+                      Row(
+                        children: [
+                          Text(
+                            DateParser.dateFormatterWithoutTime(provider.orders[index].installationDate!),
+                            style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.whiteColor),
+                          ),
+                          SizedBox(width: AppSizes.pw5),
+                          Text(
+                            DateParser.dateFormatterOnlyTime(provider.orders[index].installationDate!),
+                            style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.whiteColor),
+                          ),
+                        ],
+                      ),
                     ],
                   )
                 ],
               ),
             ),
             SizedBox(height: AppSizes.ph5),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(width: AppSizes.ph20),
-                Icon(Icons.location_on, color: ColorManager.lightBlueColor, size: AppSizes.ph22),
-                SizedBox(width: AppSizes.ph5),
-                Expanded(
-                  child: Text(provider.orders[index].location!,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.lightBlueColor)),
-                ),
-                SizedBox(width: AppSizes.ph10),
-              ],
-            ),
+            if (provider.orders[index].location!.isNotEmpty)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(width: AppSizes.ph20),
+                  Icon(Icons.location_on, color: ColorManager.lightBlueColor, size: AppSizes.ph22),
+                  SizedBox(width: AppSizes.ph5),
+                  Expanded(
+                    child: Text(provider.orders[index].location!,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.lightBlueColor)),
+                  ),
+                  SizedBox(width: AppSizes.ph10),
+                ],
+              ),
           ],
         ),
       ),

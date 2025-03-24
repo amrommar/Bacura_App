@@ -32,6 +32,7 @@ import 'package:bacura_app/feature/offers/data/repository/offers_repository.dart
 import 'package:bacura_app/feature/offers/domain/repository/base_offers_repository.dart';
 import 'package:bacura_app/feature/offers/domain/use_case/get_items_for_offer__use_case.dart';
 import 'package:bacura_app/feature/offers/domain/use_case/get_my_offers_use_case.dart';
+import 'package:bacura_app/feature/offers/domain/use_case/order_offer_use_case.dart';
 import 'package:bacura_app/feature/order_services/data/data_source/order_service_data_source.dart';
 import 'package:bacura_app/feature/order_services/data/repository/order_service_repository.dart';
 import 'package:bacura_app/feature/order_services/domin/repository/base_order_service_repository.dart';
@@ -148,6 +149,7 @@ class DependencyInjectionServices {
     ///Use Cases
     sl.registerLazySingleton<GetOffersUseCase>(() => GetOffersUseCase(baseOffersRepository: sl()));
     sl.registerLazySingleton<GetItemsForOfferUseCase>(() => GetItemsForOfferUseCase(baseOffersRepository: sl()));
+    sl.registerLazySingleton<OrderOfferUseCase>(() => OrderOfferUseCase(baseOffersRepository: sl()));
   }
 
   _initializeNotifications() {
