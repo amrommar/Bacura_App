@@ -1,3 +1,5 @@
+import 'package:bacura_app/feature/customer_service/data/model/user_model.dart';
+import 'package:bacura_app/feature/customer_service/domain/entity/user_entity.dart';
 import 'package:bacura_app/feature/my_orders/data/model/services_order_model.dart';
 import 'package:bacura_app/feature/my_orders/domain/entity/my_order_data_entity.dart';
 
@@ -17,6 +19,10 @@ class MyOrderDataModel extends MyOrderDataEntity {
     required super.total,
     required super.createdAt,
     required super.expiresAt,
+    super.installationDate,
+    super.user,
+    super.serviceProviderId,
+    super.isAssignmentAccepted,
   });
 
   factory MyOrderDataModel.fromJson(Map<String, dynamic> json) => MyOrderDataModel(
@@ -34,5 +40,16 @@ class MyOrderDataModel extends MyOrderDataEntity {
         total: json["total"] ?? 0,
         createdAt: json["created_at"] ?? "",
         expiresAt: json["warranty_expiration_date"] ?? "",
+        installationDate: json["installation_date"] ?? "",
+        user: json["user"] != null ? UserModel.fromJson(json["user"]) : null,
+        serviceProviderId: json["service_provider_id"] ?? 0,
+        isAssignmentAccepted: json["is_assignment_accepted"] ?? false,
       );
+  static List<MyOrderDataModel> fromJsonList(List<dynamic> jsonList) {
+    List<MyOrderDataModel> orders = jsonList.map((json) => MyOrderDataModel.fromJson(json)).toList();
+
+    orders.sort((a, b) => DateTime.parse(b.installationDate!).compareTo(DateTime.parse(a.installationDate!)));
+
+    return orders;
+  }
 }

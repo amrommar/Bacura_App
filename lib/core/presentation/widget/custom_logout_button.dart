@@ -1,5 +1,6 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class CustomLogoutButton extends StatelessWidget {
   const CustomLogoutButton({super.key});
@@ -12,7 +13,7 @@ class CustomLogoutButton extends StatelessWidget {
       padding: EdgeInsets.all(AppSizes.ph16),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(),
-        onPressed: () {
+        onPressed: () async {
           showCustomDialog(context, profileProvider: profileProvider);
         },
         child: Row(

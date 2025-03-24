@@ -1,7 +1,7 @@
 import 'package:bacura_app/core/utils/dialog_function.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/auth/index.dart';
-import 'package:bacura_app/feature/auth/presentation/views/components/verify_screen.dart';
+import 'package:bacura_app/feature/auth/presentation/views/verify_screen.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class AuthProvider with ChangeNotifier {
@@ -19,12 +19,13 @@ class AuthProvider with ChangeNotifier {
         backgroundColor: Colors.red,
       ));
     } else if (pinCode.length != 4) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text('الرجاء ادخال رمز التحقيق'),
-        backgroundColor: Colors.red,
-      ));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('الرجاء ادخال رمز التحقيق'),
+          backgroundColor: Colors.red,
+        ),
+      );
     } else {
-      // check phone number
       var result = await sl<VerifyOTPUseCase>().call(
         VerifyParameter(
           phone: mobileNumber,

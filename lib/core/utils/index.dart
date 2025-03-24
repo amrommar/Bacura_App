@@ -80,10 +80,10 @@ export 'package:bacura_app/feature/service_provider_registration/presentation/vi
 export 'package:bacura_app/feature/service_provider_registration/presentation/views/register_institution_screen.dart';
 export 'package:bacura_app/feature/service_provider_registration/presentation/views/register_technician_screen.dart';
 export 'package:bacura_app/feature/service_provider_registration/presentation/views/service_provider_register_screen.dart';
-export 'package:bacura_app/feature/technician_app/home/presentation/views/messages_screen.dart';
-export 'package:bacura_app/feature/technician_app/home/presentation/views/sp_home_screen.dart';
-export 'package:bacura_app/feature/technician_app/profile/presentation/views/calender_screen.dart';
-export 'package:bacura_app/feature/technician_app/profile/presentation/views/sp_profile_details_screen.dart';
+export 'package:bacura_app/feature/technician_app/home/presentation/views/sp_orders_screen.dart';
+export 'package:bacura_app/feature/technician_app/home/presentation/views/unused_components/messages_screen.dart';
+export 'package:bacura_app/feature/technician_app/profile/presentation/screen/calender_screen.dart';
+export 'package:bacura_app/feature/technician_app/profile/presentation/screen/sp_profile_details_screen.dart';
 export 'package:carousel_slider/carousel_slider.dart';
 export 'package:dio/dio.dart';
 export 'package:equatable/equatable.dart';

@@ -1,7 +1,6 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/technician_app/orders/presentation/views/sp_implement_order_screen.dart';
-import 'package:bacura_app/feature/technician_app/orders/presentation/views/sp_order_details_screen.dart';
-import 'package:bacura_app/feature/technician_app/profile/presentation/views/sp_completed_orders_screen.dart';
+import 'package:bacura_app/feature/technician_app/profile/presentation/screen/sp_completed_orders_screen.dart';
 
 class Routes {
   static const String onBoardingOneRoute = '/onBoardingOne';
@@ -35,7 +34,7 @@ class Routes {
   static const String spRequestDetailsRoute = '/spRequestDetails';
   static const String requestImplementRoute = '/requestImplement';
   static const String spProfileDetailsRoute = '/spPersonalDetails';
-  static const String spCompletedordersRoute = '/spCompletedorders';
+  static const String spCompletedOrdersRoute = '/spCompletedorders';
   static const String calenderRoute = '/calender';
   static const String messagesRoute = '/messages';
   static const String serviceProviderRegisterRoute = '/serviceProviderRegister';
@@ -110,14 +109,12 @@ class RouteGenerator {
       // case Routes.consultationScreenRoute:
       //   return MaterialPageRoute(builder: (_) => ConsultationScreen());
       case Routes.spHomeScreenRoute:
-        return MaterialPageRoute(builder: (_) => SpHomeScreen());
-      case Routes.spRequestDetailsRoute:
-        return MaterialPageRoute(builder: (_) => const SpOrderDetailsScreen());
+        return MaterialPageRoute(builder: (_) => const SpOrdersScreen());
       case Routes.requestImplementRoute:
-        return MaterialPageRoute(builder: (_) => const SpImplementOrderScreen());
+        return MaterialPageRoute(builder: (_) => SpImplementOrderScreen());
       case Routes.spProfileDetailsRoute:
         return MaterialPageRoute(builder: (_) => const SpProfileDetailsScreen());
-      case Routes.spCompletedordersRoute:
+      case Routes.spCompletedOrdersRoute:
         return MaterialPageRoute(builder: (_) => SpCompletedOrdersScreen());
       case Routes.calenderRoute:
         return MaterialPageRoute(builder: (_) => CalenderScreen());
