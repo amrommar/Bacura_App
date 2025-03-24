@@ -28,7 +28,7 @@ class OrdersTabScreen extends StatelessWidget {
                           color: ColorManager.primaryBlueColor,
                           backgroundColor: ColorManager.whiteColor,
                           onRefresh: () async {
-                            await provider.init();
+                            await provider.refresh();
                           },
                           child: NotificationListener<ScrollNotification>(
                             onNotification: (ScrollNotification scrollInfo) {

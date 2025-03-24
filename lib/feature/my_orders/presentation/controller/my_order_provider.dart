@@ -29,6 +29,13 @@ class MyOrderProvider with ChangeNotifier {
     await _getMyOrders();
   }
 
+  refresh() async {
+    pageNumber = 1;
+    isFinishedPaging = false;
+    isLoadingMyOrders = true;
+    await _getMyOrders();
+  }
+
   Future<void> _getMyOrders({bool isLoadingMore = false}) async {
     this.isLoadingMore = isLoadingMore;
     notifyListeners();
