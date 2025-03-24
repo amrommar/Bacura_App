@@ -71,6 +71,7 @@ class RouteGenerator {
         return MaterialPageRoute(
             builder: (_) => const OrderDetailsScreen(
                   id: 0,
+                  orderIndex: 0,
                 ));
       case Routes.cardsManagementRoute:
         return MaterialPageRoute(builder: (_) => Cards_Management_Screen());

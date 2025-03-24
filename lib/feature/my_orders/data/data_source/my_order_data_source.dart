@@ -1,15 +1,16 @@
 import 'package:bacura_app/core/network/model/api_client.dart';
 import 'package:bacura_app/core/network/model/api_endpoint.dart';
-import 'package:bacura_app/core/network/model/api_response.dart';
 import 'package:bacura_app/feature/my_orders/data/model/items_for_order_model.dart';
 import 'package:bacura_app/feature/my_orders/data/model/my_order_model.dart';
 import 'package:bacura_app/feature/my_orders/domain/entity/items_for_order_entity.dart';
 import 'package:bacura_app/feature/my_orders/domain/entity/my_order_entity.dart';
+import 'package:bacura_app/feature/my_orders/domain/use_case/cancel_order_use_case.dart';
 import 'package:bacura_app/feature/my_orders/domain/use_case/get_my_orders_use_case.dart';
 
 abstract class BaseOrderDataSource {
   Future<MyOrderEntity> getOrder({required MyOrdersParameters myOrdersParameters});
   Future<List<ItemsForOrderEntity>> getItems({required int id});
+  Future<void> changeOrderStatus({required CancelOrderParameter parameters});
 }
 
 class MyOrderDataSource extends BaseOrderDataSource {
@@ -57,5 +58,14 @@ class MyOrderDataSource extends BaseOrderDataSource {
     }
 
     return [];
+  }
+
+  @override
+  Future<void> changeOrderStatus({required CancelOrderParameter parameters}) async {
+    await ApiClient().apiCall(
+      requestType: RequestType.PATCH,
+      url: 'orders/${parameters.id}/status',
+      body: {'status': parameters.status},
+    );
   }
 }
