@@ -133,8 +133,13 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
       CustomMoreRowWidget(
           widget: Icon(Icons.account_circle, color: ColorManager.primaryBlueColor),
           text: AppLocalizations.of(context)!.register_as_a_service_provider,
-          onTap: () {
-            Navigator.pushNamed(context, Routes.serviceProviderRegisterRoute);
+          onTap: () async {
+            final Uri url = Uri.parse(
+              'https://sustainable-assets.sa/bacura-form/index.html',
+            );
+            if (!await launchUrl(url)) {
+              throw Exception('Could not launch $url');
+            }
           }),
 
       ///suggestions tab //////////////////////////////
