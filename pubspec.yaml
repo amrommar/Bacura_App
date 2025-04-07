@@ -75,6 +75,7 @@ dependencies:
   internet_connection_checker: ^3.0.1
 
 dev_dependencies:
+  dart_code_metrics: ^4.19.2
   flutter_test:
     sdk: flutter
 
