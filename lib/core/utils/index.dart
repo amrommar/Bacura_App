@@ -39,7 +39,6 @@ export 'package:bacura_app/feature/home/presentation/views/components/custom_sma
 export 'package:bacura_app/feature/more/presentation/views/about_us_screen.dart';
 export 'package:bacura_app/feature/more/presentation/views/more_tab_screen.dart';
 export 'package:bacura_app/feature/more/presentation/views/suggestions_screen.dart';
-export 'package:bacura_app/feature/more/presentation/views/unused_components/cards_management_screen.dart';
 export 'package:bacura_app/feature/more/technical_support/views/FAQ_screen.dart';
 export 'package:bacura_app/feature/more/technical_support/views/complaints_screen.dart';
 export 'package:bacura_app/feature/more/technical_support/views/technical_support_screen.dart';
@@ -67,9 +66,6 @@ export 'package:bacura_app/feature/order_services/presentation/order_request_scr
 export 'package:bacura_app/feature/order_services/presentation/service_type_screen.dart';
 export 'package:bacura_app/feature/profile/presentation/views/components/request_details_price_widget.dart';
 export 'package:bacura_app/feature/profile/presentation/views/profile_details_screen.dart';
-export 'package:bacura_app/feature/profile/presentation/views/unsed_widgets/Invoice_details_screen.dart';
-export 'package:bacura_app/feature/profile/presentation/views/unsed_widgets/last_operations_Screen.dart';
-export 'package:bacura_app/feature/profile/presentation/views/unsed_widgets/wallet_details_screen.dart';
 export 'package:bacura_app/feature/service_provider_registration/presentation/views/components/city_drop_down_widget.dart';
 export 'package:bacura_app/feature/service_provider_registration/presentation/views/components/custom_registration_text_field.dart';
 export 'package:bacura_app/feature/service_provider_registration/presentation/views/components/register_phone_field.dart';
@@ -81,9 +77,8 @@ export 'package:bacura_app/feature/service_provider_registration/presentation/vi
 export 'package:bacura_app/feature/service_provider_registration/presentation/views/register_technician_screen.dart';
 export 'package:bacura_app/feature/service_provider_registration/presentation/views/service_provider_register_screen.dart';
 export 'package:bacura_app/feature/technician_app/home/presentation/views/sp_orders_screen.dart';
-export 'package:bacura_app/feature/technician_app/home/presentation/views/unused_components/messages_screen.dart';
-export 'package:bacura_app/feature/technician_app/profile/presentation/screen/calender_screen.dart';
-export 'package:bacura_app/feature/technician_app/profile/presentation/screen/sp_profile_details_screen.dart';
+export 'package:bacura_app/feature/technician_app/profile/presentation/views/calender_screen.dart';
+export 'package:bacura_app/feature/technician_app/profile/presentation/views/sp_profile_details_screen.dart';
 export 'package:carousel_slider/carousel_slider.dart';
 export 'package:dio/dio.dart';
 export 'package:equatable/equatable.dart';

@@ -1,6 +1,6 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/technician_app/orders/presentation/views/sp_implement_order_screen.dart';
-import 'package:bacura_app/feature/technician_app/profile/presentation/screen/sp_completed_orders_screen.dart';
+import 'package:bacura_app/feature/technician_app/profile/presentation/views/sp_completed_orders_screen.dart';
 
 class Routes {
   static const String onBoardingOneRoute = '/onBoardingOne';
@@ -65,16 +65,13 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const HomeScreen());
       case Routes.profileDetailsRoute:
         return MaterialPageRoute(builder: (_) => const ProfileDetailsScreen());
-      case Routes.walletDetailsRoute:
-        return MaterialPageRoute(builder: (_) => const WalletDetailsScreen());
       case Routes.requestDetailsRoute:
         return MaterialPageRoute(
             builder: (_) => const OrderDetailsScreen(
                   id: 0,
                   orderIndex: 0,
                 ));
-      case Routes.cardsManagementRoute:
-        return MaterialPageRoute(builder: (_) => Cards_Management_Screen());
+
       case Routes.offerDetailsRoute:
         return MaterialPageRoute(
             builder: (_) => const OfferDetailsScreen(
@@ -103,10 +100,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const FAQScreen());
       case Routes.userGuideRoute:
         return MaterialPageRoute(builder: (_) => const UserGuideScreen());
-      case Routes.lastOperationsRoute:
-        return MaterialPageRoute(builder: (_) => LastOperationsScreen());
-      case Routes.invoiceDetailsRoute:
-        return MaterialPageRoute(builder: (_) => const InvoiceDetailsScreen());
+
       // case Routes.consultationScreenRoute:
       //   return MaterialPageRoute(builder: (_) => ConsultationScreen());
       case Routes.spHomeScreenRoute:
@@ -119,8 +113,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => SpCompletedOrdersScreen());
       case Routes.calenderRoute:
         return MaterialPageRoute(builder: (_) => CalenderScreen());
-      case Routes.messagesRoute:
-        return MaterialPageRoute(builder: (_) => const MessagesScreen());
+
       case Routes.serviceProviderRegisterRoute:
         return MaterialPageRoute(builder: (_) => const ServiceProviderRegisterScreen());
       case Routes.registerTechnicianRoute:

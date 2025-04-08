@@ -4,7 +4,6 @@ export 'package:bacura_app/feature/more/presentation/views/components/custom_mor
 export 'package:bacura_app/feature/more/presentation/views/components/custom_support_container_widget.dart';
 export 'package:bacura_app/feature/more/presentation/views/components/share_app_widget.dart';
 export 'package:bacura_app/feature/more/presentation/views/components/social_media_widget.dart';
-export 'package:bacura_app/feature/more/presentation/views/unused_components/add_card_bottomsheet.dart';
 export 'package:bacura_app/feature/more/technical_support/views/components/FQA_container.dart';
 export 'package:bacura_app/feature/more/technical_support/views/components/user_guide_content.dart';
 export 'package:bacura_app/feature/more/technical_support/views/components/user_guide_small_list.dart';

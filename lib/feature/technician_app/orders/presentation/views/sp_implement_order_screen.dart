@@ -1,6 +1,6 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/technician_app/orders/controller/sp_order_details_provider.dart';
-import 'package:bacura_app/feature/technician_app/profile/presentation/screen/index.dart';
+import 'package:bacura_app/feature/technician_app/profile/presentation/views/index.dart';
 
 class SpImplementOrderScreen extends StatefulWidget {
   final int? orderId;
