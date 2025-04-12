@@ -117,9 +117,9 @@ class PdfInvoiceApi {
       return [
         item.description,
         '${item.quantity}',
-        '\$ ${item.unitPrice}',
+        '\SAR ${item.unitPrice}',
         '${item.vat} %',
-        '\$ ${total.toStringAsFixed(2)}',
+        '\SAR ${total.toStringAsFixed(2)}',
       ];
     }).toList();
 

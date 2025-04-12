@@ -1,5 +1,6 @@
 import 'package:bacura_app/core/services/number_parser.dart';
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/my_orders/domain/entity/items_for_order_entity.dart';
 import 'package:bacura_app/feature/my_orders/presentation/controller/order_details_provider.dart';
 import 'package:bacura_app/feature/my_orders/presentation/views/widget/cancelled_order_bottom_widget.dart';
 import 'package:bacura_app/feature/my_orders/presentation/views/widget/completed_order_bottom_widget.dart';
@@ -185,7 +186,15 @@ class OrderDetailsScreen extends StatelessWidget {
                       iconColor: requestColor!),
                   const Divider(),
                   SizedBox(height: AppSizes.ph50),
-                  manageRequestButtons(status!, context: context, index: orderIndex),
+                  provider.isItemsLoading
+                      ? const Center(child: CircularProgressIndicator())
+                      : manageRequestButtons(
+                          status!,
+                          time: time!,
+                          context: context,
+                          index: orderIndex,
+                          item: provider.itemsForOrderEntity,
+                        ),
                   SizedBox(height: AppSizes.ph20),
                 ],
               ),
@@ -196,7 +205,13 @@ class OrderDetailsScreen extends StatelessWidget {
     );
   }
 
-  Widget manageRequestButtons(String requestStatus, {required BuildContext context, required int index}) {
+  Widget manageRequestButtons(
+    String requestStatus, {
+    required BuildContext context,
+    required int index,
+    required List<ItemsForOrderEntity?> item,
+    required String time,
+  }) {
     //TODO: change this AMR
     if (requestStatus == 'pending') {
       return OnGoingOrderBottomWidget(onPressed: () {
@@ -210,30 +225,30 @@ class OrderDetailsScreen extends StatelessWidget {
       });
     } else if (requestStatus == 'confirmed') {
       return CompletedOrderBottomWidget(
-        invoiceData: [
-          {
-            'description': 'test',
-            'date': DateTime.now(),
-            'quantity': 1,
+        invoiceData: item.map((item) {
+          return {
+            'description': item?.name ?? 'لا يوجد وصف',
+            'date': time,
+            'quantity': item?.quantity ?? 0,
             'vat': 0.15,
-            'unitPrice': 1.0,
-          },
-        ],
+            'unitPrice': (item?.price ?? 0.0).toDouble(),
+          };
+        }).toList(),
         mobileNumber: "",
         name: '',
         address: '',
       );
     } else if (requestStatus == 'completed') {
       return CompletedOrderBottomWidget(
-        invoiceData: [
-          {
-            'description': 'test',
-            'date': DateTime.now(),
-            'quantity': 1,
-            'vat': 0.15,
-            'unitPrice': 1.0,
-          },
-        ],
+        invoiceData: item.map((item) {
+          return {
+            'description': item?.name ?? 'لا يوجد وصف',
+            'date': time,
+            'quantity': item?.quantity ?? 0, // تأكد من تحويل quantity إلى double
+            'vat': 0.15, // قيمة الـ VAT ستكون ثابتة هنا
+            'unitPrice': (item?.price ?? 0.0).toDouble(), // تأكد من تحويل price إلى double
+          };
+        }).toList(),
         mobileNumber: "",
         name: '',
         address: '',
