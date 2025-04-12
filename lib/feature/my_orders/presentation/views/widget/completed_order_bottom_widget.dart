@@ -14,14 +14,17 @@ class CompletedOrderBottomWidget extends StatelessWidget {
   final String mobileNumber;
   final String name;
   final String address;
+  final int orderId;
+  final DateTime date;
 
-  CompletedOrderBottomWidget({
-    super.key,
-    required this.invoiceData,
-    required this.mobileNumber,
-    required this.name,
-    required this.address,
-  });
+  CompletedOrderBottomWidget(
+      {super.key,
+      required this.invoiceData,
+      required this.mobileNumber,
+      required this.name,
+      required this.address,
+      required this.orderId,
+      required this.date});
 
   @override
   Widget build(BuildContext context) {
@@ -30,11 +33,10 @@ class CompletedOrderBottomWidget extends StatelessWidget {
         onClicked: () async {
           final status = await Permission.storage.request();
           if (status.isGranted) {
-            final date = DateTime.now();
             final List<InvoiceItem> items = invoiceData.map((item) {
               return InvoiceItem(
                 description: item['description'],
-                date: item['date'] ?? DateTime.now(),
+                date: item['date'],
                 quantity: item['quantity'],
                 vat: item['vat'],
                 unitPrice: item['unitPrice'],
@@ -55,7 +57,7 @@ class CompletedOrderBottomWidget extends StatelessWidget {
               info: InvoiceInfo(
                 date: date,
                 description: 'My description...',
-                number: '${DateTime.now().year}',
+                number: '$orderId',
               ),
               items: items,
             );

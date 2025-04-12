@@ -190,10 +190,11 @@ class OrderDetailsScreen extends StatelessWidget {
                       ? const Center(child: CircularProgressIndicator())
                       : manageRequestButtons(
                           status!,
-                          time: time!,
+                          date: DateTime.parse(date!),
                           context: context,
                           index: orderIndex,
                           item: provider.itemsForOrderEntity,
+                          orderId: orderId!,
                         ),
                   SizedBox(height: AppSizes.ph20),
                 ],
@@ -210,7 +211,8 @@ class OrderDetailsScreen extends StatelessWidget {
     required BuildContext context,
     required int index,
     required List<ItemsForOrderEntity?> item,
-    required String time,
+    required DateTime date,
+    required int orderId,
   }) {
     //TODO: change this AMR
     if (requestStatus == 'pending') {
@@ -228,7 +230,7 @@ class OrderDetailsScreen extends StatelessWidget {
         invoiceData: item.map((item) {
           return {
             'description': item?.name ?? 'لا يوجد وصف',
-            'date': time,
+            'date': date,
             'quantity': item?.quantity ?? 0,
             'vat': 0.15,
             'unitPrice': (item?.price ?? 0.0).toDouble(),
@@ -237,13 +239,15 @@ class OrderDetailsScreen extends StatelessWidget {
         mobileNumber: "",
         name: '',
         address: '',
+        orderId: orderId,
+        date: date,
       );
     } else if (requestStatus == 'completed') {
       return CompletedOrderBottomWidget(
         invoiceData: item.map((item) {
           return {
             'description': item?.name ?? 'لا يوجد وصف',
-            'date': time,
+            'date': date,
             'quantity': item?.quantity ?? 0, // تأكد من تحويل quantity إلى double
             'vat': 0.15, // قيمة الـ VAT ستكون ثابتة هنا
             'unitPrice': (item?.price ?? 0.0).toDouble(), // تأكد من تحويل price إلى double
@@ -252,6 +256,8 @@ class OrderDetailsScreen extends StatelessWidget {
         mobileNumber: "",
         name: '',
         address: '',
+        orderId: orderId,
+        date: date,
       );
     }
 
