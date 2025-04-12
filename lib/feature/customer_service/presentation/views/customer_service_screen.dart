@@ -36,7 +36,7 @@ class CustomerServiceScreen extends StatelessWidget {
 
                       return message.userEntity == null
                           ? CustomerServiceMessageWidget(
-                              sender: "خدمة العملاء",
+                              sender: AppStrings.customerService,
                               message: message.content!,
                               time: DateParser.dateFormatterOnlyTime(message.createdAt!),
                             )

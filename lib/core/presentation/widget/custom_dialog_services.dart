@@ -1,5 +1,5 @@
-import 'package:bacura_app/core/utils/app_sizes.dart';
 import 'package:bacura_app/core/presentation/widget/custom_dialog.dart';
+import 'package:bacura_app/core/utils/app_sizes.dart';
 import 'package:flutter/material.dart';
 
 class DialogWidget {
@@ -46,13 +46,21 @@ class DialogWidget {
                       message: message,
                       description: description,
                       buttonText: buttonText,
-                      shape: shape ?? RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppSizes.br4)),
+                      shape: shape ??
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(AppSizes.br4),
+                          ),
                       child: child,
                     ),
                   ),
                 ),
               ),
-          pageBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) => const SizedBox());
+          pageBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+          ) =>
+              const SizedBox());
     }
   }
 }

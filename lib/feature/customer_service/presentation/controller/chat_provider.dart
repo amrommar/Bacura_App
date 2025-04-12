@@ -43,7 +43,9 @@ class ChatProvider with ChangeNotifier {
   }
 
   Future<void> sendMessage({required String content}) async {
-    var result = await sl<SendMessageUseCase>().call(SendMessageParams(id: getMessagesChat!.id, content: content));
+    var result = await sl<SendMessageUseCase>().call(
+      SendMessageParams(id: getMessagesChat!.id, content: content),
+    );
     result.fold((l) async {}, (r) async {
       await _getChatMessages();
       messageController.clear();

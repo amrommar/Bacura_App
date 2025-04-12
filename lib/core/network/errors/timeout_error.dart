@@ -5,6 +5,6 @@ class TimeOutException extends DioException {
 
   @override
   String toString() {
-    return 'انتهي الوقت، يرجى المحاولة مرة اخرى';
+    return AppStrings.timeOutPleaseTryAgain;
   }
 }

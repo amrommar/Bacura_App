@@ -23,7 +23,7 @@ class RegisterPhoneField extends StatelessWidget {
       languageCode: provider.appLanguage,
       onChanged: onChanged ?? (phone) {},
       // Use the provided onChanged
-      invalidNumberMessage: AppStrings.invalidMobileNumber,
+      invalidNumberMessage: ' invalidMobileNumber',
       validator: validator ??
           (phone) {
             // Use the provided validator

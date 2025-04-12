@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/auth/index.dart';
 
@@ -49,7 +48,12 @@ class _VerifyScreenState extends State<VerifyScreen> {
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
-      Image.asset(AppAssets.background2Image, width: double.infinity, height: double.infinity, fit: BoxFit.fill),
+      Image.asset(
+        AppAssets.background2Image,
+        width: double.infinity,
+        height: double.infinity,
+        fit: BoxFit.fill,
+      ),
       Scaffold(
           appBar: AppBar(
               iconTheme: IconThemeData(color: ColorManager.primaryBlueColor, size: AppSizes.ph30),

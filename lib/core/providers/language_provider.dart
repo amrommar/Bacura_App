@@ -1,13 +1,13 @@
 import 'package:bacura_app/core/utils/index.dart';
 
 class LanguageProvider extends ChangeNotifier {
-  String appLanguage = 'ar';
+  String appLanguage = AppStrings.ar;
 
   void changeLanguage() {
-    if (appLanguage == 'ar') {
-      appLanguage = 'en';
-    } else if (appLanguage == 'en') {
-      appLanguage = 'ar';
+    if (appLanguage == AppStrings.ar) {
+      appLanguage = AppStrings.en;
+    } else if (appLanguage == AppStrings.en) {
+      appLanguage = AppStrings.ar;
     }
     notifyListeners();
   }

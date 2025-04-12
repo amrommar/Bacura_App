@@ -10,71 +10,6 @@ class MoreTabScreen extends StatefulWidget {
 }
 
 class _MoreTabScreenState extends State<MoreTabScreen> {
-  void _showRatingDialog() {
-    double rating = 0.0; // Temporary variable to store rating value
-
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(AppLocalizations.of(context)!.app_rating),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                AppStrings.howWouldYouRateOurApp,
-                style: TextStyle(fontSize: AppSizes.sp16),
-              ),
-              SizedBox(height: AppSizes.ph20),
-              RatingBar.builder(
-                initialRating: 0,
-                minRating: 1,
-                allowHalfRating: true,
-                itemCount: 5,
-                itemBuilder: (context, _) => const Icon(
-                  Icons.star,
-                  color: Colors.amber,
-                ),
-                onRatingUpdate: (rating) {
-                  rating = rating; // Update rating value
-                },
-              ),
-              SizedBox(height: AppSizes.ph10),
-              const TextField(
-                decoration: InputDecoration(
-                  hintText: AppStrings.tellUsMoreAboutYourExperience,
-                  border: OutlineInputBorder(),
-                ),
-                maxLines: 3,
-              ),
-            ],
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context); // Close the dialog
-              },
-              child: Text(AppLocalizations.of(context)!.cancel),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                // Handle rating submission
-                Navigator.pop(context);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text(AppStrings.thankYouForYourFeedback)),
-                );
-              },
-              child: Text(
-                AppLocalizations.of(context)!.send,
-                style: TextStyle(color: ColorManager.whiteColor),
-              ),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final profileProvider = Provider.of<MyProfileProvider>(context, listen: false);
@@ -149,7 +84,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
       CustomMoreRowWidget(
         widget: Icon(Icons.star_border_outlined, color: ColorManager.yellowColor),
         text: AppLocalizations.of(context)!.app_rating,
-        onTap: _showRatingDialog,
+        onTap: () {},
 
         /// method for app rating
       ),

@@ -1,6 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class CustomLogoutButton extends StatelessWidget {
   const CustomLogoutButton({super.key});
@@ -41,9 +40,9 @@ void showCustomDialog(BuildContext context, {required MyProfileProvider profileP
   showDialog(
     context: context,
     builder: (context) => CustomAlertDialog(
-      title: 'تأكيد',
-      imagePath: 'assets/images/png/log-out.png',
-      content: const Text('تأكيد تسجيل الخروج'),
+      title: AppStrings.confirm,
+      imagePath: AppAssets.logout,
+      content: const Text(AppStrings.confirmLogout),
       onCancel: () {
         Navigator.of(context).pop();
       },

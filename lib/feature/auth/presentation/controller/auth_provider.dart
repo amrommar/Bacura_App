@@ -14,14 +14,14 @@ class AuthProvider with ChangeNotifier {
   Future<void> validatePin(BuildContext context, String mobileNumber) async {
     Future.delayed(Duration.zero, () {});
     if (pinCode.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text('الرجاء ادخال رمز التحقيق'),
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(AppStrings.pleaseEnterOTP),
         backgroundColor: Colors.red,
       ));
     } else if (pinCode.length != 4) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('الرجاء ادخال رمز التحقيق'),
+        SnackBar(
+          content: Text(AppStrings.pleaseEnterRightOTP),
           backgroundColor: Colors.red,
         ),
       );
@@ -36,9 +36,9 @@ class AuthProvider with ChangeNotifier {
       result.fold((l) {
         customShowCustomDialog(
           context: context,
-          title: 'الرجاء التاكد من رمز التحقيق',
-          imagePath: 'assets/images/png/bad-feedback.png',
-          content: 'رمز التحقق قد يكون خاطئ ارجوك حاولا ثانياً',
+          title: AppStrings.pleaseVerifyOTP,
+          imagePath: AppAssets.badFeedback,
+          content: AppStrings.oTPMayBeWrongTryAgain,
           isOk: false,
           isCancel: true,
           onCancel: () {
@@ -55,9 +55,9 @@ class AuthProvider with ChangeNotifier {
 
         customShowCustomDialog(
             context: context,
-            title: 'تم تسجيل الدخول بنجاح',
-            imagePath: 'assets/images/png/checked.png',
-            content: 'تم تسجيل الدخول بنجاح',
+            title: AppStrings.successfulLogin,
+            imagePath: AppAssets.checkedIcon,
+            content: AppStrings.successfulLogin,
             isOk: true,
             isCancel: false,
             onCancel: () {},

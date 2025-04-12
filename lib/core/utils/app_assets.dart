@@ -40,6 +40,7 @@ class AppAssets {
   static const String userGuide = '$imagePngPath/manual-book.png';
   static const String cameraOffer = '$imagePngPath/camera_offer.png';
   static const String checkedIcon = '$imagePngPath/checked.png';
+  static const String logout = '$imagePngPath/log-out.png';
 
   /// jpg
   static const String background2Image = '$imagePath/background2.jpg';

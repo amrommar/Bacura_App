@@ -7,7 +7,7 @@ class AboutUsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(AppStrings.aboutUs),
+        title: const Text(AppStrings.aboutBacuraApp),
       ),
       body: Container(
         padding: EdgeInsets.all(AppSizes.ph12),

@@ -13,11 +13,19 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
   Widget build(BuildContext context) {
     return Stack(children: [
       //   background Image
-      Image.asset(AppAssets.background2Image, width: double.infinity, height: double.infinity, fit: BoxFit.fill),
+      Image.asset(
+        AppAssets.background2Image,
+        width: double.infinity,
+        height: double.infinity,
+        fit: BoxFit.fill,
+      ),
       Scaffold(
         backgroundColor: Colors.transparent,
         body: Container(
-            padding: EdgeInsets.symmetric(horizontal: AppSizes.pw25, vertical: AppSizes.ph70),
+            padding: EdgeInsets.symmetric(
+              horizontal: AppSizes.pw25,
+              vertical: AppSizes.ph70,
+            ),
             child: SingleChildScrollView(
                 child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
               //language change icon ________________________________________________
@@ -35,7 +43,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
               SizedBox(height: AppSizes.ph10),
               Text(
                 textAlign: TextAlign.center,
-                AppStrings.you_can_browse_the_application_without_registering,
+                AppStrings.browseAppWithoutRegister,
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               SizedBox(height: AppSizes.ph80),

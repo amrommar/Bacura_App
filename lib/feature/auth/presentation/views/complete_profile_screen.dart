@@ -17,7 +17,12 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
     const FlutterSecureStorage secureStorage = FlutterSecureStorage();
 
     return Stack(children: [
-      Image.asset(AppAssets.background2Image, width: double.infinity, height: double.infinity, fit: BoxFit.fill),
+      Image.asset(
+        AppAssets.background2Image,
+        width: double.infinity,
+        height: double.infinity,
+        fit: BoxFit.fill,
+      ),
       Scaffold(
           appBar: AppBar(
               iconTheme: IconThemeData(
@@ -82,14 +87,18 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                                 keyBoardType: TextInputType.text),
                             SizedBox(height: AppSizes.ph10),
                             CustomDropDownField(
-                              selectedOption: 'الرياض',
-                              options: const [
-                                'الرياض',
-                                'جده',
-                                'الدمام',
-                                'الخبر',
-                                'مكة',
-                                'المدينة',
+                              selectedOption: AppStrings.riyad,
+                              options: [
+                                AppStrings.riyad,
+                                AppStrings.jeddah,
+                                AppStrings.damam,
+                                AppStrings.makka,
+                                AppStrings.madinah,
+                                AppStrings.jezan,
+                                AppStrings.taif,
+                                AppStrings.abha,
+                                AppStrings.tabouk,
+                                AppStrings.khobar,
                               ],
                               fieldName: AppLocalizations.of(context)!.city,
                               onChanged: (String? newValue) {
@@ -98,7 +107,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                                     duration: const Duration(seconds: 1),
                                     backgroundColor: ColorManager.midWhiteColor,
                                     content: Text(
-                                      'Please select a city',
+                                      AppStrings.pleaseSelectCity,
                                       style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                             color: ColorManager.darkRedColor,
                                           ),
@@ -110,26 +119,26 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                               },
                             ),
                             CustomDropDownField(
-                              selectedOption: 'ذكر',
+                              selectedOption: AppStrings.male,
                               options: const [
-                                'ذكر',
-                                'أنثي',
+                                AppStrings.male,
+                                AppStrings.female,
                               ],
                               fieldName: AppLocalizations.of(context)!.gender,
                               onChanged: (String? newValue) {
                                 if (newValue == null) {
                                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                    duration: const Duration(seconds: 1),
+                                    duration: Duration(seconds: 1),
                                     backgroundColor: ColorManager.midWhiteColor,
                                     content: Text(
-                                      'Please select a gender',
+                                      AppStrings.pleaseSelectGender,
                                       style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                             color: ColorManager.darkRedColor,
                                           ),
                                     ),
                                   ));
                                 }
-                                newValue == 'ذكر'
+                                newValue == AppStrings.male
                                     ? provider.selectedGender = 'male'
                                     : provider.selectedGender = 'female';
                               },
