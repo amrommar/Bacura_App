@@ -28,4 +28,13 @@ class OffersRepository extends BaseOffersRepository {
       return Left(ServerFailure(code: ex.code, message: ex.message));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> orderOffer({required int id}) async {
+    try {
+      return Right(await baseOffersDataSource.orderOffer(id: id));
+    } on Failure catch (ex) {
+      return Left(ServerFailure(code: ex.code, message: ex.message));
+    }
+  }
 }

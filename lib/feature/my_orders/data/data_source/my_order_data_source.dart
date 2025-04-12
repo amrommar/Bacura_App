@@ -1,15 +1,16 @@
 import 'package:bacura_app/core/network/model/api_client.dart';
 import 'package:bacura_app/core/network/model/api_endpoint.dart';
-import 'package:bacura_app/core/network/model/api_response.dart';
 import 'package:bacura_app/feature/my_orders/data/model/items_for_order_model.dart';
 import 'package:bacura_app/feature/my_orders/data/model/my_order_model.dart';
 import 'package:bacura_app/feature/my_orders/domain/entity/items_for_order_entity.dart';
 import 'package:bacura_app/feature/my_orders/domain/entity/my_order_entity.dart';
+import 'package:bacura_app/feature/my_orders/domain/use_case/cancel_order_use_case.dart';
 import 'package:bacura_app/feature/my_orders/domain/use_case/get_my_orders_use_case.dart';
 
 abstract class BaseOrderDataSource {
   Future<MyOrderEntity> getOrder({required MyOrdersParameters myOrdersParameters});
   Future<List<ItemsForOrderEntity>> getItems({required int id});
+  Future<void> changeOrderStatus({required CancelOrderParameter parameters});
 }
 
 class MyOrderDataSource extends BaseOrderDataSource {
@@ -26,14 +27,7 @@ class MyOrderDataSource extends BaseOrderDataSource {
         final data = response.data;
 
         if (data is Map<String, dynamic>) {
-          MyOrderEntity myOrderEntity = MyOrderModel.fromJson(data);
-
-          myOrderEntity = myOrderEntity.copyWith(
-            myOrderDataEntity: myOrderEntity.myOrderDataEntity
-              ..sort((a, b) => DateTime.parse(b.installationDate!).compareTo(DateTime.parse(a.installationDate!))),
-          );
-
-          return myOrderEntity;
+          return MyOrderModel.fromJson(data);
         } else {
           throw Exception("Invalid API response format: Expected Map<String, dynamic>");
         }
@@ -58,13 +52,20 @@ class MyOrderDataSource extends BaseOrderDataSource {
         if (data is List) {
           return data.map((e) => ItemsForOrderModel.fromJson(e)).toList();
         }
-      } else if (response?.data == null) {
-        return [];
       }
     } catch (e) {
       print("Error fetching items: $e");
     }
 
     return [];
+  }
+
+  @override
+  Future<void> changeOrderStatus({required CancelOrderParameter parameters}) async {
+    await ApiClient().apiCall(
+      requestType: RequestType.PATCH,
+      url: 'orders/${parameters.id}/status',
+      body: {'status': parameters.status},
+    );
   }
 }

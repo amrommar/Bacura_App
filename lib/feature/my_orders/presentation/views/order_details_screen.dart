@@ -18,6 +18,7 @@ class OrderDetailsScreen extends StatelessWidget {
   final String? expiresAt;
   final int? total;
   final int id;
+  final int orderIndex;
 
   final String? status;
 
@@ -32,6 +33,7 @@ class OrderDetailsScreen extends StatelessWidget {
       this.total,
       this.description,
       required this.id,
+      required this.orderIndex,
       this.status});
 
   @override
@@ -183,7 +185,7 @@ class OrderDetailsScreen extends StatelessWidget {
                       iconColor: requestColor!),
                   const Divider(),
                   SizedBox(height: AppSizes.ph50),
-                  manageRequestButtons(status!, context: context),
+                  manageRequestButtons(status!, context: context, index: orderIndex),
                   SizedBox(height: AppSizes.ph20),
                 ],
               ),
@@ -194,32 +196,60 @@ class OrderDetailsScreen extends StatelessWidget {
     );
   }
 
-  Widget manageRequestButtons(String requestStatus, {required BuildContext context}) {
+  Widget manageRequestButtons(String requestStatus, {required BuildContext context, required int index}) {
     //TODO: change this AMR
     if (requestStatus == 'pending') {
       return OnGoingOrderBottomWidget(onPressed: () {
-        showManageRequestBottomSheet(context);
+        showManageRequestBottomSheet(context, index);
       });
     } else if (requestStatus == 'declined') {
       return const CancelledOrderBottomWidget();
     } else if (requestStatus == 'approved') {
       return OnGoingOrderBottomWidget(onPressed: () {
-        showManageRequestBottomSheet(context);
+        showManageRequestBottomSheet(context, index);
       });
     } else if (requestStatus == 'confirmed') {
-      return const CompletedOrderBottomWidget();
+      return CompletedOrderBottomWidget(
+        invoiceData: [
+          {
+            'description': 'test',
+            'date': DateTime.now(),
+            'quantity': 1,
+            'vat': 0.15,
+            'unitPrice': 1.0,
+          },
+        ],
+        mobileNumber: "",
+        name: '',
+        address: '',
+      );
     } else if (requestStatus == 'completed') {
-      return const CompletedOrderBottomWidget();
+      return CompletedOrderBottomWidget(
+        invoiceData: [
+          {
+            'description': 'test',
+            'date': DateTime.now(),
+            'quantity': 1,
+            'vat': 0.15,
+            'unitPrice': 1.0,
+          },
+        ],
+        mobileNumber: "",
+        name: '',
+        address: '',
+      );
     }
 
     return Container();
   }
 
-  void showManageRequestBottomSheet(BuildContext context) {
+  void showManageRequestBottomSheet(BuildContext context, int index) {
     showModalBottomSheet(
         context: context,
         builder: (context) {
-          return const ManageOnGoingOrderBottomSheet();
+          return ManageOnGoingOrderBottomSheet(
+            index: index,
+          );
         });
   }
 }
@@ -257,7 +287,7 @@ class ItemsShimmerWidget extends StatelessWidget {
                         color: ColorManager.whiteColor,
                       ),
                     ),
-                    SizedBox(width: 10.w), // إضافة مسافة بين العناصر
+                    SizedBox(width: 10.w),
                     Container(
                       height: 20.h,
                       width: 20.w,

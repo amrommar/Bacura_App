@@ -19,6 +19,7 @@ import 'package:bacura_app/feature/more/domain/usecases/suggetions_use_case.dart
 import 'package:bacura_app/feature/my_orders/data/data_source/my_order_data_source.dart';
 import 'package:bacura_app/feature/my_orders/data/repository/my_order_repository.dart';
 import 'package:bacura_app/feature/my_orders/domain/repository/base_my_order_repository.dart';
+import 'package:bacura_app/feature/my_orders/domain/use_case/cancel_order_use_case.dart';
 import 'package:bacura_app/feature/my_orders/domain/use_case/get_my_orders_use_case.dart';
 import 'package:bacura_app/feature/my_orders/domain/use_case/items_for_order_use_case.dart';
 import 'package:bacura_app/feature/notifications/data/data_source/notifications_data_source.dart';
@@ -32,6 +33,7 @@ import 'package:bacura_app/feature/offers/data/repository/offers_repository.dart
 import 'package:bacura_app/feature/offers/domain/repository/base_offers_repository.dart';
 import 'package:bacura_app/feature/offers/domain/use_case/get_items_for_offer__use_case.dart';
 import 'package:bacura_app/feature/offers/domain/use_case/get_my_offers_use_case.dart';
+import 'package:bacura_app/feature/offers/domain/use_case/order_offer_use_case.dart';
 import 'package:bacura_app/feature/order_services/data/data_source/order_service_data_source.dart';
 import 'package:bacura_app/feature/order_services/data/repository/order_service_repository.dart';
 import 'package:bacura_app/feature/order_services/domin/repository/base_order_service_repository.dart';
@@ -124,6 +126,7 @@ class DependencyInjectionServices {
     ///Use Cases
     sl.registerLazySingleton<GetMyOrdersUseCase>(() => GetMyOrdersUseCase(baseMyOrderRepository: sl()));
     sl.registerLazySingleton<ItemsForOrderUseCase>(() => ItemsForOrderUseCase(baseMyOrderRepository: sl()));
+    sl.registerLazySingleton<CancelOrderUseCase>(() => CancelOrderUseCase(baseMyOrderRepository: sl()));
   }
 
   _initializeMoreApp() {
@@ -148,6 +151,7 @@ class DependencyInjectionServices {
     ///Use Cases
     sl.registerLazySingleton<GetOffersUseCase>(() => GetOffersUseCase(baseOffersRepository: sl()));
     sl.registerLazySingleton<GetItemsForOfferUseCase>(() => GetItemsForOfferUseCase(baseOffersRepository: sl()));
+    sl.registerLazySingleton<OrderOfferUseCase>(() => OrderOfferUseCase(baseOffersRepository: sl()));
   }
 
   _initializeNotifications() {

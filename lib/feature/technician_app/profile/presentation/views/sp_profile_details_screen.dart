@@ -3,8 +3,8 @@ import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
 import 'package:bacura_app/feature/profile/presentation/views/components/completed_requests_widget.dart';
 import 'package:bacura_app/feature/profile/presentation/views/components/requests_calender_widget.dart';
-import 'package:bacura_app/feature/technician_app/profile/presentation/screen/components/sp_avatar_widget.dart';
-import 'package:bacura_app/feature/technician_app/profile/presentation/screen/components/sp_profile_details_widget.dart';
+import 'package:bacura_app/feature/technician_app/profile/presentation/views/components/sp_avatar_widget.dart';
+import 'package:bacura_app/feature/technician_app/profile/presentation/views/components/sp_profile_details_widget.dart';
 
 class SpProfileDetailsScreen extends StatefulWidget {
   const SpProfileDetailsScreen({super.key});

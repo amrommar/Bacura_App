@@ -17,7 +17,7 @@ class OrdersTabScreen extends StatelessWidget {
         return provider.isLoadingMyOrders
             ? buildShimmerContainer()
             : provider.myOrderEntity.myOrderDataEntity.isEmpty
-                ? const Center(child: Text('لا يوجد طلبات'))
+                ? Center(child: SvgPicture.asset('assets/images/svg/empty_orders.svg'))
                 : Column(
                     children: [
                       SizedBox(height: AppSizes.ph5),
@@ -28,7 +28,7 @@ class OrdersTabScreen extends StatelessWidget {
                           color: ColorManager.primaryBlueColor,
                           backgroundColor: ColorManager.whiteColor,
                           onRefresh: () async {
-                            await provider.init();
+                            await provider.refresh();
                           },
                           child: NotificationListener<ScrollNotification>(
                             onNotification: (ScrollNotification scrollInfo) {
@@ -61,6 +61,7 @@ class OrdersTabScreen extends StatelessWidget {
                                                   id: requestEntity.id!,
                                                   description: requestEntity.description,
                                                   status: requestEntity.status,
+                                                  orderIndex: index,
                                                 )));
                                   },
                                   child: OrderItemComponent(

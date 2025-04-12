@@ -58,12 +58,17 @@ class OfferDetailsScreen extends StatelessWidget {
                         SizedBox(height: AppSizes.ph60),
 
                         /// Add To Cart Elevated Button
-                        Center(
-                          child: CustomSmallElevatedButton(
-                            text: AppLocalizations.of(context)!.request,
-                            onPressed: () {},
-                          ),
-                        )
+                        provider.showOrderButton
+                            ? Center(
+                                child: CustomSmallElevatedButton(
+                                  text: AppLocalizations.of(context)!.request,
+                                  onPressed: () {
+                                    provider.orderOffer(
+                                        id: provider.offersEntity.offersDataEntity[index].id!, context: context);
+                                  },
+                                ),
+                              )
+                            : Container()
                       ],
                     ),
                   ),

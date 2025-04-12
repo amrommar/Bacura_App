@@ -19,7 +19,7 @@ class NotificationsScreen extends StatelessWidget {
           builder: (context, provider, child) => provider.isLoadingNotifications
               ? buildNotificationsShimmerContainer()
               : provider.notificationsEntity.notificationsDataEntity.isEmpty
-                  ? const Center(child: Text('لا يوجد اشعارات'))
+                  ? Center(child: SvgPicture.asset('assets/images/svg/inbox.svg'))
                   : Column(
                       children: [
                         LazyLoadScrollView(

@@ -7,4 +7,5 @@ import 'package:dartz/dartz.dart';
 abstract class BaseOffersRepository {
   Future<Either<Failure, OffersEntity>> getOffers({required OffersParameters offersParameters});
   Future<Either<Failure, List<ItemsOfferEntity>>> getItems({required int id});
+  Future<Either<Failure, void>> orderOffer({required int id});
 }
