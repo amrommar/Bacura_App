@@ -2,8 +2,7 @@ import 'package:bacura_app/core/utils/index.dart';
 
 class OrderSentBottomSheet extends StatefulWidget {
   final String title;
-  final String image;
-  const OrderSentBottomSheet({super.key, required this.title, required this.image});
+  const OrderSentBottomSheet({super.key, required this.title});
 
   @override
   State<OrderSentBottomSheet> createState() => _OrderSentBottomSheetState();
@@ -25,7 +24,7 @@ class _OrderSentBottomSheetState extends State<OrderSentBottomSheet> {
           children: [
             /// from Back End ///////////////////////
             Image.asset(
-              imagePath,
+              'assets/images/png/request.png',
               height: AppSizes.ph150,
               width: AppSizes.pw150,
             ),

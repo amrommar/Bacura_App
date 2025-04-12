@@ -77,7 +77,6 @@ class CinemaOrderProvider with ChangeNotifier {
         context: context,
         builder: (context) {
           return OrderSentBottomSheet(
-            image: imagePath,
             title: message,
           );
         });

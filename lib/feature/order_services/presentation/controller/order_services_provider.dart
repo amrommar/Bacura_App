@@ -81,7 +81,6 @@ class OrderServicesProvider extends ChangeNotifier {
         context: context,
         builder: (context) {
           return OrderSentBottomSheet(
-            image: imgPath,
             title: message,
           );
         });
