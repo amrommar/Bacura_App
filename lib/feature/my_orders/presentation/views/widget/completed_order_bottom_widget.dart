@@ -27,7 +27,7 @@ class CompletedOrderBottomWidget extends StatelessWidget {
     return ButtonWidget(
         text: 'تحميل الفاتورة',
         onClicked: () async {
-          final status = await Permission.storage.request(); // طلب إذن الوصول للتخزين
+          final status = await Permission.storage.request();
           if (status.isGranted) {
             final date = DateTime.now();
             final List<InvoiceItem> items = invoiceData.map((item) {
@@ -61,18 +61,15 @@ class CompletedOrderBottomWidget extends StatelessWidget {
 
             final pdfFile = await PdfInvoiceApi.generate(invoice);
 
-            // حفظ الفاتورة في مجلد التنزيلات (Downloads)
-            final directory = Directory('/storage/emulated/0/Download'); // مجلد التنزيلات
+            final directory = Directory('/storage/emulated/0/Download');
             final filePath = '${directory.path}/Invoice_${DateTime.now().millisecondsSinceEpoch}.pdf';
             final newFile = File(filePath);
             await newFile.writeAsBytes(await pdfFile.readAsBytes());
 
-            // إظهار إشعار للمستخدم بمكان الملف
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text('تم تحميل الفاتورة بنجاح: $filePath')),
             );
           } else {
-            // لو المستخدم رفض الإذن
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text('يجب السماح بالوصول إلى التخزين لحفظ الفاتورة')),
             );
