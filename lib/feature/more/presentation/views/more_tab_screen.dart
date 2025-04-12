@@ -133,8 +133,13 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
       CustomMoreRowWidget(
           widget: Icon(Icons.account_circle, color: ColorManager.primaryBlueColor),
           text: AppLocalizations.of(context)!.register_as_a_service_provider,
-          onTap: () {
-            Navigator.pushNamed(context, Routes.serviceProviderRegisterRoute);
+          onTap: () async {
+            final Uri url = Uri.parse(
+              'https://sustainable-assets.sa/bacura-form/index.html',
+            );
+            if (!await launchUrl(url)) {
+              throw Exception('Could not launch $url');
+            }
           }),
 
       ///suggestions tab //////////////////////////////
@@ -171,10 +176,6 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
       /// social Media Links /////////////////////////////////////////////////////////////
       Row(mainAxisAlignment: MainAxisAlignment.center, children: [
         SocialMediaWidget(
-          imagePath: AppAssets.snapLogo,
-          path: AppAssets.bacuraSnapURL,
-        ),
-        SocialMediaWidget(
           imagePath: AppAssets.xLogo,
           path: AppAssets.bacuraXURL,
         ),
@@ -183,12 +184,16 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
           path: AppAssets.bacuraLinkedInURL,
         ),
         SocialMediaWidget(
-          imagePath: AppAssets.instagramLogo,
-          path: AppAssets.bacuraInstagramURL,
-        ),
-        SocialMediaWidget(
           imagePath: AppAssets.facebookLogo,
           path: AppAssets.bacuraFacebookURL,
+        ),
+        SocialMediaWidget(
+          imagePath: AppAssets.snapLogo,
+          path: AppAssets.bacuraSnapURL,
+        ),
+        SocialMediaWidget(
+          imagePath: AppAssets.instagramLogo,
+          path: AppAssets.bacuraInstagramURL,
         ),
       ])
     ]));

@@ -33,51 +33,47 @@ class RareServiceComponent extends StatelessWidget {
                     )),
             Container(
               height: AppSizes.ph156,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: ListView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      scrollDirection: Axis.horizontal,
-                      shrinkWrap: false,
-                      itemCount: rareCategories.length,
-                      itemBuilder: (context, index) => RareServiceWidget(
-                        onTap: () {
-                          profileProvider.token == null
-                              ? customShowCustomDialog(
-                                  context: context,
-                                  title: 'تسجيل الدخول',
-                                  imagePath: 'assets/images/png/bad-feedback.png',
-                                  content: 'الرجاء تسجيل الدخول اولاً',
-                                  isOk: true,
-                                  isCancel: true,
-                                  onCancel: () {
-                                    Navigator.pop(context);
-                                  },
-                                  onOk: () {
-                                    Navigator.pushNamed(context, Routes.loginRoute);
-                                  },
-                                )
-                              : rareCategories[index].type == "consultation"
-                                  ? Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => ConsultationOrderScreen(
-                                                categoryEntity: rareCategories[index],
-                                              )))
-                                  : Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => CinemaOrderScreen(
-                                                categoryId: rareCategories[index].id!,
-                                              )));
-                        },
-                        imagePath: rareCategories[index].image ?? '',
-                        serviceTitle: rareCategories[index].name ?? '',
-                      ),
-                    ),
+              child: Expanded(
+                child: ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: false,
+                  itemCount: rareCategories.length,
+                  itemBuilder: (context, index) => RareServiceWidget(
+                    onTap: () {
+                      profileProvider.token == null
+                          ? customShowCustomDialog(
+                              context: context,
+                              title: 'تسجيل الدخول',
+                              imagePath: 'assets/images/png/bad-feedback.png',
+                              content: 'الرجاء تسجيل الدخول اولاً',
+                              isOk: true,
+                              isCancel: true,
+                              onCancel: () {
+                                Navigator.pop(context);
+                              },
+                              onOk: () {
+                                Navigator.pushNamed(context, Routes.loginRoute);
+                              },
+                            )
+                          : rareCategories[index].type == "consultation"
+                              ? Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ConsultationOrderScreen(
+                                            categoryEntity: rareCategories[index],
+                                          )))
+                              : Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => CinemaOrderScreen(
+                                            categoryId: rareCategories[index].id!,
+                                          )));
+                    },
+                    imagePath: rareCategories[index].image ?? '',
+                    serviceTitle: rareCategories[index].name ?? '',
                   ),
-                ],
+                ),
               ),
             ),
             Divider(
