@@ -1,7 +1,9 @@
 import 'dart:ui';
-
-import 'package:bacura_app/core/localization/utils.dart';
+import 'package:bacura_app/core/global/local_storage/shared_preferences_services.dart';
 import 'package:get/get.dart';
+import 'package:bacura_app/core/localization/utils.dart';
+import 'package:bacura_app/core/utils/app_constants.dart';
+import 'package:bacura_app/core/services/dependency_injection_services.dart';
 
 extension LanguageTypeExtension on LanguageType {
   String getLanguageCode() {
@@ -11,70 +13,70 @@ extension LanguageTypeExtension on LanguageType {
 
 abstract class BaseAppLocalizations {
   changeLocale({String? languageCode});
-
   bool isArabic();
-
   bool isEnglish();
-
   String getLanguageCode();
-// Future<Locale> getUserStoredLocale();
-// Future setUserStoredLocale(Locale locale);
+  Future<Locale> getUserStoredLocale();
+  Future setUserStoredLocale(Locale locale);
 }
 
 class AppLocalizations implements BaseAppLocalizations {
   static String defaultLocal = LanguageType.english.getLanguageCode();
 
-  /// Change language for the current application/// Save current application language in device local storage so that even if app terminated/restarted, the language doesn't change
   @override
   changeLocale({String? languageCode}) {
-    languageCode == null
-        ? Get.updateLocale(isEnglish()
-            ? Locale(LanguageType.english.getLanguageCode())
-            : Locale(LanguageType.arabic.getLanguageCode()))
-        : Get.updateLocale(Locale(languageCode));
-    // setUserStoredLocale(Get.locale!);
+    final newLocale = languageCode == null
+        ? (isArabic() ? Locale(LanguageType.english.getLanguageCode()) : Locale(LanguageType.arabic.getLanguageCode()))
+        : Locale(languageCode);
+
+    Get.updateLocale(newLocale);
+    setUserStoredLocale(newLocale);
   }
 
-  /// Check if current application language is German
   @override
   bool isArabic() {
-    return getLanguageCode().toString() == LanguageType.arabic.getLanguageCode();
+    return getLanguageCode() == LanguageType.arabic.getLanguageCode();
   }
 
-  /// Check if current application language is English
   @override
   bool isEnglish() {
-    return getLanguageCode().toString() == LanguageType.english.getLanguageCode();
+    return getLanguageCode() == LanguageType.english.getLanguageCode();
   }
 
-  /// YOU CAN USE THIS IN API CALLER TO SEND REQUEST BY LANGUAGE
   @override
   String getLanguageCode() {
     String? locale = Get.locale?.languageCode;
     if (locale != null &&
-        (locale.toString() == LanguageType.arabic.getLanguageCode() ||
-            locale.toString() == LanguageType.english.getLanguageCode())) {
+        (locale == LanguageType.arabic.getLanguageCode() || locale == LanguageType.english.getLanguageCode())) {
       return locale;
     } else {
       return defaultLocal;
     }
   }
-// ///Fetch stored language from device local storage for user app
-// ///If there is no stored language then arabic will be used as default
-// @override
-// Future<Locale> getUserStoredLocale() async {
-//   String locale = 'ar';
-//   if (locale.contains(LanguageType.english.getLanguageCode())) {
-//     return Locale(LanguageType.english.getLanguageCode());
-//   } else {
-//     return Locale(LanguageType.arabic.getLanguageCode());
-//   }
-// }
-  /// Save user application language in device local storage so that even if app terminated/restarted, the language doesn't change
-// @override
-// Future setUserStoredLocale(Locale locale) async {
-//   locale;
-// }
+
+  @override
+  Future<Locale> getUserStoredLocale() async {
+    String locale = await sl<SharedPreferencesServices>().getData(
+          key: AppConstants.userStoredLocale,
+          dataType: DataType.string,
+        ) ??
+        defaultLocal;
+
+    if (locale.contains(LanguageType.english.getLanguageCode())) {
+      return Locale(LanguageType.english.getLanguageCode());
+    } else {
+      return Locale(LanguageType.arabic.getLanguageCode());
+    }
+  }
+
+  @override
+  Future setUserStoredLocale(Locale locale) async {
+    await sl<SharedPreferencesServices>().saveData(
+      key: AppConstants.userStoredLocale,
+      value: locale.languageCode,
+      dataType: DataType.string,
+    );
+  }
 }
 
 String tr(String key) {

@@ -10,6 +10,7 @@ class ServiceInitializer {
 
   initializeSettings() async {
     await initializeDependencyInjection();
+    locale = const Locale(AppStrings.ar);
   }
 
   initializeDependencyInjection() async {
@@ -20,5 +21,9 @@ class ServiceInitializer {
     await SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown],
     );
+  }
+
+  Future getSavedLocal() async {
+    locale = await sl<BaseAppLocalizations>().getUserStoredLocale();
   }
 }
