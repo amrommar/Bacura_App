@@ -9,10 +9,13 @@ class CinemaOrderProvider with ChangeNotifier {
   double latitude = 0.0;
   double longitude = 0.0;
   TextEditingController descriptionController = TextEditingController();
-  String selectedOption = '9 ص - 1 م';
+  String selectedOption = tr(AppStrings.time9_1);
   DateTime selectedDate = DateTime.now();
   String formattedDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
-  final List<String> options = ['9 ص - 1 م', '1 م - 6 م'];
+  final List<String> options = [
+    tr(AppStrings.time9_1),
+    tr(AppStrings.time1_6),
+  ];
 
   dynamic onTimeChanged(String value) {
     selectedOption = value;
@@ -39,14 +42,16 @@ class CinemaOrderProvider with ChangeNotifier {
     ));
     result.fold((l) async {
       showOrderSentBottomSheet(
-          context: context,
-          message: 'لقد حدث خطاء، يرجى المحاولة لاحقا',
-          imgPath: 'assets/images/png/bad-feedback.png');
+        context: context,
+        message: tr(AppStrings.errorOccurredPleaseTryAgainLater),
+        imgPath: AppAssets.badFeedback,
+      );
     }, (r) async {
       showOrderSentBottomSheet(
-          context: context,
-          message: 'لقد أرسلنا الطلب، وسيقوم مزود الخدمة بالتواصل معك.',
-          imgPath: 'assets/images/png/request.png');
+        context: context,
+        message: tr(AppStrings.weHaveSentTheRequest),
+        imgPath: AppAssets.request,
+      );
       descriptionController.clear();
       locationController.clear();
     });
@@ -72,7 +77,11 @@ class CinemaOrderProvider with ChangeNotifier {
     }
   }
 
-  void showOrderSentBottomSheet({required BuildContext context, required String message, required String imgPath}) {
+  void showOrderSentBottomSheet({
+    required BuildContext context,
+    required String message,
+    required String imgPath,
+  }) {
     showModalBottomSheet(
         context: context,
         builder: (context) {

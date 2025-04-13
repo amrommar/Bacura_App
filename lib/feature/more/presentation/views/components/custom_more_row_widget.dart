@@ -21,7 +21,10 @@ class CustomMoreRowWidget extends StatelessWidget {
           color: ColorManager.lightWhiteColor,
           borderRadius: BorderRadius.circular(AppSizes.br8),
         ),
-        margin: EdgeInsets.symmetric(horizontal: AppSizes.pw8, vertical: AppSizes.ph3),
+        margin: EdgeInsets.symmetric(
+          horizontal: AppSizes.pw8,
+          vertical: AppSizes.ph3,
+        ),
         padding: EdgeInsets.all(AppSizes.br12),
         child: InkWell(
             onTap: () {
@@ -31,7 +34,11 @@ class CustomMoreRowWidget extends StatelessWidget {
               widget,
               Expanded(
                   child: Padding(
-                padding: EdgeInsets.only(right: AppSizes.pw4, left: AppSizes.pw4, top: AppSizes.ph3),
+                padding: EdgeInsets.only(
+                  right: AppSizes.pw4,
+                  left: AppSizes.pw4,
+                  top: AppSizes.ph3,
+                ),
                 child: Text(text,
                     style: Theme.of(context).textTheme.displayMedium!.copyWith(
                           color: ColorManager.blackColor,

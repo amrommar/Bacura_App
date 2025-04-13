@@ -11,7 +11,7 @@ class CustomerServiceScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          AppLocalizations.of(context)!.service_customer_chat,
+          tr(AppStrings.customerSupportChat),
         ),
         actions: const [
           CustomerServiceAppBarWidget(),
@@ -36,7 +36,7 @@ class CustomerServiceScreen extends StatelessWidget {
 
                       return message.userEntity == null
                           ? CustomerServiceMessageWidget(
-                              sender: "خدمة العملاء",
+                              sender: tr(AppStrings.customerService),
                               message: message.content!,
                               time: DateParser.dateFormatterOnlyTime(message.createdAt!),
                             )

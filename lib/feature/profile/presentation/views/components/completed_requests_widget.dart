@@ -24,7 +24,7 @@ class CompleteOrdersWidget extends StatelessWidget {
                   children: [
                     Icon(Icons.request_page_outlined, color: ColorManager.midBlueColor),
                     SizedBox(width: AppSizes.pw10),
-                    Text('الطلبات المنجزة',
+                    Text(tr(AppStrings.completedOrders),
                         style: Theme.of(context).textTheme.titleMedium!.copyWith(
                               color: ColorManager.darkBlueColor,
                             ))

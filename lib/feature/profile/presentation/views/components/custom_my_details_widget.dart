@@ -43,10 +43,10 @@ class CustomMyDetailsWidget extends StatelessWidget {
                       Text(
                         title,
                         textAlign: TextAlign.start,
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelLarge!
-                            .copyWith(fontSize: AppSizes.sp14, color: Theme.of(context).primaryColor),
+                        style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                              fontSize: AppSizes.sp14,
+                              color: Theme.of(context).primaryColor,
+                            ),
                       ),
                       Text(
                         subTitle,

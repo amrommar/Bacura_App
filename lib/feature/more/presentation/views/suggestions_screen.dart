@@ -12,7 +12,7 @@ class SuggestionsScreen extends StatelessWidget {
       create: (BuildContext context) => SuggestionsProvider(),
       child: Scaffold(
         appBar: AppBar(
-          title: Text(AppLocalizations.of(context)!.suggestions),
+          title: Text(tr(AppStrings.suggestions)),
         ),
         body: Consumer<SuggestionsProvider>(
           builder: (context, provider, child) {
@@ -24,47 +24,47 @@ class SuggestionsScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       CustomQuestionTextFormField(
-                        fieldName: AppLocalizations.of(context)!.fullName,
-                        hintText: AppLocalizations.of(context)!.enterYourName,
+                        fieldName: tr(AppStrings.fullName),
+                        hintText: tr(AppStrings.enterYourName),
                         controller: provider.nameController,
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
-                            return AppLocalizations.of(context)!.pleaseEnterYourName;
+                            return tr(AppStrings.pleaseEnterYourName);
                           }
                           return null;
                         },
                       ),
                       CustomQuestionTextFormField(
-                        fieldName: AppLocalizations.of(context)!.email,
-                        hintText: AppLocalizations.of(context)!.enter_your_email,
+                        fieldName: tr(AppStrings.email),
+                        hintText: tr(AppStrings.enterEmail),
                         controller: provider.emailController,
                         validator: (text) {
                           if (text == null || text.trim().isEmpty) {
-                            return AppLocalizations.of(context)!.please_enter_your_email;
+                            return tr(AppStrings.pleaseEnterEmail);
                           }
 
                           if (!Validation.checkEmail(email: text)) {
-                            return AppLocalizations.of(context)!.please_enter_valid_email;
+                            return tr(AppStrings.pleaseEnterValidEmail);
                           }
                           return null;
                         },
                       ),
                       CustomPhoneField(
-                        fieldName: AppLocalizations.of(context)!.mobileNumber,
-                        hintText: AppLocalizations.of(context)!.enterYourMobileNumber,
+                        fieldName: tr(AppStrings.mobileNumber),
+                        hintText: tr(AppStrings.enterYourMobileNumber),
                         controller: provider.mobileNumberController,
                         onChanged: (phone) {
                           provider.onChangePhoneNumber(phone.completeNumber);
                         },
                       ),
                       CustomQuestionTextFormField(
-                        fieldName: AppLocalizations.of(context)!.your_suggestions,
-                        hintText: AppLocalizations.of(context)!.your_suggestions_is_important,
+                        fieldName: tr(AppStrings.yourSuggestions),
+                        hintText: tr(AppStrings.yourSuggestionsHint),
                         controller: provider.suggestionsController,
                         maxLines: 8,
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
-                            return AppLocalizations.of(context)!.please_enter_your_suggestions;
+                            return tr(AppStrings.pleaseEnterSuggestions);
                           }
                           return null;
                         },
@@ -85,7 +85,7 @@ class SuggestionsScreen extends StatelessWidget {
                                   duration: const Duration(seconds: 1),
                                   backgroundColor: ColorManager.midWhiteColor,
                                   content: Text(
-                                    AppLocalizations.of(context)!.please_enter_all_data,
+                                    tr(AppStrings.pleaseEnterAllData),
                                     style: Theme.of(context)
                                         .textTheme
                                         .titleMedium!
@@ -94,7 +94,7 @@ class SuggestionsScreen extends StatelessWidget {
                             }
                           },
                           child: Text(
-                            AppLocalizations.of(context)!.send,
+                            tr(AppStrings.send),
                             style: Theme.of(context)
                                 .textTheme
                                 .titleMedium!

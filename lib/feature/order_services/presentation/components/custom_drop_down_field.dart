@@ -26,16 +26,24 @@ class _CustomDropDownFieldState extends State<CustomDropDownField> {
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text(
             widget.fieldName,
-            style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.blackColor),
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  color: ColorManager.blackColor,
+                ),
           ),
           SingleChildScrollView(
             child: DropdownButtonFormField<String>(
                 value: widget.selectedOption,
-                style: Theme.of(context).textTheme.displayMedium!.copyWith(color: Colors.blue),
+                style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                      color: Colors.blue,
+                    ),
                 // Text style for selected option
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.only(
-                      left: AppSizes.pw8, right: AppSizes.pw8, top: AppSizes.ph8, bottom: AppSizes.ph20),
+                    left: AppSizes.pw8,
+                    right: AppSizes.pw8,
+                    top: AppSizes.ph8,
+                    bottom: AppSizes.ph20,
+                  ),
                   enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(
                         color: ColorManager.lightGreyColor,

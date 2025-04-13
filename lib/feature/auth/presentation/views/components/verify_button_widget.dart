@@ -1,3 +1,4 @@
+import 'package:bacura_app/core/localization/app_localization.dart';
 import 'package:bacura_app/core/utils/index.dart';
 
 class VerifyButtonWidget extends StatelessWidget {
@@ -13,7 +14,7 @@ class VerifyButtonWidget extends StatelessWidget {
           onPressed();
         },
         child: Text(
-          AppLocalizations.of(context)!.verify,
+          tr(AppStrings.verify),
           style: Theme.of(context).textTheme.titleMedium,
         ));
   }

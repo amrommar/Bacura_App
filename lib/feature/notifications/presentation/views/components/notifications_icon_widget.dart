@@ -1,5 +1,4 @@
 import 'package:bacura_app/core/services/number_parser.dart';
-import 'package:bacura_app/core/utils/app_sizes.dart';
 import 'package:bacura_app/core/utils/dialog_function.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/home/presentation/controller/home_provider.dart';
@@ -30,9 +29,9 @@ class NotificationsIconWidget extends StatelessWidget {
         profileProvider.token == null
             ? customShowCustomDialog(
                 context: context,
-                title: 'تسجيل الدخول',
-                imagePath: 'assets/images/png/bad-feedback.png',
-                content: 'الرجاء تسجيل الدخول اولاً',
+                title: tr(AppStrings.login),
+                imagePath: AppAssets.badFeedback,
+                content: tr(AppStrings.pleaseLoginFirst),
                 isOk: true,
                 isCancel: true,
                 onCancel: () {

@@ -1,12 +1,9 @@
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/invoice/api/pdf_api.dart';
 import 'package:bacura_app/feature/invoice/api/pdf_invoice_api.dart';
 import 'package:bacura_app/feature/invoice/model/customer.dart';
 import 'package:bacura_app/feature/invoice/model/invoice.dart';
 import 'package:bacura_app/feature/invoice/model/supplier.dart';
 import 'package:bacura_app/feature/invoice/widget/button_widget.dart';
-import 'package:intl/intl.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class CompletedOrderBottomWidget extends StatelessWidget {
@@ -29,7 +26,7 @@ class CompletedOrderBottomWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ButtonWidget(
-        text: 'تحميل الفاتورة',
+        text: tr(AppStrings.downloadInvoice),
         onClicked: () async {
           final status = await Permission.storage.request();
           if (status.isGranted) {
@@ -70,11 +67,11 @@ class CompletedOrderBottomWidget extends StatelessWidget {
             await newFile.writeAsBytes(await pdfFile.readAsBytes());
 
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('تم تحميل الفاتورة بنجاح: $filePath')),
+              SnackBar(content: Text('${tr(AppStrings.invoiceDownLoaded)} $filePath')),
             );
           } else {
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('يجب السماح بالوصول إلى التخزين لحفظ الفاتورة')),
+              SnackBar(content: Text(tr(AppStrings.StorageAccessMustAllowed))),
             );
           }
         });

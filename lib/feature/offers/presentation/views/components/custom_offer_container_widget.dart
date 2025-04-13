@@ -18,7 +18,10 @@ class CustomOfferContainerWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppSizes.br8),
         color: ColorManager.midWhiteColor,
       ),
-      margin: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph6),
+      margin: EdgeInsets.symmetric(
+        horizontal: AppSizes.pw12,
+        vertical: AppSizes.ph6,
+      ),
       height: AppSizes.ph125,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -27,7 +30,9 @@ class CustomOfferContainerWidget extends StatelessWidget {
             height: AppSizes.ph125,
             width: AppSizes.pw150,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(AppSizes.br8),
+              borderRadius: BorderRadius.circular(
+                AppSizes.br8,
+              ),
               child: Image.network(
                 imagePath,
                 fit: BoxFit.fill,
@@ -36,7 +41,10 @@ class CustomOfferContainerWidget extends StatelessWidget {
           ),
           Expanded(
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: AppSizes.pw6, vertical: AppSizes.ph12),
+              padding: EdgeInsets.symmetric(
+                horizontal: AppSizes.pw6,
+                vertical: AppSizes.ph12,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -63,7 +71,10 @@ class CustomOfferContainerWidget extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: AppSizes.pw6, vertical: AppSizes.ph6),
+            padding: EdgeInsets.symmetric(
+              horizontal: AppSizes.pw6,
+              vertical: AppSizes.ph6,
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,

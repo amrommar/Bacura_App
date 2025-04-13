@@ -6,7 +6,9 @@ class ContinueAsVisitorButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        style: ElevatedButton.styleFrom(backgroundColor: ColorManager.lightBlueColor),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: ColorManager.lightBlueColor,
+        ),
         onPressed: () {
           Navigator.pushNamedAndRemoveUntil(
             context,
@@ -14,7 +16,7 @@ class ContinueAsVisitorButton extends StatelessWidget {
             (Route<dynamic> route) => false,
           );
         },
-        child: Text(AppLocalizations.of(context)!.continue_as_a_visitor,
+        child: Text(tr(AppStrings.continueAsVisitor),
             style: Theme.of(context).textTheme.titleMedium!.copyWith(
                   color: ColorManager.primaryBlueColor,
                 )));

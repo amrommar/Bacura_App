@@ -5,13 +5,15 @@ class ChangeLanguageRowWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<LanguageProvider>(context);
     return Container(
         decoration: BoxDecoration(
           color: ColorManager.lightWhiteColor,
           borderRadius: BorderRadius.circular(AppSizes.br8),
         ),
-        margin: EdgeInsets.symmetric(horizontal: AppSizes.pw8, vertical: AppSizes.ph3),
+        margin: EdgeInsets.symmetric(
+          horizontal: AppSizes.pw8,
+          vertical: AppSizes.ph3,
+        ),
         padding: EdgeInsets.all(AppSizes.ph12),
         child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
           Icon(
@@ -21,8 +23,12 @@ class ChangeLanguageRowWidget extends StatelessWidget {
           ),
           Expanded(
               child: Padding(
-            padding: EdgeInsets.only(right: AppSizes.pw4, left: AppSizes.pw4, top: AppSizes.ph3),
-            child: Text(AppLocalizations.of(context)!.app_Language,
+            padding: EdgeInsets.only(
+              right: AppSizes.pw4,
+              left: AppSizes.pw4,
+              top: AppSizes.ph3,
+            ),
+            child: Text(tr(AppStrings.appLanguage),
                 style: Theme.of(context).textTheme.displayMedium!.copyWith(
                       color: ColorManager.blackColor,
                     )),
@@ -35,7 +41,7 @@ class ChangeLanguageRowWidget extends StatelessWidget {
                   onTap: () {
                     // provider.changeLanguage();
                   },
-                  child: Text('العربية',
+                  child: Text(tr(AppStrings.languageValue),
                       // AppLocalizations.of(context)!.arabic,
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: ColorManager.primaryBlueColor,

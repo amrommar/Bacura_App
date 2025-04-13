@@ -1,3 +1,4 @@
+import 'package:bacura_app/core/localization/app_localization.dart';
 import 'package:bacura_app/core/utils/index.dart';
 
 class TimeOutException extends DioException {
@@ -5,6 +6,6 @@ class TimeOutException extends DioException {
 
   @override
   String toString() {
-    return 'انتهي الوقت، يرجى المحاولة مرة اخرى';
+    return tr(AppStrings.timeOutPleaseTryAgain);
   }
 }

@@ -23,8 +23,8 @@ class EditPhoneNumberBottomSheet extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 CustomPhoneField(
-                  fieldName: AppLocalizations.of(context)!.mobileNumber,
-                  hintText: AppLocalizations.of(context)!.enterYourMobileNumber,
+                  fieldName: tr(AppStrings.mobileNumber),
+                  hintText: tr(AppStrings.enterYourMobileNumber),
                   controller: mobileNumberController,
                   onChanged: (phone) {
                     provider.completePhoneNumber = phone.completeNumber;
@@ -32,7 +32,7 @@ class EditPhoneNumberBottomSheet extends StatelessWidget {
                 ),
                 SizedBox(height: AppSizes.ph40),
                 CustomSmallElevatedButton(
-                  text: AppLocalizations.of(context)!.save,
+                  text: tr(AppStrings.save),
                   onPressed: () {
                     String currentPhoneNumber = mobileNumberController.text;
 
@@ -43,8 +43,10 @@ class EditPhoneNumberBottomSheet extends StatelessWidget {
                           duration: const Duration(seconds: 2),
                           backgroundColor: ColorManager.midWhiteColor,
                           content: Text(
-                            AppLocalizations.of(context)!.please_enter_valid_phone_number,
-                            style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkRedColor),
+                            tr(AppStrings.pleaseEnterValidMobileNumber),
+                            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                  color: ColorManager.darkRedColor,
+                                ),
                           )));
                     } else {
                       provider.updateMyProfile();

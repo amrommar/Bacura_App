@@ -4,7 +4,7 @@ import 'package:bacura_app/feature/more/domain/usecases/complaints_use_case.dart
 
 class ComplaintsProvider extends ChangeNotifier {
   var complaintController = TextEditingController();
-  String selectedOption = 'مقدم الخدمة';
+  String selectedOption = tr(AppStrings.serviceProvider);
 
   void sendComplaints(BuildContext context) {
     sl<ComplaintsUseCase>().call(ComplaintsParameter(
@@ -13,9 +13,9 @@ class ComplaintsProvider extends ChangeNotifier {
     ));
     customShowCustomDialog(
         context: context,
-        title: AppStrings.yourComplaintSentSuccessfully,
+        title: tr(AppStrings.yourComplaintSentSuccessfully),
         imagePath: AppAssets.checkedIcon,
-        content: AppStrings.yourComplaintSentSuccessfully,
+        content: tr(AppStrings.yourComplaintSentSuccessfully),
         isOk: true,
         isCancel: false,
         onCancel: () {},

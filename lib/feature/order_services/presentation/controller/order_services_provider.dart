@@ -9,10 +9,15 @@ class OrderServicesProvider extends ChangeNotifier {
   TextEditingController descriptionController = TextEditingController();
   double latitude = 0.0;
   double longitude = 0.0;
-  String selectedOption = '9 ص - 1 م';
+  String selectedOption = tr(AppStrings.time9_1);
   DateTime selectedDate = DateTime.now();
-  String formattedDate = DateFormat('yyyy-MM-dd').format(DateTime.now());
-  final List<String> options = ['9 ص - 1 م', '1 م - 6 م'];
+  String formattedDate = DateFormat('yyyy-MM-dd').format(
+    DateTime.now(),
+  );
+  final List<String> options = [
+    tr(AppStrings.time9_1),
+    tr(AppStrings.time1_6),
+  ];
 
   OrderServicesProvider();
 
@@ -28,7 +33,11 @@ class OrderServicesProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void sendOrderRequest(int? serviceId, int? categoryId, {required BuildContext context}) async {
+  void sendOrderRequest(
+    int? serviceId,
+    int? categoryId, {
+    required BuildContext context,
+  }) async {
     var res = await sl<OrderServicesUseCase>().call(OrderServicesParams(
       location: locationController.text,
       date: formattedDate,
@@ -43,14 +52,16 @@ class OrderServicesProvider extends ChangeNotifier {
 
     res.fold((l) {
       showOrderSentBottomSheet(
-          context: context,
-          message: 'لقد حدث خطاء، يرجى المحاولة لاحقا',
-          imgPath: 'assets/images/png/bad-feedback.png');
+        context: context,
+        message: tr(AppStrings.errorOccurredPleaseTryAgainLater),
+        imgPath: AppAssets.badFeedback,
+      );
     }, (r) {
       showOrderSentBottomSheet(
-          context: context,
-          message: 'لقد أرسلنا الطلب، وسيقوم مزود الخدمة بالتواصل معك.',
-          imgPath: 'assets/images/png/request.png');
+        context: context,
+        message: tr(AppStrings.weHaveSentTheRequest),
+        imgPath: AppAssets.request,
+      );
       locationController.clear();
       descriptionController.clear();
     });
@@ -76,7 +87,11 @@ class OrderServicesProvider extends ChangeNotifier {
     }
   }
 
-  void showOrderSentBottomSheet({required BuildContext context, required String message, required String imgPath}) {
+  void showOrderSentBottomSheet({
+    required BuildContext context,
+    required String message,
+    required String imgPath,
+  }) {
     showModalBottomSheet(
         context: context,
         builder: (context) {

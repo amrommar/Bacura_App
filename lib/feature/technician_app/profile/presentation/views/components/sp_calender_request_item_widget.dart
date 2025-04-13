@@ -1,11 +1,11 @@
 import 'package:bacura_app/core/presentation/images/custom_svg_image.dart';
 import 'package:bacura_app/core/services/date_parser.dart';
-import 'package:bacura_app/core/services/number_parser.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/technician_app/profile/presentation/controller/calender_orders_provider.dart';
 
 class SpCalenderRequestItemComponent extends StatelessWidget {
   final int index;
+
   const SpCalenderRequestItemComponent({super.key, required this.index});
 
   @override
@@ -16,7 +16,12 @@ class SpCalenderRequestItemComponent extends StatelessWidget {
           color: ColorManager.primaryBlueColor,
           borderRadius: BorderRadius.circular(AppSizes.br16),
         ),
-        margin: EdgeInsets.only(right: AppSizes.pw36, top: AppSizes.ph12, left: AppSizes.pw36, bottom: AppSizes.ph12),
+        margin: EdgeInsets.only(
+          right: AppSizes.pw36,
+          top: AppSizes.ph12,
+          left: AppSizes.pw36,
+          bottom: AppSizes.ph12,
+        ),
         padding: EdgeInsets.symmetric(horizontal: AppSizes.pw10, vertical: AppSizes.ph10),
         // height: AppSizes.ph100,
         child: Column(
@@ -29,7 +34,7 @@ class SpCalenderRequestItemComponent extends StatelessWidget {
                     padding: EdgeInsets.all(AppSizes.ph6),
                     child: CustomSvgImage.square(
                       size: AppSizes.ph40,
-                      path: 'assets/images/svg/cameraicon.svg',
+                      path: AppAssets.cameraIconBlue,
                       color: ColorManager.whiteColor,
                     ),
                   ),
@@ -40,18 +45,24 @@ class SpCalenderRequestItemComponent extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(provider.orders[index].service!.name,
-                          style: Theme.of(context).textTheme.displayMedium!.copyWith(color: ColorManager.whiteColor)),
+                          style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                                color: ColorManager.whiteColor,
+                              )),
                       SizedBox(height: 3.h),
                       Row(
                         children: [
                           Text(
                             DateParser.dateFormatterWithoutTime(provider.orders[index].installationDate!),
-                            style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.whiteColor),
+                            style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                                  color: ColorManager.whiteColor,
+                                ),
                           ),
                           SizedBox(width: AppSizes.pw5),
                           Text(
                             DateParser.dateFormatterOnlyTime(provider.orders[index].installationDate!),
-                            style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.whiteColor),
+                            style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                                  color: ColorManager.whiteColor,
+                                ),
                           ),
                         ],
                       ),
@@ -73,7 +84,9 @@ class SpCalenderRequestItemComponent extends StatelessWidget {
                     child: Text(provider.orders[index].location!,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.lightBlueColor)),
+                        style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                              color: ColorManager.lightBlueColor,
+                            )),
                   ),
                   SizedBox(width: AppSizes.ph10),
                 ],

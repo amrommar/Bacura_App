@@ -15,65 +15,75 @@ class ConsultationOrderScreen extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => ConsultationRequestProvider(),
       child: Scaffold(
-          appBar: AppBar(
-            title: Text(AppLocalizations.of(context)!.consultation_screen),
-          ),
-          body: Consumer<ConsultationRequestProvider>(
-            builder: (context, provider, child) {
-              return Form(
-                key: formKey,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: AppSizes.pw16,
-                    vertical: AppSizes.ph8,
-                  ),
-                  child: ListView(
-                    children: [
-                      CustomDropDownField(
-                        selectedOption: categoryEntity.services[provider.selectedServiceIndex].name ?? '',
-                        options: categoryEntity.services.map((service) => service.name ?? '').toList(),
-                        fieldName: AppLocalizations.of(context)!.consultation_type,
-                        onChanged: (String? newValue) {
-                          provider.selectedOption = newValue!;
-                          provider.selectedServiceIndex =
-                              categoryEntity.services.indexWhere((element) => element.name == newValue);
+        appBar: AppBar(
+          title: Text(tr(AppStrings.consultationScreen)),
+        ),
+        body: Consumer<ConsultationRequestProvider>(
+          builder: (context, provider, child) {
+            return Form(
+              key: formKey,
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: AppSizes.pw16,
+                  vertical: AppSizes.ph8,
+                ),
+                child: ListView(
+                  children: [
+                    /// drop down to choose type of consultation
+                    CustomDropDownField(
+                      selectedOption: categoryEntity.services[provider.selectedServiceIndex].name ?? '',
+                      options: categoryEntity.services.map((service) => service.name ?? '').toList(),
+                      fieldName: tr(AppStrings.consultationType),
+                      onChanged: (String? newValue) {
+                        provider.selectedOption = newValue!;
+                        provider.selectedServiceIndex = categoryEntity.services.indexWhere(
+                          (element) => element.name == newValue,
+                        );
+                      },
+                    ),
+
+                    /// consultation description
+                    CustomQuestionTextFormField(
+                      fieldName: tr(AppStrings.consultationDescription),
+                      hintText: tr(AppStrings.describeYourConsultation),
+                      controller: provider.descriptionController,
+                      maxLines: 6,
+                      validator: (value) {
+                        if (value == null || value.trim().isEmpty) {
+                          return tr(AppStrings.pleaseDescribeYourConsultation);
+                        }
+                        return null;
+                      },
+                    ),
+
+                    SizedBox(height: AppSizes.ph10),
+
+                    /// note of the consultation response
+                    const ConsultationNoteWidget(),
+
+                    SizedBox(height: AppSizes.ph100),
+
+                    Center(
+                      child: CustomSmallElevatedButton(
+                        text: tr(AppStrings.send),
+                        onPressed: () {
+                          if (formKey.currentState?.validate() == true) {
+                            provider.sendOrderRequest(
+                              context: context,
+                              serviceId: categoryEntity.services[provider.selectedServiceIndex].id,
+                              categoryId: categoryEntity.id!,
+                            );
+                          }
                         },
                       ),
-
-                      /// consultation description
-                      CustomQuestionTextFormField(
-                          fieldName: AppLocalizations.of(context)!.consultation_description,
-                          hintText: AppLocalizations.of(context)!.describe_your_consultation,
-                          controller: provider.descriptionController,
-                          maxLines: 6,
-                          validator: (value) {
-                            if (value == null || value.trim().isEmpty) {
-                              return AppLocalizations.of(context)!.please_describe_your_consultation;
-                            }
-                            return null;
-                          }),
-                      SizedBox(height: AppSizes.ph10),
-
-                      /// note of the consultation response
-                      const ConsultationNoteWidget(),
-                      SizedBox(height: AppSizes.ph100),
-                      Center(
-                          child: CustomSmallElevatedButton(
-                              text: AppLocalizations.of(context)!.send,
-                              onPressed: () {
-                                if (formKey.currentState?.validate() == true) {
-                                  provider.sendOrderRequest(
-                                      context: context,
-                                      serviceId: categoryEntity.services[provider.selectedServiceIndex].id,
-                                      categoryId: categoryEntity.id!);
-                                }
-                              }))
-                    ],
-                  ),
+                    )
+                  ],
                 ),
-              );
-            },
-          )),
+              ),
+            );
+          },
+        ),
+      ),
     );
   }
 }

@@ -6,7 +6,7 @@ class TotalPriceWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-      Text(AppLocalizations.of(context)!.total,
+      Text('AppLocalizations.of(context)!.total',
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
                 color: ColorManager.primaryBlueColor,
                 fontWeight: FontWeight.bold,

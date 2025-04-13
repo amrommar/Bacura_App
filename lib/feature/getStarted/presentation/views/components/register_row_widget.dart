@@ -7,7 +7,7 @@ class RegisterRowWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
       Text(
-        AppLocalizations.of(context)!.dont_have_an_account,
+        tr(AppStrings.dontHaveAccount),
         style: Theme.of(context).textTheme.titleSmall!.copyWith(
               color: ColorManager.blackColor,
             ),
@@ -18,7 +18,7 @@ class RegisterRowWidget extends StatelessWidget {
           Navigator.pushNamed(context, Routes.completeProfileRoute);
         },
         child: Text(
-          AppLocalizations.of(context)!.create_an_account,
+          tr(AppStrings.createAccount),
           style: Theme.of(context).textTheme.titleSmall!.copyWith(
                 fontWeight: FontWeight.bold,
               ),

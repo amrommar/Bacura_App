@@ -4,13 +4,17 @@ import 'package:bacura_app/feature/order_services/presentation/components/reques
 import 'package:intl/intl.dart';
 
 class ConsultationRequestProvider extends ChangeNotifier {
-  String selectedOption = 'استشارة تقنية';
+  String selectedOption = tr(AppStrings.selectConsultationType);
   var descriptionController = TextEditingController();
   int selectedServiceIndex = 0;
 
   ConsultationRequestProvider();
 
-  void sendOrderRequest({int? serviceId, required int categoryId, required BuildContext context}) async {
+  void sendOrderRequest({
+    int? serviceId,
+    required int categoryId,
+    required BuildContext context,
+  }) async {
     var result = await sl<OrderServicesUseCase>().call(OrderServicesParams(
       description: descriptionController.text,
       serviceId: serviceId,
@@ -22,7 +26,7 @@ class ConsultationRequestProvider extends ChangeNotifier {
           context: context,
           builder: (context) {
             return OrderSentBottomSheet(
-              title: 'لقد حدث خطاء، يرجى المحاولة لاحقا',
+              title: tr(AppStrings.errorOccurredPleaseTryAgainLater),
             );
           });
     }, (r) async {
@@ -30,7 +34,7 @@ class ConsultationRequestProvider extends ChangeNotifier {
           context: context,
           builder: (context) {
             return OrderSentBottomSheet(
-              title: 'لقد أرسلنا الطلب، وسيقوم مزود الخدمة بالتواصل معك.',
+              title: tr(AppStrings.weHaveSentTheRequest),
             );
           });
 

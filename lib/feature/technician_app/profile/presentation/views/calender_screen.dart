@@ -12,7 +12,7 @@ class _CalenderScreenState extends State<CalenderScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('التقويم'),
+        title: Text(tr(AppStrings.calender)),
         elevation: 0,
       ),
       body: ChangeNotifierProvider<CalenderOrdersProvider>(
@@ -24,7 +24,7 @@ class _CalenderScreenState extends State<CalenderScreen> {
                 child: SpCalenderWidget(),
               ),
               provider.orders.length == 0
-                  ? Expanded(child: Text('لا يوجد طلبات'))
+                  ? Expanded(child: Text(tr(AppStrings.noOrdersFound)))
                   : provider.isLoadingMyOrders
                       ? const Center(child: Center(child: CircularProgressIndicator()))
                       : Expanded(

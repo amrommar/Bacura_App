@@ -12,67 +12,107 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(AppLocalizations.of(context)!.privacy_policy)),
+      appBar: AppBar(
+          title: Text(
+        tr(AppStrings.privacyPolicy),
+      )),
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.all(AppSizes.ph8),
-          padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph20),
-          decoration: BoxDecoration(boxShadow: [
-            BoxShadow(
-              color: ColorManager.lightBlueColor,
-              spreadRadius: 2,
-              blurRadius: 4,
-              offset: const Offset(0, 3),
-            )
-          ], borderRadius: BorderRadius.circular(AppSizes.br12), color: ColorManager.whiteColor),
+          padding: EdgeInsets.symmetric(
+            horizontal: AppSizes.pw12,
+            vertical: AppSizes.ph20,
+          ),
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: ColorManager.lightBlueColor,
+                spreadRadius: 2,
+                blurRadius: 4,
+                offset: const Offset(0, 3),
+              )
+            ],
+            borderRadius: BorderRadius.circular(AppSizes.br12),
+            color: ColorManager.whiteColor,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               //// from Back-End /////////////////////////////////////////////////
               const PrivacyPolicyIntro(),
-              Divider(color: ColorManager.whiteColor, thickness: AppSizes.ph1),
+              Divider(
+                color: ColorManager.whiteColor,
+                thickness: AppSizes.ph1,
+              ),
 
               ///// 1. Collection information /////////////////////////////////////////////////////////
-              TitleWidget(title: AppLocalizations.of(context)!.privacy_collection_of_information),
-              Divider(color: ColorManager.lightBlueColor, thickness: AppSizes.ph1),
-              ContentWidget(content: AppLocalizations.of(context)!.privacy_collection_of_information_content),
+              TitleWidget(
+                title: tr(AppStrings.privacyCollectionOfInformation),
+              ),
+              Divider(
+                color: ColorManager.lightBlueColor,
+                thickness: AppSizes.ph1,
+              ),
+              ContentWidget(
+                content: tr(AppStrings.privacyCollectionOfInformationContent),
+              ),
 
               Divider(color: ColorManager.whiteColor),
               ////2. Protection of Information: /////////////////////////////////////////////////////
-              TitleWidget(title: AppLocalizations.of(context)!.privacy_information_protection),
+              TitleWidget(
+                title: tr(AppStrings.privacyInformationProtection),
+              ),
 
               Divider(color: ColorManager.lightBlueColor, thickness: AppSizes.ph1),
-              ContentWidget(content: AppLocalizations.of(context)!.privacy_information_protection_content),
+              ContentWidget(
+                content: tr(AppStrings.privacyInformationProtectionContent),
+              ),
 
               Divider(color: ColorManager.whiteColor),
               ////3. Sharing Information: /////////////////////////////////////////////////////////
-              TitleWidget(title: AppLocalizations.of(context)!.privacy_sharing_information),
+              TitleWidget(
+                title: tr(AppStrings.privacySharingInformation),
+              ),
               Divider(color: ColorManager.lightBlueColor, thickness: AppSizes.ph1),
-              ContentWidget(content: AppLocalizations.of(context)!.privacy_sharing_information_content),
+              ContentWidget(
+                content: tr(AppStrings.privacySharingInformationContent),
+              ),
 
               Divider(color: ColorManager.whiteColor),
 
               ///4. Changes to the Privacy Policy: ./////////////////////////////////////////////
-              TitleWidget(title: AppLocalizations.of(context)!.changes_to_the_privacy_policy),
+              TitleWidget(
+                title: tr(AppStrings.changesToThePrivacyPolicy),
+              ),
 
               Divider(color: ColorManager.lightBlueColor),
-              ContentWidget(content: AppLocalizations.of(context)!.changes_to_the_privacy_policy_content),
+              ContentWidget(
+                content: tr(AppStrings.changesToThePrivacyPolicyContent),
+              ),
               Divider(color: ColorManager.whiteColor),
               ////5. User Rights: /////////////////////////////////////////////////////
 
-              TitleWidget(title: AppLocalizations.of(context)!.privacy_user_rights),
+              TitleWidget(
+                title: tr(AppStrings.privacyUserRights),
+              ),
 
               Divider(color: ColorManager.lightBlueColor),
 
-              ContentWidget(content: AppLocalizations.of(context)!.privacy_user_rights_content),
+              ContentWidget(
+                content: tr(AppStrings.privacyUserRightsContent),
+              ),
 
               Divider(color: ColorManager.whiteColor),
               ////6. Contact Us /////////////////////////////////////////////////////
 
-              TitleWidget(title: AppLocalizations.of(context)!.contact_us),
+              TitleWidget(
+                title: tr(AppStrings.contactUs),
+              ),
 
               Divider(color: ColorManager.lightBlueColor),
-              ContentWidget(content: AppLocalizations.of(context)!.contact_us_content)
+              ContentWidget(
+                content: tr(AppStrings.contactUsContent),
+              )
             ],
           ),
         ),

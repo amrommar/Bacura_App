@@ -4,7 +4,11 @@ class OrderTimeDateWidget extends StatelessWidget {
   final String time;
   final String date;
 
-  const OrderTimeDateWidget({super.key, required this.time, required this.date});
+  const OrderTimeDateWidget({
+    super.key,
+    required this.time,
+    required this.date,
+  });
 
   @override
   Widget build(BuildContext context) {

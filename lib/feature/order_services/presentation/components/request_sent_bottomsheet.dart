@@ -42,9 +42,12 @@ class _OrderSentBottomSheetState extends State<OrderSentBottomSheet> {
 
             ///////////////    Ok  Button     ///////////////////
             CustomSmallElevatedButton(
-                text: AppLocalizations.of(context)!.ok,
+                text: tr(AppStrings.ok),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen()));
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomeScreen()),
+                  );
                 }),
           ],
         ),

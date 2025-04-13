@@ -37,8 +37,19 @@ class MyProfileProvider with ChangeNotifier {
 
   String? get token => _token;
 
-  final List<String> genderOptions = ['ذكر', 'أنثي'];
-  final List<String> cityOptions = ['الرياض', 'جده', 'مكة', 'الدمام'];
+  final List<String> genderOptions = [tr(AppStrings.male), tr(AppStrings.female)];
+  final List<String> cityOptions = [
+    tr(AppStrings.riyad),
+    tr(AppStrings.jeddah),
+    tr(AppStrings.makka),
+    tr(AppStrings.damam),
+    tr(AppStrings.madinah),
+    tr(AppStrings.jezan),
+    tr(AppStrings.khobar),
+    tr(AppStrings.tabouk),
+    tr(AppStrings.taif),
+    tr(AppStrings.abha),
+  ];
   final TextEditingController nameController = TextEditingController();
   TextEditingController phoneNumController = TextEditingController();
   TextEditingController emailController = TextEditingController();
@@ -122,13 +133,13 @@ class MyProfileProvider with ChangeNotifier {
       context: context,
       builder: (BuildContext dialogContext) {
         return AlertDialog(
-          title: const Text('اختر مصدر الصورة'),
+          title: Text(tr(AppStrings.selectImgSource)),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               ListTile(
                 leading: const Icon(Icons.camera),
-                title: const Text('الكاميرا'),
+                title: Text(tr(AppStrings.takePicture)),
                 onTap: () async {
                   Navigator.of(dialogContext).pop();
                   // await _pickImageFromSource(ImageSource.camera, picker);
@@ -136,7 +147,7 @@ class MyProfileProvider with ChangeNotifier {
               ),
               ListTile(
                 leading: const Icon(Icons.photo_library),
-                title: const Text('المعرض'),
+                title: Text(tr(AppStrings.selectFromGallery)),
                 onTap: () async {
                   Navigator.of(dialogContext).pop();
                   // await _pickImageFromSource(ImageSource.gallery, picker);

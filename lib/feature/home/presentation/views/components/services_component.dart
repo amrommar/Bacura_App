@@ -1,6 +1,6 @@
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/home/index.dart';
 import 'package:bacura_app/feature/home/presentation/controller/home_provider.dart';
+import 'package:bacura_app/feature/home/presentation/views/widgets/service_card_widget.dart';
 
 class CategoryComponent extends StatelessWidget {
   const CategoryComponent({super.key});
@@ -23,7 +23,7 @@ class CategoryComponent extends StatelessWidget {
                   left: AppSizes.pw16,
                   top: AppSizes.ph6,
                 ),
-                child: Text(AppLocalizations.of(context)!.services,
+                child: Text(tr(AppStrings.servicesReadyForYou),
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           color: ColorManager.blackColor,
                           fontWeight: FontWeight.bold,

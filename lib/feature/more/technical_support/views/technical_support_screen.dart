@@ -15,30 +15,40 @@ class _TechnicalSupportScreenState extends State<TechnicalSupportScreen> {
   Widget build(BuildContext context) {
     final profileProvider = Provider.of<MyProfileProvider>(context, listen: false);
     return Scaffold(
-        appBar: AppBar(title: Text(AppLocalizations.of(context)!.technical_support)),
+        appBar: AppBar(
+          title: Text(
+            tr(AppStrings.technicalSupport),
+          ),
+        ),
         body: SingleChildScrollView(
             child: Column(children: [
           SizedBox(height: AppSizes.ph10),
 
           ///Frequently asked questions tab //////////////////////////////
           CustomSupportContainerWidget(
-              widget: Image.asset(AppAssets.question, height: AppSizes.ph80),
-              text: AppLocalizations.of(context)!.frequently_asked_questions,
+              widget: Image.asset(
+                AppAssets.question,
+                height: AppSizes.ph80,
+              ),
+              text: tr(AppStrings.FAQ),
               onTap: () {
                 Navigator.pushNamed(context, Routes.frequentlyAskedQuestionsRoute);
               }),
 
           ///Complaints tab //////////////////////////////
           CustomSupportContainerWidget(
-              widget: Image.asset(AppAssets.badFeedback, height: AppSizes.ph80),
-              text: AppLocalizations.of(context)!.complaints,
+              widget: Image.asset(
+                AppAssets.badFeedback,
+                height: AppSizes.ph80,
+              ),
+              text: tr(AppStrings.complaints),
               onTap: () {
                 profileProvider.token == null
                     ? customShowCustomDialog(
                         context: context,
-                        title: 'تسجيل الدخول',
-                        imagePath: 'assets/images/png/bad-feedback.png',
-                        content: 'الرجاء تسجيل الدخول اولاً',
+                        title: tr(AppStrings.login),
+                        imagePath: AppAssets.badFeedback,
+                        content: tr(AppStrings.pleaseLoginFirst),
                         isOk: true,
                         isCancel: true,
                         onCancel: () {
@@ -53,8 +63,11 @@ class _TechnicalSupportScreenState extends State<TechnicalSupportScreen> {
 
           ///User Guide tab //////////////////////////////
           CustomSupportContainerWidget(
-              widget: Image.asset(AppAssets.userGuide, height: AppSizes.ph80),
-              text: AppLocalizations.of(context)!.user_guide,
+              widget: Image.asset(
+                AppAssets.userGuide,
+                height: AppSizes.ph80,
+              ),
+              text: tr(AppStrings.userGuide),
               onTap: () {
                 Navigator.pushNamed(context, Routes.userGuideRoute);
               }),

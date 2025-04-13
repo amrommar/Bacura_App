@@ -6,7 +6,7 @@ class CancelledOrderBottomWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      Text(AppLocalizations.of(context)!.request_cancelled,
+      Text(tr(AppStrings.orderCancelled),
           style: Theme.of(context).textTheme.titleMedium!.copyWith(
                 color: ColorManager.darkRedColor,
                 fontWeight: FontWeight.w500,

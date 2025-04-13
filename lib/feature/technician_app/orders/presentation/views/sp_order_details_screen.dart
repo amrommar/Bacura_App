@@ -33,7 +33,10 @@ class SpOrderDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(AppLocalizations.of(context)!.request_details)),
+      appBar: AppBar(
+          title: Text(
+        tr(AppStrings.orderDetails),
+      )),
       body: ChangeNotifierProvider(
         create: (context) => SpOrderDetailsProvider(id: orderId!),
         child: Consumer<SpOrderDetailsProvider>(
@@ -53,8 +56,14 @@ class SpOrderDetailsScreen extends StatelessWidget {
                         )
                       ],
                     ),
-                    margin: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph12),
-                    padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph12),
+                    margin: EdgeInsets.symmetric(
+                      horizontal: AppSizes.pw12,
+                      vertical: AppSizes.ph12,
+                    ),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: AppSizes.pw12,
+                      vertical: AppSizes.ph12,
+                    ),
                     height: 800.h,
                     child: SingleChildScrollView(
                       child: Column(
@@ -132,7 +141,7 @@ class SpOrderDetailsScreen extends StatelessWidget {
                             ),
 
                           /// Total Money section/////////////////////////////////////////////
-                          Text(serviceName ?? 'اسم الخدمة',
+                          Text(serviceName ?? tr(AppStrings.serviceName),
                               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                     color: ColorManager.primaryBlueColor,
                                     fontWeight: FontWeight.bold,
@@ -142,10 +151,13 @@ class SpOrderDetailsScreen extends StatelessWidget {
                           ///  location section/////////////////////////////////////////////
                           InkWell(
                             onTap: () {
-                              _openGoogleMaps(latitude: latitude!, longitude: longitude!); // Example coordinates
+                              _openGoogleMaps(
+                                latitude: latitude!,
+                                longitude: longitude!,
+                              ); // Example coordinates
                             },
                             child: Image.asset(
-                              'assets/images/map2.jpeg',
+                              AppAssets.map2,
                               height: AppSizes.ph200,
                               fit: BoxFit.fitWidth,
                               width: double.infinity,
@@ -162,7 +174,7 @@ class SpOrderDetailsScreen extends StatelessWidget {
                                     InkWell(
                                       onTap: () => _makePhoneCall(phoneNumber),
                                       child: CustomShadowRowWidget(
-                                        widget: Text('الاتصال بالعميل',
+                                        widget: Text(tr(AppStrings.contactWithClient),
                                             style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                                   color: ColorManager.darkBlueColor,
                                                 )),
@@ -192,7 +204,7 @@ class SpOrderDetailsScreen extends StatelessWidget {
                                         );
                                       },
                                       child: Text(
-                                        'الوصول للعميل',
+                                        tr(AppStrings.accessToClient),
                                         style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                               color: ColorManager.whiteColor,
                                             ),

@@ -1,11 +1,11 @@
+import 'package:bacura_app/core/localization/all_translation_keys.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/home/presentation/controller/home_provider.dart';
 import 'package:bacura_app/feature/order_services/presentation/controller/order_services_provider.dart';
 import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get/get.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() async {
@@ -82,7 +82,7 @@ class _MyAppState extends State<MyApp> {
                 Icon(Icons.wifi_off, color: Colors.white),
                 SizedBox(width: 10),
                 Text(
-                  "لا يوجد اتصال بالإنترنت",
+                  tr(AppStrings.noInternetConnection),
                   style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
               ],
@@ -102,16 +102,21 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<LanguageProvider>(context);
     return ScreenUtilInit(
       designSize: const Size(430, 932),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context, child) => MaterialApp(
+      builder: (context, child) => GetMaterialApp(
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        supportedLocales: const [Locale(AppStrings.en), Locale(AppStrings.ar)],
+        fallbackLocale: ServiceInitializer.locale,
+        translations: LanguageTranslation(),
+        locale: ServiceInitializer.locale,
         navigatorKey: _navigatorKey,
-        locale: Locale(provider.appLanguage),
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        supportedLocales: AppLocalizations.supportedLocales,
         debugShowCheckedModeBanner: false,
         onGenerateRoute: RouteGenerator.getRoute,
         initialRoute: Routes.getStartedRoute,

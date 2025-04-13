@@ -114,12 +114,6 @@ class RouteGenerator {
       case Routes.calenderRoute:
         return MaterialPageRoute(builder: (_) => CalenderScreen());
 
-      case Routes.serviceProviderRegisterRoute:
-        return MaterialPageRoute(builder: (_) => const ServiceProviderRegisterScreen());
-      case Routes.registerTechnicianRoute:
-        return MaterialPageRoute(builder: (_) => const RegisterTechnicianScreen());
-      case Routes.registerInstitutionRoute:
-        return MaterialPageRoute(builder: (_) => const RegisterInstitutionScreen());
       case Routes.aboutUsRoute:
         return MaterialPageRoute(builder: (_) => const AboutUsScreen());
       // case Routes.cinemaDetailsRoute:
@@ -133,8 +127,8 @@ class RouteGenerator {
   static Route<dynamic> unDefinedRoute() {
     return MaterialPageRoute(
       builder: (_) => Scaffold(
-        appBar: AppBar(title: const Text(AppStrings.no_Route_Founded)),
-        body: const Center(child: Text(AppStrings.no_Route_Founded)),
+        appBar: AppBar(title: const Text(AppStrings.noRouteFounded)),
+        body: const Center(child: Text(AppStrings.noRouteFounded)),
       ),
     );
   }

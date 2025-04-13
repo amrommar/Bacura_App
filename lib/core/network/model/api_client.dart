@@ -24,10 +24,22 @@ class ApiClient {
   }) {
     client = client ?? Dio();
 
-    client.options = options ?? BaseOptions(baseUrl: customBaseUrl ?? NetworkConstants.developmentBaseUrl, headers: {});
+    client.options = options ??
+        BaseOptions(
+          baseUrl: customBaseUrl ?? NetworkConstants.developmentBaseUrl,
+          headers: {},
+        );
     client.interceptors.addAll([
       PrettyDioLogger(
-          requestHeader: true, requestBody: true, responseBody: true, responseHeader: true, error: true, compact: true, maxWidth: 120, logPrint: print),
+        requestHeader: true,
+        requestBody: true,
+        responseBody: true,
+        responseHeader: true,
+        error: true,
+        compact: true,
+        maxWidth: 120,
+        logPrint: print,
+      ),
       HeaderInterceptor(),
       // RefreshTokenInterceptor(),
       // ErrorInterceptors(),
@@ -110,21 +122,29 @@ class ApiClient {
       return result;
     } on DioException catch (error) {
       if (lastErrorRecorded != null &&
-          lastErrorRecorded!.message == (error.message ?? error.response?.statusMessage ?? "") &&
+          lastErrorRecorded!.message == (error.message ?? error.response?.statusMessage ?? "",) &&
           DateTime.now().difference(lastErrorRecorded!.time).inSeconds < 5) {
         throw Exception(NetworkConstants.repetitiveException);
       } else {
-        lastErrorRecorded = LastApiErrorRecorded(time: DateTime.now(), message: error.message ?? error.response?.statusMessage ?? "");
+        lastErrorRecorded = LastApiErrorRecorded(
+          time: DateTime.now(),
+          message: error.message ?? error.response?.statusMessage ?? "",
+        );
         throw ServerFailure(
           code: error.response?.statusCode ?? 500,
           message: error.message ?? error.response?.statusMessage ?? "",
         );
       }
     } catch (error) {
-      if (lastErrorRecorded != null && lastErrorRecorded!.message == error.toString() && DateTime.now().difference(lastErrorRecorded!.time).inSeconds < 5) {
+      if (lastErrorRecorded != null &&
+          lastErrorRecorded!.message == error.toString() &&
+          DateTime.now().difference(lastErrorRecorded!.time).inSeconds < 5) {
         throw Exception(NetworkConstants.repetitiveException);
       } else {
-        lastErrorRecorded = LastApiErrorRecorded(time: DateTime.now(), message: error.toString());
+        lastErrorRecorded = LastApiErrorRecorded(
+          time: DateTime.now(),
+          message: error.toString(),
+        );
         throw Exception(error.toString());
       }
     }

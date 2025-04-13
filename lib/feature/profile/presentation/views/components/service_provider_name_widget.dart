@@ -8,7 +8,7 @@ class ServiceProviderNameWidget extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: Text(AppLocalizations.of(context)!.service_provider_name,
+          child: Text('AppLocalizations.of(context)!.service_provider_name',
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     color: ColorManager.primaryBlueColor,
                   )),

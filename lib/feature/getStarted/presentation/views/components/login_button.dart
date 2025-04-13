@@ -1,3 +1,4 @@
+import 'package:bacura_app/core/localization/app_localization.dart';
 import 'package:bacura_app/core/utils/index.dart';
 
 class LoginButton extends StatelessWidget {
@@ -10,7 +11,7 @@ class LoginButton extends StatelessWidget {
         Navigator.pushNamed(context, Routes.loginRoute);
       },
       child: Text(
-        AppLocalizations.of(context)!.login,
+        tr(AppStrings.login),
         style: Theme.of(context).textTheme.titleMedium,
       ),
     );

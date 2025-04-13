@@ -23,9 +23,9 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       onTap: (index) => (index == 1 && profileProvider.token == null)
           ? customShowCustomDialog(
               context: context,
-              title: 'تسجيل الدخول',
-              imagePath: 'assets/images/png/bad-feedback.png',
-              content: ' الرجاء تسجيل الدخول اولاً لعرض طلباتكم',
+              title: tr(AppStrings.login),
+              imagePath: AppAssets.badFeedback,
+              content: tr(AppStrings.pleaseLoginToSeeYourRequests),
               isOk: true,
               isCancel: true,
               onCancel: () {
@@ -39,27 +39,43 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       items: [
         /// home
         SalomonBottomBarItem(
-          title: Text(AppLocalizations.of(context)!.home),
-          icon: Icon(Icons.home_filled, color: ColorManager.whiteColor, size: AppSizes.ph30),
+          title: Text(tr(AppStrings.home)),
+          icon: Icon(
+            Icons.home_filled,
+            color: ColorManager.whiteColor,
+            size: AppSizes.ph30,
+          ),
           selectedColor: ColorManager.whiteColor,
         ),
 
         /// orders
         SalomonBottomBarItem(
-            title: Text(AppLocalizations.of(context)!.orders),
-            icon: Icon(Icons.request_page_outlined, color: ColorManager.whiteColor, size: AppSizes.ph30),
+            title: Text(tr(AppStrings.orders)),
+            icon: Icon(
+              Icons.request_page_outlined,
+              color: ColorManager.whiteColor,
+              size: AppSizes.ph30,
+            ),
             selectedColor: ColorManager.whiteColor),
 
         /// offers
         SalomonBottomBarItem(
-            title: Text(AppLocalizations.of(context)!.offers),
-            icon: Icon(Icons.local_offer_outlined, color: ColorManager.whiteColor, size: AppSizes.ph30),
+            title: Text(tr(AppStrings.offers)),
+            icon: Icon(
+              Icons.local_offer_outlined,
+              color: ColorManager.whiteColor,
+              size: AppSizes.ph30,
+            ),
             selectedColor: ColorManager.whiteColor),
 
         /// More
         SalomonBottomBarItem(
-            title: Text(AppLocalizations.of(context)!.more),
-            icon: Icon(Icons.more_horiz, color: ColorManager.whiteColor, size: AppSizes.ph30),
+            title: Text(tr(AppStrings.more)),
+            icon: Icon(
+              Icons.more_horiz,
+              color: ColorManager.whiteColor,
+              size: AppSizes.ph30,
+            ),
             selectedColor: ColorManager.whiteColor),
       ],
     );

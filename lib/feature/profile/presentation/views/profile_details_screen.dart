@@ -29,7 +29,10 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                         9,
                         (index) => Padding(
                           padding: EdgeInsets.all(AppSizes.ph8),
-                          child: CustomLoadingShimmer(height: AppSizes.ph60, width: double.infinity),
+                          child: CustomLoadingShimmer(
+                            height: AppSizes.ph60,
+                            width: double.infinity,
+                          ),
                         ),
                       ),
                     ),
@@ -52,36 +55,46 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                           children: [
                             ProfileDetailsWidget(
                               icon: Icons.phone_outlined,
-                              text: AppLocalizations.of(context)!.mobileNumber,
+                              text: tr(AppStrings.mobileNumber),
                               value: '${profileEntity.phone}',
                               onTap: () {
                                 provider.openEditPhoneBottomSheet();
                               },
                             ),
-                            Divider(color: ColorManager.lightBlueColor, height: AppSizes.ph20),
+                            Divider(
+                              color: ColorManager.lightBlueColor,
+                              height: AppSizes.ph20,
+                            ),
                             ProfileDetailsWidget(
                               icon: Icons.mail_outline_outlined,
-                              text: AppLocalizations.of(context)!.email,
+                              text: tr(AppStrings.email),
                               value: profileEntity.email!,
                               onTap: () {
                                 provider.openEmailBottomSheet();
                               },
                             ),
-                            Divider(color: ColorManager.lightBlueColor, height: AppSizes.ph20),
+                            Divider(
+                              color: ColorManager.lightBlueColor,
+                              height: AppSizes.ph20,
+                            ),
                             ProfileDetailsWidget(
-                                onTap: () {
-                                  provider.openGenderBottomSheet();
-                                },
-                                icon: Icons.transgender_outlined,
-                                text: AppLocalizations.of(context)!.gender,
-                                value: profileEntity.gender! == 'male' ? 'ذكر' : 'أنثي'),
-                            Divider(color: ColorManager.lightBlueColor, height: AppSizes.ph20),
+                              onTap: () {
+                                provider.openGenderBottomSheet();
+                              },
+                              icon: Icons.transgender_outlined,
+                              text: tr(AppStrings.gender),
+                              value: profileEntity.gender! == 'male' ? tr(AppStrings.male) : tr(AppStrings.female),
+                            ),
+                            Divider(
+                              color: ColorManager.lightBlueColor,
+                              height: AppSizes.ph20,
+                            ),
                             ProfileDetailsWidget(
                                 onTap: () {
                                   provider.openCityBottomSheet();
                                 },
                                 icon: Icons.location_on_outlined,
-                                text: AppLocalizations.of(context)!.city,
+                                text: tr(AppStrings.city),
                                 value: profileEntity.location!),
                           ],
                         ),

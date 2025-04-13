@@ -29,14 +29,18 @@ class NextButton extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              AppLocalizations.of(context)!.next,
-              style: Theme.of(context)
-                  .textTheme
-                  .titleMedium!
-                  .copyWith(color: ColorManager.whiteColor, fontWeight: FontWeight.bold),
+              tr(AppStrings.next),
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                    color: ColorManager.whiteColor,
+                    fontWeight: FontWeight.bold,
+                  ),
             ),
             SizedBox(width: AppSizes.pw10),
-            Icon(Icons.arrow_circle_right_outlined, color: ColorManager.whiteColor, size: AppSizes.ph30),
+            Icon(
+              Icons.arrow_circle_right_outlined,
+              color: ColorManager.whiteColor,
+              size: AppSizes.ph30,
+            ),
           ],
         ),
       ),

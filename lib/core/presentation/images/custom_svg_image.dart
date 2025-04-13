@@ -14,8 +14,13 @@ class CustomSvgImage extends StatelessWidget {
     this.withDefaultColor = false,
   });
 
-  CustomSvgImage.square({Key? key, required String path, Color? color, double? size, bool withDefaultColor = false})
-      : this(
+  CustomSvgImage.square({
+    Key? key,
+    required String path,
+    Color? color,
+    double? size,
+    bool withDefaultColor = false,
+  }) : this(
           withDefaultColor: withDefaultColor,
           key: key,
           path: path,

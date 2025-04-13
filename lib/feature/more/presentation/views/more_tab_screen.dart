@@ -1,6 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/more/index.dart';
-import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
 
 class MoreTabScreen extends StatefulWidget {
   const MoreTabScreen({super.key});
@@ -10,86 +9,11 @@ class MoreTabScreen extends StatefulWidget {
 }
 
 class _MoreTabScreenState extends State<MoreTabScreen> {
-  void _showRatingDialog() {
-    double rating = 0.0; // Temporary variable to store rating value
-
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(AppLocalizations.of(context)!.app_rating),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                AppStrings.howWouldYouRateOurApp,
-                style: TextStyle(fontSize: AppSizes.sp16),
-              ),
-              SizedBox(height: AppSizes.ph20),
-              RatingBar.builder(
-                initialRating: 0,
-                minRating: 1,
-                allowHalfRating: true,
-                itemCount: 5,
-                itemBuilder: (context, _) => const Icon(
-                  Icons.star,
-                  color: Colors.amber,
-                ),
-                onRatingUpdate: (rating) {
-                  rating = rating; // Update rating value
-                },
-              ),
-              SizedBox(height: AppSizes.ph10),
-              const TextField(
-                decoration: InputDecoration(
-                  hintText: AppStrings.tellUsMoreAboutYourExperience,
-                  border: OutlineInputBorder(),
-                ),
-                maxLines: 3,
-              ),
-            ],
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context); // Close the dialog
-              },
-              child: Text(AppLocalizations.of(context)!.cancel),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                // Handle rating submission
-                Navigator.pop(context);
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text(AppStrings.thankYouForYourFeedback)),
-                );
-              },
-              child: Text(
-                AppLocalizations.of(context)!.send,
-                style: TextStyle(color: ColorManager.whiteColor),
-              ),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-    final profileProvider = Provider.of<MyProfileProvider>(context, listen: false);
     return SingleChildScrollView(
         child: Column(children: [
       SizedBox(height: AppSizes.ph10),
-
-      ///cardsManagement tab //////////////////////////////
-      // Custom_More_row(
-      //   widget: Icon(Icons.credit_card, color: ColorManager.lightGreyColor),
-      //   text: AppLocalizations.of(context)!.cardsManagement,
-      //   onTap: () {
-      //     Navigator.pushNamed(context, Routes.cardsManagementRoute);
-      //   },
-      // ),
 
       ///who_are_we tab //////////////////////////////
       CustomMoreRowWidget(
@@ -99,7 +23,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
             ///////////////    from Back-End     /////////////////////
             child: Image.asset(AppAssets.bacuraImage) // Adjust the radius to make sure it fits
             ),
-        text: AppLocalizations.of(context)!.about_bacura,
+        text: tr(AppStrings.aboutBacuraApp),
         onTap: () {
           Navigator.pushNamed(context, Routes.aboutUsRoute);
         },
@@ -108,7 +32,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
       ///technical_support tab //////////////////////////////
       CustomMoreRowWidget(
           widget: Icon(Icons.info_outline, color: ColorManager.midRedColor),
-          text: AppLocalizations.of(context)!.technical_support,
+          text: tr(AppStrings.technicalSupport),
           onTap: () {
             Navigator.pushNamed(context, Routes.technicalSupportRoute);
           }),
@@ -116,7 +40,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
       ///terms_and_conditions tab //////////////////////////////
       CustomMoreRowWidget(
           widget: Icon(Icons.article, color: ColorManager.lightGreyColor),
-          text: AppLocalizations.of(context)!.terms_and_conditions,
+          text: tr(AppStrings.termsAndConditions),
           onTap: () {
             Navigator.pushNamed(context, Routes.termsAndConditionsRoute);
           }),
@@ -124,7 +48,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
       ///privacy_policy tab //////////////////////////////
       CustomMoreRowWidget(
           widget: Icon(Icons.privacy_tip, color: ColorManager.lightGreyColor),
-          text: AppLocalizations.of(context)!.privacy_policy,
+          text: tr(AppStrings.privacyPolicy),
           onTap: () {
             Navigator.pushNamed(context, Routes.privacyPolicyRoute);
           }),
@@ -132,7 +56,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
       ///register_as_a_service_provider tab //////////////////////////////
       CustomMoreRowWidget(
           widget: Icon(Icons.account_circle, color: ColorManager.primaryBlueColor),
-          text: AppLocalizations.of(context)!.register_as_a_service_provider,
+          text: tr(AppStrings.registerAsServiceProvider),
           onTap: () async {
             final Uri url = Uri.parse(
               'https://sustainable-assets.sa/bacura-form/index.html',
@@ -145,7 +69,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
       ///suggestions tab //////////////////////////////
       CustomMoreRowWidget(
           widget: Icon(Icons.lightbulb, color: ColorManager.yellowColor),
-          text: AppLocalizations.of(context)!.suggestions,
+          text: tr(AppStrings.suggestions),
           onTap: () {
             Navigator.pushNamed(context, Routes.suggestionsRoute);
           }),
@@ -153,8 +77,8 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
       ///appRating tab //////////////////////////////
       CustomMoreRowWidget(
         widget: Icon(Icons.star_border_outlined, color: ColorManager.yellowColor),
-        text: AppLocalizations.of(context)!.app_rating,
-        onTap: _showRatingDialog,
+        text: tr(AppStrings.rateApp),
+        onTap: () {},
 
         /// method for app rating
       ),

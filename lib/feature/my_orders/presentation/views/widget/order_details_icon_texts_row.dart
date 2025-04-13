@@ -26,10 +26,10 @@ class OrderDetailsIconTextsRow extends StatelessWidget {
         height: AppSizes.ph40,
         child: Row(children: [
           Text(title,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyMedium!
-                  .copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold)),
+              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    color: ColorManager.darkBlueColor,
+                    fontWeight: FontWeight.bold,
+                  )),
           Expanded(
               child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Expanded(

@@ -32,7 +32,10 @@ class NotificationsProvider with ChangeNotifier {
     notifyListeners();
 
     final result = await sl<GetNotificationsUseCase>()(
-      NotificationsParameters(page: pageNumber, limit: AppConstants.defaultPageSize),
+      NotificationsParameters(
+        page: pageNumber,
+        limit: AppConstants.defaultPageSize,
+      ),
     );
 
     result.fold((l) async {

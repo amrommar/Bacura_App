@@ -5,7 +5,7 @@ class BadRequestException extends DioException {
 
   @override
   String toString() {
-    return message ?? 'طلب خاطئ';
+    return message ?? tr(AppStrings.wrongOrder);
   }
 }
 
@@ -14,7 +14,7 @@ class InternalServerErrorException extends DioException {
 
   @override
   String toString() {
-    return message ?? 'خطاء في الخادم';
+    return message ?? tr(AppStrings.serverError);
   }
 }
 
@@ -23,7 +23,7 @@ class ConflictException extends DioException {
 
   @override
   String toString() {
-    return message ?? 'خطاء';
+    return message ?? tr(AppStrings.error);
   }
 }
 
@@ -32,6 +32,6 @@ class NotFoundException extends DioException {
 
   @override
   String toString() {
-    return message ?? 'لا يوجد';
+    return message ?? tr(AppStrings.notExist);
   }
 }

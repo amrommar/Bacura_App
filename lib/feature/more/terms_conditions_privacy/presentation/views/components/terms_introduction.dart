@@ -6,7 +6,7 @@ class TermsIntroduction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      AppLocalizations.of(context)!.terms_intro,
+      tr(AppStrings.termsIntro),
       style: Theme.of(context).textTheme.displayMedium!.copyWith(
             color: ColorManager.darkBlueColor,
           ),

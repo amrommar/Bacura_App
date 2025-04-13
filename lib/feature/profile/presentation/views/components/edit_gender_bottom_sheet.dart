@@ -15,9 +15,9 @@ class EditGenderBottomSheet extends StatelessWidget {
             padding: EdgeInsets.all(AppSizes.ph20),
             child: Column(children: [
               CustomDropDownField(
-                selectedOption: provider.myProfileEntity.gender == 'male' ? 'ذكر' : 'أنثي',
-                options: const ['ذكر', 'أنثي'],
-                fieldName: AppLocalizations.of(context)!.gender,
+                selectedOption: provider.myProfileEntity.gender == 'male' ? tr(AppStrings.male) : tr(AppStrings.female),
+                options: [tr(AppStrings.male), tr(AppStrings.female)],
+                fieldName: tr(AppStrings.gender),
                 onChanged: (String? newValue) {
                   if (newValue == null) {
                     return;
@@ -27,7 +27,7 @@ class EditGenderBottomSheet extends StatelessWidget {
               ),
               SizedBox(height: AppSizes.ph20),
               CustomSmallElevatedButton(
-                  text: AppLocalizations.of(context)!.save,
+                  text: tr(AppStrings.save),
                   onPressed: () {
                     /////////////////////// Method to save changes //////////////////////
                     provider.updateMyProfile();

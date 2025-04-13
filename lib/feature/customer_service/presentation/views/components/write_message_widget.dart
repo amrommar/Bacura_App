@@ -8,13 +8,20 @@ class WriteMessageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<ChatProvider>(
       builder: (context, provider, child) => Container(
-        padding: EdgeInsets.symmetric(horizontal: AppSizes.pw8, vertical: AppSizes.ph10),
+        padding: EdgeInsets.symmetric(
+          horizontal: AppSizes.pw8,
+          vertical: AppSizes.ph10,
+        ),
         height: AppSizes.ph60,
         color: ColorManager.midWhiteColor,
         child: Row(
           children: [
             IconButton(
-              icon: Icon(Icons.attachment, color: Colors.grey, size: AppSizes.ph22),
+              icon: Icon(
+                Icons.attachment,
+                color: Colors.grey,
+                size: AppSizes.ph22,
+              ),
               onPressed: () {},
             ),
             Expanded(
@@ -30,7 +37,7 @@ class WriteMessageWidget extends StatelessWidget {
                     ),
                     borderRadius: BorderRadius.circular(AppSizes.br8),
                   ),
-                  hintText: AppStrings.typeMessageHere,
+                  hintText: tr(AppStrings.typeMessageHere),
                 ),
               ),
             ),
@@ -41,7 +48,9 @@ class WriteMessageWidget extends StatelessWidget {
                 size: AppSizes.ph22,
               ),
               onPressed: () {
-                provider.sendMessage(content: provider.messageController.text);
+                provider.sendMessage(
+                  content: provider.messageController.text,
+                );
               },
             ),
           ],

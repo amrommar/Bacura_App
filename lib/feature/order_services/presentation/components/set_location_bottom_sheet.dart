@@ -22,10 +22,12 @@ class SetLocationBottomSheet extends StatelessWidget {
         color: Colors.white,
         child: OpenStreetMapSearchAndPick(
           buttonColor: ColorManager.primaryBlueColor,
-          buttonText: AppLocalizations.of(context)!.set_current_location,
+          buttonText: tr(AppStrings.setCurrentLocation),
           locationPinIconColor: ColorManager.darkRedColor,
           buttonWidth: AppSizes.pw200,
-          locationPinTextStyle: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.primaryBlueColor),
+          locationPinTextStyle: Theme.of(context).textTheme.titleMedium!.copyWith(
+                color: ColorManager.primaryBlueColor,
+              ),
           onPicked: (pickedData) {
             try {
               Navigator.pop(context, {

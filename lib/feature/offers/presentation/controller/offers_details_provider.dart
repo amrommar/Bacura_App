@@ -82,9 +82,9 @@ class OffersDetailsProvider extends ChangeNotifier {
     (await sl<OrderOfferUseCase>()(id)).fold((l) async {
       customShowCustomDialog(
           context: context,
-          title: 'حدث خطاء',
-          imagePath: 'assets/images/png/bad-feedback.png',
-          content: 'برجاء المحاولة مرة اخرى واذا تكرر الخطاء يرجاء التواصل معنا',
+          title: tr(AppStrings.errorOccurred),
+          imagePath: AppAssets.badFeedback,
+          content: tr(AppStrings.pleaseTryAgain),
           isOk: true,
           isCancel: false,
           onCancel: () {},
@@ -94,9 +94,9 @@ class OffersDetailsProvider extends ChangeNotifier {
     }, (r) async {
       customShowCustomDialog(
           context: context,
-          title: 'تم طلبكم  بنجاح',
-          imagePath: 'assets/images/png/checked.png',
-          content: 'سيتم التواصل معك في اقرب وقت',
+          title: tr(AppStrings.orderSubmittedSuccessfully),
+          imagePath: AppAssets.checkedIcon,
+          content: tr(AppStrings.youWillBeContacted),
           isOk: true,
           isCancel: false,
           onCancel: () {},

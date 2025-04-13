@@ -10,7 +10,9 @@ class UserGuideContent extends StatelessWidget {
     return Text(
       content,
       textAlign: TextAlign.justify,
-      style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.blackColor),
+      style: Theme.of(context).textTheme.titleSmall!.copyWith(
+            color: ColorManager.blackColor,
+          ),
     );
   }
 }

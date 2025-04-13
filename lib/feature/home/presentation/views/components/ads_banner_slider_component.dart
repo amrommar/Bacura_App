@@ -1,6 +1,6 @@
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/home/index.dart';
 import 'package:bacura_app/feature/home/presentation/controller/home_provider.dart';
+import 'package:bacura_app/feature/home/presentation/views/widgets/ads_widget.dart';
 
 class AdsBannerSliderComponent extends StatefulWidget {
   const AdsBannerSliderComponent({super.key});
@@ -16,7 +16,10 @@ class _AdsBannerSliderComponentState extends State<AdsBannerSliderComponent> {
       builder: (context, provider, child) => Column(
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph15),
+            padding: EdgeInsets.symmetric(
+              horizontal: AppSizes.pw12,
+              vertical: AppSizes.ph15,
+            ),
             child: CarouselSlider(
               items: List.generate(
                 provider.bannerEntity.length,

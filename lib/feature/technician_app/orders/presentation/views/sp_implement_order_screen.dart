@@ -32,7 +32,7 @@ class _SpImplementOrderScreenState extends State<SpImplementOrderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('تنفيذ الطلب')),
+      appBar: AppBar(title: Text(tr(AppStrings.implementOrder))),
       body: ChangeNotifierProvider(
         create: (context) => SpOrderDetailsProvider(id: widget.orderId!),
         child: Consumer<SpOrderDetailsProvider>(builder: (context, provider, child) {
@@ -70,7 +70,7 @@ class _SpImplementOrderScreenState extends State<SpImplementOrderScreen> {
                         children: [
                           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                             Text(
-                              'الطلب رقم: ',
+                              tr(AppStrings.orderId),
                               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                     color: ColorManager.darkBlueColor,
                                   ),
@@ -90,7 +90,7 @@ class _SpImplementOrderScreenState extends State<SpImplementOrderScreen> {
                           Row(
                             children: [
                               Text(
-                                'اسم العميل: ',
+                                tr(AppStrings.clientName),
                                 style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                                       color: ColorManager.darkBlueColor,
                                     ),
@@ -115,19 +115,19 @@ class _SpImplementOrderScreenState extends State<SpImplementOrderScreen> {
                               children: [
                                 ImplementOrderPhaseSection(
                                   key: phase1Key,
-                                  title: 'تم تجهيز المواد',
+                                  title: tr(AppStrings.materialsPrepared),
                                   isLast: false,
                                   initialCompleted: true,
                                 ),
                                 ImplementOrderPhaseSection(
                                   key: phase2Key,
-                                  title: 'الوصول للعميل',
+                                  title: tr(AppStrings.accessToClient),
                                   isLast: false,
                                   initialCompleted: true,
                                 ),
                                 ImplementOrderPhaseSection(
                                   key: phase3Key,
-                                  title: 'تم التنفيذ',
+                                  title: tr(AppStrings.orderDone),
                                   isLast: true,
                                   initialCompleted: false,
                                 ),
@@ -144,10 +144,10 @@ class _SpImplementOrderScreenState extends State<SpImplementOrderScreen> {
                                 ),
                               ),
                               onPressed: () {
-                                if (buttonText == 'تم التنفيذ') {
+                                if (buttonText == tr(AppStrings.orderDone)) {
                                   phase3Key.currentState?.setCompleted(true);
-                                  buttonText = 'إغلاق الطلب';
-                                } else if (buttonText == 'إغلاق الطلب') {
+                                  buttonText = tr(AppStrings.closeOrder);
+                                } else if (buttonText == tr(AppStrings.closeOrder)) {
                                   Navigator.pushNamed(context, Routes.spHomeScreenRoute);
                                 }
                                 setState(() {});

@@ -47,8 +47,15 @@ class OrderItemComponent extends StatelessWidget {
           )
         ],
       ),
-      margin: EdgeInsets.only(right: AppSizes.pw18, top: AppSizes.ph18, left: AppSizes.pw18),
-      padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph12),
+      margin: EdgeInsets.only(
+        right: AppSizes.pw18,
+        top: AppSizes.ph18,
+        left: AppSizes.pw18,
+      ),
+      padding: EdgeInsets.symmetric(
+        horizontal: AppSizes.pw12,
+        vertical: AppSizes.ph12,
+      ),
       height: AppSizes.ph180,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -72,7 +79,7 @@ class OrderItemComponent extends StatelessWidget {
           OrderTimeDateWidget(date: provider.dateCreateOrder(index), time: timeOnly),
           if (requestEntity.total! > 0)
             Text(
-              '${NumberParser.translateNumber((formattedNumber).toString())} ريال',
+              '${NumberParser.translateNumber((formattedNumber).toString())} ${tr(AppStrings.SAR)}',
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     color: ColorManager.darkBlueColor,
                     fontWeight: FontWeight.bold,

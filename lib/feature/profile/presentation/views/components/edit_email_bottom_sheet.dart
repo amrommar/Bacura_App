@@ -20,17 +20,17 @@ class EditEmailBottomSheet extends StatelessWidget {
               Form(
                 key: formKey,
                 child: CustomTextFormField(
-                  fieldName: AppLocalizations.of(context)!.email,
-                  hintText: AppLocalizations.of(context)!.email,
+                  fieldName: tr(AppStrings.email),
+                  hintText: tr(AppStrings.enterEmail),
                   controller: emailController,
                   validator: (text) {
                     if (text == null || text.trim().isEmpty) {
-                      return AppLocalizations.of(context)!.enter_your_email;
+                      return tr(AppStrings.pleaseEnterEmail);
                     }
                     final bool emailValid =
                         RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(text);
                     if (!emailValid) {
-                      return AppLocalizations.of(context)!.please_enter_valid_email;
+                      return tr(AppStrings.pleaseEnterValidEmail);
                     }
                     return null;
                   },
@@ -38,7 +38,7 @@ class EditEmailBottomSheet extends StatelessWidget {
               ),
               SizedBox(height: AppSizes.ph40),
               CustomSmallElevatedButton(
-                  text: AppLocalizations.of(context)!.save,
+                  text: tr(AppStrings.save),
                   onPressed: () {
                     if (formKey.currentState!.validate() == true) {
                       provider.updateMyProfile();

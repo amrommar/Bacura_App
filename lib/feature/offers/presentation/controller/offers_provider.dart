@@ -36,7 +36,10 @@ class OffersProvider with ChangeNotifier {
     notifyListeners();
 
     final result = await sl<GetOffersUseCase>()(
-      OffersParameters(page: pageNumber, limit: AppConstants.defaultPageSize),
+      OffersParameters(
+        page: pageNumber,
+        limit: AppConstants.defaultPageSize,
+      ),
     );
 
     result.fold((l) async {
@@ -77,7 +80,7 @@ class OffersProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  List<OffersDataEntity> get filteredorders {
+  List<OffersDataEntity> get filteredOrders {
     if (_selectedFilters.isEmpty) {
       return offersEntity.offersDataEntity;
     }
@@ -87,8 +90,10 @@ class OffersProvider with ChangeNotifier {
   }
 
   String getRemainingDays(int index) {
-    DateTime? targetDate = DateParser.convertUTCStringToLocalTime(offersEntity.offersDataEntity[index].expiresAt!);
-    if (targetDate == null) return "تاريخ غير صالح";
+    DateTime? targetDate = DateParser.convertUTCStringToLocalTime(
+      offersEntity.offersDataEntity[index].expiresAt!,
+    );
+    if (targetDate == null) return tr(AppStrings.invalidDate);
 
     Duration difference = targetDate.difference(DateTime.now());
 
@@ -97,6 +102,6 @@ class OffersProvider with ChangeNotifier {
       remainingDays += 1;
     }
 
-    return "باقي ${NumberParser.translateNumber(remainingDays.toString())} يوم";
+    return "${tr(AppStrings.remain)} ${NumberParser.translateNumber(remainingDays.toString())} ${tr(AppStrings.day)}";
   }
 }

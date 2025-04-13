@@ -7,7 +7,7 @@ class AboutUsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(AppStrings.aboutUs),
+        title: const Text(AppStrings.aboutBacuraApp),
       ),
       body: Container(
         padding: EdgeInsets.all(AppSizes.ph12),
@@ -22,13 +22,13 @@ class AboutUsScreen extends StatelessWidget {
             const BacuraLogoWidget(),
             Divider(color: ColorManager.whiteColor),
             Text(
-              AppLocalizations.of(context)!.about_us,
+              tr(AppStrings.aboutUs),
               style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor),
               textAlign: TextAlign.justify,
             ),
             Divider(color: ColorManager.whiteColor),
             Text(
-              AppLocalizations.of(context)!.about_us_body,
+              tr(AppStrings.aboutUsContent),
               style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor),
               textAlign: TextAlign.justify,
             ),
@@ -36,7 +36,7 @@ class AboutUsScreen extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  AppLocalizations.of(context)!.our_website,
+                  tr(AppStrings.ourWebSite),
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                         color: ColorManager.greyColor,
                       ),

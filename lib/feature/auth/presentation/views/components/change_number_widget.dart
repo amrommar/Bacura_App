@@ -10,7 +10,7 @@ class ChangeNumberWidget extends StatelessWidget {
     return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
       //// from Back-End ////////////////////////
       Text(
-        '${mobileNumber.substring(7, 9)}******${mobileNumber.substring(0, 2)} 966+',
+        '${mobileNumber.substring(7, 9)}******${mobileNumber.substring(0, 2)}',
         style: Theme.of(context).textTheme.displayMedium,
       ),
       SizedBox(width: AppSizes.pw10),
@@ -19,7 +19,7 @@ class ChangeNumberWidget extends StatelessWidget {
           Navigator.pop(context);
         },
         child: Text(
-          AppLocalizations.of(context)!.changeNumber,
+          tr(AppStrings.changeMobileNumber),
           style: Theme.of(context).textTheme.displayMedium!.copyWith(
                 color: ColorManager.primaryBlueColor,
               ),
