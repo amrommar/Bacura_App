@@ -99,20 +99,45 @@ class OrderDetailsScreen extends StatelessWidget {
                                 shrinkWrap: true,
                                 physics: const NeverScrollableScrollPhysics(),
                                 itemBuilder: (BuildContext context, int index) {
-                                  return Column(children: [
-                                    Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-                                      Expanded(
-                                          child: Text(provider.itemsForOrderEntity[index]?.name ?? '',
-                                              style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                                                    color: ColorManager.blackColor,
-                                                  ))),
-                                      Text(
-                                          '${NumberParser.translateNumber((provider.itemsForOrderEntity[index]?.price).toString())} ريال',
-                                          style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                                                color: ColorManager.darkRedColor,
-                                              ))
-                                    ]),
-                                  ]);
+                                  return Column(
+                                    children: [
+                                      Row(
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                          Expanded(
+                                              child: Row(
+                                            children: [
+                                              Text(
+                                                '${provider.itemsForOrderEntity[index]?.quantity.toString()}',
+                                                style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                                                      color: ColorManager.blackColor,
+                                                    ),
+                                              ),
+                                              Container(
+                                                color: ColorManager.blackColor,
+                                                width: 2.w,
+                                                height: 20.h,
+                                              ),
+                                              Text(
+                                                provider.itemsForOrderEntity[index]?.name ?? '',
+                                                style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                                                      color: ColorManager.blackColor,
+                                                    ),
+                                              ),
+                                            ],
+                                          )),
+                                          Text(
+                                            '${NumberParser.translateNumber(
+                                              (provider.itemsForOrderEntity[index]?.price).toString(),
+                                            )} ريال',
+                                            style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                                                  color: ColorManager.darkRedColor,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  );
                                 },
                                 separatorBuilder: (BuildContext context, int index) {
                                   return Divider(
@@ -294,7 +319,6 @@ class ItemsShimmerWidget extends StatelessWidget {
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemCount: 5,
-          // عدد العناصر
           separatorBuilder: (context, index) => SizedBox(height: 10.h),
           itemBuilder: (BuildContext context, int index) {
             return Column(
