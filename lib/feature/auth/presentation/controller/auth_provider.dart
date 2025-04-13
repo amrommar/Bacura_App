@@ -15,13 +15,15 @@ class AuthProvider with ChangeNotifier {
     Future.delayed(Duration.zero, () {});
     if (pinCode.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(AppStrings.pleaseEnterOTP),
+        content: Text(
+          tr(AppStrings.pleaseEnterOTP),
+        ),
         backgroundColor: Colors.red,
       ));
     } else if (pinCode.length != 4) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(AppStrings.pleaseEnterRightOTP),
+          content: Text(tr(AppStrings.pleaseEnterRightOTP)),
           backgroundColor: Colors.red,
         ),
       );
@@ -36,9 +38,9 @@ class AuthProvider with ChangeNotifier {
       result.fold((l) {
         customShowCustomDialog(
           context: context,
-          title: AppStrings.pleaseVerifyOTP,
+          title: tr(AppStrings.pleaseVerifyOTP),
           imagePath: AppAssets.badFeedback,
-          content: AppStrings.oTPMayBeWrongTryAgain,
+          content: tr(AppStrings.oTPMayBeWrongTryAgain),
           isOk: false,
           isCancel: true,
           onCancel: () {
@@ -55,9 +57,9 @@ class AuthProvider with ChangeNotifier {
 
         customShowCustomDialog(
             context: context,
-            title: AppStrings.successfulLogin,
+            title: tr(AppStrings.successfulLogin),
             imagePath: AppAssets.checkedIcon,
-            content: AppStrings.successfulLogin,
+            content: tr(AppStrings.successfulLogin),
             isOk: true,
             isCancel: false,
             onCancel: () {},
@@ -84,12 +86,17 @@ class AuthProvider with ChangeNotifier {
         duration: const Duration(seconds: 1),
         backgroundColor: ColorManager.midWhiteColor,
         content: Text(
-          AppLocalizations.of(context)!.please_enter_valid_phone_number,
-          style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkRedColor),
+          tr(AppStrings.pleaseEnterValidMobileNumber),
+          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                color: ColorManager.darkRedColor,
+              ),
         ),
       ));
     } else {
-      verifyOtp(countryCode: AppConstants.countryCode, mobileNumber: mobileNumberController.text);
+      verifyOtp(
+        countryCode: AppConstants.countryCode,
+        mobileNumber: mobileNumberController.text,
+      );
       Navigator.push(
           context,
           MaterialPageRoute(
@@ -100,7 +107,10 @@ class AuthProvider with ChangeNotifier {
   }
 
   void verifyOtp({required String mobileNumber, required String countryCode}) {
-    sl<LoginUseCase>().call(LoginParameter(phone: mobileNumber, countryCode: AppConstants.countryCode));
+    sl<LoginUseCase>().call(LoginParameter(
+      phone: mobileNumber,
+      countryCode: AppConstants.countryCode,
+    ));
   }
 // void showVerifyBottomSheet(BuildContext context) {
 //   showModalBottomSheet(

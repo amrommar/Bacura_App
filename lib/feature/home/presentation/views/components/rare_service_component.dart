@@ -1,7 +1,7 @@
 import 'package:bacura_app/core/utils/dialog_function.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/home/presentation/controller/home_provider.dart';
-import 'package:bacura_app/feature/home/presentation/widgets/rare_service_widget.dart';
+import 'package:bacura_app/feature/home/presentation/views/widgets/rare_service_widget.dart';
 import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
 
 class RareServiceComponent extends StatelessWidget {
@@ -17,7 +17,10 @@ class RareServiceComponent extends StatelessWidget {
           .where((category) => category.type == "consultation" || category.type == "cinema")
           .toList();
       return Container(
-        padding: EdgeInsets.symmetric(vertical: AppSizes.ph8, horizontal: AppSizes.ph14),
+        padding: EdgeInsets.symmetric(
+          vertical: AppSizes.ph8,
+          horizontal: AppSizes.ph14,
+        ),
         decoration: BoxDecoration(
             // borderRadius: BorderRadius.circular(AppSizes.br12),
             ),
@@ -26,7 +29,7 @@ class RareServiceComponent extends StatelessWidget {
             Divider(
               color: ColorManager.primaryBlueColor,
             ),
-            Text(AppLocalizations.of(context)!.services_for_you,
+            Text(tr(AppStrings.specialServices),
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(
                       color: ColorManager.darkBlueColor,
                       fontWeight: FontWeight.bold,
@@ -46,9 +49,9 @@ class RareServiceComponent extends StatelessWidget {
                           profileProvider.token == null
                               ? customShowCustomDialog(
                                   context: context,
-                                  title: 'تسجيل الدخول',
-                                  imagePath: 'assets/images/png/bad-feedback.png',
-                                  content: 'الرجاء تسجيل الدخول اولاً',
+                                  title: tr(AppStrings.login),
+                                  imagePath: AppAssets.badFeedback,
+                                  content: tr(AppStrings.pleaseLoginFirst),
                                   isOk: true,
                                   isCancel: true,
                                   onCancel: () {

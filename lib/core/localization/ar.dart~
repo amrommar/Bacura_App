@@ -343,6 +343,6 @@ Map<String, String> coreAr = {
   AppStrings.materialsPrepared: 'تم تجهيز المواد',
   AppStrings.accessToClient: 'الوصول للعميل',
   AppStrings.orderDone: 'تم التنفيذ',
-  AppStrings.contactWithClient: 'الاتصال بالعميل',
-  AppStrings.serviceName: 'اسم الخدمة',
+  AppStrings.contactWithClient : 'الاتصال بالعميل',
+  AppStrings.serviceName : 'اسم الخدمة',
 };

@@ -56,7 +56,10 @@ class _VerifyScreenState extends State<VerifyScreen> {
       ),
       Scaffold(
           appBar: AppBar(
-              iconTheme: IconThemeData(color: ColorManager.primaryBlueColor, size: AppSizes.ph30),
+              iconTheme: IconThemeData(
+                color: ColorManager.primaryBlueColor,
+                size: AppSizes.ph30,
+              ),
               backgroundColor: ColorManager.transparent,
               elevation: 0,
               toolbarHeight: AppSizes.ph100),
@@ -71,15 +74,17 @@ class _VerifyScreenState extends State<VerifyScreen> {
                     const BacuraLogoWidget(),
                     SizedBox(height: AppSizes.ph50),
                     Text(
-                      AppLocalizations.of(context)!.oTPNumber,
+                      tr(AppStrings.otp),
                       style: Theme.of(context).textTheme.displayLarge,
                     ),
                     Divider(color: ColorManager.lightBlueColor),
                     SizedBox(height: AppSizes.ph10),
-                    Text(AppLocalizations.of(context)!.oTPNumberSent,
-                        style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                              color: ColorManager.greyColor,
-                            )),
+                    Text(
+                      tr(AppStrings.OtpSentTo),
+                      style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                            color: ColorManager.greyColor,
+                          ),
+                    ),
                     ChangeNumberWidget(
                       mobileNumber: widget.mobileNumber,
                     ),
@@ -111,12 +116,14 @@ class _VerifyScreenState extends State<VerifyScreen> {
                             onTap: _canResend
                                 ? () {
                                     provider.verifyOtp(
-                                        countryCode: AppConstants.countryCode, mobileNumber: widget.mobileNumber);
+                                      countryCode: AppConstants.countryCode,
+                                      mobileNumber: widget.mobileNumber,
+                                    );
                                     _startTimer();
                                   }
                                 : null,
                             child: Text(
-                              AppLocalizations.of(context)!.sendOTPAgain,
+                              tr(AppStrings.resend),
                               style: Theme.of(context)
                                   .textTheme
                                   .bodyMedium!

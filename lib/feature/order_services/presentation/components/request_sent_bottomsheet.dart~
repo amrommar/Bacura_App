@@ -3,7 +3,6 @@ import 'package:bacura_app/core/utils/index.dart';
 class OrderSentBottomSheet extends StatefulWidget {
   final String title;
   final String image;
-
   const OrderSentBottomSheet({super.key, required this.title, required this.image});
 
   @override
@@ -46,10 +45,7 @@ class _OrderSentBottomSheetState extends State<OrderSentBottomSheet> {
             CustomSmallElevatedButton(
                 text: tr(AppStrings.ok),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const HomeScreen()),
-                  );
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeScreen()),);
                 }),
           ],
         ),

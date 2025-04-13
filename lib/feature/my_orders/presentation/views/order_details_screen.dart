@@ -41,7 +41,7 @@ class OrderDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           title: Text(
-        AppLocalizations.of(context)!.request_details,
+        tr(AppStrings.orderDetails),
       )),
       body: ChangeNotifierProvider(
         create: (context) => OrderDetailsProvider(id: id),
@@ -58,17 +58,29 @@ class OrderDetailsScreen extends StatelessWidget {
                     offset: const Offset(0, 3),
                   )
                 ]),
-            margin: EdgeInsets.symmetric(horizontal: AppSizes.ph12, vertical: AppSizes.ph12),
-            padding: EdgeInsets.symmetric(horizontal: AppSizes.ph12, vertical: AppSizes.ph12),
+            margin: EdgeInsets.symmetric(
+              horizontal: AppSizes.ph12,
+              vertical: AppSizes.ph12,
+            ),
+            padding: EdgeInsets.symmetric(
+              horizontal: AppSizes.ph12,
+              vertical: AppSizes.ph12,
+            ),
             height: AppSizes.ph800,
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  OrderNumContactIconWidget(requestColor: requestColor ?? ColorManager.yellowColor, orderId: orderId!),
+                  OrderNumContactIconWidget(
+                    requestColor: requestColor ?? ColorManager.yellowColor,
+                    orderId: orderId!,
+                  ),
                   const Divider(),
-                  OrderTimeDateWidget(date: date ?? '10/10/2010', time: time ?? '10:10'),
+                  OrderTimeDateWidget(
+                    date: date ?? '10/10/2010',
+                    time: time ?? '10:10',
+                  ),
                   provider.isItemsLoading
                       ? const ItemsShimmerWidget()
                       : provider.itemsForOrderEntity.isEmpty
@@ -79,11 +91,7 @@ class OrderDetailsScreen extends StatelessWidget {
                                 children: [
                                   Text(description ?? ''),
                                   SizedBox(height: AppSizes.ph10),
-                                  Text(status == 'pending'
-                                      ? 'جاري تجهيز عرض السعر '
-                                      : status == 'declined'
-                                          ? 'لقد تم إلغاء طلبك'
-                                          : ''),
+                                  Text(status == 'pending' ? tr(AppStrings.quotationIsBeingPrepared) : ''),
                                 ],
                               )),
                             )
@@ -106,7 +114,7 @@ class OrderDetailsScreen extends StatelessWidget {
                                                     color: ColorManager.blackColor,
                                                   ))),
                                       Text(
-                                          '${NumberParser.translateNumber((provider.itemsForOrderEntity[index]?.price).toString())} ريال',
+                                          '${NumberParser.translateNumber((provider.itemsForOrderEntity[index]?.price).toString())} ${tr(AppStrings.SAR)}',
                                           style: Theme.of(context).textTheme.titleSmall!.copyWith(
                                                 color: ColorManager.darkRedColor,
                                               ))
@@ -133,14 +141,14 @@ class OrderDetailsScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            AppLocalizations.of(context)!.total,
+                            tr(AppStrings.total),
                             style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                   color: ColorManager.darkBlueColor,
                                   fontWeight: FontWeight.bold,
                                 ),
                           ),
                           Text(
-                            '${NumberParser.translateNumber((total).toString())} ريال',
+                            '${NumberParser.translateNumber((total).toString())} ${tr(AppStrings.SAR)}',
                             style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                   color: ColorManager.primaryBlueColor,
                                 ),
@@ -150,26 +158,26 @@ class OrderDetailsScreen extends StatelessWidget {
                     ),
                   const Divider(),
                   OrderDetailsIconTextsRow(
-                    title: AppLocalizations.of(context)!.location,
+                    title: tr(AppStrings.location),
                     description: location ?? '',
                     icon: Icons.location_on,
                   ),
                   OrderDetailsIconTextsRow(
-                      title: AppLocalizations.of(context)!.payment_method,
-                      description: 'بطاقة إئتمانية',
+                      title: tr(AppStrings.paymentMethod),
+                      description: tr(AppStrings.creditCard),
                       icon: Icons.credit_card,
                       iconColor: ColorManager.greyColor),
                   OrderDetailsIconTextsRow(
-                      title: AppLocalizations.of(context)!.payment_status,
+                      title: tr(AppStrings.paymentStatus),
                       description: status == 'pending'
-                          ? 'لم يتم الدفع'
+                          ? tr(AppStrings.notPaid)
                           : status == 'declined'
-                              ? 'لم يتم الدفع'
+                              ? tr(AppStrings.notPaid)
                               : status == 'approved'
-                                  ? 'لم يتم الدفع'
+                                  ? tr(AppStrings.notPaid)
                                   : status == 'confirmed'
-                                      ? 'تم الدفع'
-                                      : 'تم الدفع',
+                                      ? tr(AppStrings.paidDone)
+                                      : tr(AppStrings.paidDone),
                       icon: status == 'pending'
                           ? Icons.cancel
                           : status == 'approved'
@@ -179,7 +187,7 @@ class OrderDetailsScreen extends StatelessWidget {
                                   : Icons.check_circle,
                       iconColor: requestColor!),
                   OrderDetailsIconTextsRow(
-                      title: AppLocalizations.of(context)!.warranty_status,
+                      title: tr(AppStrings.warrantyStatus),
                       description: expiresAt ?? '',
                       icon: Icons.verified_user,
                       iconColor: requestColor!),

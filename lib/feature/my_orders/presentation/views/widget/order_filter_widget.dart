@@ -13,19 +13,19 @@ class ordersFilterWidget extends StatelessWidget {
       String translatedFilter = '';
       switch (filter) {
         case 'pending':
-          translatedFilter = AppLocalizations.of(context)!.pending;
+          translatedFilter = tr(AppStrings.pending);
           break;
         case 'approved':
-          translatedFilter = AppLocalizations.of(context)!.on_going;
+          translatedFilter = tr(AppStrings.onGoing);
           break;
         case 'completed':
-          translatedFilter = AppLocalizations.of(context)!.completed;
+          translatedFilter = tr(AppStrings.completed);
           break;
         case 'declined':
-          translatedFilter = AppLocalizations.of(context)!.canceled;
+          translatedFilter = tr(AppStrings.cancelled);
           break;
         case 'confirmed':
-          translatedFilter = 'معتمدة';
+          translatedFilter = tr(AppStrings.confirmed);
           break;
         default:
           translatedFilter = filter;
@@ -41,8 +41,10 @@ class ordersFilterWidget extends StatelessWidget {
             checkColor: ColorManager.whiteColor,
             height: AppSizes.ph240,
             backgroundColor: ColorManager.lightBlueColor,
-            title: Text(AppLocalizations.of(context)!.select_category),
-            itemsTextStyle: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.greyColor),
+            title: Text(tr(AppStrings.selectCategory)),
+            itemsTextStyle: Theme.of(context).textTheme.titleSmall!.copyWith(
+                  color: ColorManager.greyColor,
+                ),
             selectedColor: ColorManager.primaryBlueColor,
             items: filterItems,
             initialValue: myOrdersProvider.selectedFilters,
@@ -60,7 +62,7 @@ class ordersFilterWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Filter_Icon(onTap: showMultiSelect),
+          FilterIcon(onTap: showMultiSelect),
           Expanded(
               child: ListView(
             scrollDirection: Axis.horizontal,
@@ -69,7 +71,7 @@ class ordersFilterWidget extends StatelessWidget {
                 return SelectedFilterWidgets(text: translateFilter(selected, context));
               }),
               ...ordersTypes.where((type) => !myOrdersProvider.selectedFilters.contains(type)).map((unselected) {
-                return UnSelected_Filter_Container(text: translateFilter(unselected, context));
+                return UnSelectedFilterContainer(text: translateFilter(unselected, context));
               }),
             ],
           )),

@@ -14,40 +14,51 @@ class _FAQScreenState extends State<FAQScreen> {
     return Scaffold(
       appBar: AppBar(
           title: Text(
-        AppLocalizations.of(context)!.frequently_asked_questions,
+        tr(AppStrings.FAQ),
       )),
       body: SingleChildScrollView(
         child: Column(
           children: [
             FQAContainer(
-              question: 'كيف يمكنني طلب خدمة عبر التطبيق؟',
-              answer:
-                  'يمكنك طلب الخدمة بسهولة عبر اختيار نوع الخدمة من قائمة الخدمات، ثم تحديد نوع الطلب (توريد، صيانة، تركيب وبرمجة) وإدخال تفاصيل الطلب وإرساله.',
+              question: tr(AppStrings.howCanIRequestService),
+              answer: tr(AppStrings.howCanIRequestServiceAnswer),
             ),
             FQAContainer(
-              question: 'كيف أتابع حالة طلبي؟',
-              answer: 'يمكنك متابعة حالة الطلب من خلال شاشة الطلبات، كما ستصلك إشعارات فورية بكل تحديث يطرأ على طلبك.',
+              question: tr(AppStrings.howCanITrackMyOrder),
+              answer: tr(AppStrings.howCanITrackMyOrderAnswer),
             ),
             FQAContainer(
-                question: 'ما هي طرق الدفع المتاحة؟',
-                answer: 'يمكنك الدفع عبر التطبيق باستخدام البطاقة البنكية أو التحويل البنكي بعد استلامك عرض السعر.'),
+              question: tr(AppStrings.howCanIPay),
+              answer: tr(AppStrings.howCanIPayAnswer),
+            ),
             FQAContainer(
-                question: 'هل يمكنني إلغاء الطلب بعد إرساله؟',
-                answer: 'نعم، يمكنك إلغاء الطلب في أي وقت قبل إتمام عملية الدفع.'),
-            FQAContainer(question: ' كيف أتواصل مع الدعم الفني؟', answer: '''يمكنك التواصل مع فريق الدعم الفني عبر:
-إرسال شكوى من خلال قسم الشكاوى.
-المحادثة المباشرة داخل التطبيق.
-الاتصال عبر رقم خدمة العملاء'''),
+              question: tr(AppStrings.canICancelOrder),
+              answer: tr(AppStrings.canICancelOrderAnswer),
+            ),
             FQAContainer(
-                question: 'كيف أستفيد من العروض والخدمات المميزة؟',
-                answer: 'تظهر العروض والخدمات المميزة في الصفحة الرئيسية أو عبر صفحة العروض داخل التطبيق.'),
+              question: tr(AppStrings.howCanIContactSupport),
+              answer: tr(AppStrings.howCanIContactSupportAnswer),
+            ),
+            FQAContainer(
+              question: tr(AppStrings.howCanIUseSpecialOffers),
+              answer: tr(AppStrings.howCanIUseSpecialOffersAnswer),
+            ),
             InkWell(
-              onTap: () => Navigator.pushNamed(context, Routes.customerServiceRoute),
+              onTap: () => Navigator.pushNamed(
+                context,
+                Routes.customerServiceRoute,
+              ),
               child: Container(
-                margin: EdgeInsets.only(top: AppSizes.ph16, right: AppSizes.pw50, left: AppSizes.pw50),
+                margin: EdgeInsets.only(
+                  top: AppSizes.ph16,
+                  right: AppSizes.pw50,
+                  left: AppSizes.pw50,
+                ),
                 decoration: BoxDecoration(
                   color: ColorManager.soLightGreyColor,
-                  borderRadius: BorderRadius.circular(AppSizes.br12),
+                  borderRadius: BorderRadius.circular(
+                    AppSizes.br12,
+                  ),
                 ),
                 padding: EdgeInsets.all(AppSizes.br12),
                 child: Row(
@@ -55,7 +66,7 @@ class _FAQScreenState extends State<FAQScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'لم تجد إجابتك؟ تواصل معنا',
+                      tr(AppStrings.didnotFindYourAnswer),
                       style: Theme.of(context).textTheme.titleMedium!.copyWith(
                             color: ColorManager.primaryBlueColor,
                           ),

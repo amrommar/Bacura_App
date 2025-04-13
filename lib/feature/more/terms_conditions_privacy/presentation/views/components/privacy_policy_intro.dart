@@ -5,7 +5,7 @@ class PrivacyPolicyIntro extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(AppLocalizations.of(context)!.privacy_policy_intro,
+    return Text(tr(AppStrings.privacyPolicyIntro),
         style: Theme.of(context).textTheme.displayMedium!.copyWith(
               color: ColorManager.darkBlueColor,
             ),

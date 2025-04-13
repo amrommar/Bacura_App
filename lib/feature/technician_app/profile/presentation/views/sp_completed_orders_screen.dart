@@ -8,7 +8,7 @@ class SpCompletedOrdersScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('الطلبات المنجزة'),
+        title: Text(tr(AppStrings.completedOrders)),
       ),
       body: ChangeNotifierProvider<CompletedOrdersProvider>(
         create: (context) => CompletedOrdersProvider(),
@@ -84,7 +84,7 @@ class SpCompletedOrdersScreen extends StatelessWidget {
                             Row(
                               children: [
                                 Text(
-                                  'اسم العميل: ',
+                                  tr(AppStrings.clientName),
                                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                                         color: ColorManager.darkBlueColor,
                                       ),

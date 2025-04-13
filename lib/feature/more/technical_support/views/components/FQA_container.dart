@@ -36,12 +36,17 @@ class FQAContainer extends StatelessWidget {
               Expanded(
                 child: Text(
                   question,
-                  style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.blackColor),
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                        color: ColorManager.blackColor,
+                      ),
                 ),
               ),
             ],
           ),
-          Divider(color: ColorManager.whiteColor, height: AppSizes.ph5),
+          Divider(
+            color: ColorManager.whiteColor,
+            height: AppSizes.ph5,
+          ),
           SizedBox(height: AppSizes.ph5),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,7 +58,9 @@ class FQAContainer extends StatelessWidget {
               SizedBox(width: AppSizes.pw5),
               Expanded(
                 child: Text(answer,
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.greyColor)),
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                          color: ColorManager.greyColor,
+                        )),
               ),
             ],
           ),

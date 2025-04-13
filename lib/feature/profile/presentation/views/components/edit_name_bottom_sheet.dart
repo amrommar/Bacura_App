@@ -20,19 +20,19 @@ class EditNameBottomSheet extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 CustomTextFormField(
-                  fieldName: AppLocalizations.of(context)!.fullName,
-                  hintText: AppLocalizations.of(context)!.enterYourName,
+                  fieldName: tr(AppStrings.fullName),
+                  hintText: tr(AppStrings.enterYourName),
                   controller: provider.nameController,
                   validator: (value) {
                     if (value == null || value.trim().isEmpty) {
-                      return AppLocalizations.of(context)!.pleaseEnterYourName;
+                      return tr(AppStrings.pleaseEnterYourName);
                     }
                     return null;
                   },
                 ),
                 SizedBox(height: AppSizes.ph40),
                 CustomSmallElevatedButton(
-                  text: AppLocalizations.of(context)!.save,
+                  text: tr(AppStrings.save),
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       provider.updateMyProfile();

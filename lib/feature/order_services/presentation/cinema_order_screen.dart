@@ -16,10 +16,13 @@ class CinemaOrderScreen extends StatelessWidget {
         builder: (context, provider, child) => Scaffold(
             appBar: AppBar(
                 title: Text(
-              AppLocalizations.of(context)!.service_details,
+              tr(AppStrings.serviceDetails),
             )),
             body: Padding(
-              padding: EdgeInsets.symmetric(vertical: AppSizes.ph18, horizontal: AppSizes.pw16),
+              padding: EdgeInsets.symmetric(
+                vertical: AppSizes.ph18,
+                horizontal: AppSizes.pw16,
+              ),
               child: Form(
                 key: formKey,
                 child: SingleChildScrollView(
@@ -29,7 +32,10 @@ class CinemaOrderScreen extends StatelessWidget {
                       children: [
                         ////////////////////     Styled Introductory Title Section     /////////////////////////////////////////
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph16),
+                          padding: EdgeInsets.symmetric(
+                            horizontal: AppSizes.pw12,
+                            vertical: AppSizes.ph16,
+                          ),
                           width: double.infinity,
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
@@ -43,7 +49,7 @@ class CinemaOrderScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(AppSizes.br12),
                           ),
                           child: Text(
-                            "لا تقطع المسافات للترفية... دع السينما تأتي إليك!",
+                            tr(AppStrings.cinemaEntertainmentContent),
                             style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                                   color: ColorManager.whiteColor,
                                   fontWeight: FontWeight.bold,
@@ -55,7 +61,7 @@ class CinemaOrderScreen extends StatelessWidget {
                         SizedBox(height: AppSizes.ph20),
 
                         Text(
-                          AppLocalizations.of(context)!.set_date,
+                          tr(AppStrings.setDate),
                           style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                 color: ColorManager.blackColor,
                               ),
@@ -69,19 +75,19 @@ class CinemaOrderScreen extends StatelessWidget {
                         CustomDropDownField(
                           selectedOption: provider.selectedOption,
                           options: provider.options,
-                          fieldName: AppLocalizations.of(context)!.set_time,
+                          fieldName: tr(AppStrings.setTime),
                           onChanged: (String? newValue) {
                             provider.onTimeChanged(provider.selectedOption);
                           },
                         ),
 
                         CustomQuestionTextFormField(
-                          fieldName: AppLocalizations.of(context)!.location,
-                          hintText: AppLocalizations.of(context)!.click_icon_location,
+                          fieldName: tr(AppStrings.location),
+                          hintText: tr(AppStrings.setLocation),
                           controller: provider.locationController,
                           validator: (value) {
                             if (value == null || value.trim().isEmpty) {
-                              return AppLocalizations.of(context)!.please_set_location;
+                              return tr(AppStrings.pleaseSelectLocation);
                             }
                             return null;
                           },
@@ -98,13 +104,13 @@ class CinemaOrderScreen extends StatelessWidget {
                         ),
 
                         CustomQuestionTextFormField(
-                          fieldName: AppLocalizations.of(context)!.service_description,
-                          hintText: AppLocalizations.of(context)!.enter_service_description,
+                          fieldName: tr(AppStrings.serviceDescription),
+                          hintText: tr(AppStrings.enterServiceDescription),
                           controller: provider.descriptionController,
                           maxLines: 5,
                           validator: (value) {
                             if (value == null || value.trim().isEmpty) {
-                              return AppLocalizations.of(context)!.please_describe_your_consultation;
+                              return tr(AppStrings.enterServiceDescription);
                             }
                             return null;
                           },
@@ -112,10 +118,13 @@ class CinemaOrderScreen extends StatelessWidget {
                         SizedBox(height: AppSizes.ph100),
                         Center(
                           child: CustomSmallElevatedButton(
-                            text: AppLocalizations.of(context)!.send_request,
+                            text: tr(AppStrings.sendRequest),
                             onPressed: () {
                               if (formKey.currentState?.validate() == true) {
-                                provider.sendOrderRequest(categoryId: categoryId, context: context);
+                                provider.sendOrderRequest(
+                                  categoryId: categoryId,
+                                  context: context,
+                                );
                               }
                             },
                           ),

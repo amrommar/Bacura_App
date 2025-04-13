@@ -19,7 +19,7 @@ class ChangeNumberWidget extends StatelessWidget {
           Navigator.pop(context);
         },
         child: Text(
-          AppLocalizations.of(context)!.changeNumber,
+          tr(AppStrings.changeMobileNumber),
           style: Theme.of(context).textTheme.displayMedium!.copyWith(
                 color: ColorManager.primaryBlueColor,
               ),

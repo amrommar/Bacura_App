@@ -44,9 +44,8 @@ class AvatarWidget extends StatelessWidget {
                 child: SizedBox(
                   height: AppSizes.ph80,
                   width: AppSizes.ph80,
-                  child: Image.network(
-                    imagePath ??
-                        'https://cdn3d.iconscout.com/3d/premium/thumb/profile-3d-icon-download-in-png-blend-fbx-gltf-file-formats--user-about-me-member-interface-pack-icons-4996977.png?f=webp',
+                  child: Image.asset(
+                    AppAssets.bacuraImage,
                     fit: BoxFit.cover,
                   ),
                 ),

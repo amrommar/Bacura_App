@@ -1,9 +1,12 @@
 class AppStrings {
   static const String noRouteFounded = 'لم يتم العثور على مسار';
+  static const String hi = 'هلا, ';
+  static const String user = 'مستخدم';
   static const String ar = 'ar';
   static const String en = 'en';
   static const String ar_en = 'AR';
-  static const String arabic = 'English';
+  static const String SAR = 'ريال';
+  static const String languageValue = 'English';
   static const String continueAsVisitor = 'الإستمرار كزائر';
   static const String login = 'تسجيل الدخول';
   static const String logout = 'تسجيل خروج';
@@ -63,6 +66,8 @@ class AppStrings {
   static const String next = 'التالي';
   static const String setDate = 'حدد اليوم المناسب للتواصل';
   static const String setTime = 'حدد الوقت المناسب للتواصل';
+  static const String time9_1 = '9 ص - 1 م';
+  static const String time1_6 = '1 م - 6 م';
   static const String setLocation = 'اضغط على الأيقونة لتعيين الموقع';
   static const String pleaseSelectLocation = 'الرجاء تحديد الموقع';
   static const String setCurrentLocation = 'تعيين الموقع الحالي';
@@ -74,30 +79,53 @@ class AppStrings {
   static const String yourSuggestionsHint = 'اقتراحاتك مهمة......';
   static const String send = 'إرسال';
   static const String notifications = 'الإشعارات';
+  static const String yourOrderIsReady = 'طلبك جاهز الآن';
+  static const String yourOrderIsReadyContent =
+      '''تم تجهيز طلبك بنجاح! بإمكانك الاطلاع على تفاصيله في شاشة الطلبات داخل التطبيق.
+شكرًا لتسوقك معنا، ونتطلع لخدمتك مرة أخرى!
+
+إذا تحتاج أي استفسارات، لا تتردد في التواصل معنا.''';
   static const String offerDetails = 'تفاصيل العرض';
   static const String read_more = 'قراءة المزيد';
   static const String read_less = 'قراءة أقل';
   static const String cancelOrder = 'إلغاء الطلب';
   static const String closeOrder = 'إغلاق الطلب';
   static const String orderDetails = 'تفاصيل الطلب';
-  static const String total = 'الإجمالي= ';
-  static const String location = 'الموقع= ';
-  static const String paymentMethod = 'طريقة الدفع= ';
-  static const String paymentStatus = 'حالة الدفع= ';
-  static const String warrantyStatus = 'حالة الضمان= ';
+  static const String orderSubmittedSuccessfully = 'تم طلبكم  بنجاح';
+  static const String youWillBeContacted = 'سيتم التواصل معك في اقرب وقت';
+  static const String weHaveSentTheRequest = 'لقد أرسلنا الطلب، وسيقوم مزود الخدمة بالتواصل معك.';
+  static const String invalidDate = 'تاريخ غير صالح';
+  static const String day = 'يوم';
+  static const String remain = 'باقي';
+  static const String quotationIsBeingPrepared = 'جاري تجهيز عرض السعر';
+  static const String total = 'الإجمالي : ';
+  static const String location = 'الموقع: ';
+  static const String paymentMethod = 'طريقة الدفع: ';
+  static const String paymentStatus = 'حالة الدفع: ';
+  static const String notPaid = 'لم يتم الدفع';
+  static const String paidDone = 'تم الدفع';
+  static const String warrantyStatus = 'حالة الضمان: ';
+  static const String creditCard = 'بطاقة إئتمانية';
   static const String manageOrder = 'إدارة الطلب';
   static const String orderCancelled = 'تم إلغاء الطلب';
+  static const String orderCancelledSuccessfully = ' تم إلغاء الطلب بنجاح';
+  static const String orderCancelledAndIfProblem = 'تم الغاء الطلب وان كنت تواجه اي مشكلة نرحب بالتواصل بنا';
   static const String printInvoice = 'طباعة الفاتورة';
   static const String onGoing = 'جارية';
   static const String completed = 'مكتملة';
   static const String cancelled = 'ملغية';
   static const String pending = 'قيد الانتظار';
+  static const String confirmed = 'معتمدة';
+  static const String selectCategory = 'أختر الفئة';
   static const String customerSupportChat = 'محادثة خدمة العملاء';
   static const String consultationScreen = 'شاشة الاستشارة';
+  static const String selectConsultationType = 'حدد نوع الاستشارة';
   static const String consultationDescription = 'وصف الاستشارة';
   static const String describeYourConsultation = 'اوصف استشارتك...';
   static const String pleaseDescribeYourConsultation = 'الرجاء وصف استشارتك';
+  static const String yourConsultationWillBeReplied = 'سيتم الرد على استشارتك خلال ثلاثة أيام.';
   static const String consultationType = 'نوع الاستشارة';
+  static const String cinemaEntertainmentContent = 'لا تقطع المسافات للترفية... دع السينما تأتي إليك!';
   static const String cancel = 'إلغاء';
   static const String FAQ = 'الأسئلة الشائعة';
   static const String complaints = 'الشكاوي';
@@ -105,12 +133,14 @@ class AppStrings {
   static const String serviceProvider = 'مقدم الخدمة';
   static const String technician = ' الفني';
   static const String complaintType = 'نوع الشكوي';
-  static const String complaint = 'شكواك';
+  static const String yourComplaint = 'شكواك';
   static const String enterYourComplaint = 'ادخل شكواك......';
   static const String pleaseEnterYourComplaint = 'الرجاء إدخال شكواك';
   static const String sendComplaint = 'إرسال الشكوي';
   static const String invoice = 'الفاتورة';
   static const String downloadInvoice = 'تحميل الفاتورة';
+  static const String invoiceDownLoaded = 'تم تحميل الفاتورة بنجاح: ';
+  static const String StorageAccessMustAllowed = 'يجب السماح بالوصول إلى التخزين لحفظ الفاتورة';
   static const String save = 'حفظ';
   static const String termsIntro =
       'مرحبًا بك في تطبيق باكورة التقنيات.\nتوفر هذه الشروط والأحكام الأساس القانوني لاستخدامك للتطبيق والخدمات المرتبطة به.\n\nقبول الشروط= باستخدام التطبيق، فإنك توافق على الالتزام بهذه الشروط. إذا كنت لا توافق على أي من هذه الشروط، يرجى عدم استخدام التطبيق';
@@ -154,9 +184,11 @@ class AppStrings {
   static const String aboutUsContent =
       'نضمن لك خدمات تقنية عالية الجودة بكفاءة وسرعة في التنفيذ، مع فريق عمل محترف على مدار الساعة ودعم فني متواصل، أمنك وراحتك الآن في متناول يدك.';
   static const String ourLocation = 'موقعنا=  ';
-  static const String uploadImage = 'تم تحميل الصورة';
+  static const String imageUploaded = 'تم تحميل الصورة';
   static const String takePicture = 'التقط صورة';
+  static const String selectImgSource = 'اختر مصدر الصورة';
   static const String selectFromGallery = 'اختر من المعرض';
+  static const String attach = 'إرفاق';
   static const String offerRequest = 'طلب العرض';
   static const String browseAppWithoutRegister = 'يمكنك تصفح التطبيق بدون تسجيل';
   static const String appLanguage = 'لغة التطبيق';
@@ -170,6 +202,9 @@ class AppStrings {
   static const String yourSuggestionSentSuccessfullyMsg = 'يهمنا إهتمامك ونشكرك علي اقتراحك سيتم مراجعة اقتراحك';
   static const String token = 'token';
   static const String wrongOrder = 'طلب خاطئ';
+  static const String pleaseTryAgain = 'برجاء المحاولة مرة اخرى واذا تكرر الخطاء يرجاء التواصل معنا';
+  static const String errorOccurred = 'حدث خطأ';
+  static const String errorOccurredPleaseTryAgainLater = 'لقد حدث خطأ، يرجى المحاولة لاحقا';
   static const String serverError = 'خطأ في الخادم';
   static const String error = 'خطأ';
   static const String notExist = 'لا يوجد';
@@ -193,4 +228,123 @@ class AppStrings {
   static const String tabouk = 'تبوك';
   static const String pleaseSelectCity = 'الرجاء اختيار مدينة';
   static const String pleaseSelectGender = 'الرجاء اختيار الجنس';
+  static const String pleaseLoginToSeeYourRequests = 'الرجاء تسجيل الدخول اولاً لعرض طلباتكم';
+  static const String pleaseLoginFirst = 'الرجاء تسجيل الدخول اولاً';
+  static const String ourWebSite = 'موقعنا : ';
+  static const String howCanIRequestService = 'كيف يمكنني طلب خدمة عبر التطبيق؟';
+  static const String howCanIRequestServiceAnswer =
+      'يمكنك طلب الخدمة بسهولة عبر اختيار نوع الخدمة من قائمة الخدمات، ثم تحديد نوع الطلب (توريد، صيانة، تركيب وبرمجة) وإدخال تفاصيل الطلب وإرساله.';
+  static const String howCanITrackMyOrder = 'كيف أتابع حالة طلبي؟';
+  static const String howCanITrackMyOrderAnswer =
+      'يمكنك متابعة حالة الطلب من خلال شاشة الطلبات، كما ستصلك إشعارات فورية بكل تحديث يطرأ على طلبك.';
+  static const String howCanIPay = 'ما هي طرق الدفع المتاحة؟';
+  static const String howCanIPayAnswer =
+      'يمكنك الدفع عبر التطبيق باستخدام البطاقة البنكية أو التحويل البنكي بعد استلامك عرض السعر.';
+  static const String canICancelOrder = 'هل يمكنني إلغاء الطلب بعد إرساله؟';
+  static const String canICancelOrderAnswer = 'نعم، يمكنك إلغاء الطلب في أي وقت قبل إتمام عملية الدفع.';
+  static const String howCanIContactSupport = ' كيف أتواصل مع الدعم الفني؟';
+  static const String howCanIContactSupportAnswer = '''يمكنك التواصل مع فريق الدعم الفني عبر:
+إرسال شكوى من خلال قسم الشكاوى.
+المحادثة المباشرة داخل التطبيق.
+الاتصال عبر رقم خدمة العملاء''';
+  static const String howCanIUseSpecialOffers = 'كيف أستفيد من العروض والخدمات المميزة؟';
+  static const String howCanIUseSpecialOffersAnswer =
+      'تظهر العروض والخدمات المميزة في الصفحة الرئيسية أو عبر صفحة العروض داخل التطبيق.';
+  static const String didnotFindYourAnswer = 'لم تجد إجابتك؟ تواصل معنا';
+  static const String welcomeToBacuraTec = 'مرحبًا بك في تطبيق باكورة التقنيات!';
+  static const String welcomeToBacuraTecContent =
+      '''يسرّنا انضمامك إلى تطبيق باكورة التقنيات، الحل المتكامل لتلبية جميع احتياجاتك من الخدمات التقنية والذكية والأمنية. من خلال تطبيقنا، يمكنك بسهولة طلب خدمات تركيب كاميرات المراقبة، الأنظمة الذكية، وأنظمة التحكم في الدخول، مع ضمان تنفيذ احترافي وجودة عالية.
+                    نهدف إلى تقديم تجربة سلسة وآمنة عبر خطوات بسيطة لطلب الخدمة ومتابعتها حتى التنفيذ، بدعم فني متواصل وفريق عمل محترف جاهز لخدمتك في أي وقت.''';
+  static const String startYourJourney = 'ابدأ رحلتك معنا بسهولة';
+  static const String startYourJourneyContent =
+      '''لتسجيل الدخول إلى تطبيق باكورة التقنيات والاستفادة من خدماتنا المتنوعة، كل ما عليك فعله هو إدخال رقم جوالك، وستصلك رسالة نصية تحتوي على رمز تحقق. قم بإدخال الرمز في الحقل المخصص ليتم تسجيل دخولك مباشرة وبكل سهولة.
+                  
+                  أما إذا كنت مستخدمًا جديدًا، يمكنك إنشاء حساب بسرعة من خلال إدخال اسمك الكامل، رقم جوالك، بريدك الإلكتروني، واختيار مدينتك من القائمة المتاحة. بعد إدخال هذه البيانات، سيصلك رمز تحقق عبر رسالة نصية، قم بإدخاله لتفعيل حسابك والبدء في طلب خدماتنا بكل يسر واحترافية.''';
+  static const String howToRequestEasily = 'طريقة طلب الخدمة بسهولة';
+  static const String toObtainBacuraTecServices =
+      'للحصول على خدمات باكورة التقنيات بكل سهولة واحترافية، يمكنك اتباع الخطوات التالية:';
+  static const String selectService = '1. اختيار الخدمة';
+  static const String beginWithSelectService =
+      'ابدأ باختيار الخدمة المناسبة من قائمة الخدمات المتوفرة في التطبيق والتي تشمل:';
+  static const String systems = '''
+                  - كاميرات المراقبة
+                  - الأنظمة الذكية
+                  - أنظمة التحكم في الوصول
+                  - الأنظمة الصوتية
+                  - أنظمة حفظ الطاقة
+                  - شبكات النت والاتصالات
+                  -أخري
+                  ''';
+  static const String selectServiceType = '2. تحديد نوع الخدمة';
+  static const String afterSelectServiceType =
+      '''بعد اختيار الخدمة، حدد نوع الخدمة التي تحتاجها من بين الخيارات التالية:''';
+  static const String servicesTypes = '''
+                  - تركيب وبرمجة
+                  - صيانة
+                  - توريد
+                  ''';
+  static const String enterOrderDetails = '3. إدخال تفاصيل الطلب';
+  static const String fillOrderForm = 'قم بتعبئة نموذج الطلب بالمعلومات التالية:';
+  static const String orderDetailsTypes = '''
+                  - التاريخ المناسب للتواصل
+                  - الوقت المناسب للتواصل
+                  - موقعك الجغرافي
+                  - وصف دقيق للخدمة المطلوبة
+                  ''';
+  static const String sendOrderPhase = '4. إرسال الطلب';
+  static const String sendOrderPhaseContent =
+      '''بعد إدخال جميع التفاصيل، قم بإرسال الطلب. سيقوم فريق خدمة العملاء بالتواصل معك لتأكيد تفاصيل الطلب وإرسال عرض السعر عبر التطبيق.''';
+  static const String reviewQuoteAndPayment = '5. مراجعة عرض السعر والدفع';
+  static const String reviewQuoteAndPaymentContent =
+      '''بمجرد استلامك لعرض السعر، يمكنك مراجعته والموافقة عليه، ثم الانتقال إلى صفحة الدفع لإتمام عملية الدفع بكل أمان.''';
+  static const String implementService = '6. تنفيذ الخدمة';
+  static const String implementServiceContent =
+      '''بعد إتمام الدفع، سيتم تحديد موعد مناسب لزيارة فريق العمل الفني إلى موقعك لتنفيذ الخدمة بجودة عالية. عند الانتهاء، يتم إغلاق الطلب رسميًا عبر التطبيق.''';
+  static const String monitorTheStatus = '''
+                    
+                    - راقب حالة طلباتك عبر شاشة الطلبات، وتواصل مع فريق خدمة العملاء بسهولة من خلال شاشة الدعم.
+                    ''';
+  static const String immerseYourself = '''- انغمس في تجربة استثنائية مع خدمات السينما المنزلية المصممة لرفاهيتك.
+                    ''';
+  static const String benefitFromConsultations =
+      '''- استفد من الاستشارات التقنية المتخصصة التي تلبي جميع احتياجاتك التقنية.
+                    ''';
+  static const String followTheLatest = '''- تابع أحدث العروض والخصومات عبر الإعلانات في الصفحة الرئيسية أو صفحة العروض.
+                    ''';
+  static const String bacuraMakeItEase = '''باكورة التقنيات تجعل طلب خدماتك التقنية أسهل وأكثر راحة!''';
+  static const String trackYourOrderStatusEasily = 'متابعة حالة الطلب بسهولة';
+  static const String trackYourOrderStatusEasilyContent =
+      '''      يمكنك متابعة حالة طلبك بكل سهولة من خلال شاشة الطلبات داخل التطبيق، حيث يتم تحديث حالة الطلب بشكل مستمر لتبقى على اطلاع بكل جديد. كما تصلك إشعارات فورية حول أي تحديثات تتعلق بطلبك عبر قسم الإشعارات لضمان تجربة سلسة واحترافية.
+                  
+                  ابقَ دائمًا على تواصل مع فريقنا وتابع خطوات تنفيذ طلبك بكل مرونة وشفافية!''';
+  static const String contactWithTechnicalSupport = 'التواصل مع الدعم الفني';
+  static const String contactWithTechnicalSupportContent = '''
+                  لضمان حصولك على أفضل تجربة ودعم متكامل، يوفر تطبيق باكورة التقنيات عدة طرق للتواصل مع فريق الدعم الفني بكل سهولة ومرونة:''';
+  static const String sendComplaints = '- تقديم الشكاوى:';
+  static const String sendComplaintsContent =
+      '''يمكنك إرسال شكوى مباشرة عبر قسم الشكاوى لتوضيح مشكلتك وسيتم متابعتها بشكل سريع.''';
+  static const String instantChat = '- المحادثة الفورية:';
+  static const String instantChatContent = '''
+                  تواصل مباشرة مع فريق خدمة العملاء من خلال المحادثة الفورية داخل التطبيق للحصول على استجابة سريعة واستفسارات فورية.''';
+  static const String phoneCall = '- الاتصال الهاتفي:';
+  static const String phoneCallContent = '''
+                   يمكنك أيضًا التواصل عبر رقم خدمة العملاء المتوفر داخل التطبيق للحصول على دعم مباشر.
+                  
+                  نحن دائمًا هنا لخدمتك وتقديم الحلول التي تناسب احتياجاتك بكل احترافية.''';
+  static const String manageYourProfile = 'إدارة حسابك الشخصي';
+  static const String manageYourProfileContent = '''
+                              تحكّم بحسابك بسهولة من خلال شاشة الصفحة الشخصية في تطبيق باكورة التقنيات، حيث يمكنك:
+                              تعديل بياناتك الشخصية بسرعة عبر الضغط على المعلومات التي ترغب بتحديثها ثم حفظ التغييرات.''';
+  static const String completedOrders = 'الطلبات المنجزة';
+  static const String calender = 'التقويم';
+  static const String registerDataSuccessfully = 'تسجيل البيانات بنجاح';
+  static const String clientName = 'اسم العميل: ';
+  static const String noOrdersFound = 'لا يوجد طلبات';
+  static const String implementOrder = 'تنفيذ الطلب';
+  static const String orderId = 'الطلب رقم: ';
+  static const String materialsPrepared = 'تم تجهيز المواد';
+  static const String accessToClient = 'الوصول للعميل';
+  static const String orderDone = 'تم التنفيذ';
+  static const String contactWithClient = 'الاتصال بالعميل';
+  static const String serviceName = 'اسم الخدمة';
 }

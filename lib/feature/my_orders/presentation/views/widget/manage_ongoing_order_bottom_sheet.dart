@@ -4,6 +4,7 @@ import 'package:bacura_app/feature/my_orders/presentation/views/widget/manage_or
 
 class ManageOnGoingOrderBottomSheet extends StatelessWidget {
   final int index;
+
   const ManageOnGoingOrderBottomSheet({super.key, required this.index});
 
   @override
@@ -28,7 +29,7 @@ class ManageOnGoingOrderBottomSheet extends StatelessWidget {
                       onTap: () {
                         provider.cancelOrder(context: context, index: index);
                       },
-                      text: AppLocalizations.of(context)!.cancel_request,
+                      text: tr(AppStrings.cancelOrder),
                       icon: Icons.cancel,
                       iconColor: ColorManager.darkRedColor),
                   const Divider(),

@@ -6,6 +6,3 @@ export 'package:bacura_app/feature/profile/domain/entity/my_profile_entity.dart'
 export 'package:bacura_app/feature/profile/domain/use_case/update_profile_use_case.dart';
 export 'package:bacura_app/feature/profile/presentation/views/components/avatar_widget.dart';
 export 'package:bacura_app/feature/profile/presentation/views/components/profile_details_widget.dart';
-export 'package:bacura_app/feature/profile/presentation/views/components/service_details_list.dart';
-export 'package:bacura_app/feature/profile/presentation/views/components/service_provider_name_widget.dart';
-export 'package:bacura_app/feature/profile/presentation/views/components/total_price_widget.dart';

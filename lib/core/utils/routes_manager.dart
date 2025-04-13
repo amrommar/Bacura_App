@@ -114,12 +114,6 @@ class RouteGenerator {
       case Routes.calenderRoute:
         return MaterialPageRoute(builder: (_) => CalenderScreen());
 
-      case Routes.serviceProviderRegisterRoute:
-        return MaterialPageRoute(builder: (_) => const ServiceProviderRegisterScreen());
-      case Routes.registerTechnicianRoute:
-        return MaterialPageRoute(builder: (_) => const RegisterTechnicianScreen());
-      case Routes.registerInstitutionRoute:
-        return MaterialPageRoute(builder: (_) => const RegisterInstitutionScreen());
       case Routes.aboutUsRoute:
         return MaterialPageRoute(builder: (_) => const AboutUsScreen());
       // case Routes.cinemaDetailsRoute:

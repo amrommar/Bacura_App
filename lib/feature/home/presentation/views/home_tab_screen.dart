@@ -1,8 +1,9 @@
 import 'package:bacura_app/core/presentation/widget/custom_loading_shimmer.dart';
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/home/index.dart';
 import 'package:bacura_app/feature/home/presentation/controller/home_provider.dart';
-import 'package:bacura_app/feature/home/presentation/views/rare_service_component.dart';
+import 'package:bacura_app/feature/home/presentation/views/components/ads_banner_slider_component.dart';
+import 'package:bacura_app/feature/home/presentation/views/components/rare_service_component.dart';
+import 'package:bacura_app/feature/home/presentation/views/components/services_component.dart';
 
 class HomeTabScreen extends StatelessWidget {
   const HomeTabScreen({super.key});
@@ -38,7 +39,10 @@ class SliderShimmerWidget extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(AppSizes.ph8),
       child: Column(children: [
-        CustomLoadingShimmer(width: double.infinity, height: AppSizes.ph200),
+        CustomLoadingShimmer(
+          width: double.infinity,
+          height: AppSizes.ph200,
+        ),
         SizedBox(height: AppSizes.ph10),
       ]),
     );
@@ -55,7 +59,10 @@ class CategoryShimmerWidget extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(AppSizes.ph8),
       child: Column(children: [
-        CustomLoadingShimmer(width: double.infinity, height: AppSizes.ph250),
+        CustomLoadingShimmer(
+          width: double.infinity,
+          height: AppSizes.ph250,
+        ),
         SizedBox(height: AppSizes.ph10),
       ]),
     );
@@ -72,7 +79,10 @@ class HomeShimmerWidget extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all(AppSizes.ph8),
       child: Column(children: [
-        CustomLoadingShimmer(width: double.infinity, height: AppSizes.ph200),
+        CustomLoadingShimmer(
+          width: double.infinity,
+          height: AppSizes.ph200,
+        ),
       ]),
     );
   }

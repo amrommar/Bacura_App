@@ -78,7 +78,7 @@ class _MyAppState extends State<MyApp> {
                 Icon(Icons.wifi_off, color: Colors.white),
                 SizedBox(width: 10),
                 Text(
-                  "لا يوجد اتصال بالإنترنت",
+                  tr(AppStrings.noInternetConnection),
                   style: TextStyle(color: Colors.white, fontSize: 16),
                 ),
               ],
@@ -108,7 +108,7 @@ class _MyAppState extends State<MyApp> {
           GlobalCupertinoLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        supportedLocales: const [Locale('en'), Locale('ar')],
+        supportedLocales: const [Locale(AppStrings.en), Locale(AppStrings.ar)],
         fallbackLocale: ServiceInitializer.locale,
         translations: LanguageTranslation(),
         locale: ServiceInitializer.locale,

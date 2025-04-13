@@ -1,6 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/more/index.dart';
-import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
 
 class MoreTabScreen extends StatefulWidget {
   const MoreTabScreen({super.key});
@@ -12,19 +11,9 @@ class MoreTabScreen extends StatefulWidget {
 class _MoreTabScreenState extends State<MoreTabScreen> {
   @override
   Widget build(BuildContext context) {
-    final profileProvider = Provider.of<MyProfileProvider>(context, listen: false);
     return SingleChildScrollView(
         child: Column(children: [
       SizedBox(height: AppSizes.ph10),
-
-      ///cardsManagement tab //////////////////////////////
-      // Custom_More_row(
-      //   widget: Icon(Icons.credit_card, color: ColorManager.lightGreyColor),
-      //   text: AppLocalizations.of(context)!.cardsManagement,
-      //   onTap: () {
-      //     Navigator.pushNamed(context, Routes.cardsManagementRoute);
-      //   },
-      // ),
 
       ///who_are_we tab //////////////////////////////
       CustomMoreRowWidget(
@@ -34,7 +23,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
             ///////////////    from Back-End     /////////////////////
             child: Image.asset(AppAssets.bacuraImage) // Adjust the radius to make sure it fits
             ),
-        text: AppLocalizations.of(context)!.about_bacura,
+        text: tr(AppStrings.aboutBacuraApp),
         onTap: () {
           Navigator.pushNamed(context, Routes.aboutUsRoute);
         },
@@ -43,7 +32,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
       ///technical_support tab //////////////////////////////
       CustomMoreRowWidget(
           widget: Icon(Icons.info_outline, color: ColorManager.midRedColor),
-          text: AppLocalizations.of(context)!.technical_support,
+          text: tr(AppStrings.technicalSupport),
           onTap: () {
             Navigator.pushNamed(context, Routes.technicalSupportRoute);
           }),
@@ -51,7 +40,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
       ///terms_and_conditions tab //////////////////////////////
       CustomMoreRowWidget(
           widget: Icon(Icons.article, color: ColorManager.lightGreyColor),
-          text: AppLocalizations.of(context)!.terms_and_conditions,
+          text: tr(AppStrings.termsAndConditions),
           onTap: () {
             Navigator.pushNamed(context, Routes.termsAndConditionsRoute);
           }),
@@ -59,7 +48,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
       ///privacy_policy tab //////////////////////////////
       CustomMoreRowWidget(
           widget: Icon(Icons.privacy_tip, color: ColorManager.lightGreyColor),
-          text: AppLocalizations.of(context)!.privacy_policy,
+          text: tr(AppStrings.privacyPolicy),
           onTap: () {
             Navigator.pushNamed(context, Routes.privacyPolicyRoute);
           }),
@@ -67,7 +56,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
       ///register_as_a_service_provider tab //////////////////////////////
       CustomMoreRowWidget(
           widget: Icon(Icons.account_circle, color: ColorManager.primaryBlueColor),
-          text: AppLocalizations.of(context)!.register_as_a_service_provider,
+          text: tr(AppStrings.registerAsServiceProvider),
           onTap: () {
             Navigator.pushNamed(context, Routes.serviceProviderRegisterRoute);
           }),
@@ -75,7 +64,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
       ///suggestions tab //////////////////////////////
       CustomMoreRowWidget(
           widget: Icon(Icons.lightbulb, color: ColorManager.yellowColor),
-          text: AppLocalizations.of(context)!.suggestions,
+          text: tr(AppStrings.suggestions),
           onTap: () {
             Navigator.pushNamed(context, Routes.suggestionsRoute);
           }),
@@ -83,7 +72,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
       ///appRating tab //////////////////////////////
       CustomMoreRowWidget(
         widget: Icon(Icons.star_border_outlined, color: ColorManager.yellowColor),
-        text: AppLocalizations.of(context)!.app_rating,
+        text: tr(AppStrings.rateApp),
         onTap: () {},
 
         /// method for app rating

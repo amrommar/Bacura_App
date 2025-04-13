@@ -44,7 +44,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                     const BacuraLogoWidget(),
                     SizedBox(height: AppSizes.ph20),
                     Text(
-                      AppLocalizations.of(context)!.create_an_account,
+                      tr(AppStrings.createAccount),
                       style: Theme.of(context).textTheme.displayLarge,
                     ),
                     Divider(color: ColorManager.lightBlueColor),
@@ -55,59 +55,59 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                         child: Column(
                           children: [
                             CustomTextFormField(
-                                fieldName: AppLocalizations.of(context)!.fullName,
+                                fieldName: tr(AppStrings.fullName),
                                 controller: provider.nameController,
-                                hintText: AppLocalizations.of(context)!.enterYourName,
+                                hintText: tr(AppStrings.enterYourName),
                                 isObscures: false,
                                 validator: (value) {
                                   if (value == null || value.trim().isEmpty) {
-                                    return AppLocalizations.of(context)!.pleaseEnterYourName;
+                                    return tr(AppStrings.pleaseEnterYourName);
                                   }
                                   return null;
                                 },
                                 keyBoardType: TextInputType.text),
                             SizedBox(height: AppSizes.ph10),
                             CustomTextFormField(
-                                fieldName: AppLocalizations.of(context)!.email,
+                                fieldName: tr(AppStrings.email),
                                 controller: provider.emailController,
-                                hintText: AppLocalizations.of(context)!.enter_your_email,
+                                hintText: tr(AppStrings.enterEmail),
                                 isObscures: false,
                                 validator: (text) {
                                   if (text == null || text.trim().isEmpty) {
-                                    return AppLocalizations.of(context)!.enter_your_email;
+                                    return tr(AppStrings.pleaseEnterEmail);
                                   }
                                   final bool emailValid =
                                       RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
                                           .hasMatch(text);
                                   if (!emailValid) {
-                                    return AppLocalizations.of(context)!.please_enter_valid_email;
+                                    return tr(AppStrings.pleaseEnterEmail);
                                   }
                                   return null;
                                 },
                                 keyBoardType: TextInputType.text),
                             SizedBox(height: AppSizes.ph10),
                             CustomDropDownField(
-                              selectedOption: AppStrings.riyad,
+                              selectedOption: tr(AppStrings.riyad),
                               options: [
-                                AppStrings.riyad,
-                                AppStrings.jeddah,
-                                AppStrings.damam,
-                                AppStrings.makka,
-                                AppStrings.madinah,
-                                AppStrings.jezan,
-                                AppStrings.taif,
-                                AppStrings.abha,
-                                AppStrings.tabouk,
-                                AppStrings.khobar,
+                                tr(AppStrings.riyad),
+                                tr(AppStrings.jeddah),
+                                tr(AppStrings.damam),
+                                tr(AppStrings.makka),
+                                tr(AppStrings.madinah),
+                                tr(AppStrings.jezan),
+                                tr(AppStrings.taif),
+                                tr(AppStrings.abha),
+                                tr(AppStrings.tabouk),
+                                tr(AppStrings.khobar),
                               ],
-                              fieldName: AppLocalizations.of(context)!.city,
+                              fieldName: tr(AppStrings.city),
                               onChanged: (String? newValue) {
                                 if (newValue == null) {
                                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                                     duration: const Duration(seconds: 1),
                                     backgroundColor: ColorManager.midWhiteColor,
                                     content: Text(
-                                      AppStrings.pleaseSelectCity,
+                                      tr(AppStrings.pleaseSelectCity),
                                       style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                             color: ColorManager.darkRedColor,
                                           ),
@@ -119,19 +119,19 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                               },
                             ),
                             CustomDropDownField(
-                              selectedOption: AppStrings.male,
-                              options: const [
-                                AppStrings.male,
-                                AppStrings.female,
+                              selectedOption: tr(AppStrings.male),
+                              options: [
+                                tr(AppStrings.male),
+                                tr(AppStrings.female),
                               ],
-                              fieldName: AppLocalizations.of(context)!.gender,
+                              fieldName: tr(AppStrings.gender),
                               onChanged: (String? newValue) {
                                 if (newValue == null) {
                                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                                     duration: Duration(seconds: 1),
                                     backgroundColor: ColorManager.midWhiteColor,
                                     content: Text(
-                                      AppStrings.pleaseSelectGender,
+                                      tr(AppStrings.pleaseSelectGender),
                                       style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                             color: ColorManager.darkRedColor,
                                           ),
@@ -164,8 +164,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                                 provider.completeProfile(context);
                               }
                             },
-                            child: Text(AppLocalizations.of(context)!.register,
-                                style: Theme.of(context).textTheme.titleMedium))),
+                            child: Text(tr(AppStrings.register), style: Theme.of(context).textTheme.titleMedium))),
                     SizedBox(height: AppSizes.ph18),
                   ])),
             ),

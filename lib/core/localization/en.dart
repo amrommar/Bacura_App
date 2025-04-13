@@ -2,10 +2,13 @@ import 'package:bacura_app/core/utils/app_strings.dart';
 
 Map<String, String> coreEn = {
   AppStrings.noRouteFounded: 'No Route Founded',
+  AppStrings.hi: 'Hi, ',
+  AppStrings.user: 'User',
   AppStrings.ar: 'ar',
   AppStrings.en: 'en',
   AppStrings.ar_en: 'EN',
-  AppStrings.arabic: 'العربية',
+  AppStrings.SAR: 'SAR',
+  AppStrings.languageValue: 'English',
   AppStrings.continueAsVisitor: 'As a Visitor',
   AppStrings.login: 'Login',
   AppStrings.logout: 'Logout',
@@ -65,6 +68,8 @@ Map<String, String> coreEn = {
   AppStrings.next: 'Next',
   AppStrings.setDate: 'Set a suitable Day to  communicate',
   AppStrings.setTime: 'Set a suitable Time to  communicate',
+  AppStrings.time9_1: '9 Am - 1 Pm',
+  AppStrings.time1_6: '1 Pm - 6 Pm',
   AppStrings.setLocation: 'Click Icon to Set Location',
   AppStrings.pleaseSelectLocation: 'Please Set The location',
   AppStrings.setCurrentLocation: 'Set Current Location',
@@ -76,26 +81,53 @@ Map<String, String> coreEn = {
   AppStrings.yourSuggestionsHint: 'Your Suggestions is important....',
   AppStrings.send: 'Send',
   AppStrings.notifications: 'Notifications',
+  AppStrings.yourOrderIsReady: 'Your Order is Ready',
+  AppStrings.yourOrderIsReadyContent: '''
+Your order has been successfully processed! You can view its details in the orders screen within the app.
+Thank you for shopping with us, and we look forward to serving you again!
+
+If you have any questions, please don't hesitate to contact us.''',
   AppStrings.offerDetails: 'Offer Details',
   AppStrings.read_more: 'Read more',
   AppStrings.read_less: 'Read less',
   AppStrings.cancelOrder: 'Cancel Request',
   AppStrings.closeOrder: 'Close the order',
   AppStrings.orderDetails: 'Order Details',
+  AppStrings.orderSubmittedSuccessfully: 'Your Order submitted successfully',
+  AppStrings.youWillBeContacted: 'You will be contacted as soon as possible.',
+  AppStrings.weHaveSentTheRequest: 'We have sent the request, and the service provider will contact you.',
+  AppStrings.invalidDate: 'Invalid Date',
+  AppStrings.day: 'Day',
+  AppStrings.remain: 'Remain',
+  AppStrings.quotationIsBeingPrepared: 'Quotation is being prepared',
   AppStrings.total: 'Total: ',
   AppStrings.location: 'Location: ',
   AppStrings.paymentMethod: 'Payment Method: ',
   AppStrings.paymentStatus: 'Payment status: ',
+  AppStrings.notPaid: 'Not paid',
+  AppStrings.paidDone: 'Paid Done',
   AppStrings.warrantyStatus: 'Warranty status: ',
+  AppStrings.creditCard: 'Credit Card',
   AppStrings.manageOrder: 'Request Management',
   AppStrings.orderCancelled: 'Request Cancelled',
+  AppStrings.orderCancelledSuccessfully: 'Request Cancelled SuccessFully',
+  AppStrings.orderCancelledAndIfProblem: 'The order has been cancelled. If you have any problems, please contact us.',
   AppStrings.printInvoice: 'Print Invoice',
+  AppStrings.onGoing: 'OnGoing',
+  AppStrings.completed: 'Completed',
+  AppStrings.cancelled: 'Cancelled',
+  AppStrings.pending: 'Pending',
+  AppStrings.confirmed: 'Confirmed',
+  AppStrings.selectCategory: 'Select Category',
   AppStrings.customerSupportChat: 'Service Customer Chat',
   AppStrings.consultationScreen: 'Consultation Screen',
+  AppStrings.selectConsultationType: 'Select Consultation Type',
   AppStrings.consultationDescription: 'Consultation Description',
   AppStrings.describeYourConsultation: 'describe your Consultation....',
   AppStrings.pleaseDescribeYourConsultation: 'Please describe Your Consultation',
+  AppStrings.yourConsultationWillBeReplied: 'Your Consultation will be Answered within three days.',
   AppStrings.consultationType: 'Consultation Type',
+  AppStrings.cinemaEntertainmentContent: "Don't travel far for entertainment... let the cinema come to you!",
   AppStrings.cancel: 'Cancel',
   AppStrings.FAQ: 'Frequently asked questions',
   AppStrings.complaints: 'Complaints',
@@ -103,12 +135,13 @@ Map<String, String> coreEn = {
   AppStrings.serviceProvider: 'Service Provider',
   AppStrings.technician: 'Technician',
   AppStrings.complaintType: 'Complaint Type',
-  AppStrings.complaint: 'Your Complaint',
+  AppStrings.yourComplaint: 'Your Complaint',
   AppStrings.enterYourComplaint: 'Enter Your Complaint....',
   AppStrings.pleaseEnterYourComplaint: 'Please enter your Complaint',
   AppStrings.sendComplaint: 'Send Complaint',
   AppStrings.invoice: 'Invoice',
-  AppStrings.downloadInvoice: 'Download Invoice',
+  AppStrings.invoiceDownLoaded: 'Invoice Downloaded Successfuly.',
+  AppStrings.StorageAccessMustAllowed: 'Storage access must be allowed to save the invoice.',
   AppStrings.save: 'Save',
   AppStrings.termsIntro:
       "Welcome to Bacura Tech Application.\nThese Terms and Conditions provide the legal basis for your use of the Application and its associated services.\n\nAcceptance of Terms: By using the Application, you agree to be bound by these Terms. If you do not agree to any of these terms, please do not use the application",
@@ -152,9 +185,11 @@ Map<String, String> coreEn = {
   AppStrings.aboutUsContent:
       "We guarantee you High-Quality Technical Services with Efficiency and speed of implementation, with a professional Team around the clock and continuous Technical Support, your Security and Comfort are now at your Fingertips.",
   AppStrings.ourLocation: "Our Website:   ",
-  AppStrings.uploadImage: "Image uploaded",
+  AppStrings.imageUploaded: "Image uploaded",
   AppStrings.takePicture: "Take a Picture",
+  AppStrings.selectImgSource: 'Select Image Source',
   AppStrings.selectFromGallery: "Choose from Gallery",
+  AppStrings.attach: 'Attach',
   AppStrings.offerRequest: "Request The Offer",
   AppStrings.browseAppWithoutRegister: 'You can browse the application without registering.',
   AppStrings.appLanguage: 'App Language',
@@ -169,6 +204,9 @@ Map<String, String> coreEn = {
       'We care about your interest and thank you for your suggestion. Your suggestion will be reviewed and we will congratulate you on your success.',
   AppStrings.token: 'token',
   AppStrings.wrongOrder: 'Wrong order',
+  AppStrings.pleaseTryAgain: 'Please try again. If the error occurs again, please contact us.',
+  AppStrings.errorOccurred: 'Error Occurred',
+  AppStrings.errorOccurredPleaseTryAgainLater: 'An error occurred, please try again later',
   AppStrings.serverError: 'Server error',
   AppStrings.error: 'Wrong',
   AppStrings.notExist: 'Nothing',
@@ -192,4 +230,124 @@ Map<String, String> coreEn = {
   AppStrings.tabouk: 'Tabuk',
   AppStrings.pleaseSelectCity: 'Please select a city',
   AppStrings.pleaseSelectGender: 'Please select gender',
+  AppStrings.pleaseLoginToSeeYourRequests: 'Please Login to see Your Requests',
+  AppStrings.pleaseLoginFirst: 'Please Login First',
+  AppStrings.ourWebSite: 'Our Website : ',
+  AppStrings.howCanIRequestService: 'How can I request a service through the app?',
+  AppStrings.howCanIRequestServiceAnswer:
+      'You can easily request the service by selecting the service type from the services list, then selecting the type of request (supply, maintenance, installation and programming), entering the request details and sending it.',
+  AppStrings.howCanITrackMyOrder: 'How do I track the status of my order?',
+  AppStrings.howCanITrackMyOrderAnswer:
+      'You can track your order status through the orders screen, and you will receive instant notifications of any updates to your order.',
+  AppStrings.howCanIPay: 'How can I pay for my order?',
+  AppStrings.howCanIPayAnswer: 'You can pay via the app using a bank card or bank transfer after receiving the quote.',
+  AppStrings.canICancelOrder: 'Can I cancel an order after it has been submitted?',
+  AppStrings.canICancelOrderAnswer: 'Yes, you can cancel your order at any time before completing the payment process.',
+  AppStrings.howCanIContactSupport: 'How do I contact technical support?',
+  AppStrings.howCanIContactSupportAnswer: '''
+You can contact the technical support team by:
+Submitting a complaint through the complaints section.
+Live chat within the app.
+Calling the customer service number.''',
+  AppStrings.howCanIUseSpecialOffers: 'How do I benefit from special offers and services?',
+  AppStrings.howCanIUseSpecialOffersAnswer:
+      'Featured offers and services appear on the home page or via the offers page within the app.',
+  AppStrings.didnotFindYourAnswer: "Didn't find your answer? Contact us.",
+  AppStrings.welcomeToBacuraTec: 'Welcome to Bacura Tec App!',
+  AppStrings.welcomeToBacuraTecContent:
+      'We are pleased to have you join the Bacura Technologies App, the integrated solution for all your technical, smart, and security service needs. Through our app, you can easily request the installation of surveillance cameras, smart systems, and access control systems, ensuring professional implementation and high quality. We aim to provide a seamless and secure experience through simple steps to request a service and follow it through to implementation, with continuous technical support and a professional team ready to serve you at any time.',
+  AppStrings.startYourJourney: 'Start your journey with us easily',
+  AppStrings.startYourJourneyContent:
+      '''To log in to the Bacura Technologies app and benefit from our various services, all you have to do is enter your mobile number. You will receive a text message containing a verification code. Enter the code in the designated field to log in immediately and easily.  If you are a new user, you can quickly create an account by entering your full name, mobile number, email address, and selecting your city from the available list. After entering this information, you will receive a verification code via text message. Enter it to activate your account and start requesting our services with ease and professionalism.''',
+  AppStrings.howToRequestEasily: 'How to request a service easily',
+  AppStrings.toObtainBacuraTecServices:
+      'To obtain Bakura Technologies services with ease and professionalism, you can follow the following steps:',
+  AppStrings.selectService: '1. Select Service',
+  AppStrings.beginWithSelectService:
+      'Start by choosing the appropriate service from the list of services available in the application, which includes:',
+  AppStrings.systems: '''
+       - Surveillance Cameras
+       - Smart Systems
+       - Access Control Systems
+       - Audio Systems
+       - Energy Saving Systems
+       - Internet and Communication Networks
+       - Other
+                  ''',
+  AppStrings.selectServiceType: '2. Select Service Type',
+  AppStrings.afterSelectServiceType:
+      '''After selecting the service, select the type of service you need from the following options: ''',
+  AppStrings.servicesTypes: '''
+              - Installation and Configration
+              - Maintenance
+              - Supply
+                  ''',
+  AppStrings.enterOrderDetails: '3. Enter Order Details',
+  AppStrings.fillOrderForm: 'Fill out the application form with the following information: ',
+  AppStrings.orderDetailsTypes: '''
+  
+- Appropriate date to contact
+- Appropriate time to contact
+- Your geographic location
+- A detailed description of the service requested
+                  ''',
+  AppStrings.sendOrderPhase: '4. Send Request',
+  AppStrings.sendOrderPhaseContent: '''
+After entering all the details, submit the order. Our customer service team will contact you to confirm the order details and send you a quote via the app.''',
+  AppStrings.reviewQuoteAndPayment: '5. Review quote and payment',
+  AppStrings.reviewQuoteAndPaymentContent:
+      '''Once you receive the quote, you can review and approve it, then go to the payment page to complete the payment process securely.''',
+  AppStrings.implementService: '6. Implement Service',
+  AppStrings.implementServiceContent:
+      '''After completing the payment, a convenient time will be scheduled for a technical team to visit your location to perform the service with high quality. Upon completion, the order will be officially closed via the app.''',
+  AppStrings.monitorTheStatus: '''
+
+- Monitor the status of your orders through the Orders screen, and easily contact the customer service team through the Support screen.
+                    ''',
+  AppStrings.immerseYourself:
+      '''- Immerse yourself in an exceptional experience with home theater services designed for your well-being. 
+      ''',
+  AppStrings.benefitFromConsultations: '''
+- Benefit from specialized technical consultations that meet all your technical needs.
+                    ''',
+  AppStrings.followTheLatest: '''
+- Follow the latest offers and discounts through ads on the home page or the offers page.
+                    ''',
+  AppStrings.bacuraMakeItEase:
+      '''Bacura Technologies makes ordering your technical services easier and more convenient!''',
+  AppStrings.trackYourOrderStatusEasily: 'Easily track your order status',
+  AppStrings.trackYourOrderStatusEasilyContent:
+      '''You can easily track the status of your order through the in-app orders screen, where it's constantly updated to keep you informed. You'll also receive instant notifications about any updates related to your order through the notifications section to ensure a smooth and professional experience.
+
+Always stay in touch with our team and follow the steps of your order execution with flexibility and transparency!''',
+  AppStrings.contactWithTechnicalSupport: 'Contact With Technical Support',
+  AppStrings.contactWithTechnicalSupportContent: '''
+To ensure you receive the best experience and comprehensive support, the Bacura Technologies app offers several ways to easily and flexibly contact the technical support team:''',
+  AppStrings.sendComplaints: '- Send Complaints :',
+  AppStrings.sendComplaintsContent:
+      '''You can submit a complaint directly through the complaints section to explain your problem and it will be followed up quickly.''',
+  AppStrings.instantChat: '-  Instant Chat :',
+  AppStrings.instantChatContent: '''
+Contact our customer service team directly through in-app live chat for quick responses and immediate inquiries.''',
+  AppStrings.phoneCall: '- Phone Call :',
+  AppStrings.phoneCallContent:
+      '''You can also contact the customer service number available within the app for direct support.
+
+We are always here to serve you and provide solutions that suit your needs with professionalism.''',
+  AppStrings.manageYourProfile: 'Manage Your Profile',
+  AppStrings.manageYourProfileContent:
+      '''Easily manage your account through the profile screen in the Bakora Technologies app, where you can:
+Quickly edit your personal information by clicking on the information you want to update and then saving the changes.''',
+  AppStrings.completedOrders: 'Completed Orders',
+  AppStrings.calender: 'Calender',
+  AppStrings.registerDataSuccessfully: 'Register Data Successfully',
+  AppStrings.clientName: 'Client Name: ',
+  AppStrings.noOrdersFound: 'No Orders Founded',
+  AppStrings.implementOrder: 'Implement Order',
+  AppStrings.orderId: 'Order Number: ',
+  AppStrings.materialsPrepared: 'Materials are prepared',
+  AppStrings.accessToClient: 'Access to Client',
+  AppStrings.orderDone: 'Order Done',
+  AppStrings.contactWithClient: 'Contact With Client',
+  AppStrings.serviceName: 'Service Name',
 };

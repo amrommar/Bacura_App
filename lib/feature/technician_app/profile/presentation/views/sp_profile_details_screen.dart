@@ -32,7 +32,10 @@ class _SpProfileDetailsScreenState extends State<SpProfileDetailsScreen> {
                         9,
                         (index) => Padding(
                           padding: EdgeInsets.all(AppSizes.ph8),
-                          child: CustomLoadingShimmer(height: AppSizes.ph60, width: double.infinity),
+                          child: CustomLoadingShimmer(
+                            height: AppSizes.ph60,
+                            width: double.infinity,
+                          ),
                         ),
                       ),
                     ),
@@ -49,24 +52,38 @@ class _SpProfileDetailsScreenState extends State<SpProfileDetailsScreen> {
                           children: [
                             SpProfileDetailsWidget(
                               icon: Icons.phone_outlined,
-                              text: AppLocalizations.of(context)!.mobileNumber,
+                              text: tr(AppStrings.mobileNumber),
                               value: '${profileEntity.phone}',
                             ),
-                            Divider(color: ColorManager.lightBlueColor, height: AppSizes.ph20),
+                            Divider(
+                              color: ColorManager.lightBlueColor,
+                              height: AppSizes.ph20,
+                            ),
                             SpProfileDetailsWidget(
                               icon: Icons.mail_outline_outlined,
-                              text: AppLocalizations.of(context)!.email,
+                              text: tr(AppStrings.email),
                               value: profileEntity.email!,
                             ),
-                            Divider(color: ColorManager.lightBlueColor, height: AppSizes.ph20),
+                            Divider(
+                              color: ColorManager.lightBlueColor,
+                              height: AppSizes.ph20,
+                            ),
                             SpProfileDetailsWidget(
-                                icon: Icons.transgender_outlined,
-                                text: AppLocalizations.of(context)!.gender,
-                                value: profileEntity.gender! == 'male' ? 'ذكر' : 'أنثي'),
-                            Divider(color: ColorManager.lightBlueColor, height: AppSizes.ph20),
+                              icon: Icons.transgender_outlined,
+                              text: tr(AppStrings.gender),
+                              value: profileEntity.gender! == 'male'
+                                  ? tr(AppStrings.male)
+                                  : tr(
+                                      AppStrings.female,
+                                    ),
+                            ),
+                            Divider(
+                              color: ColorManager.lightBlueColor,
+                              height: AppSizes.ph20,
+                            ),
                             SpProfileDetailsWidget(
                                 icon: Icons.location_on_outlined,
-                                text: AppLocalizations.of(context)!.city,
+                                text: tr(AppStrings.city),
                                 value: profileEntity.location!),
                           ],
                         ),

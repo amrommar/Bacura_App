@@ -33,15 +33,15 @@ class CustomPhoneField extends StatelessWidget {
           languageCode: provider.appLanguage,
           onChanged: onChanged ?? (phone) {},
           // Use the provided onChanged
-          invalidNumberMessage: 'invalidMobileNumber',
+          invalidNumberMessage: tr(AppStrings.inValidMobileNumber),
           validator: validator ??
               (phone) {
                 // Use the provided validator
                 if (phone == null || phone.completeNumber.isEmpty) {
-                  return AppLocalizations.of(context)!.please_enter_valid_phone_number;
+                  return tr(AppStrings.pleaseEnterValidMobileNumber);
                 }
                 if (phone.number.length < 9) {
-                  return AppLocalizations.of(context)!.invalidMobileNumber;
+                  return tr(AppStrings.inValidMobileNumber);
                 }
                 return null;
               },

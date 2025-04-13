@@ -10,7 +10,10 @@ class CustomShadowRowWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         padding: EdgeInsets.symmetric(vertical: AppSizes.ph6),
-        margin: EdgeInsets.symmetric(horizontal: AppSizes.pw16, vertical: AppSizes.ph6),
+        margin: EdgeInsets.symmetric(
+          horizontal: AppSizes.pw16,
+          vertical: AppSizes.ph6,
+        ),
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(

@@ -10,10 +10,10 @@ class UserGuideSmallTitle extends StatelessWidget {
     return Text(
       title,
       textAlign: TextAlign.justify,
-      style: Theme.of(context)
-          .textTheme
-          .titleSmall!
-          .copyWith(color: ColorManager.primaryBlueColor, fontWeight: FontWeight.bold),
+      style: Theme.of(context).textTheme.titleSmall!.copyWith(
+            color: ColorManager.primaryBlueColor,
+            fontWeight: FontWeight.bold,
+          ),
     );
   }
 }

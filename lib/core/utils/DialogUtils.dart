@@ -50,7 +50,7 @@ class CustomAlertDialog extends StatelessWidget {
           TextButton(
             onPressed: onCancel,
             child: Text(
-              AppLocalizations.of(context)!.cancel,
+              tr(AppStrings.cancel),
               style: TextStyle(color: ColorManager.blackColor, fontSize: 18),
             ),
           ),
@@ -58,7 +58,7 @@ class CustomAlertDialog extends StatelessWidget {
           TextButton(
             onPressed: onOk,
             child: Text(
-              AppLocalizations.of(context)!.ok,
+              tr(AppStrings.ok),
               style: TextStyle(color: ColorManager.blackColor, fontSize: 18),
             ),
           ),

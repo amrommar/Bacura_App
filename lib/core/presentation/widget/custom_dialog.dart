@@ -1,3 +1,4 @@
+import 'package:bacura_app/core/localization/app_localization.dart';
 import 'package:bacura_app/core/utils/app_sizes.dart';
 import 'package:bacura_app/core/utils/app_strings.dart';
 import 'package:flutter/material.dart';
@@ -68,7 +69,7 @@ class CustomDialog extends AlertDialog {
                         child: ElevatedButton(
                             onPressed: onPressed(),
                             child: Text(
-                              buttonText ?? AppStrings.ok,
+                              buttonText ?? tr(AppStrings.ok),
                               style: Theme.of(context).textTheme.titleMedium,
                             )))
                 ],

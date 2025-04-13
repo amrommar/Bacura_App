@@ -13,10 +13,15 @@ class _UserGuideScreenState extends State<UserGuideScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.user_guide),
+        title: Text(
+          tr(AppStrings.userGuide),
+        ),
       ),
       body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppSizes.pw16, vertical: AppSizes.ph12),
+          padding: EdgeInsets.symmetric(
+            horizontal: AppSizes.pw16,
+            vertical: AppSizes.ph12,
+          ),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,12 +37,10 @@ class _UserGuideScreenState extends State<UserGuideScreen> {
                   child: Column(
                     children: [
                       SizedBox(height: AppSizes.ph10),
-                      UserGuideTitle(title: 'مرحبًا بك في تطبيق باكورة التقنيات!'),
+                      UserGuideTitle(title: tr(AppStrings.welcomeToBacuraTec)),
                       SizedBox(height: AppSizes.ph10),
                       UserGuideContent(
-                        content:
-                            '''يسرّنا انضمامك إلى تطبيق باكورة التقنيات، الحل المتكامل لتلبية جميع احتياجاتك من الخدمات التقنية والذكية والأمنية. من خلال تطبيقنا، يمكنك بسهولة طلب خدمات تركيب كاميرات المراقبة، الأنظمة الذكية، وأنظمة التحكم في الدخول، مع ضمان تنفيذ احترافي وجودة عالية.
-                    نهدف إلى تقديم تجربة سلسة وآمنة عبر خطوات بسيطة لطلب الخدمة ومتابعتها حتى التنفيذ، بدعم فني متواصل وفريق عمل محترف جاهز لخدمتك في أي وقت.''',
+                        content: tr(AppStrings.welcomeToBacuraTecContent),
                       ),
                     ],
                   ),
@@ -52,17 +55,17 @@ class _UserGuideScreenState extends State<UserGuideScreen> {
                     child: Column(
                       children: [
                         SizedBox(height: AppSizes.ph10),
-                        UserGuideTitle(title: 'ابدأ رحلتك معنا بسهولة'),
+                        UserGuideTitle(title: tr(AppStrings.startYourJourney)),
                         SizedBox(height: AppSizes.ph10),
                         UserGuideContent(
-                          content:
-                              '''لتسجيل الدخول إلى تطبيق باكورة التقنيات والاستفادة من خدماتنا المتنوعة، كل ما عليك فعله هو إدخال رقم جوالك، وستصلك رسالة نصية تحتوي على رمز تحقق. قم بإدخال الرمز في الحقل المخصص ليتم تسجيل دخولك مباشرة وبكل سهولة.
-                  
-                  أما إذا كنت مستخدمًا جديدًا، يمكنك إنشاء حساب بسرعة من خلال إدخال اسمك الكامل، رقم جوالك، بريدك الإلكتروني، واختيار مدينتك من القائمة المتاحة. بعد إدخال هذه البيانات، سيصلك رمز تحقق عبر رسالة نصية، قم بإدخاله لتفعيل حسابك والبدء في طلب خدماتنا بكل يسر واحترافية.''',
+                          content: tr(AppStrings.startYourJourneyContent),
                         ),
                       ],
                     )),
-                Divider(color: ColorManager.lightBlueColor, thickness: AppSizes.ph2),
+                Divider(
+                  color: ColorManager.lightBlueColor,
+                  thickness: AppSizes.ph2,
+                ),
                 Container(
                     padding: EdgeInsets.all(AppSizes.ph8),
                     decoration: BoxDecoration(
@@ -73,70 +76,71 @@ class _UserGuideScreenState extends State<UserGuideScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(height: AppSizes.ph10),
-                        Center(child: UserGuideTitle(title: 'طريقة طلب الخدمة بسهولة')),
+                        Center(child: UserGuideTitle(title: tr(AppStrings.howToRequestEasily))),
                         SizedBox(height: AppSizes.ph10),
                         UserGuideContent(
-                            content:
-                                '''للحصول على خدمات باكورة التقنيات بكل سهولة واحترافية، يمكنك اتباع الخطوات التالية:'''),
-                        UserGuideSmallTitle(title: '1. اختيار الخدمة'),
-                        UserGuideContent(
-                            content:
-                                '''ابدأ باختيار الخدمة المناسبة من قائمة الخدمات المتوفرة في التطبيق والتي تشمل:'''),
-                        UserGuideSmallList(content: '''
-                  - كاميرات المراقبة
-                  - الأنظمة الذكية
-                  - أنظمة التحكم في الوصول
-                  - الأنظمة الصوتية
-                  - أنظمة حفظ الطاقة
-                  - شبكات النت والاتصالات
-                  '''),
-                        UserGuideSmallTitle(title: '2. تحديد نوع الخدمة'),
-                        UserGuideContent(
-                            content: '''بعد اختيار الخدمة، حدد نوع الخدمة التي تحتاجها من بين الخيارات التالية:'''),
-                        UserGuideSmallList(content: '''
-                  - تركيب وبرمجة
-                  - صيانة
-                  - توريد
-                  '''),
-                        UserGuideSmallTitle(title: '3. إدخال تفاصيل الطلب'),
-                        UserGuideContent(content: '''قم بتعبئة نموذج الطلب بالمعلومات التالية:'''),
-                        UserGuideSmallList(content: '''
-                  - التاريخ المناسب للتواصل
-                  - الوقت المناسب للتواصل
-                  - موقعك الجغرافي
-                  - وصف دقيق للخدمة المطلوبة
-                  '''),
-                        UserGuideSmallTitle(title: '4. إرسال الطلب'),
-                        UserGuideContent(
-                            content:
-                                '''بعد إدخال جميع التفاصيل، قم بإرسال الطلب. سيقوم فريق خدمة العملاء بالتواصل معك لتأكيد تفاصيل الطلب وإرسال عرض السعر عبر التطبيق.'''),
-                        UserGuideSmallTitle(title: '5. مراجعة عرض السعر والدفع'),
-                        UserGuideContent(
-                            content:
-                                '''بمجرد استلامك لعرض السعر، يمكنك مراجعته والموافقة عليه، ثم الانتقال إلى صفحة الدفع لإتمام عملية الدفع بكل أمان.'''),
-                        UserGuideSmallTitle(title: '6. تنفيذ الخدمة'),
-                        UserGuideContent(
-                          content:
-                              '''بعد إتمام الدفع، سيتم تحديد موعد مناسب لزيارة فريق العمل الفني إلى موقعك لتنفيذ الخدمة بجودة عالية. عند الانتهاء، يتم إغلاق الطلب رسميًا عبر التطبيق.''',
+                          content: tr(AppStrings.toObtainBacuraTecServices),
                         ),
                         UserGuideSmallTitle(
-                          title: '''
-                    
-                    - راقب حالة طلباتك عبر شاشة الطلبات، وتواصل مع فريق خدمة العملاء بسهولة من خلال شاشة الدعم.
-                    ''',
+                          title: tr(AppStrings.selectService),
+                        ),
+                        UserGuideContent(
+                          content: tr(AppStrings.beginWithSelectService),
+                        ),
+                        UserGuideSmallList(
+                          content: tr(AppStrings.systems),
                         ),
                         UserGuideSmallTitle(
-                          title: '''- انغمس في تجربة استثنائية مع خدمات السينما المنزلية المصممة لرفاهيتك.
-                    ''',
+                          title: tr(AppStrings.selectServiceType),
+                        ),
+                        UserGuideContent(
+                          content: tr(AppStrings.afterSelectServiceType),
+                        ),
+                        UserGuideSmallList(
+                          content: tr(AppStrings.servicesTypes),
                         ),
                         UserGuideSmallTitle(
-                          title: '''- استفد من الاستشارات التقنية المتخصصة التي تلبي جميع احتياجاتك التقنية.
-                    ''',
+                          title: tr(AppStrings.enterOrderDetails),
+                        ),
+                        UserGuideContent(
+                          content: tr(AppStrings.fillOrderForm),
+                        ),
+                        UserGuideSmallList(
+                          content: tr(AppStrings.orderDetailsTypes),
                         ),
                         UserGuideSmallTitle(
-                            title: '''- تابع أحدث العروض والخصومات عبر الإعلانات في الصفحة الرئيسية أو صفحة العروض.
-                    '''),
-                        UserGuideContent(content: '''باكورة التقنيات تجعل طلب خدماتك التقنية أسهل وأكثر راحة!'''),
+                          title: tr(AppStrings.sendOrderPhase),
+                        ),
+                        UserGuideContent(
+                          content: tr(AppStrings.sendOrderPhaseContent),
+                        ),
+                        UserGuideSmallTitle(
+                          title: tr(AppStrings.reviewQuoteAndPayment),
+                        ),
+                        UserGuideContent(
+                          content: tr(AppStrings.reviewQuoteAndPaymentContent),
+                        ),
+                        UserGuideSmallTitle(
+                          title: tr(AppStrings.implementService),
+                        ),
+                        UserGuideContent(
+                          content: tr(AppStrings.implementServiceContent),
+                        ),
+                        UserGuideSmallTitle(
+                          title: tr(AppStrings.monitorTheStatus),
+                        ),
+                        UserGuideSmallTitle(
+                          title: tr(AppStrings.immerseYourself),
+                        ),
+                        UserGuideSmallTitle(
+                          title: tr(AppStrings.benefitFromConsultations),
+                        ),
+                        UserGuideSmallTitle(
+                          title: tr(AppStrings.followTheLatest),
+                        ),
+                        UserGuideContent(
+                          content: tr(AppStrings.bacuraMakeItEase),
+                        ),
                       ],
                     )),
                 Divider(color: ColorManager.lightBlueColor, thickness: AppSizes.ph2),
@@ -149,16 +153,19 @@ class _UserGuideScreenState extends State<UserGuideScreen> {
                     child: Column(
                       children: [
                         SizedBox(height: AppSizes.ph10),
-                        UserGuideTitle(title: 'متابعة حالة الطلب بسهولة'),
+                        UserGuideTitle(
+                          title: tr(AppStrings.trackYourOrderStatusEasily),
+                        ),
                         SizedBox(height: AppSizes.ph10),
                         UserGuideContent(
-                            content:
-                                '''      يمكنك متابعة حالة طلبك بكل سهولة من خلال شاشة الطلبات داخل التطبيق، حيث يتم تحديث حالة الطلب بشكل مستمر لتبقى على اطلاع بكل جديد. كما تصلك إشعارات فورية حول أي تحديثات تتعلق بطلبك عبر قسم الإشعارات لضمان تجربة سلسة واحترافية.
-                  
-                  ابقَ دائمًا على تواصل مع فريقنا وتابع خطوات تنفيذ طلبك بكل مرونة وشفافية!'''),
+                          content: tr(AppStrings.trackYourOrderStatusEasilyContent),
+                        ),
                       ],
                     )),
-                Divider(color: ColorManager.lightBlueColor, thickness: AppSizes.ph2),
+                Divider(
+                  color: ColorManager.lightBlueColor,
+                  thickness: AppSizes.ph2,
+                ),
                 Container(
                     padding: EdgeInsets.all(AppSizes.ph8),
                     decoration: BoxDecoration(
@@ -169,25 +176,39 @@ class _UserGuideScreenState extends State<UserGuideScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(height: AppSizes.ph10),
-                        Center(child: UserGuideTitle(title: 'التواصل مع الدعم الفني')),
+                        Center(
+                          child: UserGuideTitle(
+                            title: tr(AppStrings.contactWithTechnicalSupport),
+                          ),
+                        ),
                         SizedBox(height: AppSizes.ph10),
-                        UserGuideContent(content: '''
-                  لضمان حصولك على أفضل تجربة ودعم متكامل، يوفر تطبيق باكورة التقنيات عدة طرق للتواصل مع فريق الدعم الفني بكل سهولة ومرونة:'''),
-                        UserGuideSmallList(content: '- تقديم الشكاوى:'),
                         UserGuideContent(
-                            content:
-                                '''يمكنك إرسال شكوى مباشرة عبر قسم الشكاوى لتوضيح مشكلتك وسيتم متابعتها بشكل سريع.'''),
-                        UserGuideSmallList(content: '- المحادثة الفورية:'),
-                        UserGuideContent(content: '''
-                  تواصل مباشرة مع فريق خدمة العملاء من خلال المحادثة الفورية داخل التطبيق للحصول على استجابة سريعة واستفسارات فورية.'''),
-                        UserGuideSmallList(content: '- الاتصال الهاتفي:'),
-                        UserGuideContent(content: '''
-                   يمكنك أيضًا التواصل عبر رقم خدمة العملاء المتوفر داخل التطبيق للحصول على دعم مباشر.
-                  
-                  نحن دائمًا هنا لخدمتك وتقديم الحلول التي تناسب احتياجاتك بكل احترافية.'''),
+                          content: tr(AppStrings.contactWithTechnicalSupportContent),
+                        ),
+                        UserGuideSmallList(
+                          content: tr(AppStrings.sendComplaints),
+                        ),
+                        UserGuideContent(
+                          content: tr(AppStrings.sendComplaintsContent),
+                        ),
+                        UserGuideSmallList(
+                          content: tr(AppStrings.instantChat),
+                        ),
+                        UserGuideContent(
+                          content: tr(AppStrings.instantChatContent),
+                        ),
+                        UserGuideSmallList(
+                          content: tr(AppStrings.phoneCall),
+                        ),
+                        UserGuideContent(
+                          content: tr(AppStrings.phoneCallContent),
+                        ),
                       ],
                     )),
-                Divider(color: ColorManager.lightBlueColor, thickness: AppSizes.ph2),
+                Divider(
+                  color: ColorManager.lightBlueColor,
+                  thickness: AppSizes.ph2,
+                ),
                 Container(
                     padding: EdgeInsets.all(AppSizes.ph8),
                     decoration: BoxDecoration(
@@ -197,11 +218,9 @@ class _UserGuideScreenState extends State<UserGuideScreen> {
                     child: Column(
                       children: [
                         SizedBox(height: AppSizes.ph10),
-                        UserGuideTitle(title: 'إدارة حسابك الشخصي'),
+                        UserGuideTitle(title: tr(AppStrings.manageYourProfile)),
                         SizedBox(height: AppSizes.ph10),
-                        UserGuideContent(content: '''
-                              تحكّم بحسابك بسهولة من خلال شاشة الصفحة الشخصية في تطبيق باكورة التقنيات، حيث يمكنك:
-                              تعديل بياناتك الشخصية بسرعة عبر الضغط على المعلومات التي ترغب بتحديثها ثم حفظ التغييرات.'''),
+                        UserGuideContent(content: tr(AppStrings.manageYourProfileContent)),
                       ],
                     )),
                 SizedBox(height: AppSizes.ph10),

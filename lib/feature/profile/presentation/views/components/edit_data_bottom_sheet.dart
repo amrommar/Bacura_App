@@ -3,7 +3,11 @@ import 'package:bacura_app/feature/profile/presentation/views/components/header_
 import 'package:flutter/material.dart';
 
 class EditDataBottomSheet extends StatefulWidget {
-  const EditDataBottomSheet({super.key, required this.bottomSheetContent, this.backgroundColor});
+  const EditDataBottomSheet({
+    super.key,
+    required this.bottomSheetContent,
+    this.backgroundColor,
+  });
 
   final Widget bottomSheetContent;
   final Color? backgroundColor;

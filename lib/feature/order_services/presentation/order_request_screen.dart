@@ -14,11 +14,14 @@ class OrderRequestScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
             title: Text(
-          AppLocalizations.of(context)!.service_details,
+          tr(AppStrings.orderDetails),
         )),
         body: Consumer<OrderServicesProvider>(
           builder: (context, provider, child) => Padding(
-            padding: EdgeInsets.symmetric(vertical: AppSizes.ph18, horizontal: AppSizes.pw16),
+            padding: EdgeInsets.symmetric(
+              vertical: AppSizes.ph18,
+              horizontal: AppSizes.pw16,
+            ),
             child: Form(
               key: formKey,
               child: SingleChildScrollView(
@@ -26,7 +29,7 @@ class OrderRequestScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(AppLocalizations.of(context)!.set_date,
+                      Text(tr(AppStrings.setDate),
                           style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                 color: ColorManager.blackColor,
                               )),
@@ -40,18 +43,20 @@ class OrderRequestScreen extends StatelessWidget {
                       CustomDropDownField(
                         selectedOption: provider.selectedOption,
                         options: provider.options,
-                        fieldName: AppLocalizations.of(context)!.set_time,
+                        fieldName: tr(AppStrings.setTime),
                         onChanged: (String? newValue) {
-                          provider.onTimeChanged(provider.selectedOption);
+                          provider.onTimeChanged(
+                            provider.selectedOption,
+                          );
                         },
                       ),
                       CustomQuestionTextFormField(
-                        fieldName: AppLocalizations.of(context)!.location,
-                        hintText: AppLocalizations.of(context)!.click_icon_location,
+                        fieldName: tr(AppStrings.location),
+                        hintText: tr(AppStrings.pleaseSelectLocation),
                         controller: provider.locationController,
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
-                            return AppLocalizations.of(context)!.please_set_location;
+                            return tr(AppStrings.pleaseSelectLocation);
                           }
                           return null;
                         },
@@ -68,13 +73,13 @@ class OrderRequestScreen extends StatelessWidget {
                       ),
                       //// Write Service Description Section ///////////////////////////////////////
                       CustomQuestionTextFormField(
-                        fieldName: AppLocalizations.of(context)!.service_description,
-                        hintText: AppLocalizations.of(context)!.enter_service_description,
+                        fieldName: tr(AppStrings.serviceDescription),
+                        hintText: tr(AppStrings.enterServiceDescription),
                         controller: provider.descriptionController,
                         maxLines: 5,
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
-                            return AppLocalizations.of(context)!.please_describe_your_consultation;
+                            return tr(AppStrings.enterServiceDescription);
                           }
                           return null;
                         },
@@ -82,7 +87,7 @@ class OrderRequestScreen extends StatelessWidget {
                       SizedBox(height: AppSizes.ph100),
                       Center(
                         child: CustomSmallElevatedButton(
-                          text: AppLocalizations.of(context)!.send_request,
+                          text: tr(AppStrings.sendRequest),
                           onPressed: () {
                             if (formKey.currentState?.validate() == true) {
                               provider.sendOrderRequest(serviceId, categoryId, context: context);

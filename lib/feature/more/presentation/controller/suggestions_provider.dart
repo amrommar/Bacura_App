@@ -18,9 +18,9 @@ class SuggestionsProvider extends ChangeNotifier {
     ));
     customShowCustomDialog(
         context: context,
-        title: AppStrings.yourSuggestionSentSuccessfully,
+        title: tr(AppStrings.yourSuggestionSentSuccessfully),
         imagePath: AppAssets.checkedIcon,
-        content: AppStrings.yourSuggestionSentSuccessfullyMsg,
+        content: tr(AppStrings.yourSuggestionSentSuccessfullyMsg),
         isOk: true,
         isCancel: false,
         onCancel: () {},

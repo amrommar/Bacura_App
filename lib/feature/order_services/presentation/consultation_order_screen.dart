@@ -16,7 +16,9 @@ class ConsultationOrderScreen extends StatelessWidget {
       create: (context) => ConsultationRequestProvider(),
       child: Scaffold(
           appBar: AppBar(
-            title: Text(AppLocalizations.of(context)!.consultation_screen),
+            title: Text(
+              tr(AppStrings.consultationScreen),
+            ),
           ),
           body: Consumer<ConsultationRequestProvider>(
             builder: (context, provider, child) {
@@ -31,24 +33,29 @@ class ConsultationOrderScreen extends StatelessWidget {
                         /// drop down to choose type of consultation
                         CustomDropDownField(
                           selectedOption: categoryEntity.services[provider.selectedServiceIndex].name ?? '',
-                          options: categoryEntity.services.map((service) => service.name ?? '').toList(),
-                          fieldName: AppLocalizations.of(context)!.consultation_type,
+                          options: categoryEntity.services
+                              .map(
+                                (service) => service.name ?? '',
+                              )
+                              .toList(),
+                          fieldName: tr(AppStrings.consultationType),
                           onChanged: (String? newValue) {
                             provider.selectedOption = newValue!;
-                            provider.selectedServiceIndex =
-                                categoryEntity.services.indexWhere((element) => element.name == newValue);
+                            provider.selectedServiceIndex = categoryEntity.services.indexWhere(
+                              (element) => element.name == newValue,
+                            );
                           },
                         ),
 
                         /// consultation description
                         CustomQuestionTextFormField(
-                            fieldName: AppLocalizations.of(context)!.consultation_description,
-                            hintText: AppLocalizations.of(context)!.describe_your_consultation,
+                            fieldName: tr(AppStrings.consultationDescription),
+                            hintText: tr(AppStrings.describeYourConsultation),
                             controller: provider.descriptionController,
                             maxLines: 6,
                             validator: (value) {
                               if (value == null || value.trim().isEmpty) {
-                                return AppLocalizations.of(context)!.please_describe_your_consultation;
+                                return tr(AppStrings.pleaseDescribeYourConsultation);
                               }
                               return null;
                             }),
@@ -59,7 +66,7 @@ class ConsultationOrderScreen extends StatelessWidget {
                         SizedBox(height: AppSizes.ph100),
                         Center(
                             child: CustomSmallElevatedButton(
-                                text: AppLocalizations.of(context)!.send,
+                                text: tr(AppStrings.send),
                                 onPressed: () {
                                   if (formKey.currentState?.validate() == true) {
                                     provider.sendOrderRequest(

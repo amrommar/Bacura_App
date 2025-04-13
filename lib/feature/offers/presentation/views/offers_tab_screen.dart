@@ -45,7 +45,9 @@ class _OffersTabScreenState extends State<OffersTabScreen> {
           child: provider.isLoadingOffers
               ? buildShimmerContainer()
               : provider.offersEntity.totalRecords == 0
-                  ? Center(child: SvgPicture.asset('assets/images/svg/empty_offers.svg'))
+                  ? Center(
+                      child: SvgPicture.asset(AppAssets.emptyOffers),
+                    )
                   : Column(
                       children: [
                         SizedBox(height: AppSizes.ph5),
@@ -59,7 +61,7 @@ class _OffersTabScreenState extends State<OffersTabScreen> {
                             child: ListView.builder(
                               controller: _scrollController,
                               physics: const AlwaysScrollableScrollPhysics(),
-                              itemCount: provider.filteredorders.length,
+                              itemCount: provider.filteredOrders.length,
                               itemBuilder: (context, index) {
                                 return InkWell(
                                   onTap: () {
@@ -77,7 +79,7 @@ class _OffersTabScreenState extends State<OffersTabScreen> {
                                     imagePath: provider.offersEntity.offersDataEntity[index].image!,
                                     title: provider.offersEntity.offersDataEntity[index].name!,
                                     cost:
-                                        ' ${NumberParser.translateNumber((provider.offersEntity.offersDataEntity[index].total!).toString())} ريال',
+                                        ' ${NumberParser.translateNumber((provider.offersEntity.offersDataEntity[index].total!).toString())} ${tr(AppStrings.SAR)}',
                                     expireDate: provider.getRemainingDays(index),
                                     content: provider.offersEntity.offersDataEntity[index].description!,
                                   ),

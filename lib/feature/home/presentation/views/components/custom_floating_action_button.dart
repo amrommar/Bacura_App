@@ -1,6 +1,5 @@
 import 'package:bacura_app/core/utils/dialog_function.dart';
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/home/presentation/controller/home_provider.dart';
 import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
 
 class CustomFloatingActionButton extends StatefulWidget {
@@ -16,7 +15,6 @@ class _CustomFloatingActionButtonState extends State<CustomFloatingActionButton>
 
   @override
   Widget build(BuildContext context) {
-    final homeProvider = Provider.of<HomeProvider>(context, listen: false);
     bool isRTL = Directionality.of(context) == TextDirection.rtl;
 
     return Stack(children: [
@@ -52,9 +50,9 @@ class _CustomFloatingActionButtonState extends State<CustomFloatingActionButton>
                         profileProvider.token == null
                             ? customShowCustomDialog(
                                 context: context,
-                                title: 'تسجيل الدخول',
-                                imagePath: 'assets/images/png/bad-feedback.png',
-                                content: 'الرجاء تسجيل الدخول اولاً',
+                                title: tr(AppStrings.login),
+                                imagePath: AppAssets.badFeedback,
+                                content: tr(AppStrings.pleaseLoginFirst),
                                 isOk: true,
                                 isCancel: true,
                                 onCancel: () {
@@ -65,7 +63,11 @@ class _CustomFloatingActionButtonState extends State<CustomFloatingActionButton>
                                 },
                               )
                             : Navigator.push(
-                                context, MaterialPageRoute(builder: (context) => const CustomerServiceScreen()));
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const CustomerServiceScreen(),
+                                ),
+                              );
                       }
                     });
                   },

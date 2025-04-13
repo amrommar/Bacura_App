@@ -13,7 +13,7 @@ class ChangeLanguageIconWidget extends StatelessWidget {
           onTap: () {
             provider.changeLanguage();
           },
-          child: Text(AppLocalizations.of(context)!.ar_en,
+          child: Text(tr(AppStrings.ar_en),
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     fontWeight: FontWeight.bold,
                     color: ColorManager.primaryBlueColor,

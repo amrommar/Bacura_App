@@ -20,7 +20,7 @@ class ordersCalenderWidget extends StatelessWidget {
                   color: ColorManager.midBlueColor,
                 ),
                 SizedBox(width: AppSizes.ph10),
-                Text('التقويم',
+                Text(tr(AppStrings.calender),
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           color: ColorManager.darkBlueColor,
                         ))

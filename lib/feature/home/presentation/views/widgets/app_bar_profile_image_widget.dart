@@ -1,3 +1,4 @@
+import 'package:bacura_app/core/localization/app_localization.dart';
 import 'package:bacura_app/core/utils/dialog_function.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
@@ -16,9 +17,9 @@ class AppBarProfileImageWidget extends StatelessWidget {
         profileProvider.token == null
             ? customShowCustomDialog(
                 context: context,
-                title: 'تسجيل الدخول',
-                imagePath: 'assets/images/png/bad-feedback.png',
-                content: 'الرجاء تسجيل الدخول اولاً',
+                title: tr(AppStrings.login),
+                imagePath: AppAssets.badFeedback,
+                content: tr(AppStrings.pleaseLoginFirst),
                 isOk: true,
                 isCancel: true,
                 onCancel: () {

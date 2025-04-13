@@ -79,7 +79,7 @@ class OrderItemComponent extends StatelessWidget {
           OrderTimeDateWidget(date: provider.dateCreateOrder(index), time: timeOnly),
           if (requestEntity.total! > 0)
             Text(
-              '${NumberParser.translateNumber((formattedNumber).toString())} ${tr(AppStrings.SAR)}',
+              '${NumberParser.translateNumber((formattedNumber).toString())} ريال',
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     color: ColorManager.darkBlueColor,
                     fontWeight: FontWeight.bold,

@@ -4,17 +4,21 @@ class OrderNumContactIconWidget extends StatelessWidget {
   final Color requestColor;
   final int orderId;
 
-  const OrderNumContactIconWidget({super.key, required this.requestColor, required this.orderId});
+  const OrderNumContactIconWidget({
+    super.key,
+    required this.requestColor,
+    required this.orderId,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
       Text(
         '#${orderId.toString()}',
-        style: Theme.of(context)
-            .textTheme
-            .titleMedium!
-            .copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold),
+        style: Theme.of(context).textTheme.titleMedium!.copyWith(
+              color: ColorManager.darkBlueColor,
+              fontWeight: FontWeight.bold,
+            ),
       ),
       Row(children: [
         InkWell(
@@ -26,7 +30,11 @@ class OrderNumContactIconWidget extends StatelessWidget {
               height: AppSizes.ph20,
             )),
         SizedBox(width: AppSizes.pw10),
-        Icon(Icons.circle, color: requestColor, size: AppSizes.ph15)
+        Icon(
+          Icons.circle,
+          color: requestColor,
+          size: AppSizes.ph15,
+        )
       ])
     ]);
   }

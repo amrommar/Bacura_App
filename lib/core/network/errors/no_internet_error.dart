@@ -5,6 +5,6 @@ class NoInternetConnectionException extends DioException {
 
   @override
   String toString() {
-    return AppStrings.noInternetConnection;
+    return tr(AppStrings.noInternetConnection);
   }
 }

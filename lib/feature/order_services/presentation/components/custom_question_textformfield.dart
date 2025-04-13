@@ -36,26 +36,38 @@ class _CustomQuestionTextFormFieldState extends State<CustomQuestionTextFormFiel
         children: [
           Text(
             widget.fieldName,
-            style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.blackColor),
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  color: ColorManager.blackColor,
+                ),
           ),
           TextFormField(
-            style: Theme.of(context).textTheme.displayMedium!.copyWith(color: ColorManager.darkBlueColor),
+            style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                  color: ColorManager.darkBlueColor,
+                ),
             validator: widget.validator,
             maxLines: widget.maxLines,
             controller: widget.controller,
             keyboardType: widget.keyBoardType,
             obscureText: widget.isObsucre,
             decoration: InputDecoration(
-                suffixIcon: widget.suffixIcon,
-                enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: ColorManager.lightGreyColor,
-                      width: AppSizes.pw1,
-                    ),
-                    borderRadius: BorderRadius.circular(AppSizes.br8)),
-                contentPadding: EdgeInsets.only(left: AppSizes.pw8, right: AppSizes.pw8, top: AppSizes.ph10, bottom: AppSizes.ph10),
-                hintText: widget.hintText,
-                hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(color: ColorManager.greyColor)),
+              suffixIcon: widget.suffixIcon,
+              enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: ColorManager.lightGreyColor,
+                    width: AppSizes.pw1,
+                  ),
+                  borderRadius: BorderRadius.circular(AppSizes.br8)),
+              contentPadding: EdgeInsets.only(
+                left: AppSizes.pw8,
+                right: AppSizes.pw8,
+                top: AppSizes.ph10,
+                bottom: AppSizes.ph10,
+              ),
+              hintText: widget.hintText,
+              hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    color: ColorManager.greyColor,
+                  ),
+            ),
           )
         ],
       ),

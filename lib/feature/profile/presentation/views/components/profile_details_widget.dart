@@ -31,10 +31,10 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget> {
       SizedBox(width: AppSizes.pw16),
       Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Text(widget.text,
-            style: Theme.of(context)
-                .textTheme
-                .titleSmall!
-                .copyWith(color: ColorManager.blackColor, fontWeight: FontWeight.w600)),
+            style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                  color: ColorManager.blackColor,
+                  fontWeight: FontWeight.w600,
+                )),
         Text(
           widget.value,
           style: Theme.of(context).textTheme.bodyMedium!.copyWith(
@@ -46,7 +46,7 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget> {
       const Spacer(),
       InkWell(
           onTap: widget.onTap,
-          child: Text(AppLocalizations.of(context)!.edit,
+          child: Text(tr(AppStrings.edit),
               style: Theme.of(context).textTheme.titleSmall!.copyWith(
                     fontWeight: FontWeight.bold,
                   )))

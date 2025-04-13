@@ -12,7 +12,12 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
-      Image.asset(AppAssets.background2Image, width: double.infinity, height: double.infinity, fit: BoxFit.fill),
+      Image.asset(
+        AppAssets.background2Image,
+        width: double.infinity,
+        height: double.infinity,
+        fit: BoxFit.fill,
+      ),
       ChangeNotifierProvider(
         create: (context) => AuthProvider(),
         child: Scaffold(
@@ -31,13 +36,19 @@ class _LoginScreenState extends State<LoginScreen> {
             body: Consumer<AuthProvider>(builder: (context, provider, child) {
               return SingleChildScrollView(
                   child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: AppSizes.pw29, vertical: AppSizes.ph70),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: AppSizes.pw29,
+                        vertical: AppSizes.ph70,
+                      ),
                       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                         // logo container
                         const BacuraLogoWidget(),
                         SizedBox(height: AppSizes.ph50),
                         // page title
-                        Text(AppLocalizations.of(context)!.login, style: Theme.of(context).textTheme.displayLarge),
+                        Text(
+                          tr(AppStrings.login),
+                          style: Theme.of(context).textTheme.displayLarge,
+                        ),
                         Divider(color: ColorManager.lightBlueColor),
                         // form for Name And Mobile Number
                         Padding(
@@ -45,8 +56,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             child: Column(children: [
                               // Mobile Number Field
                               CustomPhoneField(
-                                fieldName: AppLocalizations.of(context)!.mobileNumber,
-                                hintText: AppLocalizations.of(context)!.enterYourMobileNumber,
+                                fieldName: tr(AppStrings.mobileNumber),
+                                hintText: tr(AppStrings.enterYourMobileNumber),
                                 controller: provider.mobileNumberController,
                               )
                             ])),
@@ -57,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   provider.onLoginSubmit(context);
                                 },
                                 child: Text(
-                                  AppLocalizations.of(context)!.login,
+                                  tr(AppStrings.login),
                                   style: Theme.of(context).textTheme.titleMedium,
                                 ))),
                         SizedBox(height: AppSizes.ph20)

@@ -1,6 +1,4 @@
-import 'package:bacura_app/core/utils/app_sizes.dart';
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:flutter/material.dart';
 
 class AdsWidget extends StatelessWidget {
   final String imagePath;

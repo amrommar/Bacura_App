@@ -18,15 +18,15 @@ List<String> ordersTypes = [
 String translateFilter(String filter, BuildContext context) {
   switch (filter) {
     case 'pending':
-      return AppLocalizations.of(context)!.pending;
+      return tr(AppStrings.pending);
     case 'approved':
-      return AppLocalizations.of(context)!.on_going;
+      return tr(AppStrings.onGoing);
     case 'completed':
-      return AppLocalizations.of(context)!.completed;
+      return tr(AppStrings.completed);
     case 'declined':
-      return AppLocalizations.of(context)!.canceled;
+      return tr(AppStrings.cancelled);
     case 'confirmed':
-      return 'معتمدة';
+      return tr(AppStrings.confirmed);
     default:
       return filter;
   }

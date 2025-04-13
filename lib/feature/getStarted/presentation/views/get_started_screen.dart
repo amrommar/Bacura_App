@@ -37,13 +37,13 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
               SizedBox(height: AppSizes.ph60),
               //welcome message ____________________________________
               Text(
-                AppStrings.welcomeToBacuraApp,
+                tr(AppStrings.welcomeToBacuraApp),
                 style: Theme.of(context).textTheme.displayLarge,
               ),
               SizedBox(height: AppSizes.ph10),
               Text(
                 textAlign: TextAlign.center,
-                AppStrings.browseAppWithoutRegister,
+                tr(AppStrings.browseAppWithoutRegister),
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               SizedBox(height: AppSizes.ph80),

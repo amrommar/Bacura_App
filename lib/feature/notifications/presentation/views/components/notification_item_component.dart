@@ -17,29 +17,42 @@ class NotificationItemComponent extends StatelessWidget {
     return Container(
       color: isRead ? ColorManager.whiteColor : ColorManager.lightBlueColor,
       height: AppSizes.ph80,
-      padding: EdgeInsets.symmetric(horizontal: AppSizes.pw10),
+      padding: EdgeInsets.symmetric(
+        horizontal: AppSizes.pw10,
+      ),
       child: Row(
         children: [
           const NotificationImageWidget(),
           Padding(
-            padding: EdgeInsets.symmetric(vertical: AppSizes.ph15),
-            child: VerticalDivider(color: ColorManager.soLightGreyColor),
+            padding: EdgeInsets.symmetric(
+              vertical: AppSizes.ph15,
+            ),
+            child: VerticalDivider(
+              color: ColorManager.soLightGreyColor,
+            ),
           ),
           Container(
             width: AppSizes.pw320,
-            padding: EdgeInsets.symmetric(vertical: AppSizes.ph8, horizontal: AppSizes.pw4),
+            padding: EdgeInsets.symmetric(
+              vertical: AppSizes.ph8,
+              horizontal: AppSizes.pw4,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   title,
-                  style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor),
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                        color: ColorManager.darkBlueColor,
+                      ),
                 ),
                 Text(
                   body,
                   overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorManager.greyColor),
+                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                        color: ColorManager.greyColor,
+                      ),
                 ),
               ],
             ),

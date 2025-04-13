@@ -1,10 +1,10 @@
 import 'package:bacura_app/core/utils/index.dart';
-
 import 'package:flutter/cupertino.dart';
 
 class ServiceTimePickerWidget extends StatelessWidget {
   final DateTime? initTime;
   final Function(DateTime)? onChange;
+
   const ServiceTimePickerWidget({super.key, this.initTime, this.onChange});
 
   @override
@@ -18,9 +18,14 @@ class ServiceTimePickerWidget extends StatelessWidget {
         maxTime: DateTime.now().add(const Duration(days: 10)),
         barrierColor: Colors.black12,
         minuteInterval: 1,
-        padding: EdgeInsets.fromLTRB(AppSizes.pw12, AppSizes.ph10, AppSizes.pw12, AppSizes.ph10),
-        cancelText: AppLocalizations.of(context)!.cancel,
-        confirmText: AppLocalizations.of(context)!.ok,
+        padding: EdgeInsets.fromLTRB(
+          AppSizes.pw12,
+          AppSizes.ph10,
+          AppSizes.pw12,
+          AppSizes.ph10,
+        ),
+        cancelText: tr(AppStrings.cancel),
+        confirmText: tr(AppStrings.ok),
         pressType: PressType.singlePress,
         timeFormat: 'yyyy-MM-dd',
         onChange: onChange,

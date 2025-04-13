@@ -22,7 +22,7 @@ class OnGoingOrderBottomWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(AppLocalizations.of(context)!.request_management,
+                  Text(tr(AppStrings.manageOrder),
                       style: Theme.of(context).textTheme.titleMedium!.copyWith(
                             color: ColorManager.whiteColor,
                             fontWeight: FontWeight.bold,

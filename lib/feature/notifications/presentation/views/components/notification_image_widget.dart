@@ -22,7 +22,7 @@ class NotificationImageWidget extends StatelessWidget {
             radius: AppSizes.br30,
             backgroundColor: ColorManager.whiteColor,
             ///////////////    from Back-End     /////////////////////
-            child: Image.asset('assets/images/png/bakura (1) 1.png') // Adjust the radius to make sure it fits
+            child: Image.asset(AppAssets.bacuraImage) // Adjust the radius to make sure it fits
             ));
   }
 }

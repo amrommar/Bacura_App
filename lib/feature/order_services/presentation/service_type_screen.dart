@@ -16,7 +16,9 @@ class ServiceTypeScreen extends StatelessWidget {
     final profileProvider = Provider.of<MyProfileProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.service_type),
+        title: Text(
+          tr(AppStrings.serviceType),
+        ),
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -30,13 +32,17 @@ class ServiceTypeScreen extends StatelessWidget {
                     children: [
                       Image.network(categoryEntity!.cover!),
                       Padding(
-                        padding: EdgeInsets.only(right: AppSizes.pw16, top: AppSizes.ph16, left: AppSizes.ph16),
+                        padding: EdgeInsets.only(
+                          right: AppSizes.pw16,
+                          top: AppSizes.ph16,
+                          left: AppSizes.ph16,
+                        ),
                         child: Text(
-                          AppLocalizations.of(context)!.available_services,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyLarge!
-                              .copyWith(color: ColorManager.darkBlueColor, fontWeight: FontWeight.bold),
+                          tr(AppStrings.availableServices),
+                          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                color: ColorManager.darkBlueColor,
+                                fontWeight: FontWeight.bold,
+                              ),
                         ),
                       ),
                       Column(
@@ -62,9 +68,9 @@ class ServiceTypeScreen extends StatelessWidget {
                                     profileProvider.token == null
                                         ? customShowCustomDialog(
                                             context: context,
-                                            title: 'تسجيل الدخول',
-                                            imagePath: 'assets/images/png/bad-feedback.png',
-                                            content: 'الرجاء تسجيل الدخول اولاً',
+                                            title: tr(AppStrings.login),
+                                            imagePath: AppAssets.badFeedback,
+                                            content: tr(AppStrings.pleaseLoginFirst),
                                             isOk: true,
                                             isCancel: true,
                                             onCancel: () {

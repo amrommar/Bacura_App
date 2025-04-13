@@ -1,4 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/profile/presentation/views/components/request_details_price_widget.dart';
 
 class ServiceDetailsList extends StatelessWidget {
   const ServiceDetailsList({super.key});

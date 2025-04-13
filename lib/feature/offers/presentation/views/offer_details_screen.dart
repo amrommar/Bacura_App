@@ -16,7 +16,9 @@ class OfferDetailsScreen extends StatelessWidget {
           return Scaffold(
             backgroundColor: ColorManager.whiteColor,
             appBar: AppBar(
-              title: Text(AppLocalizations.of(context)!.offer_details),
+              title: Text(
+                tr(AppStrings.offerDetails),
+              ),
             ),
             body: (provider.isLoadingOffers)
                 ? const Center(child: CircularProgressIndicator())
@@ -43,8 +45,14 @@ class OfferDetailsScreen extends StatelessWidget {
                         ),
                         //!description
                         Container(
-                          margin: EdgeInsets.symmetric(vertical: AppSizes.ph8, horizontal: AppSizes.pw8),
-                          padding: EdgeInsets.symmetric(vertical: AppSizes.ph16, horizontal: AppSizes.pw16),
+                          margin: EdgeInsets.symmetric(
+                            vertical: AppSizes.ph8,
+                            horizontal: AppSizes.pw8,
+                          ),
+                          padding: EdgeInsets.symmetric(
+                            vertical: AppSizes.ph16,
+                            horizontal: AppSizes.pw16,
+                          ),
                           width: double.infinity,
                           decoration: BoxDecoration(
                             color: ColorManager.midWhiteColor,
@@ -61,10 +69,12 @@ class OfferDetailsScreen extends StatelessWidget {
                         provider.showOrderButton
                             ? Center(
                                 child: CustomSmallElevatedButton(
-                                  text: AppLocalizations.of(context)!.request,
+                                  text: tr(AppStrings.offerRequest),
                                   onPressed: () {
                                     provider.orderOffer(
-                                        id: provider.offersEntity.offersDataEntity[index].id!, context: context);
+                                      id: provider.offersEntity.offersDataEntity[index].id!,
+                                      context: context,
+                                    );
                                   },
                                 ),
                               )

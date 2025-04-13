@@ -23,7 +23,7 @@ class EditLocationBottomSheet extends StatelessWidget {
               CustomDropDownField(
                 selectedOption: provider.myProfileEntity.location!,
                 options: cityOptions,
-                fieldName: AppLocalizations.of(context)!.city,
+                fieldName: tr(AppStrings.city),
                 onChanged: (String? newValue) {
                   if (newValue == null) {
                     return;
@@ -33,7 +33,7 @@ class EditLocationBottomSheet extends StatelessWidget {
               ),
               SizedBox(height: AppSizes.ph40),
               CustomSmallElevatedButton(
-                  text: AppLocalizations.of(context)!.save,
+                  text: tr(AppStrings.save),
                   onPressed: () {
                     /////////////////////// Method to save changes //////////////////////
                     provider.updateMyProfile();

@@ -48,10 +48,10 @@ class SelectedFilterWidgets extends StatelessWidget {
   }
 }
 
-class UnSelected_Filter_Container extends StatelessWidget {
+class UnSelectedFilterContainer extends StatelessWidget {
   String text;
 
-  UnSelected_Filter_Container({super.key, required this.text});
+  UnSelectedFilterContainer({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -82,10 +82,10 @@ class UnSelected_Filter_Container extends StatelessWidget {
   }
 }
 
-class Filter_Icon extends StatelessWidget {
+class FilterIcon extends StatelessWidget {
   Function() onTap;
 
-  Filter_Icon({super.key, required this.onTap});
+  FilterIcon({super.key, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

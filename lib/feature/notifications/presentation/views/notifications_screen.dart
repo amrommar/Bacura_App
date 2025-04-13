@@ -11,7 +11,9 @@ class NotificationsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.notifications),
+        title: Text(
+          tr(AppStrings.notifications),
+        ),
       ),
       body: ChangeNotifierProvider(
         create: (context) => NotificationsProvider(),
@@ -19,7 +21,9 @@ class NotificationsScreen extends StatelessWidget {
           builder: (context, provider, child) => provider.isLoadingNotifications
               ? buildNotificationsShimmerContainer()
               : provider.notificationsEntity.notificationsDataEntity.isEmpty
-                  ? Center(child: SvgPicture.asset('assets/images/svg/inbox.svg'))
+                  ? Center(
+                      child: SvgPicture.asset(AppAssets.emptyNotifications),
+                    )
                   : Column(
                       children: [
                         LazyLoadScrollView(
@@ -86,14 +90,25 @@ Widget buildNotificationsShimmerContainer() {
               color: Colors.white,
               borderRadius: BorderRadius.circular(AppSizes.br12),
             ),
-            margin: EdgeInsets.only(right: AppSizes.pw18, top: AppSizes.ph18, left: AppSizes.pw18),
-            padding: EdgeInsets.symmetric(horizontal: AppSizes.pw12, vertical: AppSizes.ph12),
+            margin: EdgeInsets.only(
+              right: AppSizes.pw18,
+              top: AppSizes.ph18,
+              left: AppSizes.pw18,
+            ),
+            padding: EdgeInsets.symmetric(
+              horizontal: AppSizes.pw12,
+              vertical: AppSizes.ph12,
+            ),
             height: AppSizes.ph80,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(height: 16, width: AppSizes.pw400, color: Colors.white),
+                Container(
+                  height: 16,
+                  width: AppSizes.pw400,
+                  color: Colors.white,
+                ),
               ],
             ),
           ),

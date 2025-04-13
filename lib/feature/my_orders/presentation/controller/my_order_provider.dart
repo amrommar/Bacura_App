@@ -87,9 +87,9 @@ class MyOrderProvider with ChangeNotifier {
       //! handle in error
       customShowCustomDialog(
           context: context,
-          title: 'حدث خطاء',
-          imagePath: 'assets/images/png/bad-feedback.png',
-          content: 'برجاء المحاولة مرة اخرى واذا تكرر الخطاء يرجاء التواصل معنا',
+          title: tr(AppStrings.errorOccurred),
+          imagePath: AppAssets.badFeedback,
+          content: tr(AppStrings.pleaseTryAgain),
           isOk: true,
           isCancel: false,
           onCancel: () {},
@@ -100,9 +100,9 @@ class MyOrderProvider with ChangeNotifier {
       //! handle in success
       customShowCustomDialog(
           context: context,
-          title: 'تم  الغاء الطلب بنجاح',
-          imagePath: 'assets/images/png/checked.png',
-          content: 'تم الغاء الطلب وان كنت تواجه اي مشكلة نرحب بالتواصل بنا',
+          title: tr(AppStrings.orderCancelledSuccessfully),
+          imagePath: AppAssets.checkedIcon,
+          content: tr(AppStrings.orderCancelledAndIfProblem),
           isOk: true,
           isCancel: false,
           onCancel: () {},
