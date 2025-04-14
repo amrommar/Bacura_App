@@ -114,21 +114,23 @@ class OrderDetailsScreen extends StatelessWidget {
                                         children: [
                                           Expanded(
                                               child: Row(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
                                               Text(
                                                 '${provider.itemsForOrderEntity[index]?.quantity.toString()}',
-                                                style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                                                style: Theme.of(context).textTheme.displayMedium!.copyWith(
                                                       color: ColorManager.blackColor,
                                                     ),
                                               ),
                                               Container(
-                                                color: ColorManager.blackColor,
-                                                width: 2.w,
+                                                margin: EdgeInsets.symmetric(horizontal: 4),
+                                                color: ColorManager.lightGreyColor,
+                                                width: 1.w,
                                                 height: 20.h,
                                               ),
                                               Text(
                                                 provider.itemsForOrderEntity[index]?.name ?? '',
-                                                style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                                                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                                                       color: ColorManager.blackColor,
                                                     ),
                                               ),
@@ -136,7 +138,7 @@ class OrderDetailsScreen extends StatelessWidget {
                                           )),
                                           Text(
                                             '${NumberParser.translateNumber((provider.itemsForOrderEntity[index]?.price).toString())} ${tr(AppStrings.SAR)}',
-                                            style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                                                   color: ColorManager.darkRedColor,
                                                 ),
                                           ),

@@ -22,7 +22,16 @@ class NotificationsScreen extends StatelessWidget {
               ? buildNotificationsShimmerContainer()
               : provider.notificationsEntity.notificationsDataEntity.isEmpty
                   ? Center(
-                      child: SvgPicture.asset(AppAssets.emptyNotifications),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset(AppAssets.emptyNotifications),
+                          Text(
+                            tr(AppStrings.emptyNotificationsText),
+                            textAlign: TextAlign.center,
+                          )
+                        ],
+                      ),
                     )
                   : Column(
                       children: [

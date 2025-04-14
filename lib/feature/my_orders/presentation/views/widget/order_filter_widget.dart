@@ -68,7 +68,18 @@ class ordersFilterWidget extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             children: [
               ...myOrdersProvider.selectedFilters.map((selected) {
-                return SelectedFilterWidgets(text: translateFilter(selected, context));
+                return SelectedFilterWidgets(
+                  text: translateFilter(selected, context),
+                  backgroundColor: selected == 'pending'
+                      ? ColorManager.primaryBlueColor
+                      : selected == 'approved'
+                          ? ColorManager.orangeColor
+                          : selected == 'completed'
+                              ? ColorManager.darkGreenColor
+                              : selected == 'declined'
+                                  ? ColorManager.darkRedColor
+                                  : ColorManager.yellowColor,
+                );
               }),
               ...ordersTypes.where((type) => !myOrdersProvider.selectedFilters.contains(type)).map((unselected) {
                 return UnSelectedFilterContainer(text: translateFilter(unselected, context));

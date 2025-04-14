@@ -2,16 +2,18 @@ import 'package:bacura_app/core/utils/index.dart';
 
 class ProfileDetailsWidget extends StatefulWidget {
   IconData icon;
-  String text;
+  String field;
   String value;
+  String actionText;
   Function() onTap;
 
   ProfileDetailsWidget({
     super.key,
     required this.icon,
     required this.onTap,
-    required this.text,
+    required this.field,
     required this.value,
+    this.actionText = '',
   });
 
   @override
@@ -30,7 +32,7 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget> {
       ),
       SizedBox(width: AppSizes.pw16),
       Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text(widget.text,
+        Text(widget.field,
             style: Theme.of(context).textTheme.titleSmall!.copyWith(
                   color: ColorManager.blackColor,
                   fontWeight: FontWeight.w600,
@@ -46,7 +48,7 @@ class _ProfileDetailsWidgetState extends State<ProfileDetailsWidget> {
       const Spacer(),
       InkWell(
           onTap: widget.onTap,
-          child: Text(tr(AppStrings.edit),
+          child: Text(widget.actionText,
               style: Theme.of(context).textTheme.titleSmall!.copyWith(
                     fontWeight: FontWeight.bold,
                   )))

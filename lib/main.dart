@@ -4,13 +4,14 @@ import 'package:bacura_app/feature/home/presentation/controller/home_provider.da
 import 'package:bacura_app/feature/order_services/presentation/controller/order_services_provider.dart';
 import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
   await ServiceInitializer().initializeSettings();
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
@@ -119,7 +120,7 @@ class _MyAppState extends State<MyApp> {
         navigatorKey: _navigatorKey,
         debugShowCheckedModeBanner: false,
         onGenerateRoute: RouteGenerator.getRoute,
-        initialRoute: Routes.getStartedRoute,
+        initialRoute: Routes.homeRoute,
         theme: getAppTheme(),
       ),
     );

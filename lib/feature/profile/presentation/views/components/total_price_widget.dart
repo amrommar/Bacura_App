@@ -1,17 +1,19 @@
 import 'package:bacura_app/core/utils/index.dart';
 
 class TotalPriceWidget extends StatelessWidget {
-  const TotalPriceWidget({super.key});
+  String price;
+
+  TotalPriceWidget({super.key, required this.price});
 
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-      Text('AppLocalizations.of(context)!.total',
+      Text(tr(AppStrings.offerPrice),
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
                 color: ColorManager.primaryBlueColor,
                 fontWeight: FontWeight.bold,
               )),
-      Text('2000',
+      Text(price,
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
                 color: ColorManager.primaryBlueColor,
                 fontWeight: FontWeight.bold,

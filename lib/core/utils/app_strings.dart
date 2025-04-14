@@ -347,4 +347,11 @@ class AppStrings {
   static const String orderDone = 'تم التنفيذ';
   static const String contactWithClient = 'الاتصال بالعميل';
   static const String serviceName = 'اسم الخدمة';
+  static const String emptyOrdersText = 'يبدو أنك لم تطلب أي شيء بعد';
+  static const String emptyOffersText = '''راح عليك العرض؟ لا تشيل هم!
+   قريب بننزل لك عروض تسرّ الخاطر ''';
+  static const String emptyNotificationsText = '''صندوق الوارد فارغ
+
+سيتم إدراج جميع الطلبات الواردة في هذه الشاشة.''';
+  static const String offerPrice = 'إجمالي سعر العرض: ';
 }

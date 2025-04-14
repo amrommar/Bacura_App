@@ -350,4 +350,12 @@ Quickly edit your personal information by clicking on the information you want t
   AppStrings.orderDone: 'Order Done',
   AppStrings.contactWithClient: 'Contact With Client',
   AppStrings.serviceName: 'Service Name',
+  AppStrings.emptyOrdersText: "It seems you didn't request anything yet",
+  AppStrings.emptyOffersText: """Missed the offer? Don't worry! 
+  We'll soon have some great deals for you.""",
+  AppStrings.emptyNotificationsText: '''Your inbox is empty
+
+All incoming requests will be listed 
+in this Screen''',
+  AppStrings.offerPrice: 'Total Offer Price: ',
 };

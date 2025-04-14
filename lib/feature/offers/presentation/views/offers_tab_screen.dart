@@ -46,7 +46,16 @@ class _OffersTabScreenState extends State<OffersTabScreen> {
               ? buildShimmerContainer()
               : provider.offersEntity.totalRecords == 0
                   ? Center(
-                      child: SvgPicture.asset(AppAssets.emptyOffers),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset(AppAssets.emptyOffers),
+                          Text(
+                            tr(AppStrings.emptyOffersText),
+                            textAlign: TextAlign.center,
+                          )
+                        ],
+                      ),
                     )
                   : Column(
                       children: [

@@ -1,5 +1,6 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/offers/presentation/controller/offers_details_provider.dart';
+import 'package:bacura_app/feature/profile/presentation/views/components/total_price_widget.dart';
 
 class OfferDetailsScreen extends StatelessWidget {
   final int id;
@@ -58,12 +59,20 @@ class OfferDetailsScreen extends StatelessWidget {
                             color: ColorManager.midWhiteColor,
                             borderRadius: BorderRadius.circular(AppSizes.br8),
                           ),
-                          child: Text(provider.offersEntity.offersDataEntity[index].description!,
-                              style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                                    color: ColorManager.blackColor,
-                                  )),
+                          child: Column(
+                            children: [
+                              Text(provider.offersEntity.offersDataEntity[index].description!,
+                                  style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                                        color: ColorManager.blackColor,
+                                      )),
+                              SizedBox(height: AppSizes.ph20),
+                              TotalPriceWidget(
+                                price: provider.offersEntity.offersDataEntity[index].total!.toString(),
+                              ),
+                            ],
+                          ),
                         ),
-                        SizedBox(height: AppSizes.ph60),
+                        SizedBox(height: AppSizes.ph20),
 
                         /// Add To Cart Elevated Button
                         provider.showOrderButton

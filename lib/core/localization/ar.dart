@@ -345,4 +345,11 @@ Map<String, String> coreAr = {
   AppStrings.orderDone: 'تم التنفيذ',
   AppStrings.contactWithClient: 'الاتصال بالعميل',
   AppStrings.serviceName: 'اسم الخدمة',
+  AppStrings.emptyOrdersText: 'يبدو أنك لم تطلب أي شيء بعد',
+  AppStrings.emptyOffersText: '''''راح عليك العرض؟ لا تشيل هم!
+   قريب بننزل لك عروض تسرّ الخاطر ''',
+  AppStrings.emptyNotificationsText: '''صندوق الوارد فارغ
+
+سيتم إدراج جميع الطلبات الواردة في هذه الشاشة.''',
+  AppStrings.offerPrice: 'إجمالي سعر العرض: ',
 };

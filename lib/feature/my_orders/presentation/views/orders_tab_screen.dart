@@ -17,7 +17,17 @@ class OrdersTabScreen extends StatelessWidget {
         return provider.isLoadingMyOrders
             ? buildShimmerContainer()
             : provider.myOrderEntity.myOrderDataEntity.isEmpty
-                ? Center(child: SvgPicture.asset(AppAssets.emptyOrders))
+                ? Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(AppAssets.emptyOrders),
+                        Text(
+                          tr(AppStrings.emptyOrdersText),
+                        ),
+                      ],
+                    ),
+                  )
                 : Column(
                     children: [
                       SizedBox(height: AppSizes.ph5),

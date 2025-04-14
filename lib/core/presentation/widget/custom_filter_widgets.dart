@@ -2,8 +2,13 @@ import 'package:bacura_app/core/utils/index.dart';
 
 class SelectedFilterWidgets extends StatelessWidget {
   String text;
+  Color backgroundColor;
 
-  SelectedFilterWidgets({super.key, required this.text});
+  SelectedFilterWidgets({
+    super.key,
+    required this.text,
+    required this.backgroundColor,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +30,7 @@ class SelectedFilterWidgets extends StatelessWidget {
               offset: Offset(0, 1),
             )
           ],
-          color: ColorManager.primaryBlueColor,
+          color: backgroundColor,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [

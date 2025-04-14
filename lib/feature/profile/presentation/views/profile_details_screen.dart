@@ -55,11 +55,9 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                           children: [
                             ProfileDetailsWidget(
                               icon: Icons.phone_outlined,
-                              text: tr(AppStrings.mobileNumber),
+                              field: tr(AppStrings.mobileNumber),
                               value: '${profileEntity.phone}',
-                              onTap: () {
-                                provider.openEditPhoneBottomSheet();
-                              },
+                              onTap: () {},
                             ),
                             Divider(
                               color: ColorManager.lightBlueColor,
@@ -67,8 +65,9 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                             ),
                             ProfileDetailsWidget(
                               icon: Icons.mail_outline_outlined,
-                              text: tr(AppStrings.email),
+                              field: tr(AppStrings.email),
                               value: profileEntity.email!,
+                              actionText: tr(AppStrings.edit),
                               onTap: () {
                                 provider.openEmailBottomSheet();
                               },
@@ -78,24 +77,27 @@ class _ProfileDetailsScreenState extends State<ProfileDetailsScreen> {
                               height: AppSizes.ph20,
                             ),
                             ProfileDetailsWidget(
+                              icon: Icons.transgender_outlined,
+                              field: tr(AppStrings.gender),
+                              value: profileEntity.gender! == 'male' ? tr(AppStrings.male) : tr(AppStrings.female),
+                              actionText: tr(AppStrings.edit),
                               onTap: () {
                                 provider.openGenderBottomSheet();
                               },
-                              icon: Icons.transgender_outlined,
-                              text: tr(AppStrings.gender),
-                              value: profileEntity.gender! == 'male' ? tr(AppStrings.male) : tr(AppStrings.female),
                             ),
                             Divider(
                               color: ColorManager.lightBlueColor,
                               height: AppSizes.ph20,
                             ),
                             ProfileDetailsWidget(
-                                onTap: () {
-                                  provider.openCityBottomSheet();
-                                },
-                                icon: Icons.location_on_outlined,
-                                text: tr(AppStrings.city),
-                                value: profileEntity.location!),
+                              onTap: () {
+                                provider.openCityBottomSheet();
+                              },
+                              icon: Icons.location_on_outlined,
+                              field: tr(AppStrings.city),
+                              value: profileEntity.location!,
+                              actionText: tr(AppStrings.edit),
+                            ),
                           ],
                         ),
                       ),

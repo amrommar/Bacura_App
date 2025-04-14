@@ -62,7 +62,18 @@ class _ordersFilterState extends State<OfferFilterWidget> {
               scrollDirection: Axis.horizontal,
               children: [
                 ...selectedFilters.map((selected) {
-                  return SelectedFilterWidgets(text: selected);
+                  return SelectedFilterWidgets(
+                    text: selected,
+                    backgroundColor: selected == 'pending'
+                        ? ColorManager.primaryBlueColor
+                        : selected == 'approved'
+                            ? ColorManager.orangeColor
+                            : selected == 'completed'
+                                ? ColorManager.darkGreenColor
+                                : selected == 'declined'
+                                    ? ColorManager.darkRedColor
+                                    : ColorManager.yellowColor,
+                  );
                 }),
                 ...filterTitles.where((filter) => !selectedFilters.contains(filter)).map((unselected) {
                   return UnSelectedFilterContainer(text: unselected);
