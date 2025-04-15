@@ -67,7 +67,7 @@ class OrdersTabScreen extends StatelessWidget {
                                                   requestColor: statusColors[requestEntity.status]!,
                                                   location: requestEntity.location,
                                                   expiresAt: requestEntity.expiresAt!.split("T")[0],
-                                                  total: requestEntity.total,
+                                                  total: requestEntity.total!.toDouble(),
                                                   id: requestEntity.id!,
                                                   description: requestEntity.description,
                                                   status: requestEntity.status,

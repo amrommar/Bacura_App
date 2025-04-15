@@ -17,7 +17,7 @@ class OrderDetailsScreen extends StatelessWidget {
   final Color? requestColor;
   final String? location;
   final String? expiresAt;
-  final int? total;
+  final double? total;
   final int id;
   final int orderIndex;
   final String? clientName;
@@ -134,11 +134,13 @@ class OrderDetailsScreen extends StatelessWidget {
                                                 width: 1.w,
                                                 height: 20.h,
                                               ),
-                                              Text(
-                                                provider.itemsForOrderEntity[index]?.name ?? '',
-                                                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                                      color: ColorManager.blackColor,
-                                                    ),
+                                              Expanded(
+                                                child: Text(
+                                                  provider.itemsForOrderEntity[index]?.name ?? '',
+                                                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                                        color: ColorManager.blackColor,
+                                                      ),
+                                                ),
                                               ),
                                             ],
                                           )),
@@ -161,6 +163,7 @@ class OrderDetailsScreen extends StatelessWidget {
                                 itemCount: provider.itemsForOrderEntity.length,
                               ),
                             ),
+                  const Divider(),
                   if (total! > 0)
                     Container(
                       padding: EdgeInsets.only(
@@ -173,8 +176,8 @@ class OrderDetailsScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            tr(AppStrings.total),
-                            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                            tr(AppStrings.totalWithoutVat),
+                            style: Theme.of(context).textTheme.displayMedium!.copyWith(
                                   color: ColorManager.darkBlueColor,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -182,7 +185,60 @@ class OrderDetailsScreen extends StatelessWidget {
                           Text(
                             '${NumberParser.translateNumber((total).toString())} ${tr(AppStrings.SAR)}',
                             style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                                  color: ColorManager.primaryBlueColor,
+                                  color: ColorManager.darkRedColor,
+                                ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  Container(
+                    padding: EdgeInsets.only(
+                      left: AppSizes.pw8,
+                      right: AppSizes.pw8,
+                      top: AppSizes.ph8,
+                    ),
+                    height: 40.h,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          tr(AppStrings.vat),
+                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                color: ColorManager.darkBlueColor,
+                                fontWeight: FontWeight.bold,
+                              ),
+                        ),
+                        Text(
+                          tr('${NumberParser.translateNumber((total! * 0.15).toString())} ${tr(AppStrings.SAR)}'),
+                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                color: ColorManager.darkBlueColor,
+                              ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  if (total! > 0)
+                    Container(
+                      padding: EdgeInsets.only(
+                        left: AppSizes.pw8,
+                        right: AppSizes.pw8,
+                        top: AppSizes.ph8,
+                      ),
+                      height: 40.h,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            tr(AppStrings.totalWithVat),
+                            style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                                  color: ColorManager.darkBlueColor,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
+                          Text(
+                            '${NumberParser.translateNumber((total! + total! * 0.15).toString())} ${tr(AppStrings.SAR)}',
+                            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                  color: ColorManager.darkRedColor,
                                 ),
                           ),
                         ],

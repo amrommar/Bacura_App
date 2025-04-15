@@ -98,7 +98,9 @@ class AppStrings {
   static const String day = 'يوم';
   static const String remain = 'باقي';
   static const String quotationIsBeingPrepared = 'جاري تجهيز عرض السعر';
-  static const String total = 'الإجمالي : ';
+  static const String totalWithoutVat = 'الإجمالي قبل الضريبة: ';
+  static const String totalWithVat = 'الإجمالي شامل الضريبة : ';
+  static const String vat = 'الضريبة : ';
   static const String location = 'الموقع: ';
   static const String paymentMethod = 'طريقة الدفع: ';
   static const String paymentStatus = 'حالة الدفع: ';
