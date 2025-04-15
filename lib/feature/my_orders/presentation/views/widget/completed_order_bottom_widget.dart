@@ -28,7 +28,7 @@ class CompletedOrderBottomWidget extends StatelessWidget {
     return ButtonWidget(
         text: tr(AppStrings.downloadInvoice),
         onClicked: () async {
-          final status = await Permission.storage.request();
+          final status = await Permission.manageExternalStorage.request();
           if (status.isGranted) {
             final List<InvoiceItem> items = invoiceData.map((item) {
               return InvoiceItem(
@@ -43,8 +43,11 @@ class CompletedOrderBottomWidget extends StatelessWidget {
             final invoice = Invoice(
               supplier: const Supplier(
                 name: 'Bacura Tec',
-                address: 'Al-Narjis, Anas Bin Malik Street',
-                paymentInfo: 'https://paypal.me/sarahfieldzz',
+                address: 'Riyadh-Jeddah-Dammam-Khobar-Medina-Khamis Mushait-Jazan',
+                paymentInfo: 'SA1710000049400000475403',
+                commercialRegister: '1010822013',
+                email: 'info@bacuratec.com',
+                mobilePhone: '+966 547000015',
               ),
               customer: Customer(
                 mobileNumber: mobileNumber,
@@ -53,16 +56,14 @@ class CompletedOrderBottomWidget extends StatelessWidget {
               ),
               info: InvoiceInfo(
                 date: date,
-                description: 'My description...',
                 number: '$orderId',
               ),
               items: items,
             );
 
             final pdfFile = await PdfInvoiceApi.generate(invoice);
-
             final directory = Directory('/storage/emulated/0/Download');
-            final filePath = '${directory.path}/Invoice_${DateTime.now().millisecondsSinceEpoch}.pdf';
+            final filePath = '${directory.path}/Invoice_${orderId}.pdf';
             final newFile = File(filePath);
             await newFile.writeAsBytes(await pdfFile.readAsBytes());
 

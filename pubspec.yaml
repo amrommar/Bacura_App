@@ -75,7 +75,9 @@ dependencies:
   internet_connection_checker: ^3.0.1
   flutter_native_splash: 2.4.1
   shared_preferences: ^2.3.3
+  translator: ^1.0.3+1
 
+  
 dev_dependencies:
   dart_code_metrics: ^4.19.2
   flutter_test:

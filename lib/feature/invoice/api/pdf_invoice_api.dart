@@ -8,24 +8,86 @@ import 'package:bacura_app/feature/invoice/utils.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:pdf/widgets.dart';
+import 'package:translator/translator.dart';
+
+import '../../../core/utils/index.dart' show rootBundle;
 
 class PdfInvoiceApi {
   static Future<File> generate(Invoice invoice) async {
     final pdf = Document();
 
+    final fontData = await rootBundle.load("assets/fonts/Tajawal-Regular.ttf");
+    final arabicFont = pw.Font.ttf(fontData.buffer.asByteData());
+
+    final translatedCustomerName = await translateIfArabic(invoice.customer.name);
+    final translatedCustomerAddress = await translateIfArabic(invoice.customer.address);
+
+    final translatedSupplierName = await translateIfArabic(invoice.supplier.name);
+    final translatedSupplierAddress = await translateIfArabic(invoice.supplier.address);
+    final translatedSupplierEmail = await translateIfArabic(invoice.supplier.email);
+    final translatedSupplierPhone = await translateIfArabic(invoice.supplier.mobilePhone);
+    final translatedSupplierCR = await translateIfArabic(invoice.supplier.commercialRegister);
+    final translatedSupplierAccount = await translateIfArabic(invoice.supplier.paymentInfo);
+
+    final translatedItems = await Future.wait(invoice.items.map((item) async {
+      final translatedDesc = await translateIfArabic(item.description);
+      return InvoiceItem(
+        description: translatedDesc,
+        date: item.date,
+        quantity: item.quantity,
+        vat: item.vat,
+        unitPrice: item.unitPrice,
+      );
+    }));
+
+    final translatedInvoice = Invoice(
+      supplier: Supplier(
+        name: translatedSupplierName,
+        address: translatedSupplierAddress,
+        email: translatedSupplierEmail,
+        mobilePhone: translatedSupplierPhone,
+        commercialRegister: translatedSupplierCR,
+        paymentInfo: translatedSupplierAccount,
+      ),
+      customer: Customer(
+        name: translatedCustomerName,
+        address: translatedCustomerAddress,
+        mobileNumber: invoice.customer.mobileNumber,
+      ),
+      info: InvoiceInfo(
+        date: invoice.info.date,
+        number: invoice.info.number,
+      ),
+      items: translatedItems,
+    );
+
     pdf.addPage(MultiPage(
+      theme: pw.ThemeData.withFont(
+        base: arabicFont,
+        bold: arabicFont,
+      ),
       build: (context) => [
-        buildHeader(invoice),
+        buildHeader(translatedInvoice),
         SizedBox(height: 3 * PdfPageFormat.cm),
-        buildTitle(invoice),
-        buildInvoice(invoice),
+        buildTitle(translatedInvoice),
+        buildInvoice(translatedInvoice),
         Divider(),
-        buildTotal(invoice),
+        buildTotal(translatedInvoice),
       ],
-      footer: (context) => buildFooter(invoice),
+      footer: (context) => buildFooter(translatedInvoice),
     ));
 
     return PdfApi.saveDocument(name: 'my_invoice.pdf', pdf: pdf);
+  }
+
+  static Future<String> translateIfArabic(String text) async {
+    final isArabic = RegExp(r'[\u0600-\u06FF]').hasMatch(text);
+    if (!isArabic) return text;
+
+    final translator = GoogleTranslator();
+
+    final translation = await translator.translate(text, from: 'ar', to: 'en');
+    return translation.text;
   }
 
   static Widget buildHeader(Invoice invoice) => Column(
@@ -61,14 +123,18 @@ class PdfInvoiceApi {
   static Widget buildCustomerAddress(Customer customer) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(customer.name, style: TextStyle(fontWeight: FontWeight.bold)),
-          Text(customer.address),
+          Text(
+            'Customer Name: ${customer.name}',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          Text('Address: ${customer.address}'),
+          Text('Phone: ${customer.mobileNumber}'),
         ],
       );
 
   static Widget buildInvoiceInfo(InvoiceInfo info) {
     final titles = <String>[
-      'Invoice Number:',
+      'Invoice No:',
       'Invoice Date:',
     ];
     final data = <String>[
@@ -90,9 +156,12 @@ class PdfInvoiceApi {
   static Widget buildSupplierAddress(Supplier supplier) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(supplier.name, style: TextStyle(fontWeight: FontWeight.bold)),
+          Text('Company Name: ${supplier.name}', style: TextStyle(fontWeight: FontWeight.bold)),
           SizedBox(height: 1 * PdfPageFormat.mm),
-          Text(supplier.address),
+          Text('Address: ${supplier.address}'),
+          Text('CR No: ${supplier.commercialRegister}'),
+          Text('Email: ${supplier.email}'),
+          Text('Phone: ${supplier.mobilePhone}'),
         ],
       );
 
@@ -104,13 +173,17 @@ class PdfInvoiceApi {
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           SizedBox(height: 0.8 * PdfPageFormat.cm),
-          Text(invoice.info.description),
-          SizedBox(height: 0.8 * PdfPageFormat.cm),
         ],
       );
 
   static Widget buildInvoice(Invoice invoice) {
-    final headers = ['Description', 'Quantity', 'Unit Price', 'VAT', 'Total'];
+    final headers = [
+      'Description',
+      'Quantity',
+      'Unit Price',
+      'VAT',
+      'Total',
+    ];
     final data = invoice.items.map((item) {
       final total = item.unitPrice * item.quantity * (1 + item.vat);
 
@@ -195,9 +268,9 @@ class PdfInvoiceApi {
         children: [
           Divider(),
           SizedBox(height: 2 * PdfPageFormat.mm),
-          buildSimpleText(title: 'Address', value: invoice.supplier.address),
+          buildSimpleText(title: 'Address: ', value: invoice.supplier.address),
           SizedBox(height: 1 * PdfPageFormat.mm),
-          buildSimpleText(title: 'Paypal', value: invoice.supplier.paymentInfo),
+          buildSimpleText(title: 'Account: ', value: invoice.supplier.paymentInfo),
         ],
       );
 

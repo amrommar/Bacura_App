@@ -72,6 +72,9 @@ class OrdersTabScreen extends StatelessWidget {
                                                   description: requestEntity.description,
                                                   status: requestEntity.status,
                                                   orderIndex: index,
+                                                  clientName: requestEntity.user!.name,
+                                                  clientMobile: requestEntity.user!.phone,
+                                                  city: requestEntity.user!.location,
                                                 )));
                                   },
                                   child: OrderItemComponent(

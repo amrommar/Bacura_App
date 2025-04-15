@@ -20,6 +20,9 @@ class OrderDetailsScreen extends StatelessWidget {
   final int? total;
   final int id;
   final int orderIndex;
+  final String? clientName;
+  final String? clientMobile;
+  final String? city;
 
   final String? status;
 
@@ -35,6 +38,9 @@ class OrderDetailsScreen extends StatelessWidget {
       this.description,
       required this.id,
       required this.orderIndex,
+      this.clientName,
+      this.clientMobile,
+      this.city,
       this.status});
 
   @override
@@ -286,9 +292,9 @@ class OrderDetailsScreen extends StatelessWidget {
             'unitPrice': (item?.price ?? 0.0).toDouble(), // تأكد من تحويل price إلى double
           };
         }).toList(),
-        mobileNumber: "",
-        name: '',
-        address: '',
+        mobileNumber: clientMobile ?? '',
+        name: clientName ?? '',
+        address: city ?? '',
         orderId: orderId,
         date: date,
       );
