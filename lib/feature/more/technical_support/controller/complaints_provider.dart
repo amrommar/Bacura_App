@@ -13,9 +13,9 @@ class ComplaintsProvider extends ChangeNotifier {
     ));
     customShowCustomDialog(
         context: context,
-        title: tr(AppStrings.yourComplaintSentSuccessfully),
+        title: tr(AppStrings.yourContactRequestSentSuccessfully),
         imagePath: AppAssets.checkedIcon,
-        content: tr(AppStrings.yourComplaintSentSuccessfully),
+        content: tr(AppStrings.yourContactRequestSentSuccessfully),
         isOk: true,
         isCancel: false,
         onCancel: () {},

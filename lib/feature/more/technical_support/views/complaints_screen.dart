@@ -22,7 +22,7 @@ class _ComplaintScreenState extends State<ComplaintScreen> {
       child: Scaffold(
         appBar: AppBar(
             title: Text(
-          tr(AppStrings.complaints),
+          tr(AppStrings.contactWithUs),
         )),
         body: Consumer<ComplaintsProvider>(
           builder: (context, provider, child) {
@@ -38,7 +38,7 @@ class _ComplaintScreenState extends State<ComplaintScreen> {
                       CustomDropDownField(
                         selectedOption: tr(AppStrings.serviceProvider),
                         options: options,
-                        fieldName: tr(AppStrings.complaintType),
+                        fieldName: tr(AppStrings.contactWithUsRequestType),
                         onChanged: (String? newValue) {
                           setState(() {
                             provider.selectedOption = newValue!;
@@ -47,13 +47,13 @@ class _ComplaintScreenState extends State<ComplaintScreen> {
                       ),
                       SizedBox(height: AppSizes.ph20),
                       CustomQuestionTextFormField(
-                        fieldName: tr(AppStrings.yourComplaint),
-                        hintText: tr(AppStrings.enterYourComplaint),
+                        fieldName: tr(AppStrings.contactWithUsDescription),
+                        hintText: tr(AppStrings.enterTheDescription),
                         controller: provider.complaintController,
                         maxLines: 7,
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
-                            return tr(AppStrings.pleaseEnterYourComplaint);
+                            return tr(AppStrings.pleaseEnterTheDescription);
                           }
                           return null;
                         },
@@ -61,7 +61,7 @@ class _ComplaintScreenState extends State<ComplaintScreen> {
                       SizedBox(height: AppSizes.ph60),
                       Center(
                           child: CustomSmallElevatedButton(
-                        text: tr(AppStrings.sendComplaint),
+                        text: tr(AppStrings.sendRequest),
                         onPressed: () {
                           provider.sendComplaints(context);
                         },

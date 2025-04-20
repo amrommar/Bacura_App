@@ -2,10 +2,10 @@ import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/my_orders/presentation/controller/my_order_provider.dart';
 import 'package:bacura_app/feature/my_orders/presentation/views/widget/manage_order_option_widget.dart';
 
-class ManageOnGoingOrderBottomSheet extends StatelessWidget {
+class ManageApprovedOrderBottomSheet extends StatelessWidget {
   final int index;
 
-  const ManageOnGoingOrderBottomSheet({super.key, required this.index});
+  const ManageApprovedOrderBottomSheet({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {

@@ -185,12 +185,13 @@ class PdfInvoiceApi {
       'Total',
     ];
     final data = invoice.items.map((item) {
-      final total = item.unitPrice * item.quantity * (1 + item.vat);
+      final rightUnitPrice = (item.unitPrice / (1 + item.vat)) / item.quantity;
+      final total = rightUnitPrice * item.quantity;
 
       return [
         item.description,
         '${item.quantity}',
-        '\SAR ${item.unitPrice}',
+        '\SAR ${rightUnitPrice.toStringAsFixed(2)}',
         '${item.vat} %',
         '\SAR ${total.toStringAsFixed(2)}',
       ];
@@ -215,8 +216,7 @@ class PdfInvoiceApi {
   }
 
   static Widget buildTotal(Invoice invoice) {
-    final netTotal =
-        invoice.items.map((item) => item.unitPrice * item.quantity).reduce((item1, item2) => item1 + item2);
+    final netTotal = invoice.items.map((item) => item.unitPrice / 1.15).reduce((item1, item2) => item1 + item2);
     final vatPercent = invoice.items.first.vat;
     final vat = netTotal * vatPercent;
     final total = netTotal + vat;

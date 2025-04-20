@@ -16,7 +16,10 @@ class ordersFilterWidget extends StatelessWidget {
           translatedFilter = tr(AppStrings.pending);
           break;
         case 'approved':
-          translatedFilter = tr(AppStrings.onGoing);
+          translatedFilter = tr(AppStrings.approved);
+          break;
+        case 'confirmed':
+          translatedFilter = tr(AppStrings.confirmed);
           break;
         case 'completed':
           translatedFilter = tr(AppStrings.completed);
@@ -24,9 +27,7 @@ class ordersFilterWidget extends StatelessWidget {
         case 'declined':
           translatedFilter = tr(AppStrings.cancelled);
           break;
-        case 'confirmed':
-          translatedFilter = tr(AppStrings.confirmed);
-          break;
+
         default:
           translatedFilter = filter;
       }
@@ -76,9 +77,9 @@ class ordersFilterWidget extends StatelessWidget {
                           ? ColorManager.orangeColor
                           : selected == 'completed'
                               ? ColorManager.darkGreenColor
-                              : selected == 'declined'
-                                  ? ColorManager.darkRedColor
-                                  : ColorManager.yellowColor,
+                              : selected == 'confirmed'
+                                  ? ColorManager.yellowColor
+                                  : ColorManager.darkRedColor,
                 );
               }),
               ...ordersTypes.where((type) => !myOrdersProvider.selectedFilters.contains(type)).map((unselected) {

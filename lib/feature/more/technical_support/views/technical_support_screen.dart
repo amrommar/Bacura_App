@@ -24,6 +24,17 @@ class _TechnicalSupportScreenState extends State<TechnicalSupportScreen> {
             child: Column(children: [
           SizedBox(height: AppSizes.ph10),
 
+          ///User Guide tab //////////////////////////////
+          CustomSupportContainerWidget(
+              widget: Image.asset(
+                AppAssets.userGuide,
+                height: AppSizes.ph80,
+              ),
+              text: tr(AppStrings.userGuide),
+              onTap: () {
+                Navigator.pushNamed(context, Routes.userGuideRoute);
+              }),
+
           ///Frequently asked questions tab //////////////////////////////
           CustomSupportContainerWidget(
               widget: Image.asset(
@@ -41,7 +52,7 @@ class _TechnicalSupportScreenState extends State<TechnicalSupportScreen> {
                 AppAssets.badFeedback,
                 height: AppSizes.ph80,
               ),
-              text: tr(AppStrings.complaints),
+              text: tr(AppStrings.contactWithUs),
               onTap: () {
                 profileProvider.token == null
                     ? customShowCustomDialog(
@@ -61,16 +72,6 @@ class _TechnicalSupportScreenState extends State<TechnicalSupportScreen> {
                     : Navigator.pushNamed(context, Routes.complaintScreenRoute);
               }),
 
-          ///User Guide tab //////////////////////////////
-          CustomSupportContainerWidget(
-              widget: Image.asset(
-                AppAssets.userGuide,
-                height: AppSizes.ph80,
-              ),
-              text: tr(AppStrings.userGuide),
-              onTap: () {
-                Navigator.pushNamed(context, Routes.userGuideRoute);
-              }),
           SizedBox(height: AppSizes.ph70),
           const BacuraLogoWidget()
         ])));

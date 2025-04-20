@@ -1,9 +1,9 @@
 import 'package:bacura_app/core/utils/index.dart';
 
-class OnGoingOrderBottomWidget extends StatelessWidget {
+class ApprovedOrderBottomWidget extends StatelessWidget {
   Function() onPressed;
 
-  OnGoingOrderBottomWidget({super.key, required this.onPressed});
+  ApprovedOrderBottomWidget({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {

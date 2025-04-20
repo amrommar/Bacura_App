@@ -3,7 +3,6 @@ import 'package:bacura_app/feature/invoice/api/pdf_invoice_api.dart';
 import 'package:bacura_app/feature/invoice/model/customer.dart';
 import 'package:bacura_app/feature/invoice/model/invoice.dart';
 import 'package:bacura_app/feature/invoice/model/supplier.dart';
-import 'package:bacura_app/feature/invoice/widget/button_widget.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class CompletedOrderBottomWidget extends StatelessWidget {
@@ -25,9 +24,20 @@ class CompletedOrderBottomWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ButtonWidget(
-        text: tr(AppStrings.downloadInvoice),
-        onClicked: () async {
+    return ElevatedButton(
+        style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+          AppSizes.br30,
+        ))),
+        child: Text(
+          tr(AppStrings.downloadInvoice),
+          style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                color: ColorManager.whiteColor,
+                fontWeight: FontWeight.bold,
+              ),
+        ),
+        onPressed: () async {
           final status = await Permission.manageExternalStorage.request();
           if (status.isGranted) {
             final List<InvoiceItem> items = invoiceData.map((item) {
@@ -43,7 +53,7 @@ class CompletedOrderBottomWidget extends StatelessWidget {
             final invoice = Invoice(
               supplier: const Supplier(
                 name: 'Bacura Tec',
-                address: 'Riyadh-Jeddah-Dammam-Khobar-Medina-Khamis Mushait-Jazan',
+                address: 'Riyadh-Jeddah-Dammam-Khobar-Medinah-Khamis Mushait-Jazan',
                 paymentInfo: 'SA1710000049400000475403',
                 commercialRegister: '1010822013',
                 email: 'info@bacuratec.com',

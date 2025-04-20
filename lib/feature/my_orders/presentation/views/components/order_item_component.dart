@@ -30,7 +30,7 @@ class OrderItemComponent extends StatelessWidget {
 
   Widget _buildRequestContainer(MyOrderProvider provider, BuildContext context) {
     var requestEntity = provider.filteredOrders[index];
-    double number = (requestEntity.total! + (requestEntity.total! * 0.15)) ?? 0;
+    double number = (requestEntity.total!.toDouble()) ?? 0;
     String formattedNumber = NumberFormat('#,###').format(number);
     String timeOnly = DateParser.dateFormatterOnlyTime(requestEntity.createdAt);
 

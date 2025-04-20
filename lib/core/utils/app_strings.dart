@@ -49,7 +49,7 @@ class AppStrings {
   static const String termsAndConditions = 'الأحكام والشروط';
   static const String privacyPolicy = 'سياسة الخصوصية';
   static const String registerAsServiceProvider = 'التسجيل كمقدم خدمة';
-  static const String suggestions = 'الأقتراحات';
+  static const String suggestions = 'الإقتراحات';
   static const String pleaseEnterSuggestions = 'الرجاء إدخال اقتراحاتك';
   static const String pleaseEnterAllData = 'الرجاء إدخال كافة البيانات';
   static const String rateApp = 'قيّم التطبيق';
@@ -113,7 +113,7 @@ class AppStrings {
   static const String orderCancelledSuccessfully = ' تم إلغاء الطلب بنجاح';
   static const String orderCancelledAndIfProblem = 'تم الغاء الطلب وان كنت تواجه اي مشكلة نرحب بالتواصل بنا';
   static const String printInvoice = 'طباعة الفاتورة';
-  static const String onGoing = 'جارية';
+  static const String approved = 'جارية';
   static const String completed = 'مكتملة';
   static const String cancelled = 'ملغية';
   static const String pending = 'قيد الانتظار';
@@ -131,6 +131,12 @@ class AppStrings {
   static const String cancel = 'إلغاء';
   static const String FAQ = 'الأسئلة الشائعة';
   static const String complaints = 'الشكاوي';
+  static const String contactWithUs = 'تواصل معنا';
+  static const String contactWithUsRequestType = 'تتواصل معنا بخصوص: ';
+  static const String contactWithUsDescription = 'وصف سبب تواصلك معنا';
+  static const String enterTheDescription = 'ادخل الوصف';
+  static const String pleaseEnterTheDescription = 'الرجاء إدخال الوصف';
+  static const String yourContactRequestSentSuccessfully = 'تم ارسال طلبك بنجاح';
   static const String userGuide = 'دليل المستخدم';
   static const String serviceProvider = 'مقدم الخدمة';
   static const String technician = ' الفني';
@@ -221,7 +227,7 @@ class AppStrings {
   static const String riyad = 'الرياض';
   static const String jeddah = 'جده';
   static const String damam = 'الدمام';
-  static const String madinah = 'المدينة';
+  static const String madinah = 'المدينة  المنورة';
   static const String makka = 'مكة';
   static const String jezan = 'جيزان';
   static const String abha = 'أبها';
@@ -241,7 +247,7 @@ class AppStrings {
       'يمكنك متابعة حالة الطلب من خلال شاشة الطلبات، كما ستصلك إشعارات فورية بكل تحديث يطرأ على طلبك.';
   static const String howCanIPay = 'ما هي طرق الدفع المتاحة؟';
   static const String howCanIPayAnswer =
-      'يمكنك الدفع عبر التطبيق باستخدام البطاقة البنكية أو التحويل البنكي بعد استلامك عرض السعر.';
+      'يمكنك الدفع عبر التطبيق باستخدام البطاقة البنكية أو أبل باي أو التحويل البنكي بعد استلامك عرض السعر.';
   static const String canICancelOrder = 'هل يمكنني إلغاء الطلب بعد إرساله؟';
   static const String canICancelOrderAnswer = 'نعم، يمكنك إلغاء الطلب في أي وقت قبل إتمام عملية الدفع.';
   static const String howCanIContactSupport = ' كيف أتواصل مع الدعم الفني؟';

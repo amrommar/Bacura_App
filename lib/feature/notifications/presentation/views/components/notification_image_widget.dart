@@ -7,17 +7,10 @@ class NotificationImageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(
-              AppSizes.br30,
-            ),
-            boxShadow: [
-              BoxShadow(
-                  color: ColorManager.midWhiteColor,
-                  spreadRadius: 2,
-                  blurRadius: 4,
-                  offset: const Offset(0, 3) // Offset in the x and y directions
-                  )
-            ]),
+          borderRadius: BorderRadius.circular(
+            AppSizes.br30,
+          ),
+        ),
         child: CircleAvatar(
             radius: AppSizes.br30,
             backgroundColor: ColorManager.whiteColor,

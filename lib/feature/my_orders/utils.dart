@@ -10,9 +10,9 @@ Map<String, Color> statusColors = {
 List<String> ordersTypes = [
   'pending',
   'approved',
+  'confirmed',
   'completed',
   'declined',
-  'confirmed',
 ];
 
 String translateFilter(String filter, BuildContext context) {
@@ -20,13 +20,14 @@ String translateFilter(String filter, BuildContext context) {
     case 'pending':
       return tr(AppStrings.pending);
     case 'approved':
-      return tr(AppStrings.onGoing);
+      return tr(AppStrings.approved);
+    case 'confirmed':
+      return tr(AppStrings.confirmed);
     case 'completed':
       return tr(AppStrings.completed);
     case 'declined':
       return tr(AppStrings.cancelled);
-    case 'confirmed':
-      return tr(AppStrings.confirmed);
+
     default:
       return filter;
   }

@@ -2,11 +2,12 @@ import 'package:bacura_app/core/services/number_parser.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/my_orders/domain/entity/items_for_order_entity.dart';
 import 'package:bacura_app/feature/my_orders/presentation/controller/order_details_provider.dart';
+import 'package:bacura_app/feature/my_orders/presentation/views/widget/approved_order_bottom_widget.dart';
 import 'package:bacura_app/feature/my_orders/presentation/views/widget/cancelled_order_bottom_widget.dart';
 import 'package:bacura_app/feature/my_orders/presentation/views/widget/completed_order_bottom_widget.dart';
-import 'package:bacura_app/feature/my_orders/presentation/views/widget/manage_ongoing_order_bottom_sheet.dart';
-import 'package:bacura_app/feature/my_orders/presentation/views/widget/ongoing_order_bottom_widget.dart';
+import 'package:bacura_app/feature/my_orders/presentation/views/widget/manage_approved_order_bottom_sheet.dart';
 import 'package:bacura_app/feature/my_orders/presentation/views/widget/order_num_contact_icon_widget.dart';
+import 'package:bacura_app/feature/my_orders/presentation/views/widget/pending_order_bottom_widget.dart';
 import 'package:shimmer/shimmer.dart';
 
 class OrderDetailsScreen extends StatelessWidget {
@@ -183,7 +184,7 @@ class OrderDetailsScreen extends StatelessWidget {
                                 ),
                           ),
                           Text(
-                            '${NumberParser.translateNumber((total).toString())} ${tr(AppStrings.SAR)}',
+                            '${NumberParser.translateNumber((total! / 1.15).toStringAsFixed(2))} ${tr(AppStrings.SAR)}',
                             style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                   color: ColorManager.darkRedColor,
                                 ),
@@ -191,6 +192,8 @@ class OrderDetailsScreen extends StatelessWidget {
                         ],
                       ),
                     ),
+
+                  /// VAT
                   Container(
                     padding: EdgeInsets.only(
                       left: AppSizes.pw8,
@@ -209,7 +212,7 @@ class OrderDetailsScreen extends StatelessWidget {
                               ),
                         ),
                         Text(
-                          tr('${NumberParser.translateNumber((total! * 0.15).toString())} ${tr(AppStrings.SAR)}'),
+                          tr('${NumberParser.translateNumber((total! / 1.15 * 0.15).toStringAsFixed(2))} ${tr(AppStrings.SAR)}'),
                           style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                                 color: ColorManager.darkBlueColor,
                               ),
@@ -236,9 +239,10 @@ class OrderDetailsScreen extends StatelessWidget {
                                 ),
                           ),
                           Text(
-                            '${NumberParser.translateNumber((total! + total! * 0.15).toString())} ${tr(AppStrings.SAR)}',
+                            '${NumberParser.translateNumber((total)!.toStringAsFixed(2))} ${tr(AppStrings.SAR)}',
                             style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                   color: ColorManager.darkRedColor,
+                                  fontWeight: FontWeight.w600,
                                 ),
                           ),
                         ],
@@ -311,29 +315,29 @@ class OrderDetailsScreen extends StatelessWidget {
   }) {
     //TODO: change this AMR
     if (requestStatus == 'pending') {
-      return OnGoingOrderBottomWidget(onPressed: () {
+      return PendingOrderBottomWidget(onPressed: () {
         showManageRequestBottomSheet(context, index);
       });
     } else if (requestStatus == 'declined') {
       return const CancelledOrderBottomWidget();
     } else if (requestStatus == 'approved') {
-      return OnGoingOrderBottomWidget(onPressed: () {
+      return ApprovedOrderBottomWidget(onPressed: () {
         showManageRequestBottomSheet(context, index);
       });
     } else if (requestStatus == 'confirmed') {
       return CompletedOrderBottomWidget(
         invoiceData: item.map((item) {
           return {
-            'description': item?.name ?? 'لا يوجد وصف',
+            'description': item?.name ?? '',
             'date': date,
             'quantity': item?.quantity ?? 0,
             'vat': 0.15,
             'unitPrice': (item?.price ?? 0.0).toDouble(),
           };
         }).toList(),
-        mobileNumber: "",
-        name: '',
-        address: '',
+        mobileNumber: clientMobile ?? '',
+        name: clientName ?? '',
+        address: city ?? '',
         orderId: orderId,
         date: date,
       );
@@ -343,9 +347,9 @@ class OrderDetailsScreen extends StatelessWidget {
           return {
             'description': item?.name ?? 'لا يوجد وصف',
             'date': date,
-            'quantity': item?.quantity ?? 0, // تأكد من تحويل quantity إلى double
-            'vat': 0.15, // قيمة الـ VAT ستكون ثابتة هنا
-            'unitPrice': (item?.price ?? 0.0).toDouble(), // تأكد من تحويل price إلى double
+            'quantity': item?.quantity ?? 0,
+            'vat': 0.15,
+            'unitPrice': (item?.price ?? 0.0).toDouble(),
           };
         }).toList(),
         mobileNumber: clientMobile ?? '',
@@ -363,7 +367,7 @@ class OrderDetailsScreen extends StatelessWidget {
     showModalBottomSheet(
         context: context,
         builder: (context) {
-          return ManageOnGoingOrderBottomSheet(
+          return ManageApprovedOrderBottomSheet(
             index: index,
           );
         });

@@ -57,7 +57,8 @@ class NotificationsScreen extends StatelessWidget {
                                   child: Padding(
                                     padding: EdgeInsets.symmetric(vertical: AppSizes.pw4),
                                     child: NotificationItemComponent(
-                                      title: provider.notificationsEntity.notificationsDataEntity[index].title!,
+                                      title:
+                                          '${provider.notificationsEntity.notificationsDataEntity[index].title!} ${provider.notificationsEntity.notificationsDataEntity[index].resourceId!}',
                                       body: provider.notificationsEntity.notificationsDataEntity[index].body!,
                                       isRead: provider.notificationsEntity.notificationsDataEntity[index].isRead!,
                                     ),
