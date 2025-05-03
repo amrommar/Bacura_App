@@ -4,8 +4,8 @@ import 'package:bacura_app/feature/auth/domain/usecases/complete_profile_use_cas
 class CompleteProfileProvider with ChangeNotifier {
   var nameController = TextEditingController();
   var emailController = TextEditingController();
-  String selectedGender = '';
-  String selectedLocation = '';
+  String selectedGender = "male";
+  String selectedLocation = tr(AppStrings.riyad);
 
   completeProfile(BuildContext context) async {
     var result = await sl<CompleteProfileUseCase>().call(
@@ -20,4 +20,17 @@ class CompleteProfileProvider with ChangeNotifier {
       Navigator.pushNamed(context, Routes.homeRoute);
     });
   }
+
+  List<String> country = [
+    tr(AppStrings.riyad),
+    tr(AppStrings.jeddah),
+    tr(AppStrings.damam),
+    tr(AppStrings.makka),
+    tr(AppStrings.madinah),
+    tr(AppStrings.jezan),
+    tr(AppStrings.taif),
+    tr(AppStrings.abha),
+    tr(AppStrings.tabouk),
+    tr(AppStrings.khobar),
+  ];
 }

@@ -87,19 +87,8 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
                                 keyBoardType: TextInputType.text),
                             SizedBox(height: AppSizes.ph10),
                             CustomDropDownField(
-                              selectedOption: tr(AppStrings.riyad),
-                              options: [
-                                tr(AppStrings.riyad),
-                                tr(AppStrings.jeddah),
-                                tr(AppStrings.damam),
-                                tr(AppStrings.makka),
-                                tr(AppStrings.madinah),
-                                tr(AppStrings.jezan),
-                                tr(AppStrings.taif),
-                                tr(AppStrings.abha),
-                                tr(AppStrings.tabouk),
-                                tr(AppStrings.khobar),
-                              ],
+                              selectedOption: provider.selectedLocation,
+                              options: provider.country,
                               fieldName: tr(AppStrings.city),
                               onChanged: (String? newValue) {
                                 if (newValue == null) {
