@@ -53,6 +53,7 @@ class _CustomDropDownFieldState extends State<CustomDropDownField> {
                 ),
                 dropdownColor: ColorManager.whiteColor,
                 iconEnabledColor: ColorManager.primaryBlueColor,
+                iconSize: AppSizes.ph30,
 
                 // Background color of the dropdown list
                 items: widget.options.map((String option) {

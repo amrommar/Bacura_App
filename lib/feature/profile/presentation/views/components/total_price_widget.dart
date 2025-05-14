@@ -9,12 +9,12 @@ class TotalPriceWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
       Text(tr(AppStrings.offerPrice),
-          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+          style: Theme.of(context).textTheme.displayMedium!.copyWith(
                 color: ColorManager.primaryBlueColor,
                 fontWeight: FontWeight.bold,
               )),
       Text(price,
-          style: Theme.of(context).textTheme.titleLarge!.copyWith(
+          style: Theme.of(context).textTheme.displayMedium!.copyWith(
                 color: ColorManager.primaryBlueColor,
                 fontWeight: FontWeight.bold,
               ))

@@ -16,7 +16,7 @@ class NotificationItemComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: isRead ? ColorManager.whiteColor : ColorManager.lightBlueColor,
-      height: AppSizes.ph80,
+      height: AppSizes.ph92,
       padding: EdgeInsets.symmetric(
         horizontal: AppSizes.pw10,
       ),

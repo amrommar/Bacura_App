@@ -56,36 +56,37 @@ class OrderItemComponent extends StatelessWidget {
         horizontal: AppSizes.pw12,
         vertical: AppSizes.ph12,
       ),
-      height: AppSizes.ph180,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          OrderNumContactIconWidget(
-            requestColor: requestColor,
-            orderId: requestEntity.id!,
-          ),
-          SizedBox(
-            width: AppSizes.pw400,
-            child: Text(
-              requestEntity.description,
-              overflow: TextOverflow.ellipsis,
-              maxLines: 2,
-              style: Theme.of(context).textTheme.displayMedium!.copyWith(
-                    color: ColorManager.blackColor,
-                  ),
+      child: Expanded(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            OrderNumContactIconWidget(
+              requestColor: requestColor,
+              orderId: requestEntity.id!,
             ),
-          ),
-          OrderTimeDateWidget(date: provider.dateCreateOrder(index), time: timeOnly),
-          if (requestEntity.total! > 0)
-            Text(
-              '${NumberParser.translateNumber((formattedNumber).toString())} ${tr(AppStrings.SAR)}',
-              style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    color: ColorManager.darkBlueColor,
-                    fontWeight: FontWeight.bold,
-                  ),
+            SizedBox(
+              width: AppSizes.pw400,
+              child: Text(
+                requestEntity.description,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+                style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                      color: ColorManager.blackColor,
+                    ),
+              ),
             ),
-        ],
+            OrderTimeDateWidget(date: provider.dateCreateOrder(index), time: timeOnly),
+            if (requestEntity.total! > 0)
+              Text(
+                '${NumberParser.translateNumber((formattedNumber).toString())} ${tr(AppStrings.SAR)}',
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                      color: ColorManager.darkBlueColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
+          ],
+        ),
       ),
     );
   }

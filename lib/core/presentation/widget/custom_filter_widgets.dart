@@ -123,6 +123,7 @@ class FilterIcon extends StatelessWidget {
           onTap: onTap,
           child: Icon(
             Icons.filter_list_outlined,
+            size: AppSizes.ph24,
             color: ColorManager.whiteColor,
           ),
         ));

@@ -1,4 +1,3 @@
-import 'package:bacura_app/core/localization/app_localization.dart';
 import 'package:bacura_app/core/utils/dialog_function.dart';
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/profile/presentation/controller/my_profile_provider.dart';
@@ -29,7 +28,11 @@ class AppBarProfileImageWidget extends StatelessWidget {
                   Navigator.pushNamed(context, Routes.loginRoute);
                 },
               )
-            : Navigator.push(context, MaterialPageRoute(builder: (context) => const ProfileDetailsScreen()));
+            : Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ProfileDetailsScreen(),
+                ));
       },
       child: Row(
         children: [
@@ -40,6 +43,7 @@ class AppBarProfileImageWidget extends StatelessWidget {
               backgroundColor: ColorManager.whiteColor,
               child: Image.asset(
                 imagePath,
+                height: AppSizes.ph60,
               ),
             ),
           ),

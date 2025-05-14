@@ -7,7 +7,7 @@ class BacuraStoreWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         constraints: BoxConstraints(
-          maxHeight: AppSizes.ph80,
+          maxHeight: AppSizes.ph86,
           minWidth: AppSizes.pw140,
         ),
         padding: EdgeInsets.symmetric(

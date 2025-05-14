@@ -12,6 +12,16 @@ class ServiceTimePickerWidget extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: TimePickerSpinnerPopUp(
+        cancelTextStyle: Theme.of(context).textTheme.titleSmall!.copyWith(
+              color: ColorManager.blackColor,
+            ),
+        confirmTextStyle: Theme.of(context).textTheme.titleSmall!.copyWith(
+              color: ColorManager.blackColor,
+            ),
+        textStyle: Theme.of(context).textTheme.titleSmall!.copyWith(
+              color: ColorManager.blackColor,
+            ),
+        iconSize: AppSizes.ph22,
         mode: CupertinoDatePickerMode.date,
         initTime: initTime,
         minTime: initTime,
