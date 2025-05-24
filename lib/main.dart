@@ -13,6 +13,7 @@ void main() async {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   await ServiceInitializer().initializeSettings();
+  ApiClient();
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
@@ -120,7 +121,7 @@ class _MyAppState extends State<MyApp> {
         navigatorKey: _navigatorKey,
         debugShowCheckedModeBanner: false,
         onGenerateRoute: RouteGenerator.getRoute,
-        initialRoute: Routes.homeRoute,
+        initialRoute: Routes.getStartedRoute,
         theme: getAppTheme(),
       ),
     );

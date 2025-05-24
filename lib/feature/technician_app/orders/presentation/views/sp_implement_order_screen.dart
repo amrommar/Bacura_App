@@ -1,6 +1,8 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/technician_app/orders/presentation/controller/sp_order_details_provider.dart';
 import 'package:bacura_app/feature/technician_app/profile/presentation/views/index.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SpImplementOrderScreen extends StatefulWidget {
   final int? orderId;
@@ -21,12 +23,8 @@ class SpImplementOrderScreen extends StatefulWidget {
 }
 
 class _SpImplementOrderScreenState extends State<SpImplementOrderScreen> {
-  String buttonText = 'تم التنفيذ';
-
   final GlobalKey<ImplementOrderPhaseSectionState> phase1Key = GlobalKey();
-
   final GlobalKey<ImplementOrderPhaseSectionState> phase2Key = GlobalKey();
-
   final GlobalKey<ImplementOrderPhaseSectionState> phase3Key = GlobalKey();
 
   @override
@@ -35,17 +33,15 @@ class _SpImplementOrderScreenState extends State<SpImplementOrderScreen> {
       appBar: AppBar(title: Text(tr(AppStrings.implementOrder))),
       body: ChangeNotifierProvider(
         create: (context) => SpOrderDetailsProvider(id: widget.orderId!),
-        child: Consumer<SpOrderDetailsProvider>(builder: (context, provider, child) {
-          return provider.isItemsLoading
-              ? const Center(child: CircularProgressIndicator())
-              : Scaffold(
-                  body: Container(
+        child: Consumer<SpOrderDetailsProvider>(
+          builder: (context, provider, child) {
+            return provider.isItemsLoading
+                ? const Center(child: CircularProgressIndicator())
+                : Container(
                     height: AppSizes.ph850,
                     decoration: BoxDecoration(
                       color: ColorManager.whiteColor,
-                      borderRadius: BorderRadius.circular(
-                        AppSizes.br12,
-                      ),
+                      borderRadius: BorderRadius.circular(AppSizes.br12),
                       boxShadow: [
                         BoxShadow(
                           color: ColorManager.midWhiteColor,
@@ -68,21 +64,24 @@ class _SpImplementOrderScreenState extends State<SpImplementOrderScreen> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                            Text(
-                              tr(AppStrings.orderId),
-                              style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                                    color: ColorManager.darkBlueColor,
-                                  ),
-                            ),
-                            Text(
-                              '#${widget.orderId}',
-                              style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                                    color: ColorManager.darkBlueColor,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                            ),
-                          ]),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                tr(AppStrings.orderId),
+                                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                      color: ColorManager.darkBlueColor,
+                                    ),
+                              ),
+                              Text(
+                                '#${widget.orderId}',
+                                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                      color: ColorManager.darkBlueColor,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              ),
+                            ],
+                          ),
                           const Divider(),
                           OrderTimeDateWidget(date: widget.date!, time: widget.time!),
                           const Divider(),
@@ -117,25 +116,24 @@ class _SpImplementOrderScreenState extends State<SpImplementOrderScreen> {
                                   key: phase1Key,
                                   title: tr(AppStrings.materialsPrepared),
                                   isLast: false,
-                                  initialCompleted: true,
+                                  initialCompleted: provider.phase1Completed,
                                 ),
                                 ImplementOrderPhaseSection(
                                   key: phase2Key,
                                   title: tr(AppStrings.accessToClient),
                                   isLast: false,
-                                  initialCompleted: true,
+                                  initialCompleted: provider.phase2Completed,
                                 ),
                                 ImplementOrderPhaseSection(
                                   key: phase3Key,
                                   title: tr(AppStrings.orderDone),
                                   isLast: true,
-                                  initialCompleted: false,
+                                  initialCompleted: provider.phase3Completed,
                                 ),
                               ],
                             ),
                           ),
                           SizedBox(height: AppSizes.ph30),
-                          SizedBox(height: AppSizes.ph50),
                           Center(
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
@@ -144,16 +142,10 @@ class _SpImplementOrderScreenState extends State<SpImplementOrderScreen> {
                                 ),
                               ),
                               onPressed: () {
-                                if (buttonText == tr(AppStrings.orderDone)) {
-                                  phase3Key.currentState?.setCompleted(true);
-                                  buttonText = tr(AppStrings.closeOrder);
-                                } else if (buttonText == tr(AppStrings.closeOrder)) {
-                                  Navigator.pushNamed(context, Routes.spHomeScreenRoute);
-                                }
-                                setState(() {});
+                                provider.cancelOrder(context: context);
                               },
                               child: Text(
-                                buttonText,
+                                provider.buttonText,
                                 style: Theme.of(context).textTheme.titleMedium!.copyWith(
                                       color: ColorManager.whiteColor,
                                     ),
@@ -163,9 +155,9 @@ class _SpImplementOrderScreenState extends State<SpImplementOrderScreen> {
                         ],
                       ),
                     ),
-                  ),
-                );
-        }),
+                  );
+          },
+        ),
       ),
     );
   }
@@ -178,5 +170,3 @@ class _SpImplementOrderScreenState extends State<SpImplementOrderScreen> {
     await launchUrl(launchUri);
   }
 }
-
-// Custom dashed line painter
