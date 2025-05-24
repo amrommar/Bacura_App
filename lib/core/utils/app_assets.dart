@@ -5,15 +5,6 @@ const String imageSvgPath = "assets/images/svg";
 class AppAssets {
   //svg
   static const String bacuraLogo = '$imageSvgPath/bacura_logo.svg';
-  static const String cameraIcon = '$imageSvgPath/camera_icon.svg';
-  static const String accessControlIcon = '$imageSvgPath/accessControl_icon.svg';
-  static const String gameRepairIcon = '$imageSvgPath/gameRepair_icon.svg';
-  static const String networkIcon = '$imageSvgPath/network_icon.svg';
-  static const String pcRepairIcon = '$imageSvgPath/pcRepair_icon.svg';
-  static const String phoneRepairIcon = '$imageSvgPath/phoneRepair_icon.svg';
-  static const String savePowerIcon = '$imageSvgPath/savePower_icon.svg';
-  static const String smartHomeIcon = '$imageSvgPath/smarthome_icon.svg';
-  static const String soundSystemsIcon = '$imageSvgPath/soundSystems_icon.svg';
   static const String closeSquare = '$imageSvgPath/close_square.svg';
   static const String contactIcon = '$imageSvgPath/contact_icon.svg';
   static const String emptyOrders = '$imageSvgPath/empty_orders.svg';
@@ -22,38 +13,27 @@ class AppAssets {
   static const String cameraIconBlue = '$imageSvgPath/cameraicon.svg';
 
   //png
-  static const String ad1Image = '$imagePngPath/ad12.png';
-  static const String offer1 = '$imagePngPath/offer1.png';
-  static const String homeIcon = '$imagePngPath/home_icon.png';
-  static const String moreIcon = '$imagePngPath/more_icon.png';
-  static const String offersIcon = '$imagePngPath/offers_icon.png';
-  static const String ordersIcon = '$imagePngPath/orders_icon.png';
-  static const String cartIcon = '$imagePngPath/cart_icon.png';
-  static const String avatar = '$imagePngPath/Ellipse 1.png';
-  static const String cinema = '$imagePngPath/cinemaWhite.png';
-  static const String consultation = '$imagePngPath/consultationWhite.png';
   static const String bacuraImage = '$imagePngPath/bakura (1) 1.png';
-  static const String facebookLogo = '$imagePngPath/facebook_logo.png';
-  static const String snapLogo = '$imagePngPath/snap-01.png';
-  static const String xLogo = '$imagePngPath/x.png';
-  static const String linkedInLogo = '$imagePngPath/linkin iconn.png';
-  static const String instagramLogo = '$imagePngPath/instagram.png';
+  static const String tiktokLogo = '$imagePngPath/tiktok.png';
   static const String badFeedback = '$imagePngPath/bad-feedback.png';
   static const String request = '$imagePngPath/request.png';
   static const String question = '$imagePngPath/question.png';
   static const String userGuide = '$imagePngPath/manual-book.png';
-  static const String cameraOffer = '$imagePngPath/camera_offer.png';
   static const String checkedIcon = '$imagePngPath/checked.png';
   static const String logout = '$imagePngPath/log-out.png';
   static const String personalInformation = '$imagePngPath/personal-information.png';
-  static const String map2 = '$imagePngPath/map2.jpeg';
+  static const String faceLogo = '$imagePngPath/faceb.png';
+  static const String instaLogo = '$imagePngPath/instagramm.png';
+  static const String snappLogo = '$imagePngPath/snaap.png';
+  static const String tikLogo = '$imagePngPath/tik-tok..png';
+  static const String xxLogo = '$imagePngPath/xt.png';
+  static const String linkLogo = '$imagePngPath/linkedd.png';
+  static const String siteLogo = '$imagePngPath/site.png';
 
   /// jpg
   static const String background2Image = '$imagePath/background2.jpg';
-  static const String banner = '$imagePath/baner1.jpg';
-  static const String banner2 = '$imagePath/baner2.jpg';
-  static const String banner3 = '$imagePath/baner3.jpg';
   static const String map = '$imagePath/map.jpeg';
+  static const String map2 = '$imagePath/map2.jpeg';
 
   /// URL
   static const String bacuraStoreURL =
@@ -64,4 +44,5 @@ class AppAssets {
   static const String bacuraXURL = 'https://x.com/bacura_tec';
   static const String bacuraLinkedInURL = 'https://www.linkedin.com/company/bacura-tec';
   static const String bacuraInstagramURL = 'https://www.instagram.com/bacura_tec/';
+  static const String bacuraTiktokURL = 'https://www.tiktok.com/@bacura_tec?_t=ZS-8wVxOiQ7jWi&_r=1';
 }

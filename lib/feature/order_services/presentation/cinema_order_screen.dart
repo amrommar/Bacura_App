@@ -31,34 +31,34 @@ class CinemaOrderScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         ////////////////////     Styled Introductory Title Section     /////////////////////////////////////////
-                        Container(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: AppSizes.pw12,
-                            vertical: AppSizes.ph16,
-                          ),
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                                ColorManager.darkBlueColor,
-                                ColorManager.midBlueColor,
-                              ],
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                            ),
-                            borderRadius: BorderRadius.circular(AppSizes.br12),
-                          ),
-                          child: Text(
-                            tr(AppStrings.cinemaEntertainmentContent),
-                            style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                                  color: ColorManager.whiteColor,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: AppSizes.sp20,
-                                ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                        SizedBox(height: AppSizes.ph20),
+                        // Container(
+                        //   padding: EdgeInsets.symmetric(
+                        //     horizontal: AppSizes.pw12,
+                        //     vertical: AppSizes.ph16,
+                        //   ),
+                        //   width: double.infinity,
+                        //   decoration: BoxDecoration(
+                        //     gradient: LinearGradient(
+                        //       colors: [
+                        //         ColorManager.darkBlueColor,
+                        //         ColorManager.midBlueColor,
+                        //       ],
+                        //       begin: Alignment.topLeft,
+                        //       end: Alignment.bottomRight,
+                        //     ),
+                        //     borderRadius: BorderRadius.circular(AppSizes.br12),
+                        //   ),
+                        //   child: Text(
+                        //     tr(AppStrings.cinemaEntertainmentContent),
+                        //     style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                        //           color: ColorManager.whiteColor,
+                        //           fontWeight: FontWeight.bold,
+                        //           fontSize: AppSizes.sp20,
+                        //         ),
+                        //     textAlign: TextAlign.center,
+                        //   ),
+                        // ),
+                        // SizedBox(height: AppSizes.ph20),
 
                         Text(
                           tr(AppStrings.setDate),

@@ -81,6 +81,7 @@ class OrderDetailsScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   OrderNumContactIconWidget(
+                    status: status!,
                     requestColor: requestColor ?? ColorManager.yellowColor,
                     orderId: orderId!,
                   ),
@@ -194,32 +195,33 @@ class OrderDetailsScreen extends StatelessWidget {
                     ),
 
                   /// VAT
-                  Container(
-                    padding: EdgeInsets.only(
-                      left: AppSizes.pw8,
-                      right: AppSizes.pw8,
-                      top: AppSizes.ph8,
+                  if (total! > 0)
+                    Container(
+                      padding: EdgeInsets.only(
+                        left: AppSizes.pw8,
+                        right: AppSizes.pw8,
+                        top: AppSizes.ph8,
+                      ),
+                      height: 40.h,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            tr(AppStrings.vat),
+                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                  color: ColorManager.darkBlueColor,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
+                          Text(
+                            tr('${NumberParser.translateNumber((total! / 1.15 * 0.15).toStringAsFixed(2))} ${tr(AppStrings.SAR)}'),
+                            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                  color: ColorManager.darkBlueColor,
+                                ),
+                          ),
+                        ],
+                      ),
                     ),
-                    height: 40.h,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          tr(AppStrings.vat),
-                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                color: ColorManager.darkBlueColor,
-                                fontWeight: FontWeight.bold,
-                              ),
-                        ),
-                        Text(
-                          tr('${NumberParser.translateNumber((total! / 1.15 * 0.15).toStringAsFixed(2))} ${tr(AppStrings.SAR)}'),
-                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                color: ColorManager.darkBlueColor,
-                              ),
-                        ),
-                      ],
-                    ),
-                  ),
                   if (total! > 0)
                     Container(
                       padding: EdgeInsets.only(
