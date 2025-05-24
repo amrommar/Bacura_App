@@ -20,7 +20,10 @@ class AboutUsScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const BacuraLogoWidget(),
-            Divider(color: ColorManager.whiteColor),
+            Divider(
+              color: ColorManager.whiteColor,
+              height: AppSizes.ph10,
+            ),
             Text(
               tr(AppStrings.aboutUs),
               style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorManager.darkBlueColor),

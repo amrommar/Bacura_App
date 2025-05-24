@@ -22,47 +22,74 @@ class CustomAlertDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
-      title: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(fontWeight: FontWeight.bold),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppSizes.br12),
           ),
-          const SizedBox(height: 10),
-          Center(
-            child: Image.asset(
-              imagePath,
-              height: 120,
-              width: 120,
-              fit: BoxFit.cover,
+          contentPadding: const EdgeInsets.all(16),
+          insetPadding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+          title: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: AppSizes.sp18,
+                ),
+              ),
+              const SizedBox(height: 10),
+              Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(
+                    maxHeight: 150,
+                    maxWidth: 150,
+                  ),
+                  child: Image.asset(
+                    imagePath,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          content: ConstrainedBox(
+            constraints: BoxConstraints(
+              maxHeight: constraints.maxHeight * 0.4,
+              maxWidth: constraints.maxWidth * 0.9,
+            ),
+            child: SingleChildScrollView(
+              child: content,
             ),
           ),
-        ],
-      ),
-      content: content,
-      actions: [
-        if (isCancel)
-          TextButton(
-            onPressed: onCancel,
-            child: Text(
-              tr(AppStrings.cancel),
-              style: TextStyle(color: ColorManager.blackColor, fontSize: 18),
-            ),
-          ),
-        if (isOk)
-          TextButton(
-            onPressed: onOk,
-            child: Text(
-              tr(AppStrings.ok),
-              style: TextStyle(color: ColorManager.blackColor, fontSize: 18),
-            ),
-          ),
-      ],
+          actions: [
+            if (isCancel)
+              TextButton(
+                onPressed: onCancel,
+                child: Text(
+                  tr(AppStrings.cancel),
+                  style: TextStyle(
+                    color: ColorManager.blackColor,
+                    fontSize: AppSizes.sp16,
+                  ),
+                ),
+              ),
+            if (isOk)
+              TextButton(
+                onPressed: onOk,
+                child: Text(
+                  tr(AppStrings.ok),
+                  style: TextStyle(
+                    color: ColorManager.blackColor,
+                    fontSize: AppSizes.sp16,
+                  ),
+                ),
+              ),
+          ],
+        );
+      },
     );
   }
 }

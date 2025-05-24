@@ -42,9 +42,24 @@ class ordersFilterWidget extends StatelessWidget {
             checkColor: ColorManager.whiteColor,
             height: AppSizes.ph240,
             backgroundColor: ColorManager.lightBlueColor,
-            title: Text(tr(AppStrings.selectCategory)),
+            title: Text(
+              tr(AppStrings.selectCategory),
+              style: Theme.of(context).textTheme.titleSmall,
+            ),
             itemsTextStyle: Theme.of(context).textTheme.titleSmall!.copyWith(
                   color: ColorManager.greyColor,
+                ),
+            cancelText: Text(
+              tr(AppStrings.cancel),
+              style: Theme.of(context).textTheme.titleSmall,
+            ),
+            confirmText: Text(
+              tr(AppStrings.ok),
+              style: Theme.of(context).textTheme.titleSmall,
+            ),
+            selectedItemsTextStyle: Theme.of(context).textTheme.titleSmall!.copyWith(
+                  color: ColorManager.blackColor,
+                  fontWeight: FontWeight.bold,
                 ),
             selectedColor: ColorManager.primaryBlueColor,
             items: filterItems,

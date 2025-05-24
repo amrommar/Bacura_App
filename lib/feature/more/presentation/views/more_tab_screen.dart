@@ -31,7 +31,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
 
       ///technical_support tab //////////////////////////////
       CustomMoreRowWidget(
-          widget: Icon(Icons.info_outline, color: ColorManager.midRedColor),
+          widget: Icon(Icons.info_outline, size: AppSizes.ph24, color: ColorManager.midRedColor),
           text: tr(AppStrings.technicalSupport),
           onTap: () {
             Navigator.pushNamed(context, Routes.technicalSupportRoute);
@@ -39,7 +39,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
 
       ///terms_and_conditions tab //////////////////////////////
       CustomMoreRowWidget(
-          widget: Icon(Icons.article, color: ColorManager.lightGreyColor),
+          widget: Icon(Icons.article, size: AppSizes.ph24, color: ColorManager.lightGreyColor),
           text: tr(AppStrings.termsAndConditions),
           onTap: () {
             Navigator.pushNamed(context, Routes.termsAndConditionsRoute);
@@ -47,7 +47,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
 
       ///privacy_policy tab //////////////////////////////
       CustomMoreRowWidget(
-          widget: Icon(Icons.privacy_tip, color: ColorManager.lightGreyColor),
+          widget: Icon(Icons.privacy_tip, size: AppSizes.ph24, color: ColorManager.lightGreyColor),
           text: tr(AppStrings.privacyPolicy),
           onTap: () {
             Navigator.pushNamed(context, Routes.privacyPolicyRoute);
@@ -55,7 +55,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
 
       ///register_as_a_service_provider tab //////////////////////////////
       CustomMoreRowWidget(
-          widget: Icon(Icons.account_circle, color: ColorManager.primaryBlueColor),
+          widget: Icon(Icons.account_circle, size: AppSizes.ph24, color: ColorManager.primaryBlueColor),
           text: tr(AppStrings.registerAsServiceProvider),
           onTap: () async {
             final Uri url = Uri.parse(
@@ -68,7 +68,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
 
       ///suggestions tab //////////////////////////////
       CustomMoreRowWidget(
-          widget: Icon(Icons.lightbulb, color: ColorManager.yellowColor),
+          widget: Icon(Icons.lightbulb, size: AppSizes.ph24, color: ColorManager.yellowColor),
           text: tr(AppStrings.suggestions),
           onTap: () {
             Navigator.pushNamed(context, Routes.suggestionsRoute);
@@ -76,7 +76,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
 
       ///appRating tab //////////////////////////////
       CustomMoreRowWidget(
-        widget: Icon(Icons.star_border_outlined, color: ColorManager.yellowColor),
+        widget: Icon(Icons.star_border_outlined, size: AppSizes.ph24, color: ColorManager.yellowColor),
         text: tr(AppStrings.rateApp),
         onTap: () {},
 

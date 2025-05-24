@@ -99,6 +99,7 @@ class AppSizes {
   static final double ph82 = 82.h;
   static final double ph86 = 86.h;
   static final double ph90 = 90.h;
+  static final double ph92 = 92.h;
   static final double ph95 = 95.h;
   static final double ph100 = 100.h;
   static final double ph105 = 105.h;
@@ -109,6 +110,7 @@ class AppSizes {
   static final double ph120 = 120.0.h;
   static final double ph125 = 125.h;
   static final double ph134 = 134.h;
+  static final double ph140 = 140.h;
   static final double ph145 = 145.h;
   static final double ph149 = 149.h;
   static final double ph150 = 150.h;
