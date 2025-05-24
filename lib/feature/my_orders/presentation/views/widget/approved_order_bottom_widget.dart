@@ -1,4 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:bacura_app/feature/my_orders/presentation/views/widget/payment_bottom_sheet.dart';
 
 class ApprovedOrderBottomWidget extends StatelessWidget {
   Function() onPressed;
@@ -22,7 +23,9 @@ class ApprovedOrderBottomWidget extends StatelessWidget {
                       borderRadius: BorderRadius.circular(
                     AppSizes.br30,
                   ))),
-              onPressed: () {},
+              onPressed: () {
+                showModalBottomSheet(context: context, builder: (context) => PaymentBottomSheet());
+              },
               child: Text(tr(AppStrings.continuePayment),
                   style: Theme.of(context).textTheme.titleMedium!.copyWith(
                         color: ColorManager.whiteColor,
