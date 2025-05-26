@@ -3,7 +3,15 @@ import 'package:bacura_app/feature/my_orders/domain/entity/my_order_entity.dart'
 import 'package:bacura_app/feature/technician_app/profile/domain/use_case/completed_orders_use_case.dart';
 
 class CompletedOrdersProvider extends ChangeNotifier {
-  late MyOrderEntity myOrderEntity;
+  MyOrderEntity myOrderEntity = MyOrderEntity(
+    myOrderDataEntity: [],
+    limit: 0,
+    page: 1,
+    totalRecords: 0,
+    totalPages: 0,
+    nextPageLink: '',
+    previousPageLink: '',
+  );
   bool isLoadingMore = false;
   bool isFinishedPaging = false;
   bool isLoadingMyOrders = true;

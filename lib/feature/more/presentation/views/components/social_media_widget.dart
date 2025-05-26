@@ -4,7 +4,11 @@ class SocialMediaWidget extends StatelessWidget {
   String path;
   String imagePath;
 
-  SocialMediaWidget({super.key, required this.imagePath, required this.path});
+  SocialMediaWidget({
+    super.key,
+    required this.imagePath,
+    required this.path,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +19,14 @@ class SocialMediaWidget extends StatelessWidget {
           throw Exception('Could not launch $url');
         }
       },
-      child: Image.asset(
-        imagePath,
-        height: AppSizes.ph45,
-        width: AppSizes.pw45,
+      child: Container(
+        height: AppSizes.ph40,
+        width: AppSizes.pw40,
+        child: Image.asset(
+          imagePath,
+          height: AppSizes.ph40,
+          width: AppSizes.pw40,
+        ),
       ),
     );
   }

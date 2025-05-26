@@ -1,6 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/home/domain/entity/Category_entity.dart';
-import 'package:bacura_app/feature/order_services/index.dart';
 import 'package:bacura_app/feature/order_services/presentation/controller/consultation_request_provider.dart';
 
 class ConsultationOrderScreen extends StatelessWidget {
@@ -16,7 +15,7 @@ class ConsultationOrderScreen extends StatelessWidget {
       create: (context) => ConsultationRequestProvider(),
       child: Scaffold(
         appBar: AppBar(
-          title: Text(tr(AppStrings.consultationScreen)),
+          title: Text(tr(AppStrings.serviceDetails)),
         ),
         body: Consumer<ConsultationRequestProvider>(
           builder: (context, provider, child) {
@@ -33,7 +32,7 @@ class ConsultationOrderScreen extends StatelessWidget {
                     CustomDropDownField(
                       selectedOption: categoryEntity.services[provider.selectedServiceIndex].name ?? '',
                       options: categoryEntity.services.map((service) => service.name ?? '').toList(),
-                      fieldName: tr(AppStrings.consultationType),
+                      fieldName: tr(AppStrings.serviceType),
                       onChanged: (String? newValue) {
                         provider.selectedOption = newValue!;
                         provider.selectedServiceIndex = categoryEntity.services.indexWhere(
@@ -44,8 +43,8 @@ class ConsultationOrderScreen extends StatelessWidget {
 
                     /// consultation description
                     CustomQuestionTextFormField(
-                      fieldName: tr(AppStrings.consultationDescription),
-                      hintText: tr(AppStrings.describeYourConsultation),
+                      fieldName: tr(AppStrings.serviceDescription),
+                      hintText: tr(AppStrings.enterTheDescription),
                       controller: provider.descriptionController,
                       maxLines: 6,
                       validator: (value) {
@@ -59,7 +58,7 @@ class ConsultationOrderScreen extends StatelessWidget {
                     SizedBox(height: AppSizes.ph10),
 
                     /// note of the consultation response
-                    const ConsultationNoteWidget(),
+                    // const ConsultationNoteWidget(),
 
                     SizedBox(height: AppSizes.ph100),
 

@@ -26,9 +26,9 @@ class HomeProvider with ChangeNotifier {
   }
 
   void init() async {
+    await _getCategories();
     await _getMine();
     await _getBanner();
-    await _getCategories();
     await _getNotificationCount();
   }
 

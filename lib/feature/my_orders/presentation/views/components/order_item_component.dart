@@ -33,6 +33,27 @@ class OrderItemComponent extends StatelessWidget {
     double number = (requestEntity.total!.toDouble()) ?? 0;
     String formattedNumber = NumberFormat('#,###').format(number);
     String timeOnly = DateParser.dateFormatterOnlyTime(requestEntity.createdAt);
+    String status = '';
+    switch (requestEntity.status!) {
+      case 'pending':
+        status = tr(AppStrings.pending);
+        break;
+      case 'approved':
+        status = tr(AppStrings.approved);
+        break;
+      case 'confirmed':
+        status = tr(AppStrings.confirmed);
+        break;
+      case 'completed':
+        status = tr(AppStrings.completed);
+        break;
+      case 'declined':
+        status = tr(AppStrings.cancelled);
+        break;
+
+      default:
+        status = status;
+    }
 
     return Container(
       decoration: BoxDecoration(
@@ -64,6 +85,7 @@ class OrderItemComponent extends StatelessWidget {
             OrderNumContactIconWidget(
               requestColor: requestColor,
               orderId: requestEntity.id!,
+              status: status,
             ),
             SizedBox(
               width: AppSizes.pw400,

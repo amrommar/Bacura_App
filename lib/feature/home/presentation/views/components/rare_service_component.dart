@@ -29,18 +29,31 @@ class RareServiceComponent extends StatelessWidget {
             Divider(
               color: ColorManager.primaryBlueColor,
             ),
-            Text(tr(AppStrings.specialServices),
-                style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                      color: ColorManager.darkBlueColor,
-                      fontWeight: FontWeight.bold,
-                    )),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Center(
+                    child: Text(tr(AppStrings.specialServices),
+                        style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                              color: ColorManager.darkBlueColor,
+                              fontWeight: FontWeight.bold,
+                            )),
+                  ),
+                ),
+                Icon(
+                  Icons.arrow_forward_ios_outlined,
+                  color: ColorManager.primaryBlueColor,
+                  size: AppSizes.ph20,
+                )
+              ],
+            ),
             Container(
               height: AppSizes.ph156,
               child: Row(
                 children: [
                   Expanded(
                     child: ListView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
                       scrollDirection: Axis.horizontal,
                       shrinkWrap: false,
                       itemCount: rareCategories.length,

@@ -100,24 +100,38 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
       /// social Media Links /////////////////////////////////////////////////////////////
       Row(mainAxisAlignment: MainAxisAlignment.center, children: [
         SocialMediaWidget(
-          imagePath: AppAssets.xLogo,
+          imagePath: AppAssets.xxLogo,
           path: AppAssets.bacuraXURL,
         ),
+        SizedBox(width: AppSizes.pw2),
         SocialMediaWidget(
-          imagePath: AppAssets.linkedInLogo,
+          imagePath: AppAssets.linkLogo,
           path: AppAssets.bacuraLinkedInURL,
         ),
+        SizedBox(width: AppSizes.pw2),
         SocialMediaWidget(
-          imagePath: AppAssets.facebookLogo,
+          imagePath: AppAssets.faceLogo,
           path: AppAssets.bacuraFacebookURL,
         ),
+        SizedBox(width: AppSizes.pw2),
         SocialMediaWidget(
-          imagePath: AppAssets.snapLogo,
+          imagePath: AppAssets.snappLogo,
           path: AppAssets.bacuraSnapURL,
         ),
+        SizedBox(width: AppSizes.pw2),
         SocialMediaWidget(
-          imagePath: AppAssets.instagramLogo,
+          imagePath: AppAssets.instaLogo,
           path: AppAssets.bacuraInstagramURL,
+        ),
+        SizedBox(width: AppSizes.pw2),
+        SocialMediaWidget(
+          imagePath: AppAssets.tikLogo,
+          path: AppAssets.bacuraTiktokURL,
+        ),
+        SizedBox(width: AppSizes.pw2),
+        SocialMediaWidget(
+          imagePath: AppAssets.siteLogo,
+          path: AppAssets.bacuraWebsiteURl,
         ),
       ])
     ]));

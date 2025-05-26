@@ -1,6 +1,6 @@
 import 'package:bacura_app/core/utils/index.dart';
 import 'package:bacura_app/feature/order_services/presentation/components/custom_shadow_row_widget.dart';
-import 'package:bacura_app/feature/technician_app/orders/controller/sp_order_details_provider.dart';
+import 'package:bacura_app/feature/technician_app/orders/presentation/controller/sp_order_details_provider.dart';
 import 'package:bacura_app/feature/technician_app/orders/presentation/views/sp_implement_order_screen.dart';
 
 class SpOrderDetailsScreen extends StatelessWidget {
@@ -125,11 +125,32 @@ class SpOrderDetailsScreen extends StatelessWidget {
                                 shrinkWrap: true,
                                 physics: const NeverScrollableScrollPhysics(),
                                 itemBuilder: (BuildContext context, int index) {
-                                  return SizedBox(
-                                      child: Text(provider.itemsForOrderEntity[index]?.name ?? '',
-                                          style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                                  return Expanded(
+                                      child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        '${provider.itemsForOrderEntity[index]?.quantity.toString()}',
+                                        style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                                              color: ColorManager.blackColor,
+                                            ),
+                                      ),
+                                      Container(
+                                        margin: EdgeInsets.symmetric(horizontal: 4),
+                                        color: ColorManager.lightGreyColor,
+                                        width: 1.w,
+                                        height: 20.h,
+                                      ),
+                                      Expanded(
+                                        child: Text(
+                                          provider.itemsForOrderEntity[index]?.name ?? '',
+                                          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                                                 color: ColorManager.blackColor,
-                                              )));
+                                              ),
+                                        ),
+                                      ),
+                                    ],
+                                  ));
                                 },
                                 separatorBuilder: (BuildContext context, int index) {
                                   return Divider(
@@ -163,8 +184,6 @@ class SpOrderDetailsScreen extends StatelessWidget {
                               width: double.infinity,
                             ),
                           ),
-
-                          ///  Payment status section/////////////////////////////////////////////
 
                           const Divider(),
                           SizedBox(height: AppSizes.ph30),

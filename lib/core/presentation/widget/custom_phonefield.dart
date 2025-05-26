@@ -1,4 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:intl_phone_field/countries.dart';
 
 class CustomPhoneField extends StatelessWidget {
   final String fieldName;
@@ -30,6 +31,19 @@ class CustomPhoneField extends StatelessWidget {
         IntlPhoneField(
           textAlign: TextAlign.start,
           initialCountryCode: 'SA',
+          disableLengthCheck: true,
+          countries: [
+            Country(
+              name: 'Saudi Arabia',
+              nameTranslations: {'en': 'Saudi Arabia', 'ar': 'السعودية'},
+              flag: '🇸🇦',
+              code: 'SA',
+              dialCode: '966',
+              minLength: 9,
+              maxLength: 9,
+            ),
+          ],
+
           languageCode: provider.appLanguage,
           onChanged: onChanged ?? (phone) {},
           // Use the provided onChanged

@@ -49,7 +49,7 @@ class RareServiceWidget extends StatelessWidget {
                 imagePath,
                 height: AppSizes.ph95,
                 width: AppSizes.pw120,
-                fit: BoxFit.cover,
+                placeholderBuilder: (BuildContext context) => CircularProgressIndicator(),
               ),
               SizedBox(height: AppSizes.ph5),
               Text(
