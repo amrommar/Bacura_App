@@ -61,6 +61,7 @@ Map<String, String> coreAr = {
   AppStrings.ok: 'حسنا',
   AppStrings.acceptTerms: 'قبول سياسة الخصوصية والشروط والأحكام',
   AppStrings.continuePayment: 'الاستمرار للدفع',
+  AppStrings.toContinueYourOrder: 'لإستكمال طلبك',
   AppStrings.pay: 'دفع',
   AppStrings.serviceDetails: 'تفاصيل الخدمة',
   AppStrings.serviceType: 'نوع الخدمة',

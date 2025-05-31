@@ -1,4 +1,5 @@
 import 'package:bacura_app/core/utils/index.dart';
+import 'package:share_plus/share_plus.dart';
 
 class ShareAppWidget extends StatelessWidget {
   const ShareAppWidget({super.key});
@@ -24,7 +25,9 @@ class ShareAppWidget extends StatelessWidget {
           vertical: AppSizes.ph3,
         ),
         child: InkWell(
-            onTap: () {},
+            onTap: () {
+              shareApp();
+            },
             child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
               Icon(
                 Icons.share_outlined,
@@ -38,4 +41,12 @@ class ShareAppWidget extends StatelessWidget {
                       )),
             ])));
   }
+}
+
+void shareApp() {
+  final appUrl = Platform.isAndroid
+      ? 'https://play.google.com/store/apps/details?id=com.example.bacura_app'
+      : 'https://apps.apple.com/app/id1234567890'; // ← غيّر الرقم بعد ما يطلعلك من App Store Connect
+
+  Share.share('جرب تطبيق Bacura الإحترافي دلوقتي! 😍👇\n$appUrl');
 }

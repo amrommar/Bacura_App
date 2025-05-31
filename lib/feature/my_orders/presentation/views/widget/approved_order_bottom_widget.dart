@@ -1,5 +1,4 @@
 import 'package:bacura_app/core/utils/index.dart';
-import 'package:bacura_app/feature/my_orders/presentation/views/widget/payment_bottom_sheet.dart';
 
 class ApprovedOrderBottomWidget extends StatelessWidget {
   Function() onPressed;
@@ -24,9 +23,10 @@ class ApprovedOrderBottomWidget extends StatelessWidget {
                     AppSizes.br30,
                   ))),
               onPressed: () {
-                showModalBottomSheet(context: context, builder: (context) => PaymentBottomSheet());
+                _makePhoneCall('0547000015');
+                // showModalBottomSheet(context: context, builder: (context) => PaymentBottomSheet());
               },
-              child: Text(tr(AppStrings.continuePayment),
+              child: Text(tr(AppStrings.toContinueYourOrder),
                   style: Theme.of(context).textTheme.titleMedium!.copyWith(
                         color: ColorManager.whiteColor,
                         fontWeight: FontWeight.bold,
@@ -61,5 +61,13 @@ class ApprovedOrderBottomWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future<void> _makePhoneCall(String phoneNumber) async {
+    final Uri launchUri = Uri(
+      scheme: 'tel',
+      path: phoneNumber,
+    );
+    await launchUrl(launchUri);
   }
 }
