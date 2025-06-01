@@ -120,7 +120,7 @@ class _MyAppState extends State<MyApp> {
         navigatorKey: _navigatorKey,
         debugShowCheckedModeBanner: false,
         onGenerateRoute: RouteGenerator.getRoute,
-        initialRoute: Routes.homeRoute,
+        initialRoute: Routes.getStartedRoute,
         theme: getAppTheme(),
       ),
     );
