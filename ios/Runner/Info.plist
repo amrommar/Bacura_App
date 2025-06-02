@@ -28,12 +28,10 @@
 	<true/>
 	<key>NSFaceIDUsageDescription</key>
 	<string>We use Face ID for authentication</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Your location is used to show your position even when the app is in the background.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Your location is needed for better search results.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Your location is needed for better search results.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Your location is used to show your position even when the app is in the background.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>User upload documents and profile images</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
