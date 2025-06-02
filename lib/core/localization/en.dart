@@ -61,6 +61,7 @@ Map<String, String> coreEn = {
   AppStrings.ok: 'Ok',
   AppStrings.acceptTerms: 'Accept the Privacy Policy and Terms and Conditions',
   AppStrings.continuePayment: 'Continue to pay',
+  AppStrings.toContinueYourOrder: 'To Complete your Order',
   AppStrings.pay: 'Pay',
   AppStrings.serviceDetails: 'Service Details',
   AppStrings.serviceType: 'Service Type',

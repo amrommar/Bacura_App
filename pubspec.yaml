@@ -76,8 +76,9 @@ dependencies:
   flutter_native_splash: 2.4.1
   shared_preferences: ^2.3.3
   translator: ^1.0.3+1
+  share_plus: ^11.0.0
 
-  
+
 dev_dependencies:
   dart_code_metrics: ^4.19.2
   flutter_test:

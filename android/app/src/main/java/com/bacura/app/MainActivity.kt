@@ -1,4 +1,4 @@
-package com.example.bacura_app
+package com.bacura.app
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -59,6 +59,7 @@ class AppStrings {
   static const String ok = 'حسنا';
   static const String acceptTerms = 'قبول سياسة الخصوصية والشروط والأحكام';
   static const String continuePayment = 'الاستمرار للدفع';
+  static const String toContinueYourOrder = 'لإستكمال طلبك';
   static const String pay = 'دفع';
   static const String serviceDetails = 'تفاصيل الخدمة';
   static const String serviceType = 'نوع الخدمة';
