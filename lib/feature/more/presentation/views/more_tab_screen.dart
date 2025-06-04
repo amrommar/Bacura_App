@@ -92,7 +92,7 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           BacuraStoreWidget(),
-          ShareAppWidget(),
+          // ShareAppWidget(),
         ],
       ),
       SizedBox(height: AppSizes.ph60),
