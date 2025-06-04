@@ -46,7 +46,7 @@ class ShareAppWidget extends StatelessWidget {
 void shareApp() {
   final appUrl = Platform.isAndroid
       ? 'https://play.google.com/store/apps/details?id=com.bacura.app'
-      : 'https://apps.apple.com/app/id1234567890'; // ← غيّر الرقم بعد ما يطلعلك من App Store Connect
+      : 'https://apps.apple.com/app/id6744413568'; // ← غيّر الرقم بعد ما يطلعلك من App Store Connect
 
-  Share.share('جرب تطبيق Bacura الإحترافي دلوقتي! 😍👇\n$appUrl');
+  Share.share('جرب تطبيق Bacura التقني دلوقتي! 😍👇\n$appUrl');
 }
